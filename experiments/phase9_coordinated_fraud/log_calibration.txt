@@ -1,0 +1,11 @@
+[WARNING] failed to run offload-arch: binary not found.
+  calibrated W=3 gamma=0.5 in 5.7s
+  calibrated W=3 gamma=1.0 in 5.8s
+  calibrated W=3 gamma=2.0 in 5.8s
+  calibrated W=7 gamma=0.5 in 9.7s
+  calibrated W=7 gamma=1.0 in 9.8s
+  calibrated W=7 gamma=2.0 in 10.5s
+  calibrated W=14 gamma=0.5 in 16.1s
+  calibrated W=14 gamma=1.0 in 15.6s
+  calibrated W=14 gamma=2.0 in 17.9s
+calibration complete in 96.9s; days [48, 50, 73, 75, 81, 96, 103, 118]

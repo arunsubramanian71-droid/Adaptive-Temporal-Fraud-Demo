@@ -1,0 +1,50 @@
+[WARNING] failed to run offload-arch: binary not found.
+arm C, device cuda:0 (GPU - noise-floor tolerance)
+=== 1. Phase 4 graph validation suite (unchanged, re-run) ===
+=== Graph validation results ===
+[PASS ] no_duplicate_edges — no duplicate (src,dst) pairs in any relation
+[PASS ] self_loops — all relations are Transaction<->Entity (bipartite by construction); a same-node-type self-loop is not structurally possible here
+[PASS ] temporal_consistency — edge_time exactly matches source transaction day on every forward edge
+[PASS ] temporal_masking_mechanism — verified at cutoffs [121, 151, 182, 60, 1]: zero future edges, zero reachable future transactions
+[PASS ] extreme_degree — no entity node type exceeds the 20000-degree hub threshold
+[PASS ] no_isolated_transactions — 0 isolated transaction nodes (every transaction has >=1 entity edge)
+[PASS ] entity_id_maps_fully_used — every entity node index is the destination of >=1 edge
+[PASS ] edge_count_matches_estimate — built edge counts match the pre-construction estimate exactly, for every relation
+
+8/8 checks passed.
+Wrote C:\Users\ArunHBK\Desktop\Adaptive-Temporal-Fraud\data\processed\graph\validation_results.json
+
+=== 2. Dataset-level checks ===
+  [PASS] no_test_data_loaded: dataset max_day=151 (<= last VAL day 151); 501,214 transaction rows on device (<= 501,214 rows with day<=VAL end); builder refuses TEST days: True
+  [PASS] scaler_fit_on_train_only: TRAIN rows: max|mean|=8.88e-04, max|std-1|=5.63e-03 (standardized); VAL rows: max|mean|=5.42e-01 (NOT centred — scaler was not fit on VAL)
+  [PASS] edge_consumption_no_future_edges: for every day c<= 151 and every relation, edges consumed by steps 1..c == edges with edge_time<=c (0 future edges, 0 missing)
+
+=== 3. Order-agnostic memory test (CPU-independent property; run on the current device) ===
+  [PASS] state after chronological vs shuffled day order (TemporalGraphSAGEMeanMemory, days 1-40): max|diff|=2.930e-03, max relative diff (to per-type state scale)=2.735e-07 -> order-agnostic (float rounding only)
+  [PASS] state after chronological vs shuffled day order (TemporalGraphSAGE, days 1-40): max|diff|=1.998e+00, max relative diff (to per-type state scale)=1.998e+00 -> order-DEPENDENT (positive control)
+
+=== 4. Temporal-state checks on trained arm-C models ===
+
+  --- seed 42 (trained checkpoint) ---
+  [PASS] future_invariance: run-to-run noise floor (identical inputs, 4 runs) = 1.221e-04; pass tolerance = 4.883e-04; cutoff=122: max|dlogit| on days <= 122 = 1.907e-06 (unchanged within noise floor); on days > 122 = 9.983e+02 (perturbation is effective); cutoff=130: max|dlogit| on days <= 130 = 1.831e-04 (unchanged within noise floor); on days > 130 = 5.953e+02 (perturbation is effective); cutoff=140: max|dlogit| on days <= 140 = 6.104e-05 (unchanged within noise floor); on days > 140 = 5.945e+02 (perturbation is effective); cutoff=150: max|dlogit| on days <= 150 = 6.104e-05 (unchanged within noise floor); on days > 150 = 5.653e+02 (perturbation is effective)
+  [PASS] past_sensitivity_history_used: corrupting days 116..121 changes later predictions: max|dlogit| = 1.633e+02 (first 3 predicted days: 9.299e+01) — earlier state DOES influence later predictions (recurrent memory is used)
+  [PASS] train_val_boundary_state_continuity: continuous stream vs pause/clone/resume at day 121: max|dlogit| = 1.221e-04 (noise floor 1.221e-04; within noise floor) - state carried unchanged across the boundary
+  [PASS] per_step_access_only_own_day: each step d read exactly one data slice: day d (no other day's features/edges accessed)
+  [PASS] labels_never_reach_model_or_state: labels removed entirely from the dataset: max|dlogit| = 6.104e-05 (noise floor 6.104e-05) — no label reaches model or state
+
+  --- seed 123 (trained checkpoint) ---
+  [PASS] future_invariance: run-to-run noise floor (identical inputs, 4 runs) = 4.883e-04; pass tolerance = 1.953e-03; cutoff=122: max|dlogit| on days <= 122 = 3.815e-06 (unchanged within noise floor); on days > 122 = 5.084e+03 (perturbation is effective); cutoff=130: max|dlogit| on days <= 130 = 2.441e-04 (unchanged within noise floor); on days > 130 = 1.776e+03 (perturbation is effective); cutoff=140: max|dlogit| on days <= 140 = 2.441e-04 (unchanged within noise floor); on days > 140 = 1.109e+03 (perturbation is effective); cutoff=150: max|dlogit| on days <= 150 = 2.441e-04 (unchanged within noise floor); on days > 150 = 1.125e+03 (perturbation is effective)
+  [PASS] past_sensitivity_history_used: corrupting days 116..121 changes later predictions: max|dlogit| = 9.098e+02 (first 3 predicted days: 1.937e+02) — earlier state DOES influence later predictions (recurrent memory is used)
+  [PASS] train_val_boundary_state_continuity: continuous stream vs pause/clone/resume at day 121: max|dlogit| = 4.578e-05 (noise floor 2.441e-04; within noise floor) - state carried unchanged across the boundary
+  [PASS] per_step_access_only_own_day: each step d read exactly one data slice: day d (no other day's features/edges accessed)
+  [PASS] labels_never_reach_model_or_state: labels removed entirely from the dataset: max|dlogit| = 4.883e-04 (noise floor 4.883e-04) — no label reaches model or state
+
+  --- seed 2024 (trained checkpoint) ---
+  [PASS] future_invariance: run-to-run noise floor (identical inputs, 4 runs) = 1.221e-04; pass tolerance = 4.883e-04; cutoff=122: max|dlogit| on days <= 122 = 3.815e-06 (unchanged within noise floor); on days > 122 = 3.887e+03 (perturbation is effective); cutoff=130: max|dlogit| on days <= 130 = 1.221e-04 (unchanged within noise floor); on days > 130 = 1.386e+03 (perturbation is effective); cutoff=140: max|dlogit| on days <= 140 = 1.221e-04 (unchanged within noise floor); on days > 140 = 1.167e+03 (perturbation is effective); cutoff=150: max|dlogit| on days <= 150 = 3.052e-05 (unchanged within noise floor); on days > 150 = 9.180e+02 (perturbation is effective)
+  [PASS] past_sensitivity_history_used: corrupting days 116..121 changes later predictions: max|dlogit| = 9.643e+02 (first 3 predicted days: 3.771e+02) — earlier state DOES influence later predictions (recurrent memory is used)
+  [PASS] train_val_boundary_state_continuity: continuous stream vs pause/clone/resume at day 121: max|dlogit| = 6.104e-05 (noise floor 1.221e-04; within noise floor) - state carried unchanged across the boundary
+  [PASS] per_step_access_only_own_day: each step d read exactly one data slice: day d (no other day's features/edges accessed)
+  [PASS] labels_never_reach_model_or_state: labels removed entirely from the dataset: max|dlogit| = 6.104e-05 (noise floor 3.052e-05) — no label reaches model or state
+
+21/21 checks passed.
+Wrote C:\Users\ArunHBK\Desktop\Adaptive-Temporal-Fraud\experiments\temporal_ablation\leakage_validation\leakage_validation_armC_cuda.json

@@ -1,0 +1,62 @@
+{
+ "step": "E0 execution (degree-preserving null only), exploratory, descriptive",
+ "banner": "Exploratory real-data analysis conducted under an explicitly authorized scope deviation after the original Phase 9 protocol halted at S6. Original G4 failed on seeds 42 and 2024 and passed on seed 123. H5a is NOT ESTABLISHED under the original protocol.",
+ "executed_at_local": "2026-10-12T22:44:19+05:30",
+ "gates_verified_before_and_after": {
+  "addendum_sha256": "80a63e637bbedec2934a0c7384f747aba4a46d40107b0662b7cb1268090705c5",
+  "validation_record_sha256": "e4bee9ee4f02d3ae64de17882da301253ce6788d66ff01ebacc4d3f21b193703",
+  "validation_all_passed": true,
+  "sources_sha256_match_validation_record": true,
+  "source_sha256": {
+   "src/coordination/e0.py": "09f55b6daf4cd727776c884a4b221af380cf43bc2e659d7b51bfb17cc3db2239",
+   "src/coordination/realrun.py": "025e47a3fa2a2167c4b87fbfd018dd16b46f208dd6657846f58ce1ea3f73c915",
+   "src/coordination/graphs.py": "239ddd6d7460e256ecd8df3d69ce4c5c51bac532db4178cdee6f9b19fe002e69",
+   "src/coordination/scoring.py": "1d3dbf1d21feebd69dc011fd6aa0b9af687e471e06fe6c0cc0ed018b5c46c09c",
+   "src/coordination/pipeline.py": "5e1e9ad8b7277671b2358b5edfba8ac23cd1ede3b4ef0f9e1bc9ee64f3e566b5",
+   "src/coordination/nullmodel.py": "c85299dde3aac979009a7c28c786e4631a224409a4372dcc6eb8b600e9e4af7c",
+   "src/coordination/tracking.py": "428d16880b3aebacd9ca5545616cfea9b2e9f752538b8930ae7ef68ddf5487ca",
+   "src/coordination/frozen.py": "df870184affb755d5619223b6f16cb2c54d42ef95d273738b9a4f3b7b69b831e",
+   "src/coordination/data.py": "670df564b5c3c2c27f088553111a9d747bd59c4d2af0fb5ac91877c20f778ea5"
+  },
+  "tau_lock_sha256": {
+   "42": "3f73516c232363089d0492d0e99ee854b0401220a656ee3ef566f7d9e8ed6541",
+   "123": "f1961b990925e02cd0c13a9f2ed35c077c50d6e39fbd33f46999bc4d915364e3",
+   "2024": "477d1b5243058a7431c107343f7da2064307b9fd79ddcdc7e5c80c1dd457b732"
+  }
+ },
+ "config": {
+  "W": 7,
+  "gamma": 0.5,
+  "K_per_seed": {
+   "42": 100,
+   "123": 100,
+   "2024": 100
+  },
+  "seeds": [
+   42,
+   123,
+   2024
+  ],
+  "null_replicate_keys": "k = 0..99 (validation used k >= 1,000,000)",
+  "rng": "SeedSequence([50000 + S, 1, k, day])"
+ },
+ "tier0_output_hash_reproduced": {
+  "42": true,
+  "123": true,
+  "2024": true
+ },
+ "environment": {
+  "python": "3.12.0",
+  "numpy": "2.4.4",
+  "scipy": "1.18.1",
+  "networkx": "3.6.1"
+ },
+ "runtime_seconds_from_log": 910,
+ "errors_or_deviations": "none observed",
+ "outputs_sha256": {
+  "e0_results.json": "dc0ad76fcf06b4a9396dbd11075d00f48d6079261901d8584a55089a39f5736a",
+  "E0_REPORT.md": "a07129f6f9295390d1eb867d07fa5bc858aab0cd9d49e2c6ae4c3ab8f0ca6a1c",
+  "log_e0.txt": "549ff1713651db1494c1dd93e5db515ec3ac5562034956b304549993e014e252"
+ },
+ "previously_hashed_artifacts_changed": []
+}

@@ -1,0 +1,190 @@
+{
+ "pooled": {
+  "n_rows": 15943,
+  "n_fraud": 508,
+  "fraud_rate": 0.03186351376779778,
+  "pr_auc": 0.40606665369244904,
+  "roc_auc": 0.8457547398411932,
+  "threshold": 0.9360408186912537,
+  "precision": 0.40794223826714804,
+  "recall": 0.4448818897637795,
+  "f1": 0.4256120527306968,
+  "confusion_matrix": {
+   "tp": 226,
+   "fp": 328,
+   "tn": 15107,
+   "fn": 282
+  },
+  "n_predicted_positive": 554,
+  "n_alerts": 554,
+  "false_positives": 328,
+  "false_negatives": 282,
+  "top_k": {
+   "0.1%": {
+    "k_alerts": 16,
+    "fraud_captured": 16,
+    "precision_at_k": 1.0,
+    "recall_at_k": 0.031496062992125984
+   },
+   "0.5%": {
+    "k_alerts": 80,
+    "fraud_captured": 69,
+    "precision_at_k": 0.8625,
+    "recall_at_k": 0.13582677165354332
+   },
+   "1%": {
+    "k_alerts": 159,
+    "fraud_captured": 110,
+    "precision_at_k": 0.6918238993710691,
+    "recall_at_k": 0.21653543307086615
+   },
+   "5%": {
+    "k_alerts": 797,
+    "fraud_captured": 253,
+    "precision_at_k": 0.3174404015056462,
+    "recall_at_k": 0.49803149606299213
+   }
+  }
+ },
+ "has_edge_warm": {
+  "n_rows": 9814,
+  "n_fraud": 247,
+  "fraud_rate": 0.0251681271652741,
+  "pr_auc": 0.20161839700046477,
+  "roc_auc": 0.8190007909273146,
+  "threshold": 0.9360408186912537,
+  "precision": 0.26356589147286824,
+  "recall": 0.27530364372469635,
+  "f1": 0.2693069306930693,
+  "confusion_matrix": {
+   "tp": 68,
+   "fp": 190,
+   "tn": 9377,
+   "fn": 179
+  },
+  "n_predicted_positive": 258,
+  "n_alerts": 258,
+  "false_positives": 190,
+  "false_negatives": 179,
+  "top_k": {
+   "0.1%": {
+    "k_alerts": 10,
+    "fraud_captured": 9,
+    "precision_at_k": 0.9,
+    "recall_at_k": 0.03643724696356275
+   },
+   "0.5%": {
+    "k_alerts": 49,
+    "fraud_captured": 17,
+    "precision_at_k": 0.3469387755102041,
+    "recall_at_k": 0.06882591093117409
+   },
+   "1%": {
+    "k_alerts": 98,
+    "fraud_captured": 30,
+    "precision_at_k": 0.30612244897959184,
+    "recall_at_k": 0.1214574898785425
+   },
+   "5%": {
+    "k_alerts": 491,
+    "fraud_captured": 100,
+    "precision_at_k": 0.20366598778004075,
+    "recall_at_k": 0.4048582995951417
+   }
+  }
+ },
+ "has_edge_cold": {
+  "n_rows": 4389,
+  "n_fraud": 95,
+  "fraud_rate": 0.021645021645021644,
+  "pr_auc": 0.39449898384657966,
+  "roc_auc": 0.7951217120584414,
+  "threshold": 0.9360408186912537,
+  "precision": 0.6153846153846154,
+  "recall": 0.3368421052631579,
+  "f1": 0.43537414965986393,
+  "confusion_matrix": {
+   "tp": 32,
+   "fp": 20,
+   "tn": 4274,
+   "fn": 63
+  },
+  "n_predicted_positive": 52,
+  "n_alerts": 52,
+  "false_positives": 20,
+  "false_negatives": 63,
+  "top_k": {
+   "0.1%": {
+    "k_alerts": 4,
+    "fraud_captured": 4,
+    "precision_at_k": 1.0,
+    "recall_at_k": 0.042105263157894736
+   },
+   "0.5%": {
+    "k_alerts": 22,
+    "fraud_captured": 22,
+    "precision_at_k": 1.0,
+    "recall_at_k": 0.23157894736842105
+   },
+   "1%": {
+    "k_alerts": 44,
+    "fraud_captured": 30,
+    "precision_at_k": 0.6818181818181818,
+    "recall_at_k": 0.3157894736842105
+   },
+   "5%": {
+    "k_alerts": 219,
+    "fraud_captured": 46,
+    "precision_at_k": 0.2100456621004566,
+    "recall_at_k": 0.4842105263157895
+   }
+  }
+ },
+ "no_pseudo_account_edge": {
+  "n_rows": 1740,
+  "n_fraud": 166,
+  "fraud_rate": 0.09540229885057472,
+  "pr_auc": 0.7148099508832564,
+  "roc_auc": 0.8982964896434531,
+  "threshold": 0.9360408186912537,
+  "precision": 0.5163934426229508,
+  "recall": 0.7590361445783133,
+  "f1": 0.6146341463414634,
+  "confusion_matrix": {
+   "tp": 126,
+   "fp": 118,
+   "tn": 1456,
+   "fn": 40
+  },
+  "n_predicted_positive": 244,
+  "n_alerts": 244,
+  "false_positives": 118,
+  "false_negatives": 40,
+  "top_k": {
+   "0.1%": {
+    "k_alerts": 2,
+    "fraud_captured": 2,
+    "precision_at_k": 1.0,
+    "recall_at_k": 0.012048192771084338
+   },
+   "0.5%": {
+    "k_alerts": 9,
+    "fraud_captured": 9,
+    "precision_at_k": 1.0,
+    "recall_at_k": 0.05421686746987952
+   },
+   "1%": {
+    "k_alerts": 17,
+    "fraud_captured": 17,
+    "precision_at_k": 1.0,
+    "recall_at_k": 0.10240963855421686
+   },
+   "5%": {
+    "k_alerts": 87,
+    "fraud_captured": 75,
+    "precision_at_k": 0.8620689655172413,
+    "recall_at_k": 0.45180722891566266
+   }
+  }
+ }
+}

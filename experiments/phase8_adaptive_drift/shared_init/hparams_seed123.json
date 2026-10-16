@@ -1,0 +1,14 @@
+{
+ "fine_tune_epochs": 10,
+ "fine_tune_lr": 0.001,
+ "threshold": 0.9360408186912537,
+ "base_seed": 123,
+ "selected_from": "TRAIN_internal_holdout",
+ "holdout_fit_end": 111,
+ "holdout_select_start": 112,
+ "holdout_select_end": 121,
+ "locked": true,
+ "extra": {
+  "holdout_pr_auc": 0.5618535876929808
+ }
+}

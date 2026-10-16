@@ -1,0 +1,9 @@
+[WARNING] failed to run offload-arch: binary not found.
+unit/toy/property tests done 6s
+S2 done 101s
+  S3 cutoff 125 131s
+  S3 cutoff 136 182s
+  S3 cutoff 150 273s
+S3 done 323s
+E0 VALIDATION PASSED -> C:\Users\ArunHBK\Desktop\Adaptive-Temporal-Fraud\experiments\phase9_coordinated_fraud\exploratory_realdata\validation_E0.json
+exit 0

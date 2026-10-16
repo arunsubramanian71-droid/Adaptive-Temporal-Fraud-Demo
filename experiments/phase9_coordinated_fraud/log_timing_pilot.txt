@@ -1,0 +1,12 @@
+[WARNING] failed to run offload-arch: binary not found.
+  W= 3 gamma=0.5: real   0.04s  null   0.05s  {'n_edges': 1926, 'n_cards': 563, 'n_infra': 671, 'n_candidates': 10}
+  W= 3 gamma=1.0: real   0.04s  null   0.05s  {'n_edges': 1926, 'n_cards': 563, 'n_infra': 671, 'n_candidates': 19}
+  W= 3 gamma=2.0: real   0.04s  null   0.05s  {'n_edges': 1926, 'n_cards': 563, 'n_infra': 671, 'n_candidates': 34}
+  W= 7 gamma=0.5: real   0.07s  null   0.08s  {'n_edges': 3756, 'n_cards': 916, 'n_infra': 1006, 'n_candidates': 13}
+  W= 7 gamma=1.0: real   0.07s  null   0.08s  {'n_edges': 3756, 'n_cards': 916, 'n_infra': 1006, 'n_candidates': 21}
+  W= 7 gamma=2.0: real   0.07s  null   0.09s  {'n_edges': 3756, 'n_cards': 916, 'n_infra': 1006, 'n_candidates': 40}
+  W=14 gamma=0.5: real   0.12s  null   0.13s  {'n_edges': 6563, 'n_cards': 1440, 'n_infra': 1438, 'n_candidates': 19}
+  W=14 gamma=1.0: real   0.13s  null   0.14s  {'n_edges': 6563, 'n_cards': 1440, 'n_infra': 1438, 'n_candidates': 22}
+  W=14 gamma=2.0: real   0.12s  null   0.15s  {'n_edges': 6563, 'n_cards': 1440, 'n_infra': 1438, 'n_candidates': 40}
+  cumulative graph (A10): 1.32s
+median real-window time 0.07s (gate 60.0s) | planned runs 4200 | projected CPU 0.19h (gate 24h) -> PASSED

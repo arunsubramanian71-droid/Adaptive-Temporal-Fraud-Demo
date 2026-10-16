@@ -1,0 +1,119 @@
+{
+ "gate": "G0",
+ "design": "experiments/phase9_coordinated_fraud/DESIGN_BEFORE_EXECUTION.md section 9",
+ "criteria": {
+  "1_test_free_input": {
+   "n_rows": 501214,
+   "expected": 501214,
+   "max_day": 151,
+   "min_day": 1,
+   "day_nondecreasing": true,
+   "passed": true
+  },
+  "2_3_exact_match": {
+   "n_compared": 501214,
+   "n_mismatch": 0,
+   "label_counts": {
+    "has_edge_cold": {
+     "reference": 175616,
+     "array_level": 175616
+    },
+    "has_edge_warm": {
+     "reference": 269270,
+     "array_level": 269270
+    },
+    "no_pseudo_account_edge": {
+     "reference": 56328,
+     "array_level": 56328
+    }
+   },
+   "passed": true
+  },
+  "4_tie_to_saved_phase7_val_labels": {
+   "seed42": {
+    "n_saved": 83655,
+    "n_missing_in_reference": 0,
+    "n_mismatch": 0,
+    "sha256": "31560fa7257ebeed78fdc6c866eba9433ea00175b9d4e64086688a4f071398bf"
+   },
+   "seed123": {
+    "n_saved": 83655,
+    "n_missing_in_reference": 0,
+    "n_mismatch": 0,
+    "sha256": "1c7549e93313106473b6bacbcf30b0632f9d219d43f385e7291e77d958aeb602"
+   },
+   "seed2024": {
+    "n_saved": 83655,
+    "n_missing_in_reference": 0,
+    "n_mismatch": 0,
+    "sha256": "a82dbf1aabffc2352e389cfb8817db8456fa68512ab97192a1224afc8706ac14"
+   },
+   "n_val_reference": 83655,
+   "passed": true
+  },
+  "5_future_independence": {
+   "cutoff_60": {
+    "n_rows": 223738,
+    "n_mismatch": 0
+   },
+   "cutoff_121": {
+    "n_rows": 417559,
+    "n_mismatch": 0
+   },
+   "cutoff_136": {
+    "n_rows": 460848,
+    "n_mismatch": 0
+   },
+   "passed": true
+  },
+  "6_same_day_semantics": {
+   "n_later_same_day_duplicates": 101072,
+   "n_not_warm_reference": 0,
+   "n_not_warm_array": 0,
+   "passed": true
+  },
+  "7_toy_cases": {
+   "cases": [
+    {
+     "name": "first_occurrence_repeat_same_day_missing_key",
+     "passed": true,
+     "detail": ""
+    },
+    {
+     "name": "unsorted_days_use_stable_day_order",
+     "passed": true,
+     "detail": ""
+    },
+    {
+     "name": "planted_style_large_synthetic_id",
+     "passed": true,
+     "detail": ""
+    },
+    {
+     "name": "all_missing",
+     "passed": true,
+     "detail": ""
+    },
+    {
+     "name": "empty",
+     "passed": true,
+     "detail": ""
+    }
+   ],
+   "passed": true
+  }
+ },
+ "files_opened": [
+  "C:\\Users\\ArunHBK\\Desktop\\Adaptive-Temporal-Fraud\\data\\features\\train_features.parquet",
+  "C:\\Users\\ArunHBK\\Desktop\\Adaptive-Temporal-Fraud\\data\\features\\val_features.parquet"
+ ],
+ "passed": true,
+ "input_sha256": {
+  "train_features.parquet": "4c16fbe2f47d59330a5975940c6f2d911fc778afab0b834f6c42d53d93ad4df5",
+  "val_features.parquet": "81e4faa8c3418802c6e055bb8cfa24912afd6de2e46839a044c95c6a6fa39274"
+ },
+ "shared_graph_file_loaded": false,
+ "test_file_opened": false,
+ "elapsed_s": 3.8,
+ "segmentation_source_sha256": "bb5d8e08303a2b97460a4bce05019306da7291554d83b5114d6e7a6759c30c45"
+}

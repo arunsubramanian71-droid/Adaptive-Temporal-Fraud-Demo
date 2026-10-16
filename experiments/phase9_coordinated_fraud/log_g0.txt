@@ -1,0 +1,8 @@
+[WARNING] failed to run offload-arch: binary not found.
+  [PASS] 1_test_free_input: {"n_rows": 501214, "expected": 501214, "max_day": 151, "min_day": 1, "day_nondecreasing": true}
+  [PASS] 2_3_exact_match: {"n_compared": 501214, "n_mismatch": 0}
+  [PASS] 4_tie_to_saved_phase7_val_labels: {"seed42": {"n_saved": 83655, "n_missing_in_reference": 0, "n_mismatch": 0, "sha256": "31560fa7257ebeed78fdc6c866eba9433ea00175b9d4e64086688a4f071398bf"}, "seed123": {"n_saved": 83655, "n_missing_in_reference": 0, "n_mismatch": 0, "sha256": "1c7549e93313106473b6bacbcf30b0632f9d219d43f385e7291e77d958aeb602"}, "seed2024": {"n_saved": 83655, "n_missing_in_reference": 0, "n_mismatch": 0, "sha256": "a8
+  [PASS] 5_future_independence: {"cutoff_60": {"n_rows": 223738, "n_mismatch": 0}, "cutoff_121": {"n_rows": 417559, "n_mismatch": 0}, "cutoff_136": {"n_rows": 460848, "n_mismatch": 0}}
+  [PASS] 6_same_day_semantics: {"n_later_same_day_duplicates": 101072, "n_not_warm_reference": 0, "n_not_warm_array": 0}
+  [PASS] 7_toy_cases: {}
+G0 PASSED in 3.8s; test_file_opened=False; shared_graph_loaded=False

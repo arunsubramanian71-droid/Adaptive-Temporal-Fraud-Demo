@@ -1,0 +1,11 @@
+[WARNING] failed to run offload-arch: binary not found.
+S2 PASS (9 configs x 4 label variants) 94s
+  S3 cutoff 60 done 149s
+  S3 cutoff 100 done 219s
+  S3 cutoff 121 done 297s
+  S3 cutoff 136 done 356s
+  S3 cutoff 150 done 414s
+S3 PASS (45 configs)
+S4 PASS
+VALIDATION PASSED -> C:\Users\ArunHBK\Desktop\Adaptive-Temporal-Fraud\experiments\phase9_coordinated_fraud\exploratory_realdata\validation_S2_S3_S4.json
+exit 0

@@ -1,0 +1,8 @@
+{
+ "kind": "clean",
+ "seed": 2024,
+ "device": "cpu",
+ "seconds": 9.3,
+ "checkpoint_sha256": "e60c7f9b885b08a3f4549705a87e7125ac4e4bcd378341df67be4bd8054785cb",
+ "n_rows": 501214
+}

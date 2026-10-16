@@ -1,0 +1,12 @@
+{
+ "seed": 2024,
+ "hidden": 64,
+ "heads": 4,
+ "dropout": 0.3,
+ "lr": 0.001,
+ "weight_decay": 1e-05,
+ "max_epochs": 150,
+ "patience": 20,
+ "scale_pos_weight": 27.364852905273438,
+ "parameter_count": 364545
+}

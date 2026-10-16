@@ -1,0 +1,7 @@
+{
+ "pilot_checks_all_passed": true,
+ "extrapolated_full_epoch_seconds": 1.8,
+ "extrapolated_worst_case_minutes_all_seeds": 13.4,
+ "pilot_peak_gpu_memory_reserved_gib": 0.836,
+ "parameter_count": 197889
+}

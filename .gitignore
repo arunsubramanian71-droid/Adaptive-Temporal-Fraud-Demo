@@ -1,0 +1,103 @@
+# Environment
+.venv/
+__pycache__/
+*.pyc
+
+# Raw data is large and not ours to redistribute; processed/features are
+# reproducible from raw + code (see scripts/build_processed_data.py) and are
+# large binary artifacts that don't belong in version control.
+data/raw/*.csv
+data/processed/*.parquet
+data/features/*.parquet
+
+# split_metadata.json and build_log.json are small and are the record of
+# exactly which split/preprocessing was used — worth keeping tracked.
+
+# ---------------------------------------------------------------------------
+# Added for publication preparation. Every rule above is unchanged.
+# Source code, tests, configs, experiment designs, reports and documentation
+# are deliberately NOT ignored.
+# ---------------------------------------------------------------------------
+
+# Secrets and local environment files (.env.example stays allowed)
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+id_rsa*
+credentials.json
+secrets.json
+kaggle.json
+.kaggle/
+
+# Virtual environments and Python caches / build output
+venv/
+.virtualenv/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.ipynb_checkpoints/
+*.egg-info/
+
+# Local tool, editor and OS state
+.claude/settings.local.json
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Model checkpoints and trained weights (small preprocessing scalers such as
+# feature_scaler.joblib are NOT matched and stay tracked)
+*.pt
+*.pth
+*.ckpt
+*.safetensors
+*.onnx
+model.joblib
+
+# Generated large artifacts, reproducible from code + data. The small JSON /
+# sha256 records next to them stay tracked.
+*.npy
+experiments/phase9_coordinated_fraud/cache/
+experiments/phase9_coordinated_fraud/risk/*.npz
+
+# ---------------------------------------------------------------------------
+# Initial-publication policy (private repository). Path-specific exclusions of
+# transaction-level or raw-value-bearing derived data. Manifests, sealed
+# manifest JSON, hash records, logs, reports and aggregate metrics stay tracked.
+# ---------------------------------------------------------------------------
+
+# Phase 9 benchmark row-level arrays and sealed per-row truth (12 files).
+# manifest_sealed.json and manifest.sha256 beside them stay tracked.
+experiments/phase9_coordinated_fraud/benchmark_dev/seed_*/arrays.npz
+experiments/phase9_coordinated_fraud/benchmark_eval/seed_*/arrays.npz
+experiments/phase9_coordinated_fraud/benchmark_dev/seed_*/sealed/row_truth.npz
+experiments/phase9_coordinated_fraud/benchmark_eval/seed_*/sealed/row_truth.npz
+
+# Transaction-level prediction files (TransactionID + true label + score; 68 files)
+experiments/**/predictions_val.parquet
+experiments/**/predictions_val_W*.parquet
+
+# Transaction split record (lists all TransactionIDs, including the sealed TEST split)
+data/processed/split_metadata.json
+
+# Raw-value -> index maps (card1 values, card1|addr1|d1anchor, device strings, id_19|id_20)
+data/processed/graph/entity_id_map_*.json
+
+# Raw-vocabulary encoder JSON files (12 files, listed individually; sibling
+# files such as column_roles.json and feature_names.json stay tracked)
+data/features/frequency_encoder.json
+data/processed/graph/transaction_feature_builder/extra_frequency_encoder.json
+data/processed/graph/transaction_feature_builder/median_imputer.json
+data/processed/graph/transaction_feature_builder/ordinal_maps.json
+experiments/logistic_regression/feature_builder/extra_frequency_encoder.json
+experiments/logistic_regression/feature_builder/median_imputer.json
+experiments/random_forest/feature_builder/extra_frequency_encoder.json
+experiments/random_forest/feature_builder/median_imputer.json
+experiments/random_forest/feature_builder/ordinal_maps.json
+experiments/xgboost/feature_builder/extra_frequency_encoder.json
+experiments/xgboost/feature_builder/median_imputer.json
+experiments/xgboost/feature_builder/ordinal_maps.json

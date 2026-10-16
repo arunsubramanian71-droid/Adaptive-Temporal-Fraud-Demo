@@ -1,0 +1,30 @@
+{
+ "A_gpu_rebuild_identical_data": {
+  "max_abs_dlogit": 3.814697265625e-06,
+  "max_abs_dprob": 2.349877891161256e-07
+ },
+ "B_gpu_only_day151_corrupted_compare_days_le_150": {
+  "max_abs_dlogit": 0.00018310546875,
+  "max_abs_dprob": 5.6000054781124575e-06
+ },
+ "C_cpu_repeat_same_ds": 0.0,
+ "C_cpu_rebuild_identical": 0.0,
+ "C_cpu_future_corruption": {
+  "122": {
+   "max_abs_dlogit_days_le_cutoff": 0.0,
+   "max_abs_dlogit_days_gt_cutoff": 581.8685302734375
+  },
+  "130": {
+   "max_abs_dlogit_days_le_cutoff": 0.0,
+   "max_abs_dlogit_days_gt_cutoff": 166.4773406982422
+  },
+  "140": {
+   "max_abs_dlogit_days_le_cutoff": 0.0,
+   "max_abs_dlogit_days_gt_cutoff": 90.6652603149414
+  },
+  "150": {
+   "max_abs_dlogit_days_le_cutoff": 0.0,
+   "max_abs_dlogit_days_gt_cutoff": 102.66610717773438
+  }
+ }
+}

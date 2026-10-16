@@ -1,0 +1,5 @@
+[WARNING] failed to run offload-arch: binary not found.
+seed 42 done (319s)
+seed 123 done (618s)
+seed 2024 done (910s)
+exit 0

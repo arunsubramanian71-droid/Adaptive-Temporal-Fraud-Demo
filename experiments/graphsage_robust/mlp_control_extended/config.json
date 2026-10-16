@@ -1,0 +1,12 @@
+{
+ "seed": 42,
+ "hidden": 64,
+ "dropout": 0.3,
+ "max_epochs": 150,
+ "patience": 20,
+ "best_epoch": 150,
+ "epochs_run": 150,
+ "stopped_early": false,
+ "parameter_count": 34369,
+ "note": "Phase 6A fairness addition \u2014 same epoch budget as the GraphSAGE sweep; original Phase 5 60-epoch result retained unchanged at experiments/graphsage_control_mlp/"
+}

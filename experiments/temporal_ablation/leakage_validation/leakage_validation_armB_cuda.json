@@ -1,0 +1,102 @@
+[
+ {
+  "check": "scaler_fit_on_train_only",
+  "passed": true,
+  "detail": "scaler equals TRAIN-only refit: True; differs from an all-data fit (detectable): True"
+ },
+ {
+  "check": "training_windows_train_only_disjoint_chronological",
+  "passed": true,
+  "detail": "18 windows; 417,559 targets == 417,559 TRAIN txns; max target day 121; disjoint=True; chronological=True"
+ },
+ {
+  "check": "training_graph_has_no_edges_after_train_end",
+  "passed": true,
+  "detail": "max edge_time in TRAIN-masked graph = 121 (train ends 121)"
+ },
+ {
+  "check": "static_masked_graph_isolates_future_nodes",
+  "passed": true,
+  "detail": "for all 30 scored days t, no edge touches any transaction with day > t (incl. all TEST rows present in the file) - OK"
+ },
+ {
+  "check": "scored_days_are_validation_only",
+  "passed": true,
+  "detail": "scored days 122..151; TEST starts 152; TEST never scored"
+ },
+ {
+  "check": "seed42:rolling_logits_equals_rolling_predict",
+  "passed": true,
+  "detail": "max|p_local - rolling_predict| = 4.86e-07"
+ },
+ {
+  "check": "seed42:static_future_invariance_cutoff122",
+  "passed": true,
+  "detail": "corrupting features+edges+labels of every day > 122 (TEST included): max|dlogit| on days 122..122 = 1.144e-05 (noise floor 1.221e-04; within noise floor)"
+ },
+ {
+  "check": "seed42:static_future_invariance_cutoff136",
+  "passed": true,
+  "detail": "corrupting features+edges+labels of every day > 136 (TEST included): max|dlogit| on days 122..136 = 2.441e-04 (noise floor 1.221e-04; within noise floor)"
+ },
+ {
+  "check": "seed42:static_future_invariance_cutoff151",
+  "passed": true,
+  "detail": "corrupting features+edges+labels of every day > 151 (TEST included): max|dlogit| on days 122..151 = 1.221e-04 (noise floor 1.221e-04; within noise floor)"
+ },
+ {
+  "check": "seed42:static_past_sensitivity_positive_control",
+  "passed": true,
+  "detail": "corrupting days 116..121 changes later predictions: max|dlogit| = 1.762e+02 (test can detect dependence)"
+ },
+ {
+  "check": "seed123:rolling_logits_equals_rolling_predict",
+  "passed": true,
+  "detail": "max|p_local - rolling_predict| = 7.25e-07"
+ },
+ {
+  "check": "seed123:static_future_invariance_cutoff122",
+  "passed": true,
+  "detail": "corrupting features+edges+labels of every day > 122 (TEST included): max|dlogit| on days 122..122 = 1.526e-05 (noise floor 2.441e-04; within noise floor)"
+ },
+ {
+  "check": "seed123:static_future_invariance_cutoff136",
+  "passed": true,
+  "detail": "corrupting features+edges+labels of every day > 136 (TEST included): max|dlogit| on days 122..136 = 1.526e-05 (noise floor 2.441e-04; within noise floor)"
+ },
+ {
+  "check": "seed123:static_future_invariance_cutoff151",
+  "passed": true,
+  "detail": "corrupting features+edges+labels of every day > 151 (TEST included): max|dlogit| on days 122..151 = 2.441e-04 (noise floor 2.441e-04; within noise floor)"
+ },
+ {
+  "check": "seed123:static_past_sensitivity_positive_control",
+  "passed": true,
+  "detail": "corrupting days 116..121 changes later predictions: max|dlogit| = 1.966e+02 (test can detect dependence)"
+ },
+ {
+  "check": "seed2024:rolling_logits_equals_rolling_predict",
+  "passed": true,
+  "detail": "max|p_local - rolling_predict| = 2.52e-07"
+ },
+ {
+  "check": "seed2024:static_future_invariance_cutoff122",
+  "passed": true,
+  "detail": "corrupting features+edges+labels of every day > 122 (TEST included): max|dlogit| on days 122..122 = 1.907e-06 (noise floor 3.052e-05; within noise floor)"
+ },
+ {
+  "check": "seed2024:static_future_invariance_cutoff136",
+  "passed": true,
+  "detail": "corrupting features+edges+labels of every day > 136 (TEST included): max|dlogit| on days 122..136 = 3.052e-05 (noise floor 3.052e-05; within noise floor)"
+ },
+ {
+  "check": "seed2024:static_future_invariance_cutoff151",
+  "passed": true,
+  "detail": "corrupting features+edges+labels of every day > 151 (TEST included): max|dlogit| on days 122..151 = 3.052e-05 (noise floor 3.052e-05; within noise floor)"
+ },
+ {
+  "check": "seed2024:static_past_sensitivity_positive_control",
+  "passed": true,
+  "detail": "corrupting days 116..121 changes later predictions: max|dlogit| = 5.613e+01 (test can detect dependence)"
+ }
+]

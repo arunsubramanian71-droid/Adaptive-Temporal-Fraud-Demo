@@ -1,0 +1,20 @@
+{
+ "experiment": "graphsage_control_mlp",
+ "random_state": 42,
+ "architecture": {
+  "type": "MLPControl",
+  "hidden": 64,
+  "layers": 2,
+  "dropout": 0.3,
+  "parameter_count": 34369
+ },
+ "training": {
+  "optimizer": "Adam",
+  "lr": 0.001,
+  "weight_decay": 1e-05,
+  "scale_pos_weight": 27.36485293118674,
+  "best_epoch": 60,
+  "epochs_run": 60
+ },
+ "note": "reuses GraphSAGE's fitted feature scaler for a byte-identical preprocessing comparison"
+}

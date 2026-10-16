@@ -1,0 +1,10 @@
+[WARNING] failed to run offload-arch: binary not found.
+arm B, device cpu (deterministic - exact equality)
+=== static-protocol checks (dataset level) ===
+  [PASS] scaler_fit_on_train_only: scaler equals TRAIN-only refit: True; differs from an all-data fit (detectable): True
+  [PASS] training_windows: 18 windows; 417,559 targets == 417,559 TRAIN txns; max target day 121; disjoint=True; chronological=True
+  [PASS] training graph: max edge_time in TRAIN-masked graph = 121 (train ends 121)
+  [PASS] static_masked_graph_isolates_future_nodes: for all 30 scored days t, no edge touches any transaction with day > t (incl. all TEST rows present in the file) - OK
+  [PASS] scored_days_are_validation_only: scored days 122..151; TEST starts 152; TEST never scored
+
+  --- seed 42 (trained checkpoint) ---

@@ -1,0 +1,97 @@
+[WARNING] failed to run offload-arch: binary not found.
+=== 1. Pure / structural checks (no training, no model, no dataset load) ===
+  [PASS] windows_cover_val_exactly: windows cover [122]..[151]
+  [PASS] update_boundaries_equal_window_ends: boundaries=[127, 133, 139, 145, 151] vs window-ends=[127, 133, 139, 145, 151]
+  [PASS] seed42:round1:replay_pool_excludes_val: no VAL/TEST day present
+  [PASS] seed42:round1:replay_pool_volume_matches_ad: pool size 127 vs expected 127
+  [PASS] seed42:round2:replay_pool_excludes_val: no VAL/TEST day present
+  [PASS] seed42:round2:replay_pool_volume_matches_ad: pool size 133 vs expected 133
+  [PASS] seed42:round3:replay_pool_excludes_val: no VAL/TEST day present
+  [PASS] seed42:round3:replay_pool_volume_matches_ad: pool size 139 vs expected 139
+  [PASS] seed42:round4:replay_pool_excludes_val: no VAL/TEST day present
+  [PASS] seed42:round4:replay_pool_volume_matches_ad: pool size 145 vs expected 145
+  [PASS] seed42:round5:replay_pool_excludes_val: no VAL/TEST day present
+  [PASS] seed42:round5:replay_pool_volume_matches_ad: pool size 151 vs expected 151
+  [PASS] seed123:round1:replay_pool_excludes_val: no VAL/TEST day present
+  [PASS] seed123:round1:replay_pool_volume_matches_ad: pool size 127 vs expected 127
+  [PASS] seed123:round2:replay_pool_excludes_val: no VAL/TEST day present
+  [PASS] seed123:round2:replay_pool_volume_matches_ad: pool size 133 vs expected 133
+  [PASS] seed123:round3:replay_pool_excludes_val: no VAL/TEST day present
+  [PASS] seed123:round3:replay_pool_volume_matches_ad: pool size 139 vs expected 139
+  [PASS] seed123:round4:replay_pool_excludes_val: no VAL/TEST day present
+  [PASS] seed123:round4:replay_pool_volume_matches_ad: pool size 145 vs expected 145
+  [PASS] seed123:round5:replay_pool_excludes_val: no VAL/TEST day present
+  [PASS] seed123:round5:replay_pool_volume_matches_ad: pool size 151 vs expected 151
+  [PASS] seed2024:round1:replay_pool_excludes_val: no VAL/TEST day present
+  [PASS] seed2024:round1:replay_pool_volume_matches_ad: pool size 127 vs expected 127
+  [PASS] seed2024:round2:replay_pool_excludes_val: no VAL/TEST day present
+  [PASS] seed2024:round2:replay_pool_volume_matches_ad: pool size 133 vs expected 133
+  [PASS] seed2024:round3:replay_pool_excludes_val: no VAL/TEST day present
+  [PASS] seed2024:round3:replay_pool_volume_matches_ad: pool size 139 vs expected 139
+  [PASS] seed2024:round4:replay_pool_excludes_val: no VAL/TEST day present
+  [PASS] seed2024:round4:replay_pool_volume_matches_ad: pool size 145 vs expected 145
+  [PASS] seed2024:round5:replay_pool_excludes_val: no VAL/TEST day present
+  [PASS] seed2024:round5:replay_pool_volume_matches_ad: pool size 151 vs expected 151
+  [PASS] hyperparameter_holdout_precedes_val: holdout selection ends day 121, VAL starts day 122
+
+=== 2. Interventional checks (require real trained checkpoints) ===
+  device cpu (deterministic - exact equality)
+  [PASS] seed42:frozen_checkpoint_is_shared_init_sane: 48 tensors in the shared initial checkpoint
+  [PASS] seed123:frozen_checkpoint_is_shared_init_sane: 48 tensors in the shared initial checkpoint
+  [PASS] seed2024:frozen_checkpoint_is_shared_init_sane: 48 tensors in the shared initial checkpoint
+  [PASS] seed42:F:future_invariance: run-to-run noise floor (identical inputs, 4 runs) = 0.000e+00; pass tolerance = 0.000e+00 (deterministic: exact equality required); cutoff=122: max|dlogit| on days <= 122 = 0.000e+00 (bitwise identical); on days > 122 = 1.779e+02 (perturbation is effective); cutoff=130: max|dlogit| on days <= 130 = 0.000e+00 (bitwise identical); on days > 130 = 7.420e+01 (perturbation is effective); cutoff=140: max|dlogit| on days <= 140 = 0.000e+00 (bitwise identical); on days > 140 = 4.658e+01 (perturbation is effective); cutoff=150: max|dlogit| on days <= 150 = 0.000e+00 (bitwise identical); on days > 150 = 3.493e+01 (perturbation is effective)
+  [PASS] seed42:F:past_sensitivity_positive_control: corrupting days 116..121 changes later predictions: max|dlogit| = 4.913e+00 (first 3 predicted days: 4.315e+00) — earlier state DOES influence later predictions (recurrent memory is used)
+  [PASS] seed42:F:train_val_boundary_state_continuity: continuous stream vs pause/clone/resume at day 121: max|dlogit| = 0.000e+00 (noise floor 0.000e+00; bitwise identical) - state carried unchanged across the boundary
+  [PASS] seed42:F:per_step_access_only_own_day: each step d read exactly one data slice: day d (no other day's features/edges accessed)
+  [PASS] seed42:F:labels_never_reach_model_or_state: labels removed entirely from the dataset: max|dlogit| = 0.000e+00 (noise floor 0.000e+00) — no label reaches model or state
+  [PASS] seed42:Ad:future_invariance: run-to-run noise floor (identical inputs, 4 runs) = 0.000e+00; pass tolerance = 0.000e+00 (deterministic: exact equality required); cutoff=122: max|dlogit| on days <= 122 = 0.000e+00 (bitwise identical); on days > 122 = 2.527e+02 (perturbation is effective); cutoff=130: max|dlogit| on days <= 130 = 0.000e+00 (bitwise identical); on days > 130 = 1.216e+02 (perturbation is effective); cutoff=140: max|dlogit| on days <= 140 = 0.000e+00 (bitwise identical); on days > 140 = 1.182e+02 (perturbation is effective); cutoff=150: max|dlogit| on days <= 150 = 0.000e+00 (bitwise identical); on days > 150 = 9.184e+01 (perturbation is effective)
+  [PASS] seed42:Ad:past_sensitivity_positive_control: corrupting days 116..121 changes later predictions: max|dlogit| = 1.659e+01 (first 3 predicted days: 1.372e+01) — earlier state DOES influence later predictions (recurrent memory is used)
+  [PASS] seed42:Ad:train_val_boundary_state_continuity: continuous stream vs pause/clone/resume at day 121: max|dlogit| = 0.000e+00 (noise floor 0.000e+00; bitwise identical) - state carried unchanged across the boundary
+  [PASS] seed42:Ad:per_step_access_only_own_day: each step d read exactly one data slice: day d (no other day's features/edges accessed)
+  [PASS] seed42:Ad:labels_never_reach_model_or_state: labels removed entirely from the dataset: max|dlogit| = 0.000e+00 (noise floor 0.000e+00) — no label reaches model or state
+  [PASS] seed42:E:future_invariance: run-to-run noise floor (identical inputs, 4 runs) = 0.000e+00; pass tolerance = 0.000e+00 (deterministic: exact equality required); cutoff=122: max|dlogit| on days <= 122 = 0.000e+00 (bitwise identical); on days > 122 = 4.238e+02 (perturbation is effective); cutoff=130: max|dlogit| on days <= 130 = 0.000e+00 (bitwise identical); on days > 130 = 2.305e+02 (perturbation is effective); cutoff=140: max|dlogit| on days <= 140 = 0.000e+00 (bitwise identical); on days > 140 = 1.328e+02 (perturbation is effective); cutoff=150: max|dlogit| on days <= 150 = 0.000e+00 (bitwise identical); on days > 150 = 1.090e+02 (perturbation is effective)
+  [PASS] seed42:E:past_sensitivity_positive_control: corrupting days 116..121 changes later predictions: max|dlogit| = 1.799e+01 (first 3 predicted days: 1.798e+01) — earlier state DOES influence later predictions (recurrent memory is used)
+  [PASS] seed42:E:train_val_boundary_state_continuity: continuous stream vs pause/clone/resume at day 121: max|dlogit| = 0.000e+00 (noise floor 0.000e+00; bitwise identical) - state carried unchanged across the boundary
+  [PASS] seed42:E:per_step_access_only_own_day: each step d read exactly one data slice: day d (no other day's features/edges accessed)
+  [PASS] seed42:E:labels_never_reach_model_or_state: labels removed entirely from the dataset: max|dlogit| = 0.000e+00 (noise floor 0.000e+00) — no label reaches model or state
+  [PASS] seed123:F:future_invariance: run-to-run noise floor (identical inputs, 4 runs) = 0.000e+00; pass tolerance = 0.000e+00 (deterministic: exact equality required); cutoff=122: max|dlogit| on days <= 122 = 0.000e+00 (bitwise identical); on days > 122 = 1.321e+02 (perturbation is effective); cutoff=130: max|dlogit| on days <= 130 = 0.000e+00 (bitwise identical); on days > 130 = 8.249e+01 (perturbation is effective); cutoff=140: max|dlogit| on days <= 140 = 0.000e+00 (bitwise identical); on days > 140 = 3.200e+01 (perturbation is effective); cutoff=150: max|dlogit| on days <= 150 = 0.000e+00 (bitwise identical); on days > 150 = 3.440e+01 (perturbation is effective)
+  [PASS] seed123:F:past_sensitivity_positive_control: corrupting days 116..121 changes later predictions: max|dlogit| = 3.328e+00 (first 3 predicted days: 2.991e+00) — earlier state DOES influence later predictions (recurrent memory is used)
+  [PASS] seed123:F:train_val_boundary_state_continuity: continuous stream vs pause/clone/resume at day 121: max|dlogit| = 0.000e+00 (noise floor 0.000e+00; bitwise identical) - state carried unchanged across the boundary
+  [PASS] seed123:F:per_step_access_only_own_day: each step d read exactly one data slice: day d (no other day's features/edges accessed)
+  [PASS] seed123:F:labels_never_reach_model_or_state: labels removed entirely from the dataset: max|dlogit| = 0.000e+00 (noise floor 0.000e+00) — no label reaches model or state
+  [PASS] seed123:Ad:future_invariance: run-to-run noise floor (identical inputs, 4 runs) = 0.000e+00; pass tolerance = 0.000e+00 (deterministic: exact equality required); cutoff=122: max|dlogit| on days <= 122 = 0.000e+00 (bitwise identical); on days > 122 = 4.286e+02 (perturbation is effective); cutoff=130: max|dlogit| on days <= 130 = 0.000e+00 (bitwise identical); on days > 130 = 9.825e+01 (perturbation is effective); cutoff=140: max|dlogit| on days <= 140 = 0.000e+00 (bitwise identical); on days > 140 = 1.191e+02 (perturbation is effective); cutoff=150: max|dlogit| on days <= 150 = 0.000e+00 (bitwise identical); on days > 150 = 1.170e+02 (perturbation is effective)
+  [PASS] seed123:Ad:past_sensitivity_positive_control: corrupting days 116..121 changes later predictions: max|dlogit| = 1.197e+01 (first 3 predicted days: 1.069e+01) — earlier state DOES influence later predictions (recurrent memory is used)
+  [PASS] seed123:Ad:train_val_boundary_state_continuity: continuous stream vs pause/clone/resume at day 121: max|dlogit| = 0.000e+00 (noise floor 0.000e+00; bitwise identical) - state carried unchanged across the boundary
+  [PASS] seed123:Ad:per_step_access_only_own_day: each step d read exactly one data slice: day d (no other day's features/edges accessed)
+  [PASS] seed123:Ad:labels_never_reach_model_or_state: labels removed entirely from the dataset: max|dlogit| = 0.000e+00 (noise floor 0.000e+00) — no label reaches model or state
+  [PASS] seed123:E:future_invariance: run-to-run noise floor (identical inputs, 4 runs) = 0.000e+00; pass tolerance = 0.000e+00 (deterministic: exact equality required); cutoff=122: max|dlogit| on days <= 122 = 0.000e+00 (bitwise identical); on days > 122 = 3.662e+02 (perturbation is effective); cutoff=130: max|dlogit| on days <= 130 = 0.000e+00 (bitwise identical); on days > 130 = 1.173e+02 (perturbation is effective); cutoff=140: max|dlogit| on days <= 140 = 0.000e+00 (bitwise identical); on days > 140 = 1.023e+02 (perturbation is effective); cutoff=150: max|dlogit| on days <= 150 = 0.000e+00 (bitwise identical); on days > 150 = 7.766e+01 (perturbation is effective)
+  [PASS] seed123:E:past_sensitivity_positive_control: corrupting days 116..121 changes later predictions: max|dlogit| = 1.504e+01 (first 3 predicted days: 1.271e+01) — earlier state DOES influence later predictions (recurrent memory is used)
+  [PASS] seed123:E:train_val_boundary_state_continuity: continuous stream vs pause/clone/resume at day 121: max|dlogit| = 0.000e+00 (noise floor 0.000e+00; bitwise identical) - state carried unchanged across the boundary
+  [PASS] seed123:E:per_step_access_only_own_day: each step d read exactly one data slice: day d (no other day's features/edges accessed)
+  [PASS] seed123:E:labels_never_reach_model_or_state: labels removed entirely from the dataset: max|dlogit| = 0.000e+00 (noise floor 0.000e+00) — no label reaches model or state
+  [PASS] seed2024:F:future_invariance: run-to-run noise floor (identical inputs, 4 runs) = 0.000e+00; pass tolerance = 0.000e+00 (deterministic: exact equality required); cutoff=122: max|dlogit| on days <= 122 = 0.000e+00 (bitwise identical); on days > 122 = 2.310e+02 (perturbation is effective); cutoff=130: max|dlogit| on days <= 130 = 0.000e+00 (bitwise identical); on days > 130 = 7.972e+01 (perturbation is effective); cutoff=140: max|dlogit| on days <= 140 = 0.000e+00 (bitwise identical); on days > 140 = 3.807e+01 (perturbation is effective); cutoff=150: max|dlogit| on days <= 150 = 0.000e+00 (bitwise identical); on days > 150 = 3.872e+01 (perturbation is effective)
+  [PASS] seed2024:F:past_sensitivity_positive_control: corrupting days 116..121 changes later predictions: max|dlogit| = 5.625e+00 (first 3 predicted days: 5.625e+00) — earlier state DOES influence later predictions (recurrent memory is used)
+  [PASS] seed2024:F:train_val_boundary_state_continuity: continuous stream vs pause/clone/resume at day 121: max|dlogit| = 0.000e+00 (noise floor 0.000e+00; bitwise identical) - state carried unchanged across the boundary
+  [PASS] seed2024:F:per_step_access_only_own_day: each step d read exactly one data slice: day d (no other day's features/edges accessed)
+  [PASS] seed2024:F:labels_never_reach_model_or_state: labels removed entirely from the dataset: max|dlogit| = 0.000e+00 (noise floor 0.000e+00) — no label reaches model or state
+  [PASS] seed2024:Ad:future_invariance: run-to-run noise floor (identical inputs, 4 runs) = 0.000e+00; pass tolerance = 0.000e+00 (deterministic: exact equality required); cutoff=122: max|dlogit| on days <= 122 = 0.000e+00 (bitwise identical); on days > 122 = 4.486e+02 (perturbation is effective); cutoff=130: max|dlogit| on days <= 130 = 0.000e+00 (bitwise identical); on days > 130 = 2.624e+02 (perturbation is effective); cutoff=140: max|dlogit| on days <= 140 = 0.000e+00 (bitwise identical); on days > 140 = 1.989e+02 (perturbation is effective); cutoff=150: max|dlogit| on days <= 150 = 0.000e+00 (bitwise identical); on days > 150 = 1.601e+02 (perturbation is effective)
+  [PASS] seed2024:Ad:past_sensitivity_positive_control: corrupting days 116..121 changes later predictions: max|dlogit| = 1.427e+01 (first 3 predicted days: 1.269e+01) — earlier state DOES influence later predictions (recurrent memory is used)
+  [PASS] seed2024:Ad:train_val_boundary_state_continuity: continuous stream vs pause/clone/resume at day 121: max|dlogit| = 0.000e+00 (noise floor 0.000e+00; bitwise identical) - state carried unchanged across the boundary
+  [PASS] seed2024:Ad:per_step_access_only_own_day: each step d read exactly one data slice: day d (no other day's features/edges accessed)
+  [PASS] seed2024:Ad:labels_never_reach_model_or_state: labels removed entirely from the dataset: max|dlogit| = 0.000e+00 (noise floor 0.000e+00) — no label reaches model or state
+  [PASS] seed2024:E:future_invariance: run-to-run noise floor (identical inputs, 4 runs) = 0.000e+00; pass tolerance = 0.000e+00 (deterministic: exact equality required); cutoff=122: max|dlogit| on days <= 122 = 0.000e+00 (bitwise identical); on days > 122 = 3.615e+02 (perturbation is effective); cutoff=130: max|dlogit| on days <= 130 = 0.000e+00 (bitwise identical); on days > 130 = 1.986e+02 (perturbation is effective); cutoff=140: max|dlogit| on days <= 140 = 0.000e+00 (bitwise identical); on days > 140 = 2.059e+02 (perturbation is effective); cutoff=150: max|dlogit| on days <= 150 = 0.000e+00 (bitwise identical); on days > 150 = 1.199e+02 (perturbation is effective)
+  [PASS] seed2024:E:past_sensitivity_positive_control: corrupting days 116..121 changes later predictions: max|dlogit| = 1.668e+01 (first 3 predicted days: 1.448e+01) — earlier state DOES influence later predictions (recurrent memory is used)
+  [PASS] seed2024:E:train_val_boundary_state_continuity: continuous stream vs pause/clone/resume at day 121: max|dlogit| = 0.000e+00 (noise floor 0.000e+00; bitwise identical) - state carried unchanged across the boundary
+  [PASS] seed2024:E:per_step_access_only_own_day: each step d read exactly one data slice: day d (no other day's features/edges accessed)
+  [PASS] seed2024:E:labels_never_reach_model_or_state: labels removed entirely from the dataset: max|dlogit| = 0.000e+00 (noise floor 0.000e+00) — no label reaches model or state
+  [PASS] seed42:f_self_consistent: trivial sanity check
+  [PASS] seed42:ad_weights_diverged_from_frozen: Ad's final weights differ from F's (updates occurred)
+  [PASS] seed42:e_weights_diverged_from_frozen: E's final weights differ from F's (updates occurred)
+  [PASS] seed123:f_self_consistent: trivial sanity check
+  [PASS] seed123:ad_weights_diverged_from_frozen: Ad's final weights differ from F's (updates occurred)
+  [PASS] seed123:e_weights_diverged_from_frozen: E's final weights differ from F's (updates occurred)
+  [PASS] seed2024:f_self_consistent: trivial sanity check
+  [PASS] seed2024:ad_weights_diverged_from_frozen: Ad's final weights differ from F's (updates occurred)
+  [PASS] seed2024:e_weights_diverged_from_frozen: E's final weights differ from F's (updates occurred)
+
+90/90 executable checks passed (0 skipped).

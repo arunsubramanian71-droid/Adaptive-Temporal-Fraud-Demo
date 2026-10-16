@@ -1,0 +1,42 @@
+{
+ "note": "Exploratory scope-deviation artifacts; hashes of ORIGINAL Phase 9 artifacts recorded for later integrity checks (not modified).",
+ "new_files": {
+  "experiments/phase9_coordinated_fraud/exploratory_realdata/log_tier0.txt": "5ed8e9af7fa2ce1d24c053a1bc4e89a0afc8a9ae55cbf706946d13d77f3a353c",
+  "experiments/phase9_coordinated_fraud/exploratory_realdata/log_validation.txt": "533142caaa9a85c786b57e118af2719f430b42c3d5a9c8179bec3d5e3af4fab7",
+  "experiments/phase9_coordinated_fraud/exploratory_realdata/PRE_RUN_RECORD.md": "d986a97ca08092760b651d730f85eaa162aabede66b731e80c4b19f76c954f7f",
+  "experiments/phase9_coordinated_fraud/exploratory_realdata/PRE_RUN_RECORD.sha256": "c33f01019f7b06dea1068e0d3c76e95ffdb1a9a82d55a3c1eafad134846ba06e",
+  "experiments/phase9_coordinated_fraud/exploratory_realdata/tier0_community_days_W14_seed123.csv": "c5ccd8a825e8efbc8803f62462ed1f3011f9be9b3cfa8101a17b0c4865269bc4",
+  "experiments/phase9_coordinated_fraud/exploratory_realdata/tier0_community_days_W14_seed2024.csv": "30d8d2381e8ba621479268dccae8a4b9bdad819f515c0c9e193c7307cecd0b57",
+  "experiments/phase9_coordinated_fraud/exploratory_realdata/tier0_community_days_W14_seed42.csv": "94919975fe57e7b7abc31cee0e98f8bdfad67a05cb51f8fa6c5536c087359dbc",
+  "experiments/phase9_coordinated_fraud/exploratory_realdata/tier0_community_days_W3_seed123.csv": "2425a541a092cb6d267b678fbd05681e3f5fd02c8230d27e9b1a0249dbfcdcc4",
+  "experiments/phase9_coordinated_fraud/exploratory_realdata/tier0_community_days_W3_seed2024.csv": "6e855f2a7d07ddaefaf09935e47710beed268d0ea8f16b55e428607cd506f7d1",
+  "experiments/phase9_coordinated_fraud/exploratory_realdata/tier0_community_days_W3_seed42.csv": "4896f2775acc2d202f8c7fd659ed44fca320071400c7c2f2e0c61223f6e1c2d2",
+  "experiments/phase9_coordinated_fraud/exploratory_realdata/tier0_community_days_W7_seed123.csv": "4d5bcaf57e334eee746ded383449b5f540b85b5ccc6ff2b9e94e76f92522e2cb",
+  "experiments/phase9_coordinated_fraud/exploratory_realdata/tier0_community_days_W7_seed2024.csv": "f517cd067c681fedba1b6c3d98eb029b789611440db3b8ac1894763fa8165e89",
+  "experiments/phase9_coordinated_fraud/exploratory_realdata/tier0_community_days_W7_seed42.csv": "a9956cc535b1d8208f2bda4110a37dffa6bc03b7cfcf5fd43a911baba02d1f2e",
+  "experiments/phase9_coordinated_fraud/exploratory_realdata/TIER0_REPORT.md": "cdb1c684ee299a5e6f8e5e815d73c356077e57427db6a9cd1ded988983f074e2",
+  "experiments/phase9_coordinated_fraud/exploratory_realdata/tier0_summary.json": "b1a2f94cc2188008a0d2f5d6cbd7986ee7b05b9522d549ede5834e8063234ecb",
+  "experiments/phase9_coordinated_fraud/exploratory_realdata/validation_S2_S3_S4.json": "7a65da290deb0111efcff09df60f5edfc2f501243e2de12796f3264dcf15a6d9",
+  "src/coordination/realrun.py": "025e47a3fa2a2167c4b87fbfd018dd16b46f208dd6657846f58ce1ea3f73c915",
+  "src/coordination/realdesc.py": "1c49e9a9baf234da859dec598fbb92db9e82461f70874985a6318a93cff89110",
+  "scripts/validate_phase9_leakage.py": "94c96759d982d13777c3c93b3727827f6fac80ebed8007490b78b1932ea4db22",
+  "scripts/run_phase9_tier0.py": "1dca62186d897fe894d193318bde883e88033720045a8c87161f681aedeb81a2",
+  "scripts/make_phase9_exploratory_report.py": "c531346fecddccf4612677ec39aab1fc347d30c7332e0d292ecc58aa77c11b02"
+ },
+ "original_artifacts_unmodified_sha256": {
+  "DESIGN_BEFORE_EXECUTION.md": "58d51876a584fd2ea6b7deb1e59db67f30daf09b46cd66720f6bb77529595d7d",
+  "STOP_REPORT_G4.md": "7f395b4db73f3539f0b0542b109c1c3ea876d589bed2291deeb0961f7e1d70b9",
+  "eval_benchmark_G1_G2_G4.json": "08db9ee6f999439d39bb17315c6af73eaa0a849cf189777518464d5231f219cb",
+  "eval_benchmark_G3_G5.json": "8c4da5b67c1f27fb9f5d8f082eb1adb300f7b1ed2edec3ac84e82b0b0f66c4b8",
+  "diagnostics/diagnose_g4.py": "40945da44805538be67649806fef1b5c72b3801341c6724f295afacefb6c7740",
+  "diagnostics/g4_diagnosis.json": "109ed5b67114306bb619a49089d447ee4ab80c0a2518e979eb7052f98a596846",
+  "locked_config.json": "7d279c37ef76668b58ed373af18d71e43041d6fe7fd335195a09c500908e565c",
+  "locked_config.sha256": "d36e2ff0cbbe928570b0b795f3d5a5a57d0a7f8b2fd33fb63f26b5d7ce098b85",
+  "null_tables.pkl": "3643107ae838d6bc74419320c3f3d3d4013753894e46b89be0a0806bd3442dbc",
+  "dev_selection.json": "6f2af54636131c153fa96609a9096eca6e3b37f819e4effbd5a23eea660f0603",
+  "timing_pilot.json": "94ac5a233bf5523fb403956ed3cd0c30c28249bc550339c756ea611ad19dd46a",
+  "segmentation_equivalence_gate.json": "781e561914037a1255a7bda32d51fd4a80303f6034a82b3831a0ae6305a0c3b5",
+  "risk/risk_clean_seed42.npz": "f8d9d93ada9bc3c45b852bc3fde11cc43a839f873a8a484b6f4e4d4ab133c203",
+  "risk/risk_eval_seed42.npz": "1cf2dc0d8f76a359271ba77ac2ad425bd7597d761fa97eac0fbd10a935585476"
+ }
+}

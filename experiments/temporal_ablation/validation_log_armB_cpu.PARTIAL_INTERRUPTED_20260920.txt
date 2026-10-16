@@ -1,0 +1,15 @@
+[WARNING] failed to run offload-arch: binary not found.
+arm B, device cpu (deterministic - exact equality)
+=== static-protocol checks (dataset level) ===
+  [PASS] scaler_fit_on_train_only: scaler equals TRAIN-only refit: True; differs from an all-data fit (detectable): True
+  [PASS] training_windows: 18 windows; 417,559 targets == 417,559 TRAIN txns; max target day 121; disjoint=True; chronological=True
+  [PASS] training graph: max edge_time in TRAIN-masked graph = 121 (train ends 121)
+  [PASS] static_masked_graph_isolates_future_nodes: for all 30 scored days t, no edge touches any transaction with day > t (incl. all TEST rows present in the file) - OK
+  [PASS] scored_days_are_validation_only: scored days 122..151; TEST starts 152; TEST never scored
+
+  --- seed 42 (trained checkpoint) ---
+C:\Users\ArunHBK\Desktop\Adaptive-Temporal-Fraud\scripts\validate_temporal_ablation.py:244: RuntimeWarning: overflow encountered in exp
+  p_local = np.concatenate([1 / (1 + np.exp(-base_lg[t].astype(np.float64))) for t in val_days])
+  [PASS] rolling_logits_equals_rolling_predict: max|p_local - rolling_predict| = 8.57e-08
+  [PASS] future_invariance cutoff 122: corrupting features+edges+labels of every day > 122 (TEST included): max|dlogit| on days 122..122 = 0.000e+00 (noise floor 0.000e+00; bitwise identical)
+  [PASS] future_invariance cutoff 136: corrupting features+edges+labels of every day > 136 (TEST included): max|dlogit| on days 122..136 = 0.000e+00 (noise floor 0.000e+00; bitwise identical)

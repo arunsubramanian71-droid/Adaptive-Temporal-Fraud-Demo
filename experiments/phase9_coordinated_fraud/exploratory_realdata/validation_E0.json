@@ -1,0 +1,341 @@
+{
+ "banner": "Exploratory real-data analysis conducted under an explicitly authorized scope deviation after the original Phase 9 protocol halted at S6. Original G4 failed on seeds 42 and 2024 and passed on seed 123. H5a is NOT ESTABLISHED under the original protocol.",
+ "addendum_sha256": "80a63e637bbedec2934a0c7384f747aba4a46d40107b0662b7cb1268090705c5",
+ "source_sha256": {
+  "src/coordination/e0.py": "09f55b6daf4cd727776c884a4b221af380cf43bc2e659d7b51bfb17cc3db2239",
+  "src/coordination/realrun.py": "025e47a3fa2a2167c4b87fbfd018dd16b46f208dd6657846f58ce1ea3f73c915",
+  "src/coordination/graphs.py": "239ddd6d7460e256ecd8df3d69ce4c5c51bac532db4178cdee6f9b19fe002e69",
+  "src/coordination/scoring.py": "1d3dbf1d21feebd69dc011fd6aa0b9af687e471e06fe6c0cc0ed018b5c46c09c",
+  "src/coordination/pipeline.py": "5e1e9ad8b7277671b2358b5edfba8ac23cd1ede3b4ef0f9e1bc9ee64f3e566b5",
+  "src/coordination/nullmodel.py": "c85299dde3aac979009a7c28c786e4631a224409a4372dcc6eb8b600e9e4af7c",
+  "src/coordination/tracking.py": "428d16880b3aebacd9ca5545616cfea9b2e9f752538b8930ae7ef68ddf5487ca",
+  "src/coordination/frozen.py": "df870184affb755d5619223b6f16cb2c54d42ef95d273738b9a4f3b7b69b831e",
+  "src/coordination/data.py": "670df564b5c3c2c27f088553111a9d747bd59c4d2af0fb5ac91877c20f778ea5"
+ },
+ "gates": {
+  "g0": true,
+  "timing_pilot": true
+ },
+ "env": {
+  "python": "3.12.0",
+  "numpy": "2.4.4"
+ },
+ "validation_replicate_key_start": 1000000,
+ "unit": {
+  "tau_simple": {
+   "passed": true
+  },
+  "tau_degenerate_top_tie_mass": {
+   "passed": true
+  },
+  "tau_jump_slack_and_tie_alert": {
+   "passed": true
+  },
+  "tau_all_below_target_uses_min_score": {
+   "passed": true
+  },
+  "tau_empty_infeasible": {
+   "passed": true
+  },
+  "score_float_identity": {
+   "passed": true
+  },
+  "tau_is_smallest_admissible_random_cases": {
+   "passed": true
+  },
+  "tau_days": {
+   "passed": true,
+   "detail": [
+    89,
+    90,
+    91,
+    92,
+    93,
+    94,
+    95,
+    97,
+    98,
+    99,
+    100,
+    101,
+    102,
+    104,
+    105,
+    106,
+    107,
+    108,
+    109,
+    110,
+    111,
+    112,
+    113,
+    114,
+    115,
+    116,
+    117,
+    119,
+    120,
+    121
+   ]
+  },
+  "tail_ties_count_as_extreme": {
+   "passed": true
+  },
+  "tail_bounds": {
+   "passed": true
+  },
+  "tail_min_for_K100": {
+   "passed": true
+  }
+ },
+ "toy_driver": {
+  "deterministic": {
+   "passed": true
+  },
+  "batch_and_order_independent": {
+   "passed": true
+  },
+  "shapes_and_bounds": {
+   "passed": true
+  },
+  "toy_has_candidates": {
+   "passed": true
+  }
+ },
+ "report": {
+  "banner_and_labels": {
+   "passed": true
+  },
+  "no_threshold_or_verdict_language": {
+   "passed": true,
+   "detail": []
+  },
+  "terminology_lint_clean": {
+   "passed": true,
+   "detail": []
+  }
+ },
+ "P0": {
+  "assembly_equals_rewire_on_window_rows": {
+   "passed": true
+  }
+ },
+ "P1": {
+  "overlapping_windows_share_identical_rows": {
+   "passed": true
+  },
+  "window_rows_equal_the_single_rewired_day": {
+   "passed": true
+  }
+ },
+ "P2": {
+  "only_infrastructure_values_change": {
+   "passed": true
+  },
+  "rows_outside_range_or_without_card_untouched": {
+   "passed": true
+  },
+  "per_day_per_kind_infrastructure_multiset_preserved": {
+   "passed": true
+  },
+  "rewiring_changes_a_material_share_of_rows": {
+   "passed": true,
+   "detail": 0.9853211009174312
+  }
+ },
+ "P3": {
+  "ids_stay_in_their_kind_range": {
+   "passed": true
+  }
+ },
+ "P4": {
+  "causality_cutoff_125": {
+   "passed": true
+  },
+  "causality_cutoff_136": {
+   "passed": true
+  },
+  "causality_cutoff_150": {
+   "passed": true
+  }
+ },
+ "P5": {
+  "same_key_same_history": {
+   "passed": true
+  },
+  "different_k_different_history": {
+   "passed": true
+  },
+  "different_seed_different_history": {
+   "passed": true
+  },
+  "order_independence": {
+   "passed": true
+  }
+ },
+ "P6": {
+  "small_case_uniformity_chi_square": {
+   "passed": true,
+   "detail": {
+    "chi2": 17.216,
+    "p": 0.7985190484839104,
+    "n_arrangements": 24
+   }
+  }
+ },
+ "S2": {
+  "label_variants_identical_all_paths": {
+   "passed": true,
+   "detail": {
+    "42": {
+     "obs": true,
+     "null": true,
+     "tau": true,
+     "matches_tier0_output_hash": true
+    },
+    "123": {
+     "obs": true,
+     "null": true,
+     "tau": true,
+     "matches_tier0_output_hash": true
+    },
+    "2024": {
+     "obs": true,
+     "null": true,
+     "tau": true,
+     "matches_tier0_output_hash": true
+    }
+   }
+  },
+  "static_module_check_e0": {
+   "passed": true,
+   "detail": {
+    "src/coordination/e0.py": [],
+    "scripts/run_phase9_e0.py": [],
+    "scripts/run_phase9_e0_tau.py": [],
+    "passed": true
+   }
+  }
+ },
+ "integrity": {
+  "observed_path_reproduces_tier0_output_hash": {
+   "passed": true
+  }
+ },
+ "S3": {
+  "future_invariance_observed_null_tau_with_positive_controls": {
+   "passed": true,
+   "detail": {
+    "c125_S42": {
+     "obs_identical": true,
+     "null_identical": true,
+     "control_obs": true,
+     "control_null": true
+    },
+    "c125_S123": {
+     "obs_identical": true,
+     "null_identical": true,
+     "control_obs": true,
+     "control_null": true
+    },
+    "c125_S2024": {
+     "obs_identical": true,
+     "null_identical": true,
+     "control_obs": true,
+     "control_null": true
+    },
+    "c136_S42": {
+     "obs_identical": true,
+     "null_identical": true,
+     "control_obs": true,
+     "control_null": true
+    },
+    "c136_S123": {
+     "obs_identical": true,
+     "null_identical": true,
+     "control_obs": true,
+     "control_null": true
+    },
+    "c136_S2024": {
+     "obs_identical": true,
+     "null_identical": true,
+     "control_obs": true,
+     "control_null": true
+    },
+    "c150_S42": {
+     "obs_identical": true,
+     "null_identical": true,
+     "control_obs": true,
+     "control_null": true
+    },
+    "c150_S123": {
+     "obs_identical": true,
+     "null_identical": true,
+     "control_obs": true,
+     "control_null": true
+    },
+    "c150_S2024": {
+     "obs_identical": true,
+     "null_identical": true,
+     "control_obs": true,
+     "control_null": true
+    },
+    "tau_c121_S42": {
+     "identical": true,
+     "control": true
+    },
+    "tau_c121_S123": {
+     "identical": true,
+     "control": true
+    },
+    "tau_c121_S2024": {
+     "identical": true,
+     "control": true
+    }
+   }
+  }
+ },
+ "S4": {
+  "determinism_in_process_and_fresh_interpreter": {
+   "passed": true,
+   "detail": {
+    "null_arrays": {
+     "in_process_identical": true,
+     "fresh_process_identical": true,
+     "returncode": 0
+    },
+    "obs": {
+     "in_process_identical": true,
+     "fresh_process_identical": true,
+     "returncode": 0
+    },
+    "null": {
+     "in_process_identical": true,
+     "fresh_process_identical": true,
+     "returncode": 0
+    },
+    "tau": {
+     "in_process_identical": true,
+     "fresh_process_identical": true,
+     "returncode": 0
+    }
+   }
+  }
+ },
+ "hygiene": {
+  "terminology_and_identifier_lint_clean": {
+   "passed": true,
+   "detail": {}
+  },
+  "drivers_compile_but_were_not_executed": {
+   "passed": true
+  },
+  "no_tau_or_e0_outputs_were_produced": {
+   "passed": true,
+   "detail": []
+  }
+ },
+ "all_passed": true,
+ "failures": [],
+ "elapsed_s": 364.9
+}

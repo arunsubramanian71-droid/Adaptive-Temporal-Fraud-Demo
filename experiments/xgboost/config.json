@@ -1,0 +1,83 @@
+{
+ "experiment": "xgboost",
+ "random_state": 42,
+ "split": {
+  "train_days": [
+   1,
+   121
+  ],
+  "val_days": [
+   122,
+   151
+  ],
+  "test_days": [
+   152,
+   182
+  ]
+ },
+ "model": {
+  "type": "XGBClassifier",
+  "n_estimators": 1000,
+  "max_depth": 6,
+  "learning_rate": 0.05,
+  "tree_method": "hist",
+  "scale_pos_weight": 27.36485293118674,
+  "early_stopping_rounds": 50,
+  "best_iteration": 798
+ },
+ "feature_count": 470,
+ "encoding_strategy": {
+  "continuous_raw_nan_native": 400,
+  "boolean_flags": 27,
+  "frequency_encoded": [
+   "card1",
+   "card2",
+   "card3",
+   "card5",
+   "addr1",
+   "addr2",
+   "id_30",
+   "id_31",
+   "id_33",
+   "DeviceInfo",
+   "ProductCD",
+   "card4",
+   "card6",
+   "DeviceType",
+   "P_emaildomain",
+   "R_emaildomain"
+  ],
+  "ordinal_encoded_low_cardinality": [
+   "ProductCD",
+   "card4",
+   "card6",
+   "DeviceType",
+   "M1",
+   "M2",
+   "M3",
+   "M4",
+   "M5",
+   "M6",
+   "M7",
+   "M8",
+   "M9",
+   "id_12",
+   "id_15",
+   "id_16",
+   "id_23",
+   "id_27",
+   "id_28",
+   "id_29",
+   "id_34",
+   "id_35",
+   "id_36",
+   "id_37",
+   "id_38"
+  ],
+  "raw_time_columns": [
+   "hour",
+   "day_of_week"
+  ],
+  "missing_value_handling": "native XGBoost learned-direction split on real NaN (no imputation)"
+ }
+}

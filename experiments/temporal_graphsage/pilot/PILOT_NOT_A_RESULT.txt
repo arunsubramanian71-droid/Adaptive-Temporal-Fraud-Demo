@@ -1,0 +1,1 @@
+Feasibility pilot: train days 1-28, eval days 29-35 (all inside the TRAIN period), 3 epochs. Exists only to verify execution, state behaviour, memory, runtime and leakage checks. Its metrics are NOT scientific results and must not be cited.

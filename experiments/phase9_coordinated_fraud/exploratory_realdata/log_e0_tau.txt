@@ -1,0 +1,5 @@
+[WARNING] failed to run offload-arch: binary not found.
+seed 42: feasible=True tau=0.8580917874396136 rate=2.0 tied=1
+seed 123: feasible=True tau=0.8599037749814952 rate=1.9666666666666666 tied=1
+seed 2024: feasible=True tau=0.8542857142857143 rate=2.0 tied=1
+exit 0

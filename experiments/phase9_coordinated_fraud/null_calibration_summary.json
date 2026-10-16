@@ -1,0 +1,248 @@
+{
+ "gates": {
+  "g0": true,
+  "timing_pilot": true
+ },
+ "calibration_days": [
+  48,
+  50,
+  73,
+  75,
+  81,
+  96,
+  103,
+  118
+ ],
+ "k_null": 10,
+ "n_windows": 8,
+ "louvain_seed": 42,
+ "rewiring_seed_base": 30042,
+ "total_seconds": 96.9,
+ "configs": {
+  "W3_g0.5": {
+   "W": 3,
+   "gamma": 0.5,
+   "s_samples": {
+    "comm|3": 408,
+    "comm|1": 87,
+    "comm|0": 157,
+    "comm|2": 88,
+    "star|0": 6406,
+    "star|2": 1910,
+    "star|1": 4291,
+    "star|3": 1586
+   },
+   "t_samples": {
+    "comm|3": 540,
+    "comm|2": 110,
+    "comm|1": 130,
+    "comm|0": 140,
+    "star|0": 5160,
+    "star|2": 1530,
+    "star|1": 3110,
+    "star|3": 960
+   },
+   "seconds": 5.7
+  },
+  "W3_g1.0": {
+   "W": 3,
+   "gamma": 1.0,
+   "s_samples": {
+    "comm|2": 316,
+    "comm|3": 1083,
+    "comm|1": 92,
+    "star|0": 6364,
+    "star|2": 1912,
+    "star|1": 4311,
+    "star|3": 1591,
+    "comm|0": 41
+   },
+   "t_samples": {
+    "comm|2": 440,
+    "comm|3": 770,
+    "comm|0": 180,
+    "comm|1": 280,
+    "star|0": 5160,
+    "star|2": 1530,
+    "star|1": 3110,
+    "star|3": 960
+   },
+   "seconds": 5.8
+  },
+  "W3_g2.0": {
+   "W": 3,
+   "gamma": 2.0,
+   "s_samples": {
+    "comm|2": 1741,
+    "comm|3": 634,
+    "comm|1": 561,
+    "comm|0": 55,
+    "star|0": 6416,
+    "star|2": 1905,
+    "star|1": 4288,
+    "star|3": 1596
+   },
+   "t_samples": {
+    "comm|2": 1380,
+    "comm|3": 610,
+    "comm|0": 230,
+    "comm|1": 490,
+    "star|0": 5160,
+    "star|2": 1530,
+    "star|1": 3110,
+    "star|3": 960
+   },
+   "seconds": 5.8
+  },
+  "W7_g0.5": {
+   "W": 7,
+   "gamma": 0.5,
+   "s_samples": {
+    "comm|3": 270,
+    "comm|2": 100,
+    "comm|1": 220,
+    "comm|0": 386,
+    "star|2": 4989,
+    "star|1": 8813,
+    "star|3": 3954,
+    "star|0": 11264
+   },
+   "t_samples": {
+    "comm|3": 460,
+    "comm|1": 110,
+    "comm|0": 350,
+    "comm|2": 100,
+    "star|1": 7050,
+    "star|3": 2830,
+    "star|2": 3520,
+    "star|0": 10050
+   },
+   "seconds": 9.7
+  },
+  "W7_g1.0": {
+   "W": 7,
+   "gamma": 1.0,
+   "s_samples": {
+    "comm|3": 1429,
+    "comm|2": 110,
+    "star|2": 4923,
+    "star|0": 11269,
+    "star|3": 3952,
+    "star|1": 8861,
+    "comm|0": 17,
+    "comm|1": 55
+   },
+   "t_samples": {
+    "comm|3": 1270,
+    "comm|2": 180,
+    "comm|1": 90,
+    "comm|0": 240,
+    "star|1": 7050,
+    "star|3": 2830,
+    "star|2": 3520,
+    "star|0": 10050
+   },
+   "seconds": 9.8
+  },
+  "W7_g2.0": {
+   "W": 7,
+   "gamma": 2.0,
+   "s_samples": {
+    "comm|3": 2338,
+    "comm|2": 1238,
+    "comm|1": 160,
+    "star|2": 4962,
+    "star|1": 8833,
+    "star|3": 3963,
+    "star|0": 11279,
+    "comm|0": 13
+   },
+   "t_samples": {
+    "comm|3": 1880,
+    "comm|2": 920,
+    "comm|1": 210,
+    "comm|0": 180,
+    "star|1": 7050,
+    "star|3": 2830,
+    "star|2": 3520,
+    "star|0": 10050
+   },
+   "seconds": 10.5
+  },
+  "W14_g0.5": {
+   "W": 14,
+   "gamma": 0.5,
+   "s_samples": {
+    "comm|3": 150,
+    "comm|0": 734,
+    "comm|1": 351,
+    "comm|2": 121,
+    "star|3": 8107,
+    "star|2": 9193,
+    "star|0": 16540,
+    "star|1": 13067
+   },
+   "t_samples": {
+    "comm|3": 320,
+    "comm|0": 660,
+    "comm|2": 150,
+    "comm|1": 390,
+    "star|3": 5550,
+    "star|1": 10850,
+    "star|0": 14670,
+    "star|2": 7360
+   },
+   "seconds": 16.1
+  },
+  "W14_g1.0": {
+   "W": 14,
+   "gamma": 1.0,
+   "s_samples": {
+    "comm|3": 1481,
+    "star|3": 8104,
+    "star|2": 9196,
+    "star|0": 16506,
+    "star|1": 13090,
+    "comm|2": 62,
+    "comm|0": 7,
+    "comm|1": 17
+   },
+   "t_samples": {
+    "comm|3": 1270,
+    "comm|2": 70,
+    "comm|0": 360,
+    "comm|1": 130,
+    "star|3": 5550,
+    "star|1": 10850,
+    "star|0": 14670,
+    "star|2": 7360
+   },
+   "seconds": 15.6
+  },
+  "W14_g2.0": {
+   "W": 14,
+   "gamma": 2.0,
+   "s_samples": {
+    "comm|3": 3650,
+    "comm|2": 587,
+    "star|3": 8081,
+    "star|2": 9210,
+    "star|0": 16526,
+    "star|1": 13057,
+    "comm|1": 47,
+    "comm|0": 2
+   },
+   "t_samples": {
+    "comm|3": 2800,
+    "comm|2": 460,
+    "comm|1": 100,
+    "comm|0": 230,
+    "star|3": 5550,
+    "star|1": 10850,
+    "star|0": 14670,
+    "star|2": 7360
+   },
+   "seconds": 17.9
+  }
+ }
+}

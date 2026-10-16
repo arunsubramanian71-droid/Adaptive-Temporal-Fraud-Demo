@@ -1,0 +1,50 @@
+[
+ {
+  "feature": "account_prior_fraud_rate",
+  "importance": 0.7888439297676086
+ },
+ {
+  "feature": "account_days_since_prev_txn",
+  "importance": 0.08677764236927032
+ },
+ {
+  "feature": "card1_prior_fraud_rate",
+  "importance": 0.07421348243951797
+ },
+ {
+  "feature": "account_prior_txn_count",
+  "importance": 0.018248705193400383
+ },
+ {
+  "feature": "card1_days_since_prev_txn",
+  "importance": 0.012958375737071037
+ },
+ {
+  "feature": "card1_prior_txn_count",
+  "importance": 0.007080497685819864
+ },
+ {
+  "feature": "card1_prior_fraud_count",
+  "importance": 0.006009306292980909
+ },
+ {
+  "feature": "account_prior_fraud_count",
+  "importance": 0.005868158303201199
+ },
+ {
+  "feature": "card1_prior_fraud_flag",
+  "importance": 0.0
+ },
+ {
+  "feature": "card1_has_prior_history",
+  "importance": 0.0
+ },
+ {
+  "feature": "account_prior_fraud_flag",
+  "importance": 0.0
+ },
+ {
+  "feature": "account_has_prior_history",
+  "importance": 0.0
+ }
+]

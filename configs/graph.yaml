@@ -1,0 +1,81 @@
+# Heterogeneous graph schema configuration.
+#
+# This schema is NOT re-derived from scratch — it is Phase 1's own measured
+# recommendation (reports/phase1_reconnaissance.md, Sections 10-11, 16),
+# carried forward unchanged unless Phase 4 finds a demonstrated reason to
+# revise it. Every included entity type has a measured label-homophily lift
+# > 1.4x and a bounded max degree; every excluded candidate is listed with
+# the number that excluded it, so "why isn't X a node type" always has an
+# on-the-record answer.
+
+random_seed: 42
+
+# Entity node types: name -> component columns used to build the entity key.
+# All component columns must be non-null for a transaction to get an edge to
+# that entity (Phase 1's coverage figures below assume this).
+entity_types:
+  pseudo_account:
+    columns: [card1, addr1, d1anchor]     # d1anchor = day - D1, computed at build time
+    lift: 35.12          # label-homophily lift, Phase 1 Section 10 (labelling-artifact caveat applies — see report)
+    coverage_pct: 88.7
+    max_degree_phase1: 1414
+  card:
+    columns: [card1]
+    lift: 1.80
+    coverage_pct: 100.0
+    max_degree_phase1: 14932
+  netproxy:
+    columns: [id_19, id_20]
+    lift: 1.70
+    coverage_pct: 23.6
+    max_degree_phase1: 5523
+  device_fingerprint:
+    columns: [DeviceInfo, DeviceType, id_30, id_31, id_32, id_33]
+    lift: 1.47
+    coverage_pct: 12.0
+    max_degree_phase1: 2566
+
+# Candidates explicitly EXCLUDED, and why (Phase 1 Section 10). Do not add
+# these as node types without a new, demonstrated reason on record.
+excluded_entity_types:
+  billing_addr:   {columns: [addr1, addr2], lift: 1.00, max_degree_phase1: 46324, reason: "lift ~1.00x (no signal above chance); 4th-largest hub"}
+  email_domain:   {columns: [P_emaildomain, R_emaildomain], lift: 1.16, max_degree_phase1: 228355, reason: "weak lift, 2nd-largest hub (228k)"}
+  product:        {columns: [ProductCD], lift: 0.93, max_degree_phase1: 439670, reason: "BELOW chance; largest hub in the dataset (439,670)"}
+  device_info_alone: {columns: [DeviceInfo], lift: 0.89, max_degree_phase1: 47722, reason: "BELOW chance; a device MODEL string, not a device identity"}
+
+# Edge (relation) types: all Transaction -> Entity, reversed automatically
+# for bidirectional message passing (see src/graph/build.py). The
+# PseudoAccount<->Card "owns_card" shortcut Phase 1 also considered is
+# deliberately NOT built: two-hop Transaction->Card->Transaction->PseudoAccount
+# message passing already reaches it, and the shortcut only adds leakage
+# surface for no new reachability (Phase 1 Section 11).
+edge_types:
+  charged_to:  {entity: pseudo_account}
+  used_card:   {entity: card}
+  via_network: {entity: netproxy}
+  from_device: {entity: device_fingerprint}
+
+# Node feature construction. Transaction nodes reuse the fit-on-TRAIN
+# tree-style encoder from Phase 3 (src/models/tree_features.py), but the
+# "rf" variant specifically (median-imputed, NaN-free) rather than "xgb"'s
+# NaN-native one: XGBoost handles missing values through a learned split
+# direction, but a GNN's per-type nn.Linear input projection has no such
+# mechanism — a single NaN would propagate through the whole forward pass.
+# No scaling is applied beyond that; a per-type linear projection sits
+# before the first conv layer regardless (Phase 1 Section 16), which can
+# absorb differences in feature scale.
+# Entity nodes get NO precomputed feature vector: their representation is
+# meant to come entirely from time-masked message passing over neighbouring
+# transactions. Assigning them e.g. total historical degree as a static
+# feature would itself be a leakage channel (that count would depend on
+# future transactions unless computed with the same backward-looking
+# discipline as Phase 3's historical features) — simplest and safest is no
+# static feature at all, just a small constant so every node type has a
+# well-defined input dimension.
+transaction_feature_source: tree_features_rf_imputed   # see src/models/tree_features.py, for_model="rf"
+entity_feature_dim: 1                            # constant 1.0 placeholder; real signal comes from message passing
+
+# Validation thresholds used by scripts/validate_graph.py.
+validation:
+  max_degree_p99_multiplier: 3.0   # flag a node type if its p99.9 degree exceeds this multiple of Phase 1's measured max
+  hub_degree_absolute_flag: 20000  # flag any single entity node exceeding this degree for manual review

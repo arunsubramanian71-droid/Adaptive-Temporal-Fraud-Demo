@@ -1,0 +1,24 @@
+[
+ {
+  "label": "train_masked_gpu_fwd_bwd",
+  "device": "cuda",
+  "n_edges": 1901484,
+  "time_ms": 1665.0,
+  "peak_alloc_gib": 4.145,
+  "peak_reserved_gib": 4.449
+ },
+ {
+  "label": "train_masked_cpu_fwd_bwd",
+  "device": "cpu",
+  "n_edges": 1901484,
+  "time_ms": 24422.8
+ },
+ {
+  "label": "val_masked_gpu_fwd_only",
+  "device": "cuda",
+  "n_edges": 2259934,
+  "time_ms": 84.5,
+  "peak_alloc_gib": 2.737,
+  "peak_reserved_gib": 3.242
+ }
+]

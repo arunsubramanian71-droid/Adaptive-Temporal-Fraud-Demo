@@ -1,0 +1,11 @@
+{
+ "timestamp_utc": "2026-09-14T14:37:02.508036+00:00",
+ "python_version": "3.12.0",
+ "xgboost_version": "3.4.1",
+ "sklearn_version": "1.9.1",
+ "pandas_version": "3.0.5",
+ "numpy_version": "2.4.4",
+ "config_path": "configs/data.yaml",
+ "model_fit_seconds": 1.84,
+ "total_script_seconds": 2.59
+}

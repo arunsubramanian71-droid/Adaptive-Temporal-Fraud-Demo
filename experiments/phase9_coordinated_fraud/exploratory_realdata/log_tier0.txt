@@ -1,0 +1,11 @@
+[WARNING] failed to run offload-arch: binary not found.
+W=7 seed=42: 339 records, 237 tracks, candidates/day median 11.0, 2s
+W=7 seed=123: 354 records, 240 tracks, candidates/day median 11.0, 5s
+W=7 seed=2024: 366 records, 252 tracks, candidates/day median 11.0, 8s
+W=3 seed=42: 338 records, 288 tracks, candidates/day median 12.0, 9s
+W=3 seed=123: 334 records, 289 tracks, candidates/day median 11.0, 11s
+W=3 seed=2024: 334 records, 284 tracks, candidates/day median 11.0, 12s
+W=14 seed=42: 538 records, 224 tracks, candidates/day median 17.5, 16s
+W=14 seed=123: 515 records, 243 tracks, candidates/day median 17.0, 21s
+W=14 seed=2024: 508 records, 229 tracks, candidates/day median 17.0, 25s
+terminology lint: clean

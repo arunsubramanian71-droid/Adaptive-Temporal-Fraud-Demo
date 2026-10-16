@@ -1,0 +1,404 @@
+{
+ "banner": "Exploratory real-data analysis conducted under an explicitly authorized scope deviation after the original Phase 9 protocol halted at S6. Original G4 failed on seeds 42 and 2024 and passed on seed 123. H5a is NOT ESTABLISHED under the original protocol.",
+ "validated_function": "src.coordination.realrun.run_discovery",
+ "gates": {
+  "g0": true,
+  "timing_pilot": true
+ },
+ "locked_gamma_per_W": {
+  "3": 0.5,
+  "7": 0.5,
+  "14": 0.5
+ },
+ "cutoffs": [
+  60,
+  100,
+  121,
+  136,
+  150
+ ],
+ "days_compared_per_cutoff": 10,
+ "S2": {
+  "static": {
+   "graphs": {
+    "exists": true,
+    "violations": []
+   },
+   "scoring": {
+    "exists": true,
+    "violations": []
+   },
+   "pipeline": {
+    "exists": true,
+    "violations": []
+   },
+   "tracking": {
+    "exists": true,
+    "violations": []
+   },
+   "nullmodel": {
+    "exists": true,
+    "violations": []
+   },
+   "segments_array": {
+    "exists": true,
+    "violations": []
+   },
+   "realrun": {
+    "exists": true,
+    "violations": []
+   },
+   "realdesc": {
+    "exists": true,
+    "violations": []
+   },
+   "GraphView_fields": [
+    "card",
+    "day",
+    "dev",
+    "n_dev",
+    "n_net",
+    "net"
+   ],
+   "GraphView_has_no_label_field": true,
+   "passed": true
+  },
+  "dynamic": {
+   "W3_seed42": {
+    "hash": "7ecef96a1ec7b6d855015a0f435fa01ac8b9165ebc96cfd27d7e0fd535413f30",
+    "n_records": 338,
+    "variants_identical": true
+   },
+   "W3_seed123": {
+    "hash": "5e7c24fed976c64cd35afde6bb68fc4c05e6a5b73af9455f20bf4f0b1a67c4dc",
+    "n_records": 334,
+    "variants_identical": true
+   },
+   "W3_seed2024": {
+    "hash": "4d30e236e85f4d15fda0a6cc1b186041def79e46cae724f60efaf8e12a8e82a3",
+    "n_records": 334,
+    "variants_identical": true
+   },
+   "W7_seed42": {
+    "hash": "819cef3b9ee09a44a0059db1777f4c13e62c65aaa1dc0052084ac29b8cf02a5f",
+    "n_records": 339,
+    "variants_identical": true
+   },
+   "W7_seed123": {
+    "hash": "0833eb08b20120d2414ce13b409aa59c9cf5ac87a5e384ca9ed9bd740aa811a4",
+    "n_records": 354,
+    "variants_identical": true
+   },
+   "W7_seed2024": {
+    "hash": "f1030b66526325baaeb2b9327238fd362cbca1e2b378206897a49cd85f038ea6",
+    "n_records": 366,
+    "variants_identical": true
+   },
+   "W14_seed42": {
+    "hash": "9735fee1836092056264a8870425765d6c8f2ff50fa0b6b50bce10a5a1d854e8",
+    "n_records": 538,
+    "variants_identical": true
+   },
+   "W14_seed123": {
+    "hash": "1f0069920cfe361ab69a33d8bbaf3bb05eee64625ef38457b87d7b679ba6b73c",
+    "n_records": 515,
+    "variants_identical": true
+   },
+   "W14_seed2024": {
+    "hash": "c9f8a34d6e4561095570a865cffeb33f24bc66d7e3212ca319f02bf3a09f1898",
+    "n_records": 508,
+    "variants_identical": true
+   }
+  },
+  "passed": true
+ },
+ "S3": {
+  "results": {
+   "c60_W3_seed42": {
+    "identical_across_future_corruptions": true,
+    "positive_control_detects_change": true,
+    "hash": "bb7764fdacc220ab5ce2646e00fcbee94723aa8b36c23fd604b8828c260062e7"
+   },
+   "c60_W3_seed123": {
+    "identical_across_future_corruptions": true,
+    "positive_control_detects_change": true,
+    "hash": "808e3e6afaa263d1966461c816d1c5aa8513e2dfde8a6cb27665a893581d90d8"
+   },
+   "c60_W3_seed2024": {
+    "identical_across_future_corruptions": true,
+    "positive_control_detects_change": true,
+    "hash": "9e6a61be10370ff4bd4d3c671b39f379bfd1ed146212d0cd50d90acbf622b060"
+   },
+   "c60_W7_seed42": {
+    "identical_across_future_corruptions": true,
+    "positive_control_detects_change": true,
+    "hash": "c3faba6c042a2ba29ca662e6fae962042c6ac8cdf065bff2ffbf4356ac6e75b1"
+   },
+   "c60_W7_seed123": {
+    "identical_across_future_corruptions": true,
+    "positive_control_detects_change": true,
+    "hash": "cb32f665016a9f48baf4ad589d156523ba1b13fc5f73469bb8696f61c1eff60c"
+   },
+   "c60_W7_seed2024": {
+    "identical_across_future_corruptions": true,
+    "positive_control_detects_change": true,
+    "hash": "ad7ad0400136b18ca48445147779279248005bd9bc18cb7d6040e201a8ea073f"
+   },
+   "c60_W14_seed42": {
+    "identical_across_future_corruptions": true,
+    "positive_control_detects_change": true,
+    "hash": "aaa5d3b50d47706e9d8743727a6710348cc4d218778f7aea6643c7eb58dfb1a4"
+   },
+   "c60_W14_seed123": {
+    "identical_across_future_corruptions": true,
+    "positive_control_detects_change": true,
+    "hash": "7557215824952d01490f94f01e0587f06f9565e02cd091882f51a6c148dc8d70"
+   },
+   "c60_W14_seed2024": {
+    "identical_across_future_corruptions": true,
+    "positive_control_detects_change": true,
+    "hash": "7e977484fd339ea1f61dbc100b164cb1a2f9a1b8ab790aa6ee57e7dc5330bcf9"
+   },
+   "c100_W3_seed42": {
+    "identical_across_future_corruptions": true,
+    "positive_control_detects_change": true,
+    "hash": "a6faaab206c647b172d1b01d318952b3d240af59ddfc3cb78e2aa9b1626a48d1"
+   },
+   "c100_W3_seed123": {
+    "identical_across_future_corruptions": true,
+    "positive_control_detects_change": true,
+    "hash": "4efd0e652a3e2e8e5a1508f1adddae3a8ad5957f243a72fde273c583ba56e557"
+   },
+   "c100_W3_seed2024": {
+    "identical_across_future_corruptions": true,
+    "positive_control_detects_change": true,
+    "hash": "328e6d2777a106d511cbbd3aa6889aac7c0bd3f8e58def454fc6d2ccd57be20f"
+   },
+   "c100_W7_seed42": {
+    "identical_across_future_corruptions": true,
+    "positive_control_detects_change": true,
+    "hash": "35d71885d0a1406d5b5a25915e9048f9e12bf1f9180354a177cc982d1bfa7cc2"
+   },
+   "c100_W7_seed123": {
+    "identical_across_future_corruptions": true,
+    "positive_control_detects_change": true,
+    "hash": "691e1418f4642ed5ba1213c7cc1ad7fa0063281359468d7ee3a149ea0266d5eb"
+   },
+   "c100_W7_seed2024": {
+    "identical_across_future_corruptions": true,
+    "positive_control_detects_change": true,
+    "hash": "85ad752a092e05aaa163b673201225256503d16a9a2784821b8579ee8057b0b7"
+   },
+   "c100_W14_seed42": {
+    "identical_across_future_corruptions": true,
+    "positive_control_detects_change": true,
+    "hash": "3287f1142b8ecd49e9050969361ed2bd1061636a953e7eba5a1adc7da498403d"
+   },
+   "c100_W14_seed123": {
+    "identical_across_future_corruptions": true,
+    "positive_control_detects_change": true,
+    "hash": "4a75f9f7d2eedb121c680e27bdbcc56d3a90d7331b067aa3f9a616ae40425fb6"
+   },
+   "c100_W14_seed2024": {
+    "identical_across_future_corruptions": true,
+    "positive_control_detects_change": true,
+    "hash": "308225ee48a48569346c4272ca87285d7f9b9ca226114db655ded683459a586c"
+   },
+   "c121_W3_seed42": {
+    "identical_across_future_corruptions": true,
+    "positive_control_detects_change": true,
+    "hash": "f4622c198852641e178a83cc1c50c2f27e6f3827dab3b65fdad448c792cc6070"
+   },
+   "c121_W3_seed123": {
+    "identical_across_future_corruptions": true,
+    "positive_control_detects_change": true,
+    "hash": "87c58de5623a990f624418faebaf761cb53f608731bde7c8f4ebd00a9542ca9d"
+   },
+   "c121_W3_seed2024": {
+    "identical_across_future_corruptions": true,
+    "positive_control_detects_change": true,
+    "hash": "f91c9f1808542b5689308c84d5c32eee82200bbd28840a8b90cbdb490a99cac6"
+   },
+   "c121_W7_seed42": {
+    "identical_across_future_corruptions": true,
+    "positive_control_detects_change": true,
+    "hash": "15794e4bbf2b0908ed5ac1a8d60edb71995e47ff4472e531fb229096d0fc95e5"
+   },
+   "c121_W7_seed123": {
+    "identical_across_future_corruptions": true,
+    "positive_control_detects_change": true,
+    "hash": "76b724b4781e0630a5d1527ceeafd807b9425a4934cd8a11fe90868d2ae2c6d7"
+   },
+   "c121_W7_seed2024": {
+    "identical_across_future_corruptions": true,
+    "positive_control_detects_change": true,
+    "hash": "c56b524ba1a2dda52235840b60b93c8d4c2560a59148ff4c4d360c8f365b431e"
+   },
+   "c121_W14_seed42": {
+    "identical_across_future_corruptions": true,
+    "positive_control_detects_change": true,
+    "hash": "5852675981ec01e984e02e08e63d68c244e38577300556c191e41bfaf8903803"
+   },
+   "c121_W14_seed123": {
+    "identical_across_future_corruptions": true,
+    "positive_control_detects_change": true,
+    "hash": "4c4973102a57dcf8060c88cd154e66fbcea5e8b950cf0d5a4020c419755ab2d3"
+   },
+   "c121_W14_seed2024": {
+    "identical_across_future_corruptions": true,
+    "positive_control_detects_change": true,
+    "hash": "f35011be19d1df1d0f1eec143877b97974f1d9cffb9d7435f7fff6c5495bd66c"
+   },
+   "c136_W3_seed42": {
+    "identical_across_future_corruptions": true,
+    "positive_control_detects_change": true,
+    "hash": "5dd53d2287169ddc99852e493dd8a269f4aa7c57e98f6ddee85286ccfd699f9e"
+   },
+   "c136_W3_seed123": {
+    "identical_across_future_corruptions": true,
+    "positive_control_detects_change": true,
+    "hash": "1e53960c07938ac6fd0d30315775cc05ee95b7d7e15d7d232489a3de0afc6df0"
+   },
+   "c136_W3_seed2024": {
+    "identical_across_future_corruptions": true,
+    "positive_control_detects_change": true,
+    "hash": "822028988d63c2e4a5cee66fc6c72f4f52b437e0dccb7e894ed745dd04335c76"
+   },
+   "c136_W7_seed42": {
+    "identical_across_future_corruptions": true,
+    "positive_control_detects_change": true,
+    "hash": "fe4894d3d62fb4339486a965c24b793d820b9a04e247c36d90ae83c3dea079c2"
+   },
+   "c136_W7_seed123": {
+    "identical_across_future_corruptions": true,
+    "positive_control_detects_change": true,
+    "hash": "9c0d613e6e440c05ef6f4d9e0998a8e3cf38f174e0914e145e15eca1e5b0c9ff"
+   },
+   "c136_W7_seed2024": {
+    "identical_across_future_corruptions": true,
+    "positive_control_detects_change": true,
+    "hash": "80b7168104ad475dd2c566bab6231105ea030956bf14d3f9329a5423cfbba8be"
+   },
+   "c136_W14_seed42": {
+    "identical_across_future_corruptions": true,
+    "positive_control_detects_change": true,
+    "hash": "ffd42325853a902159550c2efb045ee011267f64170116d3ad0a328fa3027dd7"
+   },
+   "c136_W14_seed123": {
+    "identical_across_future_corruptions": true,
+    "positive_control_detects_change": true,
+    "hash": "f553f3e59458d8f256d84348d07d73e58020f69abf72ea3d4b6b2dbb4c4e7693"
+   },
+   "c136_W14_seed2024": {
+    "identical_across_future_corruptions": true,
+    "positive_control_detects_change": true,
+    "hash": "842f7a8f2f12922e310d3189c51eda0de7d5d4d9b5ffe746931dd78dda7d6624"
+   },
+   "c150_W3_seed42": {
+    "identical_across_future_corruptions": true,
+    "positive_control_detects_change": true,
+    "hash": "954316f230bd992baf78de94bba8fb498a225005f6cfe73255f146dd01aada22"
+   },
+   "c150_W3_seed123": {
+    "identical_across_future_corruptions": true,
+    "positive_control_detects_change": true,
+    "hash": "ef1ffb16fc252ef8d5ea6cc6e2b73e04885f20df1a8a18a02d2ccd06faa5625c"
+   },
+   "c150_W3_seed2024": {
+    "identical_across_future_corruptions": true,
+    "positive_control_detects_change": true,
+    "hash": "58f2b51fd15710b3c88ec4b98db0e12f84505dbcd357a21ef6d5f05e6a1b5816"
+   },
+   "c150_W7_seed42": {
+    "identical_across_future_corruptions": true,
+    "positive_control_detects_change": true,
+    "hash": "0cc14223dd3e185065ff6d9ff0585abff22f185ef440e6dd60c7a57d08be9ca6"
+   },
+   "c150_W7_seed123": {
+    "identical_across_future_corruptions": true,
+    "positive_control_detects_change": true,
+    "hash": "d06d7f0aa85249a14d628aba68a3565b433a6db6f4429dc28526748e9304e62d"
+   },
+   "c150_W7_seed2024": {
+    "identical_across_future_corruptions": true,
+    "positive_control_detects_change": true,
+    "hash": "9393970d294a1f8687a0a02be173f1a6f95d30fbb47729db54186ae4c5f1b8d2"
+   },
+   "c150_W14_seed42": {
+    "identical_across_future_corruptions": true,
+    "positive_control_detects_change": true,
+    "hash": "e87f810637336a882e6484996f22e83e9049114fe0148d4983543c56f7289a88"
+   },
+   "c150_W14_seed123": {
+    "identical_across_future_corruptions": true,
+    "positive_control_detects_change": true,
+    "hash": "d69822bf72915da5e628cf092c53a46a7ca604fbb47ca69cf9f63161714a74d7"
+   },
+   "c150_W14_seed2024": {
+    "identical_across_future_corruptions": true,
+    "positive_control_detects_change": true,
+    "hash": "8d5857057bc9a1a7cbcd033a0bb0fefa12553d1f2fabde230fb7a644ff233804"
+   }
+  },
+  "passed": true
+ },
+ "S4": {
+  "results": {
+   "W3_seed42": {
+    "hash1": "7ecef96a1ec7b6d855015a0f435fa01ac8b9165ebc96cfd27d7e0fd535413f30",
+    "hash2": "7ecef96a1ec7b6d855015a0f435fa01ac8b9165ebc96cfd27d7e0fd535413f30",
+    "in_process_identical": true,
+    "fresh_process_hash": "7ecef96a1ec7b6d855015a0f435fa01ac8b9165ebc96cfd27d7e0fd535413f30",
+    "fresh_process_identical": true
+   },
+   "W3_seed123": {
+    "hash1": "5e7c24fed976c64cd35afde6bb68fc4c05e6a5b73af9455f20bf4f0b1a67c4dc",
+    "hash2": "5e7c24fed976c64cd35afde6bb68fc4c05e6a5b73af9455f20bf4f0b1a67c4dc",
+    "in_process_identical": true
+   },
+   "W3_seed2024": {
+    "hash1": "4d30e236e85f4d15fda0a6cc1b186041def79e46cae724f60efaf8e12a8e82a3",
+    "hash2": "4d30e236e85f4d15fda0a6cc1b186041def79e46cae724f60efaf8e12a8e82a3",
+    "in_process_identical": true
+   },
+   "W7_seed42": {
+    "hash1": "819cef3b9ee09a44a0059db1777f4c13e62c65aaa1dc0052084ac29b8cf02a5f",
+    "hash2": "819cef3b9ee09a44a0059db1777f4c13e62c65aaa1dc0052084ac29b8cf02a5f",
+    "in_process_identical": true,
+    "fresh_process_hash": "819cef3b9ee09a44a0059db1777f4c13e62c65aaa1dc0052084ac29b8cf02a5f",
+    "fresh_process_identical": true
+   },
+   "W7_seed123": {
+    "hash1": "0833eb08b20120d2414ce13b409aa59c9cf5ac87a5e384ca9ed9bd740aa811a4",
+    "hash2": "0833eb08b20120d2414ce13b409aa59c9cf5ac87a5e384ca9ed9bd740aa811a4",
+    "in_process_identical": true
+   },
+   "W7_seed2024": {
+    "hash1": "f1030b66526325baaeb2b9327238fd362cbca1e2b378206897a49cd85f038ea6",
+    "hash2": "f1030b66526325baaeb2b9327238fd362cbca1e2b378206897a49cd85f038ea6",
+    "in_process_identical": true
+   },
+   "W14_seed42": {
+    "hash1": "9735fee1836092056264a8870425765d6c8f2ff50fa0b6b50bce10a5a1d854e8",
+    "hash2": "9735fee1836092056264a8870425765d6c8f2ff50fa0b6b50bce10a5a1d854e8",
+    "in_process_identical": true,
+    "fresh_process_hash": "9735fee1836092056264a8870425765d6c8f2ff50fa0b6b50bce10a5a1d854e8",
+    "fresh_process_identical": true
+   },
+   "W14_seed123": {
+    "hash1": "1f0069920cfe361ab69a33d8bbaf3bb05eee64625ef38457b87d7b679ba6b73c",
+    "hash2": "1f0069920cfe361ab69a33d8bbaf3bb05eee64625ef38457b87d7b679ba6b73c",
+    "in_process_identical": true
+   },
+   "W14_seed2024": {
+    "hash1": "c9f8a34d6e4561095570a865cffeb33f24bc66d7e3212ca319f02bf3a09f1898",
+    "hash2": "c9f8a34d6e4561095570a865cffeb33f24bc66d7e3212ca319f02bf3a09f1898",
+    "in_process_identical": true
+   }
+  },
+  "passed": true
+ },
+ "all_passed": true,
+ "failures": [],
+ "elapsed_s": 480.5
+}

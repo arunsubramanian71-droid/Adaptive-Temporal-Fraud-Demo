@@ -1,0 +1,16 @@
+{
+ "seed": 123,
+ "arm": "C_memory_ablated_temporal",
+ "hidden": 64,
+ "dropout": 0.3,
+ "lr": 0.001,
+ "weight_decay": 1e-05,
+ "max_epochs": 150,
+ "patience": 20,
+ "tbptt_days": 7,
+ "grad_clip": 1.0,
+ "optimizer_steps_per_epoch": 18,
+ "scale_pos_weight": 27.364852905273438,
+ "parameter_count": 179201,
+ "memory": "cumulative-mean (order-agnostic), MLP 64-192-64 per entity type"
+}

@@ -1,0 +1,374 @@
+{
+ "design": "section 18 timing-pilot gate",
+ "pilot_day": 121,
+ "repeats": 3,
+ "louvain_seed": 42,
+ "per_config": {
+  "W3_g0.5": {
+   "real_s": [
+    0.05196769999997741,
+    0.037681500000076085,
+    0.038120100000014645
+   ],
+   "null_s": [
+    0.04632379999998193,
+    0.05120339999996304,
+    0.04829810000001089
+   ],
+   "real_median_s": 0.038120100000014645,
+   "null_median_s": 0.04829810000001089,
+   "n_edges": 1926,
+   "n_cards": 563,
+   "n_infra": 671,
+   "n_candidates": 10
+  },
+  "W3_g1.0": {
+   "real_s": [
+    0.03916090000006989,
+    0.03940490000002228,
+    0.038939700000014454
+   ],
+   "null_s": [
+    0.0456510999999864,
+    0.047391599999969,
+    0.20238469999992503
+   ],
+   "real_median_s": 0.03916090000006989,
+   "null_median_s": 0.047391599999969,
+   "n_edges": 1926,
+   "n_cards": 563,
+   "n_infra": 671,
+   "n_candidates": 19
+  },
+  "W3_g2.0": {
+   "real_s": [
+    0.04100589999995918,
+    0.03999450000003435,
+    0.039985900000033325
+   ],
+   "null_s": [
+    0.051405599999952756,
+    0.050039400000059686,
+    0.05064590000006319
+   ],
+   "real_median_s": 0.03999450000003435,
+   "null_median_s": 0.05064590000006319,
+   "n_edges": 1926,
+   "n_cards": 563,
+   "n_infra": 671,
+   "n_candidates": 34
+  },
+  "W7_g0.5": {
+   "real_s": [
+    0.06815230000006522,
+    0.06862100000000737,
+    0.06939990000000762
+   ],
+   "null_s": [
+    0.07611739999993006,
+    0.07830320000005031,
+    0.08516480000002957
+   ],
+   "real_median_s": 0.06862100000000737,
+   "null_median_s": 0.07830320000005031,
+   "n_edges": 3756,
+   "n_cards": 916,
+   "n_infra": 1006,
+   "n_candidates": 13
+  },
+  "W7_g1.0": {
+   "real_s": [
+    0.07169629999998506,
+    0.2580643000000009,
+    0.0725444999999354
+   ],
+   "null_s": [
+    0.08472129999995559,
+    0.07775870000000396,
+    0.08639560000005986
+   ],
+   "real_median_s": 0.0725444999999354,
+   "null_median_s": 0.08472129999995559,
+   "n_edges": 3756,
+   "n_cards": 916,
+   "n_infra": 1006,
+   "n_candidates": 21
+  },
+  "W7_g2.0": {
+   "real_s": [
+    0.07175000000006548,
+    0.07173609999995278,
+    0.07198590000007243
+   ],
+   "null_s": [
+    0.09361919999992097,
+    0.08794699999998556,
+    0.08807170000000042
+   ],
+   "real_median_s": 0.07175000000006548,
+   "null_median_s": 0.08807170000000042,
+   "n_edges": 3756,
+   "n_cards": 916,
+   "n_infra": 1006,
+   "n_candidates": 40
+  },
+  "W14_g0.5": {
+   "real_s": [
+    0.11474299999997584,
+    0.116819200000009,
+    0.11598240000000715
+   ],
+   "null_s": [
+    0.3221851000000697,
+    0.12877190000006067,
+    0.12303099999996903
+   ],
+   "real_median_s": 0.11598240000000715,
+   "null_median_s": 0.12877190000006067,
+   "n_edges": 6563,
+   "n_cards": 1440,
+   "n_infra": 1438,
+   "n_candidates": 19
+  },
+  "W14_g1.0": {
+   "real_s": [
+    0.12286749999998392,
+    0.12660529999993742,
+    0.12675790000002962
+   ],
+   "null_s": [
+    0.12778579999996964,
+    0.3257969000000003,
+    0.13755780000008144
+   ],
+   "real_median_s": 0.12660529999993742,
+   "null_median_s": 0.13755780000008144,
+   "n_edges": 6563,
+   "n_cards": 1440,
+   "n_infra": 1438,
+   "n_candidates": 22
+  },
+  "W14_g2.0": {
+   "real_s": [
+    0.1156800999999632,
+    0.11725039999998899,
+    0.11457569999993211
+   ],
+   "null_s": [
+    0.15483519999997952,
+    0.1473640000000387,
+    0.35507570000004307
+   ],
+   "real_median_s": 0.1156800999999632,
+   "null_median_s": 0.15483519999997952,
+   "n_edges": 6563,
+   "n_cards": 1440,
+   "n_infra": 1438,
+   "n_candidates": 40
+  }
+ },
+ "cumulative_graph_median_s": 1.3208342000000357,
+ "median_real_window_s": 0.07173609999995278,
+ "max_real_window_s": 0.2580643000000009,
+ "planned_runs": [
+  {
+   "category": "null_calibration",
+   "config": "W3_g0.5",
+   "n_runs": 80,
+   "seconds_per_run": 0.04829810000001089,
+   "total_s": 3.8638480000008713
+  },
+  {
+   "category": "dev_discovery",
+   "config": "W3_g0.5",
+   "n_runs": 180,
+   "seconds_per_run": 0.038120100000014645,
+   "total_s": 6.861618000002636
+  },
+  {
+   "category": "null_calibration",
+   "config": "W3_g1.0",
+   "n_runs": 80,
+   "seconds_per_run": 0.047391599999969,
+   "total_s": 3.7913279999975202
+  },
+  {
+   "category": "dev_discovery",
+   "config": "W3_g1.0",
+   "n_runs": 180,
+   "seconds_per_run": 0.03916090000006989,
+   "total_s": 7.04896200001258
+  },
+  {
+   "category": "null_calibration",
+   "config": "W3_g2.0",
+   "n_runs": 80,
+   "seconds_per_run": 0.05064590000006319,
+   "total_s": 4.0516720000050555
+  },
+  {
+   "category": "dev_discovery",
+   "config": "W3_g2.0",
+   "n_runs": 180,
+   "seconds_per_run": 0.03999450000003435,
+   "total_s": 7.199010000006183
+  },
+  {
+   "category": "null_calibration",
+   "config": "W7_g0.5",
+   "n_runs": 80,
+   "seconds_per_run": 0.07830320000005031,
+   "total_s": 6.264256000004025
+  },
+  {
+   "category": "dev_discovery",
+   "config": "W7_g0.5",
+   "n_runs": 180,
+   "seconds_per_run": 0.06862100000000737,
+   "total_s": 12.351780000001327
+  },
+  {
+   "category": "null_calibration",
+   "config": "W7_g1.0",
+   "n_runs": 80,
+   "seconds_per_run": 0.08472129999995559,
+   "total_s": 6.777703999996447
+  },
+  {
+   "category": "dev_discovery",
+   "config": "W7_g1.0",
+   "n_runs": 180,
+   "seconds_per_run": 0.0725444999999354,
+   "total_s": 13.058009999988371
+  },
+  {
+   "category": "null_calibration",
+   "config": "W7_g2.0",
+   "n_runs": 80,
+   "seconds_per_run": 0.08807170000000042,
+   "total_s": 7.0457360000000335
+  },
+  {
+   "category": "dev_discovery",
+   "config": "W7_g2.0",
+   "n_runs": 180,
+   "seconds_per_run": 0.07175000000006548,
+   "total_s": 12.915000000011787
+  },
+  {
+   "category": "null_calibration",
+   "config": "W14_g0.5",
+   "n_runs": 80,
+   "seconds_per_run": 0.12877190000006067,
+   "total_s": 10.301752000004853
+  },
+  {
+   "category": "dev_discovery",
+   "config": "W14_g0.5",
+   "n_runs": 180,
+   "seconds_per_run": 0.11598240000000715,
+   "total_s": 20.876832000001286
+  },
+  {
+   "category": "null_calibration",
+   "config": "W14_g1.0",
+   "n_runs": 80,
+   "seconds_per_run": 0.13755780000008144,
+   "total_s": 11.004624000006515
+  },
+  {
+   "category": "dev_discovery",
+   "config": "W14_g1.0",
+   "n_runs": 180,
+   "seconds_per_run": 0.12660529999993742,
+   "total_s": 22.788953999988735
+  },
+  {
+   "category": "null_calibration",
+   "config": "W14_g2.0",
+   "n_runs": 80,
+   "seconds_per_run": 0.15483519999997952,
+   "total_s": 12.386815999998362
+  },
+  {
+   "category": "dev_discovery",
+   "config": "W14_g2.0",
+   "n_runs": 180,
+   "seconds_per_run": 0.1156800999999632,
+   "total_s": 20.822417999993377
+  },
+  {
+   "category": "eval_discovery",
+   "config": "W3",
+   "n_runs": 90,
+   "seconds_per_run": 0.03909183333337296,
+   "total_s": 3.5182650000035665
+  },
+  {
+   "category": "real_clean_discovery",
+   "config": "W3",
+   "n_runs": 90,
+   "seconds_per_run": 0.03909183333337296,
+   "total_s": 3.5182650000035665
+  },
+  {
+   "category": "eval_discovery",
+   "config": "W7",
+   "n_runs": 90,
+   "seconds_per_run": 0.07097183333333608,
+   "total_s": 6.3874650000002475
+  },
+  {
+   "category": "real_clean_discovery",
+   "config": "W7",
+   "n_runs": 90,
+   "seconds_per_run": 0.07097183333333608,
+   "total_s": 6.3874650000002475
+  },
+  {
+   "category": "eval_discovery",
+   "config": "W14",
+   "n_runs": 90,
+   "seconds_per_run": 0.11942259999996925,
+   "total_s": 10.748033999997233
+  },
+  {
+   "category": "real_clean_discovery",
+   "config": "W14",
+   "n_runs": 90,
+   "seconds_per_run": 0.11942259999996925,
+   "total_s": 10.748033999997233
+  },
+  {
+   "category": "E0_degree_preserving_null",
+   "config": "W7",
+   "n_runs": 1200,
+   "seconds_per_run": 0.08369873333333544,
+   "total_s": 100.43848000000253
+  },
+  {
+   "category": "A10_cumulative",
+   "config": "cumulative",
+   "n_runs": 90,
+   "seconds_per_run": 1.3208342000000357,
+   "total_s": 118.87507800000321
+  },
+  {
+   "category": "tau_calibration_TRAIN_background",
+   "config": "W7",
+   "n_runs": 30,
+   "seconds_per_run": 0.07097183333333608,
+   "total_s": 2.1291550000000825
+  }
+ ],
+ "n_planned_runs": 4200,
+ "louvain_total_s": 452.1605610000279,
+ "overhead_factor": 1.5,
+ "projected_total_cpu_s": 678.2408415000418,
+ "projected_total_cpu_h": 0.1884002337500116,
+ "gate_median_s": 60.0,
+ "gate_total_h": 24.0,
+ "gate_median_tripped": false,
+ "gate_total_tripped": false,
+ "passed": true
+}

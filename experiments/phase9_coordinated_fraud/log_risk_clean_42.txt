@@ -1,0 +1,2 @@
+[WARNING] failed to run offload-arch: binary not found.
+{'kind': 'clean', 'seed': 42, 'device': 'cpu', 'seconds': 9.6, 'checkpoint_sha256': 'c85393b93ce2c4c74cbf77406b6655cf8b98b48434bea143030852dba8e2148a', 'n_rows': 501214}

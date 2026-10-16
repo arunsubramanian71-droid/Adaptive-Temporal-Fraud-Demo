@@ -1,0 +1,46 @@
+{
+ "experiment": "xgboost_historical_control",
+ "purpose": "Control baseline: isolates the predictive power of strictly historical, account-level features alone (Phase 1 'Level 3.5 blocklist baseline'), to test whether apparent future graph-model gains are actually recovering this same account-level labeling structure rather than discovering new signal.",
+ "random_state": 42,
+ "split": {
+  "train_days": [
+   1,
+   121
+  ],
+  "val_days": [
+   122,
+   151
+  ],
+  "test_days": [
+   152,
+   182
+  ]
+ },
+ "model": {
+  "type": "XGBClassifier",
+  "n_estimators": 1000,
+  "max_depth": 6,
+  "learning_rate": 0.05,
+  "tree_method": "hist",
+  "scale_pos_weight": 27.36485293118674,
+  "early_stopping_rounds": 50,
+  "best_iteration": 95,
+  "note": "identical hyperparameters to scripts/train_xgboost.py, deliberately, so any performance gap is attributable to the feature set alone"
+ },
+ "feature_count": 12,
+ "features": [
+  "card1_prior_txn_count",
+  "card1_prior_fraud_count",
+  "card1_prior_fraud_flag",
+  "card1_has_prior_history",
+  "card1_prior_fraud_rate",
+  "card1_days_since_prev_txn",
+  "account_prior_txn_count",
+  "account_prior_fraud_count",
+  "account_prior_fraud_flag",
+  "account_has_prior_history",
+  "account_prior_fraud_rate",
+  "account_days_since_prev_txn"
+ ],
+ "feature_source": "src/features/historical.py \u2014 strictly information_time < transaction_time; computed over the full chronological labeled dataset, verified via an independent leakage self-check (scripts/build_historical_features.py)"
+}

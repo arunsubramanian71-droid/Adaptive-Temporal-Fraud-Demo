@@ -1,0 +1,12 @@
+=== Graph validation results ===
+[PASS ] no_duplicate_edges — no duplicate (src,dst) pairs in any relation
+[PASS ] self_loops — all relations are Transaction<->Entity (bipartite by construction); a same-node-type self-loop is not structurally possible here
+[PASS ] temporal_consistency — edge_time exactly matches source transaction day on every forward edge
+[PASS ] temporal_masking_mechanism — verified at cutoffs [121, 151, 182, 60, 1]: zero future edges, zero reachable future transactions
+[PASS ] extreme_degree — no entity node type exceeds the 20000-degree hub threshold
+[PASS ] no_isolated_transactions — 0 isolated transaction nodes (every transaction has >=1 entity edge)
+[PASS ] entity_id_maps_fully_used — every entity node index is the destination of >=1 edge
+[PASS ] edge_count_matches_estimate — built edge counts match the pre-construction estimate exactly, for every relation
+
+8/8 checks passed.
+Wrote C:\Users\ArunHBK\Desktop\Adaptive-Temporal-Fraud\data\processed\graph\validation_results.json

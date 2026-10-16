@@ -1,0 +1,13 @@
+{
+ "parameter_count": 179201,
+ "training_wall_seconds": 123.0,
+ "epochs_run": 93,
+ "best_epoch": 73,
+ "stopped_early": true,
+ "optimizer_steps_per_epoch": 18,
+ "total_optimizer_steps": 1674,
+ "optimizer_steps_to_best_epoch": 1314,
+ "mean_seconds_per_epoch": 1.323,
+ "peak_gpu_memory_reserved_gib": 1.887,
+ "peak_gpu_memory_allocated_gib": 1.337
+}

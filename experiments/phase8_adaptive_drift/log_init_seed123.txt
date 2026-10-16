@@ -1,0 +1,3 @@
+[WARNING] failed to run offload-arch: binary not found.
+seed 123: K=10 lr=0.001 threshold=0.9360 (holdout PR-AUC 0.5618535876929808) -- locked, will not be revisited using VAL
+seed 123: wrote shared initial checkpoint to C:\Users\ArunHBK\Desktop\Adaptive-Temporal-Fraud\experiments\phase8_adaptive_drift\shared_init\model_checkpoint_initial_seed123.pt

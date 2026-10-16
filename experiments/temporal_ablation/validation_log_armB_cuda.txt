@@ -1,0 +1,34 @@
+[WARNING] failed to run offload-arch: binary not found.
+arm B, device cuda:0 (GPU - noise-floor tolerance)
+=== static-protocol checks (dataset level) ===
+  [PASS] scaler_fit_on_train_only: scaler equals TRAIN-only refit: True; differs from an all-data fit (detectable): True
+  [PASS] training_windows: 18 windows; 417,559 targets == 417,559 TRAIN txns; max target day 121; disjoint=True; chronological=True
+  [PASS] training graph: max edge_time in TRAIN-masked graph = 121 (train ends 121)
+  [PASS] static_masked_graph_isolates_future_nodes: for all 30 scored days t, no edge touches any transaction with day > t (incl. all TEST rows present in the file) - OK
+  [PASS] scored_days_are_validation_only: scored days 122..151; TEST starts 152; TEST never scored
+
+  --- seed 42 (trained checkpoint) ---
+C:\Users\ArunHBK\Desktop\Adaptive-Temporal-Fraud\scripts\validate_temporal_ablation.py:244: RuntimeWarning: overflow encountered in exp
+  p_local = np.concatenate([1 / (1 + np.exp(-base_lg[t].astype(np.float64))) for t in val_days])
+  [PASS] rolling_logits_equals_rolling_predict: max|p_local - rolling_predict| = 4.86e-07
+  [PASS] future_invariance cutoff 122: corrupting features+edges+labels of every day > 122 (TEST included): max|dlogit| on days 122..122 = 1.144e-05 (noise floor 1.221e-04; within noise floor)
+  [PASS] future_invariance cutoff 136: corrupting features+edges+labels of every day > 136 (TEST included): max|dlogit| on days 122..136 = 2.441e-04 (noise floor 1.221e-04; within noise floor)
+  [PASS] future_invariance cutoff 151: corrupting features+edges+labels of every day > 151 (TEST included): max|dlogit| on days 122..151 = 1.221e-04 (noise floor 1.221e-04; within noise floor)
+  [PASS] past_sensitivity: corrupting days 116..121 changes later predictions: max|dlogit| = 1.762e+02 (test can detect dependence)
+
+  --- seed 123 (trained checkpoint) ---
+  [PASS] rolling_logits_equals_rolling_predict: max|p_local - rolling_predict| = 7.25e-07
+  [PASS] future_invariance cutoff 122: corrupting features+edges+labels of every day > 122 (TEST included): max|dlogit| on days 122..122 = 1.526e-05 (noise floor 2.441e-04; within noise floor)
+  [PASS] future_invariance cutoff 136: corrupting features+edges+labels of every day > 136 (TEST included): max|dlogit| on days 122..136 = 1.526e-05 (noise floor 2.441e-04; within noise floor)
+  [PASS] future_invariance cutoff 151: corrupting features+edges+labels of every day > 151 (TEST included): max|dlogit| on days 122..151 = 2.441e-04 (noise floor 2.441e-04; within noise floor)
+  [PASS] past_sensitivity: corrupting days 116..121 changes later predictions: max|dlogit| = 1.966e+02 (test can detect dependence)
+
+  --- seed 2024 (trained checkpoint) ---
+  [PASS] rolling_logits_equals_rolling_predict: max|p_local - rolling_predict| = 2.52e-07
+  [PASS] future_invariance cutoff 122: corrupting features+edges+labels of every day > 122 (TEST included): max|dlogit| on days 122..122 = 1.907e-06 (noise floor 3.052e-05; within noise floor)
+  [PASS] future_invariance cutoff 136: corrupting features+edges+labels of every day > 136 (TEST included): max|dlogit| on days 122..136 = 3.052e-05 (noise floor 3.052e-05; within noise floor)
+  [PASS] future_invariance cutoff 151: corrupting features+edges+labels of every day > 151 (TEST included): max|dlogit| on days 122..151 = 3.052e-05 (noise floor 3.052e-05; within noise floor)
+  [PASS] past_sensitivity: corrupting days 116..121 changes later predictions: max|dlogit| = 5.613e+01 (test can detect dependence)
+
+20/20 checks passed.
+Wrote C:\Users\ArunHBK\Desktop\Adaptive-Temporal-Fraud\experiments\temporal_ablation\leakage_validation\leakage_validation_armB_cuda.json

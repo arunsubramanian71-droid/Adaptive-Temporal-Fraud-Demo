@@ -1,0 +1,47 @@
+{
+ "experiment": "graphsage",
+ "random_state": 42,
+ "architecture": {
+  "type": "HeteroSAGE",
+  "hidden": 64,
+  "layers": 2,
+  "dropout": 0.3,
+  "activation": "ReLU",
+  "aggr": "sum",
+  "parameter_count": 162817
+ },
+ "training": {
+  "optimizer": "Adam",
+  "lr": 0.001,
+  "weight_decay": 1e-05,
+  "loss": "BCEWithLogits",
+  "scale_pos_weight": 27.364852905273438,
+  "max_epochs": 60,
+  "patience": 10,
+  "best_epoch": 59,
+  "epochs_run": 60
+ },
+ "split": {
+  "train_days": [
+   1,
+   121
+  ],
+  "val_days": [
+   122,
+   151
+  ],
+  "test_days": [
+   152,
+   182
+  ]
+ },
+ "temporal_evaluation": "rolling per-day cutoff (src/graph/rolling_eval.py): each day t scored using graph masked to edge_time<=t, keeping only that day's own transaction predictions",
+ "feature_dims": {
+  "transaction": 470,
+  "pseudo_account": 1,
+  "card": 1,
+  "netproxy": 1,
+  "device_fingerprint": 1
+ },
+ "device": "cuda:0"
+}

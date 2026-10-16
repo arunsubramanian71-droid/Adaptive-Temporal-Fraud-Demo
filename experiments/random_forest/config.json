@@ -1,0 +1,80 @@
+{
+ "experiment": "random_forest",
+ "random_state": 42,
+ "split": {
+  "train_days": [
+   1,
+   121
+  ],
+  "val_days": [
+   122,
+   151
+  ],
+  "test_days": [
+   152,
+   182
+  ]
+ },
+ "model": {
+  "type": "RandomForestClassifier",
+  "n_estimators": 200,
+  "max_depth": 16,
+  "min_samples_leaf": 5,
+  "class_weight": "balanced_subsample"
+ },
+ "feature_count": 470,
+ "encoding_strategy": {
+  "continuous_raw_then_median_imputed_for_rf": 400,
+  "boolean_flags": 27,
+  "frequency_encoded": [
+   "card1",
+   "card2",
+   "card3",
+   "card5",
+   "addr1",
+   "addr2",
+   "id_30",
+   "id_31",
+   "id_33",
+   "DeviceInfo",
+   "ProductCD",
+   "card4",
+   "card6",
+   "DeviceType",
+   "P_emaildomain",
+   "R_emaildomain"
+  ],
+  "ordinal_encoded_low_cardinality": [
+   "ProductCD",
+   "card4",
+   "card6",
+   "DeviceType",
+   "M1",
+   "M2",
+   "M3",
+   "M4",
+   "M5",
+   "M6",
+   "M7",
+   "M8",
+   "M9",
+   "id_12",
+   "id_15",
+   "id_16",
+   "id_23",
+   "id_27",
+   "id_28",
+   "id_29",
+   "id_34",
+   "id_35",
+   "id_36",
+   "id_37",
+   "id_38"
+  ],
+  "raw_time_columns": [
+   "hour",
+   "day_of_week"
+  ],
+  "note": "card1/2/3/5, addr1/2, TransactionAmt kept RAW (unlike the LR baseline) \u2014 trees don't need scaling and don't suffer LR's false-linear-ordering problem for anonymized tokens."
+ }
+}

@@ -1,0 +1,68 @@
+{
+ "train": {
+  "pseudo_account": {
+   "n_transactions_with_this_edge": 369586,
+   "n_warm_start": 216994,
+   "n_cold_start": 152592
+  },
+  "card": {
+   "n_transactions_with_this_edge": 417559,
+   "n_warm_start": 405284,
+   "n_cold_start": 12275
+  },
+  "netproxy": {
+   "n_transactions_with_this_edge": 107178,
+   "n_warm_start": 105010,
+   "n_cold_start": 2168
+  },
+  "device_fingerprint": {
+   "n_transactions_with_this_edge": 56419,
+   "n_warm_start": 52683,
+   "n_cold_start": 3736
+  }
+ },
+ "val": {
+  "pseudo_account": {
+   "n_transactions_with_this_edge": 75300,
+   "n_warm_start": 52276,
+   "n_cold_start": 23024
+  },
+  "card": {
+   "n_transactions_with_this_edge": 83655,
+   "n_warm_start": 83016,
+   "n_cold_start": 639
+  },
+  "netproxy": {
+   "n_transactions_with_this_edge": 14186,
+   "n_warm_start": 14068,
+   "n_cold_start": 118
+  },
+  "device_fingerprint": {
+   "n_transactions_with_this_edge": 6084,
+   "n_warm_start": 5663,
+   "n_cold_start": 421
+  }
+ },
+ "test": {
+  "pseudo_account": {
+   "n_transactions_with_this_edge": 79948,
+   "n_warm_start": 55939,
+   "n_cold_start": 24009
+  },
+  "card": {
+   "n_transactions_with_this_edge": 89326,
+   "n_warm_start": 88687,
+   "n_cold_start": 639
+  },
+  "netproxy": {
+   "n_transactions_with_this_edge": 17848,
+   "n_warm_start": 17740,
+   "n_cold_start": 108
+  },
+  "device_fingerprint": {
+   "n_transactions_with_this_edge": 8617,
+   "n_warm_start": 7894,
+   "n_cold_start": 723
+  }
+ }
+}

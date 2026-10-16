@@ -1,0 +1,136 @@
+[WARNING] failed to run offload-arch: binary not found.
+device=cuda:0
+
+======================================================================
+SEED 42 (schedule-matched static; max_epochs=150, patience=20)
+======================================================================
+  params=162,817 | optimizer steps/epoch=18 | windows: [(1, 7), (8, 14)] ... [(113, 119), (120, 121)]
+  epoch   1: loss=1.0910  VAL PR-AUC=0.2893  ROC-AUC=0.8214  (train 6.5s + eval 2.3s) *
+  epoch   2: loss=0.9684  VAL PR-AUC=0.3430  ROC-AUC=0.8421  (train 4.7s + eval 2.3s) *
+  epoch   3: loss=0.9195  VAL PR-AUC=0.3732  ROC-AUC=0.8526  (train 4.7s + eval 2.2s) *
+  epoch   4: loss=0.8826  VAL PR-AUC=0.3903  ROC-AUC=0.8586  (train 4.7s + eval 2.2s) *
+  epoch   5: loss=0.8577  VAL PR-AUC=0.3996  ROC-AUC=0.8611  (train 4.7s + eval 2.2s) *
+  epoch   6: loss=0.8310  VAL PR-AUC=0.4093  ROC-AUC=0.8631  (train 4.7s + eval 2.2s) *
+  epoch   7: loss=0.8077  VAL PR-AUC=0.4221  ROC-AUC=0.8658  (train 4.8s + eval 2.2s) *
+  epoch   8: loss=0.7921  VAL PR-AUC=0.4239  ROC-AUC=0.8645  (train 4.7s + eval 2.2s) *
+  epoch   9: loss=0.7690  VAL PR-AUC=0.4315  ROC-AUC=0.8663  (train 4.7s + eval 2.2s) *
+  epoch  10: loss=0.7558  VAL PR-AUC=0.4309  ROC-AUC=0.8663  (train 4.7s + eval 2.2s)
+  epoch  13: loss=0.7124  VAL PR-AUC=0.4351  ROC-AUC=0.8687  (train 4.7s + eval 2.2s) *
+  epoch  15: loss=0.6775  VAL PR-AUC=0.4390  ROC-AUC=0.8676  (train 4.7s + eval 2.2s) *
+  epoch  16: loss=0.6719  VAL PR-AUC=0.4402  ROC-AUC=0.8681  (train 4.7s + eval 2.2s) *
+  epoch  17: loss=0.6549  VAL PR-AUC=0.4442  ROC-AUC=0.8644  (train 4.7s + eval 2.2s) *
+  epoch  18: loss=0.6429  VAL PR-AUC=0.4488  ROC-AUC=0.8701  (train 4.7s + eval 2.5s) *
+  epoch  19: loss=0.6380  VAL PR-AUC=0.4502  ROC-AUC=0.8687  (train 4330.1s + eval 2.3s) *
+  epoch  20: loss=0.6348  VAL PR-AUC=0.4462  ROC-AUC=0.8655  (train 4.7s + eval 2.2s)
+  epoch  21: loss=0.6146  VAL PR-AUC=0.4555  ROC-AUC=0.8642  (train 4.7s + eval 2.2s) *
+  epoch  25: loss=0.5648  VAL PR-AUC=0.4604  ROC-AUC=0.8662  (train 4.8s + eval 2.3s) *
+  epoch  30: loss=0.5278  VAL PR-AUC=0.4583  ROC-AUC=0.8537  (train 4.8s + eval 2.3s)
+  epoch  31: loss=0.5330  VAL PR-AUC=0.4656  ROC-AUC=0.8629  (train 4.8s + eval 2.3s) *
+  epoch  35: loss=0.4999  VAL PR-AUC=0.4701  ROC-AUC=0.8515  (train 4.8s + eval 2.3s) *
+  epoch  40: loss=0.4635  VAL PR-AUC=0.4627  ROC-AUC=0.8522  (train 4.7s + eval 2.2s)
+  epoch  45: loss=0.4473  VAL PR-AUC=0.4599  ROC-AUC=0.8481  (train 4.7s + eval 2.2s)
+  epoch  50: loss=0.4304  VAL PR-AUC=0.4622  ROC-AUC=0.8411  (train 4.7s + eval 2.2s)
+  epoch  51: loss=0.4201  VAL PR-AUC=0.4704  ROC-AUC=0.8510  (train 4.7s + eval 2.2s) *
+  epoch  55: loss=0.4077  VAL PR-AUC=0.4629  ROC-AUC=0.8441  (train 4.8s + eval 2.2s)
+  epoch  60: loss=0.3952  VAL PR-AUC=0.4576  ROC-AUC=0.8427  (train 4.8s + eval 2.3s)
+  epoch  65: loss=0.3823  VAL PR-AUC=0.4519  ROC-AUC=0.8288  (train 4.7s + eval 2.2s)
+  epoch  70: loss=0.3737  VAL PR-AUC=0.4698  ROC-AUC=0.8430  (train 4.8s + eval 2.2s)
+  epoch  71: loss=0.3708  VAL PR-AUC=0.4754  ROC-AUC=0.8465  (train 4.7s + eval 2.2s) *
+  epoch  75: loss=0.3853  VAL PR-AUC=0.4641  ROC-AUC=0.8447  (train 4.7s + eval 2.2s)
+  epoch  76: loss=0.3770  VAL PR-AUC=0.4779  ROC-AUC=0.8532  (train 4.7s + eval 2.2s) *
+  epoch  80: loss=0.3443  VAL PR-AUC=0.4711  ROC-AUC=0.8448  (train 4.8s + eval 2.3s)
+  epoch  85: loss=0.3371  VAL PR-AUC=0.4742  ROC-AUC=0.8516  (train 4.7s + eval 2.2s)
+  epoch  90: loss=0.3183  VAL PR-AUC=0.4666  ROC-AUC=0.8507  (train 4.7s + eval 2.2s)
+  epoch  95: loss=0.3163  VAL PR-AUC=0.4653  ROC-AUC=0.8500  (train 4.7s + eval 2.2s)
+  EARLY STOPPING at epoch 96 (best epoch 76, PR-AUC 0.4779)
+  done in 4997.3s: 96 epochs (early-stopped), best epoch 76, 1728 optimizer steps
+  FINAL: pooled PR-AUC=0.4779  cold=0.3231  warm=0.3405  no-edge=0.7015
+
+======================================================================
+SEED 123 (schedule-matched static; max_epochs=150, patience=20)
+======================================================================
+  params=162,817 | optimizer steps/epoch=18 | windows: [(1, 7), (8, 14)] ... [(113, 119), (120, 121)]
+  epoch   1: loss=1.0958  VAL PR-AUC=0.2937  ROC-AUC=0.8254  (train 4.8s + eval 2.2s) *
+  epoch   2: loss=0.9698  VAL PR-AUC=0.3459  ROC-AUC=0.8416  (train 4.7s + eval 2.2s) *
+  epoch   3: loss=0.9144  VAL PR-AUC=0.3753  ROC-AUC=0.8518  (train 4.7s + eval 2.2s) *
+  epoch   4: loss=0.8740  VAL PR-AUC=0.3941  ROC-AUC=0.8581  (train 4.7s + eval 2.2s) *
+  epoch   5: loss=0.8484  VAL PR-AUC=0.4028  ROC-AUC=0.8619  (train 4.7s + eval 2.2s) *
+  epoch   6: loss=0.8352  VAL PR-AUC=0.4072  ROC-AUC=0.8645  (train 4.7s + eval 2.2s) *
+  epoch   7: loss=0.8180  VAL PR-AUC=0.4094  ROC-AUC=0.8664  (train 4.7s + eval 2.2s) *
+  epoch   8: loss=0.8094  VAL PR-AUC=0.4216  ROC-AUC=0.8681  (train 4.7s + eval 2.2s) *
+  epoch   9: loss=0.7912  VAL PR-AUC=0.4293  ROC-AUC=0.8686  (train 4.7s + eval 2.2s) *
+  epoch  10: loss=0.7660  VAL PR-AUC=0.4340  ROC-AUC=0.8711  (train 4.7s + eval 2.2s) *
+  epoch  12: loss=0.7316  VAL PR-AUC=0.4366  ROC-AUC=0.8712  (train 4.7s + eval 2.2s) *
+  epoch  13: loss=0.7223  VAL PR-AUC=0.4400  ROC-AUC=0.8718  (train 4.7s + eval 2.2s) *
+  epoch  15: loss=0.6910  VAL PR-AUC=0.4517  ROC-AUC=0.8728  (train 4.7s + eval 2.2s) *
+  epoch  18: loss=0.6441  VAL PR-AUC=0.4566  ROC-AUC=0.8729  (train 4.7s + eval 2.2s) *
+  epoch  20: loss=0.6290  VAL PR-AUC=0.4439  ROC-AUC=0.8692  (train 4.7s + eval 2.2s)
+  epoch  21: loss=0.6147  VAL PR-AUC=0.4665  ROC-AUC=0.8745  (train 4.7s + eval 2.2s) *
+  epoch  22: loss=0.6032  VAL PR-AUC=0.4671  ROC-AUC=0.8698  (train 4.7s + eval 2.2s) *
+  epoch  25: loss=0.5715  VAL PR-AUC=0.4488  ROC-AUC=0.8716  (train 4.7s + eval 2.2s)
+  epoch  30: loss=0.5405  VAL PR-AUC=0.4560  ROC-AUC=0.8700  (train 4.7s + eval 2.2s)
+  epoch  31: loss=0.5240  VAL PR-AUC=0.4695  ROC-AUC=0.8713  (train 4.7s + eval 2.2s) *
+  epoch  35: loss=0.5071  VAL PR-AUC=0.4687  ROC-AUC=0.8645  (train 4.7s + eval 2.2s)
+  epoch  39: loss=0.4803  VAL PR-AUC=0.4802  ROC-AUC=0.8576  (train 4.7s + eval 2.2s) *
+  epoch  40: loss=0.4843  VAL PR-AUC=0.4761  ROC-AUC=0.8595  (train 4.7s + eval 2.2s)
+  epoch  41: loss=0.4694  VAL PR-AUC=0.4850  ROC-AUC=0.8667  (train 4.7s + eval 2.2s) *
+  epoch  45: loss=0.4634  VAL PR-AUC=0.4767  ROC-AUC=0.8678  (train 4.7s + eval 2.2s)
+  epoch  50: loss=0.4392  VAL PR-AUC=0.4846  ROC-AUC=0.8586  (train 4.7s + eval 2.2s)
+  epoch  53: loss=0.4167  VAL PR-AUC=0.4856  ROC-AUC=0.8599  (train 4.7s + eval 2.2s) *
+  epoch  55: loss=0.4007  VAL PR-AUC=0.4792  ROC-AUC=0.8575  (train 4.7s + eval 2.2s)
+  epoch  60: loss=0.3890  VAL PR-AUC=0.4770  ROC-AUC=0.8602  (train 4.7s + eval 2.2s)
+  epoch  63: loss=0.3788  VAL PR-AUC=0.4865  ROC-AUC=0.8576  (train 4.7s + eval 2.2s) *
+  epoch  65: loss=0.3818  VAL PR-AUC=0.4787  ROC-AUC=0.8546  (train 4.7s + eval 2.2s)
+  epoch  70: loss=0.3531  VAL PR-AUC=0.4701  ROC-AUC=0.8465  (train 4.7s + eval 2.2s)
+  epoch  75: loss=0.3429  VAL PR-AUC=0.4882  ROC-AUC=0.8572  (train 4.7s + eval 2.2s) *
+  epoch  77: loss=0.3533  VAL PR-AUC=0.4912  ROC-AUC=0.8523  (train 4.7s + eval 2.2s) *
+  epoch  80: loss=0.3343  VAL PR-AUC=0.4744  ROC-AUC=0.8412  (train 4.7s + eval 2.2s)
+  epoch  85: loss=0.3224  VAL PR-AUC=0.4818  ROC-AUC=0.8520  (train 4.7s + eval 2.2s)
+  epoch  90: loss=0.3295  VAL PR-AUC=0.4631  ROC-AUC=0.8500  (train 4.7s + eval 2.2s)
+  epoch  95: loss=0.3269  VAL PR-AUC=0.4692  ROC-AUC=0.8417  (train 4.7s + eval 2.2s)
+  EARLY STOPPING at epoch 97 (best epoch 77, PR-AUC 0.4912)
+  done in 4579.6s: 97 epochs (early-stopped), best epoch 77, 1746 optimizer steps
+  FINAL: pooled PR-AUC=0.4912  cold=0.3315  warm=0.3602  no-edge=0.7109
+
+======================================================================
+SEED 2024 (schedule-matched static; max_epochs=150, patience=20)
+======================================================================
+  params=162,817 | optimizer steps/epoch=18 | windows: [(1, 7), (8, 14)] ... [(113, 119), (120, 121)]
+  epoch   1: loss=1.0904  VAL PR-AUC=0.2690  ROC-AUC=0.8236  (train 4.8s + eval 2.2s) *
+  epoch   2: loss=0.9874  VAL PR-AUC=0.3395  ROC-AUC=0.8405  (train 4.7s + eval 2.2s) *
+  epoch   3: loss=0.9333  VAL PR-AUC=0.3688  ROC-AUC=0.8497  (train 4.7s + eval 2.2s) *
+  epoch   4: loss=0.8808  VAL PR-AUC=0.3876  ROC-AUC=0.8571  (train 4.7s + eval 2.2s) *
+  epoch   5: loss=0.8395  VAL PR-AUC=0.4046  ROC-AUC=0.8628  (train 4.7s + eval 2.2s) *
+  epoch   6: loss=0.8127  VAL PR-AUC=0.4148  ROC-AUC=0.8647  (train 4.7s + eval 2.2s) *
+  epoch   7: loss=0.7868  VAL PR-AUC=0.4266  ROC-AUC=0.8681  (train 4.7s + eval 2.2s) *
+  epoch   8: loss=0.7707  VAL PR-AUC=0.4282  ROC-AUC=0.8699  (train 4.7s + eval 2.2s) *
+  epoch  10: loss=0.7311  VAL PR-AUC=0.4294  ROC-AUC=0.8716  (train 4.7s + eval 2.2s) *
+  epoch  13: loss=0.6818  VAL PR-AUC=0.4388  ROC-AUC=0.8692  (train 4.7s + eval 2.2s) *
+  epoch  15: loss=0.6499  VAL PR-AUC=0.4428  ROC-AUC=0.8682  (train 4.7s + eval 2.2s) *
+  epoch  17: loss=0.6466  VAL PR-AUC=0.4456  ROC-AUC=0.8670  (train 4.7s + eval 2.2s) *
+  epoch  18: loss=0.6266  VAL PR-AUC=0.4477  ROC-AUC=0.8678  (train 4.7s + eval 2.2s) *
+  epoch  20: loss=0.5947  VAL PR-AUC=0.4437  ROC-AUC=0.8667  (train 4.7s + eval 2.2s)
+  epoch  25: loss=0.5563  VAL PR-AUC=0.4547  ROC-AUC=0.8655  (train 4.7s + eval 2.2s) *
+  epoch  26: loss=0.5404  VAL PR-AUC=0.4591  ROC-AUC=0.8527  (train 4.7s + eval 2.2s) *
+  epoch  28: loss=0.5296  VAL PR-AUC=0.4686  ROC-AUC=0.8605  (train 4.7s + eval 2.2s) *
+  epoch  30: loss=0.5334  VAL PR-AUC=0.4643  ROC-AUC=0.8593  (train 4.7s + eval 2.2s)
+  epoch  35: loss=0.4828  VAL PR-AUC=0.4589  ROC-AUC=0.8612  (train 4.7s + eval 2.2s)
+  epoch  40: loss=0.4688  VAL PR-AUC=0.4567  ROC-AUC=0.8540  (train 4.7s + eval 2.2s)
+  epoch  45: loss=0.4989  VAL PR-AUC=0.4660  ROC-AUC=0.8647  (train 4.7s + eval 2.2s)
+  EARLY STOPPING at epoch 48 (best epoch 28, PR-AUC 0.4686)
+  done in 331.8s: 48 epochs (early-stopped), best epoch 28, 864 optimizer steps
+  FINAL: pooled PR-AUC=0.4686  cold=0.3320  warm=0.2752  no-edge=0.7271
+
+======================================================================
+=== Cross-seed aggregation ===
+======================================================================
+  pooled_pr_auc   : [0.4779, 0.4912, 0.4686]  mean=0.4792 std=0.0114 min=0.4686 max=0.4912
+  pooled_roc_auc  : [0.8532, 0.8523, 0.8605]  mean=0.8554 std=0.0045 min=0.8523 max=0.8605
+  cold_pr_auc     : [0.3231, 0.3315, 0.332]  mean=0.3288 std=0.0050 min=0.3231 max=0.3320
+  cold_roc_auc    : [0.7713, 0.7825, 0.8018]  mean=0.7852 std=0.0154 min=0.7713 max=0.8018
+  warm_pr_auc     : [0.3405, 0.3602, 0.2752]  mean=0.3253 std=0.0445 min=0.2752 max=0.3602
+  warm_roc_auc    : [0.8321, 0.8285, 0.8334]  mean=0.8313 std=0.0026 min=0.8285 max=0.8334
+  no_edge_pr_auc  : [0.7015, 0.7109, 0.7271]  mean=0.7132 std=0.0129 min=0.7015 max=0.7271
+  no_edge_roc_auc : [0.8865, 0.8907, 0.8995]  mean=0.8923 std=0.0066 min=0.8865 max=0.8995
+
+Total runtime 9920.6s. TEST split was not used for any decision.

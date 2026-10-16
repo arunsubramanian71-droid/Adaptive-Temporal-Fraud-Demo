@@ -1,0 +1,2 @@
+[WARNING] failed to run offload-arch: binary not found.
+seed 123: arm Ad scored+updated across 5 windows (K=10 epochs/round, lr=0.001)

@@ -1,0 +1,60 @@
+{
+ "n_transaction_nodes": 590540,
+ "entity_stats": {
+  "pseudo_account": {
+   "n_nodes": 199625,
+   "n_edges": 524834,
+   "coverage_pct": 88.87,
+   "deg_median": 1.0,
+   "deg_p99": 19.0,
+   "deg_max": 1414
+  },
+  "card": {
+   "n_nodes": 13553,
+   "n_edges": 590540,
+   "coverage_pct": 100.0,
+   "deg_median": 4.0,
+   "deg_p99": 786.4399999999987,
+   "deg_max": 14932
+  },
+  "netproxy": {
+   "n_nodes": 2394,
+   "n_edges": 139212,
+   "coverage_pct": 23.57,
+   "deg_median": 6.0,
+   "deg_p99": 1080.3400000000101,
+   "deg_max": 5523
+  },
+  "device_fingerprint": {
+   "n_nodes": 4880,
+   "n_edges": 71120,
+   "coverage_pct": 12.04,
+   "deg_median": 2.0,
+   "deg_p99": 242.21000000000004,
+   "deg_max": 2566
+  }
+ },
+ "total_nodes": 810992,
+ "total_directed_edges": 1325706,
+ "total_edges_bidirectional": 2651412,
+ "txn_feature_dim": 470,
+ "entity_feature_dim": 1,
+ "estimated_memory_mb": 1142.9,
+ "gpu_reference": {
+  "sage_hidden_64": {
+   "nodes": 829217,
+   "edges": 2651412,
+   "train_peak_reserved_gib": 4.32,
+   "train_step_ms": 373
+  },
+  "sage_hidden_128": {
+   "nodes": 829217,
+   "edges": 2651412,
+   "train_peak_reserved_gib": 8.06,
+   "train_step_ms": 1108
+  },
+  "gpu_total_vram_gib": 15.98
+ },
+ "scale_factor_vs_reference": 0.978,
+ "entity_key_computation_seconds": 2.09
+}

@@ -1,0 +1,32 @@
+[WARNING] failed to run offload-arch: binary not found.
+seed 42: dev planted 9535 txns (5.000%), G5 True
+  seed 42 W=3 gamma=0.5: A2 AP 0.382 (47/60 groups), A1 AP 0.176
+  seed 42 W=3 gamma=1.0: A2 AP 0.212 (48/60 groups), A1 AP 0.066
+  seed 42 W=3 gamma=2.0: A2 AP 0.047 (47/60 groups), A1 AP 0.017
+  seed 42 W=7 gamma=0.5: A2 AP 0.393 (48/60 groups), A1 AP 0.196
+  seed 42 W=7 gamma=1.0: A2 AP 0.135 (45/60 groups), A1 AP 0.085
+  seed 42 W=7 gamma=2.0: A2 AP 0.055 (47/60 groups), A1 AP 0.017
+  seed 42 W=14 gamma=0.5: A2 AP 0.472 (50/60 groups), A1 AP 0.153
+  seed 42 W=14 gamma=1.0: A2 AP 0.135 (47/60 groups), A1 AP 0.101
+  seed 42 W=14 gamma=2.0: A2 AP 0.057 (48/60 groups), A1 AP 0.026
+seed 123: dev planted 9535 txns (5.000%), G5 True
+  seed 123 W=3 gamma=0.5: A2 AP 0.218 (44/60 groups), A1 AP 0.081
+  seed 123 W=3 gamma=1.0: A2 AP 0.118 (44/60 groups), A1 AP 0.044
+  seed 123 W=3 gamma=2.0: A2 AP 0.048 (45/60 groups), A1 AP 0.015
+  seed 123 W=7 gamma=0.5: A2 AP 0.235 (47/60 groups), A1 AP 0.130
+  seed 123 W=7 gamma=1.0: A2 AP 0.082 (43/60 groups), A1 AP 0.051
+  seed 123 W=7 gamma=2.0: A2 AP 0.050 (44/60 groups), A1 AP 0.018
+  seed 123 W=14 gamma=0.5: A2 AP 0.372 (44/60 groups), A1 AP 0.090
+  seed 123 W=14 gamma=1.0: A2 AP 0.081 (39/60 groups), A1 AP 0.052
+  seed 123 W=14 gamma=2.0: A2 AP 0.048 (39/60 groups), A1 AP 0.024
+seed 2024: dev planted 9535 txns (5.000%), G5 True
+  seed 2024 W=3 gamma=0.5: A2 AP 0.415 (49/60 groups), A1 AP 0.194
+  seed 2024 W=3 gamma=1.0: A2 AP 0.192 (50/60 groups), A1 AP 0.097
+  seed 2024 W=3 gamma=2.0: A2 AP 0.065 (50/60 groups), A1 AP 0.019
+  seed 2024 W=7 gamma=0.5: A2 AP 0.469 (52/60 groups), A1 AP 0.212
+  seed 2024 W=7 gamma=1.0: A2 AP 0.206 (51/60 groups), A1 AP 0.140
+  seed 2024 W=7 gamma=2.0: A2 AP 0.067 (51/60 groups), A1 AP 0.023
+  seed 2024 W=14 gamma=0.5: A2 AP 0.493 (53/60 groups), A1 AP 0.196
+  seed 2024 W=14 gamma=1.0: A2 AP 0.166 (52/60 groups), A1 AP 0.107
+  seed 2024 W=14 gamma=2.0: A2 AP 0.080 (49/60 groups), A1 AP 0.037
+LOCKED: gamma per W = {'3': 0.5, '7': 0.5, '14': 0.5} (primary W=7); elapsed 168.0s

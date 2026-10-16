@@ -1,0 +1,138 @@
+{
+ "ProductCD": [
+  "C",
+  "H",
+  "R",
+  "S",
+  "W"
+ ],
+ "card4": [
+  "__MISSING__",
+  "american express",
+  "discover",
+  "mastercard",
+  "visa"
+ ],
+ "card6": [
+  "__MISSING__",
+  "charge card",
+  "credit",
+  "debit",
+  "debit or credit"
+ ],
+ "DeviceType": [
+  "__MISSING__",
+  "desktop",
+  "mobile"
+ ],
+ "M1": [
+  "F",
+  "T",
+  "__MISSING__"
+ ],
+ "M2": [
+  "F",
+  "T",
+  "__MISSING__"
+ ],
+ "M3": [
+  "F",
+  "T",
+  "__MISSING__"
+ ],
+ "M4": [
+  "M0",
+  "M1",
+  "M2",
+  "__MISSING__"
+ ],
+ "M5": [
+  "F",
+  "T",
+  "__MISSING__"
+ ],
+ "M6": [
+  "F",
+  "T",
+  "__MISSING__"
+ ],
+ "M7": [
+  "F",
+  "T",
+  "__MISSING__"
+ ],
+ "M8": [
+  "F",
+  "T",
+  "__MISSING__"
+ ],
+ "M9": [
+  "F",
+  "T",
+  "__MISSING__"
+ ],
+ "id_12": [
+  "Found",
+  "NotFound",
+  "__MISSING__"
+ ],
+ "id_15": [
+  "Found",
+  "New",
+  "Unknown",
+  "__MISSING__"
+ ],
+ "id_16": [
+  "Found",
+  "NotFound",
+  "__MISSING__"
+ ],
+ "id_23": [
+  "IP_PROXY:ANONYMOUS",
+  "IP_PROXY:HIDDEN",
+  "IP_PROXY:TRANSPARENT",
+  "__MISSING__"
+ ],
+ "id_27": [
+  "Found",
+  "NotFound",
+  "__MISSING__"
+ ],
+ "id_28": [
+  "Found",
+  "New",
+  "__MISSING__"
+ ],
+ "id_29": [
+  "Found",
+  "NotFound",
+  "__MISSING__"
+ ],
+ "id_34": [
+  "__MISSING__",
+  "match_status:-1",
+  "match_status:0",
+  "match_status:1",
+  "match_status:2"
+ ],
+ "id_35": [
+  "F",
+  "T",
+  "__MISSING__"
+ ],
+ "id_36": [
+  "F",
+  "T",
+  "__MISSING__"
+ ],
+ "id_37": [
+  "F",
+  "T",
+  "__MISSING__"
+ ],
+ "id_38": [
+  "F",
+  "T",
+  "__MISSING__"
+ ]
+}

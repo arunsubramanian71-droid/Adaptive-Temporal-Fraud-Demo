@@ -1,0 +1,107 @@
+[
+ {
+  "check": "graph_validation_suite_8_of_8",
+  "passed": true,
+  "detail": "scripts/validate_graph.py exit code 0"
+ },
+ {
+  "check": "no_test_data_loaded",
+  "passed": true,
+  "detail": "dataset max_day=151 (<= last VAL day 151); 501,214 transaction rows on device (<= 501,214 rows with day<=VAL end); builder refuses TEST days: True"
+ },
+ {
+  "check": "scaler_fit_on_train_only",
+  "passed": true,
+  "detail": "TRAIN rows: max|mean|=8.88e-04, max|std-1|=5.63e-03 (standardized); VAL rows: max|mean|=5.42e-01 (NOT centred \u2014 scaler was not fit on VAL)"
+ },
+ {
+  "check": "edge_consumption_no_future_edges",
+  "passed": true,
+  "detail": "for every day c<= 151 and every relation, edges consumed by steps 1..c == edges with edge_time<=c (0 future edges, 0 missing)"
+ },
+ {
+  "check": "order_agnostic_memory_C_seed42",
+  "passed": true,
+  "detail": "state after chronological vs shuffled day order (TemporalGraphSAGEMeanMemory, days 1-40): max|diff|=2.930e-03, max relative diff (to per-type state scale)=2.735e-07 -> order-agnostic (float rounding only)"
+ },
+ {
+  "check": "order_dependent_memory_D_positive_control",
+  "passed": true,
+  "detail": "state after chronological vs shuffled day order (TemporalGraphSAGE, days 1-40): max|diff|=1.998e+00, max relative diff (to per-type state scale)=1.998e+00 -> order-DEPENDENT (positive control)"
+ },
+ {
+  "check": "seed42:future_invariance",
+  "passed": true,
+  "detail": "run-to-run noise floor (identical inputs, 4 runs) = 1.221e-04; pass tolerance = 4.883e-04; cutoff=122: max|dlogit| on days <= 122 = 1.907e-06 (unchanged within noise floor); on days > 122 = 9.983e+02 (perturbation is effective); cutoff=130: max|dlogit| on days <= 130 = 1.831e-04 (unchanged within noise floor); on days > 130 = 5.953e+02 (perturbation is effective); cutoff=140: max|dlogit| on days <= 140 = 6.104e-05 (unchanged within noise floor); on days > 140 = 5.945e+02 (perturbation is effective); cutoff=150: max|dlogit| on days <= 150 = 6.104e-05 (unchanged within noise floor); on days > 150 = 5.653e+02 (perturbation is effective)"
+ },
+ {
+  "check": "seed42:past_sensitivity_history_used",
+  "passed": true,
+  "detail": "corrupting days 116..121 changes later predictions: max|dlogit| = 1.633e+02 (first 3 predicted days: 9.299e+01) \u2014 earlier state DOES influence later predictions (recurrent memory is used)"
+ },
+ {
+  "check": "seed42:train_val_boundary_state_continuity",
+  "passed": true,
+  "detail": "continuous stream vs pause/clone/resume at day 121: max|dlogit| = 1.221e-04 (noise floor 1.221e-04; within noise floor) - state carried unchanged across the boundary"
+ },
+ {
+  "check": "seed42:per_step_access_only_own_day",
+  "passed": true,
+  "detail": "each step d read exactly one data slice: day d (no other day's features/edges accessed)"
+ },
+ {
+  "check": "seed42:labels_never_reach_model_or_state",
+  "passed": true,
+  "detail": "labels removed entirely from the dataset: max|dlogit| = 6.104e-05 (noise floor 6.104e-05) \u2014 no label reaches model or state"
+ },
+ {
+  "check": "seed123:future_invariance",
+  "passed": true,
+  "detail": "run-to-run noise floor (identical inputs, 4 runs) = 4.883e-04; pass tolerance = 1.953e-03; cutoff=122: max|dlogit| on days <= 122 = 3.815e-06 (unchanged within noise floor); on days > 122 = 5.084e+03 (perturbation is effective); cutoff=130: max|dlogit| on days <= 130 = 2.441e-04 (unchanged within noise floor); on days > 130 = 1.776e+03 (perturbation is effective); cutoff=140: max|dlogit| on days <= 140 = 2.441e-04 (unchanged within noise floor); on days > 140 = 1.109e+03 (perturbation is effective); cutoff=150: max|dlogit| on days <= 150 = 2.441e-04 (unchanged within noise floor); on days > 150 = 1.125e+03 (perturbation is effective)"
+ },
+ {
+  "check": "seed123:past_sensitivity_history_used",
+  "passed": true,
+  "detail": "corrupting days 116..121 changes later predictions: max|dlogit| = 9.098e+02 (first 3 predicted days: 1.937e+02) \u2014 earlier state DOES influence later predictions (recurrent memory is used)"
+ },
+ {
+  "check": "seed123:train_val_boundary_state_continuity",
+  "passed": true,
+  "detail": "continuous stream vs pause/clone/resume at day 121: max|dlogit| = 4.578e-05 (noise floor 2.441e-04; within noise floor) - state carried unchanged across the boundary"
+ },
+ {
+  "check": "seed123:per_step_access_only_own_day",
+  "passed": true,
+  "detail": "each step d read exactly one data slice: day d (no other day's features/edges accessed)"
+ },
+ {
+  "check": "seed123:labels_never_reach_model_or_state",
+  "passed": true,
+  "detail": "labels removed entirely from the dataset: max|dlogit| = 4.883e-04 (noise floor 4.883e-04) \u2014 no label reaches model or state"
+ },
+ {
+  "check": "seed2024:future_invariance",
+  "passed": true,
+  "detail": "run-to-run noise floor (identical inputs, 4 runs) = 1.221e-04; pass tolerance = 4.883e-04; cutoff=122: max|dlogit| on days <= 122 = 3.815e-06 (unchanged within noise floor); on days > 122 = 3.887e+03 (perturbation is effective); cutoff=130: max|dlogit| on days <= 130 = 1.221e-04 (unchanged within noise floor); on days > 130 = 1.386e+03 (perturbation is effective); cutoff=140: max|dlogit| on days <= 140 = 1.221e-04 (unchanged within noise floor); on days > 140 = 1.167e+03 (perturbation is effective); cutoff=150: max|dlogit| on days <= 150 = 3.052e-05 (unchanged within noise floor); on days > 150 = 9.180e+02 (perturbation is effective)"
+ },
+ {
+  "check": "seed2024:past_sensitivity_history_used",
+  "passed": true,
+  "detail": "corrupting days 116..121 changes later predictions: max|dlogit| = 9.643e+02 (first 3 predicted days: 3.771e+02) \u2014 earlier state DOES influence later predictions (recurrent memory is used)"
+ },
+ {
+  "check": "seed2024:train_val_boundary_state_continuity",
+  "passed": true,
+  "detail": "continuous stream vs pause/clone/resume at day 121: max|dlogit| = 6.104e-05 (noise floor 1.221e-04; within noise floor) - state carried unchanged across the boundary"
+ },
+ {
+  "check": "seed2024:per_step_access_only_own_day",
+  "passed": true,
+  "detail": "each step d read exactly one data slice: day d (no other day's features/edges accessed)"
+ },
+ {
+  "check": "seed2024:labels_never_reach_model_or_state",
+  "passed": true,
+  "detail": "labels removed entirely from the dataset: max|dlogit| = 6.104e-05 (noise floor 3.052e-05) \u2014 no label reaches model or state"
+ }
+]

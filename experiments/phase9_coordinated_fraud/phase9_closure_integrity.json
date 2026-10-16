@@ -1,0 +1,79 @@
+{
+ "purpose": "Integrity record for the Phase 9 closure report (verification performed 2026-10-14, read-only).",
+ "created_local": "2026-10-14T18:38:16+05:30",
+ "closure_report": {
+  "path": "reports/phase9_closure_report.md",
+  "sha256": "04d2ec6875aa06bceafa09a5e28a8a01aa758f24deeb3b60523d463544a4f048"
+ },
+ "artifacts_relied_on_sha256": {
+  "experiments/phase9_coordinated_fraud/DESIGN_BEFORE_EXECUTION.md": "58d51876a584fd2ea6b7deb1e59db67f30daf09b46cd66720f6bb77529595d7d",
+  "experiments/phase9_coordinated_fraud/STOP_REPORT_G4.md": "7f395b4db73f3539f0b0542b109c1c3ea876d589bed2291deeb0961f7e1d70b9",
+  "experiments/phase9_coordinated_fraud/eval_benchmark_G1_G2_G4.json": "08db9ee6f999439d39bb17315c6af73eaa0a849cf189777518464d5231f219cb",
+  "experiments/phase9_coordinated_fraud/eval_benchmark_G3_G5.json": "8c4da5b67c1f27fb9f5d8f082eb1adb300f7b1ed2edec3ac84e82b0b0f66c4b8",
+  "experiments/phase9_coordinated_fraud/diagnostics/g4_diagnosis.json": "109ed5b67114306bb619a49089d447ee4ab80c0a2518e979eb7052f98a596846",
+  "experiments/phase9_coordinated_fraud/diagnostics/diagnose_g4.py": "40945da44805538be67649806fef1b5c72b3801341c6724f295afacefb6c7740",
+  "experiments/phase9_coordinated_fraud/segmentation_equivalence_gate.json": "781e561914037a1255a7bda32d51fd4a80303f6034a82b3831a0ae6305a0c3b5",
+  "experiments/phase9_coordinated_fraud/timing_pilot.json": "94ac5a233bf5523fb403956ed3cd0c30c28249bc550339c756ea611ad19dd46a",
+  "experiments/phase9_coordinated_fraud/locked_config.json": "7d279c37ef76668b58ed373af18d71e43041d6fe7fd335195a09c500908e565c",
+  "experiments/phase9_coordinated_fraud/locked_config.sha256": "d36e2ff0cbbe928570b0b795f3d5a5a57d0a7f8b2fd33fb63f26b5d7ce098b85",
+  "experiments/phase9_coordinated_fraud/null_tables.pkl": "3643107ae838d6bc74419320c3f3d3d4013753894e46b89be0a0806bd3442dbc",
+  "experiments/phase9_coordinated_fraud/null_calibration_summary.json": "463234d855ab409bcc0e07de88d71b464de90663ec2a24365527461e0635f309",
+  "experiments/phase9_coordinated_fraud/dev_selection.json": "6f2af54636131c153fa96609a9096eca6e3b37f819e4effbd5a23eea660f0603",
+  "experiments/phase9_coordinated_fraud/exploratory_realdata/PRE_RUN_RECORD.md": "d986a97ca08092760b651d730f85eaa162aabede66b731e80c4b19f76c954f7f",
+  "experiments/phase9_coordinated_fraud/exploratory_realdata/PRE_RUN_RECORD.sha256": "c33f01019f7b06dea1068e0d3c76e95ffdb1a9a82d55a3c1eafad134846ba06e",
+  "experiments/phase9_coordinated_fraud/exploratory_realdata/validation_S2_S3_S4.json": "7a65da290deb0111efcff09df60f5edfc2f501243e2de12796f3264dcf15a6d9",
+  "experiments/phase9_coordinated_fraud/exploratory_realdata/tier0_summary.json": "b1a2f94cc2188008a0d2f5d6cbd7986ee7b05b9522d549ede5834e8063234ecb",
+  "experiments/phase9_coordinated_fraud/exploratory_realdata/TIER0_REPORT.md": "cdb1c684ee299a5e6f8e5e815d73c356077e57427db6a9cd1ded988983f074e2",
+  "experiments/phase9_coordinated_fraud/exploratory_realdata/E0_ADDENDUM_post_Tier0_exploratory.md": "80a63e637bbedec2934a0c7384f747aba4a46d40107b0662b7cb1268090705c5",
+  "experiments/phase9_coordinated_fraud/exploratory_realdata/E0_ADDENDUM_post_Tier0_exploratory.sha256": "3862b9e2217f0a7827e2336118419f767b74c0c8af1d452fe1121e53eac6e9c8",
+  "experiments/phase9_coordinated_fraud/exploratory_realdata/validation_E0.json": "e4bee9ee4f02d3ae64de17882da301253ce6788d66ff01ebacc4d3f21b193703",
+  "experiments/phase9_coordinated_fraud/exploratory_realdata/e0_tau_seed42.json": "3f73516c232363089d0492d0e99ee854b0401220a656ee3ef566f7d9e8ed6541",
+  "experiments/phase9_coordinated_fraud/exploratory_realdata/e0_tau_seed123.json": "f1961b990925e02cd0c13a9f2ed35c077c50d6e39fbd33f46999bc4d915364e3",
+  "experiments/phase9_coordinated_fraud/exploratory_realdata/e0_tau_seed2024.json": "477d1b5243058a7431c107343f7da2064307b9fd79ddcdc7e5c80c1dd457b732",
+  "experiments/phase9_coordinated_fraud/exploratory_realdata/e0_tau_lock_note.md": "b08f9661f9580634eb5df66d20b9c03d255e3ec3a9bfd20784a50e7978ddcb0a",
+  "experiments/phase9_coordinated_fraud/exploratory_realdata/e0_results.json": "dc0ad76fcf06b4a9396dbd11075d00f48d6079261901d8584a55089a39f5736a",
+  "experiments/phase9_coordinated_fraud/exploratory_realdata/E0_REPORT.md": "a07129f6f9295390d1eb867d07fa5bc858aab0cd9d49e2c6ae4c3ab8f0ca6a1c",
+  "experiments/phase9_coordinated_fraud/exploratory_realdata/MANIFEST_E0.json": "4d769d70f5311d00ac717ded0f9a569b49683639d0afea2d5ee66469cbbbbf7b",
+  "experiments/phase9_coordinated_fraud/exploratory_realdata/MANIFEST_E0_tau.json": "4c4466087f874d3873c041cdde4685d8512b0ba80776834632e290d0d98677b0",
+  "experiments/phase9_coordinated_fraud/exploratory_realdata/MANIFEST_E0_execution.json": "838996e4a06ba95349d2b6be0766fe4bd9ea83db5c49911bb9f2f6e492ef9718",
+  "reports/phase1_reconnaissance.md": "e22a74e0655e4f6c2727077a4bd8121c9a153d7434d7f38b201764c2628b633d",
+  "reports/phase7_temporal_gnn_report.md": "7bb99f663ba2e041bdb9259d69b7e3256cb26dac7d565dafc23b958a695a28f1",
+  "reports/phase7a_temporal_ablation_report.md": "59c11b3fdfdf195051523354fe92660cfa7b88b5675e8075fc3127db33b046c6",
+  "reports/phase8_concept_drift_report.md": "8047c6fbdda9bad8da7b9e40379858f3f362502fc379227c79e191c44131e883"
+ },
+ "verification": {
+  "terminology_lint": "clean (no violations)",
+  "numbers_cross_checked_against_source_artifacts": "49 values found verbatim; none missing",
+  "required_statements_present": [
+   "banner at top",
+   "NOT ESTABLISHED (H5a/H5b/H5c)",
+   "E0 tail proportions descriptive references only, not exact or calibrated p-values",
+   "seeds not independent replications",
+   "post-Tier-0 exploratory status",
+   "not evidence of fraud or confirmed coordination",
+   "two whitelisted disclaimers"
+  ],
+  "previously_hashed_artifacts_changed": "none (re-checked MANIFEST_E0, MANIFEST_E0_tau, MANIFEST_E0_execution hashes)",
+  "sidecar_locks_verified": [
+   "e0_results",
+   "E0_REPORT",
+   "log_e0",
+   "e0_tau_seed42/123/2024",
+   "E0 addendum",
+   "PRE_RUN_RECORD"
+  ],
+  "files_modified_since_2026-10-07_outside_phase9_paths": "none (Phases 1-8 untouched)",
+  "files_modified_on_2026-10-14_before_this_record": [
+   "reports/phase9_closure_report.md"
+  ]
+ },
+ "restrictions_honoured": [
+  "no experiment run",
+  "no benchmark regenerated",
+  "no threshold recalibrated",
+  "no existing report or frozen artifact modified",
+  "E1 not executed",
+  "Phase 10 not started"
+ ],
+ "known_discrepancy_logged": "E0 validation record contains 42 checks (the 2026-10-12 chat summary said 44); record is authoritative."
+}

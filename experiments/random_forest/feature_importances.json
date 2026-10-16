@@ -1,0 +1,1882 @@
+[
+ {
+  "feature": "C13",
+  "importance": 0.02715568489327302
+ },
+ {
+  "feature": "C14",
+  "importance": 0.024982452313552304
+ },
+ {
+  "feature": "V258",
+  "importance": 0.021093638531459603
+ },
+ {
+  "feature": "V91",
+  "importance": 0.015029940093938488
+ },
+ {
+  "feature": "V69",
+  "importance": 0.014926587809397878
+ },
+ {
+  "feature": "TransactionAmt",
+  "importance": 0.014120217494616172
+ },
+ {
+  "feature": "C8",
+  "importance": 0.013948501901057824
+ },
+ {
+  "feature": "V317",
+  "importance": 0.013918419107549384
+ },
+ {
+  "feature": "V218",
+  "importance": 0.013342931528552733
+ },
+ {
+  "feature": "V70",
+  "importance": 0.013066359095736512
+ },
+ {
+  "feature": "C5",
+  "importance": 0.013024714648935393
+ },
+ {
+  "feature": "addr1_freq",
+  "importance": 0.012635376272032128
+ },
+ {
+  "feature": "V294",
+  "importance": 0.012241309633239075
+ },
+ {
+  "feature": "C1",
+  "importance": 0.012198586023793024
+ },
+ {
+  "feature": "V308",
+  "importance": 0.011586443579084256
+ },
+ {
+  "feature": "V295",
+  "importance": 0.011525815547860592
+ },
+ {
+  "feature": "V90",
+  "importance": 0.01152549194083999
+ },
+ {
+  "feature": "C4",
+  "importance": 0.011368789187255656
+ },
+ {
+  "feature": "V264",
+  "importance": 0.01129372990711728
+ },
+ {
+  "feature": "V29",
+  "importance": 0.011026185280422264
+ },
+ {
+  "feature": "V219",
+  "importance": 0.010981810263893738
+ },
+ {
+  "feature": "D2",
+  "importance": 0.010497753215622765
+ },
+ {
+  "feature": "V30",
+  "importance": 0.010310990595088993
+ },
+ {
+  "feature": "card1_freq",
+  "importance": 0.00992637355221278
+ },
+ {
+  "feature": "C10",
+  "importance": 0.00980390436221537
+ },
+ {
+  "feature": "C2",
+  "importance": 0.009799395153356373
+ },
+ {
+  "feature": "C11",
+  "importance": 0.009392621149967438
+ },
+ {
+  "feature": "card6_ord",
+  "importance": 0.009318735495719814
+ },
+ {
+  "feature": "card2_freq",
+  "importance": 0.009221336864822531
+ },
+ {
+  "feature": "V318",
+  "importance": 0.00919979760199869
+ },
+ {
+  "feature": "V257",
+  "importance": 0.008774267609948278
+ },
+ {
+  "feature": "V265",
+  "importance": 0.008699764611259913
+ },
+ {
+  "feature": "V263",
+  "importance": 0.008591990904636502
+ },
+ {
+  "feature": "V283",
+  "importance": 0.008203153368962464
+ },
+ {
+  "feature": "V274",
+  "importance": 0.008134206686162826
+ },
+ {
+  "feature": "D3",
+  "importance": 0.00812151395296407
+ },
+ {
+  "feature": "D1",
+  "importance": 0.00811524360166412
+ },
+ {
+  "feature": "V203",
+  "importance": 0.008061219251381696
+ },
+ {
+  "feature": "card1",
+  "importance": 0.007968162563611844
+ },
+ {
+  "feature": "card2",
+  "importance": 0.007921090543478594
+ },
+ {
+  "feature": "card6_freq",
+  "importance": 0.007798631865949176
+ },
+ {
+  "feature": "D15",
+  "importance": 0.007591891100507945
+ },
+ {
+  "feature": "C12",
+  "importance": 0.007494332041401377
+ },
+ {
+  "feature": "V229",
+  "importance": 0.007360888122184959
+ },
+ {
+  "feature": "V280",
+  "importance": 0.007131169534288416
+ },
+ {
+  "feature": "C6",
+  "importance": 0.00681102080345997
+ },
+ {
+  "feature": "V199",
+  "importance": 0.006723369052761993
+ },
+ {
+  "feature": "V307",
+  "importance": 0.00655020851104977
+ },
+ {
+  "feature": "V133",
+  "importance": 0.006187731244012242
+ },
+ {
+  "feature": "V282",
+  "importance": 0.006040449461233177
+ },
+ {
+  "feature": "V201",
+  "importance": 0.0059599664262218795
+ },
+ {
+  "feature": "addr2_freq",
+  "importance": 0.005937642718208807
+ },
+ {
+  "feature": "V233",
+  "importance": 0.005895439148158604
+ },
+ {
+  "feature": "V306",
+  "importance": 0.005891984268767189
+ },
+ {
+  "feature": "R_emaildomain_freq",
+  "importance": 0.005768773989480593
+ },
+ {
+  "feature": "D5",
+  "importance": 0.005707076972906538
+ },
+ {
+  "feature": "V204",
+  "importance": 0.005684534947657106
+ },
+ {
+  "feature": "V312",
+  "importance": 0.005623031696979178
+ },
+ {
+  "feature": "M4_ord",
+  "importance": 0.005384491857000302
+ },
+ {
+  "feature": "V275",
+  "importance": 0.005253777521405188
+ },
+ {
+  "feature": "D4",
+  "importance": 0.005252469000902366
+ },
+ {
+  "feature": "D10",
+  "importance": 0.004997676108141451
+ },
+ {
+  "feature": "addr1",
+  "importance": 0.004958612742667786
+ },
+ {
+  "feature": "V232",
+  "importance": 0.004892325280773927
+ },
+ {
+  "feature": "P_emaildomain_freq",
+  "importance": 0.004694719272239985
+ },
+ {
+  "feature": "V310",
+  "importance": 0.004674946466627925
+ },
+ {
+  "feature": "V279",
+  "importance": 0.004463001683235509
+ },
+ {
+  "feature": "V200",
+  "importance": 0.004329442455429282
+ },
+ {
+  "feature": "V315",
+  "importance": 0.004318176172890125
+ },
+ {
+  "feature": "V128",
+  "importance": 0.00409763443928347
+ },
+ {
+  "feature": "V102",
+  "importance": 0.003987770678080428
+ },
+ {
+  "feature": "card5",
+  "importance": 0.003959627077977918
+ },
+ {
+  "feature": "card3",
+  "importance": 0.0039470298357132
+ },
+ {
+  "feature": "C7",
+  "importance": 0.003867417001491836
+ },
+ {
+  "feature": "card5_freq",
+  "importance": 0.003842214430205387
+ },
+ {
+  "feature": "V281",
+  "importance": 0.003814189119033202
+ },
+ {
+  "feature": "V94",
+  "importance": 0.0038112869573379243
+ },
+ {
+  "feature": "V49",
+  "importance": 0.0038075525561172795
+ },
+ {
+  "feature": "V103",
+  "importance": 0.003802634706441371
+ },
+ {
+  "feature": "card3_freq",
+  "importance": 0.0037891363335410583
+ },
+ {
+  "feature": "V134",
+  "importance": 0.0037233282829888105
+ },
+ {
+  "feature": "hour",
+  "importance": 0.0037022190464837046
+ },
+ {
+  "feature": "V313",
+  "importance": 0.0035589327235901226
+ },
+ {
+  "feature": "D8",
+  "importance": 0.003546340033575077
+ },
+ {
+  "feature": "V314",
+  "importance": 0.0034389039754527994
+ },
+ {
+  "feature": "V246",
+  "importance": 0.003437006318777076
+ },
+ {
+  "feature": "id_02",
+  "importance": 0.003398591094615926
+ },
+ {
+  "feature": "V285",
+  "importance": 0.00338298101427242
+ },
+ {
+  "feature": "V127",
+  "importance": 0.003365217334193546
+ },
+ {
+  "feature": "V168",
+  "importance": 0.0031410148634193817
+ },
+ {
+  "feature": "V34",
+  "importance": 0.0030635475352699935
+ },
+ {
+  "feature": "D11",
+  "importance": 0.003000329301719324
+ },
+ {
+  "feature": "V48",
+  "importance": 0.002889114464125711
+ },
+ {
+  "feature": "addr1_isna",
+  "importance": 0.0028620686098185756
+ },
+ {
+  "feature": "C9",
+  "importance": 0.002857716655749875
+ },
+ {
+  "feature": "V130",
+  "importance": 0.002826310700688665
+ },
+ {
+  "feature": "V316",
+  "importance": 0.002767923794043489
+ },
+ {
+  "feature": "dist1",
+  "importance": 0.0026746506931614746
+ },
+ {
+  "feature": "V131",
+  "importance": 0.0026327495326329
+ },
+ {
+  "feature": "V126",
+  "importance": 0.0026277278334881854
+ },
+ {
+  "feature": "id_17",
+  "importance": 0.0026184246715300567
+ },
+ {
+  "feature": "V230",
+  "importance": 0.002617728916654536
+ },
+ {
+  "feature": "V190",
+  "importance": 0.0025089366323104954
+ },
+ {
+  "feature": "day_of_week",
+  "importance": 0.002450991932457986
+ },
+ {
+  "feature": "V287",
+  "importance": 0.002418877762410225
+ },
+ {
+  "feature": "V95",
+  "importance": 0.0023959592754636554
+ },
+ {
+  "feature": "ProductCD_ord",
+  "importance": 0.0023634362870174714
+ },
+ {
+  "feature": "V96",
+  "importance": 0.0022439520976072842
+ },
+ {
+  "feature": "id_01",
+  "importance": 0.0022332939914299714
+ },
+ {
+  "feature": "V99",
+  "importance": 0.002153481430996963
+ },
+ {
+  "feature": "V187",
+  "importance": 0.002144220917042843
+ },
+ {
+  "feature": "ProductCD_freq",
+  "importance": 0.0021137747398264958
+ },
+ {
+  "feature": "id_35_ord",
+  "importance": 0.00211360727330417
+ },
+ {
+  "feature": "DeviceInfo_freq",
+  "importance": 0.0020980713793088755
+ },
+ {
+  "feature": "V45",
+  "importance": 0.0020849708605603797
+ },
+ {
+  "feature": "id_31_freq",
+  "importance": 0.002058979096082367
+ },
+ {
+  "feature": "V231",
+  "importance": 0.0020549172236878927
+ },
+ {
+  "feature": "V309",
+  "importance": 0.0020133187064210662
+ },
+ {
+  "feature": "V87",
+  "importance": 0.002009460834891611
+ },
+ {
+  "feature": "V273",
+  "importance": 0.0019997549675390813
+ },
+ {
+  "feature": "M5_ord",
+  "importance": 0.001973834094425972
+ },
+ {
+  "feature": "id_29_ord",
+  "importance": 0.001948911917445999
+ },
+ {
+  "feature": "V74",
+  "importance": 0.0019406104808462688
+ },
+ {
+  "feature": "DeviceType_ord",
+  "importance": 0.001920223314460055
+ },
+ {
+  "feature": "R_emaildomain_isna",
+  "importance": 0.0018898916120427922
+ },
+ {
+  "feature": "V54",
+  "importance": 0.001889880071707613
+ },
+ {
+  "feature": "V217",
+  "importance": 0.0018374792014226972
+ },
+ {
+  "feature": "V244",
+  "importance": 0.001818302399160645
+ },
+ {
+  "feature": "V83",
+  "importance": 0.0018061563028374784
+ },
+ {
+  "feature": "V293",
+  "importance": 0.0017972824488156694
+ },
+ {
+  "feature": "id_20",
+  "importance": 0.0017838329791411112
+ },
+ {
+  "feature": "D12_isna",
+  "importance": 0.001772001557374819
+ },
+ {
+  "feature": "V302",
+  "importance": 0.001765523014097133
+ },
+ {
+  "feature": "D2_isna",
+  "importance": 0.0017643196492025718
+ },
+ {
+  "feature": "V320",
+  "importance": 0.0017642248975777697
+ },
+ {
+  "feature": "M6_ord",
+  "importance": 0.0017522177090235904
+ },
+ {
+  "feature": "card4_freq",
+  "importance": 0.0017472438899416777
+ },
+ {
+  "feature": "V97",
+  "importance": 0.0017462581489138657
+ },
+ {
+  "feature": "V53",
+  "importance": 0.0017301208968301394
+ },
+ {
+  "feature": "V291",
+  "importance": 0.0017284836612036685
+ },
+ {
+  "feature": "V62",
+  "importance": 0.0017249897218347473
+ },
+ {
+  "feature": "V212",
+  "importance": 0.0017204099544689785
+ },
+ {
+  "feature": "V140",
+  "importance": 0.001708315820895906
+ },
+ {
+  "feature": "V44",
+  "importance": 0.001613064717961158
+ },
+ {
+  "feature": "id_30_freq",
+  "importance": 0.0015931284784313985
+ },
+ {
+  "feature": "card2_isna",
+  "importance": 0.0015903265451563306
+ },
+ {
+  "feature": "id_19",
+  "importance": 0.001589627936417964
+ },
+ {
+  "feature": "V52",
+  "importance": 0.0015877419978999946
+ },
+ {
+  "feature": "V242",
+  "importance": 0.0015804011640697434
+ },
+ {
+  "feature": "V289",
+  "importance": 0.0015254748839927993
+ },
+ {
+  "feature": "card4_ord",
+  "importance": 0.0014977528785153668
+ },
+ {
+  "feature": "V311",
+  "importance": 0.0014653571035709114
+ },
+ {
+  "feature": "V129",
+  "importance": 0.0014637924443960226
+ },
+ {
+  "feature": "V213",
+  "importance": 0.0014535724188371325
+ },
+ {
+  "feature": "id_06",
+  "importance": 0.0014451942126376257
+ },
+ {
+  "feature": "V228",
+  "importance": 0.0014235685715815332
+ },
+ {
+  "feature": "V79",
+  "importance": 0.001396083166577704
+ },
+ {
+  "feature": "id_05",
+  "importance": 0.001381405315807086
+ },
+ {
+  "feature": "V296",
+  "importance": 0.001370983235846398
+ },
+ {
+  "feature": "V51",
+  "importance": 0.001360901982328416
+ },
+ {
+  "feature": "V243",
+  "importance": 0.0013514842107798927
+ },
+ {
+  "feature": "V101",
+  "importance": 0.001336564935954959
+ },
+ {
+  "feature": "V11",
+  "importance": 0.0013339358711828423
+ },
+ {
+  "feature": "V75",
+  "importance": 0.0013101548842878025
+ },
+ {
+  "feature": "id_37_ord",
+  "importance": 0.0012874423500391404
+ },
+ {
+  "feature": "V136",
+  "importance": 0.0012507201191724248
+ },
+ {
+  "feature": "V76",
+  "importance": 0.0012308970705006026
+ },
+ {
+  "feature": "V288",
+  "importance": 0.0012290429135653365
+ },
+ {
+  "feature": "D6",
+  "importance": 0.0012280105027219982
+ },
+ {
+  "feature": "V167",
+  "importance": 0.0012267972357057786
+ },
+ {
+  "feature": "has_identity",
+  "importance": 0.001219466968263446
+ },
+ {
+  "feature": "V12",
+  "importance": 0.00121555016635004
+ },
+ {
+  "feature": "V158",
+  "importance": 0.001209626223112172
+ },
+ {
+  "feature": "V284",
+  "importance": 0.0011905188664542816
+ },
+ {
+  "feature": "DeviceType_freq",
+  "importance": 0.0011889558322282212
+ },
+ {
+  "feature": "V13",
+  "importance": 0.0011862963018774402
+ },
+ {
+  "feature": "V171",
+  "importance": 0.0011787597477165533
+ },
+ {
+  "feature": "V20",
+  "importance": 0.001163303796079728
+ },
+ {
+  "feature": "V298",
+  "importance": 0.0011539878923973494
+ },
+ {
+  "feature": "V61",
+  "importance": 0.0011367081837477832
+ },
+ {
+  "feature": "V82",
+  "importance": 0.0011313597109243916
+ },
+ {
+  "feature": "V40",
+  "importance": 0.0011255322872541229
+ },
+ {
+  "feature": "V156",
+  "importance": 0.0010978470152817458
+ },
+ {
+  "feature": "V78",
+  "importance": 0.0010894121385402978
+ },
+ {
+  "feature": "V67",
+  "importance": 0.0010889505357463635
+ },
+ {
+  "feature": "V132",
+  "importance": 0.0010816061782276272
+ },
+ {
+  "feature": "V292",
+  "importance": 0.001073448729575745
+ },
+ {
+  "feature": "V165",
+  "importance": 0.0010658194738591888
+ },
+ {
+  "feature": "V86",
+  "importance": 0.0010578197213782625
+ },
+ {
+  "feature": "V321",
+  "importance": 0.001049198643979554
+ },
+ {
+  "feature": "V38",
+  "importance": 0.0010425323789222444
+ },
+ {
+  "feature": "id_33_freq",
+  "importance": 0.001041118261345692
+ },
+ {
+  "feature": "D12",
+  "importance": 0.0010343599137235355
+ },
+ {
+  "feature": "id_38_ord",
+  "importance": 0.0010145058552177813
+ },
+ {
+  "feature": "M3_ord",
+  "importance": 0.001012971085490108
+ },
+ {
+  "feature": "V56",
+  "importance": 0.0009871102950443035
+ },
+ {
+  "feature": "V303",
+  "importance": 0.0009780162300557552
+ },
+ {
+  "feature": "id_28_ord",
+  "importance": 0.0009732262778172268
+ },
+ {
+  "feature": "D9",
+  "importance": 0.000958014687908397
+ },
+ {
+  "feature": "V222",
+  "importance": 0.0009547115614510864
+ },
+ {
+  "feature": "V286",
+  "importance": 0.0009454873472054734
+ },
+ {
+  "feature": "V176",
+  "importance": 0.0009337517634840761
+ },
+ {
+  "feature": "V36",
+  "importance": 0.0009046208352883539
+ },
+ {
+  "feature": "V179",
+  "importance": 0.000904122118729523
+ },
+ {
+  "feature": "V10",
+  "importance": 0.0008811863682726413
+ },
+ {
+  "feature": "V100",
+  "importance": 0.0008802854789251536
+ },
+ {
+  "feature": "V33",
+  "importance": 0.000848168062732986
+ },
+ {
+  "feature": "D5_isna",
+  "importance": 0.0008286838624695079
+ },
+ {
+  "feature": "V160",
+  "importance": 0.0008269569876202639
+ },
+ {
+  "feature": "V149",
+  "importance": 0.0008120780882112044
+ },
+ {
+  "feature": "D3_isna",
+  "importance": 0.0008094703640239201
+ },
+ {
+  "feature": "V35",
+  "importance": 0.0008003048914168858
+ },
+ {
+  "feature": "id_36_ord",
+  "importance": 0.0007965424618844505
+ },
+ {
+  "feature": "id_13",
+  "importance": 0.0007948103947022131
+ },
+ {
+  "feature": "V15",
+  "importance": 0.000789691979161087
+ },
+ {
+  "feature": "dist2",
+  "importance": 0.0007857413721580762
+ },
+ {
+  "feature": "id_15_ord",
+  "importance": 0.0007844757413042763
+ },
+ {
+  "feature": "M9_ord",
+  "importance": 0.0007785045351112028
+ },
+ {
+  "feature": "V19",
+  "importance": 0.0007754782047196331
+ },
+ {
+  "feature": "addr2_isna",
+  "importance": 0.0007687462485852448
+ },
+ {
+  "feature": "V73",
+  "importance": 0.0007666109080601022
+ },
+ {
+  "feature": "V253",
+  "importance": 0.0007657985850821385
+ },
+ {
+  "feature": "M8_ord",
+  "importance": 0.000764494917555689
+ },
+ {
+  "feature": "M2_ord",
+  "importance": 0.0007633398840329651
+ },
+ {
+  "feature": "V164",
+  "importance": 0.0007624082041892967
+ },
+ {
+  "feature": "V189",
+  "importance": 0.0007596586436418385
+ },
+ {
+  "feature": "V137",
+  "importance": 0.000758966828769695
+ },
+ {
+  "feature": "V37",
+  "importance": 0.000757355867067159
+ },
+ {
+  "feature": "V188",
+  "importance": 0.0007277935151913187
+ },
+ {
+  "feature": "D13",
+  "importance": 0.0007126197584661671
+ },
+ {
+  "feature": "V145",
+  "importance": 0.0007018074967559755
+ },
+ {
+  "feature": "V147",
+  "importance": 0.0007001893619450349
+ },
+ {
+  "feature": "V150",
+  "importance": 0.0006999956961462234
+ },
+ {
+  "feature": "V152",
+  "importance": 0.0006960033327187204
+ },
+ {
+  "feature": "V290",
+  "importance": 0.000693078328519854
+ },
+ {
+  "feature": "V159",
+  "importance": 0.0006848172090325059
+ },
+ {
+  "feature": "V209",
+  "importance": 0.0006671336838573978
+ },
+ {
+  "feature": "id_34_ord",
+  "importance": 0.0006647510597703087
+ },
+ {
+  "feature": "V332",
+  "importance": 0.0006624907175004559
+ },
+ {
+  "feature": "V16",
+  "importance": 0.0006597485984841145
+ },
+ {
+  "feature": "V77",
+  "importance": 0.0006579371232866158
+ },
+ {
+  "feature": "id_14",
+  "importance": 0.0006533891953235255
+ },
+ {
+  "feature": "V205",
+  "importance": 0.0006518124816807273
+ },
+ {
+  "feature": "V157",
+  "importance": 0.0006514557444855403
+ },
+ {
+  "feature": "V198",
+  "importance": 0.0006503824631572862
+ },
+ {
+  "feature": "M7_ord",
+  "importance": 0.0006485768133848483
+ },
+ {
+  "feature": "V124",
+  "importance": 0.0006453545709066516
+ },
+ {
+  "feature": "V43",
+  "importance": 0.0006439578516906957
+ },
+ {
+  "feature": "D4_isna",
+  "importance": 0.0006431730738388886
+ },
+ {
+  "feature": "V202",
+  "importance": 0.0006394339303566997
+ },
+ {
+  "feature": "V254",
+  "importance": 0.0006363085098205803
+ },
+ {
+  "feature": "V143",
+  "importance": 0.0006280959446961067
+ },
+ {
+  "feature": "V98",
+  "importance": 0.0006254783459109624
+ },
+ {
+  "feature": "V323",
+  "importance": 0.0006241033588021978
+ },
+ {
+  "feature": "amt_decimals_gt2",
+  "importance": 0.0006146135615085895
+ },
+ {
+  "feature": "V47",
+  "importance": 0.0006138607772147576
+ },
+ {
+  "feature": "V299",
+  "importance": 0.0006094958076929782
+ },
+ {
+  "feature": "V267",
+  "importance": 0.0006008820016617976
+ },
+ {
+  "feature": "V39",
+  "importance": 0.0006004043998425028
+ },
+ {
+  "feature": "P_emaildomain_isna",
+  "importance": 0.0005846139204874298
+ },
+ {
+  "feature": "V207",
+  "importance": 0.0005815724072178029
+ },
+ {
+  "feature": "V166",
+  "importance": 0.0005806205318087249
+ },
+ {
+  "feature": "V333",
+  "importance": 0.0005747371816762212
+ },
+ {
+  "feature": "V210",
+  "importance": 0.0005741932298149098
+ },
+ {
+  "feature": "D7",
+  "importance": 0.0005719266299116294
+ },
+ {
+  "feature": "V139",
+  "importance": 0.0005670086235580733
+ },
+ {
+  "feature": "V85",
+  "importance": 0.0005652208132136747
+ },
+ {
+  "feature": "V5",
+  "importance": 0.000558970202922834
+ },
+ {
+  "feature": "V266",
+  "importance": 0.000558917204376741
+ },
+ {
+  "feature": "V55",
+  "importance": 0.0005520954986154964
+ },
+ {
+  "feature": "V18",
+  "importance": 0.0005366604115844064
+ },
+ {
+  "feature": "V93",
+  "importance": 0.0005356764223022198
+ },
+ {
+  "feature": "V208",
+  "importance": 0.0005292171706098349
+ },
+ {
+  "feature": "V57",
+  "importance": 0.0005290781157350651
+ },
+ {
+  "feature": "V105",
+  "importance": 0.0005286835348464065
+ },
+ {
+  "feature": "V50",
+  "importance": 0.0005249526780901345
+ },
+ {
+  "feature": "V272",
+  "importance": 0.0005245859430919041
+ },
+ {
+  "feature": "V206",
+  "importance": 0.0005244818971671157
+ },
+ {
+  "feature": "V319",
+  "importance": 0.000518469576496647
+ },
+ {
+  "feature": "V261",
+  "importance": 0.0005173645861670493
+ },
+ {
+  "feature": "V151",
+  "importance": 0.0005071317579059438
+ },
+ {
+  "feature": "V211",
+  "importance": 0.0005070691987126532
+ },
+ {
+  "feature": "V245",
+  "importance": 0.00050501118751268
+ },
+ {
+  "feature": "V135",
+  "importance": 0.0005033880884371789
+ },
+ {
+  "feature": "D14_isna",
+  "importance": 0.0004840716879035048
+ },
+ {
+  "feature": "V324",
+  "importance": 0.0004831952796706391
+ },
+ {
+  "feature": "V270",
+  "importance": 0.0004792681447958043
+ },
+ {
+  "feature": "id_12_ord",
+  "importance": 0.0004727282882988955
+ },
+ {
+  "feature": "id_16_ord",
+  "importance": 0.00047126368105567413
+ },
+ {
+  "feature": "V259",
+  "importance": 0.0004663899797366761
+ },
+ {
+  "feature": "V277",
+  "importance": 0.0004630395421160675
+ },
+ {
+  "feature": "V304",
+  "importance": 0.0004619771774703704
+ },
+ {
+  "feature": "D14",
+  "importance": 0.00046140384533982856
+ },
+ {
+  "feature": "V31",
+  "importance": 0.0004580003149232905
+ },
+ {
+  "feature": "V331",
+  "importance": 0.0004565769229641843
+ },
+ {
+  "feature": "V24",
+  "importance": 0.000455014437138107
+ },
+ {
+  "feature": "V262",
+  "importance": 0.0004532256122224176
+ },
+ {
+  "feature": "V322",
+  "importance": 0.00045160194625334525
+ },
+ {
+  "feature": "V268",
+  "importance": 0.0004408869614967467
+ },
+ {
+  "feature": "V271",
+  "importance": 0.00043761884359284887
+ },
+ {
+  "feature": "id_09",
+  "importance": 0.0004364783970326147
+ },
+ {
+  "feature": "V144",
+  "importance": 0.00043614286720687195
+ },
+ {
+  "feature": "V146",
+  "importance": 0.0004360697587649519
+ },
+ {
+  "feature": "V66",
+  "importance": 0.00043526957297653824
+ },
+ {
+  "feature": "V71",
+  "importance": 0.0004283411664229048
+ },
+ {
+  "feature": "V178",
+  "importance": 0.0004283381420636899
+ },
+ {
+  "feature": "V221",
+  "importance": 0.0004229139339271406
+ },
+ {
+  "feature": "V155",
+  "importance": 0.0004221181047383857
+ },
+ {
+  "feature": "V215",
+  "importance": 0.0004206415991702151
+ },
+ {
+  "feature": "V154",
+  "importance": 0.00041610142847527375
+ },
+ {
+  "feature": "dist1_isna",
+  "importance": 0.00041533563244771786
+ },
+ {
+  "feature": "V148",
+  "importance": 0.00041042759818404434
+ },
+ {
+  "feature": "V60",
+  "importance": 0.00040911676092310226
+ },
+ {
+  "feature": "V256",
+  "importance": 0.0004088556475220505
+ },
+ {
+  "feature": "D10_isna",
+  "importance": 0.00040530451374162134
+ },
+ {
+  "feature": "V301",
+  "importance": 0.0004014773762006098
+ },
+ {
+  "feature": "V175",
+  "importance": 0.0003983434689975032
+ },
+ {
+  "feature": "V4",
+  "importance": 0.00039160336235173106
+ },
+ {
+  "feature": "V170",
+  "importance": 0.00038661721363210784
+ },
+ {
+  "feature": "V72",
+  "importance": 0.0003792714273917832
+ },
+ {
+  "feature": "DeviceInfo_isna",
+  "importance": 0.00035851859427124587
+ },
+ {
+  "feature": "V106",
+  "importance": 0.00035688516459730755
+ },
+ {
+  "feature": "V64",
+  "importance": 0.00034968654770641406
+ },
+ {
+  "feature": "id_03",
+  "importance": 0.00034397503583594467
+ },
+ {
+  "feature": "D11_isna",
+  "importance": 0.0003381356733974953
+ },
+ {
+  "feature": "D15_isna",
+  "importance": 0.0003366961658574199
+ },
+ {
+  "feature": "V26",
+  "importance": 0.00033348928142670666
+ },
+ {
+  "feature": "V125",
+  "importance": 0.0003301934502244505
+ },
+ {
+  "feature": "V7",
+  "importance": 0.00032936872424190004
+ },
+ {
+  "feature": "V58",
+  "importance": 0.0003246474514064879
+ },
+ {
+  "feature": "V172",
+  "importance": 0.00031774695594019776
+ },
+ {
+  "feature": "V63",
+  "importance": 0.00031676869563828264
+ },
+ {
+  "feature": "id_32",
+  "importance": 0.0003166495227823685
+ },
+ {
+  "feature": "V278",
+  "importance": 0.00031518521554982387
+ },
+ {
+  "feature": "M1_ord",
+  "importance": 0.0003140868867820634
+ },
+ {
+  "feature": "V23",
+  "importance": 0.00031013893831747396
+ },
+ {
+  "feature": "V225",
+  "importance": 0.00030691033097098735
+ },
+ {
+  "feature": "V214",
+  "importance": 0.00030416440193368766
+ },
+ {
+  "feature": "V80",
+  "importance": 0.00030144885469295926
+ },
+ {
+  "feature": "V81",
+  "importance": 0.0002992079494079666
+ },
+ {
+  "feature": "V216",
+  "importance": 0.0002984504623088117
+ },
+ {
+  "feature": "V300",
+  "importance": 0.000296337567543319
+ },
+ {
+  "feature": "V224",
+  "importance": 0.00029608264848715517
+ },
+ {
+  "feature": "V162",
+  "importance": 0.00029576910169479655
+ },
+ {
+  "feature": "V115",
+  "importance": 0.00029296474861756653
+ },
+ {
+  "feature": "V297",
+  "importance": 0.0002917770886812475
+ },
+ {
+  "feature": "V59",
+  "importance": 0.00028902120982186733
+ },
+ {
+  "feature": "V173",
+  "importance": 0.00028412278853466333
+ },
+ {
+  "feature": "dist2_isna",
+  "importance": 0.0002795403854966944
+ },
+ {
+  "feature": "V234",
+  "importance": 0.00027375577192979324
+ },
+ {
+  "feature": "V236",
+  "importance": 0.0002727762138328664
+ },
+ {
+  "feature": "V84",
+  "importance": 0.00027030177787154574
+ },
+ {
+  "feature": "V3",
+  "importance": 0.00027014934029018467
+ },
+ {
+  "feature": "V335",
+  "importance": 0.0002701163750778254
+ },
+ {
+  "feature": "DeviceType_isna",
+  "importance": 0.0002683252657702578
+ },
+ {
+  "feature": "V255",
+  "importance": 0.00026639512010383416
+ },
+ {
+  "feature": "V251",
+  "importance": 0.0002563357712678915
+ },
+ {
+  "feature": "V153",
+  "importance": 0.00025564760530428284
+ },
+ {
+  "feature": "V17",
+  "importance": 0.00025389504475153746
+ },
+ {
+  "feature": "V226",
+  "importance": 0.00025262333305037607
+ },
+ {
+  "feature": "V223",
+  "importance": 0.0002450250786846965
+ },
+ {
+  "feature": "V250",
+  "importance": 0.00024405189305070393
+ },
+ {
+  "feature": "V180",
+  "importance": 0.00024064334668122785
+ },
+ {
+  "feature": "V123",
+  "importance": 0.00023867962445889336
+ },
+ {
+  "feature": "V183",
+  "importance": 0.00023695449429987249
+ },
+ {
+  "feature": "V177",
+  "importance": 0.00023205430205891882
+ },
+ {
+  "feature": "V237",
+  "importance": 0.00022984435511082986
+ },
+ {
+  "feature": "V192",
+  "importance": 0.00022957599350323103
+ },
+ {
+  "feature": "D8_isna",
+  "importance": 0.0002289114120622188
+ },
+ {
+  "feature": "V186",
+  "importance": 0.00022588411214878593
+ },
+ {
+  "feature": "V276",
+  "importance": 0.00022461859800112876
+ },
+ {
+  "feature": "V42",
+  "importance": 0.00022398944316942982
+ },
+ {
+  "feature": "V46",
+  "importance": 0.00022302475550719375
+ },
+ {
+  "feature": "V161",
+  "importance": 0.0002193552951608167
+ },
+ {
+  "feature": "V227",
+  "importance": 0.00021700884827798362
+ },
+ {
+  "feature": "V169",
+  "importance": 0.00021434856153109162
+ },
+ {
+  "feature": "V25",
+  "importance": 0.00021340569784007057
+ },
+ {
+  "feature": "V238",
+  "importance": 0.00021301550982070756
+ },
+ {
+  "feature": "id_18",
+  "importance": 0.00020804384280139246
+ },
+ {
+  "feature": "V339",
+  "importance": 0.00020769846647918948
+ },
+ {
+  "feature": "id_11",
+  "importance": 0.00020046862618044813
+ },
+ {
+  "feature": "V6",
+  "importance": 0.00020001940980026096
+ },
+ {
+  "feature": "V32",
+  "importance": 0.00019854739148926677
+ },
+ {
+  "feature": "V194",
+  "importance": 0.00019494794010557377
+ },
+ {
+  "feature": "V92",
+  "importance": 0.0001940100612651133
+ },
+ {
+  "feature": "D7_isna",
+  "importance": 0.0001928536373707998
+ },
+ {
+  "feature": "V326",
+  "importance": 0.00019077175241646985
+ },
+ {
+  "feature": "V182",
+  "importance": 0.0001895945076491845
+ },
+ {
+  "feature": "V220",
+  "importance": 0.00018770822630642182
+ },
+ {
+  "feature": "V174",
+  "importance": 0.0001876404892203986
+ },
+ {
+  "feature": "V142",
+  "importance": 0.0001873418512343936
+ },
+ {
+  "feature": "V163",
+  "importance": 0.00018709966583431767
+ },
+ {
+  "feature": "V22",
+  "importance": 0.00018092192940635045
+ },
+ {
+  "feature": "D13_isna",
+  "importance": 0.0001789747109116405
+ },
+ {
+  "feature": "V338",
+  "importance": 0.00017607240120061366
+ },
+ {
+  "feature": "V109",
+  "importance": 0.00017361656265389987
+ },
+ {
+  "feature": "D6_isna",
+  "importance": 0.00017109622494289464
+ },
+ {
+  "feature": "V260",
+  "importance": 0.00017019054472412257
+ },
+ {
+  "feature": "V104",
+  "importance": 0.0001677706245460771
+ },
+ {
+  "feature": "V336",
+  "importance": 0.00016218273513401022
+ },
+ {
+  "feature": "card5_isna",
+  "importance": 0.00016032996262404706
+ },
+ {
+  "feature": "V239",
+  "importance": 0.00015974449772620852
+ },
+ {
+  "feature": "V248",
+  "importance": 0.00015601880101122313
+ },
+ {
+  "feature": "V195",
+  "importance": 0.00015473927795168845
+ },
+ {
+  "feature": "V197",
+  "importance": 0.00014725908426275433
+ },
+ {
+  "feature": "V9",
+  "importance": 0.0001421111035381952
+ },
+ {
+  "feature": "V21",
+  "importance": 0.00014116960349606436
+ },
+ {
+  "feature": "V185",
+  "importance": 0.00013449604225718073
+ },
+ {
+  "feature": "V141",
+  "importance": 0.00012938329964103118
+ },
+ {
+  "feature": "V2",
+  "importance": 0.00012850246792870965
+ },
+ {
+  "feature": "V337",
+  "importance": 0.00012738531716661148
+ },
+ {
+  "feature": "V327",
+  "importance": 0.0001208464448470066
+ },
+ {
+  "feature": "V252",
+  "importance": 0.00012006275921037644
+ },
+ {
+  "feature": "V181",
+  "importance": 0.0001157704026749823
+ },
+ {
+  "feature": "V184",
+  "importance": 0.00011518140848317833
+ },
+ {
+  "feature": "V191",
+  "importance": 0.00011351524158967403
+ },
+ {
+  "feature": "V269",
+  "importance": 0.0001125330202265629
+ },
+ {
+  "feature": "id_07",
+  "importance": 0.00010504309510794672
+ },
+ {
+  "feature": "V235",
+  "importance": 0.00010396063445154663
+ },
+ {
+  "feature": "V329",
+  "importance": 9.731343492108547e-05
+ },
+ {
+  "feature": "V116",
+  "importance": 9.71139323115711e-05
+ },
+ {
+  "feature": "id_08",
+  "importance": 9.64669407779826e-05
+ },
+ {
+  "feature": "id_23_ord",
+  "importance": 9.511983498642169e-05
+ },
+ {
+  "feature": "V193",
+  "importance": 9.438817967150194e-05
+ },
+ {
+  "feature": "addr2",
+  "importance": 9.184505025792426e-05
+ },
+ {
+  "feature": "V328",
+  "importance": 9.01598823671276e-05
+ },
+ {
+  "feature": "V330",
+  "importance": 8.926418201396429e-05
+ },
+ {
+  "feature": "id_21",
+  "importance": 8.341050557785979e-05
+ },
+ {
+  "feature": "id_27_ord",
+  "importance": 8.260810371430316e-05
+ },
+ {
+  "feature": "id_26",
+  "importance": 8.127414443555871e-05
+ },
+ {
+  "feature": "V196",
+  "importance": 7.607978350348638e-05
+ },
+ {
+  "feature": "V8",
+  "importance": 7.280805079093218e-05
+ },
+ {
+  "feature": "V334",
+  "importance": 7.191178020914593e-05
+ },
+ {
+  "feature": "id_10",
+  "importance": 6.643893544171299e-05
+ },
+ {
+  "feature": "V247",
+  "importance": 6.015472093411193e-05
+ },
+ {
+  "feature": "V138",
+  "importance": 5.999668432604889e-05
+ },
+ {
+  "feature": "V110",
+  "importance": 5.0325391530755554e-05
+ },
+ {
+  "feature": "V249",
+  "importance": 4.6636910499871406e-05
+ },
+ {
+  "feature": "V114",
+  "importance": 4.374997569255184e-05
+ },
+ {
+  "feature": "V108",
+  "importance": 3.950811288832084e-05
+ },
+ {
+  "feature": "V325",
+  "importance": 3.743853946445215e-05
+ },
+ {
+  "feature": "id_25",
+  "importance": 3.3417475568386675e-05
+ },
+ {
+  "feature": "V121",
+  "importance": 3.2180499840969484e-05
+ },
+ {
+  "feature": "V112",
+  "importance": 2.9754343914874227e-05
+ },
+ {
+  "feature": "card3_isna",
+  "importance": 2.5654768177513917e-05
+ },
+ {
+  "feature": "V122",
+  "importance": 1.8343808074443368e-05
+ },
+ {
+  "feature": "id_04",
+  "importance": 1.736515399107109e-05
+ },
+ {
+  "feature": "C3",
+  "importance": 1.3369573114499336e-05
+ },
+ {
+  "feature": "V111",
+  "importance": 1.2887572920550615e-05
+ },
+ {
+  "feature": "V113",
+  "importance": 1.061830645290462e-05
+ },
+ {
+  "feature": "id_24",
+  "importance": 1.0582309317430213e-05
+ },
+ {
+  "feature": "V118",
+  "importance": 1.0465183211730056e-05
+ },
+ {
+  "feature": "id_22",
+  "importance": 4.407925025843052e-06
+ },
+ {
+  "feature": "V120",
+  "importance": 4.211381517983713e-06
+ },
+ {
+  "feature": "V88",
+  "importance": 3.1220314260511788e-06
+ },
+ {
+  "feature": "V117",
+  "importance": 1.547357088506411e-06
+ },
+ {
+  "feature": "V119",
+  "importance": 1.4297573729555794e-06
+ },
+ {
+  "feature": "V41",
+  "importance": 1.0639419570429394e-06
+ },
+ {
+  "feature": "V14",
+  "importance": 7.055994975976986e-07
+ },
+ {
+  "feature": "D1_isna",
+  "importance": 3.675905043763983e-07
+ },
+ {
+  "feature": "V27",
+  "importance": 3.3399194943066984e-07
+ },
+ {
+  "feature": "V89",
+  "importance": 2.7161652130772805e-18
+ },
+ {
+  "feature": "V1",
+  "importance": 0.0
+ },
+ {
+  "feature": "V107",
+  "importance": 0.0
+ },
+ {
+  "feature": "V240",
+  "importance": 0.0
+ },
+ {
+  "feature": "V241",
+  "importance": 0.0
+ },
+ {
+  "feature": "V28",
+  "importance": 0.0
+ },
+ {
+  "feature": "V305",
+  "importance": 0.0
+ },
+ {
+  "feature": "V65",
+  "importance": 0.0
+ },
+ {
+  "feature": "V68",
+  "importance": 0.0
+ }
+]

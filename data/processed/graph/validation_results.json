@@ -1,0 +1,42 @@
+[
+ {
+  "check": "no_duplicate_edges",
+  "status": "PASS",
+  "detail": "no duplicate (src,dst) pairs in any relation"
+ },
+ {
+  "check": "self_loops",
+  "status": "PASS",
+  "detail": "all relations are Transaction<->Entity (bipartite by construction); a same-node-type self-loop is not structurally possible here"
+ },
+ {
+  "check": "temporal_consistency",
+  "status": "PASS",
+  "detail": "edge_time exactly matches source transaction day on every forward edge"
+ },
+ {
+  "check": "temporal_masking_mechanism",
+  "status": "PASS",
+  "detail": "verified at cutoffs [121, 151, 182, 60, 1]: zero future edges, zero reachable future transactions"
+ },
+ {
+  "check": "extreme_degree",
+  "status": "PASS",
+  "detail": "no entity node type exceeds the 20000-degree hub threshold"
+ },
+ {
+  "check": "no_isolated_transactions",
+  "status": "PASS",
+  "detail": "0 isolated transaction nodes (every transaction has >=1 entity edge)"
+ },
+ {
+  "check": "entity_id_maps_fully_used",
+  "status": "PASS",
+  "detail": "every entity node index is the destination of >=1 edge"
+ },
+ {
+  "check": "edge_count_matches_estimate",
+  "status": "PASS",
+  "detail": "built edge counts match the pre-construction estimate exactly, for every relation"
+ }
+]

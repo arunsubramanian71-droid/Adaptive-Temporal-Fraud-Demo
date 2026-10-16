@@ -1,0 +1,2110 @@
+[
+ {
+  "feature": "C11",
+  "coefficient": 8.415642738342285
+ },
+ {
+  "feature": "C14",
+  "coefficient": -6.078681945800781
+ },
+ {
+  "feature": "C4",
+  "coefficient": 2.8111627101898193
+ },
+ {
+  "feature": "C6",
+  "coefficient": -2.2604360580444336
+ },
+ {
+  "feature": "V203",
+  "coefficient": -2.1679582595825195
+ },
+ {
+  "feature": "C12",
+  "coefficient": -1.9327036142349243
+ },
+ {
+  "feature": "V168",
+  "coefficient": -1.8986364603042603
+ },
+ {
+  "feature": "V332",
+  "coefficient": -1.3782658576965332
+ },
+ {
+  "feature": "V187",
+  "coefficient": 1.2293624877929688
+ },
+ {
+  "feature": "C2",
+  "coefficient": -1.0894389152526855
+ },
+ {
+  "feature": "C7",
+  "coefficient": -1.06470787525177
+ },
+ {
+  "feature": "C1",
+  "coefficient": -1.063878059387207
+ },
+ {
+  "feature": "V338",
+  "coefficient": 1.0374574661254883
+ },
+ {
+  "feature": "V333",
+  "coefficient": 1.0292654037475586
+ },
+ {
+  "feature": "V267",
+  "coefficient": -0.9193228483200073
+ },
+ {
+  "feature": "V179",
+  "coefficient": 0.9124200344085693
+ },
+ {
+  "feature": "V339",
+  "coefficient": -0.9092331528663635
+ },
+ {
+  "feature": "C8",
+  "coefficient": 0.9081445336341858
+ },
+ {
+  "feature": "V150",
+  "coefficient": -0.8728201985359192
+ },
+ {
+  "feature": "C9",
+  "coefficient": 0.862136721611023
+ },
+ {
+  "feature": "V212",
+  "coefficient": 0.8574227094650269
+ },
+ {
+  "feature": "V323",
+  "coefficient": 0.7960742712020874
+ },
+ {
+  "feature": "C3",
+  "coefficient": -0.6767582893371582
+ },
+ {
+  "feature": "V294",
+  "coefficient": 0.67066490650177
+ },
+ {
+  "feature": "C10",
+  "coefficient": 0.6405119299888611
+ },
+ {
+  "feature": "V200",
+  "coefficient": 0.601062536239624
+ },
+ {
+  "feature": "V48",
+  "coefficient": -0.5944163203239441
+ },
+ {
+  "feature": "V326",
+  "coefficient": -0.5781146287918091
+ },
+ {
+  "feature": "V204",
+  "coefficient": 0.5743337869644165
+ },
+ {
+  "feature": "V145",
+  "coefficient": 0.5690706372261047
+ },
+ {
+  "feature": "V335",
+  "coefficient": 0.5632811188697815
+ },
+ {
+  "feature": "addr2_freq",
+  "coefficient": -0.5539782047271729
+ },
+ {
+  "feature": "V189",
+  "coefficient": 0.5252201557159424
+ },
+ {
+  "feature": "V218",
+  "coefficient": -0.5248702764511108
+ },
+ {
+  "feature": "V49",
+  "coefficient": 0.5114285945892334
+ },
+ {
+  "feature": "V201",
+  "coefficient": -0.5080389976501465
+ },
+ {
+  "feature": "V177",
+  "coefficient": -0.5063112378120422
+ },
+ {
+  "feature": "V222",
+  "coefficient": 0.4804733693599701
+ },
+ {
+  "feature": "V90",
+  "coefficient": 0.4803227186203003
+ },
+ {
+  "feature": "V264",
+  "coefficient": -0.44966399669647217
+ },
+ {
+  "feature": "V149",
+  "coefficient": 0.4374766945838928
+ },
+ {
+  "feature": "V18",
+  "coefficient": 0.4333796501159668
+ },
+ {
+  "feature": "V219",
+  "coefficient": -0.4317583441734314
+ },
+ {
+  "feature": "V272",
+  "coefficient": 0.4274466931819916
+ },
+ {
+  "feature": "V199",
+  "coefficient": 0.42631518840789795
+ },
+ {
+  "feature": "V192",
+  "coefficient": 0.4151082932949066
+ },
+ {
+  "feature": "V202",
+  "coefficient": 0.4106852114200592
+ },
+ {
+  "feature": "C5",
+  "coefficient": 0.3986498713493347
+ },
+ {
+  "feature": "V324",
+  "coefficient": -0.39373335242271423
+ },
+ {
+  "feature": "V225",
+  "coefficient": 0.3929980397224426
+ },
+ {
+  "feature": "V167",
+  "coefficient": 0.3894581198692322
+ },
+ {
+  "feature": "log1p_TransactionAmt",
+  "coefficient": 0.3891477882862091
+ },
+ {
+  "feature": "V329",
+  "coefficient": -0.3856319785118103
+ },
+ {
+  "feature": "V153",
+  "coefficient": -0.3800264596939087
+ },
+ {
+  "feature": "V73",
+  "coefficient": -0.3785526156425476
+ },
+ {
+  "feature": "V285",
+  "coefficient": -0.376857727766037
+ },
+ {
+  "feature": "V58",
+  "coefficient": 0.3744552433490753
+ },
+ {
+  "feature": "V280",
+  "coefficient": -0.3688635230064392
+ },
+ {
+  "feature": "V72",
+  "coefficient": -0.3686485290527344
+ },
+ {
+  "feature": "V205",
+  "coefficient": -0.36257749795913696
+ },
+ {
+  "feature": "V147",
+  "coefficient": 0.36252132058143616
+ },
+ {
+  "feature": "V188",
+  "coefficient": -0.3613041937351227
+ },
+ {
+  "feature": "V274",
+  "coefficient": 0.3592773675918579
+ },
+ {
+  "feature": "C13",
+  "coefficient": 0.35674431920051575
+ },
+ {
+  "feature": "D15_isna",
+  "coefficient": 0.3520708978176117
+ },
+ {
+  "feature": "id_17",
+  "coefficient": 0.3461091220378876
+ },
+ {
+  "feature": "V89",
+  "coefficient": -0.3459434509277344
+ },
+ {
+  "feature": "D13_isna",
+  "coefficient": 0.33948925137519836
+ },
+ {
+  "feature": "DeviceType__mobile",
+  "coefficient": 0.33662334084510803
+ },
+ {
+  "feature": "V221",
+  "coefficient": -0.33376172184944153
+ },
+ {
+  "feature": "V85",
+  "coefficient": 0.3202231824398041
+ },
+ {
+  "feature": "V277",
+  "coefficient": 0.3172382116317749
+ },
+ {
+  "feature": "V82",
+  "coefficient": -0.3120863437652588
+ },
+ {
+  "feature": "V95",
+  "coefficient": 0.3099864423274994
+ },
+ {
+  "feature": "DeviceType_isna",
+  "coefficient": -0.3083423376083374
+ },
+ {
+  "feature": "DeviceType____MISSING__",
+  "coefficient": -0.3083423376083374
+ },
+ {
+  "feature": "V10",
+  "coefficient": 0.30669108033180237
+ },
+ {
+  "feature": "R_emaildomain_isna",
+  "coefficient": 0.30466464161872864
+ },
+ {
+  "feature": "V269",
+  "coefficient": -0.3006353974342346
+ },
+ {
+  "feature": "V92",
+  "coefficient": 0.30062925815582275
+ },
+ {
+  "feature": "V227",
+  "coefficient": -0.29680532217025757
+ },
+ {
+  "feature": "V50",
+  "coefficient": -0.2956802248954773
+ },
+ {
+  "feature": "V91",
+  "coefficient": -0.29446664452552795
+ },
+ {
+  "feature": "V155",
+  "coefficient": 0.2935711443424225
+ },
+ {
+  "feature": "V268",
+  "coefficient": -0.29065293073654175
+ },
+ {
+  "feature": "V233",
+  "coefficient": 0.28847217559814453
+ },
+ {
+  "feature": "V11",
+  "coefficient": -0.28799745440483093
+ },
+ {
+  "feature": "V182",
+  "coefficient": -0.281183660030365
+ },
+ {
+  "feature": "V207",
+  "coefficient": 0.2799217998981476
+ },
+ {
+  "feature": "D2",
+  "coefficient": -0.27623844146728516
+ },
+ {
+  "feature": "V84",
+  "coefficient": -0.2749226987361908
+ },
+ {
+  "feature": "V83",
+  "coefficient": 0.27221915125846863
+ },
+ {
+  "feature": "V307",
+  "coefficient": -0.27143362164497375
+ },
+ {
+  "feature": "V94",
+  "coefficient": 0.27138882875442505
+ },
+ {
+  "feature": "V31",
+  "coefficient": -0.2681746184825897
+ },
+ {
+  "feature": "V266",
+  "coefficient": 0.2638665735721588
+ },
+ {
+  "feature": "P_emaildomain_isna",
+  "coefficient": 0.25955426692962646
+ },
+ {
+  "feature": "D12_isna",
+  "coefficient": 0.2594682574272156
+ },
+ {
+  "feature": "V257",
+  "coefficient": 0.25327926874160767
+ },
+ {
+  "feature": "DeviceType_freq",
+  "coefficient": 0.2529448866844177
+ },
+ {
+  "feature": "V208",
+  "coefficient": 0.2525043785572052
+ },
+ {
+  "feature": "id_29__NotFound",
+  "coefficient": -0.2503679692745209
+ },
+ {
+  "feature": "V210",
+  "coefficient": -0.2494937777519226
+ },
+ {
+  "feature": "V291",
+  "coefficient": -0.24309049546718597
+ },
+ {
+  "feature": "V270",
+  "coefficient": -0.2404615879058838
+ },
+ {
+  "feature": "V310",
+  "coefficient": 0.23943176865577698
+ },
+ {
+  "feature": "V295",
+  "coefficient": 0.23851537704467773
+ },
+ {
+  "feature": "V327",
+  "coefficient": 0.23083339631557465
+ },
+ {
+  "feature": "D8",
+  "coefficient": -0.23082523047924042
+ },
+ {
+  "feature": "V165",
+  "coefficient": -0.22736209630966187
+ },
+ {
+  "feature": "V213",
+  "coefficient": -0.22712193429470062
+ },
+ {
+  "feature": "V15",
+  "coefficient": 0.2239219695329666
+ },
+ {
+  "feature": "V330",
+  "coefficient": 0.220288947224617
+ },
+ {
+  "feature": "V214",
+  "coefficient": -0.21831963956356049
+ },
+ {
+  "feature": "V318",
+  "coefficient": 0.21636036038398743
+ },
+ {
+  "feature": "V322",
+  "coefficient": 0.2152308076620102
+ },
+ {
+  "feature": "V148",
+  "coefficient": -0.2142869383096695
+ },
+ {
+  "feature": "DeviceInfo_isna",
+  "coefficient": 0.21385814249515533
+ },
+ {
+  "feature": "ProductCD__R",
+  "coefficient": -0.20723648369312286
+ },
+ {
+  "feature": "V183",
+  "coefficient": 0.20577163994312286
+ },
+ {
+  "feature": "V99",
+  "coefficient": 0.20459143817424774
+ },
+ {
+  "feature": "card6____MISSING__",
+  "coefficient": -0.20340760052204132
+ },
+ {
+  "feature": "V22",
+  "coefficient": -0.20289766788482666
+ },
+ {
+  "feature": "V228",
+  "coefficient": 0.2028323858976364
+ },
+ {
+  "feature": "V259",
+  "coefficient": 0.19963178038597107
+ },
+ {
+  "feature": "V74",
+  "coefficient": 0.19580405950546265
+ },
+ {
+  "feature": "id_28__Found",
+  "coefficient": -0.19460085034370422
+ },
+ {
+  "feature": "V133",
+  "coefficient": 0.1924228072166443
+ },
+ {
+  "feature": "V236",
+  "coefficient": 0.1911749243736267
+ },
+ {
+  "feature": "V101",
+  "coefficient": -0.18953116238117218
+ },
+ {
+  "feature": "V57",
+  "coefficient": -0.1888425201177597
+ },
+ {
+  "feature": "V17",
+  "coefficient": -0.18780311942100525
+ },
+ {
+  "feature": "V32",
+  "coefficient": 0.18720503151416779
+ },
+ {
+  "feature": "D14_isna",
+  "coefficient": -0.1866876631975174
+ },
+ {
+  "feature": "D3",
+  "coefficient": -0.18527469038963318
+ },
+ {
+  "feature": "V217",
+  "coefficient": -0.18514734506607056
+ },
+ {
+  "feature": "V93",
+  "coefficient": -0.18324507772922516
+ },
+ {
+  "feature": "V198",
+  "coefficient": 0.18262620270252228
+ },
+ {
+  "feature": "D1",
+  "coefficient": 0.18217431008815765
+ },
+ {
+  "feature": "V230",
+  "coefficient": -0.18125970661640167
+ },
+ {
+  "feature": "id_15__Found",
+  "coefficient": -0.1802060902118683
+ },
+ {
+  "feature": "V320",
+  "coefficient": 0.1797899603843689
+ },
+ {
+  "feature": "V215",
+  "coefficient": 0.17935717105865479
+ },
+ {
+  "feature": "M5__T",
+  "coefficient": 0.1785515993833542
+ },
+ {
+  "feature": "V126",
+  "coefficient": -0.17812561988830566
+ },
+ {
+  "feature": "V237",
+  "coefficient": 0.17756368219852448
+ },
+ {
+  "feature": "D3_isna",
+  "coefficient": -0.17632442712783813
+ },
+ {
+  "feature": "V163",
+  "coefficient": -0.1759524643421173
+ },
+ {
+  "feature": "V79",
+  "coefficient": 0.17562246322631836
+ },
+ {
+  "feature": "V38",
+  "coefficient": 0.1726696491241455
+ },
+ {
+  "feature": "D2_isna",
+  "coefficient": 0.1720031350851059
+ },
+ {
+  "feature": "ProductCD__H",
+  "coefficient": 0.1695781946182251
+ },
+ {
+  "feature": "V35",
+  "coefficient": -0.16951404511928558
+ },
+ {
+  "feature": "V37",
+  "coefficient": -0.1693311631679535
+ },
+ {
+  "feature": "V130",
+  "coefficient": -0.16887542605400085
+ },
+ {
+  "feature": "V279",
+  "coefficient": 0.16811026632785797
+ },
+ {
+  "feature": "V146",
+  "coefficient": -0.16718298196792603
+ },
+ {
+  "feature": "D8_isna",
+  "coefficient": -0.16686896979808807
+ },
+ {
+  "feature": "id_29__Found",
+  "coefficient": 0.16685499250888824
+ },
+ {
+  "feature": "D11_isna",
+  "coefficient": -0.16406109929084778
+ },
+ {
+  "feature": "V143",
+  "coefficient": 0.1638217270374298
+ },
+ {
+  "feature": "V42",
+  "coefficient": 0.1616356074810028
+ },
+ {
+  "feature": "M5____MISSING__",
+  "coefficient": -0.1611565202474594
+ },
+ {
+  "feature": "V154",
+  "coefficient": 0.15873490273952484
+ },
+ {
+  "feature": "V251",
+  "coefficient": -0.15833939611911774
+ },
+ {
+  "feature": "V193",
+  "coefficient": -0.15670068562030792
+ },
+ {
+  "feature": "V229",
+  "coefficient": 0.15611529350280762
+ },
+ {
+  "feature": "V235",
+  "coefficient": -0.15511491894721985
+ },
+ {
+  "feature": "M7____MISSING__",
+  "coefficient": -0.1533721387386322
+ },
+ {
+  "feature": "V292",
+  "coefficient": -0.1515265703201294
+ },
+ {
+  "feature": "V253",
+  "coefficient": -0.14976729452610016
+ },
+ {
+  "feature": "V54",
+  "coefficient": 0.14961287379264832
+ },
+ {
+  "feature": "V24",
+  "coefficient": -0.14805647730827332
+ },
+ {
+  "feature": "id_01",
+  "coefficient": -0.14354896545410156
+ },
+ {
+  "feature": "V75",
+  "coefficient": 0.14323826134204865
+ },
+ {
+  "feature": "V71",
+  "coefficient": 0.14321810007095337
+ },
+ {
+  "feature": "V248",
+  "coefficient": 0.14314627647399902
+ },
+ {
+  "feature": "V247",
+  "coefficient": 0.14174096286296844
+ },
+ {
+  "feature": "DeviceInfo_freq",
+  "coefficient": 0.14040961861610413
+ },
+ {
+  "feature": "P_emaildomain_freq",
+  "coefficient": 0.13919375836849213
+ },
+ {
+  "feature": "V27",
+  "coefficient": -0.13780006766319275
+ },
+ {
+  "feature": "V28",
+  "coefficient": -0.13629327714443207
+ },
+ {
+  "feature": "V53",
+  "coefficient": -0.13594351708889008
+ },
+ {
+  "feature": "V226",
+  "coefficient": 0.1353597640991211
+ },
+ {
+  "feature": "V224",
+  "coefficient": 0.13505400717258453
+ },
+ {
+  "feature": "V87",
+  "coefficient": 0.13502348959445953
+ },
+ {
+  "feature": "V174",
+  "coefficient": -0.13443027436733246
+ },
+ {
+  "feature": "V162",
+  "coefficient": 0.13337761163711548
+ },
+ {
+  "feature": "R_emaildomain_freq",
+  "coefficient": 0.1329929232597351
+ },
+ {
+  "feature": "V139",
+  "coefficient": -0.13298234343528748
+ },
+ {
+  "feature": "id_28__New",
+  "coefficient": 0.12826882302761078
+ },
+ {
+  "feature": "V315",
+  "coefficient": -0.12803319096565247
+ },
+ {
+  "feature": "V261",
+  "coefficient": 0.1273622214794159
+ },
+ {
+  "feature": "V209",
+  "coefficient": -0.1267566680908203
+ },
+ {
+  "feature": "V108",
+  "coefficient": 0.12635275721549988
+ },
+ {
+  "feature": "V45",
+  "coefficient": 0.1259850561618805
+ },
+ {
+  "feature": "V157",
+  "coefficient": -0.1236756443977356
+ },
+ {
+  "feature": "V273",
+  "coefficient": -0.12172476202249527
+ },
+ {
+  "feature": "M6__F",
+  "coefficient": 0.12160599231719971
+ },
+ {
+  "feature": "V287",
+  "coefficient": 0.12147717922925949
+ },
+ {
+  "feature": "card6__credit",
+  "coefficient": 0.12140049785375595
+ },
+ {
+  "feature": "V300",
+  "coefficient": -0.1210167333483696
+ },
+ {
+  "feature": "V265",
+  "coefficient": -0.11960527300834656
+ },
+ {
+  "feature": "V152",
+  "coefficient": -0.11880024522542953
+ },
+ {
+  "feature": "V317",
+  "coefficient": -0.11851025372743607
+ },
+ {
+  "feature": "V321",
+  "coefficient": -0.11769913882017136
+ },
+ {
+  "feature": "V232",
+  "coefficient": 0.11709687113761902
+ },
+ {
+  "feature": "id_15__New",
+  "coefficient": 0.11628641188144684
+ },
+ {
+  "feature": "V278",
+  "coefficient": -0.1158735454082489
+ },
+ {
+  "feature": "V328",
+  "coefficient": -0.11535348743200302
+ },
+ {
+  "feature": "V131",
+  "coefficient": 0.11446347087621689
+ },
+ {
+  "feature": "V33",
+  "coefficient": 0.11365016549825668
+ },
+ {
+  "feature": "M6____MISSING__",
+  "coefficient": -0.11351052671670914
+ },
+ {
+  "feature": "V23",
+  "coefficient": 0.11344382166862488
+ },
+ {
+  "feature": "card4____MISSING__",
+  "coefficient": 0.11286886036396027
+ },
+ {
+  "feature": "V283",
+  "coefficient": 0.11258604377508163
+ },
+ {
+  "feature": "V246",
+  "coefficient": -0.11162948608398438
+ },
+ {
+  "feature": "M7__F",
+  "coefficient": 0.11137250810861588
+ },
+ {
+  "feature": "V62",
+  "coefficient": 0.1111593171954155
+ },
+ {
+  "feature": "V180",
+  "coefficient": -0.11062657088041306
+ },
+ {
+  "feature": "id_12__NotFound",
+  "coefficient": -0.10971488058567047
+ },
+ {
+  "feature": "id_38__T",
+  "coefficient": -0.10969262570142746
+ },
+ {
+  "feature": "V104",
+  "coefficient": -0.10948929935693741
+ },
+ {
+  "feature": "V6",
+  "coefficient": -0.10942898690700531
+ },
+ {
+  "feature": "V175",
+  "coefficient": 0.10842486470937729
+ },
+ {
+  "feature": "has_identity",
+  "coefficient": -0.10761883854866028
+ },
+ {
+  "feature": "id_12____MISSING__",
+  "coefficient": 0.10761883854866028
+ },
+ {
+  "feature": "V313",
+  "coefficient": 0.10758493095636368
+ },
+ {
+  "feature": "V190",
+  "coefficient": -0.10756364464759827
+ },
+ {
+  "feature": "V293",
+  "coefficient": -0.107132688164711
+ },
+ {
+  "feature": "id_34____MISSING__",
+  "coefficient": -0.10690787434577942
+ },
+ {
+  "feature": "V301",
+  "coefficient": 0.10682626068592072
+ },
+ {
+  "feature": "V258",
+  "coefficient": 0.10672835260629654
+ },
+ {
+  "feature": "V70",
+  "coefficient": -0.10653536021709442
+ },
+ {
+  "feature": "V76",
+  "coefficient": -0.10647138953208923
+ },
+ {
+  "feature": "V211",
+  "coefficient": -0.10559609532356262
+ },
+ {
+  "feature": "M7__T",
+  "coefficient": 0.10552247613668442
+ },
+ {
+  "feature": "V160",
+  "coefficient": -0.10542520880699158
+ },
+ {
+  "feature": "V282",
+  "coefficient": 0.10494304448366165
+ },
+ {
+  "feature": "V159",
+  "coefficient": 0.10417405515909195
+ },
+ {
+  "feature": "V195",
+  "coefficient": -0.10396791994571686
+ },
+ {
+  "feature": "hour_sin",
+  "coefficient": 0.10345711559057236
+ },
+ {
+  "feature": "V127",
+  "coefficient": -0.10294075310230255
+ },
+ {
+  "feature": "V141",
+  "coefficient": 0.1028960645198822
+ },
+ {
+  "feature": "V334",
+  "coefficient": -0.10255753993988037
+ },
+ {
+  "feature": "V311",
+  "coefficient": -0.10199950635433197
+ },
+ {
+  "feature": "V181",
+  "coefficient": -0.10080491751432419
+ },
+ {
+  "feature": "V29",
+  "coefficient": -0.10044901818037033
+ },
+ {
+  "feature": "V137",
+  "coefficient": 0.10035566240549088
+ },
+ {
+  "feature": "V262",
+  "coefficient": 0.10004721581935883
+ },
+ {
+  "feature": "V13",
+  "coefficient": 0.0986015573143959
+ },
+ {
+  "feature": "card6__debit",
+  "coefficient": -0.09815439581871033
+ },
+ {
+  "feature": "V67",
+  "coefficient": 0.097709059715271
+ },
+ {
+  "feature": "V171",
+  "coefficient": -0.09617089480161667
+ },
+ {
+  "feature": "V78",
+  "coefficient": -0.09476929903030396
+ },
+ {
+  "feature": "V306",
+  "coefficient": -0.09450303018093109
+ },
+ {
+  "feature": "V59",
+  "coefficient": -0.0944717526435852
+ },
+ {
+  "feature": "ProductCD__S",
+  "coefficient": 0.09396829456090927
+ },
+ {
+  "feature": "V111",
+  "coefficient": 0.0933714359998703
+ },
+ {
+  "feature": "DeviceType__desktop",
+  "coefficient": 0.09321343153715134
+ },
+ {
+  "feature": "V113",
+  "coefficient": -0.09294537454843521
+ },
+ {
+  "feature": "id_37__F",
+  "coefficient": -0.09226679056882858
+ },
+ {
+  "feature": "V281",
+  "coefficient": 0.0917954072356224
+ },
+ {
+  "feature": "id_35__F",
+  "coefficient": -0.0908917784690857
+ },
+ {
+  "feature": "V238",
+  "coefficient": 0.0908651128411293
+ },
+ {
+  "feature": "V197",
+  "coefficient": -0.09075873345136642
+ },
+ {
+  "feature": "V286",
+  "coefficient": 0.0905127301812172
+ },
+ {
+  "feature": "V115",
+  "coefficient": 0.0898282378911972
+ },
+ {
+  "feature": "card6__debit or credit",
+  "coefficient": -0.08980245143175125
+ },
+ {
+  "feature": "V178",
+  "coefficient": 0.08931132405996323
+ },
+ {
+  "feature": "M9__T",
+  "coefficient": -0.089137502014637
+ },
+ {
+  "feature": "V69",
+  "coefficient": -0.08900608122348785
+ },
+ {
+  "feature": "V97",
+  "coefficient": -0.08844496309757233
+ },
+ {
+  "feature": "V114",
+  "coefficient": -0.08666935563087463
+ },
+ {
+  "feature": "D10",
+  "coefficient": 0.08613981306552887
+ },
+ {
+  "feature": "V296",
+  "coefficient": 0.08550700545310974
+ },
+ {
+  "feature": "V105",
+  "coefficient": -0.08540821075439453
+ },
+ {
+  "feature": "M1__F",
+  "coefficient": -0.08463186770677567
+ },
+ {
+  "feature": "card6_freq",
+  "coefficient": -0.0845128744840622
+ },
+ {
+  "feature": "id_04",
+  "coefficient": -0.08446165919303894
+ },
+ {
+  "feature": "V81",
+  "coefficient": -0.08332075923681259
+ },
+ {
+  "feature": "V223",
+  "coefficient": -0.08309824764728546
+ },
+ {
+  "feature": "card3_isna",
+  "coefficient": 0.08274935185909271
+ },
+ {
+  "feature": "V110",
+  "coefficient": -0.08258972316980362
+ },
+ {
+  "feature": "id_16__NotFound",
+  "coefficient": -0.08229787647724152
+ },
+ {
+  "feature": "V191",
+  "coefficient": 0.08168128877878189
+ },
+ {
+  "feature": "M3__T",
+  "coefficient": -0.08041676133871078
+ },
+ {
+  "feature": "V256",
+  "coefficient": 0.07824917137622833
+ },
+ {
+  "feature": "V336",
+  "coefficient": -0.07797588407993317
+ },
+ {
+  "feature": "V43",
+  "coefficient": -0.07773434370756149
+ },
+ {
+  "feature": "M4____MISSING__",
+  "coefficient": -0.07751816511154175
+ },
+ {
+  "feature": "V26",
+  "coefficient": -0.07732629030942917
+ },
+ {
+  "feature": "V55",
+  "coefficient": -0.07724635303020477
+ },
+ {
+  "feature": "D5",
+  "coefficient": -0.0771695151925087
+ },
+ {
+  "feature": "id_34__match_status:2",
+  "coefficient": 0.0771075040102005
+ },
+ {
+  "feature": "V252",
+  "coefficient": 0.07548443228006363
+ },
+ {
+  "feature": "V7",
+  "coefficient": 0.07397404313087463
+ },
+ {
+  "feature": "V136",
+  "coefficient": 0.07394646108150482
+ },
+ {
+  "feature": "V103",
+  "coefficient": 0.07343585789203644
+ },
+ {
+  "feature": "V56",
+  "coefficient": -0.07301011681556702
+ },
+ {
+  "feature": "V239",
+  "coefficient": -0.07282456010580063
+ },
+ {
+  "feature": "V63",
+  "coefficient": -0.07275355607271194
+ },
+ {
+  "feature": "card5_freq",
+  "coefficient": 0.07212860137224197
+ },
+ {
+  "feature": "V44",
+  "coefficient": 0.07159233838319778
+ },
+ {
+  "feature": "id_34__match_status:1",
+  "coefficient": 0.07152091711759567
+ },
+ {
+  "feature": "card6__charge card",
+  "coefficient": -0.07146621495485306
+ },
+ {
+  "feature": "M3__F",
+  "coefficient": 0.07132823765277863
+ },
+ {
+  "feature": "V312",
+  "coefficient": 0.07061431556940079
+ },
+ {
+  "feature": "M8____MISSING__",
+  "coefficient": 0.07033538073301315
+ },
+ {
+  "feature": "M9____MISSING__",
+  "coefficient": 0.07033538073301315
+ },
+ {
+  "feature": "ProductCD__C",
+  "coefficient": 0.0703241229057312
+ },
+ {
+  "feature": "D6_isna",
+  "coefficient": -0.06968963146209717
+ },
+ {
+  "feature": "id_09",
+  "coefficient": 0.06910327821969986
+ },
+ {
+  "feature": "V196",
+  "coefficient": 0.06865809857845306
+ },
+ {
+  "feature": "V169",
+  "coefficient": -0.06784377247095108
+ },
+ {
+  "feature": "id_30_freq",
+  "coefficient": -0.06705669313669205
+ },
+ {
+  "feature": "V51",
+  "coefficient": 0.06695538759231567
+ },
+ {
+  "feature": "V186",
+  "coefficient": -0.06667400151491165
+ },
+ {
+  "feature": "V135",
+  "coefficient": -0.06640032678842545
+ },
+ {
+  "feature": "V308",
+  "coefficient": -0.06593666225671768
+ },
+ {
+  "feature": "V124",
+  "coefficient": -0.06590865552425385
+ },
+ {
+  "feature": "V144",
+  "coefficient": 0.06473536044359207
+ },
+ {
+  "feature": "V325",
+  "coefficient": -0.06421872973442078
+ },
+ {
+  "feature": "V319",
+  "coefficient": -0.0641913115978241
+ },
+ {
+  "feature": "V245",
+  "coefficient": -0.0641818568110466
+ },
+ {
+  "feature": "V242",
+  "coefficient": 0.06410747766494751
+ },
+ {
+  "feature": "V66",
+  "coefficient": 0.06391210854053497
+ },
+ {
+  "feature": "M4__M0",
+  "coefficient": 0.06367843598127365
+ },
+ {
+  "feature": "M4__M2",
+  "coefficient": 0.06281086057424545
+ },
+ {
+  "feature": "V184",
+  "coefficient": -0.062177736312150955
+ },
+ {
+  "feature": "V98",
+  "coefficient": -0.06207478418946266
+ },
+ {
+  "feature": "V241",
+  "coefficient": -0.06146447733044624
+ },
+ {
+  "feature": "addr1_freq",
+  "coefficient": -0.06039557233452797
+ },
+ {
+  "feature": "V249",
+  "coefficient": 0.060335393995046616
+ },
+ {
+  "feature": "card4__discover",
+  "coefficient": 0.06000013276934624
+ },
+ {
+  "feature": "V185",
+  "coefficient": 0.05858996883034706
+ },
+ {
+  "feature": "V19",
+  "coefficient": -0.05855800211429596
+ },
+ {
+  "feature": "id_38____MISSING__",
+  "coefficient": 0.058544207364320755
+ },
+ {
+  "feature": "V170",
+  "coefficient": 0.05806470662355423
+ },
+ {
+  "feature": "id_15____MISSING__",
+  "coefficient": 0.058054909110069275
+ },
+ {
+  "feature": "id_28____MISSING__",
+  "coefficient": 0.058054909110069275
+ },
+ {
+  "feature": "id_29____MISSING__",
+  "coefficient": 0.058054909110069275
+ },
+ {
+  "feature": "id_35____MISSING__",
+  "coefficient": 0.058054909110069275
+ },
+ {
+  "feature": "id_36____MISSING__",
+  "coefficient": 0.058054909110069275
+ },
+ {
+  "feature": "id_37____MISSING__",
+  "coefficient": 0.058054909110069275
+ },
+ {
+  "feature": "V60",
+  "coefficient": -0.057843707501888275
+ },
+ {
+  "feature": "id_27__NotFound",
+  "coefficient": -0.05766160786151886
+ },
+ {
+  "feature": "id_02",
+  "coefficient": -0.055702801793813705
+ },
+ {
+  "feature": "card3_freq",
+  "coefficient": 0.055589478462934494
+ },
+ {
+  "feature": "V47",
+  "coefficient": 0.055503882467746735
+ },
+ {
+  "feature": "V100",
+  "coefficient": 0.05492028221487999
+ },
+ {
+  "feature": "V86",
+  "coefficient": -0.05491945892572403
+ },
+ {
+  "feature": "dist1_isna",
+  "coefficient": 0.05471237003803253
+ },
+ {
+  "feature": "V302",
+  "coefficient": 0.05452166870236397
+ },
+ {
+  "feature": "V96",
+  "coefficient": -0.05443206802010536
+ },
+ {
+  "feature": "V2",
+  "coefficient": -0.05384048447012901
+ },
+ {
+  "feature": "ProductCD_freq",
+  "coefficient": -0.05359033867716789
+ },
+ {
+  "feature": "V102",
+  "coefficient": -0.05358034372329712
+ },
+ {
+  "feature": "ProductCD__W",
+  "coefficient": -0.053411614149808884
+ },
+ {
+  "feature": "V68",
+  "coefficient": -0.053175244480371475
+ },
+ {
+  "feature": "id_11",
+  "coefficient": 0.052982643246650696
+ },
+ {
+  "feature": "V106",
+  "coefficient": 0.05297130346298218
+ },
+ {
+  "feature": "V244",
+  "coefficient": 0.0522829107940197
+ },
+ {
+  "feature": "D1_isna",
+  "coefficient": -0.05222193896770477
+ },
+ {
+  "feature": "V331",
+  "coefficient": -0.052134063094854355
+ },
+ {
+  "feature": "V166",
+  "coefficient": 0.051746539771556854
+ },
+ {
+  "feature": "V173",
+  "coefficient": -0.05149757117033005
+ },
+ {
+  "feature": "V309",
+  "coefficient": 0.05136284604668617
+ },
+ {
+  "feature": "card2_isna",
+  "coefficient": 0.05128507316112518
+ },
+ {
+  "feature": "V132",
+  "coefficient": 0.05080903321504593
+ },
+ {
+  "feature": "id_16____MISSING__",
+  "coefficient": 0.0505659393966198
+ },
+ {
+  "feature": "V299",
+  "coefficient": 0.05003473162651062
+ },
+ {
+  "feature": "V156",
+  "coefficient": -0.049771953374147415
+ },
+ {
+  "feature": "V16",
+  "coefficient": -0.04966820031404495
+ },
+ {
+  "feature": "V134",
+  "coefficient": -0.04887279495596886
+ },
+ {
+  "feature": "M8__T",
+  "coefficient": -0.04814496263861656
+ },
+ {
+  "feature": "V3",
+  "coefficient": 0.047837406396865845
+ },
+ {
+  "feature": "V77",
+  "coefficient": 0.04771826043725014
+ },
+ {
+  "feature": "V220",
+  "coefficient": -0.047608956694602966
+ },
+ {
+  "feature": "id_36__F",
+  "coefficient": -0.04716555029153824
+ },
+ {
+  "feature": "V255",
+  "coefficient": -0.04627925530076027
+ },
+ {
+  "feature": "V316",
+  "coefficient": 0.045923661440610886
+ },
+ {
+  "feature": "id_36__T",
+  "coefficient": -0.04397885873913765
+ },
+ {
+  "feature": "V172",
+  "coefficient": 0.0438290536403656
+ },
+ {
+  "feature": "V88",
+  "coefficient": -0.043628450483083725
+ },
+ {
+  "feature": "V1",
+  "coefficient": 0.043438296765089035
+ },
+ {
+  "feature": "id_23__IP_PROXY:HIDDEN",
+  "coefficient": -0.043246909976005554
+ },
+ {
+  "feature": "V120",
+  "coefficient": -0.04299202933907509
+ },
+ {
+  "feature": "D4_isna",
+  "coefficient": -0.042630381882190704
+ },
+ {
+  "feature": "M8__F",
+  "coefficient": -0.04257335513830185
+ },
+ {
+  "feature": "V5",
+  "coefficient": 0.04133715480566025
+ },
+ {
+  "feature": "V250",
+  "coefficient": 0.04106499254703522
+ },
+ {
+  "feature": "V30",
+  "coefficient": -0.0410359650850296
+ },
+ {
+  "feature": "card2_freq",
+  "coefficient": 0.040852926671504974
+ },
+ {
+  "feature": "id_31_freq",
+  "coefficient": -0.04025934636592865
+ },
+ {
+  "feature": "V271",
+  "coefficient": 0.04013404622673988
+ },
+ {
+  "feature": "V39",
+  "coefficient": 0.0400158166885376
+ },
+ {
+  "feature": "V129",
+  "coefficient": -0.0391697958111763
+ },
+ {
+  "feature": "id_33_freq",
+  "coefficient": 0.038877222687006
+ },
+ {
+  "feature": "id_38__F",
+  "coefficient": 0.03811486437916756
+ },
+ {
+  "feature": "V243",
+  "coefficient": -0.03738094121217728
+ },
+ {
+  "feature": "V123",
+  "coefficient": 0.03730955719947815
+ },
+ {
+  "feature": "M4__M1",
+  "coefficient": -0.036561910063028336
+ },
+ {
+  "feature": "D9",
+  "coefficient": 0.035759665071964264
+ },
+ {
+  "feature": "V337",
+  "coefficient": 0.03503187745809555
+ },
+ {
+  "feature": "M2____MISSING__",
+  "coefficient": 0.0350133441388607
+ },
+ {
+  "feature": "M3____MISSING__",
+  "coefficient": 0.0350133441388607
+ },
+ {
+  "feature": "id_03",
+  "coefficient": 0.03495587408542633
+ },
+ {
+  "feature": "M1____MISSING__",
+  "coefficient": 0.03471255674958229
+ },
+ {
+  "feature": "id_14",
+  "coefficient": 0.03364703804254532
+ },
+ {
+  "feature": "M1__T",
+  "coefficient": -0.033347368240356445
+ },
+ {
+  "feature": "M2__T",
+  "coefficient": -0.03317246213555336
+ },
+ {
+  "feature": "V140",
+  "coefficient": -0.032944727689027786
+ },
+ {
+  "feature": "id_21",
+  "coefficient": 0.03272581845521927
+ },
+ {
+  "feature": "V36",
+  "coefficient": 0.03205231577157974
+ },
+ {
+  "feature": "V41",
+  "coefficient": 0.03185230493545532
+ },
+ {
+  "feature": "M9__F",
+  "coefficient": 0.031265757977962494
+ },
+ {
+  "feature": "dist2_isna",
+  "coefficient": 0.03060307726264
+ },
+ {
+  "feature": "V116",
+  "coefficient": 0.03029797598719597
+ },
+ {
+  "feature": "V40",
+  "coefficient": -0.02980068325996399
+ },
+ {
+  "feature": "V234",
+  "coefficient": 0.02908625453710556
+ },
+ {
+  "feature": "id_06",
+  "coefficient": -0.02856273576617241
+ },
+ {
+  "feature": "id_34__match_status:-1",
+  "coefficient": -0.02845042012631893
+ },
+ {
+  "feature": "V61",
+  "coefficient": -0.028361838310956955
+ },
+ {
+  "feature": "V64",
+  "coefficient": 0.027893204241991043
+ },
+ {
+  "feature": "D7_isna",
+  "coefficient": -0.02772592380642891
+ },
+ {
+  "feature": "V260",
+  "coefficient": -0.0270527396351099
+ },
+ {
+  "feature": "V305",
+  "coefficient": -0.027036529034376144
+ },
+ {
+  "feature": "D13",
+  "coefficient": 0.02671310119330883
+ },
+ {
+  "feature": "V9",
+  "coefficient": -0.026604751124978065
+ },
+ {
+  "feature": "id_15__Unknown",
+  "coefficient": -0.026435162872076035
+ },
+ {
+  "feature": "id_10",
+  "coefficient": 0.025971567258238792
+ },
+ {
+  "feature": "M5__F",
+  "coefficient": 0.02573222666978836
+ },
+ {
+  "feature": "V231",
+  "coefficient": -0.025715135037899017
+ },
+ {
+  "feature": "V125",
+  "coefficient": 0.025691714137792587
+ },
+ {
+  "feature": "id_32",
+  "coefficient": -0.025570478290319443
+ },
+ {
+  "feature": "card4__american express",
+  "coefficient": -0.02476414665579796
+ },
+ {
+  "feature": "V46",
+  "coefficient": -0.024403966963291168
+ },
+ {
+  "feature": "id_23__IP_PROXY:ANONYMOUS",
+  "coefficient": 0.023976096883416176
+ },
+ {
+  "feature": "id_18",
+  "coefficient": 0.023818183690309525
+ },
+ {
+  "feature": "D10_isna",
+  "coefficient": -0.02355239912867546
+ },
+ {
+  "feature": "id_24",
+  "coefficient": -0.022066643461585045
+ },
+ {
+  "feature": "D14",
+  "coefficient": -0.021818874403834343
+ },
+ {
+  "feature": "V289",
+  "coefficient": 0.021442195400595665
+ },
+ {
+  "feature": "id_19",
+  "coefficient": 0.021218938753008842
+ },
+ {
+  "feature": "V284",
+  "coefficient": 0.020779388025403023
+ },
+ {
+  "feature": "hour_cos",
+  "coefficient": -0.02014869824051857
+ },
+ {
+  "feature": "id_20",
+  "coefficient": 0.01937096193432808
+ },
+ {
+  "feature": "V158",
+  "coefficient": -0.019043495878577232
+ },
+ {
+  "feature": "id_26",
+  "coefficient": 0.018994472920894623
+ },
+ {
+  "feature": "card4__mastercard",
+  "coefficient": -0.018946005031466484
+ },
+ {
+  "feature": "V298",
+  "coefficient": -0.01809939369559288
+ },
+ {
+  "feature": "id_34__match_status:0",
+  "coefficient": 0.017851488664746284
+ },
+ {
+  "feature": "V34",
+  "coefficient": -0.017688147723674774
+ },
+ {
+  "feature": "V275",
+  "coefficient": 0.016807155683636665
+ },
+ {
+  "feature": "V109",
+  "coefficient": 0.01675909198820591
+ },
+ {
+  "feature": "V112",
+  "coefficient": 0.016449876129627228
+ },
+ {
+  "feature": "dist1",
+  "coefficient": 0.016281848773360252
+ },
+ {
+  "feature": "V263",
+  "coefficient": -0.016215313225984573
+ },
+ {
+  "feature": "V12",
+  "coefficient": 0.01593884266912937
+ },
+ {
+  "feature": "id_16__Found",
+  "coefficient": 0.015797406435012817
+ },
+ {
+  "feature": "dow_cos",
+  "coefficient": 0.014582463540136814
+ },
+ {
+  "feature": "V4",
+  "coefficient": 0.014565173536539078
+ },
+ {
+  "feature": "V119",
+  "coefficient": -0.014029386453330517
+ },
+ {
+  "feature": "D6",
+  "coefficient": -0.013867531903088093
+ },
+ {
+  "feature": "V314",
+  "coefficient": -0.013823873363435268
+ },
+ {
+  "feature": "V276",
+  "coefficient": -0.013618981465697289
+ },
+ {
+  "feature": "card4_freq",
+  "coefficient": -0.013595902360975742
+ },
+ {
+  "feature": "D15",
+  "coefficient": 0.013550947420299053
+ },
+ {
+  "feature": "M6__T",
+  "coefficient": -0.013425660319626331
+ },
+ {
+  "feature": "V297",
+  "coefficient": -0.012718448415398598
+ },
+ {
+  "feature": "V290",
+  "coefficient": 0.012324276380240917
+ },
+ {
+  "feature": "V151",
+  "coefficient": -0.012086186558008194
+ },
+ {
+  "feature": "D11",
+  "coefficient": 0.011833226308226585
+ },
+ {
+  "feature": "D5_isna",
+  "coefficient": -0.01143966056406498
+ },
+ {
+  "feature": "card1_freq",
+  "coefficient": 0.011428277008235455
+ },
+ {
+  "feature": "V254",
+  "coefficient": -0.011089958250522614
+ },
+ {
+  "feature": "id_08",
+  "coefficient": -0.010883116163313389
+ },
+ {
+  "feature": "V128",
+  "coefficient": 0.010588281787931919
+ },
+ {
+  "feature": "V138",
+  "coefficient": -0.01058172807097435
+ },
+ {
+  "feature": "V20",
+  "coefficient": 0.010436087846755981
+ },
+ {
+  "feature": "addr1_isna",
+  "coefficient": -0.010250378400087357
+ },
+ {
+  "feature": "addr2_isna",
+  "coefficient": -0.010250378400087357
+ },
+ {
+  "feature": "id_37__T",
+  "coefficient": -0.009943872690200806
+ },
+ {
+  "feature": "V304",
+  "coefficient": 0.009642749093472958
+ },
+ {
+  "feature": "V176",
+  "coefficient": 0.00933640357106924
+ },
+ {
+  "feature": "V65",
+  "coefficient": 0.009298895485699177
+ },
+ {
+  "feature": "id_07",
+  "coefficient": -0.009087431244552135
+ },
+ {
+  "feature": "V122",
+  "coefficient": 0.008965585380792618
+ },
+ {
+  "feature": "id_13",
+  "coefficient": 0.008806219324469566
+ },
+ {
+  "feature": "id_35__T",
+  "coefficient": 0.008541055023670197
+ },
+ {
+  "feature": "V118",
+  "coefficient": -0.008366822265088558
+ },
+ {
+  "feature": "V288",
+  "coefficient": -0.008139953948557377
+ },
+ {
+  "feature": "id_23____MISSING__",
+  "coefficient": 0.008114646188914776
+ },
+ {
+  "feature": "id_27____MISSING__",
+  "coefficient": 0.008114646188914776
+ },
+ {
+  "feature": "V142",
+  "coefficient": -0.008048745803534985
+ },
+ {
+  "feature": "V194",
+  "coefficient": 0.007907501421868801
+ },
+ {
+  "feature": "id_12__Found",
+  "coefficient": -0.007462926674634218
+ },
+ {
+  "feature": "D12",
+  "coefficient": -0.0063916356302797794
+ },
+ {
+  "feature": "dist2",
+  "coefficient": 0.006117799319326878
+ },
+ {
+  "feature": "V206",
+  "coefficient": -0.005473170429468155
+ },
+ {
+  "feature": "id_22",
+  "coefficient": 0.005413200706243515
+ },
+ {
+  "feature": "M2__F",
+  "coefficient": -0.005383927375078201
+ },
+ {
+  "feature": "id_27__Found",
+  "coefficient": -0.005315220449119806
+ },
+ {
+  "feature": "V80",
+  "coefficient": -0.00509493937715888
+ },
+ {
+  "feature": "dow_sin",
+  "coefficient": -0.005080091767013073
+ },
+ {
+  "feature": "V161",
+  "coefficient": 0.005059949122369289
+ },
+ {
+  "feature": "V8",
+  "coefficient": 0.004715177230536938
+ },
+ {
+  "feature": "V21",
+  "coefficient": -0.0047121476382017136
+ },
+ {
+  "feature": "id_23__IP_PROXY:TRANSPARENT",
+  "coefficient": -0.004399265628308058
+ },
+ {
+  "feature": "D7",
+  "coefficient": 0.004294556099921465
+ },
+ {
+  "feature": "card5_isna",
+  "coefficient": 0.003954959101974964
+ },
+ {
+  "feature": "V240",
+  "coefficient": 0.0037262302357703447
+ },
+ {
+  "feature": "D4",
+  "coefficient": 0.0037035434506833553
+ },
+ {
+  "feature": "V303",
+  "coefficient": -0.003348464146256447
+ },
+ {
+  "feature": "V216",
+  "coefficient": 0.0033283033408224583
+ },
+ {
+  "feature": "amt_decimals_gt2",
+  "coefficient": 0.00298224575817585
+ },
+ {
+  "feature": "V121",
+  "coefficient": -0.0025335855316370726
+ },
+ {
+  "feature": "V52",
+  "coefficient": -0.0023609541822224855
+ },
+ {
+  "feature": "V14",
+  "coefficient": -0.002326763002201915
+ },
+ {
+  "feature": "V25",
+  "coefficient": 0.0019984827376902103
+ },
+ {
+  "feature": "V117",
+  "coefficient": -0.0019699635449796915
+ },
+ {
+  "feature": "id_05",
+  "coefficient": 0.001923735486343503
+ },
+ {
+  "feature": "card4__visa",
+  "coefficient": 0.001081285416148603
+ },
+ {
+  "feature": "V164",
+  "coefficient": 0.00046159076737239957
+ },
+ {
+  "feature": "id_25",
+  "coefficient": -9.118510206462815e-05
+ },
+ {
+  "feature": "V107",
+  "coefficient": 0.0
+ }
+]

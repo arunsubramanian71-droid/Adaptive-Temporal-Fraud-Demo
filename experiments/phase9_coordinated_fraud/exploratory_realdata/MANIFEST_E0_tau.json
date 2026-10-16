@@ -1,0 +1,13 @@
+{
+ "note": "tau calibration step: SHA-256 (file bytes) of the locked tau outputs.",
+ "files": {
+  "experiments/phase9_coordinated_fraud/exploratory_realdata/e0_tau_seed123.json": "f1961b990925e02cd0c13a9f2ed35c077c50d6e39fbd33f46999bc4d915364e3",
+  "experiments/phase9_coordinated_fraud/exploratory_realdata/e0_tau_seed2024.json": "477d1b5243058a7431c107343f7da2064307b9fd79ddcdc7e5c80c1dd457b732",
+  "experiments/phase9_coordinated_fraud/exploratory_realdata/e0_tau_seed42.json": "3f73516c232363089d0492d0e99ee854b0401220a656ee3ef566f7d9e8ed6541",
+  "experiments/phase9_coordinated_fraud/exploratory_realdata/e0_tau_seed123.sha256": "bb5c7e7e5f64ef56dfd2257cb3f0091d936e36a566ec8adbeb4538daf9fdcf05",
+  "experiments/phase9_coordinated_fraud/exploratory_realdata/e0_tau_seed2024.sha256": "aa3a77f743376da8b732ca5cbd3c046def3e30650954818e341d1d630bae6a52",
+  "experiments/phase9_coordinated_fraud/exploratory_realdata/e0_tau_seed42.sha256": "e73a9de6c7b648b127f6417dc10a016387b8a84cf4017d8cebb83f13ebc21fdf",
+  "experiments/phase9_coordinated_fraud/exploratory_realdata/e0_tau_lock_note.md": "b08f9661f9580634eb5df66d20b9c03d255e3ec3a9bfd20784a50e7978ddcb0a",
+  "experiments/phase9_coordinated_fraud/exploratory_realdata/log_e0_tau.txt": "4b606736c367f2d63684e5dfd4ce34442ccbf4c815d28503b1951d6e5d5ec2a5"
+ }
+}

@@ -1,0 +1,112 @@
+# Reproducible configuration for the data pipeline.
+# Values here (especially split boundaries) come from reports/phase1_reconnaissance.md.
+# Do not change split boundaries without a demonstrated reason recorded in a report.
+
+random_seed: 42
+
+paths:
+  raw_dir: data/raw
+  processed_dir: data/processed
+  features_dir: data/features
+  experiments_dir: experiments
+  reports_dir: reports
+
+raw_files:
+  train_transaction: train_transaction.csv
+  train_identity: train_identity.csv
+  # test_transaction / test_identity are intentionally NOT listed here.
+  # The Kaggle test set has no ground-truth isFraud labels (see Phase 1 report,
+  # section 8) and must never be used for quantitative evaluation. It is out of
+  # scope for this pipeline until an explicit, separate submission-inference step
+  # is approved.
+
+# TransactionDT is seconds from an undisclosed reference instant aligned to local
+# midnight (verified in Phase 1 via the D9 column, 100% match on 74,926 rows).
+# day = TransactionDT // day_seconds gives a 1-indexed day number.
+day_seconds: 86400
+
+# Chronological split boundaries, in derived day-index units (inclusive on both ends).
+# Source: reports/phase1_reconnaissance.md, Section 18.
+# TRAIN 1-121 (~4 months) / VAL 122-151 (~1 month) / TEST 152-182 (~1 month).
+# Expected counts (regression-tested in tests/test_splits.py):
+#   TRAIN: 417,559 rows, 14,721 fraud (3.525%)
+#   VAL:    83,655 rows,  2,828 fraud (3.381%)
+#   TEST:   89,326 rows,  3,114 fraud (3.486%)
+split:
+  train_day_min: 1
+  train_day_max: 121
+  val_day_min: 122
+  val_day_max: 151
+  test_day_min: 152
+  test_day_max: 182
+
+# Regression-test targets, computed from the raw data in Phase 1 and re-verified
+# by scripts/build_processed_data.py. tests/test_splits.py fails loudly if any
+# of these drift, which is the guard against silent split/merge corruption.
+expected_counts:
+  train_transaction_rows: 590540
+  train_identity_rows: 144233
+  merged_rows: 590540
+  split_rows:
+    train: 417559
+    val: 83655
+    test: 89326
+  split_fraud:
+    train: 14721
+    val: 2828
+    test: 3114
+
+# Identity table column names differ between train (id_01) and test (id-01)
+# (Phase 1, Section 6). Always normalize to underscore form on load.
+identity_column_normalize:
+  from_sep: "-"
+  to_sep: "_"
+
+# Columns that must NEVER be fed to a model as a feature. TransactionID is a
+# contiguous, near-perfect proxy for chronological order (r=0.998 with
+# TransactionDT, Phase 1 Section 7). Raw TransactionDT is blocklisted too;
+# derived, bounded features (hour, day-of-week) are safe and are computed
+# separately. isFraud is the target, never an input feature.
+feature_blocklist:
+  - TransactionID
+  - TransactionDT
+  - isFraud
+
+# Low/medium-cardinality categorical columns frequency-encoded as a
+# demonstration of the fit-on-train-only pattern (Phase 1 leakage guard R4).
+# High-cardinality entity columns (card1, addr1, ...) are deliberately left
+# for the modeling phase — encoding them is graph/model-adjacent work, out of
+# scope for the foundational pipeline.
+freq_encode_columns:
+  - ProductCD
+  - card4
+  - card6
+  - DeviceType
+  - P_emaildomain
+  - R_emaildomain
+
+# D1-D15 (excluding D9, which is a fractional hour-of-day, not a day count)
+# have a small number of forward-referencing negative values (45 rows total,
+# Phase 1 Section 9, risk R6). Clip at 0 and log the count; do not drop rows.
+d_columns_to_clip:
+  - D1
+  - D2
+  - D3
+  - D4
+  - D5
+  - D6
+  - D7
+  - D8
+  - D10
+  - D11
+  - D12
+  - D13
+  - D14
+  - D15
+
+# dtype downcasting on load (Phase 1 Section 15): halves memory footprint,
+# verified safe for these column ranges (TransactionID/DT fit int32; card1 max
+# is far under int32 range).
+downcast:
+  float64_to_float32: true
+  int64_to_int32: true
