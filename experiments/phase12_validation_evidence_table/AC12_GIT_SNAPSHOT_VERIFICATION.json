@@ -1,0 +1,4640 @@
+{
+ "created_local": "2026-10-22T01:46:31+05:30",
+ "method": "alternative per-file recovery (not the registered SHA-256 before/after comparison); does not change AC12's registered status",
+ "snapshot_commit": "e70238f6e33ee6079697288dc83a99dceccddda7",
+ "snapshot_timestamp_evidence": {
+  "source": "GET https://api.github.com/repos/arunsubramanian71-droid/Adaptive-Temporal-Fraud/activity (public API)",
+  "activity_type": "branch_creation",
+  "ref": "refs/heads/main",
+  "after": "e70238f6e33ee6079697288dc83a99dceccddda7",
+  "timestamp_utc": "2026-10-16T13:44:48Z"
+ },
+ "phase12_build_start_local": "2026-10-19T12:59+05:30",
+ "session_logs_used": true,
+ "pre_existing_files": 651,
+ "strongest_evidence_counts": {
+  "git_snapshot": 434,
+  "scope_fingerprint": 65,
+  "session_log": 13,
+  "integrity_record": 38,
+  "no_pre_build_evidence": 101
+ },
+ "contradictions": [],
+ "no_pre_build_evidence_by_area": {
+  "experiments/phase9_coordinated_fraud": 18,
+  "experiments/phase11_explainable_evidence": 14,
+  "data/processed": 10,
+  "experiments/phase10_community_evolution": 10,
+  "experiments/phase8_adaptive_drift": 9,
+  "experiments/temporal_ablation": 6,
+  "data/raw": 5,
+  "data/features": 4,
+  "experiments/graphsage_robust": 4,
+  "experiments/random_forest": 4,
+  "experiments/temporal_graphsage": 4,
+  "experiments/gat": 3,
+  "experiments/logistic_regression": 3,
+  "experiments/gat_300epoch": 2,
+  "experiments/graphsage": 2,
+  "experiments/graphsage_control_mlp": 2,
+  "experiments/xgboost_historical_control": 1
+ },
+ "limits": [
+  "git blob ids are SHA-1 over line-ending-normalised content: a change of line endings alone cannot be excluded for 'line endings normalised' files",
+  "integrity_record evidence comes from records written before the build that are not themselves independently timestamped",
+  "a file equal before and after could in principle have been changed and restored in between; the closure report's modification-time scan found no pre-existing file modified after the date rollover",
+  "TEST-named files were never opened or hashed and cannot be verified by any method used here",
+  "accepting this as substitute evidence for AC12 is the evaluator's decision"
+ ],
+ "test_named_or_held_out_files_opened": false,
+ "files": [
+  {
+   "path": ".gitignore",
+   "evidence": [
+    "git_snapshot"
+   ],
+   "strongest": "git_snapshot"
+  },
+  {
+   "path": "configs/data.yaml",
+   "evidence": [
+    "git_snapshot",
+    "integrity_record: experiments/phase10_community_evolution/INTEGRITY.json"
+   ],
+   "strongest": "git_snapshot"
+  },
+  {
+   "path": "configs/graph.yaml",
+   "evidence": [
+    "git_snapshot",
+    "integrity_record: experiments/phase10_community_evolution/INTEGRITY.json"
+   ],
+   "strongest": "git_snapshot"
+  },
+  {
+   "path": "data/features/frequency_encoder.json",
+   "evidence": [],
+   "strongest": "no_pre_build_evidence"
+  },
+  {
+   "path": "data/features/historical_features.parquet",
+   "evidence": [],
+   "strongest": "no_pre_build_evidence"
+  },
+  {
+   "path": "data/features/test_features.parquet",
+   "evidence": [],
+   "strongest": "no_pre_build_evidence"
+  },
+  {
+   "path": "data/features/train_features.parquet",
+   "evidence": [],
+   "strongest": "no_pre_build_evidence"
+  },
+  {
+   "path": "data/features/val_features.parquet",
+   "evidence": [
+    "integrity_record: experiments/phase11_explainable_evidence/xgb_explanations_val/manifest_val.json"
+   ],
+   "strongest": "integrity_record"
+  },
+  {
+   "path": "data/processed/build_log.json",
+   "evidence": [
+    "git_snapshot (line endings normalised)"
+   ],
+   "strongest": "git_snapshot"
+  },
+  {
+   "path": "data/processed/graph/cold_start_stats.json",
+   "evidence": [
+    "git_snapshot (line endings normalised)"
+   ],
+   "strongest": "git_snapshot"
+  },
+  {
+   "path": "data/processed/graph/entity_id_map_card.json",
+   "evidence": [],
+   "strongest": "no_pre_build_evidence"
+  },
+  {
+   "path": "data/processed/graph/entity_id_map_device_fingerprint.json",
+   "evidence": [],
+   "strongest": "no_pre_build_evidence"
+  },
+  {
+   "path": "data/processed/graph/entity_id_map_netproxy.json",
+   "evidence": [],
+   "strongest": "no_pre_build_evidence"
+  },
+  {
+   "path": "data/processed/graph/entity_id_map_pseudo_account.json",
+   "evidence": [],
+   "strongest": "no_pre_build_evidence"
+  },
+  {
+   "path": "data/processed/graph/feasibility_benchmark.json",
+   "evidence": [
+    "git_snapshot (line endings normalised)"
+   ],
+   "strongest": "git_snapshot"
+  },
+  {
+   "path": "data/processed/graph/graph_schema.json",
+   "evidence": [
+    "git_snapshot (line endings normalised)"
+   ],
+   "strongest": "git_snapshot"
+  },
+  {
+   "path": "data/processed/graph/hetero_graph.pt",
+   "evidence": [],
+   "strongest": "no_pre_build_evidence"
+  },
+  {
+   "path": "data/processed/graph/metadata.json",
+   "evidence": [
+    "git_snapshot (line endings normalised)"
+   ],
+   "strongest": "git_snapshot"
+  },
+  {
+   "path": "data/processed/graph/transaction_feature_builder/column_roles.json",
+   "evidence": [
+    "git_snapshot (line endings normalised)"
+   ],
+   "strongest": "git_snapshot"
+  },
+  {
+   "path": "data/processed/graph/transaction_feature_builder/extra_frequency_encoder.json",
+   "evidence": [],
+   "strongest": "no_pre_build_evidence"
+  },
+  {
+   "path": "data/processed/graph/transaction_feature_builder/feature_names.json",
+   "evidence": [
+    "git_snapshot (line endings normalised)"
+   ],
+   "strongest": "git_snapshot"
+  },
+  {
+   "path": "data/processed/graph/transaction_feature_builder/median_imputer.json",
+   "evidence": [],
+   "strongest": "no_pre_build_evidence"
+  },
+  {
+   "path": "data/processed/graph/transaction_feature_builder/ordinal_maps.json",
+   "evidence": [],
+   "strongest": "no_pre_build_evidence"
+  },
+  {
+   "path": "data/processed/graph/validation_results.json",
+   "evidence": [
+    "git_snapshot (line endings normalised)"
+   ],
+   "strongest": "git_snapshot"
+  },
+  {
+   "path": "data/processed/graph_size_estimate.json",
+   "evidence": [
+    "git_snapshot (line endings normalised)"
+   ],
+   "strongest": "git_snapshot"
+  },
+  {
+   "path": "data/processed/split_metadata.json",
+   "evidence": [],
+   "strongest": "no_pre_build_evidence"
+  },
+  {
+   "path": "data/processed/train_merged.parquet",
+   "evidence": [],
+   "strongest": "no_pre_build_evidence"
+  },
+  {
+   "path": "data/raw/sample_submission.csv",
+   "evidence": [],
+   "strongest": "no_pre_build_evidence"
+  },
+  {
+   "path": "data/raw/test_identity.csv",
+   "evidence": [],
+   "strongest": "no_pre_build_evidence"
+  },
+  {
+   "path": "data/raw/test_transaction.csv",
+   "evidence": [],
+   "strongest": "no_pre_build_evidence"
+  },
+  {
+   "path": "data/raw/train_identity.csv",
+   "evidence": [],
+   "strongest": "no_pre_build_evidence"
+  },
+  {
+   "path": "data/raw/train_transaction.csv",
+   "evidence": [],
+   "strongest": "no_pre_build_evidence"
+  },
+  {
+   "path": "experiments/gat/convergence_curves.png",
+   "evidence": [
+    "git_snapshot"
+   ],
+   "strongest": "git_snapshot"
+  },
+  {
+   "path": "experiments/gat/metadata.json",
+   "evidence": [
+    "git_snapshot (line endings normalised)"
+   ],
+   "strongest": "git_snapshot"
+  },
+  {
+   "path": "experiments/gat/seed_123/config.json",
+   "evidence": [
+    "git_snapshot (line endings normalised)",
+    "scope_fingerprint"
+   ],
+   "strongest": "git_snapshot"
+  },
+  {
+   "path": "experiments/gat/seed_123/metrics_val.json",
+   "evidence": [
+    "git_snapshot (line endings normalised)",
+    "scope_fingerprint"
+   ],
+   "strongest": "git_snapshot"
+  },
+  {
+   "path": "experiments/gat/seed_123/model_checkpoint.pt",
+   "evidence": [],
+   "strongest": "no_pre_build_evidence"
+  },
+  {
+   "path": "experiments/gat/seed_123/predictions_val.parquet",
+   "evidence": [
+    "scope_fingerprint"
+   ],
+   "strongest": "scope_fingerprint"
+  },
+  {
+   "path": "experiments/gat/seed_123/resource_measurements.json",
+   "evidence": [
+    "git_snapshot (line endings normalised)"
+   ],
+   "strongest": "git_snapshot"
+  },
+  {
+   "path": "experiments/gat/seed_123/training_history.json",
+   "evidence": [
+    "git_snapshot (line endings normalised)"
+   ],
+   "strongest": "git_snapshot"
+  },
+  {
+   "path": "experiments/gat/seed_2024/config.json",
+   "evidence": [
+    "git_snapshot (line endings normalised)",
+    "scope_fingerprint"
+   ],
+   "strongest": "git_snapshot"
+  },
+  {
+   "path": "experiments/gat/seed_2024/metrics_val.json",
+   "evidence": [
+    "git_snapshot (line endings normalised)",
+    "scope_fingerprint"
+   ],
+   "strongest": "git_snapshot"
+  },
+  {
+   "path": "experiments/gat/seed_2024/model_checkpoint.pt",
+   "evidence": [],
+   "strongest": "no_pre_build_evidence"
+  },
+  {
+   "path": "experiments/gat/seed_2024/predictions_val.parquet",
+   "evidence": [
+    "scope_fingerprint"
+   ],
+   "strongest": "scope_fingerprint"
+  },
+  {
+   "path": "experiments/gat/seed_2024/resource_measurements.json",
+   "evidence": [
+    "git_snapshot (line endings normalised)"
+   ],
+   "strongest": "git_snapshot"
+  },
+  {
+   "path": "experiments/gat/seed_2024/training_history.json",
+   "evidence": [
+    "git_snapshot (line endings normalised)"
+   ],
+   "strongest": "git_snapshot"
+  },
+  {
+   "path": "experiments/gat/seed_42/config.json",
+   "evidence": [
+    "git_snapshot (line endings normalised)",
+    "scope_fingerprint"
+   ],
+   "strongest": "git_snapshot"
+  },
+  {
+   "path": "experiments/gat/seed_42/metrics_val.json",
+   "evidence": [
+    "git_snapshot (line endings normalised)",
+    "scope_fingerprint"
+   ],
+   "strongest": "git_snapshot"
+  },
+  {
+   "path": "experiments/gat/seed_42/model_checkpoint.pt",
+   "evidence": [],
+   "strongest": "no_pre_build_evidence"
+  },
+  {
+   "path": "experiments/gat/seed_42/predictions_val.parquet",
+   "evidence": [
+    "scope_fingerprint"
+   ],
+   "strongest": "scope_fingerprint"
+  },
+  {
+   "path": "experiments/gat/seed_42/resource_measurements.json",
+   "evidence": [
+    "git_snapshot (line endings normalised)"
+   ],
+   "strongest": "git_snapshot"
+  },
+  {
+   "path": "experiments/gat/seed_42/training_history.json",
+   "evidence": [
+    "git_snapshot (line endings normalised)"
+   ],
+   "strongest": "git_snapshot"
+  },
+  {
+   "path": "experiments/gat/summary.json",
+   "evidence": [
+    "git_snapshot (line endings normalised)",
+    "scope_fingerprint"
+   ],
+   "strongest": "git_snapshot"
+  },
+  {
+   "path": "experiments/gat_300epoch/seed_42/config.json",
+   "evidence": [
+    "git_snapshot (line endings normalised)"
+   ],
+   "strongest": "git_snapshot"
+  },
+  {
+   "path": "experiments/gat_300epoch/seed_42/metrics_val.json",
+   "evidence": [
+    "git_snapshot (line endings normalised)"
+   ],
+   "strongest": "git_snapshot"
+  },
+  {
+   "path": "experiments/gat_300epoch/seed_42/model_checkpoint.pt",
+   "evidence": [],
+   "strongest": "no_pre_build_evidence"
+  },
+  {
+   "path": "experiments/gat_300epoch/seed_42/predictions_val.parquet",
+   "evidence": [],
+   "strongest": "no_pre_build_evidence"
+  },
+  {
+   "path": "experiments/gat_300epoch/seed_42/resource_measurements.json",
+   "evidence": [
+    "git_snapshot (line endings normalised)"
+   ],
+   "strongest": "git_snapshot"
+  },
+  {
+   "path": "experiments/gat_300epoch/seed_42/training_history.json",
+   "evidence": [
+    "git_snapshot (line endings normalised)"
+   ],
+   "strongest": "git_snapshot"
+  },
+  {
+   "path": "experiments/graphsage/config.json",
+   "evidence": [
+    "git_snapshot (line endings normalised)"
+   ],
+   "strongest": "git_snapshot"
+  },
+  {
+   "path": "experiments/graphsage/feature_scaler.joblib",
+   "evidence": [
+    "git_snapshot"
+   ],
+   "strongest": "git_snapshot"
+  },
+  {
+   "path": "experiments/graphsage/metadata.json",
+   "evidence": [
+    "git_snapshot (line endings normalised)"
+   ],
+   "strongest": "git_snapshot"
+  },
+  {
+   "path": "experiments/graphsage/metrics_val.json",
+   "evidence": [
+    "git_snapshot (line endings normalised)"
+   ],
+   "strongest": "git_snapshot"
+  },
+  {
+   "path": "experiments/graphsage/model_checkpoint.pt",
+   "evidence": [],
+   "strongest": "no_pre_build_evidence"
+  },
+  {
+   "path": "experiments/graphsage/predictions_val.parquet",
+   "evidence": [],
+   "strongest": "no_pre_build_evidence"
+  },
+  {
+   "path": "experiments/graphsage/resource_measurements.json",
+   "evidence": [
+    "git_snapshot (line endings normalised)"
+   ],
+   "strongest": "git_snapshot"
+  },
+  {
+   "path": "experiments/graphsage/training_history.json",
+   "evidence": [
+    "git_snapshot (line endings normalised)"
+   ],
+   "strongest": "git_snapshot"
+  },
+  {
+   "path": "experiments/graphsage_control_mlp/config.json",
+   "evidence": [
+    "git_snapshot (line endings normalised)"
+   ],
+   "strongest": "git_snapshot"
+  },
+  {
+   "path": "experiments/graphsage_control_mlp/metadata.json",
+   "evidence": [
+    "git_snapshot (line endings normalised)"
+   ],
+   "strongest": "git_snapshot"
+  },
+  {
+   "path": "experiments/graphsage_control_mlp/metrics_val.json",
+   "evidence": [
+    "git_snapshot (line endings normalised)"
+   ],
+   "strongest": "git_snapshot"
+  },
+  {
+   "path": "experiments/graphsage_control_mlp/model_checkpoint.pt",
+   "evidence": [],
+   "strongest": "no_pre_build_evidence"
+  },
+  {
+   "path": "experiments/graphsage_control_mlp/predictions_val.parquet",
+   "evidence": [],
+   "strongest": "no_pre_build_evidence"
+  },
+  {
+   "path": "experiments/graphsage_control_mlp/training_history.json",
+   "evidence": [
+    "git_snapshot (line endings normalised)"
+   ],
+   "strongest": "git_snapshot"
+  },
+  {
+   "path": "experiments/graphsage_robust/convergence_curves.png",
+   "evidence": [
+    "git_snapshot"
+   ],
+   "strongest": "git_snapshot"
+  },
+  {
+   "path": "experiments/graphsage_robust/metadata.json",
+   "evidence": [
+    "git_snapshot (line endings normalised)"
+   ],
+   "strongest": "git_snapshot"
+  },
+  {
+   "path": "experiments/graphsage_robust/mlp_control_extended/config.json",
+   "evidence": [
+    "git_snapshot (line endings normalised)",
+    "scope_fingerprint"
+   ],
+   "strongest": "git_snapshot"
+  },
+  {
+   "path": "experiments/graphsage_robust/mlp_control_extended/metrics_val.json",
+   "evidence": [
+    "git_snapshot (line endings normalised)",
+    "scope_fingerprint"
+   ],
+   "strongest": "git_snapshot"
+  },
+  {
+   "path": "experiments/graphsage_robust/mlp_control_extended/model_checkpoint.pt",
+   "evidence": [],
+   "strongest": "no_pre_build_evidence"
+  },
+  {
+   "path": "experiments/graphsage_robust/mlp_control_extended/predictions_val.parquet",
+   "evidence": [
+    "scope_fingerprint"
+   ],
+   "strongest": "scope_fingerprint"
+  },
+  {
+   "path": "experiments/graphsage_robust/mlp_control_extended/training_history.json",
+   "evidence": [
+    "git_snapshot (line endings normalised)"
+   ],
+   "strongest": "git_snapshot"
+  },
+  {
+   "path": "experiments/graphsage_robust/seed_123/config.json",
+   "evidence": [
+    "git_snapshot (line endings normalised)",
+    "scope_fingerprint"
+   ],
+   "strongest": "git_snapshot"
+  },
+  {
+   "path": "experiments/graphsage_robust/seed_123/metrics_val.json",
+   "evidence": [
+    "git_snapshot (line endings normalised)",
+    "scope_fingerprint"
+   ],
+   "strongest": "git_snapshot"
+  },
+  {
+   "path": "experiments/graphsage_robust/seed_123/model_checkpoint.pt",
+   "evidence": [],
+   "strongest": "no_pre_build_evidence"
+  },
+  {
+   "path": "experiments/graphsage_robust/seed_123/predictions_val.parquet",
+   "evidence": [
+    "scope_fingerprint"
+   ],
+   "strongest": "scope_fingerprint"
+  },
+  {
+   "path": "experiments/graphsage_robust/seed_123/resource_measurements.json",
+   "evidence": [
+    "git_snapshot (line endings normalised)"
+   ],
+   "strongest": "git_snapshot"
+  },
+  {
+   "path": "experiments/graphsage_robust/seed_123/training_history.json",
+   "evidence": [
+    "git_snapshot (line endings normalised)"
+   ],
+   "strongest": "git_snapshot"
+  },
+  {
+   "path": "experiments/graphsage_robust/seed_2024/config.json",
+   "evidence": [
+    "git_snapshot (line endings normalised)",
+    "scope_fingerprint"
+   ],
+   "strongest": "git_snapshot"
+  },
+  {
+   "path": "experiments/graphsage_robust/seed_2024/metrics_val.json",
+   "evidence": [
+    "git_snapshot (line endings normalised)",
+    "scope_fingerprint"
+   ],
+   "strongest": "git_snapshot"
+  },
+  {
+   "path": "experiments/graphsage_robust/seed_2024/model_checkpoint.pt",
+   "evidence": [],
+   "strongest": "no_pre_build_evidence"
+  },
+  {
+   "path": "experiments/graphsage_robust/seed_2024/predictions_val.parquet",
+   "evidence": [
+    "scope_fingerprint"
+   ],
+   "strongest": "scope_fingerprint"
+  },
+  {
+   "path": "experiments/graphsage_robust/seed_2024/resource_measurements.json",
+   "evidence": [
+    "git_snapshot (line endings normalised)"
+   ],
+   "strongest": "git_snapshot"
+  },
+  {
+   "path": "experiments/graphsage_robust/seed_2024/training_history.json",
+   "evidence": [
+    "git_snapshot (line endings normalised)"
+   ],
+   "strongest": "git_snapshot"
+  },
+  {
+   "path": "experiments/graphsage_robust/seed_42/config.json",
+   "evidence": [
+    "git_snapshot (line endings normalised)",
+    "scope_fingerprint"
+   ],
+   "strongest": "git_snapshot"
+  },
+  {
+   "path": "experiments/graphsage_robust/seed_42/metrics_val.json",
+   "evidence": [
+    "git_snapshot (line endings normalised)",
+    "scope_fingerprint"
+   ],
+   "strongest": "git_snapshot"
+  },
+  {
+   "path": "experiments/graphsage_robust/seed_42/model_checkpoint.pt",
+   "evidence": [],
+   "strongest": "no_pre_build_evidence"
+  },
+  {
+   "path": "experiments/graphsage_robust/seed_42/predictions_val.parquet",
+   "evidence": [
+    "scope_fingerprint"
+   ],
+   "strongest": "scope_fingerprint"
+  },
+  {
+   "path": "experiments/graphsage_robust/seed_42/resource_measurements.json",
+   "evidence": [
+    "git_snapshot (line endings normalised)"
+   ],
+   "strongest": "git_snapshot"
+  },
+  {
+   "path": "experiments/graphsage_robust/seed_42/training_history.json",
+   "evidence": [
+    "git_snapshot (line endings normalised)"
+   ],
+   "strongest": "git_snapshot"
+  },
+  {
+   "path": "experiments/graphsage_robust/summary.json",
+   "evidence": [
+    "git_snapshot (line endings normalised)",
+    "scope_fingerprint"
+   ],
+   "strongest": "git_snapshot"
+  },
+  {
+   "path": "experiments/logistic_regression/coefficients.json",
+   "evidence": [
+    "git_snapshot (line endings normalised)"
+   ],
+   "strongest": "git_snapshot"
+  },
+  {
+   "path": "experiments/logistic_regression/config.json",
+   "evidence": [
+    "git_snapshot (line endings normalised)",
+    "scope_fingerprint"
+   ],
+   "strongest": "git_snapshot"
+  },
+  {
+   "path": "experiments/logistic_regression/feature_builder/column_roles.json",
+   "evidence": [
+    "git_snapshot (line endings normalised)"
+   ],
+   "strongest": "git_snapshot"
+  },
+  {
+   "path": "experiments/logistic_regression/feature_builder/extra_frequency_encoder.json",
+   "evidence": [],
+   "strongest": "no_pre_build_evidence"
+  },
+  {
+   "path": "experiments/logistic_regression/feature_builder/feature_names.json",
+   "evidence": [
+    "git_snapshot (line endings normalised)"
+   ],
+   "strongest": "git_snapshot"
+  },
+  {
+   "path": "experiments/logistic_regression/feature_builder/median_imputer.json",
+   "evidence": [],
+   "strongest": "no_pre_build_evidence"
+  },
+  {
+   "path": "experiments/logistic_regression/feature_builder/onehot_categories.json",
+   "evidence": [
+    "git_snapshot (line endings normalised)"
+   ],
+   "strongest": "git_snapshot"
+  },
+  {
+   "path": "experiments/logistic_regression/feature_builder/standard_scaler.joblib",
+   "evidence": [
+    "git_snapshot"
+   ],
+   "strongest": "git_snapshot"
+  },
+  {
+   "path": "experiments/logistic_regression/metadata.json",
+   "evidence": [
+    "git_snapshot (line endings normalised)",
+    "scope_fingerprint"
+   ],
+   "strongest": "git_snapshot"
+  },
+  {
+   "path": "experiments/logistic_regression/metrics_val.json",
+   "evidence": [
+    "git_snapshot (line endings normalised)",
+    "scope_fingerprint"
+   ],
+   "strongest": "git_snapshot"
+  },
+  {
+   "path": "experiments/logistic_regression/model.joblib",
+   "evidence": [],
+   "strongest": "no_pre_build_evidence"
+  },
+  {
+   "path": "experiments/logistic_regression/predictions_val.parquet",
+   "evidence": [
+    "scope_fingerprint"
+   ],
+   "strongest": "scope_fingerprint"
+  },
+  {
+   "path": "experiments/phase10_community_evolution/DESIGN_ADDENDUM_D12_approved_decisions.md",
+   "evidence": [
+    "integrity_record: experiments/phase10_community_evolution/INTEGRITY_ADDENDUM.json, experiments/phase10_community_evolution/INTEGRITY_CORE_FINALIZATION.json, experiments/phase10_community_evolution/INTEGRITY_CORE_IMPLEMENTATION.json"
+   ],
+   "strongest": "integrity_record"
+  },
+  {
+   "path": "experiments/phase10_community_evolution/DESIGN_ADDENDUM_D12_approved_decisions.sha256",
+   "evidence": [],
+   "strongest": "no_pre_build_evidence"
+  },
+  {
+   "path": "experiments/phase10_community_evolution/DESIGN_ADDENDUM_ERRATA_1_B1_B5.md",
+   "evidence": [
+    "integrity_record: experiments/phase10_community_evolution/INTEGRITY_CORE_FINALIZATION.json, experiments/phase10_community_evolution/INTEGRITY_CORE_IMPLEMENTATION.json, experiments/phase10_community_evolution/INTEGRITY_ERRATA_1.json"
+   ],
+   "strongest": "integrity_record"
+  },
+  {
+   "path": "experiments/phase10_community_evolution/DESIGN_ADDENDUM_ERRATA_1_B1_B5.sha256",
+   "evidence": [],
+   "strongest": "no_pre_build_evidence"
+  },
+  {
+   "path": "experiments/phase10_community_evolution/DESIGN_ADDENDUM_ERRATA_2_targets_interface_censoring.md",
+   "evidence": [
+    "integrity_record: experiments/phase10_community_evolution/INTEGRITY_CORE_FINALIZATION.json, experiments/phase10_community_evolution/INTEGRITY_CORE_IMPLEMENTATION.json, experiments/phase10_community_evolution/INTEGRITY_ERRATA_2.json"
+   ],
+   "strongest": "integrity_record"
+  },
+  {
+   "path": "experiments/phase10_community_evolution/DESIGN_ADDENDUM_ERRATA_2_targets_interface_censoring.sha256",
+   "evidence": [],
+   "strongest": "no_pre_build_evidence"
+  },
+  {
+   "path": "experiments/phase10_community_evolution/DESIGN_BEFORE_EXECUTION.md",
+   "evidence": [
+    "git_snapshot",
+    "session_log: 64d369ab@2026-10-14T13:33Z, 78702bed@2026-10-14T13:33Z, 78702bed@2026-10-18T07:02Z",
+    "integrity_record: experiments/phase10_community_evolution/INTEGRITY.json, experiments/phase10_community_evolution/INTEGRITY_ADDENDUM.json, experiments/phase10_community_evolution/INTEGRITY_CORE_FINALIZATION.json"
+   ],
+   "strongest": "git_snapshot"
+  },
+  {
+   "path": "experiments/phase10_community_evolution/DESIGN_BEFORE_EXECUTION.sha256",
+   "evidence": [
+    "git_snapshot"
+   ],
+   "strongest": "git_snapshot"
+  },
+  {
+   "path": "experiments/phase10_community_evolution/INSPECTION_REPORT.md",
+   "evidence": [
+    "git_snapshot",
+    "session_log: 64d369ab@2026-10-14T13:33Z, 78702bed@2026-10-14T13:33Z, 78702bed@2026-10-18T07:02Z",
+    "integrity_record: experiments/phase10_community_evolution/INTEGRITY.json, experiments/phase10_community_evolution/INTEGRITY_ADDENDUM.json, experiments/phase10_community_evolution/INTEGRITY_CORE_FINALIZATION.json"
+   ],
+   "strongest": "git_snapshot"
+  },
+  {
+   "path": "experiments/phase10_community_evolution/INSPECTION_REPORT.sha256",
+   "evidence": [
+    "git_snapshot"
+   ],
+   "strongest": "git_snapshot"
+  },
+  {
+   "path": "experiments/phase10_community_evolution/INTEGRITY.json",
+   "evidence": [
+    "git_snapshot",
+    "session_log: 64d369ab@2026-10-14T13:33Z, 78702bed@2026-10-14T13:33Z, b0d26df2@2026-10-14T13:33Z",
+    "integrity_record: experiments/phase10_community_evolution/INTEGRITY_ADDENDUM.json, experiments/phase10_community_evolution/INTEGRITY_CORE_FINALIZATION.json, experiments/phase10_community_evolution/INTEGRITY_CORE_IMPLEMENTATION.json"
+   ],
+   "strongest": "git_snapshot"
+  },
+  {
+   "path": "experiments/phase10_community_evolution/INTEGRITY.sha256",
+   "evidence": [
+    "git_snapshot"
+   ],
+   "strongest": "git_snapshot"
+  },
+  {
+   "path": "experiments/phase10_community_evolution/INTEGRITY_ADDENDUM.json",
+   "evidence": [
+    "integrity_record: experiments/phase10_community_evolution/INTEGRITY_CORE_FINALIZATION.json, experiments/phase10_community_evolution/INTEGRITY_CORE_IMPLEMENTATION.json, experiments/phase10_community_evolution/INTEGRITY_ERRATA_1.json"
+   ],
+   "strongest": "integrity_record"
+  },
+  {
+   "path": "experiments/phase10_community_evolution/INTEGRITY_ADDENDUM.sha256",
+   "evidence": [],
+   "strongest": "no_pre_build_evidence"
+  },
+  {
+   "path": "experiments/phase10_community_evolution/INTEGRITY_CORE_FINALIZATION.json",
+   "evidence": [],
+   "strongest": "no_pre_build_evidence"
+  },
+  {
+   "path": "experiments/phase10_community_evolution/INTEGRITY_CORE_FINALIZATION.sha256",
+   "evidence": [],
+   "strongest": "no_pre_build_evidence"
+  },
+  {
+   "path": "experiments/phase10_community_evolution/INTEGRITY_CORE_IMPLEMENTATION.json",
+   "evidence": [
+    "integrity_record: experiments/phase10_community_evolution/INTEGRITY_CORE_FINALIZATION.json"
+   ],
+   "strongest": "integrity_record"
+  },
+  {
+   "path": "experiments/phase10_community_evolution/INTEGRITY_CORE_IMPLEMENTATION.sha256",
+   "evidence": [],
+   "strongest": "no_pre_build_evidence"
+  },
+  {
+   "path": "experiments/phase10_community_evolution/INTEGRITY_ERRATA_1.json",
+   "evidence": [
+    "integrity_record: experiments/phase10_community_evolution/INTEGRITY_CORE_FINALIZATION.json, experiments/phase10_community_evolution/INTEGRITY_CORE_IMPLEMENTATION.json, experiments/phase10_community_evolution/INTEGRITY_ERRATA_2.json"
+   ],
+   "strongest": "integrity_record"
+  },
+  {
+   "path": "experiments/phase10_community_evolution/INTEGRITY_ERRATA_1.sha256",
+   "evidence": [],
+   "strongest": "no_pre_build_evidence"
+  },
+  {
+   "path": "experiments/phase10_community_evolution/INTEGRITY_ERRATA_2.json",
+   "evidence": [
+    "integrity_record: experiments/phase10_community_evolution/INTEGRITY_CORE_FINALIZATION.json, experiments/phase10_community_evolution/INTEGRITY_CORE_IMPLEMENTATION.json"
+   ],
+   "strongest": "integrity_record"
+  },
+  {
+   "path": "experiments/phase10_community_evolution/INTEGRITY_ERRATA_2.sha256",
+   "evidence": [],
+   "strongest": "no_pre_build_evidence"
+  },
+  {
+   "path": "experiments/phase10_community_evolution/core_implementation/IMPLEMENTATION_NOTES.md",
+   "evidence": [
+    "session_log: 78702bed@2026-10-18T14:00Z, 78702bed@2026-10-18T14:01Z",
+    "integrity_record: experiments/phase10_community_evolution/INTEGRITY_CORE_FINALIZATION.json"
+   ],
+   "strongest": "session_log"
+  },
+  {
+   "path": "experiments/phase10_community_evolution/core_implementation/IMPLEMENTATION_NOTES.sha256",
+   "evidence": [],
+   "strongest": "no_pre_build_evidence"
+  },
+  {
+   "path": "experiments/phase10_community_evolution/core_implementation/core_test_log.txt",
+   "evidence": [
+    "session_log: 78702bed@2026-10-18T12:53Z",
+    "integrity_record: experiments/phase10_community_evolution/INTEGRITY_CORE_FINALIZATION.json, experiments/phase10_community_evolution/INTEGRITY_CORE_IMPLEMENTATION.json"
+   ],
+   "strongest": "session_log"
+  },
+  {
+   "path": "experiments/phase10_community_evolution/core_implementation/core_test_results.json",
+   "evidence": [
+    "session_log: 78702bed@2026-10-18T12:53Z",
+    "integrity_record: experiments/phase10_community_evolution/INTEGRITY_CORE_FINALIZATION.json, experiments/phase10_community_evolution/INTEGRITY_CORE_IMPLEMENTATION.json"
+   ],
+   "strongest": "session_log"
+  },
+  {
+   "path": "experiments/phase10_community_evolution/core_implementation/core_test_sensitivity.json",
+   "evidence": [
+    "session_log: 78702bed@2026-10-18T12:53Z",
+    "integrity_record: experiments/phase10_community_evolution/INTEGRITY_CORE_FINALIZATION.json, experiments/phase10_community_evolution/INTEGRITY_CORE_IMPLEMENTATION.json"
+   ],
+   "strongest": "session_log"
+  },
+  {
+   "path": "experiments/phase11_explainable_evidence/INTEGRITY_PHASE11.json",
+   "evidence": [],
+   "strongest": "no_pre_build_evidence"
+  },
+  {
+   "path": "experiments/phase11_explainable_evidence/INTEGRITY_PHASE11.sha256",
+   "evidence": [],
+   "strongest": "no_pre_build_evidence"
+  },
+  {
+   "path": "experiments/phase11_explainable_evidence/PHASE11_CLOSURE_REPORT.md",
+   "evidence": [
+    "integrity_record: experiments/phase11_explainable_evidence/INTEGRITY_PHASE11.json"
+   ],
+   "strongest": "integrity_record"
+  },
+  {
+   "path": "experiments/phase11_explainable_evidence/PHASE11_CLOSURE_REPORT.sha256",
+   "evidence": [],
+   "strongest": "no_pre_build_evidence"
+  },
+  {
+   "path": "experiments/phase11_explainable_evidence/SCOPE_AND_ACCEPTANCE.md",
+   "evidence": [
+    "session_log: 78702bed@2026-10-18T15:23Z",
+    "integrity_record: experiments/phase11_explainable_evidence/INTEGRITY_PHASE11.json, experiments/phase11_explainable_evidence/community_cards/manifest_cards.json, experiments/phase11_explainable_evidence/xgb_explanations_val/manifest_val.json"
+   ],
+   "strongest": "session_log"
+  },
+  {
+   "path": "experiments/phase11_explainable_evidence/SCOPE_AND_ACCEPTANCE.sha256",
+   "evidence": [],
+   "strongest": "no_pre_build_evidence"
+  },
+  {
+   "path": "experiments/phase11_explainable_evidence/community_cards/appendix_selection_all_seeds_W7.csv",
+   "evidence": [
+    "integrity_record: experiments/phase11_explainable_evidence/INTEGRITY_PHASE11.json, experiments/phase11_explainable_evidence/community_cards/manifest_cards.json"
+   ],
+   "strongest": "integrity_record"
+  },
+  {
+   "path": "experiments/phase11_explainable_evidence/community_cards/appendix_selection_all_seeds_W7.sha256",
+   "evidence": [],
+   "strongest": "no_pre_build_evidence"
+  },
+  {
+   "path": "experiments/phase11_explainable_evidence/community_cards/cards_W7_seed42.json",
+   "evidence": [
+    "integrity_record: experiments/phase11_explainable_evidence/INTEGRITY_PHASE11.json, experiments/phase11_explainable_evidence/community_cards/manifest_cards.json"
+   ],
+   "strongest": "integrity_record"
+  },
+  {
+   "path": "experiments/phase11_explainable_evidence/community_cards/cards_W7_seed42.sha256",
+   "evidence": [],
+   "strongest": "no_pre_build_evidence"
+  },
+  {
+   "path": "experiments/phase11_explainable_evidence/community_cards/cards_W7_seed42_report.md",
+   "evidence": [
+    "integrity_record: experiments/phase11_explainable_evidence/INTEGRITY_PHASE11.json, experiments/phase11_explainable_evidence/community_cards/manifest_cards.json"
+   ],
+   "strongest": "integrity_record"
+  },
+  {
+   "path": "experiments/phase11_explainable_evidence/community_cards/cards_W7_seed42_report.sha256",
+   "evidence": [],
+   "strongest": "no_pre_build_evidence"
+  },
+  {
+   "path": "experiments/phase11_explainable_evidence/community_cards/cards_summary.json",
+   "evidence": [
+    "integrity_record: experiments/phase11_explainable_evidence/INTEGRITY_PHASE11.json, experiments/phase11_explainable_evidence/community_cards/manifest_cards.json"
+   ],
+   "strongest": "integrity_record"
+  },
+  {
+   "path": "experiments/phase11_explainable_evidence/community_cards/cards_summary.sha256",
+   "evidence": [],
+   "strongest": "no_pre_build_evidence"
+  },
+  {
+   "path": "experiments/phase11_explainable_evidence/community_cards/manifest_cards.json",
+   "evidence": [
+    "integrity_record: experiments/phase11_explainable_evidence/INTEGRITY_PHASE11.json"
+   ],
+   "strongest": "integrity_record"
+  },
+  {
+   "path": "experiments/phase11_explainable_evidence/community_cards/manifest_cards.sha256",
+   "evidence": [],
+   "strongest": "no_pre_build_evidence"
+  },
+  {
+   "path": "experiments/phase11_explainable_evidence/test_results/test_log.txt",
+   "evidence": [
+    "integrity_record: experiments/phase11_explainable_evidence/INTEGRITY_PHASE11.json"
+   ],
+   "strongest": "integrity_record"
+  },
+  {
+   "path": "experiments/phase11_explainable_evidence/test_results/test_results.json",
+   "evidence": [
+    "integrity_record: experiments/phase11_explainable_evidence/INTEGRITY_PHASE11.json"
+   ],
+   "strongest": "integrity_record"
+  },
+  {
+   "path": "experiments/phase11_explainable_evidence/test_results/test_sensitivity.json",
+   "evidence": [
+    "integrity_record: experiments/phase11_explainable_evidence/INTEGRITY_PHASE11.json"
+   ],
+   "strongest": "integrity_record"
+  },
+  {
+   "path": "experiments/phase11_explainable_evidence/xgb_explanations_val/contributions_val.csv",
+   "evidence": [
+    "integrity_record: experiments/phase11_explainable_evidence/INTEGRITY_PHASE11.json, experiments/phase11_explainable_evidence/xgb_explanations_val/manifest_val.json"
+   ],
+   "strongest": "integrity_record"
+  },
+  {
+   "path": "experiments/phase11_explainable_evidence/xgb_explanations_val/contributions_val.sha256",
+   "evidence": [],
+   "strongest": "no_pre_build_evidence"
+  },
+  {
+   "path": "experiments/phase11_explainable_evidence/xgb_explanations_val/manifest_val.json",
+   "evidence": [
+    "integrity_record: experiments/phase11_explainable_evidence/INTEGRITY_PHASE11.json"
+   ],
+   "strongest": "integrity_record"
+  },
+  {
+   "path": "experiments/phase11_explainable_evidence/xgb_explanations_val/manifest_val.sha256",
+   "evidence": [],
+   "strongest": "no_pre_build_evidence"
+  },
+  {
+   "path": "experiments/phase11_explainable_evidence/xgb_explanations_val/selection_val.csv",
+   "evidence": [
+    "integrity_record: experiments/phase11_explainable_evidence/INTEGRITY_PHASE11.json, experiments/phase11_explainable_evidence/xgb_explanations_val/manifest_val.json"
+   ],
+   "strongest": "integrity_record"
+  },
+  {
+   "path": "experiments/phase11_explainable_evidence/xgb_explanations_val/selection_val.sha256",
+   "evidence": [],
+   "strongest": "no_pre_build_evidence"
+  },
+  {
+   "path": "experiments/phase11_explainable_evidence/xgb_explanations_val/summary_val.json",
+   "evidence": [
+    "integrity_record: experiments/phase11_explainable_evidence/INTEGRITY_PHASE11.json, experiments/phase11_explainable_evidence/xgb_explanations_val/manifest_val.json"
+   ],
+   "strongest": "integrity_record"
+  },
+  {
+   "path": "experiments/phase11_explainable_evidence/xgb_explanations_val/summary_val.sha256",
+   "evidence": [],
+   "strongest": "no_pre_build_evidence"
+  },
+  {
+   "path": "experiments/phase11_explainable_evidence/xgb_explanations_val/top_features_val.json",
+   "evidence": [
+    "integrity_record: experiments/phase11_explainable_evidence/INTEGRITY_PHASE11.json, experiments/phase11_explainable_evidence/xgb_explanations_val/manifest_val.json"
+   ],
+   "strongest": "integrity_record"
+  },
+  {
+   "path": "experiments/phase11_explainable_evidence/xgb_explanations_val/top_features_val.sha256",
+   "evidence": [],
+   "strongest": "no_pre_build_evidence"
+  },
+  {
+   "path": "experiments/phase8_adaptive_drift/DESIGN_BEFORE_EXECUTION.md",
+   "evidence": [
+    "git_snapshot"
+   ],
+   "strongest": "git_snapshot"
+  },
+  {
+   "path": "experiments/phase8_adaptive_drift/adaptive/seed_123/metrics_val_W1.json",
+   "evidence": [
+    "git_snapshot (line endings normalised)",
+    "scope_fingerprint"
+   ],
+   "strongest": "git_snapshot"
+  },
+  {
+   "path": "experiments/phase8_adaptive_drift/adaptive/seed_123/metrics_val_W2.json",
+   "evidence": [
+    "git_snapshot (line endings normalised)",
+    "scope_fingerprint"
+   ],
+   "strongest": "git_snapshot"
+  },
+  {
+   "path": "experiments/phase8_adaptive_drift/adaptive/seed_123/metrics_val_W3.json",
+   "evidence": [
+    "git_snapshot (line endings normalised)",
+    "scope_fingerprint"
+   ],
+   "strongest": "git_snapshot"
+  },
+  {
+   "path": "experiments/phase8_adaptive_drift/adaptive/seed_123/metrics_val_W4.json",
+   "evidence": [
+    "git_snapshot (line endings normalised)",
+    "scope_fingerprint"
+   ],
+   "strongest": "git_snapshot"
+  },
+  {
+   "path": "experiments/phase8_adaptive_drift/adaptive/seed_123/metrics_val_W5.json",
+   "evidence": [
+    "git_snapshot (line endings normalised)",
+    "scope_fingerprint"
+   ],
+   "strongest": "git_snapshot"
+  },
+  {
+   "path": "experiments/phase8_adaptive_drift/adaptive/seed_123/model_checkpoint_final.pt",
+   "evidence": [],
+   "strongest": "no_pre_build_evidence"
+  },
+  {
+   "path": "experiments/phase8_adaptive_drift/adaptive/seed_123/predictions_val_W1.parquet",
+   "evidence": [
+    "scope_fingerprint"
+   ],
+   "strongest": "scope_fingerprint"
+  },
+  {
+   "path": "experiments/phase8_adaptive_drift/adaptive/seed_123/predictions_val_W2.parquet",
+   "evidence": [
+    "scope_fingerprint"
+   ],
+   "strongest": "scope_fingerprint"
+  },
+  {
+   "path": "experiments/phase8_adaptive_drift/adaptive/seed_123/predictions_val_W3.parquet",
+   "evidence": [
+    "scope_fingerprint"
+   ],
+   "strongest": "scope_fingerprint"
+  },
+  {
+   "path": "experiments/phase8_adaptive_drift/adaptive/seed_123/predictions_val_W4.parquet",
+   "evidence": [
+    "scope_fingerprint"
+   ],
+   "strongest": "scope_fingerprint"
+  },
+  {
+   "path": "experiments/phase8_adaptive_drift/adaptive/seed_123/predictions_val_W5.parquet",
+   "evidence": [
+    "scope_fingerprint"
+   ],
+   "strongest": "scope_fingerprint"
+  },
+  {
+   "path": "experiments/phase8_adaptive_drift/adaptive/seed_2024/metrics_val_W1.json",
+   "evidence": [
+    "git_snapshot (line endings normalised)",
+    "scope_fingerprint"
+   ],
+   "strongest": "git_snapshot"
+  },
+  {
+   "path": "experiments/phase8_adaptive_drift/adaptive/seed_2024/metrics_val_W2.json",
+   "evidence": [
+    "git_snapshot (line endings normalised)",
+    "scope_fingerprint"
+   ],
+   "strongest": "git_snapshot"
+  },
+  {
+   "path": "experiments/phase8_adaptive_drift/adaptive/seed_2024/metrics_val_W3.json",
+   "evidence": [
+    "git_snapshot (line endings normalised)",
+    "scope_fingerprint"
+   ],
+   "strongest": "git_snapshot"
+  },
+  {
+   "path": "experiments/phase8_adaptive_drift/adaptive/seed_2024/metrics_val_W4.json",
+   "evidence": [
+    "git_snapshot (line endings normalised)",
+    "scope_fingerprint"
+   ],
+   "strongest": "git_snapshot"
+  },
+  {
+   "path": "experiments/phase8_adaptive_drift/adaptive/seed_2024/metrics_val_W5.json",
+   "evidence": [
+    "git_snapshot (line endings normalised)",
+    "scope_fingerprint"
+   ],
+   "strongest": "git_snapshot"
+  },
+  {
+   "path": "experiments/phase8_adaptive_drift/adaptive/seed_2024/model_checkpoint_final.pt",
+   "evidence": [],
+   "strongest": "no_pre_build_evidence"
+  },
+  {
+   "path": "experiments/phase8_adaptive_drift/adaptive/seed_2024/predictions_val_W1.parquet",
+   "evidence": [
+    "scope_fingerprint"
+   ],
+   "strongest": "scope_fingerprint"
+  },
+  {
+   "path": "experiments/phase8_adaptive_drift/adaptive/seed_2024/predictions_val_W2.parquet",
+   "evidence": [
+    "scope_fingerprint"
+   ],
+   "strongest": "scope_fingerprint"
+  },
+  {
+   "path": "experiments/phase8_adaptive_drift/adaptive/seed_2024/predictions_val_W3.parquet",
+   "evidence": [
+    "scope_fingerprint"
+   ],
+   "strongest": "scope_fingerprint"
+  },
+  {
+   "path": "experiments/phase8_adaptive_drift/adaptive/seed_2024/predictions_val_W4.parquet",
+   "evidence": [
+    "scope_fingerprint"
+   ],
+   "strongest": "scope_fingerprint"
+  },
+  {
+   "path": "experiments/phase8_adaptive_drift/adaptive/seed_2024/predictions_val_W5.parquet",
+   "evidence": [
+    "scope_fingerprint"
+   ],
+   "strongest": "scope_fingerprint"
+  },
+  {
+   "path": "experiments/phase8_adaptive_drift/adaptive/seed_42/metrics_val_W1.json",
+   "evidence": [
+    "git_snapshot (line endings normalised)",
+    "scope_fingerprint"
+   ],
+   "strongest": "git_snapshot"
+  },
+  {
+   "path": "experiments/phase8_adaptive_drift/adaptive/seed_42/metrics_val_W2.json",
+   "evidence": [
+    "git_snapshot (line endings normalised)",
+    "scope_fingerprint"
+   ],
+   "strongest": "git_snapshot"
+  },
+  {
+   "path": "experiments/phase8_adaptive_drift/adaptive/seed_42/metrics_val_W3.json",
+   "evidence": [
+    "git_snapshot (line endings normalised)",
+    "scope_fingerprint"
+   ],
+   "strongest": "git_snapshot"
+  },
+  {
+   "path": "experiments/phase8_adaptive_drift/adaptive/seed_42/metrics_val_W4.json",
+   "evidence": [
+    "git_snapshot (line endings normalised)",
+    "scope_fingerprint"
+   ],
+   "strongest": "git_snapshot"
+  },
+  {
+   "path": "experiments/phase8_adaptive_drift/adaptive/seed_42/metrics_val_W5.json",
+   "evidence": [
+    "git_snapshot (line endings normalised)",
+    "scope_fingerprint"
+   ],
+   "strongest": "git_snapshot"
+  },
+  {
+   "path": "experiments/phase8_adaptive_drift/adaptive/seed_42/model_checkpoint_final.pt",
+   "evidence": [],
+   "strongest": "no_pre_build_evidence"
+  },
+  {
+   "path": "experiments/phase8_adaptive_drift/adaptive/seed_42/predictions_val_W1.parquet",
+   "evidence": [
+    "scope_fingerprint"
+   ],
+   "strongest": "scope_fingerprint"
+  },
+  {
+   "path": "experiments/phase8_adaptive_drift/adaptive/seed_42/predictions_val_W2.parquet",
+   "evidence": [
+    "scope_fingerprint"
+   ],
+   "strongest": "scope_fingerprint"
+  },
+  {
+   "path": "experiments/phase8_adaptive_drift/adaptive/seed_42/predictions_val_W3.parquet",
+   "evidence": [
+    "scope_fingerprint"
+   ],
+   "strongest": "scope_fingerprint"
+  },
+  {
+   "path": "experiments/phase8_adaptive_drift/adaptive/seed_42/predictions_val_W4.parquet",
+   "evidence": [
+    "scope_fingerprint"
+   ],
+   "strongest": "scope_fingerprint"
+  },
+  {
+   "path": "experiments/phase8_adaptive_drift/adaptive/seed_42/predictions_val_W5.parquet",
+   "evidence": [
+    "scope_fingerprint"
+   ],
+   "strongest": "scope_fingerprint"
+  },
+  {
+   "path": "experiments/phase8_adaptive_drift/comparison.json",
+   "evidence": [
+    "git_snapshot (line endings normalised)",
+    "scope_fingerprint"
+   ],
+   "strongest": "git_snapshot"
+  },
+  {
+   "path": "experiments/phase8_adaptive_drift/drift_measurements/feature_drift.json",
+   "evidence": [
+    "git_snapshot (line endings normalised)"
+   ],
+   "strongest": "git_snapshot"
+  },
+  {
+   "path": "experiments/phase8_adaptive_drift/drift_measurements/performance_drift.json",
+   "evidence": [
+    "git_snapshot (line endings normalised)"
+   ],
+   "strongest": "git_snapshot"
+  },
+  {
+   "path": "experiments/phase8_adaptive_drift/drift_measurements/prediction_drift.json",
+   "evidence": [
+    "git_snapshot (line endings normalised)"
+   ],
+   "strongest": "git_snapshot"
+  },
+  {
+   "path": "experiments/phase8_adaptive_drift/frozen/seed_123/metrics_val_W1.json",
+   "evidence": [
+    "git_snapshot (line endings normalised)",
+    "scope_fingerprint"
+   ],
+   "strongest": "git_snapshot"
+  },
+  {
+   "path": "experiments/phase8_adaptive_drift/frozen/seed_123/metrics_val_W2.json",
+   "evidence": [
+    "git_snapshot (line endings normalised)",
+    "scope_fingerprint"
+   ],
+   "strongest": "git_snapshot"
+  },
+  {
+   "path": "experiments/phase8_adaptive_drift/frozen/seed_123/metrics_val_W3.json",
+   "evidence": [
+    "git_snapshot (line endings normalised)",
+    "scope_fingerprint"
+   ],
+   "strongest": "git_snapshot"
+  },
+  {
+   "path": "experiments/phase8_adaptive_drift/frozen/seed_123/metrics_val_W4.json",
+   "evidence": [
+    "git_snapshot (line endings normalised)",
+    "scope_fingerprint"
+   ],
+   "strongest": "git_snapshot"
+  },
+  {
+   "path": "experiments/phase8_adaptive_drift/frozen/seed_123/metrics_val_W5.json",
+   "evidence": [
+    "git_snapshot (line endings normalised)",
+    "scope_fingerprint"
+   ],
+   "strongest": "git_snapshot"
+  },
+  {
+   "path": "experiments/phase8_adaptive_drift/frozen/seed_123/predictions_val_W1.parquet",
+   "evidence": [
+    "scope_fingerprint"
+   ],
+   "strongest": "scope_fingerprint"
+  },
+  {
+   "path": "experiments/phase8_adaptive_drift/frozen/seed_123/predictions_val_W2.parquet",
+   "evidence": [
+    "scope_fingerprint"
+   ],
+   "strongest": "scope_fingerprint"
+  },
+  {
+   "path": "experiments/phase8_adaptive_drift/frozen/seed_123/predictions_val_W3.parquet",
+   "evidence": [
+    "scope_fingerprint"
+   ],
+   "strongest": "scope_fingerprint"
+  },
+  {
+   "path": "experiments/phase8_adaptive_drift/frozen/seed_123/predictions_val_W4.parquet",
+   "evidence": [
+    "scope_fingerprint"
+   ],
+   "strongest": "scope_fingerprint"
+  },
+  {
+   "path": "experiments/phase8_adaptive_drift/frozen/seed_123/predictions_val_W5.parquet",
+   "evidence": [
+    "scope_fingerprint"
+   ],
+   "strongest": "scope_fingerprint"
+  },
+  {
+   "path": "experiments/phase8_adaptive_drift/frozen/seed_2024/metrics_val_W1.json",
+   "evidence": [
+    "git_snapshot (line endings normalised)",
+    "scope_fingerprint"
+   ],
+   "strongest": "git_snapshot"
+  },
+  {
+   "path": "experiments/phase8_adaptive_drift/frozen/seed_2024/metrics_val_W2.json",
+   "evidence": [
+    "git_snapshot (line endings normalised)",
+    "scope_fingerprint"
+   ],
+   "strongest": "git_snapshot"
+  },
+  {
+   "path": "experiments/phase8_adaptive_drift/frozen/seed_2024/metrics_val_W3.json",
+   "evidence": [
+    "git_snapshot (line endings normalised)",
+    "scope_fingerprint"
+   ],
+   "strongest": "git_snapshot"
+  },
+  {
+   "path": "experiments/phase8_adaptive_drift/frozen/seed_2024/metrics_val_W4.json",
+   "evidence": [
+    "git_snapshot (line endings normalised)",
+    "scope_fingerprint"
+   ],
+   "strongest": "git_snapshot"
+  },
+  {
+   "path": "experiments/phase8_adaptive_drift/frozen/seed_2024/metrics_val_W5.json",
+   "evidence": [
+    "git_snapshot (line endings normalised)",
+    "scope_fingerprint"
+   ],
+   "strongest": "git_snapshot"
+  },
+  {
+   "path": "experiments/phase8_adaptive_drift/frozen/seed_2024/predictions_val_W1.parquet",
+   "evidence": [
+    "scope_fingerprint"
+   ],
+   "strongest": "scope_fingerprint"
+  },
+  {
+   "path": "experiments/phase8_adaptive_drift/frozen/seed_2024/predictions_val_W2.parquet",
+   "evidence": [
+    "scope_fingerprint"
+   ],
+   "strongest": "scope_fingerprint"
+  },
+  {
+   "path": "experiments/phase8_adaptive_drift/frozen/seed_2024/predictions_val_W3.parquet",
+   "evidence": [
+    "scope_fingerprint"
+   ],
+   "strongest": "scope_fingerprint"
+  },
+  {
+   "path": "experiments/phase8_adaptive_drift/frozen/seed_2024/predictions_val_W4.parquet",
+   "evidence": [
+    "scope_fingerprint"
+   ],
+   "strongest": "scope_fingerprint"
+  },
+  {
+   "path": "experiments/phase8_adaptive_drift/frozen/seed_2024/predictions_val_W5.parquet",
+   "evidence": [
+    "scope_fingerprint"
+   ],
+   "strongest": "scope_fingerprint"
+  },
+  {
+   "path": "experiments/phase8_adaptive_drift/frozen/seed_42/metrics_val_W1.json",
+   "evidence": [
+    "git_snapshot (line endings normalised)",
+    "scope_fingerprint"
+   ],
+   "strongest": "git_snapshot"
+  },
+  {
+   "path": "experiments/phase8_adaptive_drift/frozen/seed_42/metrics_val_W2.json",
+   "evidence": [
+    "git_snapshot (line endings normalised)",
+    "scope_fingerprint"
+   ],
+   "strongest": "git_snapshot"
+  },
+  {
+   "path": "experiments/phase8_adaptive_drift/frozen/seed_42/metrics_val_W3.json",
+   "evidence": [
+    "git_snapshot (line endings normalised)",
+    "scope_fingerprint"
+   ],
+   "strongest": "git_snapshot"
+  },
+  {
+   "path": "experiments/phase8_adaptive_drift/frozen/seed_42/metrics_val_W4.json",
+   "evidence": [
+    "git_snapshot (line endings normalised)",
+    "scope_fingerprint"
+   ],
+   "strongest": "git_snapshot"
+  },
+  {
+   "path": "experiments/phase8_adaptive_drift/frozen/seed_42/metrics_val_W5.json",
+   "evidence": [
+    "git_snapshot (line endings normalised)",
+    "scope_fingerprint"
+   ],
+   "strongest": "git_snapshot"
+  },
+  {
+   "path": "experiments/phase8_adaptive_drift/frozen/seed_42/predictions_val_W1.parquet",
+   "evidence": [
+    "scope_fingerprint"
+   ],
+   "strongest": "scope_fingerprint"
+  },
+  {
+   "path": "experiments/phase8_adaptive_drift/frozen/seed_42/predictions_val_W2.parquet",
+   "evidence": [
+    "scope_fingerprint"
+   ],
+   "strongest": "scope_fingerprint"
+  },
+  {
+   "path": "experiments/phase8_adaptive_drift/frozen/seed_42/predictions_val_W3.parquet",
+   "evidence": [
+    "scope_fingerprint"
+   ],
+   "strongest": "scope_fingerprint"
+  },
+  {
+   "path": "experiments/phase8_adaptive_drift/frozen/seed_42/predictions_val_W4.parquet",
+   "evidence": [
+    "scope_fingerprint"
+   ],
+   "strongest": "scope_fingerprint"
+  },
+  {
+   "path": "experiments/phase8_adaptive_drift/frozen/seed_42/predictions_val_W5.parquet",
+   "evidence": [
+    "scope_fingerprint"
+   ],
+   "strongest": "scope_fingerprint"
+  },
+  {
+   "path": "experiments/phase8_adaptive_drift/leakage_validation/phase8_leakage_validation_cpu.json",
+   "evidence": [
+    "git_snapshot (line endings normalised)"
+   ],
+   "strongest": "git_snapshot"
+  },
+  {
+   "path": "experiments/phase8_adaptive_drift/log_adaptive_seed123.txt",
+   "evidence": [
+    "git_snapshot (line endings normalised)"
+   ],
+   "strongest": "git_snapshot"
+  },
+  {
+   "path": "experiments/phase8_adaptive_drift/log_adaptive_seed2024.txt",
+   "evidence": [
+    "git_snapshot (line endings normalised)"
+   ],
+   "strongest": "git_snapshot"
+  },
+  {
+   "path": "experiments/phase8_adaptive_drift/log_adaptive_seed42.txt",
+   "evidence": [
+    "git_snapshot (line endings normalised)"
+   ],
+   "strongest": "git_snapshot"
+  },
+  {
+   "path": "experiments/phase8_adaptive_drift/log_frozen_seed123.txt",
+   "evidence": [
+    "git_snapshot (line endings normalised)"
+   ],
+   "strongest": "git_snapshot"
+  },
+  {
+   "path": "experiments/phase8_adaptive_drift/log_frozen_seed2024.txt",
+   "evidence": [
+    "git_snapshot (line endings normalised)"
+   ],
+   "strongest": "git_snapshot"
+  },
+  {
+   "path": "experiments/phase8_adaptive_drift/log_frozen_seed42.txt",
+   "evidence": [
+    "git_snapshot (line endings normalised)"
+   ],
+   "strongest": "git_snapshot"
+  },
+  {
+   "path": "experiments/phase8_adaptive_drift/log_init_seed123.txt",
+   "evidence": [
+    "git_snapshot (line endings normalised)"
+   ],
+   "strongest": "git_snapshot"
+  },
+  {
+   "path": "experiments/phase8_adaptive_drift/log_init_seed2024.txt",
+   "evidence": [
+    "git_snapshot (line endings normalised)"
+   ],
+   "strongest": "git_snapshot"
+  },
+  {
+   "path": "experiments/phase8_adaptive_drift/log_init_seed42.txt",
+   "evidence": [
+    "git_snapshot (line endings normalised)"
+   ],
+   "strongest": "git_snapshot"
+  },
+  {
+   "path": "experiments/phase8_adaptive_drift/log_leakage_cpu.txt",
+   "evidence": [
+    "git_snapshot (line endings normalised)"
+   ],
+   "strongest": "git_snapshot"
+  },
+  {
+   "path": "experiments/phase8_adaptive_drift/log_replay_seed123.txt",
+   "evidence": [
+    "git_snapshot (line endings normalised)"
+   ],
+   "strongest": "git_snapshot"
+  },
+  {
+   "path": "experiments/phase8_adaptive_drift/log_replay_seed2024.txt",
+   "evidence": [
+    "git_snapshot (line endings normalised)"
+   ],
+   "strongest": "git_snapshot"
+  },
+  {
+   "path": "experiments/phase8_adaptive_drift/log_replay_seed42.txt",
+   "evidence": [
+    "git_snapshot (line endings normalised)"
+   ],
+   "strongest": "git_snapshot"
+  },
+  {
+   "path": "experiments/phase8_adaptive_drift/replay_control/seed_123/metrics_val_W1.json",
+   "evidence": [
+    "git_snapshot (line endings normalised)",
+    "scope_fingerprint"
+   ],
+   "strongest": "git_snapshot"
+  },
+  {
+   "path": "experiments/phase8_adaptive_drift/replay_control/seed_123/metrics_val_W2.json",
+   "evidence": [
+    "git_snapshot (line endings normalised)",
+    "scope_fingerprint"
+   ],
+   "strongest": "git_snapshot"
+  },
+  {
+   "path": "experiments/phase8_adaptive_drift/replay_control/seed_123/metrics_val_W3.json",
+   "evidence": [
+    "git_snapshot (line endings normalised)",
+    "scope_fingerprint"
+   ],
+   "strongest": "git_snapshot"
+  },
+  {
+   "path": "experiments/phase8_adaptive_drift/replay_control/seed_123/metrics_val_W4.json",
+   "evidence": [
+    "git_snapshot (line endings normalised)",
+    "scope_fingerprint"
+   ],
+   "strongest": "git_snapshot"
+  },
+  {
+   "path": "experiments/phase8_adaptive_drift/replay_control/seed_123/metrics_val_W5.json",
+   "evidence": [
+    "git_snapshot (line endings normalised)",
+    "scope_fingerprint"
+   ],
+   "strongest": "git_snapshot"
+  },
+  {
+   "path": "experiments/phase8_adaptive_drift/replay_control/seed_123/model_checkpoint_final.pt",
+   "evidence": [],
+   "strongest": "no_pre_build_evidence"
+  },
+  {
+   "path": "experiments/phase8_adaptive_drift/replay_control/seed_123/predictions_val_W1.parquet",
+   "evidence": [
+    "scope_fingerprint"
+   ],
+   "strongest": "scope_fingerprint"
+  },
+  {
+   "path": "experiments/phase8_adaptive_drift/replay_control/seed_123/predictions_val_W2.parquet",
+   "evidence": [
+    "scope_fingerprint"
+   ],
+   "strongest": "scope_fingerprint"
+  },
+  {
+   "path": "experiments/phase8_adaptive_drift/replay_control/seed_123/predictions_val_W3.parquet",
+   "evidence": [
+    "scope_fingerprint"
+   ],
+   "strongest": "scope_fingerprint"
+  },
+  {
+   "path": "experiments/phase8_adaptive_drift/replay_control/seed_123/predictions_val_W4.parquet",
+   "evidence": [
+    "scope_fingerprint"
+   ],
+   "strongest": "scope_fingerprint"
+  },
+  {
+   "path": "experiments/phase8_adaptive_drift/replay_control/seed_123/predictions_val_W5.parquet",
+   "evidence": [
+    "scope_fingerprint"
+   ],
+   "strongest": "scope_fingerprint"
+  },
+  {
+   "path": "experiments/phase8_adaptive_drift/replay_control/seed_2024/metrics_val_W1.json",
+   "evidence": [
+    "git_snapshot (line endings normalised)",
+    "scope_fingerprint"
+   ],
+   "strongest": "git_snapshot"
+  },
+  {
+   "path": "experiments/phase8_adaptive_drift/replay_control/seed_2024/metrics_val_W2.json",
+   "evidence": [
+    "git_snapshot (line endings normalised)",
+    "scope_fingerprint"
+   ],
+   "strongest": "git_snapshot"
+  },
+  {
+   "path": "experiments/phase8_adaptive_drift/replay_control/seed_2024/metrics_val_W3.json",
+   "evidence": [
+    "git_snapshot (line endings normalised)",
+    "scope_fingerprint"
+   ],
+   "strongest": "git_snapshot"
+  },
+  {
+   "path": "experiments/phase8_adaptive_drift/replay_control/seed_2024/metrics_val_W4.json",
+   "evidence": [
+    "git_snapshot (line endings normalised)",
+    "scope_fingerprint"
+   ],
+   "strongest": "git_snapshot"
+  },
+  {
+   "path": "experiments/phase8_adaptive_drift/replay_control/seed_2024/metrics_val_W5.json",
+   "evidence": [
+    "git_snapshot (line endings normalised)",
+    "scope_fingerprint"
+   ],
+   "strongest": "git_snapshot"
+  },
+  {
+   "path": "experiments/phase8_adaptive_drift/replay_control/seed_2024/model_checkpoint_final.pt",
+   "evidence": [],
+   "strongest": "no_pre_build_evidence"
+  },
+  {
+   "path": "experiments/phase8_adaptive_drift/replay_control/seed_2024/predictions_val_W1.parquet",
+   "evidence": [
+    "scope_fingerprint"
+   ],
+   "strongest": "scope_fingerprint"
+  },
+  {
+   "path": "experiments/phase8_adaptive_drift/replay_control/seed_2024/predictions_val_W2.parquet",
+   "evidence": [
+    "scope_fingerprint"
+   ],
+   "strongest": "scope_fingerprint"
+  },
+  {
+   "path": "experiments/phase8_adaptive_drift/replay_control/seed_2024/predictions_val_W3.parquet",
+   "evidence": [
+    "scope_fingerprint"
+   ],
+   "strongest": "scope_fingerprint"
+  },
+  {
+   "path": "experiments/phase8_adaptive_drift/replay_control/seed_2024/predictions_val_W4.parquet",
+   "evidence": [
+    "scope_fingerprint"
+   ],
+   "strongest": "scope_fingerprint"
+  },
+  {
+   "path": "experiments/phase8_adaptive_drift/replay_control/seed_2024/predictions_val_W5.parquet",
+   "evidence": [
+    "scope_fingerprint"
+   ],
+   "strongest": "scope_fingerprint"
+  },
+  {
+   "path": "experiments/phase8_adaptive_drift/replay_control/seed_42/metrics_val_W1.json",
+   "evidence": [
+    "git_snapshot (line endings normalised)",
+    "scope_fingerprint"
+   ],
+   "strongest": "git_snapshot"
+  },
+  {
+   "path": "experiments/phase8_adaptive_drift/replay_control/seed_42/metrics_val_W2.json",
+   "evidence": [
+    "git_snapshot (line endings normalised)",
+    "scope_fingerprint"
+   ],
+   "strongest": "git_snapshot"
+  },
+  {
+   "path": "experiments/phase8_adaptive_drift/replay_control/seed_42/metrics_val_W3.json",
+   "evidence": [
+    "git_snapshot (line endings normalised)",
+    "scope_fingerprint"
+   ],
+   "strongest": "git_snapshot"
+  },
+  {
+   "path": "experiments/phase8_adaptive_drift/replay_control/seed_42/metrics_val_W4.json",
+   "evidence": [
+    "git_snapshot (line endings normalised)",
+    "scope_fingerprint"
+   ],
+   "strongest": "git_snapshot"
+  },
+  {
+   "path": "experiments/phase8_adaptive_drift/replay_control/seed_42/metrics_val_W5.json",
+   "evidence": [
+    "git_snapshot (line endings normalised)",
+    "scope_fingerprint"
+   ],
+   "strongest": "git_snapshot"
+  },
+  {
+   "path": "experiments/phase8_adaptive_drift/replay_control/seed_42/model_checkpoint_final.pt",
+   "evidence": [],
+   "strongest": "no_pre_build_evidence"
+  },
+  {
+   "path": "experiments/phase8_adaptive_drift/replay_control/seed_42/predictions_val_W1.parquet",
+   "evidence": [
+    "scope_fingerprint"
+   ],
+   "strongest": "scope_fingerprint"
+  },
+  {
+   "path": "experiments/phase8_adaptive_drift/replay_control/seed_42/predictions_val_W2.parquet",
+   "evidence": [
+    "scope_fingerprint"
+   ],
+   "strongest": "scope_fingerprint"
+  },
+  {
+   "path": "experiments/phase8_adaptive_drift/replay_control/seed_42/predictions_val_W3.parquet",
+   "evidence": [
+    "scope_fingerprint"
+   ],
+   "strongest": "scope_fingerprint"
+  },
+  {
+   "path": "experiments/phase8_adaptive_drift/replay_control/seed_42/predictions_val_W4.parquet",
+   "evidence": [
+    "scope_fingerprint"
+   ],
+   "strongest": "scope_fingerprint"
+  },
+  {
+   "path": "experiments/phase8_adaptive_drift/replay_control/seed_42/predictions_val_W5.parquet",
+   "evidence": [
+    "scope_fingerprint"
+   ],
+   "strongest": "scope_fingerprint"
+  },
+  {
+   "path": "experiments/phase8_adaptive_drift/shared_init/hparams_seed123.json",
+   "evidence": [
+    "git_snapshot (line endings normalised)",
+    "scope_fingerprint"
+   ],
+   "strongest": "git_snapshot"
+  },
+  {
+   "path": "experiments/phase8_adaptive_drift/shared_init/hparams_seed2024.json",
+   "evidence": [
+    "git_snapshot (line endings normalised)",
+    "scope_fingerprint"
+   ],
+   "strongest": "git_snapshot"
+  },
+  {
+   "path": "experiments/phase8_adaptive_drift/shared_init/hparams_seed42.json",
+   "evidence": [
+    "git_snapshot (line endings normalised)",
+    "scope_fingerprint"
+   ],
+   "strongest": "git_snapshot"
+  },
+  {
+   "path": "experiments/phase8_adaptive_drift/shared_init/model_checkpoint_initial_seed123.pt",
+   "evidence": [],
+   "strongest": "no_pre_build_evidence"
+  },
+  {
+   "path": "experiments/phase8_adaptive_drift/shared_init/model_checkpoint_initial_seed2024.pt",
+   "evidence": [],
+   "strongest": "no_pre_build_evidence"
+  },
+  {
+   "path": "experiments/phase8_adaptive_drift/shared_init/model_checkpoint_initial_seed42.pt",
+   "evidence": [],
+   "strongest": "no_pre_build_evidence"
+  },
+  {
+   "path": "experiments/phase9_coordinated_fraud/DESIGN_BEFORE_EXECUTION.md",
+   "evidence": [
+    "git_snapshot",
+    "session_log: 78702bed@2026-10-18T07:02Z, b0d26df2@2026-10-07T07:50Z",
+    "integrity_record: experiments/phase10_community_evolution/INTEGRITY.json, experiments/phase9_coordinated_fraud/phase9_closure_integrity.json"
+   ],
+   "strongest": "git_snapshot"
+  },
+  {
+   "path": "experiments/phase9_coordinated_fraud/STOP_REPORT_G4.md",
+   "evidence": [
+    "git_snapshot",
+    "session_log: 78702bed@2026-10-18T07:02Z",
+    "integrity_record: experiments/phase10_community_evolution/INTEGRITY.json, experiments/phase9_coordinated_fraud/phase9_closure_integrity.json"
+   ],
+   "strongest": "git_snapshot"
+  },
+  {
+   "path": "experiments/phase9_coordinated_fraud/benchmark_dev/seed_123/arrays.npz",
+   "evidence": [],
+   "strongest": "no_pre_build_evidence"
+  },
+  {
+   "path": "experiments/phase9_coordinated_fraud/benchmark_dev/seed_123/sealed/manifest.sha256",
+   "evidence": [
+    "git_snapshot"
+   ],
+   "strongest": "git_snapshot"
+  },
+  {
+   "path": "experiments/phase9_coordinated_fraud/benchmark_dev/seed_123/sealed/manifest_sealed.json",
+   "evidence": [
+    "git_snapshot (line endings normalised)"
+   ],
+   "strongest": "git_snapshot"
+  },
+  {
+   "path": "experiments/phase9_coordinated_fraud/benchmark_dev/seed_123/sealed/row_truth.npz",
+   "evidence": [],
+   "strongest": "no_pre_build_evidence"
+  },
+  {
+   "path": "experiments/phase9_coordinated_fraud/benchmark_dev/seed_2024/arrays.npz",
+   "evidence": [],
+   "strongest": "no_pre_build_evidence"
+  },
+  {
+   "path": "experiments/phase9_coordinated_fraud/benchmark_dev/seed_2024/sealed/manifest.sha256",
+   "evidence": [
+    "git_snapshot"
+   ],
+   "strongest": "git_snapshot"
+  },
+  {
+   "path": "experiments/phase9_coordinated_fraud/benchmark_dev/seed_2024/sealed/manifest_sealed.json",
+   "evidence": [
+    "git_snapshot (line endings normalised)"
+   ],
+   "strongest": "git_snapshot"
+  },
+  {
+   "path": "experiments/phase9_coordinated_fraud/benchmark_dev/seed_2024/sealed/row_truth.npz",
+   "evidence": [],
+   "strongest": "no_pre_build_evidence"
+  },
+  {
+   "path": "experiments/phase9_coordinated_fraud/benchmark_dev/seed_42/arrays.npz",
+   "evidence": [],
+   "strongest": "no_pre_build_evidence"
+  },
+  {
+   "path": "experiments/phase9_coordinated_fraud/benchmark_dev/seed_42/sealed/manifest.sha256",
+   "evidence": [
+    "git_snapshot"
+   ],
+   "strongest": "git_snapshot"
+  },
+  {
+   "path": "experiments/phase9_coordinated_fraud/benchmark_dev/seed_42/sealed/manifest_sealed.json",
+   "evidence": [
+    "git_snapshot (line endings normalised)"
+   ],
+   "strongest": "git_snapshot"
+  },
+  {
+   "path": "experiments/phase9_coordinated_fraud/benchmark_dev/seed_42/sealed/row_truth.npz",
+   "evidence": [],
+   "strongest": "no_pre_build_evidence"
+  },
+  {
+   "path": "experiments/phase9_coordinated_fraud/benchmark_eval/seed_123/arrays.npz",
+   "evidence": [],
+   "strongest": "no_pre_build_evidence"
+  },
+  {
+   "path": "experiments/phase9_coordinated_fraud/benchmark_eval/seed_123/sealed/manifest.sha256",
+   "evidence": [
+    "git_snapshot"
+   ],
+   "strongest": "git_snapshot"
+  },
+  {
+   "path": "experiments/phase9_coordinated_fraud/benchmark_eval/seed_123/sealed/manifest_sealed.json",
+   "evidence": [
+    "git_snapshot (line endings normalised)"
+   ],
+   "strongest": "git_snapshot"
+  },
+  {
+   "path": "experiments/phase9_coordinated_fraud/benchmark_eval/seed_123/sealed/row_truth.npz",
+   "evidence": [],
+   "strongest": "no_pre_build_evidence"
+  },
+  {
+   "path": "experiments/phase9_coordinated_fraud/benchmark_eval/seed_2024/arrays.npz",
+   "evidence": [],
+   "strongest": "no_pre_build_evidence"
+  },
+  {
+   "path": "experiments/phase9_coordinated_fraud/benchmark_eval/seed_2024/sealed/manifest.sha256",
+   "evidence": [
+    "git_snapshot"
+   ],
+   "strongest": "git_snapshot"
+  },
+  {
+   "path": "experiments/phase9_coordinated_fraud/benchmark_eval/seed_2024/sealed/manifest_sealed.json",
+   "evidence": [
+    "git_snapshot (line endings normalised)"
+   ],
+   "strongest": "git_snapshot"
+  },
+  {
+   "path": "experiments/phase9_coordinated_fraud/benchmark_eval/seed_2024/sealed/row_truth.npz",
+   "evidence": [],
+   "strongest": "no_pre_build_evidence"
+  },
+  {
+   "path": "experiments/phase9_coordinated_fraud/benchmark_eval/seed_42/arrays.npz",
+   "evidence": [],
+   "strongest": "no_pre_build_evidence"
+  },
+  {
+   "path": "experiments/phase9_coordinated_fraud/benchmark_eval/seed_42/sealed/manifest.sha256",
+   "evidence": [
+    "git_snapshot"
+   ],
+   "strongest": "git_snapshot"
+  },
+  {
+   "path": "experiments/phase9_coordinated_fraud/benchmark_eval/seed_42/sealed/manifest_sealed.json",
+   "evidence": [
+    "git_snapshot (line endings normalised)"
+   ],
+   "strongest": "git_snapshot"
+  },
+  {
+   "path": "experiments/phase9_coordinated_fraud/benchmark_eval/seed_42/sealed/row_truth.npz",
+   "evidence": [],
+   "strongest": "no_pre_build_evidence"
+  },
+  {
+   "path": "experiments/phase9_coordinated_fraud/cache/real_le151.npz",
+   "evidence": [],
+   "strongest": "no_pre_build_evidence"
+  },
+  {
+   "path": "experiments/phase9_coordinated_fraud/cache/real_le151_X.npy",
+   "evidence": [],
+   "strongest": "no_pre_build_evidence"
+  },
+  {
+   "path": "experiments/phase9_coordinated_fraud/design_recon_trainonly_labelfree.json",
+   "evidence": [
+    "git_snapshot (line endings normalised)"
+   ],
+   "strongest": "git_snapshot"
+  },
+  {
+   "path": "experiments/phase9_coordinated_fraud/design_recon_trainonly_labelfree.py",
+   "evidence": [
+    "git_snapshot"
+   ],
+   "strongest": "git_snapshot"
+  },
+  {
+   "path": "experiments/phase9_coordinated_fraud/dev_selection.json",
+   "evidence": [
+    "git_snapshot (line endings normalised)",
+    "session_log: 78702bed@2026-10-18T07:02Z",
+    "integrity_record: experiments/phase10_community_evolution/INTEGRITY.json, experiments/phase9_coordinated_fraud/phase9_closure_integrity.json"
+   ],
+   "strongest": "git_snapshot"
+  },
+  {
+   "path": "experiments/phase9_coordinated_fraud/diagnostics/diagnose_g4.py",
+   "evidence": [
+    "git_snapshot",
+    "integrity_record: experiments/phase9_coordinated_fraud/exploratory_realdata/MANIFEST.json, experiments/phase9_coordinated_fraud/exploratory_realdata/MANIFEST_E0.json, experiments/phase9_coordinated_fraud/phase9_closure_integrity.json"
+   ],
+   "strongest": "git_snapshot"
+  },
+  {
+   "path": "experiments/phase9_coordinated_fraud/diagnostics/g4_diagnosis.json",
+   "evidence": [
+    "git_snapshot (line endings normalised)",
+    "integrity_record: experiments/phase9_coordinated_fraud/exploratory_realdata/MANIFEST.json, experiments/phase9_coordinated_fraud/exploratory_realdata/MANIFEST_E0.json, experiments/phase9_coordinated_fraud/phase9_closure_integrity.json"
+   ],
+   "strongest": "git_snapshot"
+  },
+  {
+   "path": "experiments/phase9_coordinated_fraud/eval_benchmark_G1_G2_G4.json",
+   "evidence": [
+    "git_snapshot (line endings normalised)",
+    "integrity_record: experiments/phase9_coordinated_fraud/phase9_closure_integrity.json"
+   ],
+   "strongest": "git_snapshot"
+  },
+  {
+   "path": "experiments/phase9_coordinated_fraud/eval_benchmark_G3_G5.json",
+   "evidence": [
+    "git_snapshot (line endings normalised)",
+    "integrity_record: experiments/phase9_coordinated_fraud/phase9_closure_integrity.json"
+   ],
+   "strongest": "git_snapshot"
+  },
+  {
+   "path": "experiments/phase9_coordinated_fraud/exploratory_realdata/E0_ADDENDUM_post_Tier0_exploratory.md",
+   "evidence": [
+    "git_snapshot",
+    "session_log: 64d369ab@2026-10-12T14:51Z, 78702bed@2026-10-12T14:51Z, 78702bed@2026-10-18T07:02Z",
+    "integrity_record: experiments/phase10_community_evolution/INTEGRITY.json, experiments/phase9_coordinated_fraud/exploratory_realdata/MANIFEST_E0.json, experiments/phase9_coordinated_fraud/phase9_closure_integrity.json"
+   ],
+   "strongest": "git_snapshot"
+  },
+  {
+   "path": "experiments/phase9_coordinated_fraud/exploratory_realdata/E0_ADDENDUM_post_Tier0_exploratory.sha256",
+   "evidence": [
+    "git_snapshot",
+    "integrity_record: experiments/phase9_coordinated_fraud/exploratory_realdata/MANIFEST_E0.json, experiments/phase9_coordinated_fraud/phase9_closure_integrity.json"
+   ],
+   "strongest": "git_snapshot"
+  },
+  {
+   "path": "experiments/phase9_coordinated_fraud/exploratory_realdata/E0_REPORT.md",
+   "evidence": [
+    "git_snapshot (line endings normalised)",
+    "session_log: 64d369ab@2026-10-12T17:14Z, 78702bed@2026-10-12T17:14Z, 78702bed@2026-10-18T07:02Z",
+    "integrity_record: experiments/phase10_community_evolution/INTEGRITY.json, experiments/phase9_coordinated_fraud/phase9_closure_integrity.json"
+   ],
+   "strongest": "git_snapshot"
+  },
+  {
+   "path": "experiments/phase9_coordinated_fraud/exploratory_realdata/E0_REPORT.sha256",
+   "evidence": [
+    "git_snapshot"
+   ],
+   "strongest": "git_snapshot"
+  },
+  {
+   "path": "experiments/phase9_coordinated_fraud/exploratory_realdata/MANIFEST.json",
+   "evidence": [
+    "git_snapshot (line endings normalised)"
+   ],
+   "strongest": "git_snapshot"
+  },
+  {
+   "path": "experiments/phase9_coordinated_fraud/exploratory_realdata/MANIFEST_E0.json",
+   "evidence": [
+    "git_snapshot (line endings normalised)",
+    "integrity_record: experiments/phase9_coordinated_fraud/phase9_closure_integrity.json"
+   ],
+   "strongest": "git_snapshot"
+  },
+  {
+   "path": "experiments/phase9_coordinated_fraud/exploratory_realdata/MANIFEST_E0_execution.json",
+   "evidence": [
+    "git_snapshot (line endings normalised)",
+    "session_log: 78702bed@2026-10-18T07:02Z",
+    "integrity_record: experiments/phase10_community_evolution/INTEGRITY.json, experiments/phase9_coordinated_fraud/phase9_closure_integrity.json"
+   ],
+   "strongest": "git_snapshot"
+  },
+  {
+   "path": "experiments/phase9_coordinated_fraud/exploratory_realdata/MANIFEST_E0_tau.json",
+   "evidence": [
+    "git_snapshot (line endings normalised)",
+    "integrity_record: experiments/phase9_coordinated_fraud/phase9_closure_integrity.json"
+   ],
+   "strongest": "git_snapshot"
+  },
+  {
+   "path": "experiments/phase9_coordinated_fraud/exploratory_realdata/PRE_RUN_RECORD.md",
+   "evidence": [
+    "git_snapshot",
+    "integrity_record: experiments/phase9_coordinated_fraud/exploratory_realdata/MANIFEST.json, experiments/phase9_coordinated_fraud/phase9_closure_integrity.json"
+   ],
+   "strongest": "git_snapshot"
+  },
+  {
+   "path": "experiments/phase9_coordinated_fraud/exploratory_realdata/PRE_RUN_RECORD.sha256",
+   "evidence": [
+    "git_snapshot",
+    "integrity_record: experiments/phase9_coordinated_fraud/exploratory_realdata/MANIFEST.json, experiments/phase9_coordinated_fraud/phase9_closure_integrity.json"
+   ],
+   "strongest": "git_snapshot"
+  },
+  {
+   "path": "experiments/phase9_coordinated_fraud/exploratory_realdata/TIER0_REPORT.md",
+   "evidence": [
+    "git_snapshot (line endings normalised)",
+    "session_log: 78702bed@2026-10-18T07:02Z",
+    "integrity_record: experiments/phase10_community_evolution/INTEGRITY.json, experiments/phase9_coordinated_fraud/exploratory_realdata/MANIFEST.json, experiments/phase9_coordinated_fraud/phase9_closure_integrity.json"
+   ],
+   "strongest": "git_snapshot"
+  },
+  {
+   "path": "experiments/phase9_coordinated_fraud/exploratory_realdata/e0_results.json",
+   "evidence": [
+    "git_snapshot (line endings normalised)",
+    "session_log: 64d369ab@2026-10-12T17:14Z, 78702bed@2026-10-12T17:14Z, 78702bed@2026-10-18T07:02Z",
+    "integrity_record: experiments/phase10_community_evolution/INTEGRITY.json, experiments/phase11_explainable_evidence/community_cards/manifest_cards.json, experiments/phase9_coordinated_fraud/phase9_closure_integrity.json"
+   ],
+   "strongest": "git_snapshot"
+  },
+  {
+   "path": "experiments/phase9_coordinated_fraud/exploratory_realdata/e0_results.sha256",
+   "evidence": [
+    "git_snapshot"
+   ],
+   "strongest": "git_snapshot"
+  },
+  {
+   "path": "experiments/phase9_coordinated_fraud/exploratory_realdata/e0_tau_lock_note.md",
+   "evidence": [
+    "git_snapshot (line endings normalised)",
+    "integrity_record: experiments/phase9_coordinated_fraud/exploratory_realdata/MANIFEST_E0_tau.json, experiments/phase9_coordinated_fraud/phase9_closure_integrity.json"
+   ],
+   "strongest": "git_snapshot"
+  },
+  {
+   "path": "experiments/phase9_coordinated_fraud/exploratory_realdata/e0_tau_seed123.json",
+   "evidence": [
+    "git_snapshot (line endings normalised)",
+    "integrity_record: experiments/phase11_explainable_evidence/community_cards/manifest_cards.json, experiments/phase9_coordinated_fraud/exploratory_realdata/MANIFEST_E0_tau.json, experiments/phase9_coordinated_fraud/phase9_closure_integrity.json"
+   ],
+   "strongest": "git_snapshot"
+  },
+  {
+   "path": "experiments/phase9_coordinated_fraud/exploratory_realdata/e0_tau_seed123.sha256",
+   "evidence": [
+    "git_snapshot",
+    "integrity_record: experiments/phase9_coordinated_fraud/exploratory_realdata/MANIFEST_E0_tau.json"
+   ],
+   "strongest": "git_snapshot"
+  },
+  {
+   "path": "experiments/phase9_coordinated_fraud/exploratory_realdata/e0_tau_seed2024.json",
+   "evidence": [
+    "git_snapshot (line endings normalised)",
+    "integrity_record: experiments/phase11_explainable_evidence/community_cards/manifest_cards.json, experiments/phase9_coordinated_fraud/exploratory_realdata/MANIFEST_E0_tau.json, experiments/phase9_coordinated_fraud/phase9_closure_integrity.json"
+   ],
+   "strongest": "git_snapshot"
+  },
+  {
+   "path": "experiments/phase9_coordinated_fraud/exploratory_realdata/e0_tau_seed2024.sha256",
+   "evidence": [
+    "git_snapshot",
+    "integrity_record: experiments/phase9_coordinated_fraud/exploratory_realdata/MANIFEST_E0_tau.json"
+   ],
+   "strongest": "git_snapshot"
+  },
+  {
+   "path": "experiments/phase9_coordinated_fraud/exploratory_realdata/e0_tau_seed42.json",
+   "evidence": [
+    "git_snapshot (line endings normalised)",
+    "integrity_record: experiments/phase11_explainable_evidence/community_cards/manifest_cards.json, experiments/phase9_coordinated_fraud/exploratory_realdata/MANIFEST_E0_tau.json, experiments/phase9_coordinated_fraud/phase9_closure_integrity.json"
+   ],
+   "strongest": "git_snapshot"
+  },
+  {
+   "path": "experiments/phase9_coordinated_fraud/exploratory_realdata/e0_tau_seed42.sha256",
+   "evidence": [
+    "git_snapshot",
+    "integrity_record: experiments/phase9_coordinated_fraud/exploratory_realdata/MANIFEST_E0_tau.json"
+   ],
+   "strongest": "git_snapshot"
+  },
+  {
+   "path": "experiments/phase9_coordinated_fraud/exploratory_realdata/log_e0.sha256",
+   "evidence": [
+    "git_snapshot"
+   ],
+   "strongest": "git_snapshot"
+  },
+  {
+   "path": "experiments/phase9_coordinated_fraud/exploratory_realdata/log_e0.txt",
+   "evidence": [
+    "git_snapshot (line endings normalised)"
+   ],
+   "strongest": "git_snapshot"
+  },
+  {
+   "path": "experiments/phase9_coordinated_fraud/exploratory_realdata/log_e0_tau.txt",
+   "evidence": [
+    "git_snapshot (line endings normalised)",
+    "integrity_record: experiments/phase9_coordinated_fraud/exploratory_realdata/MANIFEST_E0_tau.json"
+   ],
+   "strongest": "git_snapshot"
+  },
+  {
+   "path": "experiments/phase9_coordinated_fraud/exploratory_realdata/log_tier0.txt",
+   "evidence": [
+    "git_snapshot (line endings normalised)",
+    "session_log: 78702bed@2026-10-18T07:02Z",
+    "integrity_record: experiments/phase10_community_evolution/INTEGRITY.json, experiments/phase9_coordinated_fraud/exploratory_realdata/MANIFEST.json"
+   ],
+   "strongest": "git_snapshot"
+  },
+  {
+   "path": "experiments/phase9_coordinated_fraud/exploratory_realdata/log_validation.txt",
+   "evidence": [
+    "git_snapshot (line endings normalised)",
+    "integrity_record: experiments/phase9_coordinated_fraud/exploratory_realdata/MANIFEST.json"
+   ],
+   "strongest": "git_snapshot"
+  },
+  {
+   "path": "experiments/phase9_coordinated_fraud/exploratory_realdata/log_validation_E0.txt",
+   "evidence": [
+    "git_snapshot (line endings normalised)",
+    "integrity_record: experiments/phase9_coordinated_fraud/exploratory_realdata/MANIFEST_E0.json"
+   ],
+   "strongest": "git_snapshot"
+  },
+  {
+   "path": "experiments/phase9_coordinated_fraud/exploratory_realdata/tier0_community_days_W14_seed123.csv",
+   "evidence": [
+    "git_snapshot (line endings normalised)",
+    "integrity_record: experiments/phase10_community_evolution/INTEGRITY.json, experiments/phase9_coordinated_fraud/exploratory_realdata/MANIFEST.json"
+   ],
+   "strongest": "git_snapshot"
+  },
+  {
+   "path": "experiments/phase9_coordinated_fraud/exploratory_realdata/tier0_community_days_W14_seed2024.csv",
+   "evidence": [
+    "git_snapshot (line endings normalised)",
+    "integrity_record: experiments/phase10_community_evolution/INTEGRITY.json, experiments/phase9_coordinated_fraud/exploratory_realdata/MANIFEST.json"
+   ],
+   "strongest": "git_snapshot"
+  },
+  {
+   "path": "experiments/phase9_coordinated_fraud/exploratory_realdata/tier0_community_days_W14_seed42.csv",
+   "evidence": [
+    "git_snapshot (line endings normalised)",
+    "integrity_record: experiments/phase10_community_evolution/INTEGRITY.json, experiments/phase9_coordinated_fraud/exploratory_realdata/MANIFEST.json"
+   ],
+   "strongest": "git_snapshot"
+  },
+  {
+   "path": "experiments/phase9_coordinated_fraud/exploratory_realdata/tier0_community_days_W3_seed123.csv",
+   "evidence": [
+    "git_snapshot (line endings normalised)",
+    "integrity_record: experiments/phase10_community_evolution/INTEGRITY.json, experiments/phase9_coordinated_fraud/exploratory_realdata/MANIFEST.json"
+   ],
+   "strongest": "git_snapshot"
+  },
+  {
+   "path": "experiments/phase9_coordinated_fraud/exploratory_realdata/tier0_community_days_W3_seed2024.csv",
+   "evidence": [
+    "git_snapshot (line endings normalised)",
+    "integrity_record: experiments/phase10_community_evolution/INTEGRITY.json, experiments/phase9_coordinated_fraud/exploratory_realdata/MANIFEST.json"
+   ],
+   "strongest": "git_snapshot"
+  },
+  {
+   "path": "experiments/phase9_coordinated_fraud/exploratory_realdata/tier0_community_days_W3_seed42.csv",
+   "evidence": [
+    "git_snapshot (line endings normalised)",
+    "integrity_record: experiments/phase10_community_evolution/INTEGRITY.json, experiments/phase9_coordinated_fraud/exploratory_realdata/MANIFEST.json"
+   ],
+   "strongest": "git_snapshot"
+  },
+  {
+   "path": "experiments/phase9_coordinated_fraud/exploratory_realdata/tier0_community_days_W7_seed123.csv",
+   "evidence": [
+    "git_snapshot (line endings normalised)",
+    "integrity_record: experiments/phase10_community_evolution/INTEGRITY.json, experiments/phase11_explainable_evidence/community_cards/manifest_cards.json, experiments/phase9_coordinated_fraud/exploratory_realdata/MANIFEST.json"
+   ],
+   "strongest": "git_snapshot"
+  },
+  {
+   "path": "experiments/phase9_coordinated_fraud/exploratory_realdata/tier0_community_days_W7_seed2024.csv",
+   "evidence": [
+    "git_snapshot (line endings normalised)",
+    "integrity_record: experiments/phase10_community_evolution/INTEGRITY.json, experiments/phase11_explainable_evidence/community_cards/manifest_cards.json, experiments/phase9_coordinated_fraud/exploratory_realdata/MANIFEST.json"
+   ],
+   "strongest": "git_snapshot"
+  },
+  {
+   "path": "experiments/phase9_coordinated_fraud/exploratory_realdata/tier0_community_days_W7_seed42.csv",
+   "evidence": [
+    "git_snapshot (line endings normalised)",
+    "integrity_record: experiments/phase10_community_evolution/INTEGRITY.json, experiments/phase11_explainable_evidence/community_cards/manifest_cards.json, experiments/phase9_coordinated_fraud/exploratory_realdata/MANIFEST.json"
+   ],
+   "strongest": "git_snapshot"
+  },
+  {
+   "path": "experiments/phase9_coordinated_fraud/exploratory_realdata/tier0_summary.json",
+   "evidence": [
+    "git_snapshot (line endings normalised)",
+    "session_log: 78702bed@2026-10-18T07:02Z",
+    "integrity_record: experiments/phase10_community_evolution/INTEGRITY.json, experiments/phase9_coordinated_fraud/exploratory_realdata/MANIFEST.json, experiments/phase9_coordinated_fraud/phase9_closure_integrity.json"
+   ],
+   "strongest": "git_snapshot"
+  },
+  {
+   "path": "experiments/phase9_coordinated_fraud/exploratory_realdata/validation_E0.json",
+   "evidence": [
+    "git_snapshot (line endings normalised)",
+    "session_log: 78702bed@2026-10-18T07:02Z",
+    "integrity_record: experiments/phase10_community_evolution/INTEGRITY.json, experiments/phase9_coordinated_fraud/exploratory_realdata/MANIFEST_E0.json, experiments/phase9_coordinated_fraud/phase9_closure_integrity.json"
+   ],
+   "strongest": "git_snapshot"
+  },
+  {
+   "path": "experiments/phase9_coordinated_fraud/exploratory_realdata/validation_S2_S3_S4.json",
+   "evidence": [
+    "git_snapshot (line endings normalised)",
+    "session_log: 78702bed@2026-10-18T07:02Z",
+    "integrity_record: experiments/phase10_community_evolution/INTEGRITY.json, experiments/phase9_coordinated_fraud/exploratory_realdata/MANIFEST.json, experiments/phase9_coordinated_fraud/phase9_closure_integrity.json"
+   ],
+   "strongest": "git_snapshot"
+  },
+  {
+   "path": "experiments/phase9_coordinated_fraud/locked_config.json",
+   "evidence": [
+    "git_snapshot (line endings normalised)",
+    "session_log: 78702bed@2026-10-18T07:02Z",
+    "integrity_record: experiments/phase10_community_evolution/INTEGRITY.json, experiments/phase9_coordinated_fraud/phase9_closure_integrity.json"
+   ],
+   "strongest": "git_snapshot"
+  },
+  {
+   "path": "experiments/phase9_coordinated_fraud/locked_config.sha256",
+   "evidence": [
+    "git_snapshot",
+    "integrity_record: experiments/phase9_coordinated_fraud/phase9_closure_integrity.json"
+   ],
+   "strongest": "git_snapshot"
+  },
+  {
+   "path": "experiments/phase9_coordinated_fraud/log_calibration.txt",
+   "evidence": [
+    "git_snapshot (line endings normalised)"
+   ],
+   "strongest": "git_snapshot"
+  },
+  {
+   "path": "experiments/phase9_coordinated_fraud/log_dev_selection.txt",
+   "evidence": [
+    "git_snapshot (line endings normalised)"
+   ],
+   "strongest": "git_snapshot"
+  },
+  {
+   "path": "experiments/phase9_coordinated_fraud/log_g0.txt",
+   "evidence": [
+    "git_snapshot (line endings normalised)"
+   ],
+   "strongest": "git_snapshot"
+  },
+  {
+   "path": "experiments/phase9_coordinated_fraud/log_risk_clean_42.txt",
+   "evidence": [
+    "git_snapshot (line endings normalised)"
+   ],
+   "strongest": "git_snapshot"
+  },
+  {
+   "path": "experiments/phase9_coordinated_fraud/log_timing_pilot.txt",
+   "evidence": [
+    "git_snapshot (line endings normalised)"
+   ],
+   "strongest": "git_snapshot"
+  },
+  {
+   "path": "experiments/phase9_coordinated_fraud/null_calibration_summary.json",
+   "evidence": [
+    "git_snapshot (line endings normalised)",
+    "integrity_record: experiments/phase9_coordinated_fraud/phase9_closure_integrity.json"
+   ],
+   "strongest": "git_snapshot"
+  },
+  {
+   "path": "experiments/phase9_coordinated_fraud/null_tables.pkl",
+   "evidence": [
+    "git_snapshot",
+    "integrity_record: experiments/phase9_coordinated_fraud/phase9_closure_integrity.json"
+   ],
+   "strongest": "git_snapshot"
+  },
+  {
+   "path": "experiments/phase9_coordinated_fraud/phase9_closure_integrity.json",
+   "evidence": [
+    "git_snapshot",
+    "session_log: 64d369ab@2026-10-14T13:08Z, 78702bed@2026-10-14T13:08Z, 78702bed@2026-10-18T07:02Z",
+    "integrity_record: experiments/phase10_community_evolution/INTEGRITY_ADDENDUM.json, experiments/phase10_community_evolution/INTEGRITY_ERRATA_1.json, experiments/phase10_community_evolution/INTEGRITY_ERRATA_2.json"
+   ],
+   "strongest": "git_snapshot"
+  },
+  {
+   "path": "experiments/phase9_coordinated_fraud/phase9_closure_integrity.sha256",
+   "evidence": [
+    "git_snapshot"
+   ],
+   "strongest": "git_snapshot"
+  },
+  {
+   "path": "experiments/phase9_coordinated_fraud/phase9_closure_report.sha256",
+   "evidence": [
+    "git_snapshot"
+   ],
+   "strongest": "git_snapshot"
+  },
+  {
+   "path": "experiments/phase9_coordinated_fraud/risk/risk_clean_seed123.json",
+   "evidence": [
+    "git_snapshot (line endings normalised)"
+   ],
+   "strongest": "git_snapshot"
+  },
+  {
+   "path": "experiments/phase9_coordinated_fraud/risk/risk_clean_seed123.npz",
+   "evidence": [],
+   "strongest": "no_pre_build_evidence"
+  },
+  {
+   "path": "experiments/phase9_coordinated_fraud/risk/risk_clean_seed2024.json",
+   "evidence": [
+    "git_snapshot (line endings normalised)"
+   ],
+   "strongest": "git_snapshot"
+  },
+  {
+   "path": "experiments/phase9_coordinated_fraud/risk/risk_clean_seed2024.npz",
+   "evidence": [],
+   "strongest": "no_pre_build_evidence"
+  },
+  {
+   "path": "experiments/phase9_coordinated_fraud/risk/risk_clean_seed42.json",
+   "evidence": [
+    "git_snapshot (line endings normalised)"
+   ],
+   "strongest": "git_snapshot"
+  },
+  {
+   "path": "experiments/phase9_coordinated_fraud/risk/risk_clean_seed42.npz",
+   "evidence": [
+    "integrity_record: experiments/phase9_coordinated_fraud/exploratory_realdata/MANIFEST.json, experiments/phase9_coordinated_fraud/exploratory_realdata/MANIFEST_E0.json"
+   ],
+   "strongest": "integrity_record"
+  },
+  {
+   "path": "experiments/phase9_coordinated_fraud/risk/risk_eval_seed123.json",
+   "evidence": [
+    "git_snapshot (line endings normalised)"
+   ],
+   "strongest": "git_snapshot"
+  },
+  {
+   "path": "experiments/phase9_coordinated_fraud/risk/risk_eval_seed123.npz",
+   "evidence": [],
+   "strongest": "no_pre_build_evidence"
+  },
+  {
+   "path": "experiments/phase9_coordinated_fraud/risk/risk_eval_seed2024.json",
+   "evidence": [
+    "git_snapshot (line endings normalised)"
+   ],
+   "strongest": "git_snapshot"
+  },
+  {
+   "path": "experiments/phase9_coordinated_fraud/risk/risk_eval_seed2024.npz",
+   "evidence": [],
+   "strongest": "no_pre_build_evidence"
+  },
+  {
+   "path": "experiments/phase9_coordinated_fraud/risk/risk_eval_seed42.json",
+   "evidence": [
+    "git_snapshot (line endings normalised)"
+   ],
+   "strongest": "git_snapshot"
+  },
+  {
+   "path": "experiments/phase9_coordinated_fraud/risk/risk_eval_seed42.npz",
+   "evidence": [
+    "integrity_record: experiments/phase9_coordinated_fraud/exploratory_realdata/MANIFEST.json, experiments/phase9_coordinated_fraud/exploratory_realdata/MANIFEST_E0.json"
+   ],
+   "strongest": "integrity_record"
+  },
+  {
+   "path": "experiments/phase9_coordinated_fraud/segmentation_equivalence_gate.json",
+   "evidence": [
+    "git_snapshot (line endings normalised)",
+    "integrity_record: experiments/phase9_coordinated_fraud/phase9_closure_integrity.json"
+   ],
+   "strongest": "git_snapshot"
+  },
+  {
+   "path": "experiments/phase9_coordinated_fraud/timing_pilot.json",
+   "evidence": [
+    "git_snapshot (line endings normalised)",
+    "session_log: 78702bed@2026-10-18T07:02Z",
+    "integrity_record: experiments/phase10_community_evolution/INTEGRITY.json, experiments/phase9_coordinated_fraud/phase9_closure_integrity.json"
+   ],
+   "strongest": "git_snapshot"
+  },
+  {
+   "path": "experiments/random_forest/config.json",
+   "evidence": [
+    "git_snapshot (line endings normalised)",
+    "scope_fingerprint"
+   ],
+   "strongest": "git_snapshot"
+  },
+  {
+   "path": "experiments/random_forest/feature_builder/column_roles.json",
+   "evidence": [
+    "git_snapshot (line endings normalised)"
+   ],
+   "strongest": "git_snapshot"
+  },
+  {
+   "path": "experiments/random_forest/feature_builder/extra_frequency_encoder.json",
+   "evidence": [],
+   "strongest": "no_pre_build_evidence"
+  },
+  {
+   "path": "experiments/random_forest/feature_builder/feature_names.json",
+   "evidence": [
+    "git_snapshot (line endings normalised)"
+   ],
+   "strongest": "git_snapshot"
+  },
+  {
+   "path": "experiments/random_forest/feature_builder/median_imputer.json",
+   "evidence": [],
+   "strongest": "no_pre_build_evidence"
+  },
+  {
+   "path": "experiments/random_forest/feature_builder/ordinal_maps.json",
+   "evidence": [],
+   "strongest": "no_pre_build_evidence"
+  },
+  {
+   "path": "experiments/random_forest/feature_importances.json",
+   "evidence": [
+    "git_snapshot (line endings normalised)"
+   ],
+   "strongest": "git_snapshot"
+  },
+  {
+   "path": "experiments/random_forest/metadata.json",
+   "evidence": [
+    "git_snapshot (line endings normalised)",
+    "scope_fingerprint"
+   ],
+   "strongest": "git_snapshot"
+  },
+  {
+   "path": "experiments/random_forest/metrics_val.json",
+   "evidence": [
+    "git_snapshot (line endings normalised)",
+    "scope_fingerprint"
+   ],
+   "strongest": "git_snapshot"
+  },
+  {
+   "path": "experiments/random_forest/model.joblib",
+   "evidence": [],
+   "strongest": "no_pre_build_evidence"
+  },
+  {
+   "path": "experiments/random_forest/predictions_val.parquet",
+   "evidence": [
+    "scope_fingerprint"
+   ],
+   "strongest": "scope_fingerprint"
+  },
+  {
+   "path": "experiments/temporal_ablation/DESIGN_BEFORE_EXECUTION.md",
+   "evidence": [
+    "git_snapshot"
+   ],
+   "strongest": "git_snapshot"
+  },
+  {
+   "path": "experiments/temporal_ablation/comparison.json",
+   "evidence": [
+    "git_snapshot (line endings normalised)",
+    "scope_fingerprint"
+   ],
+   "strongest": "git_snapshot"
+  },
+  {
+   "path": "experiments/temporal_ablation/comparison_plot.png",
+   "evidence": [
+    "git_snapshot"
+   ],
+   "strongest": "git_snapshot"
+  },
+  {
+   "path": "experiments/temporal_ablation/leakage_validation/graph_validation_output_armC_cpu.txt",
+   "evidence": [
+    "git_snapshot (line endings normalised)"
+   ],
+   "strongest": "git_snapshot"
+  },
+  {
+   "path": "experiments/temporal_ablation/leakage_validation/graph_validation_output_armC_cuda.txt",
+   "evidence": [
+    "git_snapshot (line endings normalised)"
+   ],
+   "strongest": "git_snapshot"
+  },
+  {
+   "path": "experiments/temporal_ablation/leakage_validation/leakage_validation_armB_cuda.json",
+   "evidence": [
+    "git_snapshot (line endings normalised)"
+   ],
+   "strongest": "git_snapshot"
+  },
+  {
+   "path": "experiments/temporal_ablation/leakage_validation/leakage_validation_armC_cpu.json",
+   "evidence": [
+    "git_snapshot (line endings normalised)"
+   ],
+   "strongest": "git_snapshot"
+  },
+  {
+   "path": "experiments/temporal_ablation/leakage_validation/leakage_validation_armC_cuda.json",
+   "evidence": [
+    "git_snapshot (line endings normalised)"
+   ],
+   "strongest": "git_snapshot"
+  },
+  {
+   "path": "experiments/temporal_ablation/memory_ablated_temporal/convergence_curves.png",
+   "evidence": [
+    "git_snapshot"
+   ],
+   "strongest": "git_snapshot"
+  },
+  {
+   "path": "experiments/temporal_ablation/memory_ablated_temporal/feature_scaler.joblib",
+   "evidence": [
+    "git_snapshot"
+   ],
+   "strongest": "git_snapshot"
+  },
+  {
+   "path": "experiments/temporal_ablation/memory_ablated_temporal/metadata.json",
+   "evidence": [
+    "git_snapshot (line endings normalised)"
+   ],
+   "strongest": "git_snapshot"
+  },
+  {
+   "path": "experiments/temporal_ablation/memory_ablated_temporal/seed_123/config.json",
+   "evidence": [
+    "git_snapshot (line endings normalised)",
+    "scope_fingerprint"
+   ],
+   "strongest": "git_snapshot"
+  },
+  {
+   "path": "experiments/temporal_ablation/memory_ablated_temporal/seed_123/metrics_val.json",
+   "evidence": [
+    "git_snapshot (line endings normalised)",
+    "scope_fingerprint"
+   ],
+   "strongest": "git_snapshot"
+  },
+  {
+   "path": "experiments/temporal_ablation/memory_ablated_temporal/seed_123/model_checkpoint.pt",
+   "evidence": [],
+   "strongest": "no_pre_build_evidence"
+  },
+  {
+   "path": "experiments/temporal_ablation/memory_ablated_temporal/seed_123/predictions_val.parquet",
+   "evidence": [
+    "scope_fingerprint"
+   ],
+   "strongest": "scope_fingerprint"
+  },
+  {
+   "path": "experiments/temporal_ablation/memory_ablated_temporal/seed_123/resource_measurements.json",
+   "evidence": [
+    "git_snapshot (line endings normalised)"
+   ],
+   "strongest": "git_snapshot"
+  },
+  {
+   "path": "experiments/temporal_ablation/memory_ablated_temporal/seed_123/training_history.json",
+   "evidence": [
+    "git_snapshot (line endings normalised)"
+   ],
+   "strongest": "git_snapshot"
+  },
+  {
+   "path": "experiments/temporal_ablation/memory_ablated_temporal/seed_2024/config.json",
+   "evidence": [
+    "git_snapshot (line endings normalised)",
+    "scope_fingerprint"
+   ],
+   "strongest": "git_snapshot"
+  },
+  {
+   "path": "experiments/temporal_ablation/memory_ablated_temporal/seed_2024/metrics_val.json",
+   "evidence": [
+    "git_snapshot (line endings normalised)",
+    "scope_fingerprint"
+   ],
+   "strongest": "git_snapshot"
+  },
+  {
+   "path": "experiments/temporal_ablation/memory_ablated_temporal/seed_2024/model_checkpoint.pt",
+   "evidence": [],
+   "strongest": "no_pre_build_evidence"
+  },
+  {
+   "path": "experiments/temporal_ablation/memory_ablated_temporal/seed_2024/predictions_val.parquet",
+   "evidence": [
+    "scope_fingerprint"
+   ],
+   "strongest": "scope_fingerprint"
+  },
+  {
+   "path": "experiments/temporal_ablation/memory_ablated_temporal/seed_2024/resource_measurements.json",
+   "evidence": [
+    "git_snapshot (line endings normalised)"
+   ],
+   "strongest": "git_snapshot"
+  },
+  {
+   "path": "experiments/temporal_ablation/memory_ablated_temporal/seed_2024/training_history.json",
+   "evidence": [
+    "git_snapshot (line endings normalised)"
+   ],
+   "strongest": "git_snapshot"
+  },
+  {
+   "path": "experiments/temporal_ablation/memory_ablated_temporal/seed_42/config.json",
+   "evidence": [
+    "git_snapshot (line endings normalised)",
+    "scope_fingerprint"
+   ],
+   "strongest": "git_snapshot"
+  },
+  {
+   "path": "experiments/temporal_ablation/memory_ablated_temporal/seed_42/metrics_val.json",
+   "evidence": [
+    "git_snapshot (line endings normalised)",
+    "scope_fingerprint"
+   ],
+   "strongest": "git_snapshot"
+  },
+  {
+   "path": "experiments/temporal_ablation/memory_ablated_temporal/seed_42/model_checkpoint.pt",
+   "evidence": [],
+   "strongest": "no_pre_build_evidence"
+  },
+  {
+   "path": "experiments/temporal_ablation/memory_ablated_temporal/seed_42/predictions_val.parquet",
+   "evidence": [
+    "scope_fingerprint"
+   ],
+   "strongest": "scope_fingerprint"
+  },
+  {
+   "path": "experiments/temporal_ablation/memory_ablated_temporal/seed_42/resource_measurements.json",
+   "evidence": [
+    "git_snapshot (line endings normalised)"
+   ],
+   "strongest": "git_snapshot"
+  },
+  {
+   "path": "experiments/temporal_ablation/memory_ablated_temporal/seed_42/training_history.json",
+   "evidence": [
+    "git_snapshot (line endings normalised)"
+   ],
+   "strongest": "git_snapshot"
+  },
+  {
+   "path": "experiments/temporal_ablation/memory_ablated_temporal/summary.json",
+   "evidence": [
+    "git_snapshot (line endings normalised)",
+    "scope_fingerprint"
+   ],
+   "strongest": "git_snapshot"
+  },
+  {
+   "path": "experiments/temporal_ablation/static_schedule_matched/convergence_curves.png",
+   "evidence": [
+    "git_snapshot"
+   ],
+   "strongest": "git_snapshot"
+  },
+  {
+   "path": "experiments/temporal_ablation/static_schedule_matched/metadata.json",
+   "evidence": [
+    "git_snapshot (line endings normalised)"
+   ],
+   "strongest": "git_snapshot"
+  },
+  {
+   "path": "experiments/temporal_ablation/static_schedule_matched/seed_123/config.json",
+   "evidence": [
+    "git_snapshot (line endings normalised)",
+    "scope_fingerprint"
+   ],
+   "strongest": "git_snapshot"
+  },
+  {
+   "path": "experiments/temporal_ablation/static_schedule_matched/seed_123/metrics_val.json",
+   "evidence": [
+    "git_snapshot (line endings normalised)",
+    "scope_fingerprint"
+   ],
+   "strongest": "git_snapshot"
+  },
+  {
+   "path": "experiments/temporal_ablation/static_schedule_matched/seed_123/model_checkpoint.pt",
+   "evidence": [],
+   "strongest": "no_pre_build_evidence"
+  },
+  {
+   "path": "experiments/temporal_ablation/static_schedule_matched/seed_123/predictions_val.parquet",
+   "evidence": [
+    "scope_fingerprint"
+   ],
+   "strongest": "scope_fingerprint"
+  },
+  {
+   "path": "experiments/temporal_ablation/static_schedule_matched/seed_123/resource_measurements.json",
+   "evidence": [
+    "git_snapshot (line endings normalised)"
+   ],
+   "strongest": "git_snapshot"
+  },
+  {
+   "path": "experiments/temporal_ablation/static_schedule_matched/seed_123/training_history.json",
+   "evidence": [
+    "git_snapshot (line endings normalised)"
+   ],
+   "strongest": "git_snapshot"
+  },
+  {
+   "path": "experiments/temporal_ablation/static_schedule_matched/seed_2024/config.json",
+   "evidence": [
+    "git_snapshot (line endings normalised)",
+    "scope_fingerprint"
+   ],
+   "strongest": "git_snapshot"
+  },
+  {
+   "path": "experiments/temporal_ablation/static_schedule_matched/seed_2024/metrics_val.json",
+   "evidence": [
+    "git_snapshot (line endings normalised)",
+    "scope_fingerprint"
+   ],
+   "strongest": "git_snapshot"
+  },
+  {
+   "path": "experiments/temporal_ablation/static_schedule_matched/seed_2024/model_checkpoint.pt",
+   "evidence": [],
+   "strongest": "no_pre_build_evidence"
+  },
+  {
+   "path": "experiments/temporal_ablation/static_schedule_matched/seed_2024/predictions_val.parquet",
+   "evidence": [
+    "scope_fingerprint"
+   ],
+   "strongest": "scope_fingerprint"
+  },
+  {
+   "path": "experiments/temporal_ablation/static_schedule_matched/seed_2024/resource_measurements.json",
+   "evidence": [
+    "git_snapshot (line endings normalised)"
+   ],
+   "strongest": "git_snapshot"
+  },
+  {
+   "path": "experiments/temporal_ablation/static_schedule_matched/seed_2024/training_history.json",
+   "evidence": [
+    "git_snapshot (line endings normalised)"
+   ],
+   "strongest": "git_snapshot"
+  },
+  {
+   "path": "experiments/temporal_ablation/static_schedule_matched/seed_42/config.json",
+   "evidence": [
+    "git_snapshot (line endings normalised)",
+    "scope_fingerprint"
+   ],
+   "strongest": "git_snapshot"
+  },
+  {
+   "path": "experiments/temporal_ablation/static_schedule_matched/seed_42/metrics_val.json",
+   "evidence": [
+    "git_snapshot (line endings normalised)",
+    "scope_fingerprint"
+   ],
+   "strongest": "git_snapshot"
+  },
+  {
+   "path": "experiments/temporal_ablation/static_schedule_matched/seed_42/model_checkpoint.pt",
+   "evidence": [],
+   "strongest": "no_pre_build_evidence"
+  },
+  {
+   "path": "experiments/temporal_ablation/static_schedule_matched/seed_42/predictions_val.parquet",
+   "evidence": [
+    "scope_fingerprint"
+   ],
+   "strongest": "scope_fingerprint"
+  },
+  {
+   "path": "experiments/temporal_ablation/static_schedule_matched/seed_42/resource_measurements.json",
+   "evidence": [
+    "git_snapshot (line endings normalised)"
+   ],
+   "strongest": "git_snapshot"
+  },
+  {
+   "path": "experiments/temporal_ablation/static_schedule_matched/seed_42/training_history.json",
+   "evidence": [
+    "git_snapshot (line endings normalised)"
+   ],
+   "strongest": "git_snapshot"
+  },
+  {
+   "path": "experiments/temporal_ablation/static_schedule_matched/summary.json",
+   "evidence": [
+    "git_snapshot (line endings normalised)",
+    "scope_fingerprint"
+   ],
+   "strongest": "git_snapshot"
+  },
+  {
+   "path": "experiments/temporal_ablation/train_log_B_static_schedule_matched.txt",
+   "evidence": [
+    "git_snapshot (line endings normalised)"
+   ],
+   "strongest": "git_snapshot"
+  },
+  {
+   "path": "experiments/temporal_ablation/train_log_C_memory_ablated.txt",
+   "evidence": [
+    "git_snapshot (line endings normalised)"
+   ],
+   "strongest": "git_snapshot"
+  },
+  {
+   "path": "experiments/temporal_ablation/validation_log_armB_cpu.PARTIAL_INTERRUPTED_20260920.txt",
+   "evidence": [
+    "git_snapshot (line endings normalised)"
+   ],
+   "strongest": "git_snapshot"
+  },
+  {
+   "path": "experiments/temporal_ablation/validation_log_armB_cpu.PARTIAL_TOO_SLOW_20260925.txt",
+   "evidence": [
+    "git_snapshot (line endings normalised)"
+   ],
+   "strongest": "git_snapshot"
+  },
+  {
+   "path": "experiments/temporal_ablation/validation_log_armB_cpu.txt",
+   "evidence": [
+    "git_snapshot (line endings normalised)"
+   ],
+   "strongest": "git_snapshot"
+  },
+  {
+   "path": "experiments/temporal_ablation/validation_log_armB_cuda.txt",
+   "evidence": [
+    "git_snapshot (line endings normalised)"
+   ],
+   "strongest": "git_snapshot"
+  },
+  {
+   "path": "experiments/temporal_ablation/validation_log_armC_cpu.txt",
+   "evidence": [
+    "git_snapshot (line endings normalised)"
+   ],
+   "strongest": "git_snapshot"
+  },
+  {
+   "path": "experiments/temporal_ablation/validation_log_armC_cuda.txt",
+   "evidence": [
+    "git_snapshot (line endings normalised)"
+   ],
+   "strongest": "git_snapshot"
+  },
+  {
+   "path": "experiments/temporal_graphsage/comparison.json",
+   "evidence": [
+    "git_snapshot (line endings normalised)",
+    "scope_fingerprint"
+   ],
+   "strongest": "git_snapshot"
+  },
+  {
+   "path": "experiments/temporal_graphsage/convergence_curves.png",
+   "evidence": [
+    "git_snapshot"
+   ],
+   "strongest": "git_snapshot"
+  },
+  {
+   "path": "experiments/temporal_graphsage/feature_scaler.joblib",
+   "evidence": [
+    "git_snapshot"
+   ],
+   "strongest": "git_snapshot"
+  },
+  {
+   "path": "experiments/temporal_graphsage/leakage_validation/NUMERICS_DIAGNOSIS_NOTES.md",
+   "evidence": [
+    "git_snapshot"
+   ],
+   "strongest": "git_snapshot"
+  },
+  {
+   "path": "experiments/temporal_graphsage/leakage_validation/graph_validation_output_cpu.txt",
+   "evidence": [
+    "git_snapshot (line endings normalised)"
+   ],
+   "strongest": "git_snapshot"
+  },
+  {
+   "path": "experiments/temporal_graphsage/leakage_validation/graph_validation_output_cuda.txt",
+   "evidence": [
+    "git_snapshot (line endings normalised)"
+   ],
+   "strongest": "git_snapshot"
+  },
+  {
+   "path": "experiments/temporal_graphsage/leakage_validation/numerics_diagnosis.json",
+   "evidence": [
+    "git_snapshot (line endings normalised)"
+   ],
+   "strongest": "git_snapshot"
+  },
+  {
+   "path": "experiments/temporal_graphsage/leakage_validation/temporal_leakage_validation_RUN1_gpu_single_pair_tolerance_6_FAILED.json",
+   "evidence": [
+    "git_snapshot (line endings normalised)"
+   ],
+   "strongest": "git_snapshot"
+  },
+  {
+   "path": "experiments/temporal_graphsage/leakage_validation/temporal_leakage_validation_cpu.json",
+   "evidence": [
+    "git_snapshot (line endings normalised)"
+   ],
+   "strongest": "git_snapshot"
+  },
+  {
+   "path": "experiments/temporal_graphsage/leakage_validation/temporal_leakage_validation_cuda.json",
+   "evidence": [
+    "git_snapshot (line endings normalised)"
+   ],
+   "strongest": "git_snapshot"
+  },
+  {
+   "path": "experiments/temporal_graphsage/metadata.json",
+   "evidence": [
+    "git_snapshot (line endings normalised)"
+   ],
+   "strongest": "git_snapshot"
+  },
+  {
+   "path": "experiments/temporal_graphsage/pilot/PILOT_NOT_A_RESULT.txt",
+   "evidence": [
+    "git_snapshot (line endings normalised)"
+   ],
+   "strongest": "git_snapshot"
+  },
+  {
+   "path": "experiments/temporal_graphsage/pilot/model_checkpoint.pt",
+   "evidence": [],
+   "strongest": "no_pre_build_evidence"
+  },
+  {
+   "path": "experiments/temporal_graphsage/pilot/pilot_verdict.json",
+   "evidence": [
+    "git_snapshot (line endings normalised)"
+   ],
+   "strongest": "git_snapshot"
+  },
+  {
+   "path": "experiments/temporal_graphsage/pilot/resource_measurements.json",
+   "evidence": [
+    "git_snapshot (line endings normalised)"
+   ],
+   "strongest": "git_snapshot"
+  },
+  {
+   "path": "experiments/temporal_graphsage/pilot/training_history.json",
+   "evidence": [
+    "git_snapshot (line endings normalised)"
+   ],
+   "strongest": "git_snapshot"
+  },
+  {
+   "path": "experiments/temporal_graphsage/seed_123/config.json",
+   "evidence": [
+    "git_snapshot (line endings normalised)",
+    "scope_fingerprint"
+   ],
+   "strongest": "git_snapshot"
+  },
+  {
+   "path": "experiments/temporal_graphsage/seed_123/metrics_val.json",
+   "evidence": [
+    "git_snapshot (line endings normalised)",
+    "scope_fingerprint"
+   ],
+   "strongest": "git_snapshot"
+  },
+  {
+   "path": "experiments/temporal_graphsage/seed_123/model_checkpoint.pt",
+   "evidence": [],
+   "strongest": "no_pre_build_evidence"
+  },
+  {
+   "path": "experiments/temporal_graphsage/seed_123/predictions_val.parquet",
+   "evidence": [
+    "scope_fingerprint"
+   ],
+   "strongest": "scope_fingerprint"
+  },
+  {
+   "path": "experiments/temporal_graphsage/seed_123/resource_measurements.json",
+   "evidence": [
+    "git_snapshot (line endings normalised)"
+   ],
+   "strongest": "git_snapshot"
+  },
+  {
+   "path": "experiments/temporal_graphsage/seed_123/training_history.json",
+   "evidence": [
+    "git_snapshot (line endings normalised)"
+   ],
+   "strongest": "git_snapshot"
+  },
+  {
+   "path": "experiments/temporal_graphsage/seed_2024/config.json",
+   "evidence": [
+    "git_snapshot (line endings normalised)",
+    "scope_fingerprint"
+   ],
+   "strongest": "git_snapshot"
+  },
+  {
+   "path": "experiments/temporal_graphsage/seed_2024/metrics_val.json",
+   "evidence": [
+    "git_snapshot (line endings normalised)",
+    "scope_fingerprint"
+   ],
+   "strongest": "git_snapshot"
+  },
+  {
+   "path": "experiments/temporal_graphsage/seed_2024/model_checkpoint.pt",
+   "evidence": [],
+   "strongest": "no_pre_build_evidence"
+  },
+  {
+   "path": "experiments/temporal_graphsage/seed_2024/predictions_val.parquet",
+   "evidence": [
+    "scope_fingerprint"
+   ],
+   "strongest": "scope_fingerprint"
+  },
+  {
+   "path": "experiments/temporal_graphsage/seed_2024/resource_measurements.json",
+   "evidence": [
+    "git_snapshot (line endings normalised)"
+   ],
+   "strongest": "git_snapshot"
+  },
+  {
+   "path": "experiments/temporal_graphsage/seed_2024/training_history.json",
+   "evidence": [
+    "git_snapshot (line endings normalised)"
+   ],
+   "strongest": "git_snapshot"
+  },
+  {
+   "path": "experiments/temporal_graphsage/seed_42/config.json",
+   "evidence": [
+    "git_snapshot (line endings normalised)",
+    "scope_fingerprint"
+   ],
+   "strongest": "git_snapshot"
+  },
+  {
+   "path": "experiments/temporal_graphsage/seed_42/metrics_val.json",
+   "evidence": [
+    "git_snapshot (line endings normalised)",
+    "scope_fingerprint"
+   ],
+   "strongest": "git_snapshot"
+  },
+  {
+   "path": "experiments/temporal_graphsage/seed_42/model_checkpoint.pt",
+   "evidence": [],
+   "strongest": "no_pre_build_evidence"
+  },
+  {
+   "path": "experiments/temporal_graphsage/seed_42/predictions_val.parquet",
+   "evidence": [
+    "scope_fingerprint"
+   ],
+   "strongest": "scope_fingerprint"
+  },
+  {
+   "path": "experiments/temporal_graphsage/seed_42/resource_measurements.json",
+   "evidence": [
+    "git_snapshot (line endings normalised)"
+   ],
+   "strongest": "git_snapshot"
+  },
+  {
+   "path": "experiments/temporal_graphsage/seed_42/training_history.json",
+   "evidence": [
+    "git_snapshot (line endings normalised)"
+   ],
+   "strongest": "git_snapshot"
+  },
+  {
+   "path": "experiments/temporal_graphsage/snapshot_stats.json",
+   "evidence": [
+    "git_snapshot (line endings normalised)"
+   ],
+   "strongest": "git_snapshot"
+  },
+  {
+   "path": "experiments/temporal_graphsage/summary.json",
+   "evidence": [
+    "git_snapshot (line endings normalised)",
+    "scope_fingerprint"
+   ],
+   "strongest": "git_snapshot"
+  },
+  {
+   "path": "experiments/temporal_graphsage/train_log.txt",
+   "evidence": [
+    "git_snapshot (line endings normalised)"
+   ],
+   "strongest": "git_snapshot"
+  },
+  {
+   "path": "experiments/xgboost/config.json",
+   "evidence": [
+    "git_snapshot (line endings normalised)",
+    "scope_fingerprint"
+   ],
+   "strongest": "git_snapshot"
+  },
+  {
+   "path": "experiments/xgboost/feature_builder/column_roles.json",
+   "evidence": [
+    "git_snapshot (line endings normalised)",
+    "integrity_record: experiments/phase11_explainable_evidence/xgb_explanations_val/manifest_val.json"
+   ],
+   "strongest": "git_snapshot"
+  },
+  {
+   "path": "experiments/xgboost/feature_builder/extra_frequency_encoder.json",
+   "evidence": [
+    "integrity_record: experiments/phase11_explainable_evidence/xgb_explanations_val/manifest_val.json"
+   ],
+   "strongest": "integrity_record"
+  },
+  {
+   "path": "experiments/xgboost/feature_builder/feature_names.json",
+   "evidence": [
+    "git_snapshot (line endings normalised)",
+    "integrity_record: experiments/phase11_explainable_evidence/xgb_explanations_val/manifest_val.json"
+   ],
+   "strongest": "git_snapshot"
+  },
+  {
+   "path": "experiments/xgboost/feature_builder/median_imputer.json",
+   "evidence": [
+    "integrity_record: experiments/phase11_explainable_evidence/xgb_explanations_val/manifest_val.json"
+   ],
+   "strongest": "integrity_record"
+  },
+  {
+   "path": "experiments/xgboost/feature_builder/ordinal_maps.json",
+   "evidence": [
+    "integrity_record: experiments/phase11_explainable_evidence/xgb_explanations_val/manifest_val.json"
+   ],
+   "strongest": "integrity_record"
+  },
+  {
+   "path": "experiments/xgboost/feature_importances.json",
+   "evidence": [
+    "git_snapshot (line endings normalised)"
+   ],
+   "strongest": "git_snapshot"
+  },
+  {
+   "path": "experiments/xgboost/metadata.json",
+   "evidence": [
+    "git_snapshot (line endings normalised)",
+    "scope_fingerprint"
+   ],
+   "strongest": "git_snapshot"
+  },
+  {
+   "path": "experiments/xgboost/metrics_val.json",
+   "evidence": [
+    "git_snapshot (line endings normalised)",
+    "scope_fingerprint"
+   ],
+   "strongest": "git_snapshot"
+  },
+  {
+   "path": "experiments/xgboost/model.joblib",
+   "evidence": [
+    "integrity_record: experiments/phase11_explainable_evidence/xgb_explanations_val/manifest_val.json"
+   ],
+   "strongest": "integrity_record"
+  },
+  {
+   "path": "experiments/xgboost/predictions_val.parquet",
+   "evidence": [
+    "scope_fingerprint",
+    "integrity_record: experiments/phase11_explainable_evidence/xgb_explanations_val/manifest_val.json"
+   ],
+   "strongest": "scope_fingerprint"
+  },
+  {
+   "path": "experiments/xgboost_historical_control/config.json",
+   "evidence": [
+    "git_snapshot (line endings normalised)",
+    "scope_fingerprint"
+   ],
+   "strongest": "git_snapshot"
+  },
+  {
+   "path": "experiments/xgboost_historical_control/feature_importances.json",
+   "evidence": [
+    "git_snapshot (line endings normalised)"
+   ],
+   "strongest": "git_snapshot"
+  },
+  {
+   "path": "experiments/xgboost_historical_control/metadata.json",
+   "evidence": [
+    "git_snapshot (line endings normalised)",
+    "scope_fingerprint"
+   ],
+   "strongest": "git_snapshot"
+  },
+  {
+   "path": "experiments/xgboost_historical_control/metrics_val.json",
+   "evidence": [
+    "git_snapshot (line endings normalised)",
+    "scope_fingerprint"
+   ],
+   "strongest": "git_snapshot"
+  },
+  {
+   "path": "experiments/xgboost_historical_control/model.joblib",
+   "evidence": [],
+   "strongest": "no_pre_build_evidence"
+  },
+  {
+   "path": "experiments/xgboost_historical_control/predictions_val.parquet",
+   "evidence": [
+    "scope_fingerprint"
+   ],
+   "strongest": "scope_fingerprint"
+  },
+  {
+   "path": "reports/phase1_reconnaissance.md",
+   "evidence": [
+    "git_snapshot",
+    "session_log: 78702bed@2026-10-18T07:02Z",
+    "integrity_record: experiments/phase10_community_evolution/INTEGRITY.json, experiments/phase9_coordinated_fraud/phase9_closure_integrity.json"
+   ],
+   "strongest": "git_snapshot"
+  },
+  {
+   "path": "reports/phase2_eda_report.md",
+   "evidence": [
+    "git_snapshot (line endings normalised)"
+   ],
+   "strongest": "git_snapshot"
+  },
+  {
+   "path": "reports/phase2_eda_stats.json",
+   "evidence": [
+    "git_snapshot (line endings normalised)"
+   ],
+   "strongest": "git_snapshot"
+  },
+  {
+   "path": "reports/phase3_baseline_report.md",
+   "evidence": [
+    "git_snapshot"
+   ],
+   "strongest": "git_snapshot"
+  },
+  {
+   "path": "reports/phase3_stratified_metrics.json",
+   "evidence": [
+    "git_snapshot (line endings normalised)"
+   ],
+   "strongest": "git_snapshot"
+  },
+  {
+   "path": "reports/phase4_graph_report.md",
+   "evidence": [
+    "git_snapshot",
+    "session_log: 78702bed@2026-10-18T07:02Z",
+    "integrity_record: experiments/phase10_community_evolution/INTEGRITY.json"
+   ],
+   "strongest": "git_snapshot"
+  },
+  {
+   "path": "reports/phase5_graphsage_report.md",
+   "evidence": [
+    "git_snapshot"
+   ],
+   "strongest": "git_snapshot"
+  },
+  {
+   "path": "reports/phase6a_graphsage_robustness_report.md",
+   "evidence": [
+    "git_snapshot"
+   ],
+   "strongest": "git_snapshot"
+  },
+  {
+   "path": "reports/phase6b_gat_report.md",
+   "evidence": [
+    "git_snapshot"
+   ],
+   "strongest": "git_snapshot"
+  },
+  {
+   "path": "reports/phase6c_gat_convergence_status.md",
+   "evidence": [
+    "git_snapshot"
+   ],
+   "strongest": "git_snapshot"
+  },
+  {
+   "path": "reports/phase7_temporal_gnn_report.md",
+   "evidence": [
+    "git_snapshot (line endings normalised)",
+    "session_log: 78702bed@2026-10-18T07:02Z",
+    "integrity_record: experiments/phase10_community_evolution/INTEGRITY.json, experiments/phase9_coordinated_fraud/phase9_closure_integrity.json"
+   ],
+   "strongest": "git_snapshot"
+  },
+  {
+   "path": "reports/phase7a_temporal_ablation_report.md",
+   "evidence": [
+    "git_snapshot",
+    "session_log: 78702bed@2026-10-18T07:02Z",
+    "integrity_record: experiments/phase10_community_evolution/INTEGRITY.json, experiments/phase9_coordinated_fraud/phase9_closure_integrity.json"
+   ],
+   "strongest": "git_snapshot"
+  },
+  {
+   "path": "reports/phase8_concept_drift_report.md",
+   "evidence": [
+    "git_snapshot",
+    "session_log: 78702bed@2026-10-18T07:02Z",
+    "integrity_record: experiments/phase10_community_evolution/INTEGRITY.json, experiments/phase9_coordinated_fraud/phase9_closure_integrity.json"
+   ],
+   "strongest": "git_snapshot"
+  },
+  {
+   "path": "reports/phase9_closure_report.md",
+   "evidence": [
+    "git_snapshot",
+    "session_log: 64d369ab@2026-10-14T13:08Z, 78702bed@2026-10-14T13:08Z, 78702bed@2026-10-18T07:02Z",
+    "integrity_record: experiments/phase10_community_evolution/INTEGRITY.json, experiments/phase10_community_evolution/INTEGRITY_ADDENDUM.json, experiments/phase10_community_evolution/INTEGRITY_ERRATA_1.json"
+   ],
+   "strongest": "git_snapshot"
+  },
+  {
+   "path": "scripts/build_graph.py",
+   "evidence": [
+    "git_snapshot"
+   ],
+   "strongest": "git_snapshot"
+  },
+  {
+   "path": "scripts/build_historical_features.py",
+   "evidence": [
+    "git_snapshot"
+   ],
+   "strongest": "git_snapshot"
+  },
+  {
+   "path": "scripts/build_phase9_benchmark.py",
+   "evidence": [
+    "git_snapshot"
+   ],
+   "strongest": "git_snapshot"
+  },
+  {
+   "path": "scripts/build_processed_data.py",
+   "evidence": [
+    "git_snapshot"
+   ],
+   "strongest": "git_snapshot"
+  },
+  {
+   "path": "scripts/check_phase10_test_sensitivity.py",
+   "evidence": [
+    "session_log: 78702bed@2026-10-18T12:53Z",
+    "integrity_record: experiments/phase10_community_evolution/INTEGRITY_CORE_FINALIZATION.json, experiments/phase10_community_evolution/INTEGRITY_CORE_IMPLEMENTATION.json"
+   ],
+   "strongest": "session_log"
+  },
+  {
+   "path": "scripts/check_phase11_test_sensitivity.py",
+   "evidence": [
+    "integrity_record: experiments/phase11_explainable_evidence/INTEGRITY_PHASE11.json"
+   ],
+   "strongest": "integrity_record"
+  },
+  {
+   "path": "scripts/compare_phase7a.py",
+   "evidence": [
+    "git_snapshot"
+   ],
+   "strongest": "git_snapshot"
+  },
+  {
+   "path": "scripts/compare_phase8.py",
+   "evidence": [
+    "git_snapshot"
+   ],
+   "strongest": "git_snapshot"
+  },
+  {
+   "path": "scripts/compare_static_temporal.py",
+   "evidence": [
+    "git_snapshot"
+   ],
+   "strongest": "git_snapshot"
+  },
+  {
+   "path": "scripts/diagnose_temporal_numerics.py",
+   "evidence": [
+    "git_snapshot"
+   ],
+   "strongest": "git_snapshot"
+  },
+  {
+   "path": "scripts/estimate_graph_schema.py",
+   "evidence": [
+    "git_snapshot"
+   ],
+   "strongest": "git_snapshot"
+  },
+  {
+   "path": "scripts/graph_feasibility_benchmark.py",
+   "evidence": [
+    "git_snapshot"
+   ],
+   "strongest": "git_snapshot"
+  },
+  {
+   "path": "scripts/graphsage_stratified_corrected.py",
+   "evidence": [
+    "git_snapshot"
+   ],
+   "strongest": "git_snapshot"
+  },
+  {
+   "path": "scripts/make_phase9_exploratory_report.py",
+   "evidence": [
+    "git_snapshot",
+    "integrity_record: experiments/phase9_coordinated_fraud/exploratory_realdata/MANIFEST.json"
+   ],
+   "strongest": "git_snapshot"
+  },
+  {
+   "path": "scripts/measure_phase8_drift.py",
+   "evidence": [
+    "git_snapshot"
+   ],
+   "strongest": "git_snapshot"
+  },
+  {
+   "path": "scripts/phase7a_common.py",
+   "evidence": [
+    "git_snapshot"
+   ],
+   "strongest": "git_snapshot"
+  },
+  {
+   "path": "scripts/run_eda.py",
+   "evidence": [
+    "git_snapshot"
+   ],
+   "strongest": "git_snapshot"
+  },
+  {
+   "path": "scripts/run_phase10_tests.py",
+   "evidence": [
+    "session_log: 78702bed@2026-10-18T12:53Z",
+    "integrity_record: experiments/phase10_community_evolution/INTEGRITY_CORE_FINALIZATION.json, experiments/phase10_community_evolution/INTEGRITY_CORE_IMPLEMENTATION.json, experiments/phase10_community_evolution/core_implementation/core_test_results.json"
+   ],
+   "strongest": "session_log"
+  },
+  {
+   "path": "scripts/run_phase11_cards.py",
+   "evidence": [
+    "integrity_record: experiments/phase11_explainable_evidence/INTEGRITY_PHASE11.json, experiments/phase11_explainable_evidence/test_results/test_results.json"
+   ],
+   "strongest": "integrity_record"
+  },
+  {
+   "path": "scripts/run_phase11_explanations.py",
+   "evidence": [
+    "integrity_record: experiments/phase11_explainable_evidence/INTEGRITY_PHASE11.json, experiments/phase11_explainable_evidence/test_results/test_results.json"
+   ],
+   "strongest": "integrity_record"
+  },
+  {
+   "path": "scripts/run_phase11_tests.py",
+   "evidence": [
+    "integrity_record: experiments/phase11_explainable_evidence/INTEGRITY_PHASE11.json, experiments/phase11_explainable_evidence/test_results/test_results.json"
+   ],
+   "strongest": "integrity_record"
+  },
+  {
+   "path": "scripts/run_phase9_benchmark_gates.py",
+   "evidence": [
+    "git_snapshot"
+   ],
+   "strongest": "git_snapshot"
+  },
+  {
+   "path": "scripts/run_phase9_calibration.py",
+   "evidence": [
+    "git_snapshot"
+   ],
+   "strongest": "git_snapshot"
+  },
+  {
+   "path": "scripts/run_phase9_dev_selection.py",
+   "evidence": [
+    "git_snapshot",
+    "integrity_record: experiments/phase10_community_evolution/INTEGRITY.json"
+   ],
+   "strongest": "git_snapshot"
+  },
+  {
+   "path": "scripts/run_phase9_e0.py",
+   "evidence": [
+    "git_snapshot",
+    "integrity_record: experiments/phase10_community_evolution/INTEGRITY.json, experiments/phase9_coordinated_fraud/exploratory_realdata/MANIFEST_E0.json"
+   ],
+   "strongest": "git_snapshot"
+  },
+  {
+   "path": "scripts/run_phase9_e0_tau.py",
+   "evidence": [
+    "git_snapshot",
+    "integrity_record: experiments/phase9_coordinated_fraud/exploratory_realdata/MANIFEST_E0.json"
+   ],
+   "strongest": "git_snapshot"
+  },
+  {
+   "path": "scripts/run_phase9_g0.py",
+   "evidence": [
+    "git_snapshot"
+   ],
+   "strongest": "git_snapshot"
+  },
+  {
+   "path": "scripts/run_phase9_risk.py",
+   "evidence": [
+    "git_snapshot"
+   ],
+   "strongest": "git_snapshot"
+  },
+  {
+   "path": "scripts/run_phase9_tier0.py",
+   "evidence": [
+    "git_snapshot",
+    "integrity_record: experiments/phase10_community_evolution/INTEGRITY.json, experiments/phase9_coordinated_fraud/exploratory_realdata/MANIFEST.json"
+   ],
+   "strongest": "git_snapshot"
+  },
+  {
+   "path": "scripts/run_phase9_timing_pilot.py",
+   "evidence": [
+    "git_snapshot",
+    "integrity_record: experiments/phase10_community_evolution/INTEGRITY.json"
+   ],
+   "strongest": "git_snapshot"
+  },
+  {
+   "path": "scripts/run_tests.py",
+   "evidence": [
+    "git_snapshot",
+    "integrity_record: experiments/phase10_community_evolution/INTEGRITY.json"
+   ],
+   "strongest": "git_snapshot"
+  },
+  {
+   "path": "scripts/run_validation.py",
+   "evidence": [
+    "git_snapshot"
+   ],
+   "strongest": "git_snapshot"
+  },
+  {
+   "path": "scripts/stratified_comparison.py",
+   "evidence": [
+    "git_snapshot"
+   ],
+   "strongest": "git_snapshot"
+  },
+  {
+   "path": "scripts/train_gat_convergence_300epoch.py",
+   "evidence": [
+    "git_snapshot"
+   ],
+   "strongest": "git_snapshot"
+  },
+  {
+   "path": "scripts/train_gat_robustness.py",
+   "evidence": [
+    "git_snapshot"
+   ],
+   "strongest": "git_snapshot"
+  },
+  {
+   "path": "scripts/train_graphsage.py",
+   "evidence": [
+    "git_snapshot"
+   ],
+   "strongest": "git_snapshot"
+  },
+  {
+   "path": "scripts/train_graphsage_control_mlp.py",
+   "evidence": [
+    "git_snapshot"
+   ],
+   "strongest": "git_snapshot"
+  },
+  {
+   "path": "scripts/train_graphsage_control_mlp_extended.py",
+   "evidence": [
+    "git_snapshot"
+   ],
+   "strongest": "git_snapshot"
+  },
+  {
+   "path": "scripts/train_graphsage_robustness.py",
+   "evidence": [
+    "git_snapshot"
+   ],
+   "strongest": "git_snapshot"
+  },
+  {
+   "path": "scripts/train_logistic_regression.py",
+   "evidence": [
+    "git_snapshot"
+   ],
+   "strongest": "git_snapshot"
+  },
+  {
+   "path": "scripts/train_phase8_adaptive.py",
+   "evidence": [
+    "git_snapshot"
+   ],
+   "strongest": "git_snapshot"
+  },
+  {
+   "path": "scripts/train_phase8_frozen.py",
+   "evidence": [
+    "git_snapshot"
+   ],
+   "strongest": "git_snapshot"
+  },
+  {
+   "path": "scripts/train_phase8_init.py",
+   "evidence": [
+    "git_snapshot"
+   ],
+   "strongest": "git_snapshot"
+  },
+  {
+   "path": "scripts/train_phase8_replay_control.py",
+   "evidence": [
+    "git_snapshot"
+   ],
+   "strongest": "git_snapshot"
+  },
+  {
+   "path": "scripts/train_random_forest.py",
+   "evidence": [
+    "git_snapshot"
+   ],
+   "strongest": "git_snapshot"
+  },
+  {
+   "path": "scripts/train_static_schedule_matched.py",
+   "evidence": [
+    "git_snapshot"
+   ],
+   "strongest": "git_snapshot"
+  },
+  {
+   "path": "scripts/train_temporal_graphsage.py",
+   "evidence": [
+    "git_snapshot"
+   ],
+   "strongest": "git_snapshot"
+  },
+  {
+   "path": "scripts/train_temporal_mean_memory.py",
+   "evidence": [
+    "git_snapshot"
+   ],
+   "strongest": "git_snapshot"
+  },
+  {
+   "path": "scripts/train_xgboost.py",
+   "evidence": [
+    "git_snapshot"
+   ],
+   "strongest": "git_snapshot"
+  },
+  {
+   "path": "scripts/train_xgboost_historical_control.py",
+   "evidence": [
+    "git_snapshot"
+   ],
+   "strongest": "git_snapshot"
+  },
+  {
+   "path": "scripts/validate_graph.py",
+   "evidence": [
+    "git_snapshot"
+   ],
+   "strongest": "git_snapshot"
+  },
+  {
+   "path": "scripts/validate_phase8_leakage.py",
+   "evidence": [
+    "git_snapshot"
+   ],
+   "strongest": "git_snapshot"
+  },
+  {
+   "path": "scripts/validate_phase9_e0.py",
+   "evidence": [
+    "git_snapshot",
+    "integrity_record: experiments/phase10_community_evolution/INTEGRITY.json, experiments/phase9_coordinated_fraud/exploratory_realdata/MANIFEST_E0.json"
+   ],
+   "strongest": "git_snapshot"
+  },
+  {
+   "path": "scripts/validate_phase9_leakage.py",
+   "evidence": [
+    "git_snapshot",
+    "integrity_record: experiments/phase10_community_evolution/INTEGRITY.json, experiments/phase9_coordinated_fraud/exploratory_realdata/MANIFEST.json"
+   ],
+   "strongest": "git_snapshot"
+  },
+  {
+   "path": "scripts/validate_temporal_ablation.py",
+   "evidence": [
+    "git_snapshot"
+   ],
+   "strongest": "git_snapshot"
+  },
+  {
+   "path": "scripts/validate_temporal_gnn.py",
+   "evidence": [
+    "git_snapshot"
+   ],
+   "strongest": "git_snapshot"
+  },
+  {
+   "path": "src/__init__.py",
+   "evidence": [
+    "git_snapshot"
+   ],
+   "strongest": "git_snapshot"
+  },
+  {
+   "path": "src/adaptive/__init__.py",
+   "evidence": [
+    "git_snapshot"
+   ],
+   "strongest": "git_snapshot"
+  },
+  {
+   "path": "src/adaptive/drift.py",
+   "evidence": [
+    "git_snapshot"
+   ],
+   "strongest": "git_snapshot"
+  },
+  {
+   "path": "src/adaptive/hparams.py",
+   "evidence": [
+    "git_snapshot"
+   ],
+   "strongest": "git_snapshot"
+  },
+  {
+   "path": "src/adaptive/leakage.py",
+   "evidence": [
+    "git_snapshot"
+   ],
+   "strongest": "git_snapshot"
+  },
+  {
+   "path": "src/adaptive/replay.py",
+   "evidence": [
+    "git_snapshot"
+   ],
+   "strongest": "git_snapshot"
+  },
+  {
+   "path": "src/adaptive/update_loop.py",
+   "evidence": [
+    "git_snapshot"
+   ],
+   "strongest": "git_snapshot"
+  },
+  {
+   "path": "src/adaptive/windows.py",
+   "evidence": [
+    "git_snapshot"
+   ],
+   "strongest": "git_snapshot"
+  },
+  {
+   "path": "src/config.py",
+   "evidence": [
+    "git_snapshot"
+   ],
+   "strongest": "git_snapshot"
+  },
+  {
+   "path": "src/coordination/__init__.py",
+   "evidence": [
+    "git_snapshot"
+   ],
+   "strongest": "git_snapshot"
+  },
+  {
+   "path": "src/coordination/benchmark.py",
+   "evidence": [
+    "git_snapshot"
+   ],
+   "strongest": "git_snapshot"
+  },
+  {
+   "path": "src/coordination/data.py",
+   "evidence": [
+    "git_snapshot",
+    "session_log: 64d369ab@2026-10-14T13:05Z, 78702bed@2026-10-14T13:05Z, 78702bed@2026-10-18T07:02Z",
+    "integrity_record: experiments/phase10_community_evolution/INTEGRITY.json, experiments/phase9_coordinated_fraud/exploratory_realdata/MANIFEST_E0_execution.json, experiments/phase9_coordinated_fraud/exploratory_realdata/validation_E0.json"
+   ],
+   "strongest": "git_snapshot"
+  },
+  {
+   "path": "src/coordination/e0.py",
+   "evidence": [
+    "git_snapshot",
+    "session_log: 64d369ab@2026-10-14T13:05Z, 78702bed@2026-10-14T13:05Z, 78702bed@2026-10-18T07:02Z",
+    "integrity_record: experiments/phase10_community_evolution/INTEGRITY.json, experiments/phase9_coordinated_fraud/exploratory_realdata/MANIFEST_E0.json, experiments/phase9_coordinated_fraud/exploratory_realdata/MANIFEST_E0_execution.json"
+   ],
+   "strongest": "git_snapshot"
+  },
+  {
+   "path": "src/coordination/frozen.py",
+   "evidence": [
+    "git_snapshot",
+    "session_log: 64d369ab@2026-10-14T13:05Z, 78702bed@2026-10-14T13:05Z, 78702bed@2026-10-18T07:02Z",
+    "integrity_record: experiments/phase10_community_evolution/INTEGRITY.json, experiments/phase9_coordinated_fraud/exploratory_realdata/MANIFEST_E0_execution.json, experiments/phase9_coordinated_fraud/exploratory_realdata/validation_E0.json"
+   ],
+   "strongest": "git_snapshot"
+  },
+  {
+   "path": "src/coordination/g0.py",
+   "evidence": [
+    "git_snapshot"
+   ],
+   "strongest": "git_snapshot"
+  },
+  {
+   "path": "src/coordination/graphs.py",
+   "evidence": [
+    "git_snapshot",
+    "session_log: 64d369ab@2026-10-14T13:05Z, 78702bed@2026-10-14T13:05Z, 78702bed@2026-10-18T07:02Z",
+    "integrity_record: experiments/phase10_community_evolution/INTEGRITY.json, experiments/phase9_coordinated_fraud/exploratory_realdata/MANIFEST_E0_execution.json, experiments/phase9_coordinated_fraud/exploratory_realdata/validation_E0.json"
+   ],
+   "strongest": "git_snapshot"
+  },
+  {
+   "path": "src/coordination/lint.py",
+   "evidence": [
+    "git_snapshot",
+    "session_log: 78702bed@2026-10-18T07:02Z",
+    "integrity_record: experiments/phase10_community_evolution/INTEGRITY.json"
+   ],
+   "strongest": "git_snapshot"
+  },
+  {
+   "path": "src/coordination/metrics.py",
+   "evidence": [
+    "git_snapshot"
+   ],
+   "strongest": "git_snapshot"
+  },
+  {
+   "path": "src/coordination/nullmodel.py",
+   "evidence": [
+    "git_snapshot",
+    "session_log: 64d369ab@2026-10-14T13:05Z, 78702bed@2026-10-14T13:05Z, 78702bed@2026-10-18T07:02Z",
+    "integrity_record: experiments/phase10_community_evolution/INTEGRITY.json, experiments/phase9_coordinated_fraud/exploratory_realdata/MANIFEST_E0_execution.json, experiments/phase9_coordinated_fraud/exploratory_realdata/validation_E0.json"
+   ],
+   "strongest": "git_snapshot"
+  },
+  {
+   "path": "src/coordination/pipeline.py",
+   "evidence": [
+    "git_snapshot",
+    "session_log: 64d369ab@2026-10-14T13:05Z, 78702bed@2026-10-14T13:05Z, 78702bed@2026-10-18T07:02Z",
+    "integrity_record: experiments/phase10_community_evolution/INTEGRITY.json, experiments/phase9_coordinated_fraud/exploratory_realdata/MANIFEST_E0_execution.json, experiments/phase9_coordinated_fraud/exploratory_realdata/validation_E0.json"
+   ],
+   "strongest": "git_snapshot"
+  },
+  {
+   "path": "src/coordination/realdesc.py",
+   "evidence": [
+    "git_snapshot",
+    "session_log: 78702bed@2026-10-18T07:02Z",
+    "integrity_record: experiments/phase10_community_evolution/INTEGRITY.json, experiments/phase9_coordinated_fraud/exploratory_realdata/MANIFEST.json"
+   ],
+   "strongest": "git_snapshot"
+  },
+  {
+   "path": "src/coordination/realrun.py",
+   "evidence": [
+    "git_snapshot",
+    "session_log: 64d369ab@2026-10-14T13:05Z, 78702bed@2026-10-14T13:05Z, 78702bed@2026-10-18T07:02Z",
+    "integrity_record: experiments/phase10_community_evolution/INTEGRITY.json, experiments/phase9_coordinated_fraud/exploratory_realdata/MANIFEST.json, experiments/phase9_coordinated_fraud/exploratory_realdata/MANIFEST_E0_execution.json"
+   ],
+   "strongest": "git_snapshot"
+  },
+  {
+   "path": "src/coordination/risk.py",
+   "evidence": [
+    "git_snapshot"
+   ],
+   "strongest": "git_snapshot"
+  },
+  {
+   "path": "src/coordination/runner.py",
+   "evidence": [
+    "git_snapshot",
+    "integrity_record: experiments/phase10_community_evolution/INTEGRITY.json"
+   ],
+   "strongest": "git_snapshot"
+  },
+  {
+   "path": "src/coordination/scoring.py",
+   "evidence": [
+    "git_snapshot",
+    "session_log: 64d369ab@2026-10-14T13:05Z, 78702bed@2026-10-14T13:05Z, 78702bed@2026-10-18T07:02Z",
+    "integrity_record: experiments/phase10_community_evolution/INTEGRITY.json, experiments/phase9_coordinated_fraud/exploratory_realdata/MANIFEST_E0_execution.json, experiments/phase9_coordinated_fraud/exploratory_realdata/validation_E0.json"
+   ],
+   "strongest": "git_snapshot"
+  },
+  {
+   "path": "src/coordination/segments_array.py",
+   "evidence": [
+    "git_snapshot",
+    "session_log: 78702bed@2026-10-18T07:02Z",
+    "integrity_record: experiments/phase10_community_evolution/INTEGRITY.json"
+   ],
+   "strongest": "git_snapshot"
+  },
+  {
+   "path": "src/coordination/tracking.py",
+   "evidence": [
+    "git_snapshot",
+    "session_log: 64d369ab@2026-10-14T13:05Z, 78702bed@2026-10-14T13:05Z, 78702bed@2026-10-18T07:02Z",
+    "integrity_record: experiments/phase10_community_evolution/INTEGRITY.json, experiments/phase9_coordinated_fraud/exploratory_realdata/MANIFEST_E0_execution.json, experiments/phase9_coordinated_fraud/exploratory_realdata/validation_E0.json"
+   ],
+   "strongest": "git_snapshot"
+  },
+  {
+   "path": "src/data/__init__.py",
+   "evidence": [
+    "git_snapshot"
+   ],
+   "strongest": "git_snapshot"
+  },
+  {
+   "path": "src/data/load.py",
+   "evidence": [
+    "git_snapshot"
+   ],
+   "strongest": "git_snapshot"
+  },
+  {
+   "path": "src/data/merge.py",
+   "evidence": [
+    "git_snapshot"
+   ],
+   "strongest": "git_snapshot"
+  },
+  {
+   "path": "src/data/splits.py",
+   "evidence": [
+    "git_snapshot"
+   ],
+   "strongest": "git_snapshot"
+  },
+  {
+   "path": "src/data/validate.py",
+   "evidence": [
+    "git_snapshot"
+   ],
+   "strongest": "git_snapshot"
+  },
+  {
+   "path": "src/eda/__init__.py",
+   "evidence": [
+    "git_snapshot"
+   ],
+   "strongest": "git_snapshot"
+  },
+  {
+   "path": "src/evolution/__init__.py",
+   "evidence": [
+    "session_log: 78702bed@2026-10-18T12:53Z",
+    "integrity_record: experiments/phase10_community_evolution/INTEGRITY_CORE_FINALIZATION.json, experiments/phase10_community_evolution/INTEGRITY_CORE_IMPLEMENTATION.json, experiments/phase10_community_evolution/core_implementation/core_test_results.json"
+   ],
+   "strongest": "session_log"
+  },
+  {
+   "path": "src/evolution/tracker.py",
+   "evidence": [
+    "session_log: 78702bed@2026-10-18T12:53Z",
+    "integrity_record: experiments/phase10_community_evolution/INTEGRITY_CORE_FINALIZATION.json, experiments/phase10_community_evolution/INTEGRITY_CORE_IMPLEMENTATION.json, experiments/phase10_community_evolution/core_implementation/core_test_results.json"
+   ],
+   "strongest": "session_log"
+  },
+  {
+   "path": "src/explain/__init__.py",
+   "evidence": [
+    "integrity_record: experiments/phase11_explainable_evidence/INTEGRITY_PHASE11.json, experiments/phase11_explainable_evidence/test_results/test_results.json"
+   ],
+   "strongest": "integrity_record"
+  },
+  {
+   "path": "src/explain/cards.py",
+   "evidence": [
+    "integrity_record: experiments/phase11_explainable_evidence/INTEGRITY_PHASE11.json, experiments/phase11_explainable_evidence/test_results/test_results.json"
+   ],
+   "strongest": "integrity_record"
+  },
+  {
+   "path": "src/explain/outputs.py",
+   "evidence": [
+    "integrity_record: experiments/phase11_explainable_evidence/INTEGRITY_PHASE11.json, experiments/phase11_explainable_evidence/test_results/test_results.json"
+   ],
+   "strongest": "integrity_record"
+  },
+  {
+   "path": "src/explain/xgb_contrib.py",
+   "evidence": [
+    "integrity_record: experiments/phase11_explainable_evidence/INTEGRITY_PHASE11.json, experiments/phase11_explainable_evidence/test_results/test_results.json"
+   ],
+   "strongest": "integrity_record"
+  },
+  {
+   "path": "src/features/__init__.py",
+   "evidence": [
+    "git_snapshot"
+   ],
+   "strongest": "git_snapshot"
+  },
+  {
+   "path": "src/features/historical.py",
+   "evidence": [
+    "git_snapshot"
+   ],
+   "strongest": "git_snapshot"
+  },
+  {
+   "path": "src/features/preprocessing.py",
+   "evidence": [
+    "git_snapshot"
+   ],
+   "strongest": "git_snapshot"
+  },
+  {
+   "path": "src/graph/__init__.py",
+   "evidence": [
+    "git_snapshot"
+   ],
+   "strongest": "git_snapshot"
+  },
+  {
+   "path": "src/graph/build.py",
+   "evidence": [
+    "git_snapshot"
+   ],
+   "strongest": "git_snapshot"
+  },
+  {
+   "path": "src/graph/rolling_eval.py",
+   "evidence": [
+    "git_snapshot"
+   ],
+   "strongest": "git_snapshot"
+  },
+  {
+   "path": "src/graph/schema.py",
+   "evidence": [
+    "git_snapshot"
+   ],
+   "strongest": "git_snapshot"
+  },
+  {
+   "path": "src/graph/temporal.py",
+   "evidence": [
+    "git_snapshot"
+   ],
+   "strongest": "git_snapshot"
+  },
+  {
+   "path": "src/graph/temporal_checks.py",
+   "evidence": [
+    "git_snapshot (line endings normalised)"
+   ],
+   "strongest": "git_snapshot"
+  },
+  {
+   "path": "src/graph/validate.py",
+   "evidence": [
+    "git_snapshot"
+   ],
+   "strongest": "git_snapshot"
+  },
+  {
+   "path": "src/models/__init__.py",
+   "evidence": [
+    "git_snapshot"
+   ],
+   "strongest": "git_snapshot"
+  },
+  {
+   "path": "src/models/gat.py",
+   "evidence": [
+    "git_snapshot"
+   ],
+   "strongest": "git_snapshot"
+  },
+  {
+   "path": "src/models/graphsage.py",
+   "evidence": [
+    "git_snapshot"
+   ],
+   "strongest": "git_snapshot"
+  },
+  {
+   "path": "src/models/lr_features.py",
+   "evidence": [
+    "git_snapshot"
+   ],
+   "strongest": "git_snapshot"
+  },
+  {
+   "path": "src/models/metrics.py",
+   "evidence": [
+    "git_snapshot"
+   ],
+   "strongest": "git_snapshot"
+  },
+  {
+   "path": "src/models/temporal_graphsage.py",
+   "evidence": [
+    "git_snapshot"
+   ],
+   "strongest": "git_snapshot"
+  },
+  {
+   "path": "src/models/temporal_meanmem.py",
+   "evidence": [
+    "git_snapshot"
+   ],
+   "strongest": "git_snapshot"
+  },
+  {
+   "path": "src/models/tree_features.py",
+   "evidence": [
+    "git_snapshot"
+   ],
+   "strongest": "git_snapshot"
+  },
+  {
+   "path": "tests/__init__.py",
+   "evidence": [
+    "git_snapshot"
+   ],
+   "strongest": "git_snapshot"
+  },
+  {
+   "path": "tests/phase10_helpers.py",
+   "evidence": [
+    "session_log: 78702bed@2026-10-18T12:53Z",
+    "integrity_record: experiments/phase10_community_evolution/INTEGRITY_CORE_FINALIZATION.json, experiments/phase10_community_evolution/INTEGRITY_CORE_IMPLEMENTATION.json, experiments/phase10_community_evolution/core_implementation/core_test_results.json"
+   ],
+   "strongest": "session_log"
+  },
+  {
+   "path": "tests/test_phase10_compat.py",
+   "evidence": [
+    "session_log: 78702bed@2026-10-18T12:53Z",
+    "integrity_record: experiments/phase10_community_evolution/INTEGRITY_CORE_FINALIZATION.json, experiments/phase10_community_evolution/INTEGRITY_CORE_IMPLEMENTATION.json, experiments/phase10_community_evolution/core_implementation/core_test_results.json"
+   ],
+   "strongest": "session_log"
+  },
+  {
+   "path": "tests/test_phase10_properties.py",
+   "evidence": [
+    "session_log: 78702bed@2026-10-18T12:53Z",
+    "integrity_record: experiments/phase10_community_evolution/INTEGRITY_CORE_FINALIZATION.json, experiments/phase10_community_evolution/INTEGRITY_CORE_IMPLEMENTATION.json, experiments/phase10_community_evolution/core_implementation/core_test_results.json"
+   ],
+   "strongest": "session_log"
+  },
+  {
+   "path": "tests/test_phase10_toys.py",
+   "evidence": [
+    "session_log: 78702bed@2026-10-18T12:53Z",
+    "integrity_record: experiments/phase10_community_evolution/INTEGRITY_CORE_FINALIZATION.json, experiments/phase10_community_evolution/INTEGRITY_CORE_IMPLEMENTATION.json, experiments/phase10_community_evolution/core_implementation/core_test_results.json"
+   ],
+   "strongest": "session_log"
+  },
+  {
+   "path": "tests/test_phase11_explain.py",
+   "evidence": [
+    "integrity_record: experiments/phase11_explainable_evidence/INTEGRITY_PHASE11.json, experiments/phase11_explainable_evidence/test_results/test_results.json"
+   ],
+   "strongest": "integrity_record"
+  },
+  {
+   "path": "tests/test_phase11_outputs.py",
+   "evidence": [
+    "integrity_record: experiments/phase11_explainable_evidence/INTEGRITY_PHASE11.json, experiments/phase11_explainable_evidence/test_results/test_results.json"
+   ],
+   "strongest": "integrity_record"
+  },
+  {
+   "path": "tests/test_phase8_adaptive.py",
+   "evidence": [
+    "git_snapshot"
+   ],
+   "strongest": "git_snapshot"
+  },
+  {
+   "path": "tests/test_phase9_core.py",
+   "evidence": [
+    "git_snapshot",
+    "integrity_record: experiments/phase10_community_evolution/INTEGRITY.json"
+   ],
+   "strongest": "git_snapshot"
+  },
+  {
+   "path": "tests/test_phase9_segments.py",
+   "evidence": [
+    "git_snapshot"
+   ],
+   "strongest": "git_snapshot"
+  },
+  {
+   "path": "tests/test_preprocessing.py",
+   "evidence": [
+    "git_snapshot"
+   ],
+   "strongest": "git_snapshot"
+  },
+  {
+   "path": "tests/test_splits.py",
+   "evidence": [
+    "git_snapshot"
+   ],
+   "strongest": "git_snapshot"
+  },
+  {
+   "path": "tests/test_validate.py",
+   "evidence": [
+    "git_snapshot"
+   ],
+   "strongest": "git_snapshot"
+  }
+ ]
+}
