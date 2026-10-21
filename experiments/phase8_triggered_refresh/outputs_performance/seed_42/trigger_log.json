@@ -1,0 +1,45 @@
+{
+ "seed": 42,
+ "pr_auc_train_days_112_116": 0.5991184341593102,
+ "pr_auc_train_days_117_121": 0.55809775835494,
+ "relative_noise_r": 0.07089544040210109,
+ "delta": 0.14179088080420219,
+ "fine_tune_epochs": 15,
+ "monitor_log": [
+  {
+   "window": 1,
+   "pr_auc": 0.6100133648777654,
+   "relative_drop": null,
+   "fired": false,
+   "note": "reference window (baseline after start or refresh)"
+  },
+  {
+   "window": 2,
+   "pr_auc": 0.40488813680951924,
+   "relative_drop": 0.33626349827490937,
+   "fired": true
+  },
+  {
+   "window": 3,
+   "pr_auc": 0.45007233237134986,
+   "relative_drop": null,
+   "fired": false,
+   "note": "reference window (baseline after start or refresh)"
+  },
+  {
+   "window": 4,
+   "pr_auc": 0.4077964368494101,
+   "relative_drop": 0.09393133610145667,
+   "fired": false
+  }
+ ],
+ "n_refreshes": 1,
+ "window_pr_auc": [
+  0.6100133648777654,
+  0.40488813680951924,
+  0.45007233237134986,
+  0.4077964368494101,
+  0.37717989020926584
+ ],
+ "window_mean_pr_auc": 0.44999003222346207
+}

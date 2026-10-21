@@ -74,6 +74,35 @@ def test_tr_requires_a_trigger_and_no_other_arm_accepts_one():
     raises(lambda: W.run_walk_forward_ext("Ad", m, ds, WINDOWS, opt=opt, trigger=lambda k, s: True, **KW), ValueError)
 
 
+def test_a_label_trigger_receives_only_the_labels_of_the_window_just_scored_and_equal_to_the_dataset_labels():
+    ds = build()
+    seen = []
+
+    class Probe:
+        needs_labels = True
+
+        def __call__(self, k, scores, labels):
+            seen.append((k, np.asarray(scores).copy(), np.asarray(labels).copy()))
+            return False
+    m, _ = model_pair()
+    torch.manual_seed(11)
+    out = W.run_walk_forward_ext("Tr", m, ds, WINDOWS, opt=torch.optim.Adam(m.parameters(), lr=1e-2), trigger=Probe(), **KW)
+    assert [s[0] for s in seen] == [1]                                       # after window 1 only, never after the last window
+    first = WINDOWS[0]
+    expected = torch.cat([ds.labels(d) for d in range(first[0], first[1] + 1)]).numpy()
+    assert np.array_equal(seen[0][2], expected) and len(seen[0][1]) == len(seen[0][2]) == len(out[0][1])
+
+
+def test_a_label_free_trigger_is_never_given_labels():
+    got = []
+
+    def trig(k, scores):                                                     # a two-argument callable: passing labels would raise TypeError
+        got.append(k)
+        return False
+    run("Tr", trig)
+    assert got == [1]
+
+
 def _run_all():
     fns = [v for k, v in globals().items() if k.startswith("test_") and callable(v)]
     failed = []

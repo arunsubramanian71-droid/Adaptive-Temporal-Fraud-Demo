@@ -1,0 +1,4 @@
+[WARNING] failed to run offload-arch: binary not found.
+[done] TrP seed 42: delta 0.142 (r 0.071) refreshes 1/4; window PR-AUC [0.61, 0.4049, 0.4501, 0.4078, 0.3772] mean 0.4500 (21s)
+[done] TrP seed 123: delta 0.224 (r 0.112) refreshes 1/4; window PR-AUC [0.5945, 0.4019, 0.4616, 0.4105, 0.3283] mean 0.4394 (13s)
+[done] TrP seed 2024: delta 0.211 (r 0.105) refreshes 1/4; window PR-AUC [0.6154, 0.431, 0.4537, 0.4203, 0.3722] mean 0.4585 (19s)

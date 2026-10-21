@@ -56,6 +56,34 @@ def test_trigger_is_label_free_by_construction():
     assert imported <= {"__future__", "numpy"}, imported                # no data loader, no model, no label source can be reached from the policy module
 
 
+def _window(rng, quality, n=4000, rate=0.05):
+    """Scores whose separation of the positives is ``quality`` (0 = random, larger = better); returns (scores, labels)."""
+    y = (rng.random(n) < rate).astype(int)
+    return np.clip(rng.normal(0.2, 0.1, n) + quality * y, 0, 1), y
+
+
+def test_performance_trigger_baselines_fires_on_a_relative_drop_and_rebaselines():
+    from src.trigger.performance import PerformanceTrigger
+    rng = np.random.default_rng(3)
+    t = PerformanceTrigger(delta=0.2)
+    assert t.needs_labels is True
+    assert t(1, *_window(rng, 0.5)) is False and t.reference is not None            # reference window
+    assert t(2, *_window(rng, 0.5)) is False                                         # same quality: no trigger
+    assert t(3, *_window(rng, 0.0)) is True and t.reference is None                  # quality collapses: fires, reference cleared
+    assert t(4, *_window(rng, 0.0)) is False                                         # first window after the refresh re-baselines
+    assert [r["fired"] for r in t.log] == [False, False, True, False] and t.log[2]["relative_drop"] > 0.2 and t.log[0]["relative_drop"] is None
+
+
+def test_performance_trigger_validates_its_inputs():
+    from src.trigger.performance import PerformanceTrigger
+    rng = np.random.default_rng(4)
+    for bad in (0.0, 1.0, -0.1, 1.5):
+        raises(lambda b=bad: PerformanceTrigger(b), ValueError)
+    s, y = _window(rng, 0.5)
+    raises(lambda: PerformanceTrigger(0.2)(1, s, y[:-1]), ValueError)
+    raises(lambda: PerformanceTrigger(0.2)(1, s, np.zeros_like(y)), ValueError)
+
+
 def _run_all():
     fns = [v for k, v in globals().items() if k.startswith("test_") and callable(v)]
     failed = []

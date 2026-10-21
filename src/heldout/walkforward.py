@@ -27,6 +27,15 @@ def burn_in(model, ds, state, through_day: int) -> int:
     return n
 
 
+def _fires(trigger, k, result, ds, window) -> bool:
+    """Ask the trigger after window k has been scored. A label-free trigger gets the scores only; a trigger with ``needs_labels`` also gets the labels of the window just scored
+    (those days only, requested here and nowhere earlier)."""
+    if not getattr(trigger, "needs_labels", False):
+        return trigger(k, result[1])
+    labels = torch.cat([ds.labels(d) for d in range(window[0], window[1] + 1) if d in ds.day_ptr]).detach().cpu().numpy()
+    return trigger(k, result[1], labels)
+
+
 def run_walk_forward_ext(arm: str, model, ds, windows: list, opt=None, pos_weight=None, fine_tune_epochs: int = 0, base_seed: int = 0,
                          train_day_min: int = 1, train_day_max: int = 121, burn_in_through: int | None = None, replay_windows: list | None = None,
                          trigger=None):
@@ -53,7 +62,7 @@ def run_walk_forward_ext(arm: str, model, ds, windows: list, opt=None, pos_weigh
         results.append(score_window(model, state, ds, window))
         if k == n:
             break
-        if arm == "Ad" or (arm == "Tr" and trigger(k, results[-1][1])):
+        if arm == "Ad" or (arm == "Tr" and _fires(trigger, k, results[-1], ds, window)):
             for _ in range(fine_tune_epochs):
                 train_epoch(model, ds, opt, train_last=b[k - 1], pos_weight=pos_weight, window=TBPTT_DAYS)
         elif arm == "E":
