@@ -1,0 +1,48 @@
+[PASSED] test_amendment_gate: 8/8
+[PASSED] test_artifact_registry: 4/4
+[PASSED] test_b_decision: 6/6
+[PASSED, 5 NOT RUN (withheld artifact missing)] test_comparison_b_outputs: 7/12
+      NOT RUN test_ba5_each_arm_scores_exactly_the_reference_population: missing experiments/comparison_B_graph_features/outputs/arms/*/predictions_val.parquet
+      NOT RUN test_ba7_recorded_metrics_equal_a_recomputation_from_the_stored_predictions: missing experiments/comparison_B_graph_features/outputs/arms/*/predictions_val.parquet
+      NOT RUN test_ia_imbalance_outputs_follow_their_preregistration: missing experiments/temporal_graphsage/seed_*/predictions_val.parquet
+      NOT RUN test_ge_graph_evidence_outputs_meet_their_criteria_and_hashes_link: missing experiments/comparison_B_graph_features/outputs/arms/B_full/model.joblib
+      NOT RUN test_ua_unweighted_followup_follows_its_preregistration: missing experiments/temporal_graphsage/seed_*/predictions_val.parquet
+[SKIPPED] test_f_runner_gate: needs torch
+[PASSED] test_graph_evidence: 7/7
+[PASSED] test_graph_features: 13/13
+[PASSED] test_h4_rules: 3/3
+[PASSED, 1 NOT RUN (withheld artifact missing)] test_heldout_gate: 8/9
+      NOT RUN test_frozen_registry_matches_the_protocol_and_every_artifact_exists: missing experiments/logistic_regression/model.joblib
+[PASSED] test_inference_demo: 13/13
+[PASSED] test_manuscript_figures: 3/3
+[SKIPPED] test_neural_graph_evidence: needs torch
+[PASSED] test_phase10_compat: 6/6
+[PASSED] test_phase10_properties: 12/12
+[PASSED] test_phase10_toys: 45/45
+[PASSED] test_phase11_explain: 22/22
+[PASSED, 2 NOT RUN (withheld artifact missing)] test_phase11_outputs: 6/8
+      NOT RUN test_A7_every_output_has_a_matching_sidecar_and_the_manifests_match_disk: missing experiments/xgboost/model.joblib
+      NOT RUN test_A4_A6_selection_has_300_rows_10_per_day_within_val_and_is_reproduced_from_label_free_inputs: missing data/features/val_features.parquet
+[PASSED, 1 NOT RUN (withheld artifact missing)] test_phase12_environment_independence: 0/1
+      NOT RUN test_rebuild_is_byte_identical_and_the_manifest_differs_only_in_environment_metadata: missing experiments/logistic_regression/predictions_val.parquet
+[PASSED] test_phase12_evidence: 16/16
+[PASSED, 3 NOT RUN (withheld artifact missing)] test_phase12_outputs: 8/11
+      NOT RUN test_AC1_only_the_declared_source_set_was_read_and_the_fingerprint_is_stable: missing experiments/logistic_regression/predictions_val.parquet
+      NOT RUN test_AC10_sidecars_and_deterministic_rebuild: missing experiments/logistic_regression/predictions_val.parquet
+      NOT RUN test_build_gates_block_before_any_output_is_written: missing experiments/logistic_regression/predictions_val.parquet
+[SKIPPED] test_phase8_adaptive: needs torch
+[PASSED] test_phase9_core: 14/14
+[PASSED] test_phase9_segments: 3/3
+[PASSED] test_preprocessing: 8/8
+[PASSED] test_runner_contract: 2/2
+[PASSED, 1 NOT RUN (withheld artifact missing)] test_scope_reconciliation_records: 8/9
+      NOT RUN test_freeze_reproduces_the_recorded_unweighted_xgboost_validation_results: missing experiments/final_heldout_protocol/frozen_amendment/A_none/model.joblib
+[PASSED] test_serving: 14/14
+[PASSED] test_splits: 5/5
+[PASSED] test_trigger_policy: 4/4
+[SKIPPED] test_trigger_walkforward: needs torch
+[PASSED] test_triggered_refresh_records: 4/4
+[PASSED] test_validate: 9/9
+[SKIPPED] test_walkforward_ext: needs torch
+
+258/271 tests passed in 28 modules; NOT RUN because withheld artifacts are missing (never counted as passed): 13; environment-metadata differences (never counted as passed): 0; skipped modules (need PyTorch): ['test_f_runner_gate', 'test_neural_graph_evidence', 'test_phase8_adaptive', 'test_trigger_walkforward', 'test_walkforward_ext']

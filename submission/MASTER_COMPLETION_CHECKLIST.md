@@ -24,7 +24,7 @@ Dated 2026-10-21. Status words: **PASS** verified by evidence; **FAIL** a verifi
 | Relationship-level ablations (XGBoost family) | PASS | comparison B | none |
 | Relationship-level ablations (neural models) | NOT RUN; OPTIONAL ("where computationally feasible") | no registered hypothesis depends on them | needs its own pre-registration and your decision |
 | Adaptive system F (cell F) | PASS on validation | Phase 8 | held-out: BLOCKED |
-| Drift-**triggered** refresh (the brief says "trigger retraining when predefined conditions are met") | **NOT RUN**: Phase 8 used a fixed 6-day cadence and recorded the triggered policy as out of scope | `phase8_adaptive_drift/DESIGN_BEFORE_EXECUTION.md` | mismatch with the brief's wording; a triggered policy would be new research needing a pre-registration (not safe to add now) |
+| Drift-**triggered** refresh (the brief: "trigger retraining or model refresh when predefined conditions are met", threshold from development data) | **PASS (executed, pre-registered); outcome NOT SUPPORTED.** Phase 8 used a fixed cadence; arm Tr (label-free score-PSI monitor, threshold from TRAIN days only) was added on validation: the monitor never fired (PSI at most 0.025 against 0.10), so Tr equals the frozen arm | `experiments/phase8_triggered_refresh/` (pre-registration hashed before the run, `TR_RESULTS.md`, tests) | a performance-based trigger would be a different, unregistered policy: OPTIONAL, needs a pre-registration |
 
 ## 3. Temporal evaluation, leakage, held-out safeguards
 
@@ -52,12 +52,12 @@ Dated 2026-10-21. Status words: **PASS** verified by evidence; **FAIL** a verifi
 
 | Check | Result |
 |---|---|
-| Project environment, `scripts/run_completion_tests.py` | **303 of 303** pass in 29 modules (`submission/test_results.json`) |
+| Project environment, `scripts/run_completion_tests.py` | **319 of 319** pass in 33 modules (`submission/test_results.json`) |
 | `scripts/run_tests.py` | exit 0, "ALL TEST MODULES PASSED" (before the fix it reported failures because two new modules returned an exit code instead of a boolean; `tests/test_runner_contract.py` now guards this and injects a failure to prove detection) |
-| Clean Python 3.12.0 (requirements.txt only) | **257 of 257** pass; `pip check` clean |
-| Clean Python 3.14.3 (requirements.txt only) | **256 of 257** pass + **1 environment-metadata difference** (Phase 12 AC10 manifest records the interpreter version; the environment-independent companion test passes); `pip check` clean; **supported interpreter: 3.12** |
-| Fresh GitHub clone, Python 3.12.0, requirements.txt only | 246 of 259 pass; 13 fail only because `.gitignore` withholds raw data, model files, feature tables and row-level predictions (missing-file errors, no hash or result failures); protocol hash verified in the clone |
-| Skipped (needs PyTorch; **a skip is not a pass**) | `test_f_runner_gate`, `test_neural_graph_evidence`, `test_phase8_adaptive`, `test_walkforward_ext` in a core-only environment; they pass in the project environment |
+| Clean Python 3.12.0 (requirements.txt only) | **271 of 271** executed tests pass with the current suite (earlier suite: 257 of 257); `pip check` clean |
+| Clean Python 3.14.3 (requirements.txt only) | **270 of 271** pass + **1 environment-metadata difference** (earlier suite: 256 of 257) (Phase 12 AC10 manifest records the interpreter version; the environment-independent companion test passes); `pip check` clean; **supported interpreter: 3.12** |
+| Fresh GitHub clone, Python 3.12.0, requirements.txt only | before the workflow: 246 of 259 pass, 13 fail only for withheld artifacts; **with the core-versus-artifact workflow (final measurement): 258 of 271 pass, 13 NOT RUN (artifact missing, listed in `tests/artifact_requirements.json`, never counted as passed), 0 fail**; `--require-artifacts` exits 1 on a clone; protocol hash verified in the clone |
+| Skipped (needs PyTorch; **a skip is not a pass**) | `test_f_runner_gate`, `test_neural_graph_evidence`, `test_phase8_adaptive`, `test_trigger_walkforward`, `test_walkforward_ext` in a core-only environment; they pass in the project environment |
 
 ## 6. Phase 13 (reconstructed scope; unconfirmed by you)
 
@@ -80,7 +80,7 @@ Dated 2026-10-21. Status words: **PASS** verified by evidence; **FAIL** a verifi
 | Item | Status | Evidence |
 |---|---|---|
 | Setup check, demo (byte-identical on re-run), dashboard | PASS | exit 0 for `check_setup.py` and `demo_end_to_end.py` (twice, outputs identical); dashboard E2E 31 of 31 |
-| README, demo guide, completion records agree | PASS after this pass | test counts corrected (303 tests, 29 modules), PyTorch-skip statement corrected, clean-environment results recorded; `scripts/verify_submission_claims.py` traces every number |
+| README, demo guide, completion records agree | PASS after this pass | test counts corrected (319 tests, 33 modules), PyTorch-skip statement corrected, clean-environment results recorded; `scripts/verify_submission_claims.py` traces every number |
 | Manuscript | PASS (validation-period study; held-out not done) | three figures added (`submission/figures/`, drawn from recorded results, hashed, tested) |
 | Hygiene | PASS with notes | one empty folder `experiments/gat_300epoch/seed_123` kept (aborted-run evidence); `__pycache__` is git-ignored; nine empty `C:\c\...` folders outside the repository left in place |
 
@@ -91,6 +91,6 @@ Dated 2026-10-21. Status words: **PASS** verified by evidence; **FAIL** a verifi
 3. Phase 13 scope confirmation. **BLOCKED.**
 4. H5 / G4: new design needed. **BLOCKED.**
 5. AC12: cannot be completed retrospectively. **BLOCKED.**
-6. Drift-triggered refresh, neural relationship ablations, GAT unweighted, GraphSAGE/GAT explanations: **NOT RUN / OPTIONAL.**
+6. Drift-triggered refresh: **executed (pre-registered, validation only), outcome NOT SUPPORTED**; a performance-based trigger is OPTIONAL (not pre-registered). Neural relationship ablations, GAT unweighted, GraphSAGE/GAT explanations: **NOT RUN / OPTIONAL.**
 
 **The project is not 100% complete.** Software, tests, demo, documentation and the validation-period research are complete and verified; the items above are genuinely unresolved.
