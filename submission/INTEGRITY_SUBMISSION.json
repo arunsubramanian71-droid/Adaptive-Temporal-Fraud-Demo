@@ -1,5 +1,5 @@
 {
- "created_local": "2026-10-22T03:01:32+05:30",
+ "created_local": "2026-10-22T03:05:46+05:30",
  "purpose": "integrity record of the completion work (comparison B, imbalance check, graph evidence, held-out protocol and evaluator, software demonstration, submission package)",
  "baseline": {
   "file": "experiments/phase12_validation_evidence_table/PRECHANGE_MANIFEST_closure_update.tsv",
@@ -49,7 +49,7 @@
   }
  },
  "new_files": {
-  "count": 757,
+  "count": 759,
   "by_area": {
    ".gitattributes": 1,
    "experiments/comparison_B_graph_features": 50,
@@ -75,7 +75,7 @@
    "src/inference": 3,
    "src/serving": 4,
    "src/trigger": 3,
-   "submission": 35,
+   "submission": 37,
    "tests": 26
   },
   "sha256": {
@@ -777,17 +777,19 @@
    "src/trigger/policy.py": "5df8bdccd118ec51cf300fcd2f38a210d627de322440de44971a3e499d89e697",
    "submission/COMPLETION_MATRIX.md": "eee0317a1b3e5dbdb12b0840258fcccf65363f2fa1dab18158eb4c9f7a3e9e95",
    "submission/DEMO_GUIDE.md": "6e2e2bd8f3b42c5c890f248a0012fb1cbd573d67171faa9ab993879f926c9d86",
-   "submission/FINAL_COMPLETION_RECORD.md": "d60188732896cbc8aaa5e16439c32f1983ed03d02099b1dfd372f7d6cc8196b4",
+   "submission/FINAL_COMPLETION_RECORD.md": "742a748bad96651c72cb031489d4f848ffbd3e572af8c82c601d68b84a08ef54",
    "submission/HELDOUT_DECISION_PACKAGE.md": "229fd624d6866fff31da8df3e843c303069f7f9c3fd029e428d60d7dbbba9793",
    "submission/MANUSCRIPT.md": "6bbb7ca04260c117ebda36a11fdd690964390ae5679560f2517a7aa768a658ad",
-   "submission/MASTER_COMPLETION_CHECKLIST.md": "31c7505a6b001c08b4324477d30b14e523ebcdf47171ab3bd37747bee6724ba6",
+   "submission/MASTER_COMPLETION_CHECKLIST.md": "9178771b8723d4ee4e450f5e7ecbc8a519ebfc891d97656456be5f357a671d51",
    "submission/PHASE13_SCOPE_CONFIRMATION.md": "062b754ed1f0f6194edf5115afb8da9c1d2f8b35c18701496243f5f1898085a6",
    "submission/PROFESSOR_DEFENSE_GUIDE.md": "bda97ffe188c593af65423df79cd1c9d6bf9e087981a78f0cde208eebe25c6d4",
-   "submission/README.md": "2f06fec8c428180e3ed3985f79c2e0d8f9a68f93d2cbbca69788555333303980",
+   "submission/README.md": "1ce736541fe0664af64bd01207ec6e013edc4fb5235d2cd33ac11c398b64eaf1",
    "submission/REPRODUCIBILITY.md": "cb7700f0b77c8424036f682d0bdcc889cf909c15f7f6ec8d0e77619affcc5151",
    "submission/TRACEABILITY_MATRIX.md": "9f817696384dc274b6b5a0bdbe51ed392491b09cbdc2e6a41a8efca56f863a65",
    "submission/claims_exceptions.json": "4a58536d41278bd4fc9fc202cfb0addc60165908bec020d4b3d8da42bd9edc39",
    "submission/clean_env_results/fresh_clone_python3.12.0_core_tests_2026-10-21.txt": "3a7f82386e90a484fc3b26ec5418bb8df10fecfa0ac69216618b5cbdd5cc127d",
+   "submission/clean_env_results/fresh_clone_python3.12.0_core_tests_2026-10-22.json": "3b5e1a263f125df961deaf73043b79c6bded63f8ac34aea29df56bda36b16adb",
+   "submission/clean_env_results/fresh_clone_python3.12.0_core_tests_2026-10-22.txt": "771d7f1b7817ee66b05c1cde8ae2e7ce3502ca43df14c9f724d3d35babd37940",
    "submission/clean_env_results/fresh_clone_python3.12.0_core_tests_final_2026-10-21.json": "f6b2831a0bbc3d459c46d75d09e4fd3263fe1f5b3e7a81fbf5bef3293166a320",
    "submission/clean_env_results/fresh_clone_python3.12.0_core_tests_final_2026-10-21.txt": "9906c4f47022fdf71086a595773b9fd052baa9ff65b90253a05905238451e655",
    "submission/clean_env_results/fresh_clone_python3.12.0_core_tests_with_artifact_workflow_2026-10-21.json": "0bd2d58d2f0acfb17b787eacf1ba709ff7193231e4add9f88cf99a0f3641d99c",
