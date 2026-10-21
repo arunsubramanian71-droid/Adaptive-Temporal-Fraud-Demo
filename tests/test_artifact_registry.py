@@ -45,13 +45,40 @@ def test_missing_artifact_helper_reports_missing_patterns_and_never_invents_pres
     assert RC._missing_artifacts([]) == []
 
 
-def test_registry_covers_the_thirteen_tests_that_failed_on_a_fresh_clone_plus_the_research_serving_tests():
-    original = {k for k in REGISTRY if not k.startswith("test_research_serving::")}
-    assert len(original) == 13, len(original)
-    assert {k.split("::")[0] for k in original} == {"test_comparison_b_outputs", "test_heldout_gate", "test_phase11_outputs", "test_phase12_environment_independence",
-                                                    "test_phase12_outputs", "test_scope_reconciliation_records"}
-    added = set(REGISTRY) - original                                   # research-model serving tests need the trained model and validation features
-    assert len(added) == 3 and all(any("model.joblib" in p for p in REGISTRY[k]) for k in added)
+ORIGINAL_13 = [
+    "test_comparison_b_outputs::test_ba5_each_arm_scores_exactly_the_reference_population",
+    "test_comparison_b_outputs::test_ba7_recorded_metrics_equal_a_recomputation_from_the_stored_predictions",
+    "test_comparison_b_outputs::test_ge_graph_evidence_outputs_meet_their_criteria_and_hashes_link",
+    "test_comparison_b_outputs::test_ia_imbalance_outputs_follow_their_preregistration",
+    "test_comparison_b_outputs::test_ua_unweighted_followup_follows_its_preregistration",
+    "test_heldout_gate::test_frozen_registry_matches_the_protocol_and_every_artifact_exists",
+    "test_phase11_outputs::test_A4_A6_selection_has_300_rows_10_per_day_within_val_and_is_reproduced_from_label_free_inputs",
+    "test_phase11_outputs::test_A7_every_output_has_a_matching_sidecar_and_the_manifests_match_disk",
+    "test_phase12_environment_independence::test_rebuild_is_byte_identical_and_the_manifest_differs_only_in_environment_metadata",
+    "test_phase12_outputs::test_AC10_sidecars_and_deterministic_rebuild",
+    "test_phase12_outputs::test_AC1_only_the_declared_source_set_was_read_and_the_fingerprint_is_stable",
+    "test_phase12_outputs::test_build_gates_block_before_any_output_is_written",
+    "test_scope_reconciliation_records::test_freeze_reproduces_the_recorded_unweighted_xgboost_validation_results",
+]
+RESEARCH_SERVING = [
+    "test_research_serving::test_api_scores_equal_direct_model_scores_and_the_recorded_validation_predictions",
+    "test_research_serving::test_invalid_research_requests_get_actionable_400_errors",
+    "test_research_serving::test_labels_in_the_request_are_ignored_and_each_row_is_scored_independently",
+]
+UNPUBLISHED_EVIDENCE = [
+    "test_phase11_outputs::test_A1_A2_stored_contributions_are_additive_and_reproduce_the_stored_scores",
+    "test_phase11_outputs::test_top_feature_lists_agree_with_the_contribution_matrix",
+    "test_phase11_outputs::test_A8_wording_lint_on_all_phase11_text_outputs_and_sources",
+    "test_neural_graph_evidence::test_recorded_outputs_follow_the_preregistration_and_report_the_failed_criterion",
+]
+
+
+def test_registry_is_exactly_the_three_documented_groups():
+    """13 tests that failed on the first fresh clone; 3 research-model serving tests; 4 tests that read the six transaction-level evidence files kept
+    local since 2026-10-22 (publication policy). A change to the registry must update these lists deliberately."""
+    assert len(ORIGINAL_13) == 13 and len(RESEARCH_SERVING) == 3 and len(UNPUBLISHED_EVIDENCE) == 4
+    assert set(REGISTRY) == set(ORIGINAL_13) | set(RESEARCH_SERVING) | set(UNPUBLISHED_EVIDENCE), sorted(set(REGISTRY) ^ (set(ORIGINAL_13) | set(RESEARCH_SERVING) | set(UNPUBLISHED_EVIDENCE)))
+    assert all(any("model.joblib" in p for p in REGISTRY[k]) for k in RESEARCH_SERVING)
 
 
 def _run_all():

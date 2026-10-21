@@ -1,5 +1,5 @@
 {
- "_comment": "Tests that need artifacts the repository deliberately does not publish (raw data, trained model files and checkpoints, feature tables, row-level prediction files; see .gitignore). Key: 'module::test'. Value: glob patterns relative to the project root; the test is runnable only if every pattern matches at least one file. The core runner (scripts/run_core_tests.py) reports a test whose pattern has no match as NOT RUN (artifact missing), never as passed, and --require-artifacts turns that into a failure. The tests themselves are unchanged and run, with their full assertions, whenever the artifacts exist. Regenerate the artifacts with the project's build and training scripts (README section 4).",
+ "_comment": "Tests that need artifacts the repository deliberately does not publish (raw data, trained model files and checkpoints, feature tables, row-level prediction files; see .gitignore). Key: 'module::test'. Value: glob patterns relative to the project root; the test is runnable only if every pattern matches at least one file. The core runner (scripts/run_core_tests.py) reports a test whose pattern has no match as NOT RUN (artifact missing), never as passed, and --require-artifacts turns that into a failure. The tests themselves are unchanged and run, with their full assertions, whenever the artifacts exist. Regenerate the artifacts with the project's build and training scripts (README section 4). Six transaction-level evidence files (300 validation transactions each: TransactionIDs with model contributions, counterfactual effects or feature values) are kept local and not published since 2026-10-22, in line with the .gitignore publication policy; the tests that read them are listed here.",
  "test_comparison_b_outputs::test_ba5_each_arm_scores_exactly_the_reference_population": [
   "experiments/comparison_B_graph_features/outputs/arms/*/predictions_val.parquet",
   "experiments/temporal_graphsage/seed_*/predictions_val.parquet"
@@ -15,7 +15,10 @@
   "experiments/comparison_B_graph_features/outputs/arms/B_full/model.joblib",
   "data/features/train_features.parquet",
   "data/features/val_features.parquet",
-  "experiments/phase9_coordinated_fraud/cache/real_le151.npz"
+  "experiments/phase9_coordinated_fraud/cache/real_le151.npz",
+  "experiments/comparison_B_graph_features/graph_evidence/relation_evidence.csv",
+  "experiments/comparison_B_graph_features/graph_evidence/top_features_B.json",
+  "experiments/phase11_explainable_evidence/xgb_explanations_val/selection_val.csv"
  ],
  "test_comparison_b_outputs::test_ua_unweighted_followup_follows_its_preregistration": [
   "experiments/temporal_graphsage/seed_*/predictions_val.parquet",
@@ -35,10 +38,14 @@
  "test_phase11_outputs::test_A7_every_output_has_a_matching_sidecar_and_the_manifests_match_disk": [
   "experiments/xgboost/model.joblib",
   "experiments/xgboost/predictions_val.parquet",
-  "data/features/val_features.parquet"
+  "data/features/val_features.parquet",
+  "experiments/phase11_explainable_evidence/xgb_explanations_val/selection_val.csv",
+  "experiments/phase11_explainable_evidence/xgb_explanations_val/contributions_val.csv",
+  "experiments/phase11_explainable_evidence/xgb_explanations_val/top_features_val.json"
  ],
  "test_phase11_outputs::test_A4_A6_selection_has_300_rows_10_per_day_within_val_and_is_reproduced_from_label_free_inputs": [
-  "data/features/val_features.parquet"
+  "data/features/val_features.parquet",
+  "experiments/phase11_explainable_evidence/xgb_explanations_val/selection_val.csv"
  ],
  "test_phase12_environment_independence::test_rebuild_is_byte_identical_and_the_manifest_differs_only_in_environment_metadata": [
   "experiments/logistic_regression/predictions_val.parquet",
@@ -97,5 +104,23 @@
   "experiments/xgboost/feature_builder/ordinal_maps.json",
   "data/features/val_features.parquet",
   "experiments/xgboost/predictions_val.parquet"
+ ],
+ "test_phase11_outputs::test_A1_A2_stored_contributions_are_additive_and_reproduce_the_stored_scores": [
+  "experiments/phase11_explainable_evidence/xgb_explanations_val/contributions_val.csv",
+  "experiments/phase11_explainable_evidence/xgb_explanations_val/selection_val.csv",
+  "experiments/xgboost/model.joblib"
+ ],
+ "test_phase11_outputs::test_top_feature_lists_agree_with_the_contribution_matrix": [
+  "experiments/phase11_explainable_evidence/xgb_explanations_val/contributions_val.csv",
+  "experiments/phase11_explainable_evidence/xgb_explanations_val/top_features_val.json"
+ ],
+ "test_phase11_outputs::test_A8_wording_lint_on_all_phase11_text_outputs_and_sources": [
+  "experiments/phase11_explainable_evidence/xgb_explanations_val/selection_val.csv",
+  "experiments/phase11_explainable_evidence/xgb_explanations_val/contributions_val.csv",
+  "experiments/phase11_explainable_evidence/xgb_explanations_val/top_features_val.json"
+ ],
+ "test_neural_graph_evidence::test_recorded_outputs_follow_the_preregistration_and_report_the_failed_criterion": [
+  "experiments/neural_graph_evidence/outputs/relation_effects.csv",
+  "experiments/phase11_explainable_evidence/xgb_explanations_val/selection_val.csv"
  ]
 }
