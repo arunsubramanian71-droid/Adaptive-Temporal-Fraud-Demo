@@ -4,8 +4,9 @@ Question: is that difference a reproducible code difference or run-to-run numeri
 readiness run. The identical arm and seed (burn-in variant, same checkpoint, same seeding) is run N times in one process; the spread among identical runs is compared with the 0.0104 and with
 the 0.01 tolerance. The registered tolerance and the registered result are NOT changed; this is a labelled post-hoc diagnostic.
 
-Usage:  .venv/Scripts/python.exe -B scripts/diagnose_f_readiness.py [--arm E] [--seed 123] [--runs 3]
-Writes experiments/phase8_state_continuity_supplement/diagnostics/F_readiness_diagnosis_<arm>_seed<seed>.json (+ sidecar).
+Usage:  .venv/Scripts/python.exe -B scripts/diagnose_f_readiness.py [--arm E] [--seed 123] [--runs 3] [--out-dir DIR]
+Writes <DIR>/F_readiness_diagnosis_<arm>_seed<seed>[_cpu].json (+ sidecar); DIR defaults to experiments/phase8_state_continuity_supplement/diagnostics.
+An existing record is never overwritten: the script refuses before any computation (choose a new --out-dir).
 """
 from __future__ import annotations
 
@@ -37,6 +38,7 @@ from src.models.temporal_graphsage import TemporalGraphSAGE  # noqa: E402
 P8 = ROOT / "experiments" / "phase8_adaptive_drift"
 SUP = ROOT / "experiments" / "phase8_state_continuity_supplement" / "outputs"
 ARM_DIR = {"F": "frozen", "Ad": "adaptive", "E": "replay_control"}
+DIAG = ROOT / "experiments" / "phase8_state_continuity_supplement" / "diagnostics"
 
 
 def main(argv=None) -> int:
@@ -46,7 +48,13 @@ def main(argv=None) -> int:
     ap.add_argument("--runs", type=int, default=3)
     ap.add_argument("--device", default="auto", choices=["auto", "cpu"], help="cpu: identical-run determinism check without GPU kernels (compares only the identical runs with each other)")
     ap.add_argument("--max-windows", type=int, default=5, help="score only the first N windows (CPU check)")
+    ap.add_argument("--out-dir", default=str(DIAG), help="folder for the record; an existing record is never overwritten")
     a = ap.parse_args(argv)
+    out = pathlib.Path(a.out_dir)
+    target = out / f"F_readiness_diagnosis_{a.arm}_seed{a.seed}{'_cpu' if a.device == 'cpu' else ''}.json"
+    if target.exists():
+        print(f"error: {target} already exists and is a preserved record; choose a new --out-dir.", file=sys.stderr)
+        return 2
     cfg = load_config()
     dev = torch.device("cpu") if a.device == "cpu" else torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
     t0 = time.time()
@@ -82,10 +90,9 @@ def main(argv=None) -> int:
                "all_identical_runs_bitwise_equal": all(max(p_["max_abs_score_diff_per_window"]) == 0.0 for p_ in pair),
                "reading": "post-hoc, labelled diagnostic on the CPU: if identical-seed runs are bitwise equal here, the run-to-run differences seen on the GPU come from nondeterministic GPU kernels, not from the code or the seeding.",
                "test_data_read": False, "seconds": round(time.time() - t0, 1)}
-        out = ROOT / "experiments" / "phase8_state_continuity_supplement" / "diagnostics"
         out.mkdir(parents=True, exist_ok=True)
         data = (json.dumps(rec, indent=1) + chr(10)).encode("utf-8")
-        p = out / f"F_readiness_diagnosis_{a.arm}_seed{a.seed}_cpu.json"
+        p = target
         p.write_bytes(data)
         p.with_suffix(".sha256").write_bytes(hashlib.sha256(data).hexdigest().encode("ascii"))
         print(json.dumps({k: rec[k] for k in ("identical_run_window_means", "all_identical_runs_bitwise_equal")}))
@@ -110,10 +117,9 @@ def main(argv=None) -> int:
            "registered_tolerance": 0.01,
            "reading": "post-hoc, labelled diagnostic. If identical-seed runs themselves differ in window mean by a size comparable to the readiness difference, the readiness difference is run-to-run numerical variation, not a deterministic code difference.",
            "test_data_read": False, "seconds": round(time.time() - t0, 1)}
-    out = ROOT / "experiments" / "phase8_state_continuity_supplement" / "diagnostics"
     out.mkdir(parents=True, exist_ok=True)
     data = (json.dumps(rec, indent=1) + "\n").encode("utf-8")
-    p = out / f"F_readiness_diagnosis_{a.arm}_seed{a.seed}.json"
+    p = target
     p.write_bytes(data)
     p.with_suffix(".sha256").write_bytes(hashlib.sha256(data).hexdigest().encode("ascii"))
     print(json.dumps({k: rec[k] for k in ("identical_run_window_means", "recorded_supplement_window_mean", "recorded_readiness_window_mean", "max_spread_of_window_means_over_all_runs")}))

@@ -1,11 +1,11 @@
 [WARNING] failed to run offload-arch: binary not found.
 [ok ] A_none                             PR-AUC 0.594802 vs 0.594802  max|diff| None
 [ok ] B_none                             PR-AUC 0.599094 vs 0.599094  max|diff| 0.0
-[ok ] graphsage_unweighted_s123          PR-AUC 0.459800 vs 0.459800  max|diff| 1.4901161193847656e-07
+[ok ] graphsage_unweighted_s123          PR-AUC 0.459800 vs 0.459800  max|diff| 1.1920928955078125e-07
 [ok ] graphsage_unweighted_s2024         PR-AUC 0.470561 vs 0.470561  max|diff| 1.1920928955078125e-07
 [ok ] graphsage_unweighted_s42           PR-AUC 0.458718 vs 0.458718  max|diff| 1.1920928955078125e-07
 [ok ] temporal_graphsage_unweighted_s123 PR-AUC 0.497771 vs 0.497771  max|diff| 1.1920928955078125e-07
-[ok ] temporal_graphsage_unweighted_s2024 PR-AUC 0.502019 vs 0.502019  max|diff| 2.682209014892578e-07
-[ok ] temporal_graphsage_unweighted_s42  PR-AUC 0.499554 vs 0.499554  max|diff| 2.980232238769531e-07
+[ok ] temporal_graphsage_unweighted_s2024 PR-AUC 0.502019 vs 0.502019  max|diff| 1.7881393432617188e-07
+[ok ] temporal_graphsage_unweighted_s42  PR-AUC 0.499554 vs 0.499554  max|diff| 1.7881393432617188e-07
 [ok ] xgboost_historical                 PR-AUC 0.677114 vs 0.677114  max|diff| 0.0
 READINESS: PASS

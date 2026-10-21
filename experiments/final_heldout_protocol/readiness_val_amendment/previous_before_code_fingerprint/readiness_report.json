@@ -1,0 +1,108 @@
+{
+ "created_local": "2026-10-22T02:33:01+05:30",
+ "split": "val",
+ "all_pass": true,
+ "python": "3.12.0",
+ "models": [
+  {
+   "model": "A_none",
+   "compared_against": "recorded PR-AUC (no stored predictions)",
+   "ids_identical": true,
+   "max_abs_score_diff": null,
+   "pr_auc_recomputed": 0.5948021309211518,
+   "pr_auc_recorded": 0.5948021309211518,
+   "tolerance_score": 1e-09,
+   "tolerance_pr_auc": 1e-09,
+   "pass": true
+  },
+  {
+   "model": "B_none",
+   "compared_against": "recorded validation predictions",
+   "ids_identical": true,
+   "max_abs_score_diff": 0.0,
+   "pr_auc_recomputed": 0.5990937502443624,
+   "pr_auc_recorded": 0.5990937502443624,
+   "tolerance_score": 1e-09,
+   "tolerance_pr_auc": 1e-09,
+   "pass": true
+  },
+  {
+   "model": "graphsage_unweighted_s123",
+   "compared_against": "recorded validation predictions",
+   "ids_identical": true,
+   "max_abs_score_diff": 1.1920928955078125e-07,
+   "pr_auc_recomputed": 0.45979967304478975,
+   "pr_auc_recorded": 0.4597996328814849,
+   "tolerance_score": 0.0001,
+   "tolerance_pr_auc": 1e-06,
+   "pass": true
+  },
+  {
+   "model": "graphsage_unweighted_s2024",
+   "compared_against": "recorded validation predictions",
+   "ids_identical": true,
+   "max_abs_score_diff": 1.1920928955078125e-07,
+   "pr_auc_recomputed": 0.47056082859048776,
+   "pr_auc_recorded": 0.4705607660385498,
+   "tolerance_score": 0.0001,
+   "tolerance_pr_auc": 1e-06,
+   "pass": true
+  },
+  {
+   "model": "graphsage_unweighted_s42",
+   "compared_against": "recorded validation predictions",
+   "ids_identical": true,
+   "max_abs_score_diff": 1.7881393432617188e-07,
+   "pr_auc_recomputed": 0.4587177356677078,
+   "pr_auc_recorded": 0.4587177418482647,
+   "tolerance_score": 0.0001,
+   "tolerance_pr_auc": 1e-06,
+   "pass": true
+  },
+  {
+   "model": "temporal_graphsage_unweighted_s123",
+   "compared_against": "recorded validation predictions",
+   "ids_identical": true,
+   "max_abs_score_diff": 1.7881393432617188e-07,
+   "pr_auc_recomputed": 0.4977711855918373,
+   "pr_auc_recorded": 0.49777118559183736,
+   "tolerance_score": 0.0001,
+   "tolerance_pr_auc": 1e-06,
+   "pass": true
+  },
+  {
+   "model": "temporal_graphsage_unweighted_s2024",
+   "compared_against": "recorded validation predictions",
+   "ids_identical": true,
+   "max_abs_score_diff": 2.384185791015625e-07,
+   "pr_auc_recomputed": 0.5020189972618891,
+   "pr_auc_recorded": 0.5020190000204546,
+   "tolerance_score": 0.0001,
+   "tolerance_pr_auc": 1e-06,
+   "pass": true
+  },
+  {
+   "model": "temporal_graphsage_unweighted_s42",
+   "compared_against": "recorded validation predictions",
+   "ids_identical": true,
+   "max_abs_score_diff": 3.5762786865234375e-07,
+   "pr_auc_recomputed": 0.49955440327351336,
+   "pr_auc_recorded": 0.4995544032735133,
+   "tolerance_score": 0.0001,
+   "tolerance_pr_auc": 1e-06,
+   "pass": true
+  },
+  {
+   "model": "xgboost_historical",
+   "compared_against": "recorded validation predictions",
+   "ids_identical": true,
+   "max_abs_score_diff": 0.0,
+   "pr_auc_recomputed": 0.6771144347211081,
+   "pr_auc_recorded": 0.6771144347211081,
+   "tolerance_score": 1e-09,
+   "tolerance_pr_auc": 1e-09,
+   "pass": true
+  }
+ ],
+ "statement": "Validation-period re-scoring of the Amendment 1 frozen models (modules H, U) for the code-readiness gate. No held-out data was read."
+}

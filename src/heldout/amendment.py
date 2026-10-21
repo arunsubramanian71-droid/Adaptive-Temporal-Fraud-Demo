@@ -27,6 +27,47 @@ UNW_STATIC = {"graphsage_unweighted": ("experiments/unweighted_graphsage/seed_{s
 UNW_TEMPORAL = {"temporal_graphsage_unweighted": ("experiments/unweighted_temporal_graphsage/seed_{s}", "temporal")}
 
 
+READINESS = {"F": "experiments/phase8_state_continuity_supplement/outputs/readiness/readiness_F.json",
+             "H": "experiments/final_heldout_protocol/readiness_val_amendment/readiness_report.json",
+             "U": "experiments/final_heldout_protocol/readiness_val_amendment/readiness_report.json"}
+U_MODELS = ("A_none", "B_none", "graphsage_unweighted_s42", "graphsage_unweighted_s123", "graphsage_unweighted_s2024",
+            "temporal_graphsage_unweighted_s42", "temporal_graphsage_unweighted_s123", "temporal_graphsage_unweighted_s2024")
+
+
+class ReadinessError(PermissionError):
+    """A module's registered validation readiness gate has not passed; the held-out run must not start."""
+
+
+def require_amendment_readiness(modules, root: pathlib.Path = ROOT) -> dict:
+    """Refuse before any held-out read unless each requested module's registered readiness record exists and passed.
+    Module F: readiness_F.json must have all_pass true (it is false: the trained-arm gate failed as written; a replacement gate becomes valid only
+    through an explicitly approved amendment, and AMENDMENT_2_PROPOSAL_F_GATE.md is a proposal, not active). H and U: the amendment readiness report
+    must pass and contain their models. Every passing record must also fingerprint the code it ran (src/heldout/codehash.py), and that code must be unchanged."""
+    from src.heldout import codehash as CH
+    out = {}
+    for m in modules:
+        p = root / READINESS[m]
+        if not p.exists():
+            raise ReadinessError(f"module {m}: readiness record {READINESS[m]} does not exist; run the validation readiness gate first")
+        r = json.loads(p.read_text(encoding="utf-8"))
+        if r.get("all_pass") is not True:
+            raise ReadinessError(f"module {m}: the registered readiness gate did not pass ({READINESS[m]} all_pass = {r.get('all_pass')}); "
+                                 "the held-out run may start only after the gate passes or an explicitly approved amendment validly replaces it")
+        if m in ("H", "U"):
+            got = {row["model"] for row in r.get("models", []) if row.get("pass")}
+            need = {"xgboost_historical"} if m == "H" else set(U_MODELS)
+            if not need <= got:
+                raise ReadinessError(f"module {m}: readiness record lacks passing rows for {sorted(need - got)}")
+        code = r.get("code_sha256") or {}
+        if not code:
+            raise ReadinessError(f"module {m}: readiness record {READINESS[m]} does not fingerprint the code it ran; rerun the validation readiness gate")
+        changed = CH.changed_code(code, root)
+        if changed:
+            raise ReadinessError(f"module {m}: the code changed after its readiness gate was recorded ({', '.join(changed)}); rerun the validation readiness gate")
+        out[m] = {"readiness_record": READINESS[m], "all_pass": True, "code_files_verified": len(code)}
+    return out
+
+
 def authorized_modules(text: str) -> set:
     """Modules named after the amendment sentence (letters F, H, U separated by commas/spaces)."""
     m = re.search(re.escape(AMEND_PHRASE) + r"([^\n]*)", text)

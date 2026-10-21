@@ -25,6 +25,7 @@ sys.path.insert(0, str(ROOT))
 import numpy as np  # noqa: E402
 import pandas as pd  # noqa: E402
 
+from src.heldout import codehash as CH  # noqa: E402
 from src.heldout import evaluator as E  # noqa: E402
 
 FOLDER = ROOT / "experiments" / "final_heldout_protocol"
@@ -63,7 +64,7 @@ def readiness(res: dict, out: pathlib.Path) -> bool:
                      "tolerance_score": TOL[fam], "tolerance_pr_auc": TOL_PR[fam], "pass": ok})
         print(f"[{'ok ' if ok else 'FAIL'}] {mid:<32} max|diff| {diff:.2e}  PR-AUC {pr_new:.6f} vs {pr_old:.6f}", flush=True)
     rec = {"created_local": datetime.datetime.now().astimezone().replace(microsecond=0).isoformat(), "split": "val", "all_pass": ok_all,
-           "python": platform.python_version(), "models": rows,
+           "python": platform.python_version(), "models": rows, "code_sha256": CH.loaded_project_code(),
            "statement": "Validation-period re-scoring of the frozen models for the code-readiness gate. No held-out data was read."}
     write(out / "readiness_report.json", json.dumps(rec, indent=1) + "\n")
     return ok_all
@@ -95,6 +96,26 @@ def heldout(res: dict, out: pathlib.Path) -> None:
     print(f"held-out metrics for {len(rows)} models written to {out}")
 
 
+def require_base_readiness(folder: pathlib.Path = FOLDER) -> dict:
+    """Protocol section 6: held-out mode only after the validation readiness gate passed for all frozen models, with exactly the code the gate ran
+    (every project file it loaded is compared by SHA-256 with the record). Raises E.AuthorizationError (refusal before any held-out read) otherwise."""
+    p = folder / "readiness_val" / "readiness_report.json"
+    if not p.exists():
+        raise E.AuthorizationError("the validation readiness gate has not been run (protocol section 6); run --split val first")
+    r = json.loads(p.read_text(encoding="utf-8"))
+    ids = {m["model"] for m in r.get("models", [])}
+    if r.get("all_pass") is not True or ids != set(E.frozen_registry()):
+        raise E.AuthorizationError("the validation readiness gate did not pass for every frozen model (protocol section 6)")
+    code = r.get("code_sha256") or {}
+    if not {"src/heldout/evaluator.py", "scripts/run_heldout_evaluation.py"} <= set(code):
+        raise E.AuthorizationError("the readiness record does not fingerprint the evaluator code; rerun --split val (protocol section 6)")
+    changed = CH.changed_code(code)
+    if changed:
+        raise E.AuthorizationError(f"the code changed after the readiness gate was recorded ({', '.join(changed)}); rerun --split val (protocol section 6)")
+    shown = p.relative_to(ROOT).as_posix() if p.resolve().is_relative_to(ROOT) else str(p)
+    return {"readiness_report": shown, "all_pass": True, "code_files_verified": len(code)}
+
+
 def main(argv=None) -> int:
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument("--split", choices=["val", "heldout"], required=True)
@@ -108,6 +129,7 @@ def main(argv=None) -> int:
                 print("error: the held-out evaluation has already been executed; it is one-shot (protocol section 7).", file=sys.stderr)
                 return 2
             E.require_authorization("heldout")                  # raises before anything is read
+            require_base_readiness()                            # protocol section 6: the readiness gate must have passed first
             out.mkdir(parents=True, exist_ok=True)
             heldout(E.run("heldout", fams), out)
             return 0

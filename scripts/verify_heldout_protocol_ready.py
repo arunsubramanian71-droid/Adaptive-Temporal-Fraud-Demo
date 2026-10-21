@@ -12,7 +12,6 @@ from __future__ import annotations
 import datetime
 import hashlib
 import json
-import os
 import pathlib
 import sys
 
@@ -48,8 +47,12 @@ def main() -> int:
     rep_path = FH / "readiness_val" / "readiness_report.json"
     rep = json.loads(rep_path.read_text(encoding="utf-8"))
     ev_files = [ROOT / "src/heldout/evaluator.py", ROOT / "scripts/run_heldout_evaluation.py"]
+    from src.heldout import codehash as CH
+    code = rep.get("code_sha256") or {}
     facts["readiness"] = {"all_pass": rep["all_pass"], "models": len(rep["models"]), "max_abs_score_difference": max(m["max_abs_score_diff"] for m in rep["models"]),
-                          "recorded_after_last_evaluator_change": all(os.stat(f).st_mtime < os.stat(rep_path).st_mtime for f in ev_files), "run_local": rep["created_local"],
+                          # content-based (the runner's own rule, src/heldout/codehash.py): every code file the gate loaded is unchanged since; file times are not used
+                          "recorded_after_last_evaluator_change": bool(code) and {"src/heldout/evaluator.py", "scripts/run_heldout_evaluation.py"} <= set(code) and CH.changed_code(code) == [],
+                          "code_files_fingerprinted": len(code), "run_local": rep["created_local"],
                           "evaluator_sha256": {f.name: sha(f) for f in ev_files}}
     facts["heldout_artifacts"] = {"AUTHORIZATION.txt_exists": (FH / "AUTHORIZATION.txt").exists(), "heldout_results_exists": (FH / "heldout_results").exists()}
     facts["gate_behaviour_tested"] = {"module": "tests/test_heldout_gate.py", "tests": ["refused without the file", "refused with wrong hash or sentence", "accepted only with both", "CLI refuses before reading and enforces one-shot",
@@ -69,7 +72,7 @@ def main() -> int:
          f"Dated {rec['created_local'][:10]}. Read-only. **No held-out file was opened, hashed, read or scored; `AUTHORIZATION.txt` does not exist.**\n",
          f"* Protocol: `{E.PROTOCOL}`, SHA-256 `{ph}` (sidecar matches: {facts['sidecar_matches']}).",
          f"* Frozen models: {facts['n_models']} (all artifacts present: {facts['all_artifacts_exist']}); thresholds are the recorded validation best-F1 values below and are transferred, never re-tuned.",
-         f"* Code-readiness gate: validation re-scoring of all {facts['readiness']['models']} models reproduces the recorded predictions (maximum score difference {facts['readiness']['max_abs_score_difference']:.2e}); recorded after the last change to the evaluator: {facts['readiness']['recorded_after_last_evaluator_change']}.",
+         f"* Code-readiness gate: validation re-scoring of all {facts['readiness']['models']} models reproduces the recorded predictions (maximum score difference {facts['readiness']['max_abs_score_difference']:.2e}); code unchanged since the gate ran (SHA-256 of the {facts['readiness']['code_files_fingerprinted']} code files it loaded): {facts['readiness']['recorded_after_last_evaluator_change']}.",
          f"* Evaluator hashes at readiness: " + ", ".join(f"`{k}` `{v[:16]}...`" for k, v in facts["readiness"]["evaluator_sha256"].items()) + ".",
          f"* **Verdict: {'READY for informed authorization' if ok else 'NOT READY (see the failed fact above)'}.** Readiness means the procedure is frozen and checked on validation; it does not mean the evaluation answers every question of the brief (see the gaps below).\n",
          "## Frozen models and recorded validation thresholds\n", "| Model | Recorded validation threshold |", "|---|---|"]

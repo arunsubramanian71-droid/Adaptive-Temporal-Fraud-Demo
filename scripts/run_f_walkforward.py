@@ -8,7 +8,8 @@
 
 Windows: validation 122-127 ... 146-151 (Phase 8); held-out 152-157, 158-163, 164-169, 170-175, 176-181 (five 6-day windows; day 182 is not scored for these arms).
 Burn-in (variant burn_in and always for held-out): the state is first streamed over days 1..(first window - 1) unlabeled. Outputs: experiments/phase8_state_continuity_supplement/outputs/<variant>/
-(validation) or experiments/final_heldout_protocol/heldout_results_f/ (held-out). Nothing existing is written.
+(validation; --out-name chooses another folder) or experiments/final_heldout_protocol/heldout_results_f/ (held-out). A folder holding a completed run is never
+overwritten (the registered readiness result and the reference runs are preserved records).
 """
 from __future__ import annotations
 
@@ -87,6 +88,7 @@ def main(argv=None) -> int:
     ap.add_argument("--variant", choices=["as_written", "burn_in", "readiness"], default="burn_in")
     ap.add_argument("--seeds", default="42,123,2024")
     ap.add_argument("--arms", default="F,Ad,E")
+    ap.add_argument("--out-name", default=None, help="validation only: output folder name under the supplement outputs (default: the variant). A folder holding a completed run is never overwritten.")
     a = ap.parse_args(argv)
     seeds = [int(s) for s in a.seeds.split(",")]
     arms = a.arms.split(",")
@@ -100,12 +102,21 @@ def main(argv=None) -> int:
             return 2
         try:
             auth = A.require_amendment_authorization("heldout", ("F",))
-        except E.AuthorizationError as e:
+            auth["readiness"] = A.require_amendment_readiness(("F",))           # refuses while the registered gate has not passed
+        except (E.AuthorizationError, A.ReadinessError) as e:
             print(f"error: {e}", file=sys.stderr)
             return 2
         windows, replay_windows, max_day = HELDOUT_WINDOWS, HELDOUT_REPLAY_WINDOWS, 181
     else:
-        out_root = ROOT / "experiments" / "phase8_state_continuity_supplement" / "outputs" / a.variant
+        name = a.out_name or a.variant
+        if not name.replace("_", "").isalnum():
+            print(f"error: --out-name must be a plain folder name, got {name!r}", file=sys.stderr)
+            return 2
+        out_root = ROOT / "experiments" / "phase8_state_continuity_supplement" / "outputs" / name
+        if (out_root / "summary.json").exists():
+            print(f"error: {out_root} holds a completed run, which is a preserved record (the registered readiness result and the reference runs live here); "
+                  f"choose a new --out-name.", file=sys.stderr)
+            return 2
         auth = {"split": "val"}
         windows, replay_windows, max_day = build_windows(122, 151), None, 151
     out_root.mkdir(parents=True, exist_ok=True)

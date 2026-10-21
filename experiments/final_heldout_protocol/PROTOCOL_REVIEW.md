@@ -1,11 +1,11 @@
 # Held-out protocol: readiness review (no authorization requested or created)
 
-Dated 2026-10-21. Read-only. **No held-out file was opened, hashed, read or scored; `AUTHORIZATION.txt` does not exist.**
+Dated 2026-10-22. Read-only. **No held-out file was opened, hashed, read or scored; `AUTHORIZATION.txt` does not exist.**
 
 * Protocol: `experiments/final_heldout_protocol/HELDOUT_EVALUATION_PROTOCOL.md`, SHA-256 `59bf1565fb16653a02a2d743cc445e114fb2a6a42f1de7b2fa56261e6f68c806` (sidecar matches: True).
 * Frozen models: 19 (all artifacts present: True); thresholds are the recorded validation best-F1 values below and are transferred, never re-tuned.
-* Code-readiness gate: validation re-scoring of all 19 models reproduces the recorded predictions (maximum score difference 7.15e-07); recorded after the last change to the evaluator: True.
-* Evaluator hashes at readiness: `evaluator.py` `bc6157f57279e11d...`, `run_heldout_evaluation.py` `45b3f0351d8eac9c...`.
+* Code-readiness gate: validation re-scoring of all 19 models reproduces the recorded predictions (maximum score difference 7.15e-07); code unchanged since the gate ran (SHA-256 of the 21 code files it loaded): True.
+* Evaluator hashes at readiness: `evaluator.py` `bc6157f57279e11d...`, `run_heldout_evaluation.py` `4b74469b422ebc88...`.
 * **Verdict: READY for informed authorization.** Readiness means the procedure is frozen and checked on validation; it does not mean the evaluation answers every question of the brief (see the gaps below).
 
 ## Frozen models and recorded validation thresholds

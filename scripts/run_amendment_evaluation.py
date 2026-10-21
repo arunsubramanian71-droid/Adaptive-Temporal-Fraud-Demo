@@ -25,6 +25,7 @@ import numpy as np  # noqa: E402
 import pandas as pd  # noqa: E402
 
 from src.heldout import amendment as A  # noqa: E402
+from src.heldout import codehash as CH  # noqa: E402
 from src.heldout import evaluator as E  # noqa: E402
 
 FOLDER = ROOT / "experiments" / "final_heldout_protocol"
@@ -77,7 +78,7 @@ def readiness(res: dict, out: pathlib.Path) -> bool:
         rows.append(row)
         print(f"[{'ok ' if ok else 'FAIL'}] {mid:<34} PR-AUC {pr_new:.6f} vs {pr_old:.6f}  max|diff| {row['max_abs_score_diff']}", flush=True)
     rec = {"created_local": datetime.datetime.now().astimezone().replace(microsecond=0).isoformat(), "split": "val", "all_pass": ok_all, "python": platform.python_version(),
-           "models": rows, "statement": "Validation-period re-scoring of the Amendment 1 frozen models (modules H, U) for the code-readiness gate. No held-out data was read."}
+           "models": rows, "code_sha256": CH.loaded_project_code(), "statement": "Validation-period re-scoring of the Amendment 1 frozen models (modules H, U) for the code-readiness gate. No held-out data was read."}
     write(out / "readiness_report.json", json.dumps(rec, indent=1) + "\n")
     return ok_all
 
@@ -118,6 +119,7 @@ def main(argv=None) -> int:
                 print("error: the amendment held-out evaluation has already been executed; it is one-shot.", file=sys.stderr)
                 return 2
             A.require_amendment_authorization("heldout", mods)          # raises before anything is read
+            A.require_amendment_readiness(mods)                         # registered readiness gates must have passed
             out.mkdir(parents=True, exist_ok=True)
             heldout(A.run_modules("heldout", mods), out)
             return 0
@@ -126,7 +128,7 @@ def main(argv=None) -> int:
         ok = readiness(A.run_modules("val", mods), out)
         print("READINESS:", "PASS" if ok else "FAIL (see readiness_report.json)")
         return 0 if ok else 1
-    except E.AuthorizationError as e:
+    except (E.AuthorizationError, A.ReadinessError) as e:
         print(f"error: {e}", file=sys.stderr)
         return 2
 

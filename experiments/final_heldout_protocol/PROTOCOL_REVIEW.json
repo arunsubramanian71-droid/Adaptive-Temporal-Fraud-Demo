@@ -1,5 +1,5 @@
 {
- "created_local": "2026-10-21T15:30:07+05:30",
+ "created_local": "2026-10-22T03:01:13+05:30",
  "facts": {
   "protocol_sha256": "59bf1565fb16653a02a2d743cc445e114fb2a6a42f1de7b2fa56261e6f68c806",
   "sidecar_matches": true,
@@ -20,10 +20,11 @@
    "models": 19,
    "max_abs_score_difference": 7.152557373046875e-07,
    "recorded_after_last_evaluator_change": true,
-   "run_local": "2026-10-21T10:55:29+05:30",
+   "code_files_fingerprinted": 21,
+   "run_local": "2026-10-22T02:41:59+05:30",
    "evaluator_sha256": {
     "evaluator.py": "bc6157f57279e11d01d7ff08b8e1c39e3a68640b6d6c9eddee77489ca137227b",
-    "run_heldout_evaluation.py": "45b3f0351d8eac9c930d266e2814a579a1eda3725b6098925ea72bba856430a9"
+    "run_heldout_evaluation.py": "4b74469b422ebc880c0db4a3ba8c8daaae11cc0499c8d26742cb285b9ad93583"
    }
   },
   "heldout_artifacts": {
