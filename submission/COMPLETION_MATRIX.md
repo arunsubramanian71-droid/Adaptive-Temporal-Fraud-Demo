@@ -67,12 +67,12 @@ Status words: **PASS** = the required work was executed and its acceptance crite
 
 ## 5. Remaining blockers and decisions (precise)
 
-1. **Held-out evaluation:** create `experiments/final_heldout_protocol/AUTHORIZATION.txt` quoting the protocol's SHA-256 and the sentence in its section 9, then run `scripts/run_heldout_evaluation.py --split heldout`. The evaluator is ready and checked on validation. The base protocol alone leaves the adaptive system (H4 on future data) and the historical reference line unevaluated; `experiments/final_heldout_protocol/AMENDMENT_1.md` (modules F, H, U; additional hashed authorization needed) closes them, and `SCOPE_RECONCILIATION.md` gives the model-by-model decision. Module F's trained-arm window-mean readiness gate failed as written in 1 of 6 cases (0.0104 against 0.01; not changed).
-2. **Phase 12 AC12:** cannot be satisfied retrospectively as registered; per-file recovery covers 550 of 651 files (0 contradictions), 101 with no evidence.
+1. **Held-out evaluation:** create `experiments/final_heldout_protocol/AUTHORIZATION.txt` quoting the protocol's SHA-256 and the sentence in its section 9, then run `scripts/run_heldout_evaluation.py --split heldout`. The evaluator is ready and checked on validation. The base protocol alone leaves the adaptive system (H4 on future data) and the historical reference line unevaluated; `experiments/final_heldout_protocol/AMENDMENT_1.md` (modules F, H, U; additional hashed authorization needed) closes them, and `SCOPE_RECONCILIATION.md` gives the model-by-model decision. Module F's trained-arm window-mean readiness gate failed as written in 1 of 6 cases (0.0104 against 0.01; not changed); the runner now refuses F until a gate passes or is validly amended. Options, the corrected gate proposal A2-a-r1 and the exact authorization text: `submission/HELDOUT_DECISION_PACKAGE.md` (2026-10-22).
+2. **Phase 12 AC12:** cannot be satisfied retrospectively as registered; per-file recovery covers 550 of 651 files (0 contradictions), 101 with no evidence (38 of these with derived consistency only, not counted).
 3. **Phase 9 / H5:** the original G4 failure stands; the new, separately pre-registered Phase 9b benchmark was run and supports H5a-9b (separate result).
-4. **Phase 13 scope:** confirm or correct the reconstruction.
+4. **Phase 13 scope:** confirm or correct the reconstruction (`submission/PHASE13_SCOPE_CONFIRMATION.md`).
 5. **Optional:** explanations of GraphSAGE; GAT unweighted; GraphSAGE/GAT relation ablations (the temporal model was ablated); Phase 10 empirical tiers.
-6. **Public Git history:** six transaction-level evidence files remain in earlier commits; make the repository private or approve a history rewrite.
+6. **Public Git history:** six transaction-level evidence files remain in 21 of 25 commits; competition rule 7B applies; a verified backup bundle exists; make the repository private and notify Kaggle (recommended), or approve a history rewrite.
 
 ## 6. Overall acceptance
 

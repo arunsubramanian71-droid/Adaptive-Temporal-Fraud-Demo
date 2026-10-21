@@ -1,17 +1,17 @@
 {
- "run_local": "2026-10-22T02:16:06+05:30",
+ "run_local": "2026-10-22T02:55:40+05:30",
  "python": "3.12.0",
  "command": ".venv/Scripts/python.exe -B scripts/run_completion_tests.py",
  "summary": {
-  "modules": 37,
-  "total": 343,
-  "passed": 343,
+  "modules": 38,
+  "total": 358,
+  "passed": 358,
   "failed": 0
  },
  "per_module": {
   "test_ac12_recovery_records": {
-   "total": 5,
-   "passed": 5
+   "total": 7,
+   "passed": 7
   },
   "test_amendment_gate": {
    "total": 8,
@@ -30,8 +30,8 @@
    "passed": 12
   },
   "test_f_runner_gate": {
-   "total": 1,
-   "passed": 1
+   "total": 4,
+   "passed": 4
   },
   "test_graph_evidence": {
    "total": 7,
@@ -113,6 +113,10 @@
    "total": 8,
    "passed": 8
   },
+  "test_readiness_guards": {
+   "total": 10,
+   "passed": 10
+  },
   "test_relation_ablation_records": {
    "total": 3,
    "passed": 3
@@ -170,7 +174,7 @@
    "module": "test_ac12_recovery_records",
    "test": "test_no_contradiction_and_counts_agree_with_the_per_file_rows",
    "status": "pass",
-   "seconds": 0.001,
+   "seconds": 0.0,
    "error": null
   },
   {
@@ -184,7 +188,7 @@
    "module": "test_ac12_recovery_records",
    "test": "test_snapshot_commit_is_the_root_of_this_repository_history",
    "status": "pass",
-   "seconds": 0.049,
+   "seconds": 0.047,
    "error": null
   },
   {
@@ -192,6 +196,20 @@
    "test": "test_phase12_closure_status_is_not_rewritten",
    "status": "pass",
    "seconds": 0.0,
+   "error": null
+  },
+  {
+   "module": "test_ac12_recovery_records",
+   "test": "test_derived_evidence_record_is_labelled_not_provenance_and_leaves_ac12_unchanged",
+   "status": "pass",
+   "seconds": 0.001,
+   "error": null
+  },
+  {
+   "module": "test_ac12_recovery_records",
+   "test": "test_derived_evidence_recomputes_from_the_current_files",
+   "status": "pass",
+   "seconds": 0.613,
    "error": null
   },
   {
@@ -205,21 +223,21 @@
    "module": "test_amendment_gate",
    "test": "test_heldout_refused_without_base_authorization_even_if_amendment_is_quoted",
    "status": "pass",
-   "seconds": 0.017,
+   "seconds": 0.016,
    "error": null
   },
   {
    "module": "test_amendment_gate",
    "test": "test_base_authorization_alone_does_not_unlock_any_amendment_module",
    "status": "pass",
-   "seconds": 0.009,
+   "seconds": 0.008,
    "error": null
   },
   {
    "module": "test_amendment_gate",
    "test": "test_modules_must_be_named_and_requested_must_be_a_subset_of_authorized",
    "status": "pass",
-   "seconds": 0.019,
+   "seconds": 0.01,
    "error": null
   },
   {
@@ -233,7 +251,7 @@
    "module": "test_amendment_gate",
    "test": "test_amendment_cli_refuses_before_reading_and_enforces_one_shot",
    "status": "pass",
-   "seconds": 0.007,
+   "seconds": 0.009,
    "error": null
   },
   {
@@ -247,7 +265,7 @@
    "module": "test_amendment_gate",
    "test": "test_modules_lint_clean",
    "status": "pass",
-   "seconds": 0.002,
+   "seconds": 0.003,
    "error": null
   },
   {
@@ -261,7 +279,7 @@
    "module": "test_artifact_registry",
    "test": "test_registered_patterns_are_relative_never_held_out_and_never_match_a_tracked_file",
    "status": "pass",
-   "seconds": 0.086,
+   "seconds": 0.117,
    "error": null
   },
   {
@@ -324,7 +342,7 @@
    "module": "test_comparison_b_outputs",
    "test": "test_ba1_preregistration_precedes_every_output_and_hashes_match",
    "status": "pass",
-   "seconds": 0.008,
+   "seconds": 0.001,
    "error": null
   },
   {
@@ -345,56 +363,56 @@
    "module": "test_comparison_b_outputs",
    "test": "test_ba5_each_arm_scores_exactly_the_reference_population",
    "status": "pass",
-   "seconds": 0.147,
+   "seconds": 0.058,
    "error": null
   },
   {
    "module": "test_comparison_b_outputs",
    "test": "test_ba7_recorded_metrics_equal_a_recomputation_from_the_stored_predictions",
    "status": "pass",
-   "seconds": 0.542,
+   "seconds": 0.503,
    "error": null
   },
   {
    "module": "test_comparison_b_outputs",
    "test": "test_ba6_pipeline_control_reproduces_the_recorded_comparison_a",
    "status": "pass",
-   "seconds": 0.001,
+   "seconds": 0.0,
    "error": null
   },
   {
    "module": "test_comparison_b_outputs",
    "test": "test_ba8_decisions_equal_the_registered_rules_applied_to_the_recorded_values",
    "status": "pass",
-   "seconds": 0.019,
+   "seconds": 0.009,
    "error": null
   },
   {
    "module": "test_comparison_b_outputs",
    "test": "test_ba9_sidecars_and_outputs_wording",
    "status": "pass",
-   "seconds": 0.021,
+   "seconds": 0.002,
    "error": null
   },
   {
    "module": "test_comparison_b_outputs",
    "test": "test_ia_imbalance_outputs_follow_their_preregistration",
    "status": "pass",
-   "seconds": 0.017,
+   "seconds": 0.003,
    "error": null
   },
   {
    "module": "test_comparison_b_outputs",
    "test": "test_ge_graph_evidence_outputs_meet_their_criteria_and_hashes_link",
    "status": "pass",
-   "seconds": 0.101,
+   "seconds": 0.081,
    "error": null
   },
   {
    "module": "test_comparison_b_outputs",
    "test": "test_ua_unweighted_followup_follows_its_preregistration",
    "status": "pass",
-   "seconds": 0.157,
+   "seconds": 0.054,
    "error": null
   },
   {
@@ -412,6 +430,27 @@
    "error": null
   },
   {
+   "module": "test_f_runner_gate",
+   "test": "test_f_runner_refuses_on_its_failed_readiness_gate_even_when_authorized_and_reads_nothing",
+   "status": "pass",
+   "seconds": 0.001,
+   "error": null
+  },
+  {
+   "module": "test_f_runner_gate",
+   "test": "test_f_runner_never_overwrites_a_completed_validation_run_and_refuses_before_reading",
+   "status": "pass",
+   "seconds": 0.002,
+   "error": null
+  },
+  {
+   "module": "test_f_runner_gate",
+   "test": "test_f_diagnosis_never_overwrites_a_preserved_record_and_refuses_before_reading",
+   "status": "pass",
+   "seconds": 0.003,
+   "error": null
+  },
+  {
    "module": "test_graph_evidence",
    "test": "test_relation_assignment_follows_the_preregistration",
    "status": "pass",
@@ -422,7 +461,7 @@
    "module": "test_graph_evidence",
    "test": "test_relation_sums_plus_tabular_plus_bias_equal_the_margin",
    "status": "pass",
-   "seconds": 0.101,
+   "seconds": 0.076,
    "error": null
   },
   {
@@ -436,21 +475,21 @@
    "module": "test_graph_evidence",
    "test": "test_effects_are_nan_without_an_edge_and_removing_an_irrelevant_relation_matters_less",
    "status": "pass",
-   "seconds": 0.013,
+   "seconds": 0.011,
    "error": null
   },
   {
    "module": "test_graph_evidence",
    "test": "test_pick_relations_is_deterministic_seeded_and_only_picks_present_relations",
    "status": "pass",
-   "seconds": 0.024,
+   "seconds": 0.022,
    "error": null
   },
   {
    "module": "test_graph_evidence",
    "test": "test_sanity_check_reports_the_comparison_it_made",
    "status": "pass",
-   "seconds": 0.171,
+   "seconds": 0.142,
    "error": null
   },
   {
@@ -471,14 +510,14 @@
    "module": "test_graph_features",
    "test": "test_equals_brute_force_with_ties_missing_edges_and_windows",
    "status": "pass",
-   "seconds": 1.086,
+   "seconds": 1.0,
    "error": null
   },
   {
    "module": "test_graph_features",
    "test": "test_equals_brute_force_with_dense_entities_and_no_missing",
    "status": "pass",
-   "seconds": 0.16,
+   "seconds": 0.149,
    "error": null
   },
   {
@@ -506,7 +545,7 @@
    "module": "test_graph_features",
    "test": "test_future_rows_never_change_earlier_features",
    "status": "pass",
-   "seconds": 0.005,
+   "seconds": 0.004,
    "error": null
   },
   {
@@ -527,7 +566,7 @@
    "module": "test_graph_features",
    "test": "test_function_has_no_label_argument_and_the_module_never_names_a_label",
    "status": "pass",
-   "seconds": 0.0,
+   "seconds": 0.001,
    "error": null
   },
   {
@@ -590,7 +629,7 @@
    "module": "test_heldout_gate",
    "test": "test_heldout_is_refused_when_hash_or_sentence_is_missing_and_accepted_only_when_both_are_present",
    "status": "pass",
-   "seconds": 0.007,
+   "seconds": 0.015,
    "error": null
   },
   {
@@ -625,7 +664,7 @@
    "module": "test_heldout_gate",
    "test": "test_feature_frames_are_read_without_the_label_column",
    "status": "pass",
-   "seconds": 0.007,
+   "seconds": 0.005,
    "error": null
   },
   {
@@ -639,28 +678,28 @@
    "module": "test_inference_demo",
    "test": "test_synthetic_fixture_is_deterministic_and_chronological",
    "status": "pass",
-   "seconds": 0.026,
+   "seconds": 0.023,
    "error": null
   },
   {
    "module": "test_inference_demo",
    "test": "test_scores_are_probabilities_one_per_row_in_caller_order",
    "status": "pass",
-   "seconds": 0.21,
+   "seconds": 0.203,
    "error": null
   },
   {
    "module": "test_inference_demo",
    "test": "test_scoring_ignores_labels_and_is_causal",
    "status": "pass",
-   "seconds": 0.045,
+   "seconds": 0.038,
    "error": null
   },
   {
    "module": "test_inference_demo",
    "test": "test_graph_features_change_scores_but_tabular_bundle_ignores_entities",
    "status": "pass",
-   "seconds": 0.08,
+   "seconds": 0.074,
    "error": null
   },
   {
@@ -674,7 +713,7 @@
    "module": "test_inference_demo",
    "test": "test_invalid_inputs_give_actionable_errors",
    "status": "pass",
-   "seconds": 0.006,
+   "seconds": 0.005,
    "error": null
   },
   {
@@ -688,21 +727,21 @@
    "module": "test_inference_demo",
    "test": "test_bundle_round_trip_and_tamper_detection",
    "status": "pass",
-   "seconds": 0.05,
+   "seconds": 0.049,
    "error": null
   },
   {
    "module": "test_inference_demo",
    "test": "test_command_line_train_and_score_round_trip_and_error_codes",
    "status": "pass",
-   "seconds": 0.448,
+   "seconds": 0.401,
    "error": null
   },
   {
    "module": "test_inference_demo",
    "test": "test_demo_runs_is_deterministic_and_shows_its_invariants",
    "status": "pass",
-   "seconds": 1.47,
+   "seconds": 1.344,
    "error": null
   },
   {
@@ -723,21 +762,21 @@
    "module": "test_inference_demo",
    "test": "test_wording_lint_on_new_software_sources",
    "status": "pass",
-   "seconds": 0.003,
+   "seconds": 0.004,
    "error": null
   },
   {
    "module": "test_manuscript_figures",
    "test": "test_figures_exist_are_png_files_and_match_their_sidecars",
    "status": "pass",
-   "seconds": 0.001,
+   "seconds": 0.002,
    "error": null
   },
   {
    "module": "test_manuscript_figures",
    "test": "test_figure_data_equals_the_recorded_source_tables",
    "status": "pass",
-   "seconds": 0.005,
+   "seconds": 0.003,
    "error": null
   },
   {
@@ -751,56 +790,56 @@
    "module": "test_neural_graph_evidence",
    "test": "test_base_logit_equals_a_direct_step_and_state_is_not_mutated",
    "status": "pass",
-   "seconds": 0.069,
+   "seconds": 0.045,
    "error": null
   },
   {
    "module": "test_neural_graph_evidence",
    "test": "test_remove_edge_deletes_exactly_that_transactions_edge_and_drops_orphaned_entities",
    "status": "pass",
-   "seconds": 0.004,
+   "seconds": 0.0,
    "error": null
   },
   {
    "module": "test_neural_graph_evidence",
    "test": "test_removal_changes_only_through_the_targets_link_and_leaves_other_edges_identical",
    "status": "pass",
-   "seconds": 0.002,
+   "seconds": 0.003,
    "error": null
   },
   {
    "module": "test_neural_graph_evidence",
    "test": "test_counterfactuals_structure_presence_and_memory_semantics",
    "status": "pass",
-   "seconds": 0.012,
+   "seconds": 0.014,
    "error": null
   },
   {
    "module": "test_neural_graph_evidence",
    "test": "test_counterfactuals_never_mutate_the_dataset_or_the_state_and_are_deterministic",
    "status": "pass",
-   "seconds": 0.009,
+   "seconds": 0.007,
    "error": null
   },
   {
    "module": "test_neural_graph_evidence",
    "test": "test_proxy_refuses_another_day_and_module_has_no_label_argument",
    "status": "pass",
-   "seconds": 0.003,
+   "seconds": 0.002,
    "error": null
   },
   {
    "module": "test_neural_graph_evidence",
    "test": "test_recorded_outputs_follow_the_preregistration_and_report_the_failed_criterion",
    "status": "pass",
-   "seconds": 0.015,
+   "seconds": 0.007,
    "error": null
   },
   {
    "module": "test_phase10_compat",
    "test": "test_fixed_sequences_phase9_characterization_and_compat_equivalence",
    "status": "pass",
-   "seconds": 0.004,
+   "seconds": 0.005,
    "error": null
   },
   {
@@ -814,7 +853,7 @@
    "module": "test_phase10_compat",
    "test": "test_T31_random_canonical_sequences_match_phase9_ids_flags_and_lifecycle",
    "status": "pass",
-   "seconds": 0.445,
+   "seconds": 0.464,
    "error": null
   },
   {
@@ -884,7 +923,7 @@
    "module": "test_phase10_properties",
    "test": "test_property_random_sequences_match_oracle_and_satisfy_invariants",
    "status": "pass",
-   "seconds": 0.194,
+   "seconds": 0.296,
    "error": null
   },
   {
@@ -898,7 +937,7 @@
    "module": "test_phase10_properties",
    "test": "test_compat_mode_accounting_is_the_same_equations_with_Q_empty",
    "status": "pass",
-   "seconds": 0.021,
+   "seconds": 0.02,
    "error": null
   },
   {
@@ -919,7 +958,7 @@
    "module": "test_phase10_properties",
    "test": "test_new_package_does_not_import_phase9_code",
    "status": "pass",
-   "seconds": 0.005,
+   "seconds": 0.006,
    "error": null
   },
   {
@@ -1241,7 +1280,7 @@
    "module": "test_phase11_explain",
    "test": "test_A1_contributions_sum_to_the_margin_on_toy_models",
    "status": "pass",
-   "seconds": 1.435,
+   "seconds": 1.415,
    "error": null
   },
   {
@@ -1255,7 +1294,7 @@
    "module": "test_phase11_explain",
    "test": "test_A3_batch_invariance",
    "status": "pass",
-   "seconds": 0.033,
+   "seconds": 0.032,
    "error": null
   },
   {
@@ -1269,7 +1308,7 @@
    "module": "test_phase11_explain",
    "test": "test_A4_selection_has_exact_count_groups_and_is_reproducible",
    "status": "pass",
-   "seconds": 0.023,
+   "seconds": 0.02,
    "error": null
   },
   {
@@ -1283,7 +1322,7 @@
    "module": "test_phase11_explain",
    "test": "test_selection_ties_at_the_top_boundary_are_broken_by_lower_transaction_id",
    "status": "pass",
-   "seconds": 0.004,
+   "seconds": 0.003,
    "error": null
   },
   {
@@ -1297,14 +1336,14 @@
    "module": "test_phase11_explain",
    "test": "test_selection_uniform_group_follows_the_documented_generator_and_seed_matters",
    "status": "pass",
-   "seconds": 0.008,
+   "seconds": 0.007,
    "error": null
   },
   {
    "module": "test_phase11_explain",
    "test": "test_selection_is_independent_of_row_order",
    "status": "pass",
-   "seconds": 0.006,
+   "seconds": 0.005,
    "error": null
   },
   {
@@ -1339,7 +1378,7 @@
    "module": "test_phase11_explain",
    "test": "test_A6_loaders_reject_test_files_and_days_outside_the_val_window",
    "status": "pass",
-   "seconds": 0.012,
+   "seconds": 0.011,
    "error": null
   },
   {
@@ -1360,7 +1399,7 @@
    "module": "test_phase11_explain",
    "test": "test_cards_alerted_rule_includes_ties_at_tau_and_handles_no_alert",
    "status": "pass",
-   "seconds": 0.006,
+   "seconds": 0.007,
    "error": null
   },
   {
@@ -1374,14 +1413,14 @@
    "module": "test_phase11_explain",
    "test": "test_cards_reject_unexpected_columns_days_outside_val_and_duplicates",
    "status": "pass",
-   "seconds": 0.075,
+   "seconds": 0.061,
    "error": null
   },
   {
    "module": "test_phase11_explain",
    "test": "test_A8_wording_lint_clean_on_sources_and_rendered_cards",
    "status": "pass",
-   "seconds": 0.03,
+   "seconds": 0.029,
    "error": null
   },
   {
@@ -1409,35 +1448,35 @@
    "module": "test_phase11_outputs",
    "test": "test_A4_A6_selection_has_300_rows_10_per_day_within_val_and_is_reproduced_from_label_free_inputs",
    "status": "pass",
-   "seconds": 0.043,
+   "seconds": 0.039,
    "error": null
   },
   {
    "module": "test_phase11_outputs",
    "test": "test_A1_A2_stored_contributions_are_additive_and_reproduce_the_stored_scores",
    "status": "pass",
-   "seconds": 0.03,
+   "seconds": 0.026,
    "error": null
   },
   {
    "module": "test_phase11_outputs",
    "test": "test_top_feature_lists_agree_with_the_contribution_matrix",
    "status": "pass",
-   "seconds": 0.03,
+   "seconds": 0.028,
    "error": null
   },
   {
    "module": "test_phase11_outputs",
    "test": "test_A9_cards_match_a_fresh_recomputation_from_the_existing_aggregates_only",
    "status": "pass",
-   "seconds": 0.042,
+   "seconds": 0.039,
    "error": null
   },
   {
    "module": "test_phase11_outputs",
    "test": "test_A8_wording_lint_on_all_phase11_text_outputs_and_sources",
    "status": "pass",
-   "seconds": 0.11,
+   "seconds": 0.107,
    "error": null
   },
   {
@@ -1451,28 +1490,28 @@
    "module": "test_phase12_environment_independence",
    "test": "test_rebuild_is_byte_identical_and_the_manifest_differs_only_in_environment_metadata",
    "status": "pass",
-   "seconds": 6.961,
+   "seconds": 7.289,
    "error": null
   },
   {
    "module": "test_phase12_evidence",
    "test": "test_declared_set_matches_the_scope_record_counts_and_exclusions",
    "status": "pass",
-   "seconds": 0.0,
+   "seconds": 0.001,
    "error": null
   },
   {
    "module": "test_phase12_evidence",
    "test": "test_fingerprint_follows_the_registered_recipe",
    "status": "pass",
-   "seconds": 0.002,
+   "seconds": 0.003,
    "error": null
   },
   {
    "module": "test_phase12_evidence",
    "test": "test_guard_refuses_undeclared_test_checkpoint_and_excluded_paths_and_logs_opens",
    "status": "pass",
-   "seconds": 0.051,
+   "seconds": 0.008,
    "error": null
   },
   {
@@ -1507,7 +1546,7 @@
    "module": "test_phase12_evidence",
    "test": "test_attach_missing_adds_day_and_segment_by_id_and_keeps_row_order",
    "status": "pass",
-   "seconds": 0.008,
+   "seconds": 0.006,
    "error": null
   },
   {
@@ -1521,21 +1560,21 @@
    "module": "test_phase12_evidence",
    "test": "test_process_non_f_reproduces_recorded_metrics_and_flags_a_tampered_record",
    "status": "pass",
-   "seconds": 0.248,
+   "seconds": 0.278,
    "error": null
   },
   {
    "module": "test_phase12_evidence",
    "test": "test_process_non_f_blocks_on_population_mismatch",
    "status": "pass",
-   "seconds": 0.022,
+   "seconds": 0.021,
    "error": null
   },
   {
    "module": "test_phase12_evidence",
    "test": "test_process_f_reports_both_bases_and_checks_the_window_partition",
    "status": "pass",
-   "seconds": 0.415,
+   "seconds": 0.431,
    "error": null
   },
   {
@@ -1549,7 +1588,7 @@
    "module": "test_phase12_evidence",
    "test": "test_markdown_rendering_carries_banners_missing_b_row_and_passes_the_wording_lint",
    "status": "pass",
-   "seconds": 0.001,
+   "seconds": 0.0,
    "error": null
   },
   {
@@ -1563,7 +1602,7 @@
    "module": "test_phase12_evidence",
    "test": "test_wording_lint_on_all_phase12_sources_and_tests",
    "status": "pass",
-   "seconds": 0.009,
+   "seconds": 0.008,
    "error": null
   },
   {
@@ -1577,14 +1616,14 @@
    "module": "test_phase12_outputs",
    "test": "test_AC1_only_the_declared_source_set_was_read_and_the_fingerprint_is_stable",
    "status": "pass",
-   "seconds": 0.033,
+   "seconds": 0.031,
    "error": null
   },
   {
    "module": "test_phase12_outputs",
    "test": "test_AC2_single_metric_implementation_and_no_threshold_tuning",
    "status": "pass",
-   "seconds": 0.017,
+   "seconds": 0.016,
    "error": null
   },
   {
@@ -1605,7 +1644,7 @@
    "module": "test_phase12_outputs",
    "test": "test_AC6_rows_carry_the_required_fields_both_F_bases_and_the_B_missing_row",
    "status": "pass",
-   "seconds": 0.011,
+   "seconds": 0.009,
    "error": null
   },
   {
@@ -1619,28 +1658,28 @@
    "module": "test_phase12_outputs",
    "test": "test_AC7_comparability_matrix_equals_the_scope_record",
    "status": "pass",
-   "seconds": 0.003,
+   "seconds": 0.002,
    "error": null
   },
   {
    "module": "test_phase12_outputs",
    "test": "test_AC9_wording_lint_on_all_phase12_text_outputs_and_sources",
    "status": "pass",
-   "seconds": 0.039,
+   "seconds": 0.033,
    "error": null
   },
   {
    "module": "test_phase12_outputs",
    "test": "test_AC10_sidecars_and_deterministic_rebuild",
    "status": "pass",
-   "seconds": 7.098,
+   "seconds": 6.659,
    "error": null
   },
   {
    "module": "test_phase12_outputs",
    "test": "test_build_gates_block_before_any_output_is_written",
    "status": "pass",
-   "seconds": 7.467,
+   "seconds": 6.83,
    "error": null
   },
   {
@@ -1696,14 +1735,14 @@
    "module": "test_phase8_adaptive",
    "test": "test_real_project_config_produces_five_six_day_windows",
    "status": "pass",
-   "seconds": 0.005,
+   "seconds": 0.002,
    "error": null
   },
   {
    "module": "test_phase8_adaptive",
    "test": "test_sample_replay_days_only_train_range",
    "status": "pass",
-   "seconds": 0.002,
+   "seconds": 0.001,
    "error": null
   },
   {
@@ -1738,7 +1777,7 @@
    "module": "test_phase8_adaptive",
    "test": "test_replay_pool_builder_volume_matches_ad_each_round",
    "status": "pass",
-   "seconds": 0.001,
+   "seconds": 0.0,
    "error": null
   },
   {
@@ -1752,7 +1791,7 @@
    "module": "test_phase8_adaptive",
    "test": "test_replay_pool_never_contains_val_or_test_days_across_all_seeds_and_rounds",
    "status": "pass",
-   "seconds": 0.003,
+   "seconds": 0.001,
    "error": null
   },
   {
@@ -1829,21 +1868,21 @@
    "module": "test_phase8_adaptive",
    "test": "test_checkpoint_directory_identical_across_init_and_all_three_arm_scripts",
    "status": "pass",
-   "seconds": 0.001,
+   "seconds": 0.0,
    "error": null
   },
   {
    "module": "test_phase8_adaptive",
    "test": "test_fit_initial_model_source_never_references_a_val_or_test_day_constant",
    "status": "pass",
-   "seconds": 0.001,
+   "seconds": 0.0,
    "error": null
   },
   {
    "module": "test_phase8_adaptive",
    "test": "test_holdout_fit_end_precedes_val",
    "status": "pass",
-   "seconds": 0.003,
+   "seconds": 0.002,
    "error": null
   },
   {
@@ -1864,42 +1903,42 @@
    "module": "test_phase9_core",
    "test": "test_aggregate_caps_weights",
    "status": "pass",
-   "seconds": 0.001,
+   "seconds": 0.0,
    "error": null
   },
   {
    "module": "test_phase9_core",
    "test": "test_rewire_preserves_per_day_degree_sequences",
    "status": "pass",
-   "seconds": 0.001,
+   "seconds": 0.0,
    "error": null
   },
   {
    "module": "test_phase9_core",
    "test": "test_louvain_candidates_eligibility_and_determinism",
    "status": "pass",
-   "seconds": 0.017,
+   "seconds": 0.01,
    "error": null
   },
   {
    "module": "test_phase9_core",
    "test": "test_q_of_nodes_matches_candidate_q",
    "status": "pass",
-   "seconds": 0.007,
+   "seconds": 0.009,
    "error": null
   },
   {
    "module": "test_phase9_core",
    "test": "test_star_candidates_have_min_cards",
    "status": "pass",
-   "seconds": 0.0,
+   "seconds": 0.001,
    "error": null
   },
   {
    "module": "test_phase9_core",
    "test": "test_t_score_is_causal_and_increases_with_burst",
    "status": "pass",
-   "seconds": 0.002,
+   "seconds": 0.003,
    "error": null
   },
   {
@@ -1927,7 +1966,7 @@
    "module": "test_phase9_core",
    "test": "test_planting_invariants_small",
    "status": "pass",
-   "seconds": 0.561,
+   "seconds": 0.405,
    "error": null
   },
   {
@@ -2011,7 +2050,7 @@
    "module": "test_preprocessing",
    "test": "test_time_features_hour_matches_verified_formula",
    "status": "pass",
-   "seconds": 0.004,
+   "seconds": 0.003,
    "error": null
   },
   {
@@ -2046,7 +2085,7 @@
    "module": "test_preprocessing",
    "test": "test_frequency_encoder_save_load_roundtrip",
    "status": "pass",
-   "seconds": 0.002,
+   "seconds": 0.003,
    "error": null
   },
   {
@@ -2061,6 +2100,76 @@
    "test": "test_leakage_checker_passes_a_safe_feature",
    "status": "pass",
    "seconds": 0.004,
+   "error": null
+  },
+  {
+   "module": "test_readiness_guards",
+   "test": "test_module_f_is_refused_while_its_registered_gate_has_not_passed",
+   "status": "pass",
+   "seconds": 0.0,
+   "error": null
+  },
+  {
+   "module": "test_readiness_guards",
+   "test": "test_modules_h_and_u_pass_their_recorded_readiness_and_name_their_models",
+   "status": "pass",
+   "seconds": 0.007,
+   "error": null
+  },
+  {
+   "module": "test_readiness_guards",
+   "test": "test_missing_or_failing_readiness_records_are_refused",
+   "status": "pass",
+   "seconds": 0.008,
+   "error": null
+  },
+  {
+   "module": "test_readiness_guards",
+   "test": "test_amendment_cli_checks_readiness_after_authorization_and_before_any_read",
+   "status": "pass",
+   "seconds": 0.001,
+   "error": null
+  },
+  {
+   "module": "test_readiness_guards",
+   "test": "test_base_cli_requires_a_passing_readiness_report_that_fingerprints_the_unchanged_code",
+   "status": "pass",
+   "seconds": 0.01,
+   "error": null
+  },
+  {
+   "module": "test_readiness_guards",
+   "test": "test_recorded_readiness_fingerprints_cover_the_scoring_code_and_are_content_based",
+   "status": "pass",
+   "seconds": 2.195,
+   "error": null
+  },
+  {
+   "module": "test_readiness_guards",
+   "test": "test_no_row_level_prediction_or_held_out_output_file_is_tracked",
+   "status": "pass",
+   "seconds": 0.022,
+   "error": null
+  },
+  {
+   "module": "test_readiness_guards",
+   "test": "test_new_decision_and_guard_files_pass_the_wording_lint",
+   "status": "pass",
+   "seconds": 0.004,
+   "error": null
+  },
+  {
+   "module": "test_readiness_guards",
+   "test": "test_amendment_2_proposals_are_frozen_inactive_and_the_revision_states_the_corrected_error_rates",
+   "status": "pass",
+   "seconds": 0.002,
+   "error": null
+  },
+  {
+   "module": "test_readiness_guards",
+   "test": "test_no_authorization_file_exists",
+   "status": "pass",
+   "seconds": 0.0,
    "error": null
   },
   {
@@ -2088,35 +2197,35 @@
    "module": "test_research_serving",
    "test": "test_without_the_research_model_the_endpoints_answer_404_and_405_and_status_says_so",
    "status": "pass",
-   "seconds": 0.593,
+   "seconds": 0.575,
    "error": null
   },
   {
    "module": "test_research_serving",
    "test": "test_research_model_refuses_held_out_paths_and_explains_a_missing_model",
    "status": "pass",
-   "seconds": 0.003,
+   "seconds": 0.002,
    "error": null
   },
   {
    "module": "test_research_serving",
    "test": "test_api_scores_equal_direct_model_scores_and_the_recorded_validation_predictions",
    "status": "pass",
-   "seconds": 0.699,
+   "seconds": 0.752,
    "error": null
   },
   {
    "module": "test_research_serving",
    "test": "test_labels_in_the_request_are_ignored_and_each_row_is_scored_independently",
    "status": "pass",
-   "seconds": 0.983,
+   "seconds": 0.96,
    "error": null
   },
   {
    "module": "test_research_serving",
    "test": "test_invalid_research_requests_get_actionable_400_errors",
    "status": "pass",
-   "seconds": 0.667,
+   "seconds": 0.631,
    "error": null
   },
   {
@@ -2200,7 +2309,7 @@
    "module": "test_serving",
    "test": "test_p13_1_binds_locally_only_unless_explicitly_allowed",
    "status": "pass",
-   "seconds": 0.31,
+   "seconds": 0.297,
    "error": null
   },
   {
@@ -2214,77 +2323,77 @@
    "module": "test_serving",
    "test": "test_p13_2_status_codes_and_json_errors",
    "status": "pass",
-   "seconds": 0.618,
+   "seconds": 0.578,
    "error": null
   },
   {
    "module": "test_serving",
    "test": "test_p13_2_internal_errors_are_generic",
    "status": "pass",
-   "seconds": 0.513,
+   "seconds": 0.52,
    "error": null
   },
   {
    "module": "test_serving",
    "test": "test_p13_3_scores_equal_the_library_and_are_causal_and_label_free",
    "status": "pass",
-   "seconds": 0.623,
+   "seconds": 0.587,
    "error": null
   },
   {
    "module": "test_serving",
    "test": "test_p13_3_model_endpoint_and_missing_bundle",
    "status": "pass",
-   "seconds": 1.043,
+   "seconds": 1.008,
    "error": null
   },
   {
    "module": "test_serving",
    "test": "test_p13_4_evidence_values_equal_the_recorded_files",
    "status": "pass",
-   "seconds": 0.514,
+   "seconds": 0.516,
    "error": null
   },
   {
    "module": "test_serving",
    "test": "test_p13_5_communities_are_aggregate_only_candidates_with_disclaimers",
    "status": "pass",
-   "seconds": 0.513,
+   "seconds": 0.52,
    "error": null
   },
   {
    "module": "test_serving",
    "test": "test_p13_6_no_path_traversal_no_sealed_names_and_only_listed_files_are_read",
    "status": "pass",
-   "seconds": 0.653,
+   "seconds": 0.582,
    "error": null
   },
   {
    "module": "test_serving",
    "test": "test_p13_6_status_reports_heldout_artifacts_by_existence_only",
    "status": "pass",
-   "seconds": 0.542,
+   "seconds": 0.506,
    "error": null
   },
   {
    "module": "test_serving",
    "test": "test_p13_7_dashboard_is_self_contained_safe_and_properly_worded",
    "status": "pass",
-   "seconds": 0.512,
+   "seconds": 0.517,
    "error": null
   },
   {
    "module": "test_serving",
    "test": "test_p13_8_wording_lint_on_all_serving_sources_and_docs",
    "status": "pass",
-   "seconds": 0.005,
+   "seconds": 0.004,
    "error": null
   },
   {
    "module": "test_serving",
    "test": "test_p13_8_json_endpoints_are_deterministic",
    "status": "pass",
-   "seconds": 0.522,
+   "seconds": 0.529,
    "error": null
   },
   {
@@ -2312,21 +2421,21 @@
    "module": "test_splits",
    "test": "test_assign_split_is_disjoint_and_covers_full_configured_range",
    "status": "pass",
-   "seconds": 0.005,
+   "seconds": 0.004,
    "error": null
   },
   {
    "module": "test_splits",
    "test": "test_split_frame_train_before_val_before_test",
    "status": "pass",
-   "seconds": 0.005,
+   "seconds": 0.004,
    "error": null
   },
   {
    "module": "test_splits",
    "test": "test_built_split_matches_expected_regression_counts",
    "status": "pass",
-   "seconds": 0.607,
+   "seconds": 0.567,
    "error": null
   },
   {
@@ -2375,42 +2484,42 @@
    "module": "test_trigger_walkforward",
    "test": "test_a_trigger_that_never_fires_equals_the_frozen_arm_and_changes_no_parameter",
    "status": "pass",
-   "seconds": 0.055,
+   "seconds": 0.047,
    "error": null
   },
   {
    "module": "test_trigger_walkforward",
    "test": "test_a_trigger_that_always_fires_equals_the_adaptive_arm",
    "status": "pass",
-   "seconds": 0.226,
+   "seconds": 0.203,
    "error": null
   },
   {
    "module": "test_trigger_walkforward",
    "test": "test_the_trigger_sees_only_scores_of_the_window_just_scored_and_never_after_the_last_window",
    "status": "pass",
-   "seconds": 0.035,
+   "seconds": 0.033,
    "error": null
   },
   {
    "module": "test_trigger_walkforward",
    "test": "test_tr_requires_a_trigger_and_no_other_arm_accepts_one",
    "status": "pass",
-   "seconds": 0.017,
+   "seconds": 0.012,
    "error": null
   },
   {
    "module": "test_trigger_walkforward",
    "test": "test_a_label_trigger_receives_only_the_labels_of_the_window_just_scored_and_equal_to_the_dataset_labels",
    "status": "pass",
-   "seconds": 0.034,
+   "seconds": 0.026,
    "error": null
   },
   {
    "module": "test_trigger_walkforward",
    "test": "test_a_label_free_trigger_is_never_given_labels",
    "status": "pass",
-   "seconds": 0.032,
+   "seconds": 0.029,
    "error": null
   },
   {
@@ -2438,7 +2547,7 @@
    "module": "test_triggered_refresh_records",
    "test": "test_performance_trigger_preregistration_precedes_outputs_and_outcome_is_reported_as_registered",
    "status": "pass",
-   "seconds": 0.001,
+   "seconds": 0.002,
    "error": null
   },
   {
@@ -2487,7 +2596,7 @@
    "module": "test_validate",
    "test": "test_check_no_target_leakage_detects_blocklisted_column",
    "status": "pass",
-   "seconds": 0.003,
+   "seconds": 0.002,
    "error": null
   },
   {
@@ -2515,42 +2624,42 @@
    "module": "test_validate",
    "test": "test_check_expected_row_counts_detects_mismatch",
    "status": "pass",
-   "seconds": 0.007,
+   "seconds": 0.006,
    "error": null
   },
   {
    "module": "test_walkforward_ext",
    "test": "test_without_burn_in_it_reproduces_the_phase_8_loop_for_every_arm",
    "status": "pass",
-   "seconds": 0.433,
+   "seconds": 0.414,
    "error": null
   },
   {
    "module": "test_walkforward_ext",
    "test": "test_burn_in_streams_exactly_the_days_before_the_first_window_and_equals_a_manual_stream",
    "status": "pass",
-   "seconds": 0.105,
+   "seconds": 0.099,
    "error": null
   },
   {
    "module": "test_walkforward_ext",
    "test": "test_burn_in_day_must_be_the_day_before_the_first_window_and_arguments_are_validated",
    "status": "pass",
-   "seconds": 0.014,
+   "seconds": 0.012,
    "error": null
   },
   {
    "module": "test_walkforward_ext",
    "test": "test_labels_are_requested_only_after_the_window_is_scored_and_never_during_burn_in",
    "status": "pass",
-   "seconds": 0.073,
+   "seconds": 0.061,
    "error": null
   },
   {
    "module": "test_walkforward_ext",
    "test": "test_replay_arm_draws_only_train_days_and_matches_the_adaptive_day_count",
    "status": "pass",
-   "seconds": 0.03,
+   "seconds": 0.029,
    "error": null
   },
   {

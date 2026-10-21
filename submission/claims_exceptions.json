@@ -2,5 +2,7 @@
  "55.3%": "0.5533 in experiments/comparison_B_graph_features/graph_evidence/summary.json (share_of_transactions_with_a_graph_feature_in_top10) x 100",
  "40.0%": "0.4 top_score group share, same file, x 100",
  "70.7%": "0.7067 uniform_draw group share, same file, x 100",
- "8765": "default port of scripts/run_dashboard.py (not a data claim)"
+ "8765": "default port of scripts/run_dashboard.py (not a data claim)",
+ "8,140,366": "size in bytes of the backup bundle Adaptive-Temporal-Fraud_backup_2026-10-22_6c5b295.bundle outside the repository (file listing, 2026-10-22; its SHA-256 is quoted beside it); not a data claim",
+ "10.8": "2 x (1 - Phi(0.01 / (sqrt(2) x 0.0044))) = 0.108: the registered 0.01 F gate's per-check false-failure rate if the run-to-run SD equals the five-run SD 0.0044 of experiments/phase8_state_continuity_supplement/diagnostics/F_readiness_diagnosis_E_seed123.json; recomputed in tests/test_readiness_guards.py"
 }
