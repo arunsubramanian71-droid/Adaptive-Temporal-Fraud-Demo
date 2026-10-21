@@ -50,6 +50,13 @@ svg{display:block;margin-top:6px}
     <textarea id="payload" spellcheck="false" aria-label="JSON request body">{"history": [], "new": []}</textarea>
     <div id="scoreOut"></div>
   </section>
+  <section id="tab-research">
+    <p class="muted">Research model: the recorded comparison-A XGBoost (cell A), served exactly as it was evaluated (same TRAIN-fit encoder, recorded validation threshold). This is <strong>not</strong> the synthetic demonstration bundle. Rows must follow the project's processed-feature schema; labels in the rows are ignored. Choose a JSON file of rows (for example one written by <code>scripts/make_research_sample.py</code>); the browser reads it, the server never opens a data file. A score is a model output, not evidence of fraud.</p>
+    <div id="researchModel" class="muted">Checking whether the research model is loaded...</div>
+    <div class="row"><input type="file" id="researchFile" accept=".json,application/json" aria-label="JSON file with rows to score"><button class="act" id="doResearch">Score with the research model</button><span class="muted" id="researchInfo"></span></div>
+    <textarea id="researchPayload" spellcheck="false" aria-label="JSON request body for the research model">{"rows": []}</textarea>
+    <div id="researchOut"></div>
+  </section>
   <section id="tab-communities"><div id="communities">Loading...</div></section>
   <section id="tab-status"><div id="status">Loading...</div></section>
 </main>
@@ -78,7 +85,7 @@ function table(headers, rows, numeric, fullTitles) {
   rows.forEach((r, ri) => { const tr = el("tr"); r.forEach((v, i) => { const td = el("td", { text: v, class: numeric && numeric.includes(i) ? "n" : "" }); if (fullTitles && fullTitles[ri] && fullTitles[ri][i]) td.setAttribute("title", fullTitles[ri][i]); tr.appendChild(td); }); tb.appendChild(tr); });
   t.appendChild(tb); const w = el("div", { class: "tablewrap" }); w.appendChild(t); return w;
 }
-const TABS = [["evidence", "Evidence (validation)"], ["score", "Score transactions"], ["communities", "Candidate communities"], ["status", "Status and limits"]];
+const TABS = [["evidence", "Evidence (validation)"], ["score", "Score transactions (demo)"], ["research", "Research model"], ["communities", "Candidate communities"], ["status", "Status and limits"]];
 function show(name) {
   TABS.forEach(([k]) => { $("tab-" + k).classList.toggle("on", k === name); const b = $("btn-" + k); b.setAttribute("aria-selected", k === name ? "true" : "false"); });
 }
@@ -127,6 +134,39 @@ async function doScore() {
   } catch (err) { out.appendChild(el("p", { class: "alert", text: "Scoring failed: " + err.message })); }
 }
 
+async function loadResearchModel() {
+  const box = $("researchModel"); clear(box);
+  try {
+    const m = await getJSON("/api/research/model");
+    box.appendChild(el("p", { text: "Loaded: " + m.model + ". Model file SHA-256 " + m.model_sha256.slice(0, 16) + "...; threshold " + fmt(m.threshold) + " (" + m.threshold_source + "); "
+      + m.n_required_input_columns + " input columns; recorded validation PR-AUC " + fmt(m.recorded_validation_metrics.pr_auc) + " (validation period)." }));
+  } catch (err) { box.appendChild(el("p", { class: "alert", text: err.message })); $("doResearch").disabled = true; }
+}
+function readResearchFile(ev) {
+  const f = ev.target.files && ev.target.files[0]; if (!f) return;
+  const rd = new FileReader();
+  rd.onload = () => {
+    try { const j = JSON.parse(rd.result); const rows = Array.isArray(j) ? j : j.rows; if (!Array.isArray(rows)) throw new Error("the file must hold a list of rows or an object with 'rows'");
+      $("researchPayload").value = JSON.stringify({ rows: rows }); $("researchInfo").textContent = "Loaded " + rows.length + " rows from " + f.name + "."; }
+    catch (err) { $("researchInfo").textContent = "Could not read the file: " + err.message; }
+  };
+  rd.readAsText(f);
+}
+async function doResearch() {
+  const out = $("researchOut"); clear(out); let body;
+  try { body = JSON.parse($("researchPayload").value); } catch (err) { out.appendChild(el("p", { class: "alert", text: "The text is not valid JSON: " + err.message })); return; }
+  if (!body || !Array.isArray(body.rows) || body.rows.length === 0) { out.appendChild(el("p", { class: "alert", text: "There are no rows: choose a JSON file of rows first." })); return; }
+  try {
+    const r = await fetch("/api/research/score", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(body) });
+    const j = await r.json(); if (!r.ok) throw new Error(j.error || r.statusText);
+    out.appendChild(el("p", { text: "RESEARCH MODEL (comparison-A XGBoost). " + j.n + " rows scored, " + j.n_alerts + " alerts at threshold " + fmt(j.threshold) + "."
+      + (j.labels_in_request_ignored ? " Label columns in the rows were ignored." : "") + " " + j.statement }));
+    out.appendChild(table(["Row", "TransactionID", "Score", "Alert", "Largest model contributions (alerts only)"],
+      j.results.map((x) => [String(x.row), x.TransactionID === null ? "" : String(x.TransactionID), fmt(x.score), x.alert ? "ALERT" : "",
+        (x.top_features || []).map((t) => t.feature + " (" + fmt(t.contribution, 2) + ")").join(", ")]), [2]));
+  } catch (err) { out.appendChild(el("p", { class: "alert", text: "Scoring failed: " + err.message })); }
+}
+
 function sparkline(points, w, h) {
   const ns = "http://www.w3.org/2000/svg"; const svg = document.createElementNS(ns, "svg");
   svg.setAttribute("width", String(w)); svg.setAttribute("height", String(h)); svg.setAttribute("role", "img"); svg.setAttribute("aria-label", "score over observed days");
@@ -163,7 +203,8 @@ async function loadStatus() {
   } catch (err) { box.appendChild(el("p", { class: "alert", text: "Could not load the status: " + err.message })); }
 }
 $("loadSample").addEventListener("click", loadSample); $("doScore").addEventListener("click", doScore);
-show("evidence"); loadEvidence(); loadCommunities(); loadStatus();
+$("researchFile").addEventListener("change", readResearchFile); $("doResearch").addEventListener("click", doResearch);
+show("evidence"); loadEvidence(); loadCommunities(); loadStatus(); loadResearchModel();
 </script>
 </body>
 </html>

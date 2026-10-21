@@ -1,0 +1,70 @@
+{
+ "date_local": "2026-10-21T22:38:59+05:30",
+ "command": "scripts/run_dashboard.py --demo --research-model --port 0 (separate process)",
+ "scope": "HTTP-level end-to-end check of the research-model mode beside the synthetic demo mode; 60 validation rows (label removed); no held-out file",
+ "python": "3.12.0",
+ "seconds": 5.2,
+ "checks": [
+  {
+   "check": "launcher with --demo --research-model prints its address within 180 s",
+   "pass": true,
+   "detail": "training the synthetic demonstration bundle ...\nloading the research model (experiments/xgboost) ...\ndashboard on http://127.0.0.1:50243/  (validation-period results only; Ctrl+C to stop)"
+  },
+  {
+   "check": "dashboard page has the Research model tab and the demo tab",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "check": "status reports both modes loaded",
+   "pass": true,
+   "detail": "{'validation_period_only': True, 'held_out_evaluation_performed': False, 'held_out_authorization_present': False, 'held_out_note': 'No held-out (days 152-182) evaluation has been performed; every recorded result is a validation-period result and most models were tuned on that period.', 'phase12': 'A"
+  },
+  {
+   "check": "research model info: correct artifact hash and recorded threshold",
+   "pass": true,
+   "detail": "6998d85c031184f54465efe2b8bdca872eadb5c395d694540a71ab626e9abd3b"
+  },
+  {
+   "check": "research scores over HTTP equal direct inference of the recorded model (60 validation rows)",
+   "pass": true,
+   "detail": "status 200, max diff 0.0"
+  },
+  {
+   "check": "research responses are labelled research_model and not synthetic",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "check": "labels in the request are ignored",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "check": "the synthetic demo mode still answers and is labelled synthetic",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "check": "an incomplete research row gets an actionable 400",
+   "pass": true,
+   "detail": "{'error': \"464 required input column(s) are missing, e.g. ['C1', 'C10', 'C11', 'C12', 'C13', 'C14', 'C2', 'C3', 'C4', 'C5']; rows must follow the processed-feature schema (GET /api/research/model lists all required columns)\", 'status': 400}"
+  },
+  {
+   "check": "explanations accompany exactly the alerted rows",
+   "pass": true,
+   "detail": "2 alerts"
+  },
+  {
+   "check": "shutdown: the server process exited",
+   "pass": true,
+   "detail": "pid 12244, exit code 1"
+  },
+  {
+   "check": "shutdown: the port is closed within 10 s of the process exit",
+   "pass": true,
+   "detail": "1.25 s"
+  }
+ ],
+ "all_pass": true
+}

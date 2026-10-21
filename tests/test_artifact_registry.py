@@ -45,11 +45,13 @@ def test_missing_artifact_helper_reports_missing_patterns_and_never_invents_pres
     assert RC._missing_artifacts([]) == []
 
 
-def test_registry_covers_the_thirteen_tests_that_failed_on_a_fresh_clone():
-    assert len(REGISTRY) == 13, len(REGISTRY)
-    modules = {k.split("::")[0] for k in REGISTRY}
-    assert modules == {"test_comparison_b_outputs", "test_heldout_gate", "test_phase11_outputs", "test_phase12_environment_independence", "test_phase12_outputs",
-                       "test_scope_reconciliation_records"}
+def test_registry_covers_the_thirteen_tests_that_failed_on_a_fresh_clone_plus_the_research_serving_tests():
+    original = {k for k in REGISTRY if not k.startswith("test_research_serving::")}
+    assert len(original) == 13, len(original)
+    assert {k.split("::")[0] for k in original} == {"test_comparison_b_outputs", "test_heldout_gate", "test_phase11_outputs", "test_phase12_environment_independence",
+                                                    "test_phase12_outputs", "test_scope_reconciliation_records"}
+    added = set(REGISTRY) - original                                   # research-model serving tests need the trained model and validation features
+    assert len(added) == 3 and all(any("model.joblib" in p for p in REGISTRY[k]) for k in added)
 
 
 def _run_all():

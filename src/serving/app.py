@@ -1,7 +1,9 @@
 """Local HTTP API and investigation dashboard (Phase 13, experiments/phase13_serving_dashboard/SCOPE_AND_ACCEPTANCE.md).
 
-Standard library only (no new dependency). Serves recorded validation-period aggregates, aggregate-only candidate-community cards and a scoring
-endpoint backed by ``src/inference/scorer.py``. It never reads a TEST-named path, a checkpoint or a transaction-level file; the only files it opens
+Standard library only (no new dependency). Serves recorded validation-period aggregates, aggregate-only candidate-community cards, a scoring
+endpoint backed by ``src/inference/scorer.py`` (the synthetic demo bundle or an operator's bundle) and, when started with the research model, a separate
+research-model endpoint backed by ``src/inference/research_model.py`` (the recorded comparison-A XGBoost, served exactly as evaluated). The two scoring
+modes are never mixed and every response says which one produced it. It never reads a TEST-named path, a checkpoint or a transaction-level file; the only files it opens
 are listed in ``READABLE`` and each open is logged in ``Services.opened``.
 """
 from __future__ import annotations
@@ -39,6 +41,9 @@ CARD_KEYS = ("track", "groups", "standing_statement", "first_observed_day", "las
 TIMELINE_KEYS = ("day", "n_cards", "n_infra", "density", "hub_share", "conductance", "u_s", "u_t", "score_st", "n_member_txn", "alerted")
 
 
+NO_RESEARCH = "the research model is not loaded (start the server with --research-model; it needs experiments/xgboost/model.joblib)"
+
+
 class ApiError(Exception):
     def __init__(self, status: int, message: str):
         super().__init__(message)
@@ -59,9 +64,10 @@ def _clean(v):
 class Services:
     """Everything the handlers need; built once at startup. Holds the scoring bundle and logs every file open."""
 
-    def __init__(self, bundle=None, synthetic_demo=False, sample=None, root: pathlib.Path = ROOT):
+    def __init__(self, bundle=None, synthetic_demo=False, sample=None, root: pathlib.Path = ROOT, research=None):
         self.root = pathlib.Path(root)
         self.bundle = bundle
+        self.research = research
         self.synthetic_demo = bool(synthetic_demo)
         self.sample = sample
         self.opened: list = []
@@ -122,7 +128,43 @@ class Services:
         return {"validation_period_only": True, "held_out_evaluation_performed": (fh / "heldout_results").exists(), "held_out_authorization_present": (fh / "AUTHORIZATION.txt").exists(),
                 "held_out_note": HELD_OUT_NOTE, "phase12": "AC1-AC11 pass; AC12 BLOCKED (partially verified); Phase 12 is not formally complete",
                 "h5": "not established (frozen benchmark gate G4 failed on 2 of 3 seeds)", "communities": "candidates only; not confirmed to be fraudulent or coordinated",
-                "scoring_bundle_loaded": self.bundle is not None, "synthetic_demo": self.synthetic_demo}
+                "scoring_bundle_loaded": self.bundle is not None, "synthetic_demo": self.synthetic_demo,
+                "research_model_loaded": self.research is not None}
+
+    # ------------------------------------------------------------------ research model (separate mode)
+    def research_info(self) -> dict:
+        if self.research is None:
+            raise ApiError(404, NO_RESEARCH)
+        return {"mode": "research_model", "synthetic_demo": False, **self.research.info()}
+
+    def research_score(self, payload: dict) -> dict:
+        import pandas as pd
+        from src.inference.research_model import ResearchInputError
+        if self.research is None:
+            raise ApiError(404, NO_RESEARCH)
+        if not isinstance(payload, dict) or not isinstance(payload.get("rows"), list) or not payload["rows"]:
+            raise ApiError(400, "body must be a JSON object with a non-empty list 'rows' of objects in the processed-feature schema (see GET /api/research/model)")
+        rows = payload["rows"]
+        if len(rows) > MAX_ROWS:
+            raise ApiError(400, f"at most {MAX_ROWS} rows per request")
+        if not all(isinstance(r, dict) for r in rows):
+            raise ApiError(400, "every element of 'rows' must be an object")
+        labels_present = any("isFraud" in r for r in rows)
+        try:
+            res = self.research.score(pd.DataFrame(rows), explain=True, top_k=5)
+        except ResearchInputError as e:
+            raise ApiError(400, str(e)) from None
+        out = []
+        for r in res.itertuples(index=False):
+            tid = r.TransactionID
+            tid = None if tid is None or (isinstance(tid, float) and not math.isfinite(tid)) else int(tid)
+            item = {"row": int(r.row), "TransactionID": tid, "score": float(r.score), "alert": bool(r.alert)}
+            if bool(r.alert) and r.top_features:
+                item["top_features"] = r.top_features
+            out.append(item)
+        return _clean({"mode": "research_model", "synthetic_demo": False, "model_sha256": self.research.model_sha256, "threshold": self.research.threshold,
+                       "labels_in_request_ignored": labels_present, "n": len(out), "n_alerts": sum(o["alert"] for o in out), "results": out,
+                       "statement": self.research.info()["statement"]})
 
     def model_info(self) -> dict:
         if self.bundle is None:
@@ -204,15 +246,19 @@ def make_handler(services: Services):
                             html = services.read_text("dashboard").encode("utf-8")
                         return self._send(200, html, "text/html; charset=utf-8")
                     routes = {"/health": lambda: {"status": "ok"}, "/api/status": services.status, "/api/model": services.model_info,
-                              "/api/evidence": services.evidence, "/api/communities": services.communities, "/api/sample": self._sample}
+                              "/api/evidence": services.evidence, "/api/communities": services.communities, "/api/sample": self._sample,
+                              "/api/research/model": services.research_info}
                     if path in routes:
                         return self._json(200, routes[path]())
-                    if path == "/api/score":
-                        raise ApiError(405, "use POST for /api/score")
+                    if path in ("/api/score", "/api/research/score"):
+                        raise ApiError(405, "use POST for " + path)
                     raise ApiError(404, "not found")
                 if method == "POST":
+                    if path == "/api/research/score":
+                        return self._json(200, services.research_score(self._body()))
                     if path != "/api/score":
-                        raise ApiError(404 if path not in ("/", "/health", "/api/status", "/api/model", "/api/evidence", "/api/communities", "/api/sample") else 405, "not found or method not allowed")
+                        raise ApiError(404 if path not in ("/", "/health", "/api/status", "/api/model", "/api/evidence", "/api/communities", "/api/sample",
+                                                           "/api/research/model") else 405, "not found or method not allowed")
                     return self._json(200, services.score(self._body()))
                 raise ApiError(405, "method not allowed")
             except ApiError as e:

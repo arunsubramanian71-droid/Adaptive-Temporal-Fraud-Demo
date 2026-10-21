@@ -2,6 +2,8 @@
 
   synthetic demonstration:   .venv/Scripts/python.exe -B scripts/run_dashboard.py --demo
   your own scoring bundle:   .venv/Scripts/python.exe -B scripts/run_dashboard.py --bundle path/to/bundle
+  research model as well:    add --research-model (serves the recorded comparison-A XGBoost from experiments/xgboost on /api/research/*;
+                             needs experiments/xgboost/model.joblib, which is not distributed with the repository)
 
 Then open http://127.0.0.1:8765/ . The server binds to 127.0.0.1 only (use --allow-remote to override; it has no authentication). Without --demo or
 --bundle the evidence and community tabs work and scoring answers 404. The dashboard shows recorded validation-period aggregates only; the demo
@@ -24,6 +26,7 @@ def main(argv=None) -> int:
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument("--demo", action="store_true", help="train the synthetic-fixture bundle in memory and enable the sample button")
     ap.add_argument("--bundle", default=None, help="directory written by scripts/score_transactions.py train")
+    ap.add_argument("--research-model", action="store_true", help="also serve the recorded research XGBoost (experiments/xgboost) on /api/research/*")
     ap.add_argument("--host", default="127.0.0.1")
     ap.add_argument("--port", type=int, default=8765)
     ap.add_argument("--allow-remote", action="store_true")
@@ -39,6 +42,10 @@ def main(argv=None) -> int:
             services = app.Services(bundle=S.load_bundle(a.bundle), synthetic_demo=False)
         else:
             services = app.Services()
+        if a.research_model:
+            from src.inference.research_model import ResearchModel
+            print("loading the research model (experiments/xgboost) ...", flush=True)
+            services.research = ResearchModel()
         server = app.make_server(services, a.host, a.port, a.allow_remote)
     except (ValueError, S.ScoringError, S.SealedDataError, OSError) as e:
         print(f"error: {e}", file=sys.stderr)
