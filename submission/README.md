@@ -1,0 +1,98 @@
+# Adaptive Temporal Graph Intelligence for Fraud Detection & Coordinated Fraud Discovery: submission package
+
+A validation-period study on the IEEE-CIS Fraud Detection data of tabular, graph and temporal-graph models, adaptive updating under drift, and exploratory discovery of *candidate* coordinated communities. **All research results are validation-period results (days 122-151). No held-out (TEST) evaluation has been performed.** The package contains the code, tests, recorded results, a runnable demonstration and the manuscript. Read `MANUSCRIPT.md` for the findings and `COMPLETION_MATRIX.md` for what is and is not finished.
+
+*(The title's final words are abbreviated on purpose: the project's terminology rule forbids ring wording for real-data outputs, and no group found here is confirmed to be fraudulent or coordinated.)*
+
+## 1. Two kinds of "run it"
+
+| What | Needs | Time | What it proves |
+|---|---|---|---|
+| **Software demonstration** (section 3) | Python environment only; builds its own synthetic data | about a minute | the real modules run end to end: graph features, tabular models, history-based scoring, explanations, candidate-community discovery. **It reproduces no research result.** |
+| **Research experiments** (section 6) | the IEEE-CIS files, the recorded artifacts, a GPU for the neural models | hours | the recorded numbers; you normally read the recorded outputs instead of re-running |
+
+## 2. Setup (tested on Windows 11, Python 3.12.0)
+
+Python 3.12 is the recommended interpreter: it matches the recorded manifests and passes every executed test in a clean environment; Python 3.14.3 differs only in one interpreter-version metadata test (`REPRODUCIBILITY.md`).
+
+```
+python -m venv .venv
+.venv/Scripts/python.exe -m pip install -r requirements.txt
+```
+
+The commands are written for PowerShell and Git Bash, where `.venv/Scripts/python.exe` works as shown. **In cmd.exe write the paths with backslashes** (`.venv\Scripts\python.exe -B scripts\check_setup.py`); a forward-slash path is not accepted there (checked). On Linux or macOS use `.venv/bin/python` in place of `.venv/Scripts/python.exe` (not tested there). `requirements.txt` covers the demonstration, the scorer, comparison B and the Phase 10-12 tests. The neural-graph code additionally needs PyTorch and PyTorch Geometric (`requirements-gnn.txt`; the recorded runs used an AMD ROCm build of PyTorch; do not install the compiled PyG extensions). No secrets or accounts are needed anywhere.
+
+## 3. Setup check, demonstration and dashboard
+
+```
+.venv/Scripts/python.exe -B scripts/check_setup.py
+```
+
+Checks the Python version, every pinned requirement, the optional neural-network stack and the presence of the research data files (existence only; nothing is opened). It prints an actionable message for anything missing.
+
+### 3.1 Demonstration
+
+```
+.venv/Scripts/python.exe -B scripts/demo_end_to_end.py --out-dir demo_output
+```
+
+It prints five stages (synthetic stream, tabular-only versus tabular-plus-graph-features models, history-based scoring with explanations, candidate-community discovery with the Phase 9 modules, invariants) and writes `demo_output/` (scores, community table, `demo_summary.json`; byte-identical on re-run). It refuses to write inside `experiments/`. `DEMO_GUIDE.md` is the presenter's script.
+
+### 3.2 Dashboard and API (Phase 13)
+
+```
+.venv/Scripts/python.exe -B scripts/run_dashboard.py --demo
+```
+
+Open http://127.0.0.1:8765/ . Standard library only; binds to 127.0.0.1. Tabs: the recorded validation-period evidence tables (Phase 12 and comparison B, with the imbalance study), scoring of posted rows (the demo bundle is trained on synthetic data and every response says so), the 24 aggregate-only candidate-community cards of the exploratory Phase 9 output, and the status and limits. JSON endpoints: `/health`, `/api/status`, `/api/model`, `/api/evidence`, `/api/communities`, `/api/sample` (demo only) and `POST /api/score`. The page shows no transaction-level or held-out data. The scope of this phase is a **reconstruction** (the original Phase 13 specification was not recovered): see `experiments/phase13_serving_dashboard/SCOPE_AND_ACCEPTANCE.md` section 1.
+
+### 3.3 Scoring files from the command line (the production-style path)
+
+
+```
+.venv/Scripts/python.exe -B scripts/score_transactions.py train --train train.csv --valid valid.csv --features f0,f1,f2 --out-dir bundle/
+.venv/Scripts/python.exe -B scripts/score_transactions.py score --bundle bundle/ --history history.csv --new new.csv --out scores.csv --explain
+```
+
+A scored row only ever sees earlier rows; labels are ignored when scoring; TEST-named files are refused (exit code 2).
+
+## 4. Tests
+
+```
+.venv/Scripts/python.exe -B scripts/run_tests.py          # full environment (needs requirements-gnn.txt for the neural-network tests)
+.venv/Scripts/python.exe -B scripts/run_core_tests.py      # any environment: skips, and names, the modules that need PyTorch
+```
+
+The full run covers all 29 test modules (the recorded run is `submission/test_results.json`, written by `scripts/run_completion_tests.py`). Two clean environments installed only from `requirements.txt` (no PyTorch) were checked: on Python 3.12.0 the core runner passes every executed test; on Python 3.14.3 it passes every executed test except that one registered Phase 12 test reports the different Python version string stored in its manifest (reported, never counted as passed; an environment-independent companion test passes). Counts are in `FINAL_COMPLETION_RECORD.md`; the modules that need PyTorch (four in a core-only environment: test_f_runner_gate, test_neural_graph_evidence, test_phase8_adaptive, test_walkforward_ext) are skipped and named, never counted as passed. Mutation-sensitivity checks for the newest code: `scripts/check_comparison_b_test_sensitivity.py`. None of the tests reads TEST data or trains a research model.
+
+## 5. Repository map
+
+| Path | Content |
+|---|---|
+| `src/data`, `src/features` | loading, splits, preprocessing, leakage-safe historical features, **`graph_features.py` (comparison B)** |
+| `src/graph`, `src/models`, `src/adaptive` | heterogeneous graph, GraphSAGE / GAT / Temporal GraphSAGE, metrics, adaptive updating |
+| `src/coordination`, `src/evolution` | candidate-community discovery, synthetic benchmark, tracking (Phases 9-10) |
+| `src/explain`, `src/evidence`, `src/inference`, `src/demo`, `src/serving`, `src/heldout` | explanations and cards, the Phase 12 evidence table builder, the scorer, the demonstration, the local API and dashboard (Phase 13), the gated held-out evaluator |
+| `scripts/` | one script per experiment or check (see `reports/PROJECT_SYNTHESIS_REPORT.md` section 7 for the phase map) |
+| `experiments/` | recorded results, designs and integrity records per phase; `comparison_B_graph_features/`, `imbalance_check_xgboost/`, `unweighted_graphsage/`, `unweighted_temporal_graphsage/`, `final_heldout_protocol/` and `phase13_serving_dashboard/` are new |
+| `reports/` | phase reports and `PROJECT_SYNTHESIS_REPORT.md` |
+| `tests/` | unit and property tests |
+
+## 6. Reproducing the research experiments
+
+Place the competition files in `data/raw/` (`train_transaction.csv`, `train_identity.csv`, `test_transaction.csv`, `test_identity.csv`; they are not redistributed here). Then, in order: `scripts/build_processed_data.py`, `scripts/run_validation.py`, `scripts/build_historical_features.py`, `scripts/build_graph.py`, the training scripts of each phase, and for comparison B `scripts/run_comparison_b.py` followed by `scripts/build_b_outputs.py`. The phase-by-phase map of scripts, tests and integrity records is `reports/PROJECT_SYNTHESIS_REPORT.md` section 7. Training scripts write into existing `experiments/` folders, so **copy a folder aside before re-running a phase**.
+
+**Do not repeat:** `scripts/train_gat_convergence_300epoch.py` (aborted Phase 6C; its outputs are excluded); anything that opens `data/features/test_features.parquet`, `data/raw/test_*.csv` or any TEST-named file (sealed; see `experiments/final_heldout_protocol/HELDOUT_EVALUATION_PROTOCOL.md`); re-running Phase 12 finalization against the current folder without the pre-change manifest in mind.
+
+Environment records: library versions are in `requirements.txt`; each experiment folder holds its `config.json` / `metadata.json` with seeds, thresholds and split boundaries.
+
+## 7. Provenance and integrity
+
+Per-file SHA-256 records exist for Phases 9-12 and the new work: `experiments/phase9_coordinated_fraud/phase9_closure_integrity.json`, `experiments/phase10_community_evolution/INTEGRITY*.json`, `experiments/phase11_explainable_evidence/INTEGRITY_PHASE11.json`, `experiments/phase12_validation_evidence_table/INTEGRITY_PHASE12.json`, and `submission/INTEGRITY_SUBMISSION.json`. **Phase 12 is not formally complete:** its acceptance criterion AC12 (before/after hashes of every existing file) is BLOCKED, partially verified, 300 of 651 pre-existing files covered with zero contradictions and 322 not retrospectively verifiable. That limitation is not resolved by anything in this package.
+
+
+**Publication note.** Transaction-level prediction and contribution files (validation period; ids, labels, scores) exist under `experiments/` as in earlier phases (for example the arms of comparison B and the Phase 11 selections). None is inside `submission/`. Whether to publish them, and the ignore rules that cover them, are the project owner's decision; `.gitignore` was not modified.
+
+## 8. What the package claims, in one paragraph
+
+On the validation period, a tuned XGBoost on transaction features is at least as good as every neural graph model tried, with or without class weighting; removing class weighting raises XGBoost's PR-AUC by about 0.05 (a pre-registered check); adding forty label-free backward-looking graph features to XGBoost does not reliably change it (pre-registered rule: not established, `experiments/comparison_B_graph_features/outputs/B_RESULTS.md`); recurrent entity memory gives a small cold-start-concentrated gain over its controls; periodic weight updates on newly revealed labels reduce within-validation degradation under the pre-registered rule (H4, three seeds); and coordinated-community discovery remains not established because the synthetic benchmark failed a frozen validity gate. **The held-out evaluation is not done** (a frozen protocol, a separately hashed Amendment 1 adding the adaptive arms, the historical reference line and the unweighted variants, and validation-checked evaluators exist; it awaits the user's authorization). A local dashboard and API (Phase 13, reconstructed scope) expose the recorded aggregates and a scoring endpoint. Nothing is claimed about held-out performance, significance or causation. See `FINAL_COMPLETION_RECORD.md` and `COMPLETION_MATRIX.md` for the full status.

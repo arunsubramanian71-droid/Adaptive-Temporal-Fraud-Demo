@@ -1,0 +1,11 @@
+# Additional dependencies for the graph-neural-network experiments (Phases 4-8, 9 data loading, Phase 11 graph code).
+# NOT needed for the demonstration, the B comparison, the inference scorer or the Phase 10-12 tests.
+#
+# The project was run with an AMD ROCm build of PyTorch on Windows, which is not on the default package index:
+#   torch==2.9.1+rocmsdk20260116   (install the build that matches your GPU/driver from the vendor's instructions)
+#   torch_geometric==2.8.0.post1
+# Do NOT install the compiled PyG extensions (torch_sparse, pyg_lib): the experiments are written for full-batch training
+# without neighbour sampling, and the reports record that decision (reports/phase4_graph_report.md).
+# CPU-only PyTorch also works for the unit tests that import torch, but the recorded experiments were not run that way.
+torch==2.9.1
+torch_geometric==2.8.0.post1

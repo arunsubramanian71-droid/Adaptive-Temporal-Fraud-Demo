@@ -1,0 +1,6 @@
+{
+ "55.3%": "0.5533 in experiments/comparison_B_graph_features/graph_evidence/summary.json (share_of_transactions_with_a_graph_feature_in_top10) x 100",
+ "40.0%": "0.4 top_score group share, same file, x 100",
+ "70.7%": "0.7067 uniform_draw group share, same file, x 100",
+ "8765": "default port of scripts/run_dashboard.py (not a data claim)"
+}

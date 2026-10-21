@@ -1,0 +1,170 @@
+{
+ "sources": [
+  "experiments/comparison_B_graph_features/outputs/table_with_B.csv",
+  "experiments/phase8_adaptive_drift/*/seed_*/metrics_val_W*.json",
+  "experiments/phase8_state_continuity_supplement/outputs/burn_in/*/seed_*/metrics_W*.json",
+  "experiments/imbalance_check_xgboost/outputs/arms_table.csv"
+ ],
+ "statement": "Drawn from recorded validation-period results only; nothing was trained or re-estimated; no held-out data.",
+ "fig1": [
+  {
+   "cell": "A",
+   "model": "logistic_regression",
+   "runs": 1,
+   "pr_auc": 0.4125880872,
+   "pr_auc_sd": null
+  },
+  {
+   "cell": "A",
+   "model": "random_forest",
+   "runs": 1,
+   "pr_auc": 0.454280131,
+   "pr_auc_sd": null
+  },
+  {
+   "cell": "A",
+   "model": "xgboost",
+   "runs": 1,
+   "pr_auc": 0.5394573894,
+   "pr_auc_sd": null
+  },
+  {
+   "cell": "A",
+   "model": "XGBoost, A features, subsample 0.8 / colsample 0.8 (3 seeds)",
+   "runs": 3,
+   "pr_auc": 0.5616140716,
+   "pr_auc_sd": 0.002322718938
+  },
+  {
+   "cell": "B",
+   "model": "XGBoost, A features + 40 graph features (B, A recipe)",
+   "runs": 1,
+   "pr_auc": 0.5440182104,
+   "pr_auc_sd": null
+  },
+  {
+   "cell": "B",
+   "model": "XGBoost, B features, subsample 0.8 / colsample 0.8 (3 seeds)",
+   "runs": 3,
+   "pr_auc": 0.5610810873,
+   "pr_auc_sd": 0.003376453046
+  },
+  {
+   "cell": "C",
+   "model": "GraphSAGE (Phase 6A)",
+   "runs": 3,
+   "pr_auc": 0.4636871384,
+   "pr_auc_sd": 0.01670429085
+  },
+  {
+   "cell": "C-control",
+   "model": "MLP control, no relations (Phase 6A extended)",
+   "runs": 1,
+   "pr_auc": 0.4166676354,
+   "pr_auc_sd": null
+  },
+  {
+   "cell": "D",
+   "model": "GAT (Phase 6B)",
+   "runs": 3,
+   "pr_auc": 0.3319740121,
+   "pr_auc_sd": 0.005193563496
+  },
+  {
+   "cell": "E",
+   "model": "Temporal GraphSAGE (GRU memory, Phase 7)",
+   "runs": 3,
+   "pr_auc": 0.4927181619,
+   "pr_auc_sd": 0.003518868535
+  },
+  {
+   "cell": "E-control",
+   "model": "Static GraphSAGE, schedule-matched (Phase 7A)",
+   "runs": 3,
+   "pr_auc": 0.4792354897,
+   "pr_auc_sd": 0.01135536698
+  },
+  {
+   "cell": "E-control",
+   "model": "Temporal, memory ablated (Phase 7A)",
+   "runs": 3,
+   "pr_auc": 0.4789915634,
+   "pr_auc_sd": 0.007585412282
+  }
+ ],
+ "fig2": {
+  "windows": [
+   "W1",
+   "W2",
+   "W3",
+   "W4",
+   "W5"
+  ],
+  "recorded_phase8": {
+   "F": [
+    0.5868256527799418,
+    0.40027837764633173,
+    0.420972121970304,
+    0.3781552237897144,
+    0.3350301830222115
+   ],
+   "Ad": [
+    0.5868256527799417,
+    0.4529543185036289,
+    0.44250779090481956,
+    0.4280988902365157,
+    0.3797788858107746
+   ],
+   "E": [
+    0.5868257228910805,
+    0.43026895995441344,
+    0.3917894495779691,
+    0.3299750957340572,
+    0.35041062787308
+   ]
+  },
+  "memory_built_first": {
+   "F": [
+    0.6066440785893034,
+    0.4126070936905684,
+    0.4212860354324577,
+    0.3812753658083445,
+    0.33999112229306144
+   ],
+   "Ad": [
+    0.6066440848011886,
+    0.48089987629574554,
+    0.4528547189894488,
+    0.4398592019836567,
+    0.3863969358301164
+   ],
+   "E": [
+    0.6066440785893034,
+    0.44650210186185363,
+    0.4145675853805086,
+    0.3713498758064511,
+    0.3321895964445805
+   ]
+  }
+ },
+ "fig3": [
+  {
+   "arm": "none",
+   "scale_pos_weight": 1.0,
+   "pr_auc": 0.5948021309,
+   "pr_auc_cold": 0.4366598858
+  },
+  {
+   "arm": "sqrt",
+   "scale_pos_weight": 5.231142603,
+   "pr_auc": 0.5791501169,
+   "pr_auc_cold": 0.4292735879
+  },
+  {
+   "arm": "full",
+   "scale_pos_weight": 27.36485293,
+   "pr_auc": 0.5394573894,
+   "pr_auc_cold": 0.4063779429
+  }
+ ]
+}

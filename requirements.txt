@@ -1,0 +1,13 @@
+# Core dependencies: data processing, tabular models, graph-feature engineering, candidate-community discovery, the demonstration
+# and the test suite. Versions are those the project was developed and tested with (Python 3.12.0, Windows 11).
+# Install:  python -m venv .venv  &&  .venv/Scripts/python.exe -m pip install -r requirements.txt
+numpy==2.4.4
+pandas==3.0.5
+scipy==1.18.1
+scikit-learn==1.9.1
+xgboost==3.4.1
+networkx==3.6.1
+pyarrow==25.0.1
+pyyaml==6.0.3
+joblib==1.6.0
+matplotlib==3.11.2
