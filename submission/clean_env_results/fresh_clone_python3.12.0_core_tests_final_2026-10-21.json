@@ -146,7 +146,7 @@
    "failures": [],
    "environment_metadata_differences": [],
    "not_run_artifact_missing": [],
-   "seconds": 2.6
+   "seconds": 2.5
   },
   {
    "module": "test_manuscript_figures",
@@ -259,7 +259,7 @@
    "failures": [],
    "environment_metadata_differences": [],
    "not_run_artifact_missing": [],
-   "seconds": 0.8
+   "seconds": 0.9
   },
   {
    "module": "test_phase12_outputs",
@@ -306,7 +306,7 @@
      ]
     }
    ],
-   "seconds": 0.1
+   "seconds": 0.2
   },
   {
    "module": "test_phase8_adaptive",
@@ -344,6 +344,44 @@
    "seconds": 0.0
   },
   {
+   "module": "test_research_serving",
+   "status": "PASSED, 3 NOT RUN (withheld artifact missing)",
+   "tests": 5,
+   "passed": 2,
+   "failures": [],
+   "environment_metadata_differences": [],
+   "not_run_artifact_missing": [
+    {
+     "test": "test_api_scores_equal_direct_model_scores_and_the_recorded_validation_predictions",
+     "missing_artifact_patterns": [
+      "experiments/xgboost/model.joblib",
+      "experiments/xgboost/feature_builder/ordinal_maps.json",
+      "data/features/val_features.parquet",
+      "experiments/xgboost/predictions_val.parquet"
+     ]
+    },
+    {
+     "test": "test_labels_in_the_request_are_ignored_and_each_row_is_scored_independently",
+     "missing_artifact_patterns": [
+      "experiments/xgboost/model.joblib",
+      "experiments/xgboost/feature_builder/ordinal_maps.json",
+      "data/features/val_features.parquet",
+      "experiments/xgboost/predictions_val.parquet"
+     ]
+    },
+    {
+     "test": "test_invalid_research_requests_get_actionable_400_errors",
+     "missing_artifact_patterns": [
+      "experiments/xgboost/model.joblib",
+      "experiments/xgboost/feature_builder/ordinal_maps.json",
+      "data/features/val_features.parquet",
+      "experiments/xgboost/predictions_val.parquet"
+     ]
+    }
+   ],
+   "seconds": 0.6
+  },
+  {
    "module": "test_runner_contract",
    "status": "PASSED",
    "tests": 2,
@@ -379,7 +417,7 @@
    "failures": [],
    "environment_metadata_differences": [],
    "not_run_artifact_missing": [],
-   "seconds": 6.2
+   "seconds": 6.1
   },
   {
    "module": "test_splits",
@@ -432,9 +470,9 @@
    "reason": "needs torch (install requirements-gnn.txt)"
   }
  ],
- "tests": 275,
- "passed": 262,
- "not_run_artifact_missing": 13,
+ "tests": 280,
+ "passed": 264,
+ "not_run_artifact_missing": 16,
  "environment_metadata_differences": 0,
  "skipped": [
   "test_f_runner_gate",

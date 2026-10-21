@@ -16,7 +16,8 @@ import sys
 
 sys.dont_write_bytecode = True
 ROOT = pathlib.Path(__file__).resolve().parent.parent
-DOCS = ["submission/MANUSCRIPT.md", "submission/README.md", "submission/DEMO_GUIDE.md", "submission/COMPLETION_MATRIX.md", "submission/FINAL_COMPLETION_RECORD.md"]
+DOCS = ["submission/MANUSCRIPT.md", "submission/README.md", "submission/DEMO_GUIDE.md", "submission/COMPLETION_MATRIX.md", "submission/FINAL_COMPLETION_RECORD.md",
+        "submission/PROFESSOR_DEFENSE_GUIDE.md", "submission/TRACEABILITY_MATRIX.md", "submission/HELDOUT_DECISION_PACKAGE.md"]
 MD_GLOBS = ["reports/*.md", "experiments/phase*/**/*.md", "experiments/comparison_B_graph_features/**/*.md", "experiments/imbalance_check_xgboost/**/*.md",
             "experiments/final_heldout_protocol/*.md", "submission/COMPLETION_MATRIX.md", "submission/FINAL_COMPLETION_RECORD.md", "experiments/phase13_serving_dashboard/SCOPE_AND_ACCEPTANCE.md", "experiments/phase13_serving_dashboard/CRITERIA_TRACE.md",
             "experiments/neural_graph_evidence/outputs/NEURAL_EVIDENCE_REPORT.md", "experiments/final_heldout_protocol/PROTOCOL_REVIEW.md"]

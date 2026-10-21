@@ -52,17 +52,18 @@ Dated 2026-10-21. Status words: **PASS** verified by evidence; **FAIL** a verifi
 
 | Check | Result |
 |---|---|
-| Project environment, `scripts/run_completion_tests.py` | **325 of 325** pass in 33 modules (`submission/test_results.json`) |
+| Project environment, `scripts/run_completion_tests.py` | **330 of 330** pass in 34 modules (`submission/test_results.json`) |
 | `scripts/run_tests.py` | exit 0, "ALL TEST MODULES PASSED" (before the fix it reported failures because two new modules returned an exit code instead of a boolean; `tests/test_runner_contract.py` now guards this and injects a failure to prove detection) |
-| Clean Python 3.12.0 (requirements.txt only) | **275 of 275** executed tests pass with the current suite (earlier suite: 257 of 257); `pip check` clean |
-| Clean Python 3.14.3 (requirements.txt only) | **274 of 275** pass + **1 environment-metadata difference** (earlier suite: 256 of 257) (Phase 12 AC10 manifest records the interpreter version; the environment-independent companion test passes); `pip check` clean; **supported interpreter: 3.12** |
-| Fresh GitHub clone, Python 3.12.0, requirements.txt only | before the workflow: 246 of 259 pass, 13 fail only for withheld artifacts; **with the core-versus-artifact workflow (final measurement): 262 of 275 pass, 13 NOT RUN (artifact missing, listed in `tests/artifact_requirements.json`, never counted as passed), 0 fail**; `--require-artifacts` exits 1 on a clone; protocol hash verified in the clone |
+| Clean Python 3.12.0 (requirements.txt only) | **280 of 280** executed tests pass with the current suite (earlier suite: 257 of 257); `pip check` clean |
+| Clean Python 3.14.3 (requirements.txt only) | **279 of 280** pass + **1 environment-metadata difference** (earlier suite: 256 of 257) (Phase 12 AC10 manifest records the interpreter version; the environment-independent companion test passes); `pip check` clean; **supported interpreter: 3.12** |
+| Fresh GitHub clone, Python 3.12.0, requirements.txt only | before the workflow: 246 of 259 pass, 13 fail only for withheld artifacts; **with the core-versus-artifact workflow (final measurement): 264 of 280 pass, 16 NOT RUN (artifact missing, listed in `tests/artifact_requirements.json`, never counted as passed), 0 fail**; `--require-artifacts` exits 1 on a clone; protocol hash verified in the clone |
 | Skipped (needs PyTorch; **a skip is not a pass**) | `test_f_runner_gate`, `test_neural_graph_evidence`, `test_phase8_adaptive`, `test_trigger_walkforward`, `test_walkforward_ext` in a core-only environment; they pass in the project environment |
 
 ## 6. Phase 13 (reconstructed scope; unconfirmed by you)
 
 | Item | Status |
 |---|---|
+| Research model served by the API (`/api/research/*`, the recorded comparison-A XGBoost) | PASS: HTTP scores equal direct inference and the recorded validation predictions; labels ignored; rows independent; live check 12 of 12; browser rendering checked |
 | Dashboard + API behaviour, error handling, shutdown | PASS: `scripts/verify_dashboard_e2e.py` 31 of 31 checks, exit 0; `tests/test_serving.py` |
 | Scope | **BLOCKED on your confirmation**: the original Phase 13 specification was never recovered |
 | Mismatches / assumptions against the original brief | (1) the brief suggests `api/`, `dashboard/`, `notebooks/`, `models/` folders; the implementation lives in `src/serving/` and `scripts/`, no notebooks exist; (2) FastAPI and Streamlit are "likely technologies" in the brief; the standard library is used (minimum-stack rule); (3) "production-style inference" is the scorer plus the endpoint, but the scoring bundle is a synthetic demo bundle; the research XGBoost is not served; (4) drift monitoring (PSI/KS) exists offline in Phase 8, not as a live dashboard feature; (5) whether Phase 13 meant these items at all is unverifiable |
@@ -80,9 +81,13 @@ Dated 2026-10-21. Status words: **PASS** verified by evidence; **FAIL** a verifi
 | Item | Status | Evidence |
 |---|---|---|
 | Setup check, demo (byte-identical on re-run), dashboard | PASS | exit 0 for `check_setup.py` and `demo_end_to_end.py` (twice, outputs identical); dashboard E2E 31 of 31 |
-| README, demo guide, completion records agree | PASS after this pass | test counts corrected (325 tests, 33 modules), PyTorch-skip statement corrected, clean-environment results recorded; `scripts/verify_submission_claims.py` traces every number |
+| README, demo guide, completion records agree | PASS after this pass | test counts corrected (330 tests, 34 modules), PyTorch-skip statement corrected, clean-environment results recorded; `scripts/verify_submission_claims.py` traces every number |
 | Manuscript | PASS (validation-period study; held-out not done) | three figures added (`submission/figures/`, drawn from recorded results, hashed, tested) |
 | Hygiene | PASS with notes | one empty folder `experiments/gat_300epoch/seed_123` kept (aborted-run evidence); `__pycache__` is git-ignored; nine empty `C:\c\...` folders outside the repository left in place |
+
+## 8a. Traceability and defense
+
+`TRACEABILITY_MATRIX.md` maps each requirement of the original brief to code, a verification command, the observed result and the gap; `PROFESSOR_DEFENSE_GUIDE.md` is the presenter's technical guide.
 
 ## 8b. Decision package
 

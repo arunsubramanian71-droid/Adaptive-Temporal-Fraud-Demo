@@ -34,6 +34,10 @@
 [PASSED] test_phase9_core: 14/14
 [PASSED] test_phase9_segments: 3/3
 [PASSED] test_preprocessing: 8/8
+[PASSED, 3 NOT RUN (withheld artifact missing)] test_research_serving: 2/5
+      NOT RUN test_api_scores_equal_direct_model_scores_and_the_recorded_validation_predictions: missing experiments/xgboost/model.joblib
+      NOT RUN test_labels_in_the_request_are_ignored_and_each_row_is_scored_independently: missing experiments/xgboost/model.joblib
+      NOT RUN test_invalid_research_requests_get_actionable_400_errors: missing experiments/xgboost/model.joblib
 [PASSED] test_runner_contract: 2/2
 [PASSED, 1 NOT RUN (withheld artifact missing)] test_scope_reconciliation_records: 8/9
       NOT RUN test_freeze_reproduces_the_recorded_unweighted_xgboost_validation_results: missing experiments/final_heldout_protocol/frozen_amendment/A_none/model.joblib
@@ -45,4 +49,4 @@
 [PASSED] test_validate: 9/9
 [SKIPPED] test_walkforward_ext: needs torch
 
-262/275 tests passed in 28 modules; NOT RUN because withheld artifacts are missing (never counted as passed): 13; environment-metadata differences (never counted as passed): 0; skipped modules (need PyTorch): ['test_f_runner_gate', 'test_neural_graph_evidence', 'test_phase8_adaptive', 'test_trigger_walkforward', 'test_walkforward_ext']
+264/280 tests passed in 29 modules; NOT RUN because withheld artifacts are missing (never counted as passed): 16; environment-metadata differences (never counted as passed): 0; skipped modules (need PyTorch): ['test_f_runner_gate', 'test_neural_graph_evidence', 'test_phase8_adaptive', 'test_trigger_walkforward', 'test_walkforward_ext']

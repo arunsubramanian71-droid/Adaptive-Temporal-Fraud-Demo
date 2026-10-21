@@ -7,7 +7,7 @@ Purpose: show that the project is a working, tested software system and show, wi
 ```
 .venv/Scripts/python.exe -B scripts/run_tests.py
 ```
-Expect `ALL TEST MODULES PASSED` (about two to three minutes; 325 tests in 33 modules). Have `reports/PROJECT_SYNTHESIS_REPORT.md`, `experiments/comparison_B_graph_features/outputs/B_RESULTS.md` and `submission/MANUSCRIPT.md` open.
+Expect `ALL TEST MODULES PASSED` (about two to three minutes; 330 tests in 34 modules). Have `reports/PROJECT_SYNTHESIS_REPORT.md`, `experiments/comparison_B_graph_features/outputs/B_RESULTS.md` and `submission/MANUSCRIPT.md` open.
 
 ## Part 1: live software demonstration (3 minutes)
 
@@ -34,6 +34,15 @@ Likely questions: *Is the demo the research?* No; the recorded experiments need 
 ```
 
 Open http://127.0.0.1:8765/ in a browser (leave the terminal running; Ctrl+C stops it). Walk the four tabs: **Evidence (validation)** shows the recorded tables and the standing banner; **Score transactions**: click *Load synthetic sample*, wait for the message, then *Score* (the answer is labelled synthetic); **Candidate communities** shows 24 aggregate-only cards (say: candidates, not confirmed to be fraudulent or coordinated; no member identities exist in this output); **Status and limits** shows that the held-out evaluation has not been performed.
+
+## Part 1c: the research model in the dashboard (2 minutes)
+
+```
+.venv/Scripts/python.exe -B scripts/make_research_sample.py --n 25
+.venv/Scripts/python.exe -B scripts/run_dashboard.py --demo --research-model
+```
+
+Open the *Research model* tab, choose the JSON file the first command wrote (in your temporary folder), and click *Score with the research model*. Say: "this is the recorded comparison-A XGBoost, served exactly as evaluated; the scores equal the recorded validation predictions (tested); it is not the synthetic demo bundle; a score is not evidence of fraud." Point at the model-file hash, the recorded threshold and the contributions for alerted rows. Needs the local model file and validation features (not in the repository).
 
 ## Part 2: the recorded research (7 minutes)
 
