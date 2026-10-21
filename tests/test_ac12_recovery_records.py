@@ -60,6 +60,34 @@ def test_phase12_closure_status_is_not_rewritten():
     assert integ["phase12_status"].startswith("not formally complete") and "BLOCKED" in integ["frozen_artifact_check"]["registered_method_status"]
 
 
+DER = P12 / "AC12_DERIVED_EVIDENCE.json"
+
+
+def test_derived_evidence_record_is_labelled_not_provenance_and_leaves_ac12_unchanged():
+    assert hashlib.sha256(DER.read_bytes()).hexdigest() == DER.with_suffix(".sha256").read_text().strip()
+    s, r = json.loads(DER.read_text(encoding="utf-8")), load()
+    assert "NOT provenance" in s["method"] and "NOT counted" in s["method"] and s["ac12_status"].startswith("unchanged") and s["held_out_files_read"] is False
+    assert s["source_record_sha256"] == hashlib.sha256(REC.read_bytes()).hexdigest()
+    assert all(hashlib.sha256((ROOT / k).read_bytes()).hexdigest() == v for k, v in s["readiness_records_sha256"].items())
+    none = {f["path"] for f in r["files"] if f["strongest"] == "no_pre_build_evidence"}
+    assert s["files_without_pre_build_evidence_total"] == len(none) == r["strongest_evidence_counts"]["no_pre_build_evidence"] == 101
+    assert {row["file"] for row in s["sidecar_rows"]} == {p for p in none if p.endswith(".sha256")}
+    assert {row["file"] for row in s["functional_rows"]} <= none
+    for row in s["sidecar_rows"]:
+        assert row["derived"] == (row["sidecar_equals_companion_hash"] and row["companion_strongest_evidence"] not in ("no_pre_build_evidence", "not a pre-existing file"))
+    for row in s["functional_rows"]:
+        assert row["derived"] == (row["readiness_pass"] and row["recorded_predictions_strongest_evidence"] not in ("no_pre_build_evidence", "not a pre-existing file"))
+    derived = {row["file"] for row in s["sidecar_rows"] + s["functional_rows"] if row["derived"]}
+    assert (s["sidecar_consistency"]["derived"], s["functional_reproduction"]["derived"], len(derived), s["files_with_neither"]) == (20, 18, 38, 63)
+
+
+def test_derived_evidence_recomputes_from_the_current_files():
+    sys.path.insert(0, str(ROOT / "scripts"))
+    import check_ac12_derived_evidence as C
+    new, old = C.check(), json.loads(DER.read_text(encoding="utf-8"))
+    assert new["sidecar_rows"] == old["sidecar_rows"] and new["functional_rows"] == old["functional_rows"]
+
+
 def _run_all():
     fns = [v for k, v in globals().items() if k.startswith("test_") and callable(v)]
     failed = []

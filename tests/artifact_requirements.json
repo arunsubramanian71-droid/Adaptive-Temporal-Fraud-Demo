@@ -122,5 +122,10 @@
  "test_neural_graph_evidence::test_recorded_outputs_follow_the_preregistration_and_report_the_failed_criterion": [
   "experiments/neural_graph_evidence/outputs/relation_effects.csv",
   "experiments/phase11_explainable_evidence/xgb_explanations_val/selection_val.csv"
+ ],
+ "test_ac12_recovery_records::test_derived_evidence_recomputes_from_the_current_files": [
+  "experiments/phase11_explainable_evidence/xgb_explanations_val/contributions_val.csv",
+  "experiments/phase11_explainable_evidence/xgb_explanations_val/selection_val.csv",
+  "experiments/phase11_explainable_evidence/xgb_explanations_val/top_features_val.json"
  ]
 }

@@ -70,13 +70,14 @@ UNPUBLISHED_EVIDENCE = [
     "test_phase11_outputs::test_top_feature_lists_agree_with_the_contribution_matrix",
     "test_phase11_outputs::test_A8_wording_lint_on_all_phase11_text_outputs_and_sources",
     "test_neural_graph_evidence::test_recorded_outputs_follow_the_preregistration_and_report_the_failed_criterion",
+    "test_ac12_recovery_records::test_derived_evidence_recomputes_from_the_current_files",
 ]
 
 
 def test_registry_is_exactly_the_three_documented_groups():
-    """13 tests that failed on the first fresh clone; 3 research-model serving tests; 4 tests that read the six transaction-level evidence files kept
+    """13 tests that failed on the first fresh clone; 3 research-model serving tests; 5 tests that read the six transaction-level evidence files kept
     local since 2026-10-22 (publication policy). A change to the registry must update these lists deliberately."""
-    assert len(ORIGINAL_13) == 13 and len(RESEARCH_SERVING) == 3 and len(UNPUBLISHED_EVIDENCE) == 4
+    assert len(ORIGINAL_13) == 13 and len(RESEARCH_SERVING) == 3 and len(UNPUBLISHED_EVIDENCE) == 5
     assert set(REGISTRY) == set(ORIGINAL_13) | set(RESEARCH_SERVING) | set(UNPUBLISHED_EVIDENCE), sorted(set(REGISTRY) ^ (set(ORIGINAL_13) | set(RESEARCH_SERVING) | set(UNPUBLISHED_EVIDENCE)))
     assert all(any("model.joblib" in p for p in REGISTRY[k]) for k in RESEARCH_SERVING)
 

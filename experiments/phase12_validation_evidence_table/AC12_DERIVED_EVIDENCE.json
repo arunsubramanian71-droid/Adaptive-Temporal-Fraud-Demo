@@ -1,0 +1,366 @@
+{
+ "created_local": "2026-10-22T02:47:47+05:30",
+ "method": "derived consistency (sidecar consistency; functional reproduction by the recorded readiness gates); NOT provenance and NOT counted in the AC12 recovery",
+ "source_record": "experiments/phase12_validation_evidence_table/AC12_GIT_SNAPSHOT_VERIFICATION.json",
+ "source_record_sha256": "1b2767cf39dcc2be06cab4fc2156efab873fe248e79e0a5974950d2ae27bcc03",
+ "readiness_records_sha256": {
+  "experiments/final_heldout_protocol/readiness_val/readiness_report.json": "70b102e6c176c1f3ff83d8c5a342ce3ecbe50e7994d918be4db29f5105ad0714",
+  "experiments/final_heldout_protocol/readiness_val_amendment/readiness_report.json": "0d365e2b7f1b6ece0239fbe4bfe444ccd45e36cb89608b8afe4945cc22daa758"
+ },
+ "files_without_pre_build_evidence_total": 101,
+ "sidecar_consistency": {
+  "candidates": 22,
+  "derived": 20
+ },
+ "functional_reproduction": {
+  "candidates": 18,
+  "derived": 18
+ },
+ "files_with_derived_evidence": 38,
+ "files_with_neither": 63,
+ "limits": [
+  "derived consistency cannot show that a file existed before the build",
+  "a sidecar that was wrong before the build and corrected during it would look the same",
+  "a model change that leaves every validation score unchanged would not be detected; tolerances are the registered readiness tolerances"
+ ],
+ "ac12_status": "unchanged: BLOCKED as registered",
+ "held_out_files_read": false,
+ "sidecar_rows": [
+  {
+   "file": "experiments/phase10_community_evolution/DESIGN_ADDENDUM_D12_approved_decisions.sha256",
+   "companion": "experiments/phase10_community_evolution/DESIGN_ADDENDUM_D12_approved_decisions.md",
+   "companion_strongest_evidence": "integrity_record",
+   "sidecar_equals_companion_hash": true,
+   "derived": true
+  },
+  {
+   "file": "experiments/phase10_community_evolution/DESIGN_ADDENDUM_ERRATA_1_B1_B5.sha256",
+   "companion": "experiments/phase10_community_evolution/DESIGN_ADDENDUM_ERRATA_1_B1_B5.md",
+   "companion_strongest_evidence": "integrity_record",
+   "sidecar_equals_companion_hash": true,
+   "derived": true
+  },
+  {
+   "file": "experiments/phase10_community_evolution/DESIGN_ADDENDUM_ERRATA_2_targets_interface_censoring.sha256",
+   "companion": "experiments/phase10_community_evolution/DESIGN_ADDENDUM_ERRATA_2_targets_interface_censoring.md",
+   "companion_strongest_evidence": "integrity_record",
+   "sidecar_equals_companion_hash": true,
+   "derived": true
+  },
+  {
+   "file": "experiments/phase10_community_evolution/INTEGRITY_ADDENDUM.sha256",
+   "companion": "experiments/phase10_community_evolution/INTEGRITY_ADDENDUM.json",
+   "companion_strongest_evidence": "integrity_record",
+   "sidecar_equals_companion_hash": true,
+   "derived": true
+  },
+  {
+   "file": "experiments/phase10_community_evolution/INTEGRITY_CORE_FINALIZATION.sha256",
+   "companion": "experiments/phase10_community_evolution/INTEGRITY_CORE_FINALIZATION.json",
+   "companion_strongest_evidence": "no_pre_build_evidence",
+   "sidecar_equals_companion_hash": true,
+   "derived": false
+  },
+  {
+   "file": "experiments/phase10_community_evolution/INTEGRITY_CORE_IMPLEMENTATION.sha256",
+   "companion": "experiments/phase10_community_evolution/INTEGRITY_CORE_IMPLEMENTATION.json",
+   "companion_strongest_evidence": "integrity_record",
+   "sidecar_equals_companion_hash": true,
+   "derived": true
+  },
+  {
+   "file": "experiments/phase10_community_evolution/INTEGRITY_ERRATA_1.sha256",
+   "companion": "experiments/phase10_community_evolution/INTEGRITY_ERRATA_1.json",
+   "companion_strongest_evidence": "integrity_record",
+   "sidecar_equals_companion_hash": true,
+   "derived": true
+  },
+  {
+   "file": "experiments/phase10_community_evolution/INTEGRITY_ERRATA_2.sha256",
+   "companion": "experiments/phase10_community_evolution/INTEGRITY_ERRATA_2.json",
+   "companion_strongest_evidence": "integrity_record",
+   "sidecar_equals_companion_hash": true,
+   "derived": true
+  },
+  {
+   "file": "experiments/phase10_community_evolution/core_implementation/IMPLEMENTATION_NOTES.sha256",
+   "companion": "experiments/phase10_community_evolution/core_implementation/IMPLEMENTATION_NOTES.md",
+   "companion_strongest_evidence": "session_log",
+   "sidecar_equals_companion_hash": true,
+   "derived": true
+  },
+  {
+   "file": "experiments/phase11_explainable_evidence/INTEGRITY_PHASE11.sha256",
+   "companion": "experiments/phase11_explainable_evidence/INTEGRITY_PHASE11.json",
+   "companion_strongest_evidence": "no_pre_build_evidence",
+   "sidecar_equals_companion_hash": true,
+   "derived": false
+  },
+  {
+   "file": "experiments/phase11_explainable_evidence/PHASE11_CLOSURE_REPORT.sha256",
+   "companion": "experiments/phase11_explainable_evidence/PHASE11_CLOSURE_REPORT.md",
+   "companion_strongest_evidence": "integrity_record",
+   "sidecar_equals_companion_hash": true,
+   "derived": true
+  },
+  {
+   "file": "experiments/phase11_explainable_evidence/SCOPE_AND_ACCEPTANCE.sha256",
+   "companion": "experiments/phase11_explainable_evidence/SCOPE_AND_ACCEPTANCE.md",
+   "companion_strongest_evidence": "session_log",
+   "sidecar_equals_companion_hash": true,
+   "derived": true
+  },
+  {
+   "file": "experiments/phase11_explainable_evidence/community_cards/appendix_selection_all_seeds_W7.sha256",
+   "companion": "experiments/phase11_explainable_evidence/community_cards/appendix_selection_all_seeds_W7.csv",
+   "companion_strongest_evidence": "integrity_record",
+   "sidecar_equals_companion_hash": true,
+   "derived": true
+  },
+  {
+   "file": "experiments/phase11_explainable_evidence/community_cards/cards_W7_seed42.sha256",
+   "companion": "experiments/phase11_explainable_evidence/community_cards/cards_W7_seed42.json",
+   "companion_strongest_evidence": "integrity_record",
+   "sidecar_equals_companion_hash": true,
+   "derived": true
+  },
+  {
+   "file": "experiments/phase11_explainable_evidence/community_cards/cards_W7_seed42_report.sha256",
+   "companion": "experiments/phase11_explainable_evidence/community_cards/cards_W7_seed42_report.md",
+   "companion_strongest_evidence": "integrity_record",
+   "sidecar_equals_companion_hash": true,
+   "derived": true
+  },
+  {
+   "file": "experiments/phase11_explainable_evidence/community_cards/cards_summary.sha256",
+   "companion": "experiments/phase11_explainable_evidence/community_cards/cards_summary.json",
+   "companion_strongest_evidence": "integrity_record",
+   "sidecar_equals_companion_hash": true,
+   "derived": true
+  },
+  {
+   "file": "experiments/phase11_explainable_evidence/community_cards/manifest_cards.sha256",
+   "companion": "experiments/phase11_explainable_evidence/community_cards/manifest_cards.json",
+   "companion_strongest_evidence": "integrity_record",
+   "sidecar_equals_companion_hash": true,
+   "derived": true
+  },
+  {
+   "file": "experiments/phase11_explainable_evidence/xgb_explanations_val/contributions_val.sha256",
+   "companion": "experiments/phase11_explainable_evidence/xgb_explanations_val/contributions_val.csv",
+   "companion_strongest_evidence": "integrity_record",
+   "sidecar_equals_companion_hash": true,
+   "derived": true
+  },
+  {
+   "file": "experiments/phase11_explainable_evidence/xgb_explanations_val/manifest_val.sha256",
+   "companion": "experiments/phase11_explainable_evidence/xgb_explanations_val/manifest_val.json",
+   "companion_strongest_evidence": "integrity_record",
+   "sidecar_equals_companion_hash": true,
+   "derived": true
+  },
+  {
+   "file": "experiments/phase11_explainable_evidence/xgb_explanations_val/selection_val.sha256",
+   "companion": "experiments/phase11_explainable_evidence/xgb_explanations_val/selection_val.csv",
+   "companion_strongest_evidence": "integrity_record",
+   "sidecar_equals_companion_hash": true,
+   "derived": true
+  },
+  {
+   "file": "experiments/phase11_explainable_evidence/xgb_explanations_val/summary_val.sha256",
+   "companion": "experiments/phase11_explainable_evidence/xgb_explanations_val/summary_val.json",
+   "companion_strongest_evidence": "integrity_record",
+   "sidecar_equals_companion_hash": true,
+   "derived": true
+  },
+  {
+   "file": "experiments/phase11_explainable_evidence/xgb_explanations_val/top_features_val.sha256",
+   "companion": "experiments/phase11_explainable_evidence/xgb_explanations_val/top_features_val.json",
+   "companion_strongest_evidence": "integrity_record",
+   "sidecar_equals_companion_hash": true,
+   "derived": true
+  }
+ ],
+ "functional_rows": [
+  {
+   "file": "experiments/gat/seed_123/model_checkpoint.pt",
+   "model": "gat_s123",
+   "readiness_record": "experiments/final_heldout_protocol/readiness_val/readiness_report.json",
+   "readiness_pass": true,
+   "max_abs_score_diff": 2.682209014892578e-07,
+   "recorded_predictions": "experiments/gat/seed_123/predictions_val.parquet",
+   "recorded_predictions_strongest_evidence": "scope_fingerprint",
+   "derived": true
+  },
+  {
+   "file": "experiments/gat/seed_2024/model_checkpoint.pt",
+   "model": "gat_s2024",
+   "readiness_record": "experiments/final_heldout_protocol/readiness_val/readiness_report.json",
+   "readiness_pass": true,
+   "max_abs_score_diff": 2.086162567138672e-07,
+   "recorded_predictions": "experiments/gat/seed_2024/predictions_val.parquet",
+   "recorded_predictions_strongest_evidence": "scope_fingerprint",
+   "derived": true
+  },
+  {
+   "file": "experiments/gat/seed_42/model_checkpoint.pt",
+   "model": "gat_s42",
+   "readiness_record": "experiments/final_heldout_protocol/readiness_val/readiness_report.json",
+   "readiness_pass": true,
+   "max_abs_score_diff": 3.8743019104003906e-07,
+   "recorded_predictions": "experiments/gat/seed_42/predictions_val.parquet",
+   "recorded_predictions_strongest_evidence": "scope_fingerprint",
+   "derived": true
+  },
+  {
+   "file": "experiments/graphsage_robust/seed_123/model_checkpoint.pt",
+   "model": "graphsage_s123",
+   "readiness_record": "experiments/final_heldout_protocol/readiness_val/readiness_report.json",
+   "readiness_pass": true,
+   "max_abs_score_diff": 1.7881393432617188e-07,
+   "recorded_predictions": "experiments/graphsage_robust/seed_123/predictions_val.parquet",
+   "recorded_predictions_strongest_evidence": "scope_fingerprint",
+   "derived": true
+  },
+  {
+   "file": "experiments/graphsage_robust/seed_2024/model_checkpoint.pt",
+   "model": "graphsage_s2024",
+   "readiness_record": "experiments/final_heldout_protocol/readiness_val/readiness_report.json",
+   "readiness_pass": true,
+   "max_abs_score_diff": 2.384185791015625e-07,
+   "recorded_predictions": "experiments/graphsage_robust/seed_2024/predictions_val.parquet",
+   "recorded_predictions_strongest_evidence": "scope_fingerprint",
+   "derived": true
+  },
+  {
+   "file": "experiments/graphsage_robust/seed_42/model_checkpoint.pt",
+   "model": "graphsage_s42",
+   "readiness_record": "experiments/final_heldout_protocol/readiness_val/readiness_report.json",
+   "readiness_pass": true,
+   "max_abs_score_diff": 2.384185791015625e-07,
+   "recorded_predictions": "experiments/graphsage_robust/seed_42/predictions_val.parquet",
+   "recorded_predictions_strongest_evidence": "scope_fingerprint",
+   "derived": true
+  },
+  {
+   "file": "experiments/logistic_regression/model.joblib",
+   "model": "logistic_regression",
+   "readiness_record": "experiments/final_heldout_protocol/readiness_val/readiness_report.json",
+   "readiness_pass": true,
+   "max_abs_score_diff": 0.0,
+   "recorded_predictions": "experiments/logistic_regression/predictions_val.parquet",
+   "recorded_predictions_strongest_evidence": "scope_fingerprint",
+   "derived": true
+  },
+  {
+   "file": "experiments/temporal_ablation/memory_ablated_temporal/seed_123/model_checkpoint.pt",
+   "model": "memory_ablated_s123",
+   "readiness_record": "experiments/final_heldout_protocol/readiness_val/readiness_report.json",
+   "readiness_pass": true,
+   "max_abs_score_diff": 2.980232238769531e-07,
+   "recorded_predictions": "experiments/temporal_ablation/memory_ablated_temporal/seed_123/predictions_val.parquet",
+   "recorded_predictions_strongest_evidence": "scope_fingerprint",
+   "derived": true
+  },
+  {
+   "file": "experiments/temporal_ablation/memory_ablated_temporal/seed_2024/model_checkpoint.pt",
+   "model": "memory_ablated_s2024",
+   "readiness_record": "experiments/final_heldout_protocol/readiness_val/readiness_report.json",
+   "readiness_pass": true,
+   "max_abs_score_diff": 3.5762786865234375e-07,
+   "recorded_predictions": "experiments/temporal_ablation/memory_ablated_temporal/seed_2024/predictions_val.parquet",
+   "recorded_predictions_strongest_evidence": "scope_fingerprint",
+   "derived": true
+  },
+  {
+   "file": "experiments/temporal_ablation/memory_ablated_temporal/seed_42/model_checkpoint.pt",
+   "model": "memory_ablated_s42",
+   "readiness_record": "experiments/final_heldout_protocol/readiness_val/readiness_report.json",
+   "readiness_pass": true,
+   "max_abs_score_diff": 3.5762786865234375e-07,
+   "recorded_predictions": "experiments/temporal_ablation/memory_ablated_temporal/seed_42/predictions_val.parquet",
+   "recorded_predictions_strongest_evidence": "scope_fingerprint",
+   "derived": true
+  },
+  {
+   "file": "experiments/random_forest/model.joblib",
+   "model": "random_forest",
+   "readiness_record": "experiments/final_heldout_protocol/readiness_val/readiness_report.json",
+   "readiness_pass": true,
+   "max_abs_score_diff": 4.440892098500626e-16,
+   "recorded_predictions": "experiments/random_forest/predictions_val.parquet",
+   "recorded_predictions_strongest_evidence": "scope_fingerprint",
+   "derived": true
+  },
+  {
+   "file": "experiments/temporal_ablation/static_schedule_matched/seed_123/model_checkpoint.pt",
+   "model": "static_schedule_matched_s123",
+   "readiness_record": "experiments/final_heldout_protocol/readiness_val/readiness_report.json",
+   "readiness_pass": true,
+   "max_abs_score_diff": 5.364418029785156e-07,
+   "recorded_predictions": "experiments/temporal_ablation/static_schedule_matched/seed_123/predictions_val.parquet",
+   "recorded_predictions_strongest_evidence": "scope_fingerprint",
+   "derived": true
+  },
+  {
+   "file": "experiments/temporal_ablation/static_schedule_matched/seed_2024/model_checkpoint.pt",
+   "model": "static_schedule_matched_s2024",
+   "readiness_record": "experiments/final_heldout_protocol/readiness_val/readiness_report.json",
+   "readiness_pass": true,
+   "max_abs_score_diff": 3.5762786865234375e-07,
+   "recorded_predictions": "experiments/temporal_ablation/static_schedule_matched/seed_2024/predictions_val.parquet",
+   "recorded_predictions_strongest_evidence": "scope_fingerprint",
+   "derived": true
+  },
+  {
+   "file": "experiments/temporal_ablation/static_schedule_matched/seed_42/model_checkpoint.pt",
+   "model": "static_schedule_matched_s42",
+   "readiness_record": "experiments/final_heldout_protocol/readiness_val/readiness_report.json",
+   "readiness_pass": true,
+   "max_abs_score_diff": 7.152557373046875e-07,
+   "recorded_predictions": "experiments/temporal_ablation/static_schedule_matched/seed_42/predictions_val.parquet",
+   "recorded_predictions_strongest_evidence": "scope_fingerprint",
+   "derived": true
+  },
+  {
+   "file": "experiments/temporal_graphsage/seed_123/model_checkpoint.pt",
+   "model": "temporal_graphsage_s123",
+   "readiness_record": "experiments/final_heldout_protocol/readiness_val/readiness_report.json",
+   "readiness_pass": true,
+   "max_abs_score_diff": 2.384185791015625e-07,
+   "recorded_predictions": "experiments/temporal_graphsage/seed_123/predictions_val.parquet",
+   "recorded_predictions_strongest_evidence": "scope_fingerprint",
+   "derived": true
+  },
+  {
+   "file": "experiments/temporal_graphsage/seed_2024/model_checkpoint.pt",
+   "model": "temporal_graphsage_s2024",
+   "readiness_record": "experiments/final_heldout_protocol/readiness_val/readiness_report.json",
+   "readiness_pass": true,
+   "max_abs_score_diff": 1.7881393432617188e-07,
+   "recorded_predictions": "experiments/temporal_graphsage/seed_2024/predictions_val.parquet",
+   "recorded_predictions_strongest_evidence": "scope_fingerprint",
+   "derived": true
+  },
+  {
+   "file": "experiments/temporal_graphsage/seed_42/model_checkpoint.pt",
+   "model": "temporal_graphsage_s42",
+   "readiness_record": "experiments/final_heldout_protocol/readiness_val/readiness_report.json",
+   "readiness_pass": true,
+   "max_abs_score_diff": 4.172325134277344e-07,
+   "recorded_predictions": "experiments/temporal_graphsage/seed_42/predictions_val.parquet",
+   "recorded_predictions_strongest_evidence": "scope_fingerprint",
+   "derived": true
+  },
+  {
+   "file": "experiments/xgboost_historical_control/model.joblib",
+   "model": "xgboost_historical",
+   "readiness_record": "experiments/final_heldout_protocol/readiness_val_amendment/readiness_report.json",
+   "readiness_pass": true,
+   "max_abs_score_diff": 0.0,
+   "recorded_predictions": "experiments/xgboost_historical_control/predictions_val.parquet",
+   "recorded_predictions_strongest_evidence": "scope_fingerprint",
+   "derived": true
+  }
+ ]
+}
