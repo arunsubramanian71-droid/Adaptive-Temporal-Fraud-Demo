@@ -23,24 +23,21 @@ def test_every_test_module_exposes_run_all_that_returns_a_boolean_not_an_exit_co
 
 
 def test_run_all_reports_false_when_a_test_fails_and_true_when_all_pass():
-    mod = importlib.import_module("tests.test_scope_reconciliation_records")
-    assert mod._run_all.__globals__ is vars(mod)
-    original = dict(vars(mod))
-    try:
-        def test_zz_injected_failure():
-            raise AssertionError("injected")
-        vars(mod)["test_zz_injected_failure"] = test_zz_injected_failure
-        import io
-        from contextlib import redirect_stdout
-        with redirect_stdout(io.StringIO()):
-            assert mod._run_all() is False
-    finally:
-        vars(mod).pop("test_zz_injected_failure", None)
-    assert "test_zz_injected_failure" not in vars(mod) and set(original) <= set(vars(mod))
+    """The `_run_all` pattern used by every test module, executed on a throwaway namespace (independent of any other module's results)."""
+    import contextlib
+    import inspect
     import io
-    from contextlib import redirect_stdout
-    with redirect_stdout(io.StringIO()):
-        assert mod._run_all() is True
+    src = inspect.getsource(_run_all)
+    for failing, expected in ((False, True), (True, False)):
+        ns = {"sys": sys, "__name__": "probe"}
+        exec(src, ns)
+        ns["test_ok"] = lambda: None
+        if failing:
+            def test_bad():
+                raise AssertionError("injected")
+            ns["test_bad"] = test_bad
+        with contextlib.redirect_stdout(io.StringIO()):
+            assert ns["_run_all"]() is expected, (failing, expected)
 
 
 def _run_all():
