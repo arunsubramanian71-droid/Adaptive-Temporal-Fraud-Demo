@@ -1,0 +1,8 @@
+[WARNING] failed to run offload-arch: binary not found.
+seed 42: G1 True G2 True G3 True G5 True G4-9b True (0.0499 pts; original formula 0.9379)
+seed 123: G1 True G2 True G3 True G5 True G4-9b True (0.0653 pts; original formula 0.6986)
+seed 2024: G1 True G2 True G3 True G5 True G4-9b True (0.0421 pts; original formula 0.9035)
+seed 42: discovery 7s; alpha0 AP A2 0.145, B1 0.008, B2 0.034, B3a 0.000, B3b 0.016, B0 0.000, A5 0.033
+seed 123: discovery 7s; alpha0 AP A2 0.267, B1 0.014, B2 0.048, B3a 0.000, B3b 0.045, B0 0.000, A5 0.044
+seed 2024: discovery 7s; alpha0 AP A2 0.141, B1 0.005, B2 0.045, B3a 0.000, B3b 0.027, B0 0.000, A5 0.050
+H5a-9b SUPPORTED {"B1": {"A2_wins_of_3": 3, "mean_diff": 0.1754913621754755, "larger_sd": 0.07163284654802893, "met": true}, "B2": {"A2_wins_of_3": 3, "mean_diff": 0.14201579115764415, "larger_sd": 0.07163284654802893, "met": true}, "B3a": {"A2_wins_of_3": 3, "mean_diff": 0.18435404655584006, "larger_sd": 0.07163284654802893, "met": true}, "B3b": {"A2_wins_of_3": 3, "mean_diff": 0.15491220218232973, "larger_sd": 0.07163284654802893, "met": true}} {"42": 1.7333333333333334, "123": 1.3666666666666667, "2024": 1.9333333333333333}
