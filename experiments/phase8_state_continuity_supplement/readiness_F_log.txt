@@ -1,0 +1,11 @@
+[WARNING] failed to run offload-arch: binary not found.
+[done] val/readiness F seed 42: window PR-AUC [0.61, 0.4049, 0.428, 0.3929, 0.3263] mean 0.4324 (3s)
+[done] val/readiness Ad seed 42: window PR-AUC [0.61, 0.4713, 0.4524, 0.4229, 0.3755] mean 0.4664 (129s)
+[done] val/readiness E seed 42: window PR-AUC [0.61, 0.4495, 0.4175, 0.352, 0.3408] mean 0.4340 (123s)
+[done] val/readiness F seed 123: window PR-AUC [0.5945, 0.4019, 0.4097, 0.3682, 0.3235] mean 0.4196 (1s)
+[done] val/readiness Ad seed 123: window PR-AUC [0.5945, 0.4639, 0.4785, 0.4443, 0.3632] mean 0.4689 (52s)
+[done] val/readiness E seed 123: window PR-AUC [0.5945, 0.4335, 0.4279, 0.3595, 0.3159] mean 0.4263 (50s)
+[done] val/readiness F seed 2024: window PR-AUC [0.6154, 0.431, 0.4262, 0.3827, 0.3701] mean 0.4451 (1s)
+[done] val/readiness Ad seed 2024: window PR-AUC [0.6154, 0.4808, 0.4547, 0.4301, 0.4047] mean 0.4771 (74s)
+[done] val/readiness E seed 2024: window PR-AUC [0.6154, 0.4475, 0.3934, 0.3513, 0.349] mean 0.4313 (73s)
+F readiness (amendment 1): FAIL

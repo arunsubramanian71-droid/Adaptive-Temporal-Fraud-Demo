@@ -1,0 +1,218 @@
+{
+ "created_local": "2026-10-21T10:55:29+05:30",
+ "split": "val",
+ "all_pass": true,
+ "python": "3.12.0",
+ "models": [
+  {
+   "model": "B_full",
+   "family": "b",
+   "ids_identical": true,
+   "max_abs_score_diff": 0.0,
+   "pr_auc_recomputed": 0.5440182104476056,
+   "pr_auc_recorded_scores": 0.5440182104476056,
+   "tolerance_score": 1e-09,
+   "tolerance_pr_auc": 1e-09,
+   "pass": true
+  },
+  {
+   "model": "gat_s123",
+   "family": "static",
+   "ids_identical": true,
+   "max_abs_score_diff": 4.470348358154297e-07,
+   "pr_auc_recomputed": 0.32772346037720135,
+   "pr_auc_recorded_scores": 0.32772345962236904,
+   "tolerance_score": 0.0001,
+   "tolerance_pr_auc": 1e-06,
+   "pass": true
+  },
+  {
+   "model": "gat_s2024",
+   "family": "static",
+   "ids_identical": true,
+   "max_abs_score_diff": 2.384185791015625e-07,
+   "pr_auc_recomputed": 0.3304355800256329,
+   "pr_auc_recorded_scores": 0.33043558743145357,
+   "tolerance_score": 0.0001,
+   "tolerance_pr_auc": 1e-06,
+   "pass": true
+  },
+  {
+   "model": "gat_s42",
+   "family": "static",
+   "ids_identical": true,
+   "max_abs_score_diff": 2.384185791015625e-07,
+   "pr_auc_recomputed": 0.3377632158936608,
+   "pr_auc_recorded_scores": 0.33776298927622056,
+   "tolerance_score": 0.0001,
+   "tolerance_pr_auc": 1e-06,
+   "pass": true
+  },
+  {
+   "model": "graphsage_s123",
+   "family": "static",
+   "ids_identical": true,
+   "max_abs_score_diff": 1.341104507446289e-07,
+   "pr_auc_recomputed": 0.4568684765951987,
+   "pr_auc_recorded_scores": 0.45686847659519864,
+   "tolerance_score": 0.0001,
+   "tolerance_pr_auc": 1e-06,
+   "pass": true
+  },
+  {
+   "model": "graphsage_s2024",
+   "family": "static",
+   "ids_identical": true,
+   "max_abs_score_diff": 1.7881393432617188e-07,
+   "pr_auc_recomputed": 0.4827221763573019,
+   "pr_auc_recorded_scores": 0.48272217635730197,
+   "tolerance_score": 0.0001,
+   "tolerance_pr_auc": 1e-06,
+   "pass": true
+  },
+  {
+   "model": "graphsage_s42",
+   "family": "static",
+   "ids_identical": true,
+   "max_abs_score_diff": 1.7881393432617188e-07,
+   "pr_auc_recomputed": 0.45147076224113775,
+   "pr_auc_recorded_scores": 0.45147076224113775,
+   "tolerance_score": 0.0001,
+   "tolerance_pr_auc": 1e-06,
+   "pass": true
+  },
+  {
+   "model": "logistic_regression",
+   "family": "tabular",
+   "ids_identical": true,
+   "max_abs_score_diff": 0.0,
+   "pr_auc_recomputed": 0.4125880871696731,
+   "pr_auc_recorded_scores": 0.4125880871696731,
+   "tolerance_score": 1e-09,
+   "tolerance_pr_auc": 1e-09,
+   "pass": true
+  },
+  {
+   "model": "memory_ablated_s123",
+   "family": "temporal",
+   "ids_identical": true,
+   "max_abs_score_diff": 3.5762786865234375e-07,
+   "pr_auc_recomputed": 0.4795883422804796,
+   "pr_auc_recorded_scores": 0.4795883422804797,
+   "tolerance_score": 0.0001,
+   "tolerance_pr_auc": 1e-06,
+   "pass": true
+  },
+  {
+   "model": "memory_ablated_s2024",
+   "family": "temporal",
+   "ids_identical": true,
+   "max_abs_score_diff": 2.980232238769531e-07,
+   "pr_auc_recomputed": 0.4862609590169941,
+   "pr_auc_recorded_scores": 0.4862609590169941,
+   "tolerance_score": 0.0001,
+   "tolerance_pr_auc": 1e-06,
+   "pass": true
+  },
+  {
+   "model": "memory_ablated_s42",
+   "family": "temporal",
+   "ids_identical": true,
+   "max_abs_score_diff": 2.980232238769531e-07,
+   "pr_auc_recomputed": 0.47112543292974673,
+   "pr_auc_recorded_scores": 0.4711253888967777,
+   "tolerance_score": 0.0001,
+   "tolerance_pr_auc": 1e-06,
+   "pass": true
+  },
+  {
+   "model": "random_forest",
+   "family": "tabular",
+   "ids_identical": true,
+   "max_abs_score_diff": 4.440892098500626e-16,
+   "pr_auc_recomputed": 0.45428013097000314,
+   "pr_auc_recorded_scores": 0.45428013097000314,
+   "tolerance_score": 1e-09,
+   "tolerance_pr_auc": 1e-09,
+   "pass": true
+  },
+  {
+   "model": "static_schedule_matched_s123",
+   "family": "static",
+   "ids_identical": true,
+   "max_abs_score_diff": 7.152557373046875e-07,
+   "pr_auc_recomputed": 0.4911986934044164,
+   "pr_auc_recorded_scores": 0.49119869804499616,
+   "tolerance_score": 0.0001,
+   "tolerance_pr_auc": 1e-06,
+   "pass": true
+  },
+  {
+   "model": "static_schedule_matched_s2024",
+   "family": "static",
+   "ids_identical": true,
+   "max_abs_score_diff": 2.384185791015625e-07,
+   "pr_auc_recomputed": 0.46860571597750567,
+   "pr_auc_recorded_scores": 0.4686057037696638,
+   "tolerance_score": 0.0001,
+   "tolerance_pr_auc": 1e-06,
+   "pass": true
+  },
+  {
+   "model": "static_schedule_matched_s42",
+   "family": "static",
+   "ids_identical": true,
+   "max_abs_score_diff": 5.960464477539062e-07,
+   "pr_auc_recomputed": 0.47790206721843803,
+   "pr_auc_recorded_scores": 0.47790206721843803,
+   "tolerance_score": 0.0001,
+   "tolerance_pr_auc": 1e-06,
+   "pass": true
+  },
+  {
+   "model": "temporal_graphsage_s123",
+   "family": "temporal",
+   "ids_identical": true,
+   "max_abs_score_diff": 2.682209014892578e-07,
+   "pr_auc_recomputed": 0.4887968759815542,
+   "pr_auc_recorded_scores": 0.4887969416286957,
+   "tolerance_score": 0.0001,
+   "tolerance_pr_auc": 1e-06,
+   "pass": true
+  },
+  {
+   "model": "temporal_graphsage_s2024",
+   "family": "temporal",
+   "ids_identical": true,
+   "max_abs_score_diff": 2.384185791015625e-07,
+   "pr_auc_recomputed": 0.49560097520667207,
+   "pr_auc_recorded_scores": 0.49560097555082383,
+   "tolerance_score": 0.0001,
+   "tolerance_pr_auc": 1e-06,
+   "pass": true
+  },
+  {
+   "model": "temporal_graphsage_s42",
+   "family": "temporal",
+   "ids_identical": true,
+   "max_abs_score_diff": 2.384185791015625e-07,
+   "pr_auc_recomputed": 0.4937565612923785,
+   "pr_auc_recorded_scores": 0.4937565686446755,
+   "tolerance_score": 0.0001,
+   "tolerance_pr_auc": 1e-06,
+   "pass": true
+  },
+  {
+   "model": "xgboost",
+   "family": "tabular",
+   "ids_identical": true,
+   "max_abs_score_diff": 0.0,
+   "pr_auc_recomputed": 0.5394573894481626,
+   "pr_auc_recorded_scores": 0.5394573894481626,
+   "tolerance_score": 1e-09,
+   "tolerance_pr_auc": 1e-09,
+   "pass": true
+  }
+ ],
+ "statement": "Validation-period re-scoring of the frozen models for the code-readiness gate. No held-out data was read."
+}

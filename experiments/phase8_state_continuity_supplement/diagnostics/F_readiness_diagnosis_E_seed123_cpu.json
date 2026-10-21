@@ -1,0 +1,29 @@
+{
+ "created_local": "2026-10-21T13:50:20+05:30",
+ "arm": "E",
+ "seed": 123,
+ "n_identical_runs": 2,
+ "device": "cpu",
+ "windows_scored": 2,
+ "identical_run_window_means": [
+  0.516059018205101,
+  0.516059018205101
+ ],
+ "identical_run_pairwise": [
+  {
+   "runs": [
+    1,
+    2
+   ],
+   "window_mean_abs_diff": 0.0,
+   "max_abs_score_diff_per_window": [
+    0.0,
+    0.0
+   ]
+  }
+ ],
+ "all_identical_runs_bitwise_equal": true,
+ "reading": "post-hoc, labelled diagnostic on the CPU: if identical-seed runs are bitwise equal here, the run-to-run differences seen on the GPU come from nondeterministic GPU kernels, not from the code or the seeding.",
+ "test_data_read": false,
+ "seconds": 675.5
+}

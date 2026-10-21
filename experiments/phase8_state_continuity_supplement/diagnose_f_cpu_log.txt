@@ -1,0 +1,4 @@
+[WARNING] failed to run offload-arch: binary not found.
+[run 1/2] E seed 123: window PR-AUC [0.5945, 0.4376] mean 0.5161
+[run 2/2] E seed 123: window PR-AUC [0.5945, 0.4376] mean 0.5161
+{"identical_run_window_means": [0.516059018205101, 0.516059018205101], "all_identical_runs_bitwise_equal": true}

@@ -1,0 +1,65 @@
+{
+ "created_local": "2026-10-21T13:29:09+05:30",
+ "arm": "E",
+ "seed": 123,
+ "n_identical_runs": 3,
+ "device": "cuda:0",
+ "identical_run_window_means": [
+  0.43300283907910264,
+  0.4272932911194456,
+  0.42814734069913535
+ ],
+ "identical_run_pairwise": [
+  {
+   "runs": [
+    1,
+    2
+   ],
+   "window_mean_abs_diff": 0.0057095479596570575,
+   "max_abs_score_diff_per_window": [
+    1.1920928955078125e-07,
+    0.23726367950439453,
+    0.9162657856941223,
+    0.9637262225151062,
+    0.954543948173523
+   ]
+  },
+  {
+   "runs": [
+    1,
+    3
+   ],
+   "window_mean_abs_diff": 0.0048554983799672935,
+   "max_abs_score_diff_per_window": [
+    1.1920928955078125e-07,
+    0.14876240491867065,
+    0.8835516571998596,
+    0.9633877873420715,
+    0.9721142053604126
+   ]
+  },
+  {
+   "runs": [
+    2,
+    3
+   ],
+   "window_mean_abs_diff": 0.000854049579689764,
+   "max_abs_score_diff_per_window": [
+    1.1920928955078125e-07,
+    0.16738420724868774,
+    0.9255649447441101,
+    0.9777472019195557,
+    0.8421962261199951
+   ]
+  }
+ ],
+ "recorded_supplement_window_mean": 0.43665732423070613,
+ "recorded_readiness_window_mean": 0.42626524814461997,
+ "readiness_vs_supplement_abs_diff": 0.010392076086086166,
+ "max_spread_of_window_means_over_all_runs": 0.010392076086086166,
+ "window1_max_score_diff_supplement_vs_readiness": 1.1920928955078125e-07,
+ "registered_tolerance": 0.01,
+ "reading": "post-hoc, labelled diagnostic. If identical-seed runs themselves differ in window mean by a size comparable to the readiness difference, the readiness difference is run-to-run numerical variation, not a deterministic code difference.",
+ "test_data_read": false,
+ "seconds": 167.1
+}

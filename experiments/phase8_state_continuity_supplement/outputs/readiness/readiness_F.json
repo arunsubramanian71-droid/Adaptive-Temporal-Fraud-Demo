@@ -1,0 +1,221 @@
+{
+ "all_pass": false,
+ "rows": [
+  {
+   "arm": "F",
+   "seed": 42,
+   "window": 1,
+   "check": "scores within 1e-6",
+   "max_abs_score_diff": 1.1920928955078125e-07,
+   "pass": true
+  },
+  {
+   "arm": "F",
+   "seed": 42,
+   "window": 2,
+   "check": "scores within 1e-6",
+   "max_abs_score_diff": 1.1920928955078125e-07,
+   "pass": true
+  },
+  {
+   "arm": "F",
+   "seed": 42,
+   "window": 3,
+   "check": "scores within 1e-6",
+   "max_abs_score_diff": 1.1920928955078125e-07,
+   "pass": true
+  },
+  {
+   "arm": "F",
+   "seed": 42,
+   "window": 4,
+   "check": "scores within 1e-6",
+   "max_abs_score_diff": 1.1920928955078125e-07,
+   "pass": true
+  },
+  {
+   "arm": "F",
+   "seed": 42,
+   "window": 5,
+   "check": "scores within 1e-6",
+   "max_abs_score_diff": 1.1920928955078125e-07,
+   "pass": true
+  },
+  {
+   "arm": "Ad",
+   "seed": 42,
+   "window": 1,
+   "check": "scores within 1e-6",
+   "max_abs_score_diff": 1.1920928955078125e-07,
+   "pass": true
+  },
+  {
+   "arm": "Ad",
+   "seed": 42,
+   "window": "mean",
+   "check": "window-mean PR-AUC within 0.01",
+   "abs_diff": 0.005969267009829526,
+   "pass": true
+  },
+  {
+   "arm": "E",
+   "seed": 42,
+   "window": 1,
+   "check": "scores within 1e-6",
+   "max_abs_score_diff": 1.4901161193847656e-07,
+   "pass": true
+  },
+  {
+   "arm": "E",
+   "seed": 42,
+   "window": "mean",
+   "check": "window-mean PR-AUC within 0.01",
+   "abs_diff": 0.0004114087774546027,
+   "pass": true
+  },
+  {
+   "arm": "F",
+   "seed": 123,
+   "window": 1,
+   "check": "scores within 1e-6",
+   "max_abs_score_diff": 2.384185791015625e-07,
+   "pass": true
+  },
+  {
+   "arm": "F",
+   "seed": 123,
+   "window": 2,
+   "check": "scores within 1e-6",
+   "max_abs_score_diff": 2.384185791015625e-07,
+   "pass": true
+  },
+  {
+   "arm": "F",
+   "seed": 123,
+   "window": 3,
+   "check": "scores within 1e-6",
+   "max_abs_score_diff": 1.1920928955078125e-07,
+   "pass": true
+  },
+  {
+   "arm": "F",
+   "seed": 123,
+   "window": 4,
+   "check": "scores within 1e-6",
+   "max_abs_score_diff": 1.7881393432617188e-07,
+   "pass": true
+  },
+  {
+   "arm": "F",
+   "seed": 123,
+   "window": 5,
+   "check": "scores within 1e-6",
+   "max_abs_score_diff": 1.1920928955078125e-07,
+   "pass": true
+  },
+  {
+   "arm": "Ad",
+   "seed": 123,
+   "window": 1,
+   "check": "scores within 1e-6",
+   "max_abs_score_diff": 1.1920928955078125e-07,
+   "pass": true
+  },
+  {
+   "arm": "Ad",
+   "seed": 123,
+   "window": "mean",
+   "check": "window-mean PR-AUC within 0.01",
+   "abs_diff": 0.0004654912316791604,
+   "pass": true
+  },
+  {
+   "arm": "E",
+   "seed": 123,
+   "window": 1,
+   "check": "scores within 1e-6",
+   "max_abs_score_diff": 1.1920928955078125e-07,
+   "pass": true
+  },
+  {
+   "arm": "E",
+   "seed": 123,
+   "window": "mean",
+   "check": "window-mean PR-AUC within 0.01",
+   "abs_diff": 0.010392076086086166,
+   "pass": false
+  },
+  {
+   "arm": "F",
+   "seed": 2024,
+   "window": 1,
+   "check": "scores within 1e-6",
+   "max_abs_score_diff": 1.1920928955078125e-07,
+   "pass": true
+  },
+  {
+   "arm": "F",
+   "seed": 2024,
+   "window": 2,
+   "check": "scores within 1e-6",
+   "max_abs_score_diff": 1.1920928955078125e-07,
+   "pass": true
+  },
+  {
+   "arm": "F",
+   "seed": 2024,
+   "window": 3,
+   "check": "scores within 1e-6",
+   "max_abs_score_diff": 1.1920928955078125e-07,
+   "pass": true
+  },
+  {
+   "arm": "F",
+   "seed": 2024,
+   "window": 4,
+   "check": "scores within 1e-6",
+   "max_abs_score_diff": 1.1920928955078125e-07,
+   "pass": true
+  },
+  {
+   "arm": "F",
+   "seed": 2024,
+   "window": 5,
+   "check": "scores within 1e-6",
+   "max_abs_score_diff": 1.1920928955078125e-07,
+   "pass": true
+  },
+  {
+   "arm": "Ad",
+   "seed": 2024,
+   "window": 1,
+   "check": "scores within 1e-6",
+   "max_abs_score_diff": 1.1920928955078125e-07,
+   "pass": true
+  },
+  {
+   "arm": "Ad",
+   "seed": 2024,
+   "window": "mean",
+   "check": "window-mean PR-AUC within 0.01",
+   "abs_diff": 0.0011378275461008114,
+   "pass": true
+  },
+  {
+   "arm": "E",
+   "seed": 2024,
+   "window": 1,
+   "check": "scores within 1e-6",
+   "max_abs_score_diff": 1.1920928955078125e-07,
+   "pass": true
+  },
+  {
+   "arm": "E",
+   "seed": 2024,
+   "window": "mean",
+   "check": "window-mean PR-AUC within 0.01",
+   "abs_diff": 0.0012275207932776477,
+   "pass": true
+  }
+ ]
+}

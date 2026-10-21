@@ -1,0 +1,192 @@
+{
+ "created_local": "2026-10-21T15:30:07+05:30",
+ "facts": {
+  "protocol_sha256": "59bf1565fb16653a02a2d743cc445e114fb2a6a42f1de7b2fa56261e6f68c806",
+  "sidecar_matches": true,
+  "n_models": 19,
+  "all_artifacts_exist": true,
+  "thresholds_all_recorded_in_unit_interval": true,
+  "protocol_names": {
+   "logistic regression": true,
+   "XGBoost": true,
+   "GraphSAGE": true,
+   "GAT": true,
+   "Temporal GraphSAGE": true,
+   "memory ablated": true,
+   "schedule-matched": true
+  },
+  "readiness": {
+   "all_pass": true,
+   "models": 19,
+   "max_abs_score_difference": 7.152557373046875e-07,
+   "recorded_after_last_evaluator_change": true,
+   "run_local": "2026-10-21T10:55:29+05:30",
+   "evaluator_sha256": {
+    "evaluator.py": "bc6157f57279e11d01d7ff08b8e1c39e3a68640b6d6c9eddee77489ca137227b",
+    "run_heldout_evaluation.py": "45b3f0351d8eac9c930d266e2814a579a1eda3725b6098925ea72bba856430a9"
+   }
+  },
+  "heldout_artifacts": {
+   "AUTHORIZATION.txt_exists": false,
+   "heldout_results_exists": false
+  },
+  "gate_behaviour_tested": {
+   "module": "tests/test_heldout_gate.py",
+   "tests": [
+    "refused without the file",
+    "refused with wrong hash or sentence",
+    "accepted only with both",
+    "CLI refuses before reading and enforces one-shot",
+    "held-out feature path reachable only through the gate",
+    "feature frames read without the label column"
+   ]
+  },
+  "amendment_1": {
+   "sha256": "37a1c0577a8ef28530a6120a027890c11ec458ca97329d14a05108db21a27e6e",
+   "sidecar_matches": true,
+   "readiness_H_U_all_pass": true,
+   "readiness_F_all_pass_as_written": false
+  },
+  "ready_for_informed_authorization": true
+ },
+ "models": {
+  "B_full": {
+   "artifacts_exist": true,
+   "recorded_validation_threshold": 0.8090436458587646,
+   "artifact_sha256": {
+    "model.joblib": "dab10706e3ebc69d86916d5b639f32b75914b7c2fed395ab919633c277615c19",
+    "feature_columns.json": "e8e315ec311b6aadc9a02db8743a216e7becb080a33136e7ed0eb036f38b5623"
+   }
+  },
+  "gat_s123": {
+   "artifacts_exist": true,
+   "recorded_validation_threshold": 0.8856754899024963,
+   "artifact_sha256": {
+    "model_checkpoint.pt": "6782c32dfd8024003e45ce00128adff80c88c7e7b35c9a5abfff429d42471c8d"
+   }
+  },
+  "gat_s2024": {
+   "artifacts_exist": true,
+   "recorded_validation_threshold": 0.8902249932289124,
+   "artifact_sha256": {
+    "model_checkpoint.pt": "c69b09bc73c1ba71c3cbc5aed1c53a48f43c40058969c61a1a6ab3ebfeb99154"
+   }
+  },
+  "gat_s42": {
+   "artifacts_exist": true,
+   "recorded_validation_threshold": 0.86350417137146,
+   "artifact_sha256": {
+    "model_checkpoint.pt": "6f05ec526041791d5d3eab9b538985b1623a7f561e97125aa9afe4a3aaeacc59"
+   }
+  },
+  "graphsage_s123": {
+   "artifacts_exist": true,
+   "recorded_validation_threshold": 0.913051426410675,
+   "artifact_sha256": {
+    "model_checkpoint.pt": "01da387e55d7ef8e2e7841e87f93141c4b4e1e3c83b4bcb233182463a7efd05b"
+   }
+  },
+  "graphsage_s2024": {
+   "artifacts_exist": true,
+   "recorded_validation_threshold": 0.9219204783439636,
+   "artifact_sha256": {
+    "model_checkpoint.pt": "a03cf86a356a45f06e6a6b058246825ed554ad8409352f069be5767ac488ff61"
+   }
+  },
+  "graphsage_s42": {
+   "artifacts_exist": true,
+   "recorded_validation_threshold": 0.9193133115768433,
+   "artifact_sha256": {
+    "model_checkpoint.pt": "7768efdc8c76227acd17bb90a94021b70e16b08d9e3e04e6d9c67fdd68d32841"
+   }
+  },
+  "logistic_regression": {
+   "artifacts_exist": true,
+   "recorded_validation_threshold": 0.8723617792129517,
+   "artifact_sha256": {
+    "model.joblib": "dab6eaf565019f49b33d2fc6109659404aa763107060e6b2bbfcb94c45aaa4b0",
+    "feature_builder/feature_names.json": "45022d0fff22c6094f249074c845c9fbd1588b92230acda52022697bba897f5a"
+   }
+  },
+  "memory_ablated_s123": {
+   "artifacts_exist": true,
+   "recorded_validation_threshold": 0.9635418653488159,
+   "artifact_sha256": {
+    "model_checkpoint.pt": "053913d08c529cc40babfa1f6b4bb100a4c664a908314c3353a77e9b0d6eb906"
+   }
+  },
+  "memory_ablated_s2024": {
+   "artifacts_exist": true,
+   "recorded_validation_threshold": 0.9554724097251892,
+   "artifact_sha256": {
+    "model_checkpoint.pt": "63a426a82c1fe6574df66be1468ae4186883252e17da3060ff30fe1620bae518"
+   }
+  },
+  "memory_ablated_s42": {
+   "artifacts_exist": true,
+   "recorded_validation_threshold": 0.9215102195739746,
+   "artifact_sha256": {
+    "model_checkpoint.pt": "53a9a8bb8b010d7c4d383abd3037818b785e37f5ff0477c7a86980d9ed64b043"
+   }
+  },
+  "random_forest": {
+   "artifacts_exist": true,
+   "recorded_validation_threshold": 0.5851287044992275,
+   "artifact_sha256": {
+    "model.joblib": "089d4926eecd0d787f32121b12cc55944f1664cbc89f0f08efc901916bc7f9c7",
+    "feature_builder/feature_names.json": "740aee86822db99a66dca8bb9675006a80ee2d344cf10804f3bd962558c6e45f"
+   }
+  },
+  "static_schedule_matched_s123": {
+   "artifacts_exist": true,
+   "recorded_validation_threshold": 0.9357107877731323,
+   "artifact_sha256": {
+    "model_checkpoint.pt": "d6a949f5f921f299fb3d94400deed0333beef9e2c5a774a01894980b85c753cc"
+   }
+  },
+  "static_schedule_matched_s2024": {
+   "artifacts_exist": true,
+   "recorded_validation_threshold": 0.9310454726219177,
+   "artifact_sha256": {
+    "model_checkpoint.pt": "5a9f7ee581f0aabb8c1340809f932d555835ab06b55c3fde53f16124cd44b449"
+   }
+  },
+  "static_schedule_matched_s42": {
+   "artifacts_exist": true,
+   "recorded_validation_threshold": 0.9284331798553467,
+   "artifact_sha256": {
+    "model_checkpoint.pt": "41877c4604096c3fa192273cc65a1c61b8d9aa7728209548e1e4c1d072410201"
+   }
+  },
+  "temporal_graphsage_s123": {
+   "artifacts_exist": true,
+   "recorded_validation_threshold": 0.9446290135383606,
+   "artifact_sha256": {
+    "model_checkpoint.pt": "3f65e090b6957cdc3b2695674f52d9b06d433e5690ff66cd0d58f66e4d0fb29c"
+   }
+  },
+  "temporal_graphsage_s2024": {
+   "artifacts_exist": true,
+   "recorded_validation_threshold": 0.9622889757156372,
+   "artifact_sha256": {
+    "model_checkpoint.pt": "6cffa8391d9d0fe516158efee810e561d45e8cc37b28b651875f22418572c520"
+   }
+  },
+  "temporal_graphsage_s42": {
+   "artifacts_exist": true,
+   "recorded_validation_threshold": 0.9633288383483887,
+   "artifact_sha256": {
+    "model_checkpoint.pt": "446569b900fe7714d44fa8dcecbe61e3a9e742da5597ef634756eafb86fd4188"
+   }
+  },
+  "xgboost": {
+   "artifacts_exist": true,
+   "recorded_validation_threshold": 0.7746507525444031,
+   "artifact_sha256": {
+    "model.joblib": "6998d85c031184f54465efe2b8bdca872eadb5c395d694540a71ab626e9abd3b",
+    "feature_builder/feature_names.json": "740aee86822db99a66dca8bb9675006a80ee2d344cf10804f3bd962558c6e45f"
+   }
+  }
+ },
+ "scope": "read-only review; no held-out file was opened, hashed, read or scored"
+}

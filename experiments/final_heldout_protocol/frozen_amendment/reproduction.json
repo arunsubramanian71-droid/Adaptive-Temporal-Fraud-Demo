@@ -1,0 +1,51 @@
+{
+ "created_local": "2026-10-21T10:48:51+05:30",
+ "models": {
+  "A_none": {
+   "reproduces_recorded_validation_result": true,
+   "best_iteration": 998,
+   "pr_auc": 0.5948021309211518,
+   "abs_pr_auc_difference_vs_recorded": 0.0,
+   "recorded_best_iteration": 998
+  },
+  "B_none": {
+   "reproduces_recorded_validation_result": true,
+   "best_iteration": 999,
+   "pr_auc": 0.5990937502443624,
+   "max_abs_score_difference_vs_recorded_predictions": 0.0,
+   "recorded_best_iteration": 999
+  }
+ },
+ "inputs": {
+  "data/features/train_features.parquet": "4c16fbe2f47d59330a5975940c6f2d911fc778afab0b834f6c42d53d93ad4df5",
+  "data/features/val_features.parquet": "81e4faa8c3418802c6e055bb8cfa24912afd6de2e46839a044c95c6a6fa39274",
+  "experiments/phase9_coordinated_fraud/cache/real_le151.npz": "09eabf9308b6dc0c65d30821ceac1a178ad69d60329f9f9cedd058cabbefd341"
+ },
+ "recipe": {
+  "n_estimators": 1000,
+  "max_depth": 6,
+  "learning_rate": 0.05,
+  "tree_method": "hist",
+  "eval_metric": "aucpr",
+  "early_stopping_rounds": 50,
+  "n_jobs": -1,
+  "scale_pos_weight": 1.0,
+  "random_state": 42
+ },
+ "test_data_read": false,
+ "io_audit": {
+  "n_opened_unique": 3,
+  "opened": [
+   "data/features/train_features.parquet",
+   "data/features/val_features.parquet",
+   "experiments/phase9_coordinated_fraud/cache/real_le151.npz"
+  ],
+  "kinds": {
+   "hash": 3,
+   "npz": 1,
+   "parquet": 2
+  },
+  "n_open_events": 6
+ },
+ "seconds": 579.5
+}
