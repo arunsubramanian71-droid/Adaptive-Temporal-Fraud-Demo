@@ -1,0 +1,12 @@
+[done] none: scale_pos_weight 1.00 PR-AUC 0.5948 ROC 0.9199 alerts 2026 iter 998 fit 277s
+[done] sqrt: scale_pos_weight 5.23 PR-AUC 0.5792 ROC 0.9142 alerts 2116 iter 997 fit 275s
+{
+ "verdict": "WEIGHTING HURTS",
+ "spread": 0.05534474147298918,
+ "tolerance": 0.005,
+ "pr_auc": {
+  "none": 0.5948021309211518,
+  "sqrt": 0.5791501169446783,
+  "full": 0.5394573894481626
+ }
+}

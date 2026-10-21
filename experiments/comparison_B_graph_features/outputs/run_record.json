@@ -1,0 +1,62 @@
+{
+ "created_local": "2026-10-20T22:46:09+05:30",
+ "preregistration_sha256": "a38f5201d05ee118d5db2cfe42ff576471213a74c743ff8701c02f696338362f",
+ "input_checks": {
+  "txn_id_order_equals_cache": true,
+  "day_equals_cache": true,
+  "max_day_le_151": true,
+  "card_partition_equals_card1": true,
+  "netproxy_partition_equals_id19_id20": true,
+  "pseudo_account_presence_equals_card1_addr1": true
+ },
+ "truncation_check": {
+  "60": {
+   "rows": 223738,
+   "bit_identical": true
+  },
+  "100": {
+   "rows": 353716,
+   "bit_identical": true
+  },
+  "121": {
+   "rows": 417559,
+   "bit_identical": true
+  }
+ },
+ "inputs_sha256": {
+  "data/features/train_features.parquet": "4c16fbe2f47d59330a5975940c6f2d911fc778afab0b834f6c42d53d93ad4df5",
+  "data/features/val_features.parquet": "81e4faa8c3418802c6e055bb8cfa24912afd6de2e46839a044c95c6a6fa39274",
+  "experiments/phase9_coordinated_fraud/cache/real_le151.npz": "09eabf9308b6dc0c65d30821ceac1a178ad69d60329f9f9cedd058cabbefd341",
+  "experiments/temporal_graphsage/seed_42/predictions_val.parquet": "31560fa7257ebeed78fdc6c866eba9433ea00175b9d4e64086688a4f071398bf",
+  "experiments/phase12_validation_evidence_table/outputs/evidence_runs.csv": "e26f4594fc667067014b39f777bb67f0553bb8acd7162ce55f460738540997de"
+ },
+ "io_audit": {
+  "n_opened_unique": 7,
+  "opened": [
+   "data/features/train_features.parquet",
+   "data/features/val_features.parquet",
+   "experiments/comparison_B_graph_features/PREREGISTRATION_B.md",
+   "experiments/comparison_B_graph_features/PREREGISTRATION_B.sha256",
+   "experiments/phase12_validation_evidence_table/outputs/evidence_runs.csv",
+   "experiments/phase9_coordinated_fraud/cache/real_le151.npz",
+   "experiments/temporal_graphsage/seed_42/predictions_val.parquet"
+  ],
+  "kinds": {
+   "hash": 6,
+   "npz": 1,
+   "parquet": 3,
+   "text": 1
+  },
+  "n_open_events": 11
+ },
+ "versions": {
+  "python": "3.12.0",
+  "xgboost": "3.4.1",
+  "sklearn": "1.9.1",
+  "pandas": "3.0.5",
+  "numpy": "2.4.4"
+ },
+ "seconds": 3496.6,
+ "test_data_read": false,
+ "implementation_choice_disclosed": "window features use an inclusive lower bound: a prior transaction exactly 86,400 s (604,800 s) earlier counts in the 1-day (7-day) window"
+}

@@ -1,0 +1,66 @@
+{
+ "GE1_additivity": {
+  "max_abs_additivity_error": 1.0013580322265625e-05,
+  "bound": 0.0001,
+  "pass": true
+ },
+ "GE2_selection": {
+  "selection_hash_equals_phase11_record": true,
+  "n_ids": 300,
+  "ids_unique": true,
+  "days_in_122_151": true,
+  "ten_per_day": true
+ },
+ "GE4_perturbation_sanity": {
+  "n_rows_with_two_or_more_relations": 297,
+  "mean_abs_effect_top_relation": 0.5214813947677612,
+  "mean_abs_effect_random_relation": 0.4883028268814087,
+  "top_at_least_random": true
+ },
+ "GE3_label_free": {
+  "label_column_projected_away_at_read": true,
+  "label_in_loaded_frames": false
+ },
+ "relation_summary": {
+  "pa": {
+   "mean_abs_summed_contribution": 0.12791861593723297,
+   "mean_abs_summed_contribution_when_present": 0.09585300832986832,
+   "share_with_edge": 0.52,
+   "mean_abs_removal_effect_when_present": 0.2240622639656067
+  },
+  "card": {
+   "mean_abs_summed_contribution": 0.17390041053295135,
+   "mean_abs_summed_contribution_when_present": 0.17390041053295135,
+   "share_with_edge": 1.0,
+   "mean_abs_removal_effect_when_present": 0.6153132319450378
+  },
+  "net": {
+   "mean_abs_summed_contribution": 0.13232573866844177,
+   "mean_abs_summed_contribution_when_present": 0.19258151948451996,
+   "share_with_edge": 0.5966666666666667,
+   "mean_abs_removal_effect_when_present": 0.442775160074234
+  },
+  "dev": {
+   "mean_abs_summed_contribution": 0.024567602202296257,
+   "mean_abs_summed_contribution_when_present": 0.1561800092458725,
+   "share_with_edge": 0.11666666666666667,
+   "mean_abs_removal_effect_when_present": 0.2691260278224945
+  },
+  "tabular": {
+   "mean_abs_summed_contribution": 4.35005521774292
+  }
+ },
+ "share_of_transactions_with_a_graph_feature_in_top10": 0.5533333333333333,
+ "by_group_share_graph_feature_in_top10": {
+  "top_score": 0.4,
+  "uniform_draw": 0.7066666666666667
+ },
+ "n_transactions": 300,
+ "statement": "Descriptive evidence about the output of the graph-feature XGBoost model on 300 pre-registered VAL transactions; VAL-tuned model; not evidence of fraud, causation or coordination; the neural graph models are not explained here.",
+ "acceptance": {
+  "GE1": true,
+  "GE2": true,
+  "GE3": true,
+  "GE4": true
+ }
+}

@@ -1,0 +1,23 @@
+pre-registration verified: a38f5201d05ee118d5db2cfe42ff576471213a74c743ff8701c02f696338362f
+train 417,559 val 83,655; input checks: {'txn_id_order_equals_cache': True, 'day_equals_cache': True, 'max_day_le_151': True, 'card_partition_equals_card1': True, 'netproxy_partition_equals_id19_id20': True, 'pseudo_account_presence_equals_card1_addr1': True}
+graph features: (501214, 40) in 1.2s; NaN share 0.422
+truncation check: {'60': {'rows': 223738, 'bit_identical': True}, '100': {'rows': 353716, 'bit_identical': True}, '121': {'rows': 417559, 'bit_identical': True}}
+[done] A_refit: PR-AUC 0.5395 cold 0.4064 ROC 0.9050 best_iter 798 fit 243s
+[done] B_full: PR-AUC 0.5440 cold 0.4163 ROC 0.9062 best_iter 615 fit 227s
+[done] A_sub_s42: PR-AUC 0.5590 cold 0.4069 ROC 0.9137 best_iter 998 fit 318s
+[done] A_sub_s123: PR-AUC 0.5633 cold 0.4076 ROC 0.9146 best_iter 999 fit 320s
+[done] A_sub_s2024: PR-AUC 0.5625 cold 0.4057 ROC 0.9141 best_iter 979 fit 313s
+[done] B_sub_s42: PR-AUC 0.5624 cold 0.4114 ROC 0.9162 best_iter 995 fit 348s
+[done] B_sub_s123: PR-AUC 0.5636 cold 0.4143 ROC 0.9167 best_iter 996 fit 345s
+[done] B_sub_s2024: PR-AUC 0.5572 cold 0.4135 ROC 0.9168 best_iter 689 fit 257s
+[done] B_drop_pa: PR-AUC 0.5402 cold 0.4139 ROC 0.9049 best_iter 661 fit 240s
+[done] B_drop_card: PR-AUC 0.5443 cold 0.4044 ROC 0.9076 best_iter 806 fit 271s
+[done] B_drop_net: PR-AUC 0.5375 cold 0.4150 ROC 0.9075 best_iter 507 fit 173s
+[done] B_drop_dev: PR-AUC 0.5453 cold 0.4113 ROC 0.9072 best_iter 640 fit 210s
+[done] B_drop_time_windows: PR-AUC 0.5456 cold 0.4167 ROC 0.9098 best_iter 617 fit 205s
+{
+ "H1_direct_B_vs_A": "NOT ESTABLISHED",
+ "H2_E_vs_B_sub": "HANDCRAFTED AT LEAST AS GOOD (H2 contradicted)",
+ "H2_secondary_C_vs_B_sub": "HANDCRAFTED AT LEAST AS GOOD (H2 contradicted)"
+}
+done in 3497s; TEST data read: none

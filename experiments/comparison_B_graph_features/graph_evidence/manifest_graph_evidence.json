@@ -1,0 +1,48 @@
+{
+ "created_local": "2026-10-20T22:00:00+05:30",
+ "preregistration_sha256": "58965ecf70663f440ac381c6a38fae8fbf8f8ae5dab01e7c87945d06d11d9704",
+ "inputs_sha256": {
+  "experiments/phase11_explainable_evidence/xgb_explanations_val/selection_val.csv": "623d1ee2a0c6995e7c940565cd3c5d38a3bce076776de6a7976600fb440be963",
+  "experiments/comparison_B_graph_features/outputs/arms/B_full/model.joblib": "dab10706e3ebc69d86916d5b639f32b75914b7c2fed395ab919633c277615c19",
+  "experiments/comparison_B_graph_features/outputs/arms/B_full/feature_columns.json": "e8e315ec311b6aadc9a02db8743a216e7becb080a33136e7ed0eb036f38b5623",
+  "data/features/train_features.parquet": "4c16fbe2f47d59330a5975940c6f2d911fc778afab0b834f6c42d53d93ad4df5",
+  "data/features/val_features.parquet": "81e4faa8c3418802c6e055bb8cfa24912afd6de2e46839a044c95c6a6fa39274",
+  "experiments/phase9_coordinated_fraud/cache/real_le151.npz": "09eabf9308b6dc0c65d30821ceac1a178ad69d60329f9f9cedd058cabbefd341"
+ },
+ "outputs_sha256": {
+  "relation_evidence.csv": "3152c187370b9e868d5322d9eefdc7153a490d7eea42112ba83855ae7095501c",
+  "top_features_B.json": "035078cb75f1a497f897778c8c6a0197c0992802790f2901b7ec9274abfa561b",
+  "summary.json": "2ce4d8f121aedc4a6a024bfa12e8941c72ff96b99935318fe2ec3e08468bb971"
+ },
+ "io_audit": {
+  "n_opened_unique": 8,
+  "opened": [
+   "data/features/train_features.parquet",
+   "data/features/val_features.parquet",
+   "experiments/comparison_B_graph_features/GRAPH_EVIDENCE_PREREG.md",
+   "experiments/comparison_B_graph_features/GRAPH_EVIDENCE_PREREG.sha256",
+   "experiments/comparison_B_graph_features/outputs/arms/B_full/feature_columns.json",
+   "experiments/comparison_B_graph_features/outputs/arms/B_full/model.joblib",
+   "experiments/phase11_explainable_evidence/xgb_explanations_val/selection_val.csv",
+   "experiments/phase9_coordinated_fraud/cache/real_le151.npz"
+  ],
+  "kinds": {
+   "csv": 1,
+   "hash": 7,
+   "joblib": 1,
+   "npz": 1,
+   "parquet": 2,
+   "text": 2
+  },
+  "n_open_events": 15
+ },
+ "test_data_read": false,
+ "label_loaded": false,
+ "versions": {
+  "python": "3.12.0",
+  "xgboost": "3.4.1",
+  "numpy": "2.4.4",
+  "pandas": "3.0.5"
+ },
+ "seconds": 14.5
+}

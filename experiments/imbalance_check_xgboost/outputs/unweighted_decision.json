@@ -1,0 +1,129 @@
+{
+ "rule1_weighting_effect": {
+  "XGBoost A features (sub)": {
+   "verdict": "UNWEIGHTED BETTER",
+   "unweighted": [
+    0.6080465472002722,
+    0.608077671071492,
+    0.6033470683707834
+   ],
+   "weighted": [
+    0.5589748747500375,
+    0.5633471955649304,
+    0.5625201443537355
+   ],
+   "unweighted_mean": 0.6064904288808491,
+   "weighted_mean": 0.5616140715562344
+  },
+  "XGBoost B features (sub)": {
+   "verdict": "UNWEIGHTED BETTER",
+   "unweighted": [
+    0.6061851166052827,
+    0.6106098870421212,
+    0.6018670228617534
+   ],
+   "weighted": [
+    0.5624042439194584,
+    0.5635955721356324,
+    0.5572434457184035
+   ],
+   "unweighted_mean": 0.6062206755030525,
+   "weighted_mean": 0.5610810872578315
+  },
+  "GraphSAGE": {
+   "verdict": "NO CLEAR DIFFERENCE",
+   "unweighted": [
+    0.4587177418482647,
+    0.4597996328814849,
+    0.4705607660385498
+   ],
+   "weighted": [
+    0.45147076224113775,
+    0.45686847659519864,
+    0.48272217635730197
+   ],
+   "unweighted_mean": 0.46302604692276644,
+   "weighted_mean": 0.4636871383978794
+  },
+  "Temporal GraphSAGE": {
+   "verdict": "UNWEIGHTED BETTER",
+   "unweighted": [
+    0.4995544032735133,
+    0.49777118559183736,
+    0.5020190000204546
+   ],
+   "weighted": [
+    0.4937565686446755,
+    0.4887969416286957,
+    0.49560097555082383
+   ],
+   "unweighted_mean": 0.49978152962860173,
+   "weighted_mean": 0.49271816194139834
+  }
+ },
+ "rule2_H1_direct_unweighted": {
+  "verdict": "NOT ESTABLISHED",
+  "conditions": {
+   "i_primary_B_above_A": true,
+   "ii_mean_diff_exceeds_larger_sd": false,
+   "iii_B_wins_at_least_2_of_3": false
+  },
+  "primary_diff_B_minus_A": 0.004291619323210649,
+  "seed_diffs": [
+   -0.0018614305949894439,
+   0.002532215970629137,
+   -0.0014800455090300257
+  ],
+  "mean_seed_diff": -0.00026975337779677755,
+  "larger_sd": 0.0043715405574576635,
+  "b_wins": 1,
+  "b_losses": 2
+ },
+ "rule3_H2_unweighted_E": {
+  "verdict": "HANDCRAFTED AT LEAST AS GOOD (H2 contradicted)",
+  "learned_min": 0.49777118559183736,
+  "learned_max": 0.5020190000204546,
+  "handcrafted_min": 0.6018670228617534,
+  "handcrafted_max": 0.6106098870421212,
+  "learned_mean": 0.49978152962860173,
+  "handcrafted_mean": 0.6062206755030525
+ },
+ "rule3_H2_unweighted_C": {
+  "verdict": "HANDCRAFTED AT LEAST AS GOOD (H2 contradicted)",
+  "learned_min": 0.4587177418482647,
+  "learned_max": 0.4705607660385498,
+  "handcrafted_min": 0.6018670228617534,
+  "handcrafted_max": 0.6106098870421212,
+  "learned_mean": 0.46302604692276644,
+  "handcrafted_mean": 0.6062206755030525
+ },
+ "rule4_ordering": {
+  "lowest_tabular_unweighted_seed": 0.6018670228617534,
+  "highest_neural_unweighted_seed": 0.5020190000204546,
+  "tabular_above_every_neural_seed": true
+ },
+ "values": {
+  "A_none": 0.5948021309211518,
+  "B_none": 0.5990937502443624,
+  "A_none_sub": [
+   0.6080465472002722,
+   0.608077671071492,
+   0.6033470683707834
+  ],
+  "B_none_sub": [
+   0.6061851166052827,
+   0.6106098870421212,
+   0.6018670228617534
+  ],
+  "C_none": [
+   0.4587177418482647,
+   0.4597996328814849,
+   0.4705607660385498
+  ],
+  "E_none": [
+   0.4995544032735133,
+   0.49777118559183736,
+   0.5020190000204546
+  ]
+ }
+}

@@ -1,0 +1,13 @@
+{
+ "seed": 2024,
+ "hidden": 64,
+ "dropout": 0.3,
+ "lr": 0.001,
+ "weight_decay": 1e-05,
+ "max_epochs": 150,
+ "patience": 20,
+ "parameter_count": 162817,
+ "scale_pos_weight_computed_but_overridden": 27.364852905273438,
+ "effective_pos_weight": 1.0,
+ "note": "unweighted follow-up (PREREGISTRATION_UNWEIGHTED_FOLLOWUP.md): the training script's binary cross-entropy was run without pos_weight"
+}

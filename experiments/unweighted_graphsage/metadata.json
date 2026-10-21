@@ -1,0 +1,8 @@
+{
+ "timestamp_utc": "2026-10-20T17:56:07.509016+00:00",
+ "python_version": "3.12.0",
+ "torch_version": "2.9.1+rocmsdk20260116",
+ "torch_geometric_version": "2.8.0.post1",
+ "device": "cuda:0",
+ "total_script_seconds": 1619.32
+}

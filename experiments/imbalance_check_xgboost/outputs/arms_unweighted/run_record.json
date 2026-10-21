@@ -1,0 +1,23 @@
+{
+ "preregistration_sha256": "2c1abc3e7737ac627429628fa5742ce109583eb095593b2f111daf282aba8449",
+ "io_audit": {
+  "n_opened_unique": 6,
+  "opened": [
+   "data/features/train_features.parquet",
+   "data/features/val_features.parquet",
+   "experiments/imbalance_check_xgboost/PREREGISTRATION_UNWEIGHTED_FOLLOWUP.md",
+   "experiments/imbalance_check_xgboost/PREREGISTRATION_UNWEIGHTED_FOLLOWUP.sha256",
+   "experiments/phase9_coordinated_fraud/cache/real_le151.npz",
+   "experiments/temporal_graphsage/seed_42/predictions_val.parquet"
+  ],
+  "kinds": {
+   "hash": 1,
+   "npz": 1,
+   "parquet": 3,
+   "text": 1
+  },
+  "n_open_events": 6
+ },
+ "test_data_read": false,
+ "seconds": 2283.5
+}

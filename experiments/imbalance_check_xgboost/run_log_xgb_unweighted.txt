@@ -1,0 +1,7 @@
+[done] B_none: PR-AUC 0.5991 cold 0.4385 iter 999 fit 309s
+[done] A_none_sub_s42: PR-AUC 0.6080 cold 0.4419 iter 994 fit 288s
+[done] A_none_sub_s123: PR-AUC 0.6081 cold 0.4498 iter 999 fit 290s
+[done] A_none_sub_s2024: PR-AUC 0.6033 cold 0.4450 iter 997 fit 314s
+[done] B_none_sub_s42: PR-AUC 0.6062 cold 0.4412 iter 991 fit 348s
+[done] B_none_sub_s123: PR-AUC 0.6106 cold 0.4419 iter 999 fit 367s
+[done] B_none_sub_s2024: PR-AUC 0.6019 cold 0.4401 iter 997 fit 347s

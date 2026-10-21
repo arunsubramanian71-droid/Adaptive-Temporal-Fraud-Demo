@@ -1,0 +1,41 @@
+{
+ "created_local": "2026-10-21T09:50:03+05:30",
+ "preregistration_sha256": "5c81dee88f8c7e81b7914406d10a4f5934fda3bed8a0b9bee8c74abb28dcc133",
+ "inputs_sha256": {
+  "experiments/phase11_explainable_evidence/xgb_explanations_val/selection_val.csv": "623d1ee2a0c6995e7c940565cd3c5d38a3bce076776de6a7976600fb440be963",
+  "experiments/temporal_graphsage/seed_42/model_checkpoint.pt": "446569b900fe7714d44fa8dcecbe61e3a9e742da5597ef634756eafb86fd4188",
+  "experiments/temporal_graphsage/seed_42/predictions_val.parquet": "31560fa7257ebeed78fdc6c866eba9433ea00175b9d4e64086688a4f071398bf"
+ },
+ "outputs_sha256": {
+  "relation_effects.csv": "1192402406267e95dda8f24fb5b2cb46ef8e568ca51ace60946e7450391ca6ed",
+  "summary.json": "730c8c3c764f5ea98c25e7d55ff5b4ed9b982a8efb2f26d4c3ff5e7896b8cb16"
+ },
+ "io_audit_guarded_reads": {
+  "n_opened_unique": 5,
+  "opened": [
+   "experiments/neural_graph_evidence/PREREGISTRATION_NEURAL_EVIDENCE.md",
+   "experiments/neural_graph_evidence/PREREGISTRATION_NEURAL_EVIDENCE.sha256",
+   "experiments/phase11_explainable_evidence/xgb_explanations_val/selection_val.csv",
+   "experiments/temporal_graphsage/seed_42/model_checkpoint.pt",
+   "experiments/temporal_graphsage/seed_42/predictions_val.parquet"
+  ],
+  "kinds": {
+   "checkpoint": 1,
+   "csv": 1,
+   "hash": 4,
+   "parquet": 1,
+   "text": 1
+  },
+  "n_open_events": 8
+ },
+ "graph_loaded_through": "src.graph.temporal.load_raw_arrays (the project loader; dataset truncated at day 151 and built without labels)",
+ "test_data_read": false,
+ "versions": {
+  "python": "3.12.0",
+  "torch": "2.9.1+rocmsdk20260116",
+  "numpy": "2.4.4",
+  "pandas": "3.0.5"
+ },
+ "device": "cuda:0",
+ "seconds": 25.4
+}

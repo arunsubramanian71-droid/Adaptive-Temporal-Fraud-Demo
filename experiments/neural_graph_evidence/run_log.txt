@@ -1,0 +1,12 @@
+[WARNING] failed to run offload-arch: binary not found.
+{"NE1": true, "NE2": true, "NE3": true, "NE5": false, "NE7_repeatability": true} | NE1 max diff 6.96e-08 | repeat diff 3.81e-06
+{
+"a_reset_of_never_seen_entities_exactly_zero": false,
+"n_reset_new": 102,
+"b_reset_of_seen_entities_changes_score_in_majority": true,
+"n_reset_seen": 568,
+"share_reset_seen_changed": 1.0,
+"c_link_removal_changes_score_in_majority": true,
+"n_removals": 670,
+"share_removal_changed": 1.0
+}

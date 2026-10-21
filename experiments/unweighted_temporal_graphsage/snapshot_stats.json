@@ -1,0 +1,25 @@
+{
+ "n_days": 151,
+ "mean": {
+  "transactions": 3319.298013245033,
+  "charged_to_edges": 2946.264900662252,
+  "charged_to_entities": 2276.9139072847684,
+  "used_card_edges": 3319.298013245033,
+  "used_card_entities": 1083.0794701986756,
+  "via_network_edges": 803.7350993377484,
+  "via_network_entities": 237.0794701986755,
+  "from_device_edges": 413.92715231788077,
+  "from_device_entities": 153.49668874172184
+ },
+ "max": {
+  "transactions": 6852,
+  "charged_to_edges": 5994,
+  "charged_to_entities": 4016,
+  "used_card_edges": 6852,
+  "used_card_entities": 1832,
+  "via_network_edges": 4085,
+  "via_network_entities": 644,
+  "from_device_edges": 3307,
+  "from_device_entities": 706
+ }
+}

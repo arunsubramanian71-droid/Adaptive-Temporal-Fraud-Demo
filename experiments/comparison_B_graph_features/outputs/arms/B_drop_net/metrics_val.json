@@ -1,0 +1,374 @@
+{
+ "config": {
+  "arm": "B_drop_net",
+  "features": "B",
+  "seed": 42,
+  "extra_params": {},
+  "ablation_group": "drop_net",
+  "base_params": {
+   "n_estimators": 1000,
+   "max_depth": 6,
+   "learning_rate": 0.05,
+   "tree_method": "hist",
+   "eval_metric": "aucpr",
+   "early_stopping_rounds": 50,
+   "n_jobs": -1,
+   "scale_pos_weight": 27.36485293118674
+  }
+ },
+ "n_features": 497,
+ "best_iteration": 507,
+ "fit_seconds": 173.0,
+ "threshold_selection": {
+  "threshold": 0.8161035776138306,
+  "f1": 0.5206576728494341,
+  "precision": 0.644572025052192,
+  "recall": 0.4367043847241867
+ },
+ "pooled": {
+  "n_rows": 83655,
+  "n_fraud": 2828,
+  "fraud_rate": 0.03380551072858765,
+  "pr_auc": 0.5374579258228914,
+  "roc_auc": 0.9075129777152169,
+  "threshold": 0.8161035776138306,
+  "precision": 0.644572025052192,
+  "recall": 0.4367043847241867,
+  "f1": 0.5206576728499157,
+  "confusion_matrix": {
+   "tp": 1235,
+   "fp": 681,
+   "tn": 80146,
+   "fn": 1593
+  },
+  "n_predicted_positive": 1916,
+  "n_alerts": 1916,
+  "false_positives": 681,
+  "false_negatives": 1593,
+  "top_k": {
+   "0.1%": {
+    "k_alerts": 84,
+    "fraud_captured": 84,
+    "precision_at_k": 1.0,
+    "recall_at_k": 0.0297029702970297
+   },
+   "0.5%": {
+    "k_alerts": 418,
+    "fraud_captured": 391,
+    "precision_at_k": 0.9354066985645934,
+    "recall_at_k": 0.13826025459688826
+   },
+   "1%": {
+    "k_alerts": 837,
+    "fraud_captured": 732,
+    "precision_at_k": 0.8745519713261649,
+    "recall_at_k": 0.25884016973125884
+   },
+   "5%": {
+    "k_alerts": 4183,
+    "fraud_captured": 1666,
+    "precision_at_k": 0.3982787473105427,
+    "recall_at_k": 0.5891089108910891
+   }
+  }
+ },
+ "segments": {
+  "has_edge_warm": {
+   "n_rows": 52276,
+   "n_fraud": 1306,
+   "fraud_rate": 0.024982783686586577,
+   "pr_auc": 0.3269933784166524,
+   "roc_auc": 0.8999379871233145,
+   "threshold": 0.8161035776138306,
+   "precision": 0.5092250922509225,
+   "recall": 0.2113323124042879,
+   "f1": 0.2987012987012987,
+   "confusion_matrix": {
+    "tp": 276,
+    "fp": 266,
+    "tn": 50704,
+    "fn": 1030
+   },
+   "n_predicted_positive": 542,
+   "n_alerts": 542,
+   "false_positives": 266,
+   "false_negatives": 1030,
+   "top_k": {
+    "0.1%": {
+     "k_alerts": 52,
+     "fraud_captured": 44,
+     "precision_at_k": 0.8461538461538461,
+     "recall_at_k": 0.033690658499234305
+    },
+    "0.5%": {
+     "k_alerts": 261,
+     "fraud_captured": 170,
+     "precision_at_k": 0.6513409961685823,
+     "recall_at_k": 0.13016845329249618
+    },
+    "1%": {
+     "k_alerts": 523,
+     "fraud_captured": 269,
+     "precision_at_k": 0.51434034416826,
+     "recall_at_k": 0.20597243491577336
+    },
+    "5%": {
+     "k_alerts": 2614,
+     "fraud_captured": 663,
+     "precision_at_k": 0.25363427697016067,
+     "recall_at_k": 0.5076569678407351
+    }
+   }
+  },
+  "has_edge_cold": {
+   "n_rows": 23024,
+   "n_fraud": 478,
+   "fraud_rate": 0.02076094510076442,
+   "pr_auc": 0.41498240339472514,
+   "roc_auc": 0.8549771049202246,
+   "threshold": 0.8161035776138306,
+   "precision": 0.6637554585152838,
+   "recall": 0.3179916317991632,
+   "f1": 0.42998585572843,
+   "confusion_matrix": {
+    "tp": 152,
+    "fp": 77,
+    "tn": 22469,
+    "fn": 326
+   },
+   "n_predicted_positive": 229,
+   "n_alerts": 229,
+   "false_positives": 77,
+   "false_negatives": 326,
+   "top_k": {
+    "0.1%": {
+     "k_alerts": 23,
+     "fraud_captured": 23,
+     "precision_at_k": 1.0,
+     "recall_at_k": 0.04811715481171548
+    },
+    "0.5%": {
+     "k_alerts": 115,
+     "fraud_captured": 106,
+     "precision_at_k": 0.9217391304347826,
+     "recall_at_k": 0.2217573221757322
+    },
+    "1%": {
+     "k_alerts": 230,
+     "fraud_captured": 152,
+     "precision_at_k": 0.6608695652173913,
+     "recall_at_k": 0.3179916317991632
+    },
+    "5%": {
+     "k_alerts": 1151,
+     "fraud_captured": 246,
+     "precision_at_k": 0.21372719374456994,
+     "recall_at_k": 0.5146443514644351
+    }
+   }
+  },
+  "no_pseudo_account_edge": {
+   "n_rows": 8355,
+   "n_fraud": 1044,
+   "fraud_rate": 0.12495511669658887,
+   "pr_auc": 0.7913808921054005,
+   "roc_auc": 0.9257936002590963,
+   "threshold": 0.8161035776138306,
+   "precision": 0.7048034934497817,
+   "recall": 0.7729885057471264,
+   "f1": 0.7373229785290086,
+   "confusion_matrix": {
+    "tp": 807,
+    "fp": 338,
+    "tn": 6973,
+    "fn": 237
+   },
+   "n_predicted_positive": 1145,
+   "n_alerts": 1145,
+   "false_positives": 338,
+   "false_negatives": 237,
+   "top_k": {
+    "0.1%": {
+     "k_alerts": 8,
+     "fraud_captured": 8,
+     "precision_at_k": 1.0,
+     "recall_at_k": 0.007662835249042145
+    },
+    "0.5%": {
+     "k_alerts": 42,
+     "fraud_captured": 42,
+     "precision_at_k": 1.0,
+     "recall_at_k": 0.040229885057471264
+    },
+    "1%": {
+     "k_alerts": 84,
+     "fraud_captured": 84,
+     "precision_at_k": 1.0,
+     "recall_at_k": 0.08045977011494253
+    },
+    "5%": {
+     "k_alerts": 418,
+     "fraud_captured": 386,
+     "precision_at_k": 0.9234449760765551,
+     "recall_at_k": 0.36973180076628354
+    }
+   }
+  }
+ },
+ "windows": {
+  "1": {
+   "pr_auc": 0.6708523437714234,
+   "roc_auc": 0.938647464252995,
+   "n_rows": 19952,
+   "n_fraud": 615
+  },
+  "2": {
+   "pr_auc": 0.5711985370238192,
+   "roc_auc": 0.9085473443365117,
+   "n_rows": 15923,
+   "n_fraud": 643
+  },
+  "3": {
+   "pr_auc": 0.49647054225609855,
+   "roc_auc": 0.9008915977339567,
+   "n_rows": 15943,
+   "n_fraud": 508
+  },
+  "4": {
+   "pr_auc": 0.4822087515532033,
+   "roc_auc": 0.8966869227823412,
+   "n_rows": 15470,
+   "n_fraud": 565
+  },
+  "5": {
+   "pr_auc": 0.4338905254515671,
+   "roc_auc": 0.8859768567295392,
+   "n_rows": 16367,
+   "n_fraud": 497
+  }
+ },
+ "pr_auc": 0.5374579258228914,
+ "pr_auc_cold": 0.41498240339472514,
+ "top30_feature_importance_gain_share": [
+  {
+   "feature": "V258",
+   "importance": 0.12540240585803986
+  },
+  {
+   "feature": "g_pa_prior_n_7d",
+   "importance": 0.05801960453391075
+  },
+  {
+   "feature": "V294",
+   "importance": 0.04151091352105141
+  },
+  {
+   "feature": "V70",
+   "importance": 0.03893795236945152
+  },
+  {
+   "feature": "V201",
+   "importance": 0.03190202638506889
+  },
+  {
+   "feature": "V91",
+   "importance": 0.027756094932556152
+  },
+  {
+   "feature": "C8",
+   "importance": 0.02193584106862545
+  },
+  {
+   "feature": "card6_ord",
+   "importance": 0.018029145896434784
+  },
+  {
+   "feature": "V187",
+   "importance": 0.014444513246417046
+  },
+  {
+   "feature": "C14",
+   "importance": 0.012677392922341824
+  },
+  {
+   "feature": "card6_freq",
+   "importance": 0.012304140254855156
+  },
+  {
+   "feature": "V308",
+   "importance": 0.010324981063604355
+  },
+  {
+   "feature": "C4",
+   "importance": 0.010173957794904709
+  },
+  {
+   "feature": "V335",
+   "importance": 0.009870626032352448
+  },
+  {
+   "feature": "C5",
+   "importance": 0.008434560149908066
+  },
+  {
+   "feature": "V283",
+   "importance": 0.0076696742326021194
+  },
+  {
+   "feature": "V330",
+   "importance": 0.007626443635672331
+  },
+  {
+   "feature": "V336",
+   "importance": 0.007357294205576181
+  },
+  {
+   "feature": "V71",
+   "importance": 0.006660663057118654
+  },
+  {
+   "feature": "card3_freq",
+   "importance": 0.006392709445208311
+  },
+  {
+   "feature": "V50",
+   "importance": 0.006095311138778925
+  },
+  {
+   "feature": "V34",
+   "importance": 0.005915860645473003
+  },
+  {
+   "feature": "ProductCD_ord",
+   "importance": 0.00570458360016346
+  },
+  {
+   "feature": "V312",
+   "importance": 0.005375436972826719
+  },
+  {
+   "feature": "DeviceType_ord",
+   "importance": 0.005294502712786198
+  },
+  {
+   "feature": "M4_ord",
+   "importance": 0.005221329163759947
+  },
+  {
+   "feature": "D2",
+   "importance": 0.0052150520496070385
+  },
+  {
+   "feature": "C11",
+   "importance": 0.004893195815384388
+  },
+  {
+   "feature": "V63",
+   "importance": 0.004843829665333033
+  },
+  {
+   "feature": "V128",
+   "importance": 0.004824278876185417
+  }
+ ]
+}

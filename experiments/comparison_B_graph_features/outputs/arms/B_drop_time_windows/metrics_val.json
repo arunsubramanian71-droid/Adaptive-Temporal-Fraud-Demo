@@ -1,0 +1,374 @@
+{
+ "config": {
+  "arm": "B_drop_time_windows",
+  "features": "B",
+  "seed": 42,
+  "extra_params": {},
+  "ablation_group": "drop_time_windows",
+  "base_params": {
+   "n_estimators": 1000,
+   "max_depth": 6,
+   "learning_rate": 0.05,
+   "tree_method": "hist",
+   "eval_metric": "aucpr",
+   "early_stopping_rounds": 50,
+   "n_jobs": -1,
+   "scale_pos_weight": 27.36485293118674
+  }
+ },
+ "n_features": 498,
+ "best_iteration": 617,
+ "fit_seconds": 204.8,
+ "threshold_selection": {
+  "threshold": 0.8159106373786926,
+  "f1": 0.5333333333328567,
+  "precision": 0.6805708013172338,
+  "recall": 0.43847241867043846
+ },
+ "pooled": {
+  "n_rows": 83655,
+  "n_fraud": 2828,
+  "fraud_rate": 0.03380551072858765,
+  "pr_auc": 0.5456092548659173,
+  "roc_auc": 0.9098384672283368,
+  "threshold": 0.8159106373786926,
+  "precision": 0.6805708013172338,
+  "recall": 0.43847241867043846,
+  "f1": 0.5333333333333333,
+  "confusion_matrix": {
+   "tp": 1240,
+   "fp": 582,
+   "tn": 80245,
+   "fn": 1588
+  },
+  "n_predicted_positive": 1822,
+  "n_alerts": 1822,
+  "false_positives": 582,
+  "false_negatives": 1588,
+  "top_k": {
+   "0.1%": {
+    "k_alerts": 84,
+    "fraud_captured": 83,
+    "precision_at_k": 0.9880952380952381,
+    "recall_at_k": 0.02934936350777935
+   },
+   "0.5%": {
+    "k_alerts": 418,
+    "fraud_captured": 393,
+    "precision_at_k": 0.9401913875598086,
+    "recall_at_k": 0.13896746817538896
+   },
+   "1%": {
+    "k_alerts": 837,
+    "fraud_captured": 744,
+    "precision_at_k": 0.8888888888888888,
+    "recall_at_k": 0.26308345120226306
+   },
+   "5%": {
+    "k_alerts": 4183,
+    "fraud_captured": 1667,
+    "precision_at_k": 0.3985178101840784,
+    "recall_at_k": 0.5894625176803394
+   }
+  }
+ },
+ "segments": {
+  "has_edge_warm": {
+   "n_rows": 52276,
+   "n_fraud": 1306,
+   "fraud_rate": 0.024982783686586577,
+   "pr_auc": 0.35437568508806017,
+   "roc_auc": 0.9074794619902227,
+   "threshold": 0.8159106373786926,
+   "precision": 0.58,
+   "recall": 0.222052067381317,
+   "f1": 0.3211517165005537,
+   "confusion_matrix": {
+    "tp": 290,
+    "fp": 210,
+    "tn": 50760,
+    "fn": 1016
+   },
+   "n_predicted_positive": 500,
+   "n_alerts": 500,
+   "false_positives": 210,
+   "false_negatives": 1016,
+   "top_k": {
+    "0.1%": {
+     "k_alerts": 52,
+     "fraud_captured": 50,
+     "precision_at_k": 0.9615384615384616,
+     "recall_at_k": 0.03828483920367534
+    },
+    "0.5%": {
+     "k_alerts": 261,
+     "fraud_captured": 190,
+     "precision_at_k": 0.7279693486590039,
+     "recall_at_k": 0.14548238897396631
+    },
+    "1%": {
+     "k_alerts": 523,
+     "fraud_captured": 294,
+     "precision_at_k": 0.5621414913957935,
+     "recall_at_k": 0.225114854517611
+    },
+    "5%": {
+     "k_alerts": 2614,
+     "fraud_captured": 666,
+     "precision_at_k": 0.25478194338179033,
+     "recall_at_k": 0.5099540581929556
+    }
+   }
+  },
+  "has_edge_cold": {
+   "n_rows": 23024,
+   "n_fraud": 478,
+   "fraud_rate": 0.02076094510076442,
+   "pr_auc": 0.41672155568044267,
+   "roc_auc": 0.853558201976285,
+   "threshold": 0.8159106373786926,
+   "precision": 0.6637931034482759,
+   "recall": 0.32217573221757323,
+   "f1": 0.43380281690140843,
+   "confusion_matrix": {
+    "tp": 154,
+    "fp": 78,
+    "tn": 22468,
+    "fn": 324
+   },
+   "n_predicted_positive": 232,
+   "n_alerts": 232,
+   "false_positives": 78,
+   "false_negatives": 324,
+   "top_k": {
+    "0.1%": {
+     "k_alerts": 23,
+     "fraud_captured": 23,
+     "precision_at_k": 1.0,
+     "recall_at_k": 0.04811715481171548
+    },
+    "0.5%": {
+     "k_alerts": 115,
+     "fraud_captured": 106,
+     "precision_at_k": 0.9217391304347826,
+     "recall_at_k": 0.2217573221757322
+    },
+    "1%": {
+     "k_alerts": 230,
+     "fraud_captured": 152,
+     "precision_at_k": 0.6608695652173913,
+     "recall_at_k": 0.3179916317991632
+    },
+    "5%": {
+     "k_alerts": 1151,
+     "fraud_captured": 248,
+     "precision_at_k": 0.2154648132059079,
+     "recall_at_k": 0.5188284518828452
+    }
+   }
+  },
+  "no_pseudo_account_edge": {
+   "n_rows": 8355,
+   "n_fraud": 1044,
+   "fraud_rate": 0.12495511669658887,
+   "pr_auc": 0.793682599433634,
+   "roc_auc": 0.9242139462343785,
+   "threshold": 0.8159106373786926,
+   "precision": 0.7302752293577982,
+   "recall": 0.7624521072796935,
+   "f1": 0.7460168697282099,
+   "confusion_matrix": {
+    "tp": 796,
+    "fp": 294,
+    "tn": 7017,
+    "fn": 248
+   },
+   "n_predicted_positive": 1090,
+   "n_alerts": 1090,
+   "false_positives": 294,
+   "false_negatives": 248,
+   "top_k": {
+    "0.1%": {
+     "k_alerts": 8,
+     "fraud_captured": 8,
+     "precision_at_k": 1.0,
+     "recall_at_k": 0.007662835249042145
+    },
+    "0.5%": {
+     "k_alerts": 42,
+     "fraud_captured": 42,
+     "precision_at_k": 1.0,
+     "recall_at_k": 0.040229885057471264
+    },
+    "1%": {
+     "k_alerts": 84,
+     "fraud_captured": 83,
+     "precision_at_k": 0.9880952380952381,
+     "recall_at_k": 0.07950191570881227
+    },
+    "5%": {
+     "k_alerts": 418,
+     "fraud_captured": 385,
+     "precision_at_k": 0.9210526315789473,
+     "recall_at_k": 0.36877394636015326
+    }
+   }
+  }
+ },
+ "windows": {
+  "1": {
+   "pr_auc": 0.6748754289802131,
+   "roc_auc": 0.9439824070371852,
+   "n_rows": 19952,
+   "n_fraud": 615
+  },
+  "2": {
+   "pr_auc": 0.587416440812796,
+   "roc_auc": 0.9158459405763233,
+   "n_rows": 15923,
+   "n_fraud": 643
+  },
+  "3": {
+   "pr_auc": 0.5147271459009723,
+   "roc_auc": 0.9053873367869831,
+   "n_rows": 15943,
+   "n_fraud": 508
+  },
+  "4": {
+   "pr_auc": 0.47896665173644487,
+   "roc_auc": 0.895546900279944,
+   "n_rows": 15470,
+   "n_fraud": 565
+  },
+  "5": {
+   "pr_auc": 0.44317968077315434,
+   "roc_auc": 0.8802652081360248,
+   "n_rows": 16367,
+   "n_fraud": 497
+  }
+ },
+ "pr_auc": 0.5456092548659173,
+ "pr_auc_cold": 0.41672155568044267,
+ "top30_feature_importance_gain_share": [
+  {
+   "feature": "V258",
+   "importance": 0.13496702909469604
+  },
+  {
+   "feature": "V70",
+   "importance": 0.07964596897363663
+  },
+  {
+   "feature": "V294",
+   "importance": 0.0529593750834465
+  },
+  {
+   "feature": "V158",
+   "importance": 0.03620882332324982
+  },
+  {
+   "feature": "V91",
+   "importance": 0.02312883548438549
+  },
+  {
+   "feature": "V201",
+   "importance": 0.022547420114278793
+  },
+  {
+   "feature": "card6_ord",
+   "importance": 0.020784037187695503
+  },
+  {
+   "feature": "V308",
+   "importance": 0.013853611424565315
+  },
+  {
+   "feature": "C4",
+   "importance": 0.013211686164140701
+  },
+  {
+   "feature": "C8",
+   "importance": 0.013130446895956993
+  },
+  {
+   "feature": "C14",
+   "importance": 0.01308390311896801
+  },
+  {
+   "feature": "V187",
+   "importance": 0.011107822880148888
+  },
+  {
+   "feature": "DeviceType_ord",
+   "importance": 0.01075639110058546
+  },
+  {
+   "feature": "C5",
+   "importance": 0.00872232485562563
+  },
+  {
+   "feature": "V95",
+   "importance": 0.00838702917098999
+  },
+  {
+   "feature": "V330",
+   "importance": 0.007966556586325169
+  },
+  {
+   "feature": "addr2_freq",
+   "importance": 0.007768839132040739
+  },
+  {
+   "feature": "V59",
+   "importance": 0.0076645067892968655
+  },
+  {
+   "feature": "V128",
+   "importance": 0.006970300804823637
+  },
+  {
+   "feature": "V312",
+   "importance": 0.005660401191562414
+  },
+  {
+   "feature": "card3_freq",
+   "importance": 0.005237983539700508
+  },
+  {
+   "feature": "V142",
+   "importance": 0.00523050781339407
+  },
+  {
+   "feature": "D2",
+   "importance": 0.005198436323553324
+  },
+  {
+   "feature": "V50",
+   "importance": 0.004981755279004574
+  },
+  {
+   "feature": "DeviceType_freq",
+   "importance": 0.004893530625849962
+  },
+  {
+   "feature": "C11",
+   "importance": 0.004819435067474842
+  },
+  {
+   "feature": "V102",
+   "importance": 0.00446681585162878
+  },
+  {
+   "feature": "card6_freq",
+   "importance": 0.00434783473610878
+  },
+  {
+   "feature": "M4_ord",
+   "importance": 0.004324955865740776
+  },
+  {
+   "feature": "R_emaildomain_freq",
+   "importance": 0.004224201664328575
+  }
+ ]
+}

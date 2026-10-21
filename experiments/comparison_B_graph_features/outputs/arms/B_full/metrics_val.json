@@ -1,0 +1,374 @@
+{
+ "config": {
+  "arm": "B_full",
+  "features": "B",
+  "seed": 42,
+  "extra_params": {},
+  "ablation_group": null,
+  "base_params": {
+   "n_estimators": 1000,
+   "max_depth": 6,
+   "learning_rate": 0.05,
+   "tree_method": "hist",
+   "eval_metric": "aucpr",
+   "early_stopping_rounds": 50,
+   "n_jobs": -1,
+   "scale_pos_weight": 27.36485293118674
+  }
+ },
+ "n_features": 510,
+ "best_iteration": 615,
+ "fit_seconds": 226.7,
+ "threshold_selection": {
+  "threshold": 0.8090436458587646,
+  "f1": 0.5348154362411282,
+  "precision": 0.6572164948453608,
+  "recall": 0.45084865629420084
+ },
+ "pooled": {
+  "n_rows": 83655,
+  "n_fraud": 2828,
+  "fraud_rate": 0.03380551072858765,
+  "pr_auc": 0.5440182104476056,
+  "roc_auc": 0.9061917831944104,
+  "threshold": 0.8090436458587646,
+  "precision": 0.6572164948453608,
+  "recall": 0.45084865629420084,
+  "f1": 0.5348154362416108,
+  "confusion_matrix": {
+   "tp": 1275,
+   "fp": 665,
+   "tn": 80162,
+   "fn": 1553
+  },
+  "n_predicted_positive": 1940,
+  "n_alerts": 1940,
+  "false_positives": 665,
+  "false_negatives": 1553,
+  "top_k": {
+   "0.1%": {
+    "k_alerts": 84,
+    "fraud_captured": 83,
+    "precision_at_k": 0.9880952380952381,
+    "recall_at_k": 0.02934936350777935
+   },
+   "0.5%": {
+    "k_alerts": 418,
+    "fraud_captured": 391,
+    "precision_at_k": 0.9354066985645934,
+    "recall_at_k": 0.13826025459688826
+   },
+   "1%": {
+    "k_alerts": 837,
+    "fraud_captured": 746,
+    "precision_at_k": 0.8912783751493429,
+    "recall_at_k": 0.2637906647807638
+   },
+   "5%": {
+    "k_alerts": 4183,
+    "fraud_captured": 1654,
+    "precision_at_k": 0.3954099928281138,
+    "recall_at_k": 0.5848656294200849
+   }
+  }
+ },
+ "segments": {
+  "has_edge_warm": {
+   "n_rows": 52276,
+   "n_fraud": 1306,
+   "fraud_rate": 0.024982783686586577,
+   "pr_auc": 0.35540137240138575,
+   "roc_auc": 0.9002964089316569,
+   "threshold": 0.8090436458587646,
+   "precision": 0.5693950177935944,
+   "recall": 0.2450229709035222,
+   "f1": 0.3426124197002141,
+   "confusion_matrix": {
+    "tp": 320,
+    "fp": 242,
+    "tn": 50728,
+    "fn": 986
+   },
+   "n_predicted_positive": 562,
+   "n_alerts": 562,
+   "false_positives": 242,
+   "false_negatives": 986,
+   "top_k": {
+    "0.1%": {
+     "k_alerts": 52,
+     "fraud_captured": 48,
+     "precision_at_k": 0.9230769230769231,
+     "recall_at_k": 0.036753445635528334
+    },
+    "0.5%": {
+     "k_alerts": 261,
+     "fraud_captured": 192,
+     "precision_at_k": 0.735632183908046,
+     "recall_at_k": 0.14701378254211334
+    },
+    "1%": {
+     "k_alerts": 523,
+     "fraud_captured": 305,
+     "precision_at_k": 0.5831739961759083,
+     "recall_at_k": 0.2335375191424196
+    },
+    "5%": {
+     "k_alerts": 2614,
+     "fraud_captured": 661,
+     "precision_at_k": 0.2528691660290742,
+     "recall_at_k": 0.5061255742725881
+    }
+   }
+  },
+  "has_edge_cold": {
+   "n_rows": 23024,
+   "n_fraud": 478,
+   "fraud_rate": 0.02076094510076442,
+   "pr_auc": 0.41632569121445495,
+   "roc_auc": 0.8502901274456277,
+   "threshold": 0.8090436458587646,
+   "precision": 0.6265060240963856,
+   "recall": 0.3263598326359833,
+   "f1": 0.42916093535075656,
+   "confusion_matrix": {
+    "tp": 156,
+    "fp": 93,
+    "tn": 22453,
+    "fn": 322
+   },
+   "n_predicted_positive": 249,
+   "n_alerts": 249,
+   "false_positives": 93,
+   "false_negatives": 322,
+   "top_k": {
+    "0.1%": {
+     "k_alerts": 23,
+     "fraud_captured": 23,
+     "precision_at_k": 1.0,
+     "recall_at_k": 0.04811715481171548
+    },
+    "0.5%": {
+     "k_alerts": 115,
+     "fraud_captured": 106,
+     "precision_at_k": 0.9217391304347826,
+     "recall_at_k": 0.2217573221757322
+    },
+    "1%": {
+     "k_alerts": 230,
+     "fraud_captured": 149,
+     "precision_at_k": 0.6478260869565218,
+     "recall_at_k": 0.3117154811715481
+    },
+    "5%": {
+     "k_alerts": 1151,
+     "fraud_captured": 251,
+     "precision_at_k": 0.21807124239791487,
+     "recall_at_k": 0.5251046025104602
+    }
+   }
+  },
+  "no_pseudo_account_edge": {
+   "n_rows": 8355,
+   "n_fraud": 1044,
+   "fraud_rate": 0.12495511669658887,
+   "pr_auc": 0.7946758979532028,
+   "roc_auc": 0.9253790671800379,
+   "threshold": 0.8090436458587646,
+   "precision": 0.7077059344552702,
+   "recall": 0.7653256704980843,
+   "f1": 0.7353888633225955,
+   "confusion_matrix": {
+    "tp": 799,
+    "fp": 330,
+    "tn": 6981,
+    "fn": 245
+   },
+   "n_predicted_positive": 1129,
+   "n_alerts": 1129,
+   "false_positives": 330,
+   "false_negatives": 245,
+   "top_k": {
+    "0.1%": {
+     "k_alerts": 8,
+     "fraud_captured": 8,
+     "precision_at_k": 1.0,
+     "recall_at_k": 0.007662835249042145
+    },
+    "0.5%": {
+     "k_alerts": 42,
+     "fraud_captured": 42,
+     "precision_at_k": 1.0,
+     "recall_at_k": 0.040229885057471264
+    },
+    "1%": {
+     "k_alerts": 84,
+     "fraud_captured": 83,
+     "precision_at_k": 0.9880952380952381,
+     "recall_at_k": 0.07950191570881227
+    },
+    "5%": {
+     "k_alerts": 418,
+     "fraud_captured": 387,
+     "precision_at_k": 0.9258373205741627,
+     "recall_at_k": 0.3706896551724138
+    }
+   }
+  }
+ },
+ "windows": {
+  "1": {
+   "pr_auc": 0.672236943921292,
+   "roc_auc": 0.9412277150128382,
+   "n_rows": 19952,
+   "n_fraud": 615
+  },
+  "2": {
+   "pr_auc": 0.5872345328508293,
+   "roc_auc": 0.9102239278415151,
+   "n_rows": 15923,
+   "n_fraud": 643
+  },
+  "3": {
+   "pr_auc": 0.50068472791376,
+   "roc_auc": 0.8986316761425229,
+   "n_rows": 15943,
+   "n_fraud": 508
+  },
+  "4": {
+   "pr_auc": 0.4842936151815286,
+   "roc_auc": 0.8911955066453319,
+   "n_rows": 15470,
+   "n_fraud": 565
+  },
+  "5": {
+   "pr_auc": 0.4439682534239084,
+   "roc_auc": 0.8811050296739479,
+   "n_rows": 16367,
+   "n_fraud": 497
+  }
+ },
+ "pr_auc": 0.5440182104476056,
+ "pr_auc_cold": 0.41632569121445495,
+ "top30_feature_importance_gain_share": [
+  {
+   "feature": "V258",
+   "importance": 0.1290067881345749
+  },
+  {
+   "feature": "g_pa_prior_n_7d",
+   "importance": 0.04631369933485985
+  },
+  {
+   "feature": "V70",
+   "importance": 0.04160679131746292
+  },
+  {
+   "feature": "V294",
+   "importance": 0.031770866364240646
+  },
+  {
+   "feature": "V201",
+   "importance": 0.030088083818554878
+  },
+  {
+   "feature": "V91",
+   "importance": 0.02111698128283024
+  },
+  {
+   "feature": "card6_ord",
+   "importance": 0.01888764090836048
+  },
+  {
+   "feature": "C8",
+   "importance": 0.018618309870362282
+  },
+  {
+   "feature": "V95",
+   "importance": 0.018208129331469536
+  },
+  {
+   "feature": "V158",
+   "importance": 0.013439486734569073
+  },
+  {
+   "feature": "V187",
+   "importance": 0.012541983276605606
+  },
+  {
+   "feature": "C14",
+   "importance": 0.012373154051601887
+  },
+  {
+   "feature": "C4",
+   "importance": 0.01119188405573368
+  },
+  {
+   "feature": "V308",
+   "importance": 0.010139225050807
+  },
+  {
+   "feature": "card6_freq",
+   "importance": 0.009641117416322231
+  },
+  {
+   "feature": "V335",
+   "importance": 0.009379971772432327
+  },
+  {
+   "feature": "DeviceType_ord",
+   "importance": 0.009295306168496609
+  },
+  {
+   "feature": "V283",
+   "importance": 0.007487545255571604
+  },
+  {
+   "feature": "C5",
+   "importance": 0.0071257720701396465
+  },
+  {
+   "feature": "V142",
+   "importance": 0.006291493773460388
+  },
+  {
+   "feature": "card3_freq",
+   "importance": 0.00572282075881958
+  },
+  {
+   "feature": "V48",
+   "importance": 0.005658377427607775
+  },
+  {
+   "feature": "V330",
+   "importance": 0.005578762851655483
+  },
+  {
+   "feature": "V162",
+   "importance": 0.0054659717716276646
+  },
+  {
+   "feature": "D2",
+   "importance": 0.005355657543987036
+  },
+  {
+   "feature": "V128",
+   "importance": 0.005146712064743042
+  },
+  {
+   "feature": "V312",
+   "importance": 0.0049377731047570705
+  },
+  {
+   "feature": "R_emaildomain_freq",
+   "importance": 0.004682475235313177
+  },
+  {
+   "feature": "C11",
+   "importance": 0.004547846503555775
+  },
+  {
+   "feature": "M4_ord",
+   "importance": 0.004403808619827032
+  }
+ ]
+}

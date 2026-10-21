@@ -1,0 +1,377 @@
+{
+ "config": {
+  "arm": "B_sub_s2024",
+  "features": "B",
+  "seed": 2024,
+  "extra_params": {
+   "subsample": 0.8,
+   "colsample_bytree": 0.8
+  },
+  "ablation_group": null,
+  "base_params": {
+   "n_estimators": 1000,
+   "max_depth": 6,
+   "learning_rate": 0.05,
+   "tree_method": "hist",
+   "eval_metric": "aucpr",
+   "early_stopping_rounds": 50,
+   "n_jobs": -1,
+   "scale_pos_weight": 27.36485293118674
+  }
+ },
+ "n_features": 510,
+ "best_iteration": 689,
+ "fit_seconds": 257.3,
+ "threshold_selection": {
+  "threshold": 0.7851600646972656,
+  "f1": 0.5337435897431024,
+  "precision": 0.6355642403517342,
+  "recall": 0.46004243281471
+ },
+ "pooled": {
+  "n_rows": 83655,
+  "n_fraud": 2828,
+  "fraud_rate": 0.03380551072858765,
+  "pr_auc": 0.5572434457184035,
+  "roc_auc": 0.9168469050553413,
+  "threshold": 0.7851600646972656,
+  "precision": 0.6355642403517342,
+  "recall": 0.46004243281471,
+  "f1": 0.5337435897435897,
+  "confusion_matrix": {
+   "tp": 1301,
+   "fp": 746,
+   "tn": 80081,
+   "fn": 1527
+  },
+  "n_predicted_positive": 2047,
+  "n_alerts": 2047,
+  "false_positives": 746,
+  "false_negatives": 1527,
+  "top_k": {
+   "0.1%": {
+    "k_alerts": 84,
+    "fraud_captured": 84,
+    "precision_at_k": 1.0,
+    "recall_at_k": 0.0297029702970297
+   },
+   "0.5%": {
+    "k_alerts": 418,
+    "fraud_captured": 389,
+    "precision_at_k": 0.930622009569378,
+    "recall_at_k": 0.13755304101838756
+   },
+   "1%": {
+    "k_alerts": 837,
+    "fraud_captured": 742,
+    "precision_at_k": 0.8864994026284349,
+    "recall_at_k": 0.2623762376237624
+   },
+   "5%": {
+    "k_alerts": 4183,
+    "fraud_captured": 1726,
+    "precision_at_k": 0.41262251972268704,
+    "recall_at_k": 0.6103253182461104
+   }
+  }
+ },
+ "segments": {
+  "has_edge_warm": {
+   "n_rows": 52276,
+   "n_fraud": 1306,
+   "fraud_rate": 0.024982783686586577,
+   "pr_auc": 0.38212798997936237,
+   "roc_auc": 0.91827820526803,
+   "threshold": 0.7851600646972656,
+   "precision": 0.5555555555555556,
+   "recall": 0.25267993874425726,
+   "f1": 0.3473684210526316,
+   "confusion_matrix": {
+    "tp": 330,
+    "fp": 264,
+    "tn": 50706,
+    "fn": 976
+   },
+   "n_predicted_positive": 594,
+   "n_alerts": 594,
+   "false_positives": 264,
+   "false_negatives": 976,
+   "top_k": {
+    "0.1%": {
+     "k_alerts": 52,
+     "fraud_captured": 47,
+     "precision_at_k": 0.9038461538461539,
+     "recall_at_k": 0.03598774885145482
+    },
+    "0.5%": {
+     "k_alerts": 261,
+     "fraud_captured": 189,
+     "precision_at_k": 0.7241379310344828,
+     "recall_at_k": 0.1447166921898928
+    },
+    "1%": {
+     "k_alerts": 523,
+     "fraud_captured": 303,
+     "precision_at_k": 0.5793499043977055,
+     "recall_at_k": 0.23200612557427258
+    },
+    "5%": {
+     "k_alerts": 2614,
+     "fraud_captured": 755,
+     "precision_at_k": 0.2888293802601377,
+     "recall_at_k": 0.5781010719754976
+    }
+   }
+  },
+  "has_edge_cold": {
+   "n_rows": 23024,
+   "n_fraud": 478,
+   "fraud_rate": 0.02076094510076442,
+   "pr_auc": 0.41347830061071056,
+   "roc_auc": 0.8580693418235226,
+   "threshold": 0.7851600646972656,
+   "precision": 0.5436241610738255,
+   "recall": 0.3389121338912134,
+   "f1": 0.4175257731958763,
+   "confusion_matrix": {
+    "tp": 162,
+    "fp": 136,
+    "tn": 22410,
+    "fn": 316
+   },
+   "n_predicted_positive": 298,
+   "n_alerts": 298,
+   "false_positives": 136,
+   "false_negatives": 316,
+   "top_k": {
+    "0.1%": {
+     "k_alerts": 23,
+     "fraud_captured": 23,
+     "precision_at_k": 1.0,
+     "recall_at_k": 0.04811715481171548
+    },
+    "0.5%": {
+     "k_alerts": 115,
+     "fraud_captured": 102,
+     "precision_at_k": 0.8869565217391304,
+     "recall_at_k": 0.21338912133891214
+    },
+    "1%": {
+     "k_alerts": 230,
+     "fraud_captured": 149,
+     "precision_at_k": 0.6478260869565218,
+     "recall_at_k": 0.3117154811715481
+    },
+    "5%": {
+     "k_alerts": 1151,
+     "fraud_captured": 250,
+     "precision_at_k": 0.21720243266724587,
+     "recall_at_k": 0.5230125523012552
+    }
+   }
+  },
+  "no_pseudo_account_edge": {
+   "n_rows": 8355,
+   "n_fraud": 1044,
+   "fraud_rate": 0.12495511669658887,
+   "pr_auc": 0.7980910009054536,
+   "roc_auc": 0.9278935168808248,
+   "threshold": 0.7851600646972656,
+   "precision": 0.7004329004329004,
+   "recall": 0.774904214559387,
+   "f1": 0.7357889949977262,
+   "confusion_matrix": {
+    "tp": 809,
+    "fp": 346,
+    "tn": 6965,
+    "fn": 235
+   },
+   "n_predicted_positive": 1155,
+   "n_alerts": 1155,
+   "false_positives": 346,
+   "false_negatives": 235,
+   "top_k": {
+    "0.1%": {
+     "k_alerts": 8,
+     "fraud_captured": 8,
+     "precision_at_k": 1.0,
+     "recall_at_k": 0.007662835249042145
+    },
+    "0.5%": {
+     "k_alerts": 42,
+     "fraud_captured": 42,
+     "precision_at_k": 1.0,
+     "recall_at_k": 0.040229885057471264
+    },
+    "1%": {
+     "k_alerts": 84,
+     "fraud_captured": 84,
+     "precision_at_k": 1.0,
+     "recall_at_k": 0.08045977011494253
+    },
+    "5%": {
+     "k_alerts": 418,
+     "fraud_captured": 383,
+     "precision_at_k": 0.916267942583732,
+     "recall_at_k": 0.3668582375478927
+    }
+   }
+  }
+ },
+ "windows": {
+  "1": {
+   "pr_auc": 0.6939539575357158,
+   "roc_auc": 0.9487857433262236,
+   "n_rows": 19952,
+   "n_fraud": 615
+  },
+  "2": {
+   "pr_auc": 0.579815718066972,
+   "roc_auc": 0.9149487432112235,
+   "n_rows": 15923,
+   "n_fraud": 643
+  },
+  "3": {
+   "pr_auc": 0.5259866186540563,
+   "roc_auc": 0.9152424824447966,
+   "n_rows": 15943,
+   "n_fraud": 508
+  },
+  "4": {
+   "pr_auc": 0.5023795543547601,
+   "roc_auc": 0.9052178843590528,
+   "n_rows": 15470,
+   "n_fraud": 565
+  },
+  "5": {
+   "pr_auc": 0.45385108029282156,
+   "roc_auc": 0.8933105881666813,
+   "n_rows": 16367,
+   "n_fraud": 497
+  }
+ },
+ "pr_auc": 0.5572434457184035,
+ "pr_auc_cold": 0.41347830061071056,
+ "top30_feature_importance_gain_share": [
+  {
+   "feature": "V258",
+   "importance": 0.10944633185863495
+  },
+  {
+   "feature": "g_pa_prior_n_7d",
+   "importance": 0.05311937257647514
+  },
+  {
+   "feature": "V70",
+   "importance": 0.03057369776070118
+  },
+  {
+   "feature": "V294",
+   "importance": 0.027124622836709023
+  },
+  {
+   "feature": "V201",
+   "importance": 0.024493088945746422
+  },
+  {
+   "feature": "V91",
+   "importance": 0.020910466089844704
+  },
+  {
+   "feature": "V264",
+   "importance": 0.014031252823770046
+  },
+  {
+   "feature": "C8",
+   "importance": 0.013509873300790787
+  },
+  {
+   "feature": "V187",
+   "importance": 0.012707419693470001
+  },
+  {
+   "feature": "card6_ord",
+   "importance": 0.011629017069935799
+  },
+  {
+   "feature": "V317",
+   "importance": 0.010369633324444294
+  },
+  {
+   "feature": "C14",
+   "importance": 0.010053725913167
+  },
+  {
+   "feature": "V326",
+   "importance": 0.009861152619123459
+  },
+  {
+   "feature": "C4",
+   "importance": 0.009263698942959309
+  },
+  {
+   "feature": "V162",
+   "importance": 0.007986640557646751
+  },
+  {
+   "feature": "V142",
+   "importance": 0.007953268475830555
+  },
+  {
+   "feature": "C5",
+   "importance": 0.007723764516413212
+  },
+  {
+   "feature": "V308",
+   "importance": 0.007530862931162119
+  },
+  {
+   "feature": "card6_freq",
+   "importance": 0.007147394120693207
+  },
+  {
+   "feature": "V229",
+   "importance": 0.0070668552070856094
+  },
+  {
+   "feature": "V335",
+   "importance": 0.0069397068582475185
+  },
+  {
+   "feature": "V283",
+   "importance": 0.006675013341009617
+  },
+  {
+   "feature": "V69",
+   "importance": 0.006419800221920013
+  },
+  {
+   "feature": "M1_ord",
+   "importance": 0.005411494988948107
+  },
+  {
+   "feature": "V102",
+   "importance": 0.005265060346573591
+  },
+  {
+   "feature": "ProductCD_ord",
+   "importance": 0.005218138452619314
+  },
+  {
+   "feature": "DeviceType_ord",
+   "importance": 0.005095750093460083
+  },
+  {
+   "feature": "C1",
+   "importance": 0.004618451464921236
+  },
+  {
+   "feature": "V71",
+   "importance": 0.004310955293476582
+  },
+  {
+   "feature": "V163",
+   "importance": 0.004265303257852793
+  }
+ ]
+}

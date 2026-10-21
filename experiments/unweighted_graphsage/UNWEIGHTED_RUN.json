@@ -1,0 +1,6 @@
+{
+ "preregistration_sha256": "2c1abc3e7737ac627429628fa5742ce109583eb095593b2f111daf282aba8449",
+ "family": "static",
+ "effective_pos_weight": 1.0,
+ "base_script": "scripts/train_graphsage_robustness.py"
+}

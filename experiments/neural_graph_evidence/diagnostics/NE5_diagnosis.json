@@ -1,0 +1,26 @@
+{
+ "created_local": "2026-10-21T10:29:16+05:30",
+ "device_results": {
+  "cpu": {
+   "n_reset_never_seen": 102,
+   "n_nonzero": 0,
+   "max_abs_reset_effect": 0.0,
+   "n_noop_pairs": 300,
+   "noop_n_nonzero": 0,
+   "noop_max_abs": 0.0
+  },
+  "gpu": {
+   "n_reset_never_seen": 102,
+   "n_nonzero": 14,
+   "max_abs_reset_effect": 9.5367431640625e-07,
+   "n_noop_pairs": 300,
+   "noop_n_nonzero": 49,
+   "noop_max_abs": 1.9073486328125e-06
+  }
+ },
+ "cpu_exact_zero": true,
+ "verdict": "NUMERICAL PRECISION (GPU arithmetic is not bit-reproducible): on the CPU every never-seen reset is exactly zero and so is the no-op; on the GPU the identical computation done twice differs at the same float rounding scale",
+ "registered_result": "NE5(a) FAILED as registered on the GPU run; recorded outputs and the registered rule are unchanged",
+ "seconds": 61.6,
+ "note": "post-result diagnostic; label-free; validation days <= 151 only; no held-out data"
+}

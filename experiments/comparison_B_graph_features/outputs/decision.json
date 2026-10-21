@@ -1,0 +1,96 @@
+{
+ "H1_direct_B_vs_A": {
+  "verdict": "NOT ESTABLISHED",
+  "conditions": {
+   "i_primary_B_above_A": true,
+   "ii_mean_diff_exceeds_larger_sd": false,
+   "iii_B_wins_at_least_2_of_3": true
+  },
+  "primary_diff_B_minus_A": 0.004560820999442994,
+  "seed_diffs": [
+   0.003429369169420937,
+   0.00024837657070198027,
+   -0.005276698635332089
+  ],
+  "mean_seed_diff": -0.0005329842984030572,
+  "larger_sd": 0.003376453045508016,
+  "b_wins": 2,
+  "b_losses": 1
+ },
+ "H2_E_vs_B_sub": {
+  "verdict": "HANDCRAFTED AT LEAST AS GOOD (H2 contradicted)",
+  "learned_min": 0.4887969416286957,
+  "learned_max": 0.49560097555082383,
+  "handcrafted_min": 0.5572434457184035,
+  "handcrafted_max": 0.5635955721356324,
+  "learned_mean": 0.49271816194139834,
+  "handcrafted_mean": 0.5610810872578315
+ },
+ "H2_secondary_C_vs_B_sub": {
+  "verdict": "HANDCRAFTED AT LEAST AS GOOD (H2 contradicted)",
+  "learned_min": 0.45147076224113775,
+  "learned_max": 0.48272217635730197,
+  "handcrafted_min": 0.5572434457184035,
+  "handcrafted_max": 0.5635955721356324,
+  "learned_mean": 0.4636871383978794,
+  "handcrafted_mean": 0.5610810872578315
+ },
+ "BA6_pipeline_control": {
+  "A_refit_pr_auc": 0.5394573894481626,
+  "recorded_A_pr_auc": 0.5395,
+  "abs_diff": 4.2610551837407584e-05,
+  "within_0.005": true
+ },
+ "per_seed": {
+  "A_sub": [
+   0.5589748747500375,
+   0.5633471955649304,
+   0.5625201443537355
+  ],
+  "B_sub": [
+   0.5624042439194584,
+   0.5635955721356324,
+   0.5572434457184035
+  ],
+  "E_recorded": [
+   0.4937565686446755,
+   0.4887969416286957,
+   0.49560097555082383
+  ],
+  "C_recorded": [
+   0.45147076224113775,
+   0.45686847659519864,
+   0.48272217635730197
+  ]
+ },
+ "ablations": {
+  "seed_noise_sd_B_sub": 0.003376453045508016,
+  "rows": {
+   "B_drop_pa": {
+    "pr_auc": 0.540242242131508,
+    "change_vs_B_full": -0.003775968316097611,
+    "larger_than_seed_noise": true
+   },
+   "B_drop_card": {
+    "pr_auc": 0.5442764647540748,
+    "change_vs_B_full": 0.00025825430646919667,
+    "larger_than_seed_noise": false
+   },
+   "B_drop_net": {
+    "pr_auc": 0.5374579258228914,
+    "change_vs_B_full": -0.006560284624714141,
+    "larger_than_seed_noise": true
+   },
+   "B_drop_dev": {
+    "pr_auc": 0.545251646995327,
+    "change_vs_B_full": 0.001233436547721456,
+    "larger_than_seed_noise": false
+   },
+   "B_drop_time_windows": {
+    "pr_auc": 0.5456092548659173,
+    "change_vs_B_full": 0.0015910444183117045,
+    "larger_than_seed_noise": false
+   }
+  }
+ }
+}

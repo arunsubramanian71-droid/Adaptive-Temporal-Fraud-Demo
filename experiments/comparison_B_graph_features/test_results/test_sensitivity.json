@@ -1,0 +1,132 @@
+{
+ "purpose": "mutation sensitivity of tests/test_graph_features.py",
+ "run_local": "2026-10-20T21:48:29+05:30",
+ "unmutated_failures": [],
+ "n_mutants": 14,
+ "n_detected": 14,
+ "mutants": [
+  {
+   "mutant": "M01 ties count as prior (side=right)",
+   "status": "detected",
+   "failing_tests": [
+    "test_equals_brute_force_with_ties_missing_edges_and_windows",
+    "test_equals_brute_force_with_dense_entities_and_no_missing",
+    "test_window_edges_are_inclusive_at_exactly_one_day_and_one_week",
+    "test_ties_in_time_are_never_prior_to_each_other",
+    "test_no_edge_rows_have_nan_and_zero_flag_and_do_not_count_as_prior"
+   ]
+  },
+  {
+   "mutant": "M02 one-day window excludes the boundary",
+   "status": "detected",
+   "failing_tests": [
+    "test_equals_brute_force_with_ties_missing_edges_and_windows",
+    "test_equals_brute_force_with_dense_entities_and_no_missing",
+    "test_window_edges_are_inclusive_at_exactly_one_day_and_one_week"
+   ]
+  },
+  {
+   "mutant": "M03 seven-day window uses one day",
+   "status": "detected",
+   "failing_tests": [
+    "test_equals_brute_force_with_ties_missing_edges_and_windows",
+    "test_equals_brute_force_with_dense_entities_and_no_missing",
+    "test_window_edges_are_inclusive_at_exactly_one_day_and_one_week"
+   ]
+  },
+  {
+   "mutant": "M04 last-seen uses the first prior row",
+   "status": "detected",
+   "failing_tests": [
+    "test_equals_brute_force_with_ties_missing_edges_and_windows",
+    "test_equals_brute_force_with_dense_entities_and_no_missing"
+   ]
+  },
+  {
+   "mutant": "M05 distinct count includes the current row",
+   "status": "detected",
+   "failing_tests": [
+    "test_equals_brute_force_with_ties_missing_edges_and_windows",
+    "test_equals_brute_force_with_dense_entities_and_no_missing"
+   ]
+  },
+  {
+   "mutant": "M06 amount mean includes the current row",
+   "status": "detected",
+   "failing_tests": [
+    "test_equals_brute_force_with_ties_missing_edges_and_windows",
+    "test_equals_brute_force_with_dense_entities_and_no_missing"
+   ]
+  },
+  {
+   "mutant": "M07 counts leak across entities",
+   "status": "detected",
+   "failing_tests": [
+    "test_equals_brute_force_with_ties_missing_edges_and_windows",
+    "test_equals_brute_force_with_dense_entities_and_no_missing",
+    "test_future_rows_never_change_earlier_features",
+    "test_changing_every_later_row_leaves_earlier_features_bit_identical"
+   ]
+  },
+  {
+   "mutant": "M08 edge flag inverted",
+   "status": "detected",
+   "failing_tests": [
+    "test_equals_brute_force_with_ties_missing_edges_and_windows",
+    "test_equals_brute_force_with_dense_entities_and_no_missing",
+    "test_no_edge_rows_have_nan_and_zero_flag_and_do_not_count_as_prior"
+   ]
+  },
+  {
+   "mutant": "M09 tie order depends on input order",
+   "status": "detected",
+   "failing_tests": [
+    "test_row_order_of_the_input_does_not_matter"
+   ]
+  },
+  {
+   "mutant": "M10 missing-edge rows collide with entity 0",
+   "status": "detected",
+   "failing_tests": [
+    "test_equals_brute_force_with_ties_missing_edges_and_windows",
+    "test_no_edge_rows_have_nan_and_zero_flag_and_do_not_count_as_prior"
+   ]
+  },
+  {
+   "mutant": "M11 label argument added",
+   "status": "detected",
+   "failing_tests": [
+    "test_function_has_no_label_argument_and_the_module_never_names_a_label"
+   ]
+  },
+  {
+   "mutant": "M12 prior count uses the whole entity (future rows)",
+   "status": "detected",
+   "failing_tests": [
+    "test_equals_brute_force_with_ties_missing_edges_and_windows",
+    "test_equals_brute_force_with_dense_entities_and_no_missing",
+    "test_window_edges_are_inclusive_at_exactly_one_day_and_one_week",
+    "test_ties_in_time_are_never_prior_to_each_other",
+    "test_no_edge_rows_have_nan_and_zero_flag_and_do_not_count_as_prior",
+    "test_future_rows_never_change_earlier_features",
+    "test_changing_every_later_row_leaves_earlier_features_bit_identical"
+   ]
+  },
+  {
+   "mutant": "M13 amount deviation sign flipped",
+   "status": "detected",
+   "failing_tests": [
+    "test_equals_brute_force_with_ties_missing_edges_and_windows",
+    "test_equals_brute_force_with_dense_entities_and_no_missing"
+   ]
+  },
+  {
+   "mutant": "M14 time-limit check removed",
+   "status": "detected",
+   "failing_tests": [
+    "test_invalid_inputs_raise_clear_errors"
+   ]
+  }
+ ],
+ "scope_statement": "In-memory mutants only; no file modified; no data read. Detection shows these tests fail on these defects, not that no other defect exists."
+}

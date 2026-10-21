@@ -1,0 +1,69 @@
+{
+ "NE1_reproduction": {
+  "max_abs_probability_difference_vs_recorded": 6.955927411844698e-08,
+  "bound": 0.0001,
+  "pass": true
+ },
+ "NE2_selection": {
+  "selection_hash_equals_phase11_record": true,
+  "n_ids": 300,
+  "ids_unique": true,
+  "days_in_122_151": true,
+  "ten_per_day": true
+ },
+ "NE3_label_free": {
+  "dataset_built_without_labels": true,
+  "dataset_max_day": 151,
+  "label_in_script": false
+ },
+ "NE5_sanity": {
+  "a_reset_of_never_seen_entities_exactly_zero": false,
+  "n_reset_new": 102,
+  "b_reset_of_seen_entities_changes_score_in_majority": true,
+  "n_reset_seen": 568,
+  "share_reset_seen_changed": 1.0,
+  "c_link_removal_changes_score_in_majority": true,
+  "n_removals": 670,
+  "share_removal_changed": 1.0
+ },
+ "NE7_second_run_max_abs_difference_in_effects": 3.814697265625e-06,
+ "by_relation": {
+  "charged_to": {
+   "share_with_edge": 0.52,
+   "mean_abs_removal_effect_when_present": 3.1581934166785617,
+   "mean_abs_reset_effect_entity_seen": 2.398222012973543,
+   "share_entity_new_when_present": 0.5705128205128205,
+   "share_of_transactions_where_largest_removal_effect": 0.41
+  },
+  "used_card": {
+   "share_with_edge": 1.0,
+   "mean_abs_removal_effect_when_present": 1.0578470440829795,
+   "mean_abs_reset_effect_entity_seen": 0.6591900973754414,
+   "share_entity_new_when_present": 0.016666666666666666,
+   "share_of_transactions_where_largest_removal_effect": 0.22666666666666666
+  },
+  "via_network": {
+   "share_with_edge": 0.5966666666666667,
+   "mean_abs_removal_effect_when_present": 1.8387704536984752,
+   "mean_abs_reset_effect_entity_seen": 0.2832295407598975,
+   "share_entity_new_when_present": 0.0111731843575419,
+   "share_of_transactions_where_largest_removal_effect": 0.35
+  },
+  "from_device": {
+   "share_with_edge": 0.11666666666666667,
+   "mean_abs_removal_effect_when_present": 1.548435664176941,
+   "mean_abs_reset_effect_entity_seen": 0.6162047406722759,
+   "share_entity_new_when_present": 0.17142857142857143,
+   "share_of_transactions_where_largest_removal_effect": 0.013333333333333334
+  }
+ },
+ "n_transactions": 300,
+ "statement": "Descriptive counterfactual evidence about the Temporal GraphSAGE seed-42 model on 300 pre-registered validation transactions; VAL-tuned; not evidence of fraud, causation or coordination.",
+ "acceptance": {
+  "NE1": true,
+  "NE2": true,
+  "NE3": true,
+  "NE5": false,
+  "NE7_repeatability": true
+ }
+}
