@@ -1,0 +1,4 @@
+[WARNING] failed to run offload-arch: binary not found.
+[done] Tr seed 42: tau 0.1000 (noise PSI 0.0016) refreshes 0/4; window PR-AUC [0.61, 0.4049, 0.428, 0.3929, 0.3263] mean 0.4324 (1s)
+[done] Tr seed 123: tau 0.1000 (noise PSI 0.0031) refreshes 0/4; window PR-AUC [0.5945, 0.4019, 0.4097, 0.3682, 0.3235] mean 0.4196 (1s)
+[done] Tr seed 2024: tau 0.1000 (noise PSI 0.0015) refreshes 0/4; window PR-AUC [0.6154, 0.431, 0.4262, 0.3827, 0.3701] mean 0.4451 (1s)

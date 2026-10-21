@@ -28,11 +28,18 @@ def burn_in(model, ds, state, through_day: int) -> int:
 
 
 def run_walk_forward_ext(arm: str, model, ds, windows: list, opt=None, pos_weight=None, fine_tune_epochs: int = 0, base_seed: int = 0,
-                         train_day_min: int = 1, train_day_max: int = 121, burn_in_through: int | None = None, replay_windows: list | None = None):
-    if arm not in ("F", "Ad", "E"):
-        raise ValueError(f"arm must be one of 'F', 'Ad', 'E', got {arm!r}")
-    if arm in ("Ad", "E") and (opt is None or pos_weight is None or fine_tune_epochs <= 0):
+                         train_day_min: int = 1, train_day_max: int = 121, burn_in_through: int | None = None, replay_windows: list | None = None,
+                         trigger=None):
+    """Arm "Tr" is Ad with the refresh decided by ``trigger(k, scores_of_window_k) -> bool`` (src/trigger/policy.py): the update after window k is the Ad update
+    (all labeled days up to the window's end) but is performed only when the trigger fires; the trigger sees scores only, never a label."""
+    if arm not in ("F", "Ad", "E", "Tr"):
+        raise ValueError(f"arm must be one of 'F', 'Ad', 'E', 'Tr', got {arm!r}")
+    if arm in ("Ad", "E", "Tr") and (opt is None or pos_weight is None or fine_tune_epochs <= 0):
         raise ValueError(f"arm {arm!r} requires opt, pos_weight and fine_tune_epochs > 0")
+    if arm == "Tr" and trigger is None:
+        raise ValueError("arm 'Tr' requires a trigger callable")
+    if arm != "Tr" and trigger is not None:
+        raise ValueError("a trigger is only meaningful for arm 'Tr'")
     if burn_in_through is not None and burn_in_through != windows[0][0] - 1:
         raise ValueError(f"burn_in_through must be the day before the first window ({windows[0][0] - 1}), got {burn_in_through}")
     state = model.init_state(ds)
@@ -46,7 +53,7 @@ def run_walk_forward_ext(arm: str, model, ds, windows: list, opt=None, pos_weigh
         results.append(score_window(model, state, ds, window))
         if k == n:
             break
-        if arm == "Ad":
+        if arm == "Ad" or (arm == "Tr" and trigger(k, results[-1][1])):
             for _ in range(fine_tune_epochs):
                 train_epoch(model, ds, opt, train_last=b[k - 1], pos_weight=pos_weight, window=TBPTT_DAYS)
         elif arm == "E":

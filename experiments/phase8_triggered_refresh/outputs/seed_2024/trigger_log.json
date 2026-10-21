@@ -1,0 +1,38 @@
+{
+ "seed": 2024,
+ "psi_noise_train_days_112_116_vs_117_121": 0.0015087691824781548,
+ "tau": 0.1,
+ "fine_tune_epochs": 15,
+ "monitor_log": [
+  {
+   "window": 1,
+   "psi": null,
+   "fired": false,
+   "note": "reference window (baseline after start or refresh)"
+  },
+  {
+   "window": 2,
+   "psi": 0.02472572111904158,
+   "fired": false
+  },
+  {
+   "window": 3,
+   "psi": 0.0076870764291866525,
+   "fired": false
+  },
+  {
+   "window": 4,
+   "psi": 0.004086438551470842,
+   "fired": false
+  }
+ ],
+ "n_refreshes": 0,
+ "window_pr_auc": [
+  0.6153962616639719,
+  0.43101029758876525,
+  0.4261726657257833,
+  0.38271076466754006,
+  0.3701417018251614
+ ],
+ "window_mean_pr_auc": 0.4450863382942444
+}

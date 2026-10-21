@@ -1,0 +1,61 @@
+{
+ "criteria": {
+  "TR1_execution_and_window1_equals_F": true,
+  "TR2_train_only_threshold_recorded": true,
+  "TR3_benefit_over_static": false,
+  "TR4_fewer_refreshes_than_periodic": true,
+  "TR5_parity_with_periodic": false
+ },
+ "window_mean_pr_auc_per_seed": {
+  "F": [
+   0.4324340501291208,
+   0.419561829064876,
+   0.4450863382942444
+  ],
+  "Ad": [
+   0.4723701393487013,
+   0.469361800363958,
+   0.47826095102743427
+  ],
+  "Tr": [
+   0.4324340501291209,
+   0.419561829064876,
+   0.4450863382942444
+  ]
+ },
+ "mean": {
+  "F": 0.4323607391627471,
+  "Ad": 0.4733309635800312,
+  "Tr": 0.4323607391627471
+ },
+ "seed_sd": {
+  "F": 0.012762412535385737,
+  "Ad": 0.004526710509348417,
+  "Tr": 0.012762412535385737
+ },
+ "mean_Tr_minus_F": 0.0,
+ "mean_Ad_minus_Tr": 0.040970224417284096,
+ "refreshes_per_seed": [
+  0,
+  0,
+  0
+ ],
+ "tau_per_seed": {
+  "42": 0.1,
+  "123": 0.1,
+  "2024": 0.1
+ },
+ "noise_psi_per_seed": {
+  "42": 0.0015670612227761138,
+  "123": 0.0030773317061073137,
+  "2024": 0.0015087691824781548
+ },
+ "window1_max_abs_score_diff_vs_F": [
+  1.1920928955078125e-07,
+  1.7881393432617188e-07,
+  1.1920928955078125e-07
+ ],
+ "outcome": "NOT SUPPORTED",
+ "h4_unchanged": true,
+ "test_data_read": false
+}
