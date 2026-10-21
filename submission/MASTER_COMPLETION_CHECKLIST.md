@@ -24,7 +24,7 @@ Dated 2026-10-21. Status words: **PASS** verified by evidence; **FAIL** a verifi
 | Relationship-level ablations (XGBoost family) | PASS | comparison B | none |
 | Relationship-level ablations (neural models) | NOT RUN; OPTIONAL ("where computationally feasible") | no registered hypothesis depends on them | needs its own pre-registration and your decision |
 | Adaptive system F (cell F) | PASS on validation | Phase 8 | held-out: BLOCKED |
-| Drift-**triggered** refresh (the brief: "trigger retraining or model refresh when predefined conditions are met", threshold from development data) | **PASS (executed, pre-registered); outcome NOT SUPPORTED.** Phase 8 used a fixed cadence; arm Tr (label-free score-PSI monitor, threshold from TRAIN days only) was added on validation: the monitor never fired (PSI at most 0.025 against 0.10), so Tr equals the frozen arm | `experiments/phase8_triggered_refresh/` (pre-registration hashed before the run, `TR_RESULTS.md`, tests) | a performance-based trigger would be a different, unregistered policy: OPTIONAL, needs a pre-registration |
+| Drift-**triggered** refresh (the brief: "monitor drift/performance; trigger retraining or model refresh when predefined conditions are met", threshold from development data) | **PASS (both executed, pre-registered, validation only); outcomes NOT SUPPORTED.** Phase 8 used a fixed cadence. Arm Tr (label-free score-PSI monitor, threshold from TRAIN days only): never fired, equals the frozen arm. Arm TrP (performance monitor on each window's PR-AUC, threshold from TRAIN days only): fired once per seed, beat the frozen arm (+0.0169, above the larger seed SD 0.0128) with 1 refresh instead of 4, but stayed below periodic refresh (mean Ad - TrP +0.0240 against a seed SD of 0.0096), so the parity criterion TRP5 is NOT MET | `experiments/phase8_triggered_refresh/` (two pre-registrations hashed before their runs, `TR_RESULTS.md`, `TRP_RESULTS.md`, tests) | none; the brief's requirement is to implement and evaluate, which is done; H4 as locked is unchanged |
 
 ## 3. Temporal evaluation, leakage, held-out safeguards
 
@@ -46,17 +46,17 @@ Dated 2026-10-21. Status words: **PASS** verified by evidence; **FAIL** a verifi
 | Forward integrity record for the completion work | PASS | `INTEGRITY_SUBMISSION.json` (refreshed at the end of this pass) |
 | NE5(a) of the neural graph evidence | **FAIL as registered** (13 of 102 never-seen resets nonzero, largest 9.5e-07); diagnosed as GPU floating-point noise (CPU exact zero); rule and result unchanged | `neural_graph_evidence/diagnostics/NE5_diagnosis.json` |
 | Phase 8 memory initialisation | disclosed; supplement leaves H4 SUPPORTED; its own reproduction criterion S1 FAILED for the trained arms (not bit-reproducible) and was not changed | `phase8_state_continuity_supplement/` |
-| Defect found and repaired in this pass | two new test files and `submission/figures/figure_data.json` were NUL-filled by an interrupted session and were recreated; no other file in the repository was affected (scan of all 1,200 files and of the environment) | |
+| AC12 forward integrity (added 2026-10-21; **does not change AC12**) | PASS as a forward fact only | none of the 434 files of the first Git commit has changed in content since (270 differ only in line endings after the byte-exact re-add; none deleted; `git diff --ignore-cr-at-eol e70238f HEAD`); the first commit was made after the work, so this is not pre-build evidence and AC12 remains BLOCKED |
 
 ## 5. Automated tests and environments
 
 | Check | Result |
 |---|---|
-| Project environment, `scripts/run_completion_tests.py` | **319 of 319** pass in 33 modules (`submission/test_results.json`) |
+| Project environment, `scripts/run_completion_tests.py` | **325 of 325** pass in 33 modules (`submission/test_results.json`) |
 | `scripts/run_tests.py` | exit 0, "ALL TEST MODULES PASSED" (before the fix it reported failures because two new modules returned an exit code instead of a boolean; `tests/test_runner_contract.py` now guards this and injects a failure to prove detection) |
-| Clean Python 3.12.0 (requirements.txt only) | **271 of 271** executed tests pass with the current suite (earlier suite: 257 of 257); `pip check` clean |
-| Clean Python 3.14.3 (requirements.txt only) | **270 of 271** pass + **1 environment-metadata difference** (earlier suite: 256 of 257) (Phase 12 AC10 manifest records the interpreter version; the environment-independent companion test passes); `pip check` clean; **supported interpreter: 3.12** |
-| Fresh GitHub clone, Python 3.12.0, requirements.txt only | before the workflow: 246 of 259 pass, 13 fail only for withheld artifacts; **with the core-versus-artifact workflow (final measurement): 258 of 271 pass, 13 NOT RUN (artifact missing, listed in `tests/artifact_requirements.json`, never counted as passed), 0 fail**; `--require-artifacts` exits 1 on a clone; protocol hash verified in the clone |
+| Clean Python 3.12.0 (requirements.txt only) | **275 of 275** executed tests pass with the current suite (earlier suite: 257 of 257); `pip check` clean |
+| Clean Python 3.14.3 (requirements.txt only) | **274 of 275** pass + **1 environment-metadata difference** (earlier suite: 256 of 257) (Phase 12 AC10 manifest records the interpreter version; the environment-independent companion test passes); `pip check` clean; **supported interpreter: 3.12** |
+| Fresh GitHub clone, Python 3.12.0, requirements.txt only | before the workflow: 246 of 259 pass, 13 fail only for withheld artifacts; **with the core-versus-artifact workflow (final measurement): 262 of 275 pass, 13 NOT RUN (artifact missing, listed in `tests/artifact_requirements.json`, never counted as passed), 0 fail**; `--require-artifacts` exits 1 on a clone; protocol hash verified in the clone |
 | Skipped (needs PyTorch; **a skip is not a pass**) | `test_f_runner_gate`, `test_neural_graph_evidence`, `test_phase8_adaptive`, `test_trigger_walkforward`, `test_walkforward_ext` in a core-only environment; they pass in the project environment |
 
 ## 6. Phase 13 (reconstructed scope; unconfirmed by you)
@@ -80,9 +80,13 @@ Dated 2026-10-21. Status words: **PASS** verified by evidence; **FAIL** a verifi
 | Item | Status | Evidence |
 |---|---|---|
 | Setup check, demo (byte-identical on re-run), dashboard | PASS | exit 0 for `check_setup.py` and `demo_end_to_end.py` (twice, outputs identical); dashboard E2E 31 of 31 |
-| README, demo guide, completion records agree | PASS after this pass | test counts corrected (319 tests, 33 modules), PyTorch-skip statement corrected, clean-environment results recorded; `scripts/verify_submission_claims.py` traces every number |
+| README, demo guide, completion records agree | PASS after this pass | test counts corrected (325 tests, 33 modules), PyTorch-skip statement corrected, clean-environment results recorded; `scripts/verify_submission_claims.py` traces every number |
 | Manuscript | PASS (validation-period study; held-out not done) | three figures added (`submission/figures/`, drawn from recorded results, hashed, tested) |
 | Hygiene | PASS with notes | one empty folder `experiments/gat_300epoch/seed_123` kept (aborted-run evidence); `__pycache__` is git-ignored; nine empty `C:\c\...` folders outside the repository left in place |
+
+## 8b. Decision package
+
+The exact frozen protocol, the amendment, the options with their consequences, the Module F gate options and the other open decisions are in `HELDOUT_DECISION_PACKAGE.md`. Nothing was authorized.
 
 ## 9. What remains before the research can be called complete
 
@@ -91,6 +95,6 @@ Dated 2026-10-21. Status words: **PASS** verified by evidence; **FAIL** a verifi
 3. Phase 13 scope confirmation. **BLOCKED.**
 4. H5 / G4: new design needed. **BLOCKED.**
 5. AC12: cannot be completed retrospectively. **BLOCKED.**
-6. Drift-triggered refresh: **executed (pre-registered, validation only), outcome NOT SUPPORTED**; a performance-based trigger is OPTIONAL (not pre-registered). Neural relationship ablations, GAT unweighted, GraphSAGE/GAT explanations: **NOT RUN / OPTIONAL.**
+6. Drift-triggered refresh: **both the score-PSI trigger and the performance trigger were executed (pre-registered, validation only); both outcomes NOT SUPPORTED** (see section 2). Neural relationship ablations, GAT unweighted, GraphSAGE/GAT explanations: **NOT RUN / OPTIONAL.**
 
 **The project is not 100% complete.** Software, tests, demo, documentation and the validation-period research are complete and verified; the items above are genuinely unresolved.

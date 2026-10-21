@@ -39,10 +39,10 @@
       NOT RUN test_freeze_reproduces_the_recorded_unweighted_xgboost_validation_results: missing experiments/final_heldout_protocol/frozen_amendment/A_none/model.joblib
 [PASSED] test_serving: 14/14
 [PASSED] test_splits: 5/5
-[PASSED] test_trigger_policy: 4/4
+[PASSED] test_trigger_policy: 6/6
 [SKIPPED] test_trigger_walkforward: needs torch
-[PASSED] test_triggered_refresh_records: 4/4
+[PASSED] test_triggered_refresh_records: 6/6
 [PASSED] test_validate: 9/9
 [SKIPPED] test_walkforward_ext: needs torch
 
-258/271 tests passed in 28 modules; NOT RUN because withheld artifacts are missing (never counted as passed): 13; environment-metadata differences (never counted as passed): 0; skipped modules (need PyTorch): ['test_f_runner_gate', 'test_neural_graph_evidence', 'test_phase8_adaptive', 'test_trigger_walkforward', 'test_walkforward_ext']
+262/275 tests passed in 28 modules; NOT RUN because withheld artifacts are missing (never counted as passed): 13; environment-metadata differences (never counted as passed): 0; skipped modules (need PyTorch): ['test_f_runner_gate', 'test_neural_graph_evidence', 'test_phase8_adaptive', 'test_trigger_walkforward', 'test_walkforward_ext']

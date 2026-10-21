@@ -146,7 +146,7 @@
    "failures": [],
    "environment_metadata_differences": [],
    "not_run_artifact_missing": [],
-   "seconds": 2.5
+   "seconds": 2.6
   },
   {
    "module": "test_manuscript_figures",
@@ -394,8 +394,8 @@
   {
    "module": "test_trigger_policy",
    "status": "PASSED",
-   "tests": 4,
-   "passed": 4,
+   "tests": 6,
+   "passed": 6,
    "failures": [],
    "environment_metadata_differences": [],
    "not_run_artifact_missing": [],
@@ -409,8 +409,8 @@
   {
    "module": "test_triggered_refresh_records",
    "status": "PASSED",
-   "tests": 4,
-   "passed": 4,
+   "tests": 6,
+   "passed": 6,
    "failures": [],
    "environment_metadata_differences": [],
    "not_run_artifact_missing": [],
@@ -432,8 +432,8 @@
    "reason": "needs torch (install requirements-gnn.txt)"
   }
  ],
- "tests": 271,
- "passed": 258,
+ "tests": 275,
+ "passed": 262,
  "not_run_artifact_missing": 13,
  "environment_metadata_differences": 0,
  "skipped": [

@@ -9,7 +9,7 @@
    "failures": [],
    "environment_metadata_differences": [],
    "not_run_artifact_missing": [],
-   "seconds": 1.9
+   "seconds": 0.5
   },
   {
    "module": "test_artifact_registry",
@@ -39,7 +39,7 @@
    "failures": [],
    "environment_metadata_differences": [],
    "not_run_artifact_missing": [],
-   "seconds": 5.6
+   "seconds": 1.5
   },
   {
    "module": "test_f_runner_gate",
@@ -54,7 +54,7 @@
    "failures": [],
    "environment_metadata_differences": [],
    "not_run_artifact_missing": [],
-   "seconds": 0.6
+   "seconds": 0.3
   },
   {
    "module": "test_graph_features",
@@ -64,7 +64,7 @@
    "failures": [],
    "environment_metadata_differences": [],
    "not_run_artifact_missing": [],
-   "seconds": 1.1
+   "seconds": 1.0
   },
   {
    "module": "test_h4_rules",
@@ -149,7 +149,7 @@
    "failures": [],
    "environment_metadata_differences": [],
    "not_run_artifact_missing": [],
-   "seconds": 1.9
+   "seconds": 1.8
   },
   {
    "module": "test_phase11_outputs",
@@ -169,7 +169,7 @@
    "failures": [],
    "environment_metadata_differences": [],
    "not_run_artifact_missing": [],
-   "seconds": 6.9
+   "seconds": 6.5
   },
   {
    "module": "test_phase12_evidence",
@@ -179,7 +179,7 @@
    "failures": [],
    "environment_metadata_differences": [],
    "not_run_artifact_missing": [],
-   "seconds": 1.0
+   "seconds": 0.9
   },
   {
    "module": "test_phase12_outputs",
@@ -191,7 +191,7 @@
     "test_AC10_sidecars_and_deterministic_rebuild: AssertionError:   [environment metadata only; companion test passes]"
    ],
    "not_run_artifact_missing": [],
-   "seconds": 21.9
+   "seconds": 24.8
   },
   {
    "module": "test_phase8_adaptive",
@@ -271,8 +271,8 @@
   {
    "module": "test_trigger_policy",
    "status": "PASSED",
-   "tests": 4,
-   "passed": 4,
+   "tests": 6,
+   "passed": 6,
    "failures": [],
    "environment_metadata_differences": [],
    "not_run_artifact_missing": [],
@@ -286,8 +286,8 @@
   {
    "module": "test_triggered_refresh_records",
    "status": "PASSED",
-   "tests": 4,
-   "passed": 4,
+   "tests": 6,
+   "passed": 6,
    "failures": [],
    "environment_metadata_differences": [],
    "not_run_artifact_missing": [],
@@ -309,8 +309,8 @@
    "reason": "needs torch (install requirements-gnn.txt)"
   }
  ],
- "tests": 271,
- "passed": 270,
+ "tests": 275,
+ "passed": 274,
  "not_run_artifact_missing": 0,
  "environment_metadata_differences": 1,
  "skipped": [

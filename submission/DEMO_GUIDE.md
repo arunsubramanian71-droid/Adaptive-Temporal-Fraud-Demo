@@ -7,7 +7,7 @@ Purpose: show that the project is a working, tested software system and show, wi
 ```
 .venv/Scripts/python.exe -B scripts/run_tests.py
 ```
-Expect `ALL TEST MODULES PASSED` (about two to three minutes; 319 tests in 33 modules). Have `reports/PROJECT_SYNTHESIS_REPORT.md`, `experiments/comparison_B_graph_features/outputs/B_RESULTS.md` and `submission/MANUSCRIPT.md` open.
+Expect `ALL TEST MODULES PASSED` (about two to three minutes; 325 tests in 33 modules). Have `reports/PROJECT_SYNTHESIS_REPORT.md`, `experiments/comparison_B_graph_features/outputs/B_RESULTS.md` and `submission/MANUSCRIPT.md` open.
 
 ## Part 1: live software demonstration (3 minutes)
 
@@ -38,9 +38,9 @@ Open http://127.0.0.1:8765/ in a browser (leave the terminal running; Ctrl+C sto
 ## Part 2: the recorded research (7 minutes)
 
 1. **Question and protocol (1 min).** Does relational and temporal structure improve fraud detection over strong tabular models, especially on future data and under drift? Chronological split: train days 1-121, validation 122-151, held-out 152-182 sealed. Everything is validation-period.
-2. **The consolidated table (2 min).** `reports/PROJECT_SYNTHESIS_REPORT.md` section 1.1 and `B_RESULTS.md`. Walk the rows: tabular models, the new graph-feature model B, GraphSAGE, GAT, Temporal GraphSAGE, controls. Point at the F rows and say they are on a different basis and not comparable.
+2. **The consolidated table (2 min).** `reports/PROJECT_SYNTHESIS_REPORT.md` section 1.1 and `B_RESULTS.md`. Figures 1-3 are in `submission/figures/`. Walk the rows: tabular models, the new graph-feature model B, GraphSAGE, GAT, Temporal GraphSAGE, controls. Point at the F rows and say they are on a different basis and not comparable.
 3. **Verdicts (2 min).** H1-H5 in `MANUSCRIPT.md` section 6: what is supported, what is not, and why (GAT never converged; the synthetic benchmark failed a frozen gate; no held-out evaluation).
-4. **Honest gaps (2 min).** `COMPLETION_MATRIX.md`: the held-out evaluation is blocked pending an authorization, the neural graph models have no graph-level explanation, and Phase 12's before/after hash criterion is BLOCKED (partially verified).
+4. **Honest gaps (2 min).** `COMPLETION_MATRIX.md`: the held-out evaluation is blocked pending an authorization, graph-level explanations exist only for Temporal GraphSAGE seed 42 (one registered sanity criterion failed at GPU float noise), and Phase 12's before/after hash criterion is BLOCKED (partially verified).
 
 ## If something breaks live
 
