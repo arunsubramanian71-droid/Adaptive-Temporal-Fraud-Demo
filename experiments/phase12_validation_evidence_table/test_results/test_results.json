@@ -1,0 +1,216 @@
+{
+ "purpose": "Phase 12 tests: unit tests on synthetic data and verification of the evidence table against the registered acceptance criteria.",
+ "run_local": "2026-10-19T13:28:16+05:30",
+ "python": "3.12.0",
+ "files_sha256": {
+  "src/evidence/__init__.py": "fc9a7fa9e859d9701ff85635a90700b4ec9b894cbe0cf79e90e4ec306032e255",
+  "src/evidence/sources.py": "2da1df4649073ae3db166c167db8ba1db53986b4492475b313791d569ca932f1",
+  "src/evidence/table.py": "64bf69506b5839171dde64f79e5f62752194e2b20c4ba0c6ca7fb4acc4c49d51",
+  "src/evidence/build.py": "6dff847c4ae9ed392b79d2f25958e6e0a5da6a3ea80d5a022fb76a2c96114bd4",
+  "src/evidence/outputs.py": "1484c94c0f2828f29e723fc2c01697669bd186a2952cd7b34a3fd4a20c0b08a9",
+  "scripts/run_phase12_table.py": "c8acf38f5272c11457fadec55c3998e761075dde1fc7afe6784e007fcbf32695",
+  "scripts/run_phase12_tests.py": "83ace8b12c29eb139580ac232fcb33a0fecedba37abaf7e3e1281a695f483e50",
+  "scripts/check_phase12_test_sensitivity.py": "1f4da5876c22376fdf09dc3f6e32ecb32b595e7200fc981eeb3c982a1360360f",
+  "scripts/finalize_phase12_integrity.py": "f8b7e3c42510957194fcc3328c3e3afdaa7474ba768c85e09da086a96f16d4ab",
+  "tests/test_phase12_evidence.py": "b6d3a97de1bb949240e742f68bd805eeb8d78e4c1074a054426f502e4aa9de44",
+  "tests/test_phase12_outputs.py": "1dbabf367ec667fed74119a1ad9ffb9b792a967dd2bdfd33f23a59ab68abea82",
+  "src/models/metrics.py": "151b60956736a8aaf00e12a122f864db88666cb5bc4464ef8c34f31ab9f6fa02"
+ },
+ "summary": {
+  "total": 27,
+  "passed": 27,
+  "failed": 0
+ },
+ "tests": [
+  {
+   "module": "tests.test_phase12_evidence",
+   "test": "test_declared_set_matches_the_scope_record_counts_and_exclusions",
+   "status": "pass",
+   "seconds": 0.0,
+   "error": null
+  },
+  {
+   "module": "tests.test_phase12_evidence",
+   "test": "test_fingerprint_follows_the_registered_recipe",
+   "status": "pass",
+   "seconds": 0.003,
+   "error": null
+  },
+  {
+   "module": "tests.test_phase12_evidence",
+   "test": "test_guard_refuses_undeclared_test_checkpoint_and_excluded_paths_and_logs_opens",
+   "status": "pass",
+   "seconds": 0.009,
+   "error": null
+  },
+  {
+   "module": "tests.test_phase12_evidence",
+   "test": "test_scope_parsing_reads_labels_from_the_record",
+   "status": "pass",
+   "seconds": 0.0,
+   "error": null
+  },
+  {
+   "module": "tests.test_phase12_evidence",
+   "test": "test_compare_recorded_tolerance_ints_nan_and_skipped_keys",
+   "status": "pass",
+   "seconds": 0.0,
+   "error": null
+  },
+  {
+   "module": "tests.test_phase12_evidence",
+   "test": "test_evaluate_frame_equals_the_metric_module_and_respects_stored_row_order",
+   "status": "pass",
+   "seconds": 0.127,
+   "error": null
+  },
+  {
+   "module": "tests.test_phase12_evidence",
+   "test": "test_population_problems_detect_each_defect",
+   "status": "pass",
+   "seconds": 0.041,
+   "error": null
+  },
+  {
+   "module": "tests.test_phase12_evidence",
+   "test": "test_attach_missing_adds_day_and_segment_by_id_and_keeps_row_order",
+   "status": "pass",
+   "seconds": 0.006,
+   "error": null
+  },
+  {
+   "module": "tests.test_phase12_evidence",
+   "test": "test_window_definition_matches_phase_8",
+   "status": "pass",
+   "seconds": 0.0,
+   "error": null
+  },
+  {
+   "module": "tests.test_phase12_evidence",
+   "test": "test_process_non_f_reproduces_recorded_metrics_and_flags_a_tampered_record",
+   "status": "pass",
+   "seconds": 0.235,
+   "error": null
+  },
+  {
+   "module": "tests.test_phase12_evidence",
+   "test": "test_process_non_f_blocks_on_population_mismatch",
+   "status": "pass",
+   "seconds": 0.025,
+   "error": null
+  },
+  {
+   "module": "tests.test_phase12_evidence",
+   "test": "test_process_f_reports_both_bases_and_checks_the_window_partition",
+   "status": "pass",
+   "seconds": 0.42,
+   "error": null
+  },
+  {
+   "module": "tests.test_phase12_evidence",
+   "test": "test_aggregate_uses_sample_sd_and_single_runs_have_no_sd",
+   "status": "pass",
+   "seconds": 0.0,
+   "error": null
+  },
+  {
+   "module": "tests.test_phase12_evidence",
+   "test": "test_markdown_rendering_carries_banners_missing_b_row_and_passes_the_wording_lint",
+   "status": "pass",
+   "seconds": 0.001,
+   "error": null
+  },
+  {
+   "module": "tests.test_phase12_evidence",
+   "test": "test_sources_never_call_threshold_selection_or_read_outside_the_guard_or_touch_models",
+   "status": "pass",
+   "seconds": 0.002,
+   "error": null
+  },
+  {
+   "module": "tests.test_phase12_evidence",
+   "test": "test_wording_lint_on_all_phase12_sources_and_tests",
+   "status": "pass",
+   "seconds": 0.01,
+   "error": null
+  },
+  {
+   "module": "tests.test_phase12_outputs",
+   "test": "test_scope_record_sidecar_matches_and_precedes_every_output",
+   "status": "pass",
+   "seconds": 0.001,
+   "error": null
+  },
+  {
+   "module": "tests.test_phase12_outputs",
+   "test": "test_AC1_only_the_declared_source_set_was_read_and_the_fingerprint_is_stable",
+   "status": "pass",
+   "seconds": 0.034,
+   "error": null
+  },
+  {
+   "module": "tests.test_phase12_outputs",
+   "test": "test_AC2_single_metric_implementation_and_no_threshold_tuning",
+   "status": "pass",
+   "seconds": 0.02,
+   "error": null
+  },
+  {
+   "module": "tests.test_phase12_outputs",
+   "test": "test_AC3_AC8_recomputed_values_match_recorded_values_and_cross_check_files",
+   "status": "pass",
+   "seconds": 0.001,
+   "error": null
+  },
+  {
+   "module": "tests.test_phase12_outputs",
+   "test": "test_AC4_population_identity",
+   "status": "pass",
+   "seconds": 0.0,
+   "error": null
+  },
+  {
+   "module": "tests.test_phase12_outputs",
+   "test": "test_AC6_rows_carry_the_required_fields_both_F_bases_and_the_B_missing_row",
+   "status": "pass",
+   "seconds": 0.011,
+   "error": null
+  },
+  {
+   "module": "tests.test_phase12_outputs",
+   "test": "test_AC6_cell_aggregates_use_sample_sd_and_report_the_recorded_headline_values",
+   "status": "pass",
+   "seconds": 0.003,
+   "error": null
+  },
+  {
+   "module": "tests.test_phase12_outputs",
+   "test": "test_AC7_comparability_matrix_equals_the_scope_record",
+   "status": "pass",
+   "seconds": 0.002,
+   "error": null
+  },
+  {
+   "module": "tests.test_phase12_outputs",
+   "test": "test_AC9_wording_lint_on_all_phase12_text_outputs_and_sources",
+   "status": "pass",
+   "seconds": 0.028,
+   "error": null
+  },
+  {
+   "module": "tests.test_phase12_outputs",
+   "test": "test_AC10_sidecars_and_deterministic_rebuild",
+   "status": "pass",
+   "seconds": 6.925,
+   "error": null
+  },
+  {
+   "module": "tests.test_phase12_outputs",
+   "test": "test_build_gates_block_before_any_output_is_written",
+   "status": "pass",
+   "seconds": 7.33,
+   "error": null
+  }
+ ],
+ "scope_statement": "No training, no scoring, no new predictions, no TEST contents, no checkpoint opened, no Phase 10 empirical tier, no ablation. Passing tests establish only what the assertions check."
+}

@@ -1,0 +1,43 @@
+{
+ "scope_record": "experiments/phase11_explainable_evidence/SCOPE_AND_ACCEPTANCE.md",
+ "statement": "Contributions explain the XGBoost model's output in log-odds margin space. They are not evidence of fraud, causality or coordination. VAL labels shaped the model's iteration count and threshold, so these VAL explanations are descriptive and not held-out. Features are anonymised: columns are named, mechanisms are not.",
+ "n_selected": 300,
+ "n_per_group": {
+  "top_score": 150,
+  "uniform_draw": 150
+ },
+ "n_days": 30,
+ "day_range": [
+  122,
+  151
+ ],
+ "selection": {
+  "top_per_day": 5,
+  "uniform_draws_per_day": 5,
+  "seed": 40042,
+  "generator": "numpy.random.default_rng(SeedSequence([seed, day])) over the day's non-top transactions sorted by TransactionID",
+  "label_used": false
+ },
+ "model": {
+  "path": "experiments/xgboost/model.joblib",
+  "best_iteration": 798,
+  "iteration_range_used": [
+   0,
+   799
+  ],
+  "n_features": 470,
+  "xgboost_version": "3.4.1"
+ },
+ "acceptance_checks": {
+  "A1_max_abs_additivity_error": 8.106231689453125e-06,
+  "A2_max_abs_prob_difference_vs_stored_y_score": 8.456593769690102e-08,
+  "A2_max_abs_predict_proba_difference_vs_stored_y_score": 0.0,
+  "A3_max_abs_batch_difference": 0.0
+ },
+ "tolerances": {
+  "A1": 0.0001,
+  "A2": 1e-06,
+  "A3": 1e-05
+ },
+ "mean_abs_margin": 4.893742084503174
+}

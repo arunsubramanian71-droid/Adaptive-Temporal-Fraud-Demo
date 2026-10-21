@@ -1,0 +1,45 @@
+{
+ "created_local": "2026-10-19T13:12:08+05:30",
+ "scope_record_sha256": "d854aad556dacec44b7a7f783ef21966239e8ae5b2d95caca1e84a99ed956d4c",
+ "source_set_fingerprint": "30f729b276a5ed4f5693704c5cf0d24b59c7d3817e33d37382b1a2f9bec43224",
+ "n_source_files": 165,
+ "versions": {
+  "python": "3.12.0",
+  "pandas": "3.0.5",
+  "numpy": "2.4.4",
+  "scikit_learn": "1.9.1"
+ },
+ "code_sha256": {
+  "src/evidence/__init__.py": "fc9a7fa9e859d9701ff85635a90700b4ec9b894cbe0cf79e90e4ec306032e255",
+  "src/evidence/sources.py": "2da1df4649073ae3db166c167db8ba1db53986b4492475b313791d569ca932f1",
+  "src/evidence/table.py": "64bf69506b5839171dde64f79e5f62752194e2b20c4ba0c6ca7fb4acc4c49d51",
+  "src/evidence/build.py": "6dff847c4ae9ed392b79d2f25958e6e0a5da6a3ea80d5a022fb76a2c96114bd4",
+  "src/evidence/outputs.py": "1484c94c0f2828f29e723fc2c01697669bd186a2952cd7b34a3fd4a20c0b08a9",
+  "src/models/metrics.py": "151b60956736a8aaf00e12a122f864db88666cb5bc4464ef8c34f31ab9f6fa02",
+  "scripts/run_phase12_table.py": "c8acf38f5272c11457fadec55c3998e761075dde1fc7afe6784e007fcbf32695"
+ },
+ "outputs_sha256": {
+  "evidence_runs.csv": "e26f4594fc667067014b39f777bb67f0553bb8acd7162ce55f460738540997de",
+  "evidence_cells.csv": "09ba6f9a4237ca8f677d13e95563db923f7174eea7a36bdd5f68a764ca6b9cf5",
+  "evidence_windows.csv": "193f22c113ebda35c3ab6976a5a40abce034deb091a968ce2afcf3400f493e19",
+  "comparability_matrix.csv": "8d3c8df784196813182d799638e45bfd545b26c5652c5e02d41db0b222262536",
+  "evidence_table.json": "c461e84fc3572658681c17db9e2a9712cac3f7549f58b28d69f5d94fe5c5192f",
+  "table_report.md": "ae593f0c3ee6ea363566d30996db7507fc9844c12de990bc13f2a0903c22837e",
+  "recomputation_check.json": "3c615e1d4071beba603c4b9fd4c4073f3b3011ea014081fe2d9404a5eb2dc90d",
+  "crosscheck_recorded.json": "8649b844040c44009e333d31d49a3c7d61df651e680865fd4983abc8539e5253",
+  "population_check.json": "97692c564e2f6916bffa89f37a97845ae183800f561eed22b36ba79b867160dd",
+  "io_audit.json": "0539e1de44fb5280b5035c2bd91fce5d352b2c310435d5921378caf70cdb5f5d",
+  "source_manifest.tsv": "30f729b276a5ed4f5693704c5cf0d24b59c7d3817e33d37382b1a2f9bec43224"
+ },
+ "metric_implementation": "src/models/metrics.py (unmodified, imported)",
+ "boundaries": {
+  "training": false,
+  "scoring_new_models": false,
+  "new_predictions": false,
+  "test_contents_accessed": false,
+  "checkpoints_opened": false,
+  "phase10_empirical_tiers": false,
+  "ablation_started": false,
+  "b_status": "MISSING"
+ }
+}

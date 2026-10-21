@@ -1,0 +1,635 @@
+{
+ "tolerance": 1e-09,
+ "n_runs_checked": 65,
+ "n_values_compared": 8184,
+ "max_abs_diff": 0.0,
+ "all_within_tolerance": true,
+ "checks": [
+  {
+   "run_id": "A:logistic_regression",
+   "max_abs_diff": 0.0,
+   "n_compared": 33,
+   "mismatches": [],
+   "skipped_keys": [
+    "/pooled/threshold_selection"
+   ],
+   "n_rows": 83655,
+   "threshold": 0.8723617792129517
+  },
+  {
+   "run_id": "A:random_forest",
+   "max_abs_diff": 0.0,
+   "n_compared": 33,
+   "mismatches": [],
+   "skipped_keys": [
+    "/pooled/threshold_selection"
+   ],
+   "n_rows": 83655,
+   "threshold": 0.5851287044992275
+  },
+  {
+   "run_id": "A:xgboost",
+   "max_abs_diff": 0.0,
+   "n_compared": 33,
+   "mismatches": [],
+   "skipped_keys": [
+    "/pooled/threshold_selection"
+   ],
+   "n_rows": 83655,
+   "threshold": 0.7746507525444031
+  },
+  {
+   "run_id": "Aref:xgboost_historical_control",
+   "max_abs_diff": 0.0,
+   "n_compared": 33,
+   "mismatches": [],
+   "skipped_keys": [
+    "/pooled/threshold_selection"
+   ],
+   "n_rows": 83655,
+   "threshold": 0.9141308665275574
+  },
+  {
+   "run_id": "C:seed42",
+   "max_abs_diff": 0.0,
+   "n_compared": 132,
+   "mismatches": [],
+   "skipped_keys": [
+    "/pooled/threshold_selection"
+   ],
+   "n_rows": 83655,
+   "threshold": 0.9193133115768433
+  },
+  {
+   "run_id": "C:seed123",
+   "max_abs_diff": 0.0,
+   "n_compared": 132,
+   "mismatches": [],
+   "skipped_keys": [
+    "/pooled/threshold_selection"
+   ],
+   "n_rows": 83655,
+   "threshold": 0.913051426410675
+  },
+  {
+   "run_id": "C:seed2024",
+   "max_abs_diff": 0.0,
+   "n_compared": 132,
+   "mismatches": [],
+   "skipped_keys": [
+    "/pooled/threshold_selection"
+   ],
+   "n_rows": 83655,
+   "threshold": 0.9219204783439636
+  },
+  {
+   "run_id": "Ccontrol:mlp_control_extended",
+   "max_abs_diff": 0.0,
+   "n_compared": 132,
+   "mismatches": [],
+   "skipped_keys": [
+    "/pooled/threshold_selection"
+   ],
+   "n_rows": 83655,
+   "threshold": 0.8626385927200317
+  },
+  {
+   "run_id": "D:seed42",
+   "max_abs_diff": 0.0,
+   "n_compared": 132,
+   "mismatches": [],
+   "skipped_keys": [
+    "/pooled/threshold_selection"
+   ],
+   "n_rows": 83655,
+   "threshold": 0.86350417137146
+  },
+  {
+   "run_id": "D:seed123",
+   "max_abs_diff": 0.0,
+   "n_compared": 132,
+   "mismatches": [],
+   "skipped_keys": [
+    "/pooled/threshold_selection"
+   ],
+   "n_rows": 83655,
+   "threshold": 0.8856754899024963
+  },
+  {
+   "run_id": "D:seed2024",
+   "max_abs_diff": 0.0,
+   "n_compared": 132,
+   "mismatches": [],
+   "skipped_keys": [
+    "/pooled/threshold_selection"
+   ],
+   "n_rows": 83655,
+   "threshold": 0.8902249932289124
+  },
+  {
+   "run_id": "E:seed42",
+   "max_abs_diff": 0.0,
+   "n_compared": 132,
+   "mismatches": [],
+   "skipped_keys": [
+    "/pooled/threshold_selection"
+   ],
+   "n_rows": 83655,
+   "threshold": 0.9633288383483887
+  },
+  {
+   "run_id": "E:seed123",
+   "max_abs_diff": 0.0,
+   "n_compared": 132,
+   "mismatches": [],
+   "skipped_keys": [
+    "/pooled/threshold_selection"
+   ],
+   "n_rows": 83655,
+   "threshold": 0.9446290135383606
+  },
+  {
+   "run_id": "E:seed2024",
+   "max_abs_diff": 0.0,
+   "n_compared": 132,
+   "mismatches": [],
+   "skipped_keys": [
+    "/pooled/threshold_selection"
+   ],
+   "n_rows": 83655,
+   "threshold": 0.9622889757156372
+  },
+  {
+   "run_id": "E7A:static_schedule_matched:seed42",
+   "max_abs_diff": 0.0,
+   "n_compared": 132,
+   "mismatches": [],
+   "skipped_keys": [
+    "/pooled/threshold_selection"
+   ],
+   "n_rows": 83655,
+   "threshold": 0.9284331798553467
+  },
+  {
+   "run_id": "E7A:static_schedule_matched:seed123",
+   "max_abs_diff": 0.0,
+   "n_compared": 132,
+   "mismatches": [],
+   "skipped_keys": [
+    "/pooled/threshold_selection"
+   ],
+   "n_rows": 83655,
+   "threshold": 0.9357107877731323
+  },
+  {
+   "run_id": "E7A:static_schedule_matched:seed2024",
+   "max_abs_diff": 0.0,
+   "n_compared": 132,
+   "mismatches": [],
+   "skipped_keys": [
+    "/pooled/threshold_selection"
+   ],
+   "n_rows": 83655,
+   "threshold": 0.9310454726219177
+  },
+  {
+   "run_id": "E7A:memory_ablated_temporal:seed42",
+   "max_abs_diff": 0.0,
+   "n_compared": 132,
+   "mismatches": [],
+   "skipped_keys": [
+    "/pooled/threshold_selection"
+   ],
+   "n_rows": 83655,
+   "threshold": 0.9215102195739746
+  },
+  {
+   "run_id": "E7A:memory_ablated_temporal:seed123",
+   "max_abs_diff": 0.0,
+   "n_compared": 132,
+   "mismatches": [],
+   "skipped_keys": [
+    "/pooled/threshold_selection"
+   ],
+   "n_rows": 83655,
+   "threshold": 0.9635418653488159
+  },
+  {
+   "run_id": "E7A:memory_ablated_temporal:seed2024",
+   "max_abs_diff": 0.0,
+   "n_compared": 132,
+   "mismatches": [],
+   "skipped_keys": [
+    "/pooled/threshold_selection"
+   ],
+   "n_rows": 83655,
+   "threshold": 0.9554724097251892
+  },
+  {
+   "run_id": "F:frozen:seed42:W1",
+   "max_abs_diff": 0.0,
+   "n_compared": 132,
+   "mismatches": [],
+   "skipped_keys": [],
+   "n_rows": 19952,
+   "threshold": 0.9359169602394104
+  },
+  {
+   "run_id": "F:frozen:seed42:W2",
+   "max_abs_diff": 0.0,
+   "n_compared": 132,
+   "mismatches": [],
+   "skipped_keys": [],
+   "n_rows": 15923,
+   "threshold": 0.9359169602394104
+  },
+  {
+   "run_id": "F:frozen:seed42:W3",
+   "max_abs_diff": 0.0,
+   "n_compared": 132,
+   "mismatches": [],
+   "skipped_keys": [],
+   "n_rows": 15943,
+   "threshold": 0.9359169602394104
+  },
+  {
+   "run_id": "F:frozen:seed42:W4",
+   "max_abs_diff": 0.0,
+   "n_compared": 132,
+   "mismatches": [],
+   "skipped_keys": [],
+   "n_rows": 15470,
+   "threshold": 0.9359169602394104
+  },
+  {
+   "run_id": "F:frozen:seed42:W5",
+   "max_abs_diff": 0.0,
+   "n_compared": 132,
+   "mismatches": [],
+   "skipped_keys": [],
+   "n_rows": 16367,
+   "threshold": 0.9359169602394104
+  },
+  {
+   "run_id": "F:frozen:seed123:W1",
+   "max_abs_diff": 0.0,
+   "n_compared": 132,
+   "mismatches": [],
+   "skipped_keys": [],
+   "n_rows": 19952,
+   "threshold": 0.9360408186912537
+  },
+  {
+   "run_id": "F:frozen:seed123:W2",
+   "max_abs_diff": 0.0,
+   "n_compared": 132,
+   "mismatches": [],
+   "skipped_keys": [],
+   "n_rows": 15923,
+   "threshold": 0.9360408186912537
+  },
+  {
+   "run_id": "F:frozen:seed123:W3",
+   "max_abs_diff": 0.0,
+   "n_compared": 132,
+   "mismatches": [],
+   "skipped_keys": [],
+   "n_rows": 15943,
+   "threshold": 0.9360408186912537
+  },
+  {
+   "run_id": "F:frozen:seed123:W4",
+   "max_abs_diff": 0.0,
+   "n_compared": 132,
+   "mismatches": [],
+   "skipped_keys": [],
+   "n_rows": 15470,
+   "threshold": 0.9360408186912537
+  },
+  {
+   "run_id": "F:frozen:seed123:W5",
+   "max_abs_diff": 0.0,
+   "n_compared": 132,
+   "mismatches": [],
+   "skipped_keys": [],
+   "n_rows": 16367,
+   "threshold": 0.9360408186912537
+  },
+  {
+   "run_id": "F:frozen:seed2024:W1",
+   "max_abs_diff": 0.0,
+   "n_compared": 132,
+   "mismatches": [],
+   "skipped_keys": [],
+   "n_rows": 19952,
+   "threshold": 0.9489709138870239
+  },
+  {
+   "run_id": "F:frozen:seed2024:W2",
+   "max_abs_diff": 0.0,
+   "n_compared": 132,
+   "mismatches": [],
+   "skipped_keys": [],
+   "n_rows": 15923,
+   "threshold": 0.9489709138870239
+  },
+  {
+   "run_id": "F:frozen:seed2024:W3",
+   "max_abs_diff": 0.0,
+   "n_compared": 132,
+   "mismatches": [],
+   "skipped_keys": [],
+   "n_rows": 15943,
+   "threshold": 0.9489709138870239
+  },
+  {
+   "run_id": "F:frozen:seed2024:W4",
+   "max_abs_diff": 0.0,
+   "n_compared": 132,
+   "mismatches": [],
+   "skipped_keys": [],
+   "n_rows": 15470,
+   "threshold": 0.9489709138870239
+  },
+  {
+   "run_id": "F:frozen:seed2024:W5",
+   "max_abs_diff": 0.0,
+   "n_compared": 132,
+   "mismatches": [],
+   "skipped_keys": [],
+   "n_rows": 16367,
+   "threshold": 0.9489709138870239
+  },
+  {
+   "run_id": "F:adaptive:seed42:W1",
+   "max_abs_diff": 0.0,
+   "n_compared": 132,
+   "mismatches": [],
+   "skipped_keys": [],
+   "n_rows": 19952,
+   "threshold": 0.9359169602394104
+  },
+  {
+   "run_id": "F:adaptive:seed42:W2",
+   "max_abs_diff": 0.0,
+   "n_compared": 132,
+   "mismatches": [],
+   "skipped_keys": [],
+   "n_rows": 15923,
+   "threshold": 0.9359169602394104
+  },
+  {
+   "run_id": "F:adaptive:seed42:W3",
+   "max_abs_diff": 0.0,
+   "n_compared": 132,
+   "mismatches": [],
+   "skipped_keys": [],
+   "n_rows": 15943,
+   "threshold": 0.9359169602394104
+  },
+  {
+   "run_id": "F:adaptive:seed42:W4",
+   "max_abs_diff": 0.0,
+   "n_compared": 132,
+   "mismatches": [],
+   "skipped_keys": [],
+   "n_rows": 15470,
+   "threshold": 0.9359169602394104
+  },
+  {
+   "run_id": "F:adaptive:seed42:W5",
+   "max_abs_diff": 0.0,
+   "n_compared": 132,
+   "mismatches": [],
+   "skipped_keys": [],
+   "n_rows": 16367,
+   "threshold": 0.9359169602394104
+  },
+  {
+   "run_id": "F:adaptive:seed123:W1",
+   "max_abs_diff": 0.0,
+   "n_compared": 132,
+   "mismatches": [],
+   "skipped_keys": [],
+   "n_rows": 19952,
+   "threshold": 0.9360408186912537
+  },
+  {
+   "run_id": "F:adaptive:seed123:W2",
+   "max_abs_diff": 0.0,
+   "n_compared": 132,
+   "mismatches": [],
+   "skipped_keys": [],
+   "n_rows": 15923,
+   "threshold": 0.9360408186912537
+  },
+  {
+   "run_id": "F:adaptive:seed123:W3",
+   "max_abs_diff": 0.0,
+   "n_compared": 132,
+   "mismatches": [],
+   "skipped_keys": [],
+   "n_rows": 15943,
+   "threshold": 0.9360408186912537
+  },
+  {
+   "run_id": "F:adaptive:seed123:W4",
+   "max_abs_diff": 0.0,
+   "n_compared": 132,
+   "mismatches": [],
+   "skipped_keys": [],
+   "n_rows": 15470,
+   "threshold": 0.9360408186912537
+  },
+  {
+   "run_id": "F:adaptive:seed123:W5",
+   "max_abs_diff": 0.0,
+   "n_compared": 132,
+   "mismatches": [],
+   "skipped_keys": [],
+   "n_rows": 16367,
+   "threshold": 0.9360408186912537
+  },
+  {
+   "run_id": "F:adaptive:seed2024:W1",
+   "max_abs_diff": 0.0,
+   "n_compared": 132,
+   "mismatches": [],
+   "skipped_keys": [],
+   "n_rows": 19952,
+   "threshold": 0.9489709138870239
+  },
+  {
+   "run_id": "F:adaptive:seed2024:W2",
+   "max_abs_diff": 0.0,
+   "n_compared": 132,
+   "mismatches": [],
+   "skipped_keys": [],
+   "n_rows": 15923,
+   "threshold": 0.9489709138870239
+  },
+  {
+   "run_id": "F:adaptive:seed2024:W3",
+   "max_abs_diff": 0.0,
+   "n_compared": 132,
+   "mismatches": [],
+   "skipped_keys": [],
+   "n_rows": 15943,
+   "threshold": 0.9489709138870239
+  },
+  {
+   "run_id": "F:adaptive:seed2024:W4",
+   "max_abs_diff": 0.0,
+   "n_compared": 132,
+   "mismatches": [],
+   "skipped_keys": [],
+   "n_rows": 15470,
+   "threshold": 0.9489709138870239
+  },
+  {
+   "run_id": "F:adaptive:seed2024:W5",
+   "max_abs_diff": 0.0,
+   "n_compared": 132,
+   "mismatches": [],
+   "skipped_keys": [],
+   "n_rows": 16367,
+   "threshold": 0.9489709138870239
+  },
+  {
+   "run_id": "F:replay_control:seed42:W1",
+   "max_abs_diff": 0.0,
+   "n_compared": 132,
+   "mismatches": [],
+   "skipped_keys": [],
+   "n_rows": 19952,
+   "threshold": 0.9359169602394104
+  },
+  {
+   "run_id": "F:replay_control:seed42:W2",
+   "max_abs_diff": 0.0,
+   "n_compared": 132,
+   "mismatches": [],
+   "skipped_keys": [],
+   "n_rows": 15923,
+   "threshold": 0.9359169602394104
+  },
+  {
+   "run_id": "F:replay_control:seed42:W3",
+   "max_abs_diff": 0.0,
+   "n_compared": 132,
+   "mismatches": [],
+   "skipped_keys": [],
+   "n_rows": 15943,
+   "threshold": 0.9359169602394104
+  },
+  {
+   "run_id": "F:replay_control:seed42:W4",
+   "max_abs_diff": 0.0,
+   "n_compared": 132,
+   "mismatches": [],
+   "skipped_keys": [],
+   "n_rows": 15470,
+   "threshold": 0.9359169602394104
+  },
+  {
+   "run_id": "F:replay_control:seed42:W5",
+   "max_abs_diff": 0.0,
+   "n_compared": 132,
+   "mismatches": [],
+   "skipped_keys": [],
+   "n_rows": 16367,
+   "threshold": 0.9359169602394104
+  },
+  {
+   "run_id": "F:replay_control:seed123:W1",
+   "max_abs_diff": 0.0,
+   "n_compared": 132,
+   "mismatches": [],
+   "skipped_keys": [],
+   "n_rows": 19952,
+   "threshold": 0.9360408186912537
+  },
+  {
+   "run_id": "F:replay_control:seed123:W2",
+   "max_abs_diff": 0.0,
+   "n_compared": 132,
+   "mismatches": [],
+   "skipped_keys": [],
+   "n_rows": 15923,
+   "threshold": 0.9360408186912537
+  },
+  {
+   "run_id": "F:replay_control:seed123:W3",
+   "max_abs_diff": 0.0,
+   "n_compared": 132,
+   "mismatches": [],
+   "skipped_keys": [],
+   "n_rows": 15943,
+   "threshold": 0.9360408186912537
+  },
+  {
+   "run_id": "F:replay_control:seed123:W4",
+   "max_abs_diff": 0.0,
+   "n_compared": 132,
+   "mismatches": [],
+   "skipped_keys": [],
+   "n_rows": 15470,
+   "threshold": 0.9360408186912537
+  },
+  {
+   "run_id": "F:replay_control:seed123:W5",
+   "max_abs_diff": 0.0,
+   "n_compared": 132,
+   "mismatches": [],
+   "skipped_keys": [],
+   "n_rows": 16367,
+   "threshold": 0.9360408186912537
+  },
+  {
+   "run_id": "F:replay_control:seed2024:W1",
+   "max_abs_diff": 0.0,
+   "n_compared": 132,
+   "mismatches": [],
+   "skipped_keys": [],
+   "n_rows": 19952,
+   "threshold": 0.9489709138870239
+  },
+  {
+   "run_id": "F:replay_control:seed2024:W2",
+   "max_abs_diff": 0.0,
+   "n_compared": 132,
+   "mismatches": [],
+   "skipped_keys": [],
+   "n_rows": 15923,
+   "threshold": 0.9489709138870239
+  },
+  {
+   "run_id": "F:replay_control:seed2024:W3",
+   "max_abs_diff": 0.0,
+   "n_compared": 132,
+   "mismatches": [],
+   "skipped_keys": [],
+   "n_rows": 15943,
+   "threshold": 0.9489709138870239
+  },
+  {
+   "run_id": "F:replay_control:seed2024:W4",
+   "max_abs_diff": 0.0,
+   "n_compared": 132,
+   "mismatches": [],
+   "skipped_keys": [],
+   "n_rows": 15470,
+   "threshold": 0.9489709138870239
+  },
+  {
+   "run_id": "F:replay_control:seed2024:W5",
+   "max_abs_diff": 0.0,
+   "n_compared": 132,
+   "mismatches": [],
+   "skipped_keys": [],
+   "n_rows": 16367,
+   "threshold": 0.9489709138870239
+  }
+ ],
+ "note": "recorded keys not produced by the metric function (e.g. threshold_selection, which records how a threshold was chosen) are listed under skipped_keys and are not recomputed"
+}

@@ -1,0 +1,23 @@
+{
+ "purpose": "Integrity record for the Phase 10 D12 design addendum of 2026-10-18 (documentation only; no code, tests, experiments, Stage 0 or TEST access).",
+ "created_local": "2026-10-18T12:35:29+05:30",
+ "new_document_sha256": {
+  "experiments/phase10_community_evolution/DESIGN_ADDENDUM_D12_approved_decisions.md": "4993af492d656ad6c232f33eedfd0bf7267a9083eee4dc352f193256cdb03981"
+ },
+ "new_document_sidecar": "experiments/phase10_community_evolution/DESIGN_ADDENDUM_D12_approved_decisions.sha256",
+ "original_phase10_records_unchanged_sha256": {
+  "experiments/phase10_community_evolution/DESIGN_BEFORE_EXECUTION.md": "1c66ec6b79cea920a6a8f8225948ee66a0dbfd7e14117c8f02a03a78fd460ebc",
+  "experiments/phase10_community_evolution/INSPECTION_REPORT.md": "780498f52b45db369b430f36e99188da87eb5c05aba5e25ba51ca09c60687d2b",
+  "experiments/phase10_community_evolution/INTEGRITY.json": "94dfdafae6524c3f1ee6f28d750fc066223c8dfaf18ed9fe9fcba127aa9a7dd7"
+ },
+ "original_phase10_records_match_recorded_creation_hashes": true,
+ "phase10_inspected_sources_unchanged_since_INTEGRITY_json": true,
+ "phase9_closure_record_checked_read_only": {
+  "reports/phase9_closure_report.md": "04d2ec6875aa06bceafa09a5e28a8a01aa758f24deeb3b60523d463544a4f048",
+  "experiments/phase9_coordinated_fraud/phase9_closure_integrity.json": "bf1080628e9d2b02de2f3124fe3dd94fac05b8936b295e22dfc7cd8443708c8f",
+  "artifacts_in_closure_record_checked": 34,
+  "artifacts_changed": 0
+ },
+ "hash_convention": "SHA-256 over file bytes; sidecars hold the 64-character lowercase hex digest only; this record cannot contain its own hash (see INTEGRITY_ADDENDUM.sha256).",
+ "scope_statement": "Documentation only. Phase 10 implementation remains unauthorized. No Phase 1-9 file was modified. Phases 11-13 not started."
+}

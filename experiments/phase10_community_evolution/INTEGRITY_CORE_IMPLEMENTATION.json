@@ -1,0 +1,64 @@
+{
+ "purpose": "Integrity record for the Phase 10 core implementation (module, core tests, scripts, outputs). Authorized scope only.",
+ "created_local": "2026-10-18T18:22:17+05:30",
+ "implementation_and_output_files_sha256": {
+  "scripts/check_phase10_test_sensitivity.py": "77f6b5d057b729b4dde47d73af6506d935a61ced1a6d41c7cb82105454cbaa54",
+  "scripts/run_phase10_tests.py": "a6300b20e7232d2d577857aa626e85180198c88c35a4581fdcc5a0e3e69bd600",
+  "src/evolution/__init__.py": "2166c32e70548af3f239bfc014d9c2eacd632363d02c694148641e899a7bd968",
+  "src/evolution/tracker.py": "392a145addd79dbdb82008298c84012fd5abee1140bcb4331ac07b1b2c05ea0c",
+  "tests/phase10_helpers.py": "46df4441d0d5c1990da658c97d7dde4b92662007accf4d023f4e582175b1d1b3",
+  "tests/test_phase10_compat.py": "2c570e43e476419aae312700c358723a1f64097d3c1cc274c780fe24ac1030cd",
+  "tests/test_phase10_properties.py": "008843cc0fd69816a6be7619ea38308fac52f4a88a6ff188623cf78c6f9106f1",
+  "tests/test_phase10_toys.py": "2b62d74978358a3767932dd8b6d112eab2b92622f20c7f1130fe3024a0b78c44",
+  "experiments/phase10_community_evolution/core_implementation/core_test_results.json": "02eafb535b7edb5debe8c3815616b894727dd43553b208f8f87a6841131ec653",
+  "experiments/phase10_community_evolution/core_implementation/core_test_log.txt": "78a2abe852b4431fe871a981c105925150f911200fe730e167db6bd1d1f7e751",
+  "experiments/phase10_community_evolution/core_implementation/core_test_sensitivity.json": "bcae976c207a06270e46041f4099ca756d19c47ac7b96378401d6786e568ba0d"
+ },
+ "governing_specification_unchanged_sha256": {
+  "experiments/phase10_community_evolution/DESIGN_BEFORE_EXECUTION.md": "1c66ec6b79cea920a6a8f8225948ee66a0dbfd7e14117c8f02a03a78fd460ebc",
+  "experiments/phase10_community_evolution/INSPECTION_REPORT.md": "780498f52b45db369b430f36e99188da87eb5c05aba5e25ba51ca09c60687d2b",
+  "experiments/phase10_community_evolution/INTEGRITY.json": "94dfdafae6524c3f1ee6f28d750fc066223c8dfaf18ed9fe9fcba127aa9a7dd7",
+  "experiments/phase10_community_evolution/DESIGN_ADDENDUM_D12_approved_decisions.md": "4993af492d656ad6c232f33eedfd0bf7267a9083eee4dc352f193256cdb03981",
+  "experiments/phase10_community_evolution/INTEGRITY_ADDENDUM.json": "52b8f463abcb128d14597b2789c70f7e62c318a421cc62ccd5374bd22578d7b5",
+  "experiments/phase10_community_evolution/DESIGN_ADDENDUM_ERRATA_1_B1_B5.md": "eceeb748e16cab0db0e542dd2e9cc6b6b4676350000b4b6a1d784be9dd0087f1",
+  "experiments/phase10_community_evolution/INTEGRITY_ERRATA_1.json": "38b70c86ade07a0e2087020502615784b2e24e93166f5baf942fc300b2d8a3a8",
+  "experiments/phase10_community_evolution/DESIGN_ADDENDUM_ERRATA_2_targets_interface_censoring.md": "9b114fe8fb72daae9d797a319f18e775cfb864e63f5c4aae89b5b68015705cb6",
+  "experiments/phase10_community_evolution/INTEGRITY_ERRATA_2.json": "482238883424af6480987f8a3a022cad79b275512a71475fc29796cd410d4682"
+ },
+ "test_results": {
+  "total": 63,
+  "passed": 63,
+  "failed": 0,
+  "results_file": "experiments/phase10_community_evolution/core_implementation/core_test_results.json"
+ },
+ "test_sensitivity": {
+  "mutants": 18,
+  "detected": 18,
+  "unmutated_failures": []
+ },
+ "frozen_artifact_check": {
+  "baseline_files_outside_phase10_folder": 577,
+  "changed": 0,
+  "missing": 0,
+  "new_files_outside_phase10_folder": [
+   "scripts/check_phase10_test_sensitivity.py",
+   "scripts/run_phase10_tests.py",
+   "src/evolution/__init__.py",
+   "src/evolution/tracker.py",
+   "tests/phase10_helpers.py",
+   "tests/test_phase10_compat.py",
+   "tests/test_phase10_properties.py",
+   "tests/test_phase10_toys.py"
+  ],
+  "method": "SHA-256 of every project file (excluding .venv, .git, __pycache__ and the Phase 10 folder) taken before implementation and compared after",
+  "phase9_closure_record_artifacts_checked": 34,
+  "phase9_closure_record_artifacts_changed": 0
+ },
+ "limitations": [
+  "Tests establish only what their assertions check; expected values are hand-derived from the approved specification and an independent oracle written in the tests.",
+  "The Phase 9 Tracker was imported read-only; equivalence is shown on toy and seeded synthetic canonical sequences only, not on real data.",
+  "No Stage 0, no TEST data, no synthetic benchmark, no null-model tier, no real-data evaluation was run; no empirical or research finding is claimed.",
+  "Communities are candidate communities, not confirmed fraud rings."
+ ],
+ "hash_convention": "SHA-256 over file bytes; the sidecar holds the 64-character lowercase digest only; this record cannot contain its own hash (see INTEGRITY_CORE_IMPLEMENTATION.sha256)."
+}

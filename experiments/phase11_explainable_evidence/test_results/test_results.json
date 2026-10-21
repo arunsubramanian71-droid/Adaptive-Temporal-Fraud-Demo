@@ -1,0 +1,234 @@
+{
+ "purpose": "Phase 11 first-pass tests: toy tests for src/explain and verification of the generated outputs against the scope record.",
+ "run_local": "2026-10-18T20:53:10+05:30",
+ "python": "3.12.0",
+ "files_sha256": {
+  "src/explain/__init__.py": "2c8d490f4cb81c7a30a7d444f714decfe04f52f6a6863be4a6f916580e9bf45f",
+  "src/explain/xgb_contrib.py": "0fcbac7b41b8fe1c1c6acb605e3181e85f6e89d94521e11aaf813b3b9a016fb1",
+  "src/explain/cards.py": "cc3c5b28afe261999b9f5171fd262e997aa383973d3983c6d6ae9a169190bedf",
+  "src/explain/outputs.py": "eb1bfce66a6dcf20d030f8c59dedea4ed4b2f24d49ac6c8778778660f4059cf7",
+  "scripts/run_phase11_explanations.py": "793c6ba863316c2762debe95466f897b29e5892e95f0c7e950bb184a3ca24f9d",
+  "scripts/run_phase11_cards.py": "19cc7ff0bbb104e2e114bc431c554fd0548c5b04057590a142d01cf1c1101fa5",
+  "scripts/run_phase11_tests.py": "573d90856ee4e20c9d4df5459c1e6c476617cbe86d89354018551fdda06dc6eb",
+  "tests/test_phase11_explain.py": "461b2e78c9686fd83dc5b06c4941c672cd7347b25a2635af734deb129aec6710",
+  "tests/test_phase11_outputs.py": "44c87bc58a2539904b876fc2cc256ea238fc66c93c5f8ba64ec65d966ffcef11"
+ },
+ "summary": {
+  "total": 30,
+  "passed": 30,
+  "failed": 0
+ },
+ "tests": [
+  {
+   "module": "tests.test_phase11_explain",
+   "test": "test_A1_contributions_sum_to_the_margin_on_toy_models",
+   "status": "pass",
+   "seconds": 1.423,
+   "error": null
+  },
+  {
+   "module": "tests.test_phase11_explain",
+   "test": "test_A2_margin_matches_the_models_own_probability_and_uses_the_early_stopping_range",
+   "status": "pass",
+   "seconds": 0.03,
+   "error": null
+  },
+  {
+   "module": "tests.test_phase11_explain",
+   "test": "test_A3_batch_invariance",
+   "status": "pass",
+   "seconds": 0.032,
+   "error": null
+  },
+  {
+   "module": "tests.test_phase11_explain",
+   "test": "test_top_features_orders_by_absolute_contribution_and_keeps_nan_as_null",
+   "status": "pass",
+   "seconds": 0.0,
+   "error": null
+  },
+  {
+   "module": "tests.test_phase11_explain",
+   "test": "test_A4_selection_has_exact_count_groups_and_is_reproducible",
+   "status": "pass",
+   "seconds": 0.029,
+   "error": null
+  },
+  {
+   "module": "tests.test_phase11_explain",
+   "test": "test_selection_top_group_is_the_highest_scores_with_ties_by_lower_id",
+   "status": "pass",
+   "seconds": 0.005,
+   "error": null
+  },
+  {
+   "module": "tests.test_phase11_explain",
+   "test": "test_selection_ties_at_the_top_boundary_are_broken_by_lower_transaction_id",
+   "status": "pass",
+   "seconds": 0.005,
+   "error": null
+  },
+  {
+   "module": "tests.test_phase11_explain",
+   "test": "test_selection_day_guard_rejects_test_period_rows_even_when_every_val_day_is_populated",
+   "status": "pass",
+   "seconds": 0.001,
+   "error": null
+  },
+  {
+   "module": "tests.test_phase11_explain",
+   "test": "test_selection_uniform_group_follows_the_documented_generator_and_seed_matters",
+   "status": "pass",
+   "seconds": 0.008,
+   "error": null
+  },
+  {
+   "module": "tests.test_phase11_explain",
+   "test": "test_selection_is_independent_of_row_order",
+   "status": "pass",
+   "seconds": 0.005,
+   "error": null
+  },
+  {
+   "module": "tests.test_phase11_explain",
+   "test": "test_selection_rejects_days_outside_val_and_too_small_days_and_bad_input",
+   "status": "pass",
+   "seconds": 0.001,
+   "error": null
+  },
+  {
+   "module": "tests.test_phase11_explain",
+   "test": "test_A5_selection_and_explanation_functions_take_no_label_argument",
+   "status": "pass",
+   "seconds": 0.0,
+   "error": null
+  },
+  {
+   "module": "tests.test_phase11_explain",
+   "test": "test_A5_static_scan_label_column_name_appears_only_as_the_exclusion_constant",
+   "status": "pass",
+   "seconds": 0.003,
+   "error": null
+  },
+  {
+   "module": "tests.test_phase11_explain",
+   "test": "test_A5_loaders_never_return_the_label_column",
+   "status": "pass",
+   "seconds": 0.039,
+   "error": null
+  },
+  {
+   "module": "tests.test_phase11_explain",
+   "test": "test_A6_loaders_reject_test_files_and_days_outside_the_val_window",
+   "status": "pass",
+   "seconds": 0.009,
+   "error": null
+  },
+  {
+   "module": "tests.test_phase11_explain",
+   "test": "test_A6_val_window_constant_matches_the_frozen_project_split",
+   "status": "pass",
+   "seconds": 0.026,
+   "error": null
+  },
+  {
+   "module": "tests.test_phase11_explain",
+   "test": "test_cards_group_selection_follows_section_16_rules_and_is_deterministic",
+   "status": "pass",
+   "seconds": 0.015,
+   "error": null
+  },
+  {
+   "module": "tests.test_phase11_explain",
+   "test": "test_cards_alerted_rule_includes_ties_at_tau_and_handles_no_alert",
+   "status": "pass",
+   "seconds": 0.006,
+   "error": null
+  },
+  {
+   "module": "tests.test_phase11_explain",
+   "test": "test_A9_cards_use_only_existing_fields_and_list_what_is_unavailable",
+   "status": "pass",
+   "seconds": 0.029,
+   "error": null
+  },
+  {
+   "module": "tests.test_phase11_explain",
+   "test": "test_cards_reject_unexpected_columns_days_outside_val_and_duplicates",
+   "status": "pass",
+   "seconds": 0.067,
+   "error": null
+  },
+  {
+   "module": "tests.test_phase11_explain",
+   "test": "test_A8_wording_lint_clean_on_sources_and_rendered_cards",
+   "status": "pass",
+   "seconds": 0.029,
+   "error": null
+  },
+  {
+   "module": "tests.test_phase11_explain",
+   "test": "test_new_package_imports_nothing_from_phase_modules_or_test_data",
+   "status": "pass",
+   "seconds": 0.004,
+   "error": null
+  },
+  {
+   "module": "tests.test_phase11_outputs",
+   "test": "test_scope_record_sidecar_matches_and_precedes_the_outputs",
+   "status": "pass",
+   "seconds": 0.001,
+   "error": null
+  },
+  {
+   "module": "tests.test_phase11_outputs",
+   "test": "test_A7_every_output_has_a_matching_sidecar_and_the_manifests_match_disk",
+   "status": "pass",
+   "seconds": 0.021,
+   "error": null
+  },
+  {
+   "module": "tests.test_phase11_outputs",
+   "test": "test_A4_A6_selection_has_300_rows_10_per_day_within_val_and_is_reproduced_from_label_free_inputs",
+   "status": "pass",
+   "seconds": 0.041,
+   "error": null
+  },
+  {
+   "module": "tests.test_phase11_outputs",
+   "test": "test_A1_A2_stored_contributions_are_additive_and_reproduce_the_stored_scores",
+   "status": "pass",
+   "seconds": 0.027,
+   "error": null
+  },
+  {
+   "module": "tests.test_phase11_outputs",
+   "test": "test_top_feature_lists_agree_with_the_contribution_matrix",
+   "status": "pass",
+   "seconds": 0.031,
+   "error": null
+  },
+  {
+   "module": "tests.test_phase11_outputs",
+   "test": "test_A9_cards_match_a_fresh_recomputation_from_the_existing_aggregates_only",
+   "status": "pass",
+   "seconds": 0.042,
+   "error": null
+  },
+  {
+   "module": "tests.test_phase11_outputs",
+   "test": "test_A8_wording_lint_on_all_phase11_text_outputs_and_sources",
+   "status": "pass",
+   "seconds": 0.107,
+   "error": null
+  },
+  {
+   "module": "tests.test_phase11_outputs",
+   "test": "test_A10_frozen_phase9_and_phase10_records_are_unchanged",
+   "status": "pass",
+   "seconds": 0.008,
+   "error": null
+  }
+ ],
+ "scope_statement": "No training, no installation, no TEST access, no label read, no discovery re-run, no Phase 10 empirical tier. Passing tests establish only what the assertions check."
+}

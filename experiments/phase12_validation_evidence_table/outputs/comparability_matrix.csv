@@ -1,0 +1,11 @@
+comparison,label,reason,applies_to
+"A (LR, RF, XGBoost) vs C, D, E",Comparable on evaluation basis; attribution not supported,"same rows, labels and metrics; but different input encodings (raw/NaN-native versus imputed and standardized plus graph), different training regimes, A is one run versus three seeds, and all were tuned on VAL",A:logistic_regression; A:random_forest; A:xgboost; C; D; E
+C vs its MLP control,"Comparable, with limits","same features, width and recipe; the control isolates the relations (Phase 6A); but the control is one run (seed 42) that reached its epoch cap, so it has no seed variance and may be under-trained",C; Ccontrol:mlp_control_extended
+C vs D (architecture),Not comparable,"D reached the epoch cap in 3 of 3 seeds, so ""worse"" versus ""under-trained"" is unresolved; Phase 6C was aborted and is excluded (R6)",C; D
+C vs E (temporal information),Not comparable as a single-factor comparison,training regime differs (1 versus 18 optimizer steps per epoch); use the Phase 7A chain,C; E
+"Phase 7A chain: C reference, static schedule-matched, memory-ablated, E",Comparable,"pre-registered ablation, same graph, features, seeds and protocol; n = 3",C; E7A:static_schedule_matched; E7A:memory_ablated_temporal; E
+F-frozen vs F-adaptive vs F-replay,Comparable,"same shared checkpoint per seed, same windows and protocol; the adaptive arm updates on already-scored VAL labels",F:frozen; F:adaptive; F:replay_control
+"F (any arm) vs A, C, D or E",Not comparable,checkpoint trained on days 1-111 versus 1-121; TRAIN-only versus VAL-tuned threshold and no VAL epoch selection; different metric basis; adaptive updates use VAL labels; this holds even for F-frozen versus E despite the same architecture,F (any arm); A; C; D; E
+A reference (historical control) vs anything,Reference line only,"not an A-F cell; same rows, but its signal is the account-level labeling artifact documented in Phase 3",Aref:xgboost_historical_control; any row
+Any statement about B or H2,Not available,no graph-feature XGBoost exists; the historical-feature baseline is a different construct and is not substituted,B (missing)
+Window-level PR-AUC across cells,Same labels as the rows above,"window membership is identical, so only the training and protocol differences above apply","all cells, window table"

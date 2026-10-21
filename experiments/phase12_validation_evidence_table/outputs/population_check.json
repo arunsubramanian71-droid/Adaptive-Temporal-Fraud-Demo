@@ -1,0 +1,226 @@
+{
+ "reference": "experiments/temporal_graphsage/seed_42/predictions_val.parquet",
+ "n_reference_rows": 83655,
+ "all_identical": true,
+ "non_f_runs": [
+  {
+   "run_id": "A:logistic_regression",
+   "n_rows": 83655,
+   "problems": []
+  },
+  {
+   "run_id": "A:random_forest",
+   "n_rows": 83655,
+   "problems": []
+  },
+  {
+   "run_id": "A:xgboost",
+   "n_rows": 83655,
+   "problems": []
+  },
+  {
+   "run_id": "Aref:xgboost_historical_control",
+   "n_rows": 83655,
+   "problems": []
+  },
+  {
+   "run_id": "C:seed42",
+   "n_rows": 83655,
+   "problems": []
+  },
+  {
+   "run_id": "C:seed123",
+   "n_rows": 83655,
+   "problems": []
+  },
+  {
+   "run_id": "C:seed2024",
+   "n_rows": 83655,
+   "problems": []
+  },
+  {
+   "run_id": "Ccontrol:mlp_control_extended",
+   "n_rows": 83655,
+   "problems": []
+  },
+  {
+   "run_id": "D:seed42",
+   "n_rows": 83655,
+   "problems": []
+  },
+  {
+   "run_id": "D:seed123",
+   "n_rows": 83655,
+   "problems": []
+  },
+  {
+   "run_id": "D:seed2024",
+   "n_rows": 83655,
+   "problems": []
+  },
+  {
+   "run_id": "E:seed42",
+   "n_rows": 83655,
+   "problems": []
+  },
+  {
+   "run_id": "E:seed123",
+   "n_rows": 83655,
+   "problems": []
+  },
+  {
+   "run_id": "E:seed2024",
+   "n_rows": 83655,
+   "problems": []
+  },
+  {
+   "run_id": "E7A:static_schedule_matched:seed42",
+   "n_rows": 83655,
+   "problems": []
+  },
+  {
+   "run_id": "E7A:static_schedule_matched:seed123",
+   "n_rows": 83655,
+   "problems": []
+  },
+  {
+   "run_id": "E7A:static_schedule_matched:seed2024",
+   "n_rows": 83655,
+   "problems": []
+  },
+  {
+   "run_id": "E7A:memory_ablated_temporal:seed42",
+   "n_rows": 83655,
+   "problems": []
+  },
+  {
+   "run_id": "E7A:memory_ablated_temporal:seed123",
+   "n_rows": 83655,
+   "problems": []
+  },
+  {
+   "run_id": "E7A:memory_ablated_temporal:seed2024",
+   "n_rows": 83655,
+   "problems": []
+  }
+ ],
+ "f_arm_seeds": [
+  {
+   "arm": "frozen",
+   "seed": 42,
+   "n_rows_union_of_windows": 83655,
+   "window_rows": [
+    19952,
+    15923,
+    15943,
+    15470,
+    16367
+   ],
+   "problems": []
+  },
+  {
+   "arm": "frozen",
+   "seed": 123,
+   "n_rows_union_of_windows": 83655,
+   "window_rows": [
+    19952,
+    15923,
+    15943,
+    15470,
+    16367
+   ],
+   "problems": []
+  },
+  {
+   "arm": "frozen",
+   "seed": 2024,
+   "n_rows_union_of_windows": 83655,
+   "window_rows": [
+    19952,
+    15923,
+    15943,
+    15470,
+    16367
+   ],
+   "problems": []
+  },
+  {
+   "arm": "adaptive",
+   "seed": 42,
+   "n_rows_union_of_windows": 83655,
+   "window_rows": [
+    19952,
+    15923,
+    15943,
+    15470,
+    16367
+   ],
+   "problems": []
+  },
+  {
+   "arm": "adaptive",
+   "seed": 123,
+   "n_rows_union_of_windows": 83655,
+   "window_rows": [
+    19952,
+    15923,
+    15943,
+    15470,
+    16367
+   ],
+   "problems": []
+  },
+  {
+   "arm": "adaptive",
+   "seed": 2024,
+   "n_rows_union_of_windows": 83655,
+   "window_rows": [
+    19952,
+    15923,
+    15943,
+    15470,
+    16367
+   ],
+   "problems": []
+  },
+  {
+   "arm": "replay_control",
+   "seed": 42,
+   "n_rows_union_of_windows": 83655,
+   "window_rows": [
+    19952,
+    15923,
+    15943,
+    15470,
+    16367
+   ],
+   "problems": []
+  },
+  {
+   "arm": "replay_control",
+   "seed": 123,
+   "n_rows_union_of_windows": 83655,
+   "window_rows": [
+    19952,
+    15923,
+    15943,
+    15470,
+    16367
+   ],
+   "problems": []
+  },
+  {
+   "arm": "replay_control",
+   "seed": 2024,
+   "n_rows_union_of_windows": 83655,
+   "window_rows": [
+    19952,
+    15923,
+    15943,
+    15470,
+    16367
+   ],
+   "problems": []
+  }
+ ]
+}

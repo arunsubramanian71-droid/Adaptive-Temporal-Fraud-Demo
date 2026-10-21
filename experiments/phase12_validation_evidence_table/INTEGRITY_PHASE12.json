@@ -1,0 +1,190 @@
+{
+ "purpose": "Integrity record for the Phase 12 consolidated validation-evidence table (stored VAL predictions only).",
+ "created_local": "2026-10-19T13:28:23+05:30",
+ "scope_record": {
+  "experiments/phase12_validation_evidence_table/SCOPE_AND_ACCEPTANCE.md": "d854aad556dacec44b7a7f783ef21966239e8ae5b2d95caca1e84a99ed956d4c"
+ },
+ "source_set": {
+  "fingerprint": "30f729b276a5ed4f5693704c5cf0d24b59c7d3817e33d37382b1a2f9bec43224",
+  "n_files": 165
+ },
+ "files_sha256": {
+  "experiments/phase12_validation_evidence_table/PHASE12_CLOSURE_REPORT.md": "23b8e04f8cd1bbb043bb8dea6a69ec91056a0ca0ead2c95c4907d017a988d389",
+  "experiments/phase12_validation_evidence_table/SCOPE_AND_ACCEPTANCE.md": "d854aad556dacec44b7a7f783ef21966239e8ae5b2d95caca1e84a99ed956d4c",
+  "experiments/phase12_validation_evidence_table/frozen_files_after.tsv": "e20b7849a1896ce3218cf05b336a37512b055c8f82701ccd7b5dc29d7b1591b6",
+  "experiments/phase12_validation_evidence_table/outputs/comparability_matrix.csv": "8d3c8df784196813182d799638e45bfd545b26c5652c5e02d41db0b222262536",
+  "experiments/phase12_validation_evidence_table/outputs/crosscheck_recorded.json": "8649b844040c44009e333d31d49a3c7d61df651e680865fd4983abc8539e5253",
+  "experiments/phase12_validation_evidence_table/outputs/evidence_cells.csv": "09ba6f9a4237ca8f677d13e95563db923f7174eea7a36bdd5f68a764ca6b9cf5",
+  "experiments/phase12_validation_evidence_table/outputs/evidence_runs.csv": "e26f4594fc667067014b39f777bb67f0553bb8acd7162ce55f460738540997de",
+  "experiments/phase12_validation_evidence_table/outputs/evidence_table.json": "c461e84fc3572658681c17db9e2a9712cac3f7549f58b28d69f5d94fe5c5192f",
+  "experiments/phase12_validation_evidence_table/outputs/evidence_windows.csv": "193f22c113ebda35c3ab6976a5a40abce034deb091a968ce2afcf3400f493e19",
+  "experiments/phase12_validation_evidence_table/outputs/io_audit.json": "0539e1de44fb5280b5035c2bd91fce5d352b2c310435d5921378caf70cdb5f5d",
+  "experiments/phase12_validation_evidence_table/outputs/manifest_phase12.json": "87005e0c3d37d042e9293f17135914cc7db30a0cef3f47fc2c55d7787eaf7808",
+  "experiments/phase12_validation_evidence_table/outputs/population_check.json": "97692c564e2f6916bffa89f37a97845ae183800f561eed22b36ba79b867160dd",
+  "experiments/phase12_validation_evidence_table/outputs/recomputation_check.json": "3c615e1d4071beba603c4b9fd4c4073f3b3011ea014081fe2d9404a5eb2dc90d",
+  "experiments/phase12_validation_evidence_table/outputs/source_manifest.tsv": "30f729b276a5ed4f5693704c5cf0d24b59c7d3817e33d37382b1a2f9bec43224",
+  "experiments/phase12_validation_evidence_table/outputs/table_report.md": "ae593f0c3ee6ea363566d30996db7507fc9844c12de990bc13f2a0903c22837e",
+  "experiments/phase12_validation_evidence_table/test_results/test_log.txt": "ce84eda004091528ebeec7595aabe7d26596eb2915ad4888248a468bf6720b33",
+  "experiments/phase12_validation_evidence_table/test_results/test_results.json": "786e4a8126dcb8e2ebe21922c53b345ea4881b5ed6541b0d9a76439864a477ea",
+  "experiments/phase12_validation_evidence_table/test_results/test_sensitivity.json": "bf14a99508d61307c7d27bac05da4c6eec1d605e6f944153fc5e130ece547c2e",
+  "scripts/check_phase12_test_sensitivity.py": "1f4da5876c22376fdf09dc3f6e32ecb32b595e7200fc981eeb3c982a1360360f",
+  "scripts/finalize_phase12_integrity.py": "f8b7e3c42510957194fcc3328c3e3afdaa7474ba768c85e09da086a96f16d4ab",
+  "scripts/run_phase12_table.py": "c8acf38f5272c11457fadec55c3998e761075dde1fc7afe6784e007fcbf32695",
+  "scripts/run_phase12_tests.py": "83ace8b12c29eb139580ac232fcb33a0fecedba37abaf7e3e1281a695f483e50",
+  "src/evidence/__init__.py": "fc9a7fa9e859d9701ff85635a90700b4ec9b894cbe0cf79e90e4ec306032e255",
+  "src/evidence/build.py": "6dff847c4ae9ed392b79d2f25958e6e0a5da6a3ea80d5a022fb76a2c96114bd4",
+  "src/evidence/outputs.py": "1484c94c0f2828f29e723fc2c01697669bd186a2952cd7b34a3fd4a20c0b08a9",
+  "src/evidence/sources.py": "2da1df4649073ae3db166c167db8ba1db53986b4492475b313791d569ca932f1",
+  "src/evidence/table.py": "64bf69506b5839171dde64f79e5f62752194e2b20c4ba0c6ca7fb4acc4c49d51",
+  "tests/test_phase12_evidence.py": "b6d3a97de1bb949240e742f68bd805eeb8d78e4c1074a054426f502e4aa9de44",
+  "tests/test_phase12_outputs.py": "1dbabf367ec667fed74119a1ad9ffb9b792a967dd2bdfd33f23a59ab68abea82",
+  "experiments/phase12_validation_evidence_table/PRECHANGE_MANIFEST_closure_update.tsv": "2b952b2fe3d47fcd86f6476f492f576d777ec0d7d220fda5e0f3f73ac7f33275"
+ },
+ "tests": {
+  "total": 27,
+  "passed": 27,
+  "failed": 0,
+  "recorded_file_hashes_match_disk": true,
+  "sensitivity": {
+   "mutants": 17,
+   "detected": 17
+  },
+  "sensitivity_unmutated_failures": [],
+  "sensitivity_module_hashes_match_disk": true
+ },
+ "frozen_artifact_check": {
+  "registered_method": "SHA-256 before/after comparison of every existing project file",
+  "registered_method_status": "BLOCKED \u2014 Partially verified. Authentic pre-build evidence covers 300 of 651 pre-existing files, with zero contradictions. The remaining 322 files cannot be retrospectively verified because no trustworthy pre-build hashes survive. AC12 is not passed.",
+  "pre_build_file_count_reported": 653,
+  "pre_existing_files_now": 651,
+  "new_phase12_files_now": 45,
+  "phase12_files_present_at_snapshot": 2,
+  "count_reconciles": true,
+  "substitute_evidence": {
+   "modification_time_scan": {
+    "since": "2026-10-19T00:00:00",
+    "pre_existing_files_modified_since": [],
+    "note": "weaker than a hash comparison: it detects ordinary edits but not a deliberate restoration of timestamps"
+   },
+   "earlier_integrity_records_reverified_now": {
+    "experiments/phase9_coordinated_fraud/phase9_closure_integrity.json": {
+     "hashed_paths": 34,
+     "mismatches": [],
+     "sidecar_matches": true
+    },
+    "experiments/phase11_explainable_evidence/INTEGRITY_PHASE11.json": {
+     "hashed_paths": 25,
+     "mismatches": [],
+     "sidecar_matches": true
+    },
+    "experiments/phase10_community_evolution/INTEGRITY.json": {
+     "hashed_paths": 54,
+     "mismatches": [],
+     "sidecar_matches": true
+    },
+    "experiments/phase10_community_evolution/INTEGRITY_ADDENDUM.json": {
+     "hashed_paths": 6,
+     "mismatches": [],
+     "sidecar_matches": true
+    },
+    "experiments/phase10_community_evolution/INTEGRITY_CORE_FINALIZATION.json": {
+     "hashed_paths": 22,
+     "mismatches": [],
+     "sidecar_matches": true
+    },
+    "experiments/phase10_community_evolution/INTEGRITY_CORE_IMPLEMENTATION.json": {
+     "hashed_paths": 20,
+     "mismatches": [],
+     "sidecar_matches": true
+    },
+    "experiments/phase10_community_evolution/INTEGRITY_ERRATA_1.json": {
+     "hashed_paths": 8,
+     "mismatches": [],
+     "sidecar_matches": true
+    },
+    "experiments/phase10_community_evolution/INTEGRITY_ERRATA_2.json": {
+     "hashed_paths": 10,
+     "mismatches": [],
+     "sidecar_matches": true
+    }
+   },
+   "earlier_records_all_ok": true,
+   "after_manifest": {
+    "path": "experiments/phase12_validation_evidence_table/frozen_files_after.tsv",
+    "sha256": "e20b7849a1896ce3218cf05b336a37512b055c8f82701ccd7b5dc29d7b1591b6",
+    "files": 651,
+    "test_named_files_recorded_by_size_and_mtime_only": [
+     "data/features/test_features.parquet",
+     "data/raw/test_identity.csv",
+     "data/raw/test_transaction.csv"
+    ]
+   },
+   "writes": "all writes in src/evidence go through outputs.py with paths under the build's output folder (tested: a blocked build leaves the folder empty)",
+   "status": "NOT COUNTED as verification of AC12 (modification-time scan, file-count reconciliation); kept only as a record of what was observed"
+  },
+  "recovery_assessment_2026_10_19": {
+   "sources_searched": "project sidecars, JSON integrity records and manifests, text records, and the saved session logs (entries dated before the build start 2026-10-19 12:59 local)",
+   "pre_existing_files": 651,
+   "covered_total": 300,
+   "contradictions": 0,
+   "covered_by_per_file_hash_equal_to_current": {
+    "total": 139,
+    "integrity_records_and_manifests": 103,
+    "session_logs": 33,
+    "sidecars": 3
+   },
+   "covered_collectively_by_scope_fingerprint": {
+    "additional_files": 161,
+    "of_declared_source_files": 165,
+    "fingerprint": "30f729b276a5ed4f5693704c5cf0d24b59c7d3817e33d37382b1a2f9bec43224",
+    "note": "written in the scope record on 2026-10-18, before the build; equals the fingerprint of the current files"
+   },
+   "not_verifiable": {
+    "total": 351,
+    "self_consistent_sidecars_not_independent": 29,
+    "no_authentic_pre_build_hash": 322,
+    "test_named_files_never_opened_or_hashed": 3
+   },
+   "note": "the first pass reported 2 differences caused by the assessment's own cross-line pairing pattern; corrected and re-run: 0 differences"
+  }
+ },
+ "boundaries": {
+  "training": false,
+  "scoring_new_models": false,
+  "new_predictions": false,
+  "test_contents_accessed": false,
+  "checkpoints_opened": false,
+  "phase10_empirical_tiers": false,
+  "ablation_started": false,
+  "b_status": "MISSING"
+ },
+ "hash_convention": "SHA-256 over file bytes; sidecars hold the 64-character lowercase digest only; this record cannot contain its own hash (see INTEGRITY_PHASE12.sha256).",
+ "acceptance_status": {
+  "AC1": "PASS, to the extent of the evidence named in the closure report (sections 3 and 3.2)",
+  "AC2": "PASS, to the extent of the evidence named in the closure report (sections 3 and 3.2)",
+  "AC3": "PASS, to the extent of the evidence named in the closure report (sections 3 and 3.2)",
+  "AC4": "PASS, to the extent of the evidence named in the closure report (sections 3 and 3.2)",
+  "AC5": "PASS, to the extent of the evidence named in the closure report (sections 3 and 3.2)",
+  "AC6": "PASS, to the extent of the evidence named in the closure report (sections 3 and 3.2)",
+  "AC7": "PASS, to the extent of the evidence named in the closure report (sections 3 and 3.2)",
+  "AC8": "PASS, to the extent of the evidence named in the closure report (sections 3 and 3.2)",
+  "AC9": "PASS, to the extent of the evidence named in the closure report (sections 3 and 3.2)",
+  "AC10": "PASS, to the extent of the evidence named in the closure report (sections 3 and 3.2)",
+  "AC11": "PASS, to the extent of the evidence named in the closure report (sections 3 and 3.2)",
+  "AC12": "BLOCKED \u2014 Partially verified. Authentic pre-build evidence covers 300 of 651 pre-existing files, with zero contradictions. The remaining 322 files cannot be retrospectively verified because no trustworthy pre-build hashes survive. AC12 is not passed."
+ },
+ "phase12_status": "not formally complete: AC12 is BLOCKED (partially verified)",
+ "revision": {
+  "revised_local": "2026-10-19T14:13:29+05:30",
+  "scope": "documentation only: closure report AC12 wording and this record",
+  "previous_closure_report_sha256": "9616bac0e90a3a67e124ff404474152d91697cbc93eb9c36983840ac65ad0e60",
+  "previous_integrity_record_sha256": "f96e0480eba22b4f86258b87ff97a6b1354eb467034631d32704591ca6003b61",
+  "pre_change_manifest": {
+   "path": "experiments/phase12_validation_evidence_table/PRECHANGE_MANIFEST_closure_update.tsv",
+   "sha256": "2b952b2fe3d47fcd86f6476f492f576d777ec0d7d220fda5e0f3f73ac7f33275",
+   "files": 696,
+   "test_named_files": "recorded by size and modification time only; never opened"
+  },
+  "unchanged": "evidence table and all outputs/, test_results/, frozen_files_after.tsv, scope record, code, tests, Phases 1-11"
+ }
+}

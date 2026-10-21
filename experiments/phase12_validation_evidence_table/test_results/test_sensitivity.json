@@ -1,0 +1,145 @@
+{
+ "purpose": "Test-sensitivity (mutation) check of the Phase 12 tests; in-memory mutants only, no project file modified.",
+ "run_local": "2026-10-19T13:25:32+05:30",
+ "module_sha256": {
+  "outputs": "1484c94c0f2828f29e723fc2c01697669bd186a2952cd7b34a3fd4a20c0b08a9",
+  "sources": "2da1df4649073ae3db166c167db8ba1db53986b4492475b313791d569ca932f1",
+  "table": "64bf69506b5839171dde64f79e5f62752194e2b20c4ba0c6ca7fb4acc4c49d51",
+  "build": "6dff847c4ae9ed392b79d2f25958e6e0a5da6a3ea80d5a022fb76a2c96114bd4"
+ },
+ "unmutated_failures": [],
+ "summary": {
+  "mutants": 17,
+  "detected": 17
+ },
+ "mutants": [
+  {
+   "mutant": "M1 guard no longer refuses TEST-named paths",
+   "status": "detected",
+   "failing_tests": [
+    "test_guard_refuses_undeclared_test_checkpoint_and_excluded_paths_and_logs_opens"
+   ]
+  },
+  {
+   "mutant": "M2 guard stops logging opens",
+   "status": "detected",
+   "failing_tests": [
+    "test_guard_refuses_undeclared_test_checkpoint_and_excluded_paths_and_logs_opens",
+    "test_AC10_sidecars_and_deterministic_rebuild"
+   ]
+  },
+  {
+   "mutant": "M3 fingerprint separator changed",
+   "status": "detected",
+   "failing_tests": [
+    "test_fingerprint_follows_the_registered_recipe",
+    "test_AC10_sidecars_and_deterministic_rebuild",
+    "test_build_gates_block_before_any_output_is_written"
+   ]
+  },
+  {
+   "mutant": "M4 excluded folders no longer refused",
+   "status": "detected",
+   "failing_tests": [
+    "test_guard_refuses_undeclared_test_checkpoint_and_excluded_paths_and_logs_opens"
+   ]
+  },
+  {
+   "mutant": "M5 registered tolerance loosened",
+   "status": "detected",
+   "failing_tests": [
+    "test_compare_recorded_tolerance_ints_nan_and_skipped_keys",
+    "test_process_non_f_reproduces_recorded_metrics_and_flags_a_tampered_record",
+    "test_AC10_sidecars_and_deterministic_rebuild"
+   ]
+  },
+  {
+   "mutant": "M6 label identity check dropped",
+   "status": "detected",
+   "failing_tests": [
+    "test_population_problems_detect_each_defect",
+    "test_process_non_f_blocks_on_population_mismatch"
+   ]
+  },
+  {
+   "mutant": "M7 day/segment identity checks dropped",
+   "status": "detected",
+   "failing_tests": [
+    "test_population_problems_detect_each_defect"
+   ]
+  },
+  {
+   "mutant": "M8 F window consistency check removed",
+   "status": "detected",
+   "failing_tests": [
+    "test_process_f_reports_both_bases_and_checks_the_window_partition"
+   ]
+  },
+  {
+   "mutant": "M9 F mean-of-windows uses the median",
+   "status": "detected",
+   "failing_tests": [
+    "test_process_f_reports_both_bases_and_checks_the_window_partition",
+    "test_AC10_sidecars_and_deterministic_rebuild"
+   ]
+  },
+  {
+   "mutant": "M10 SD uses ddof = 0",
+   "status": "detected",
+   "failing_tests": [
+    "test_aggregate_uses_sample_sd_and_single_runs_have_no_sd",
+    "test_AC10_sidecars_and_deterministic_rebuild"
+   ]
+  },
+  {
+   "mutant": "M11 strict-segment mask inverted",
+   "status": "detected",
+   "failing_tests": [
+    "test_AC10_sidecars_and_deterministic_rebuild"
+   ]
+  },
+  {
+   "mutant": "M12 segment join re-sorts the rows",
+   "status": "detected",
+   "failing_tests": [
+    "test_attach_missing_adds_day_and_segment_by_id_and_keeps_row_order"
+   ]
+  },
+  {
+   "mutant": "M13 scope sidecar gate removed",
+   "status": "detected",
+   "failing_tests": [
+    "test_build_gates_block_before_any_output_is_written"
+   ]
+  },
+  {
+   "mutant": "M14 fingerprint gate removed",
+   "status": "detected",
+   "failing_tests": [
+    "test_build_gates_block_before_any_output_is_written"
+   ]
+  },
+  {
+   "mutant": "M15 recorded-tolerance gate removed",
+   "status": "detected",
+   "failing_tests": [
+    "test_build_gates_block_before_any_output_is_written"
+   ]
+  },
+  {
+   "mutant": "M16 B row no longer marked MISSING",
+   "status": "detected",
+   "failing_tests": [
+    "test_AC10_sidecars_and_deterministic_rebuild"
+   ]
+  },
+  {
+   "mutant": "M17 comparability labels overwritten",
+   "status": "detected",
+   "failing_tests": [
+    "test_AC10_sidecars_and_deterministic_rebuild"
+   ]
+  }
+ ],
+ "interpretation": "A detected mutant shows that at least one test fails when that specific defect is injected. It does not show that no other defect exists."
+}

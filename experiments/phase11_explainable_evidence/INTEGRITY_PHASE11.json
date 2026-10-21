@@ -1,0 +1,75 @@
+{
+ "purpose": "Integrity record for the Phase 11 first pass (XGBoost explanations on a scoped VAL selection; aggregate-only candidate-community cards). Graph evidence deferred.",
+ "created_local": "2026-10-18T20:53:15+05:30",
+ "scope_record": {
+  "experiments/phase11_explainable_evidence/SCOPE_AND_ACCEPTANCE.md": "271901a9488aa68f2b6bfc376b71a148cf346d2a9c299e418b336925c4f9ab4b",
+  "written_before_any_output": true
+ },
+ "files_sha256": {
+  "experiments/phase11_explainable_evidence/PHASE11_CLOSURE_REPORT.md": "8177cbf689209e353e04d8c2cf51c960dd3914af02100183340fd8e87f08ac8b",
+  "experiments/phase11_explainable_evidence/SCOPE_AND_ACCEPTANCE.md": "271901a9488aa68f2b6bfc376b71a148cf346d2a9c299e418b336925c4f9ab4b",
+  "experiments/phase11_explainable_evidence/community_cards/appendix_selection_all_seeds_W7.csv": "214d7376cdb42456fbf39c525816fef29be30404e53f4fd51960ae6e4fec8401",
+  "experiments/phase11_explainable_evidence/community_cards/cards_W7_seed42.json": "02f01349959c142a13dcceb26004392debeb49f4e60f8467e2c133710c4889b2",
+  "experiments/phase11_explainable_evidence/community_cards/cards_W7_seed42_report.md": "e81ed3b5a71dc2dcb252db9ffcb0b994de6dff832db48db3ef007c6f2f17889b",
+  "experiments/phase11_explainable_evidence/community_cards/cards_summary.json": "41bdc87f5b1999aa796ff3ffe6a4ea5b1ff7638008768bd0e55ec601e16d85ec",
+  "experiments/phase11_explainable_evidence/community_cards/manifest_cards.json": "635db93b61938e5b8909f3942b81a12ee1ea0f953c0d3315b79c7ad250e97e72",
+  "experiments/phase11_explainable_evidence/test_results/test_log.txt": "ea7ca69d49a21ee902940268a768ba896c0651870bc2cd30e200d6549ba1f778",
+  "experiments/phase11_explainable_evidence/test_results/test_results.json": "652244e2c1c7844d2487bc2ef5822227f8c7786529cd0bd349a3c8785f257dfe",
+  "experiments/phase11_explainable_evidence/test_results/test_sensitivity.json": "e8827cc22cb0ef2c4c8ebaca854859f32763ad1bce904859a512988e0e8fc46b",
+  "experiments/phase11_explainable_evidence/xgb_explanations_val/contributions_val.csv": "17dbfac709c353e063e1f02b51352db760c98b5619d50725886da05ba47b58e8",
+  "experiments/phase11_explainable_evidence/xgb_explanations_val/manifest_val.json": "afb3e75ba72272066ef8ed77c28773fa45c1af256ea3ef0b571488fafc5d86c2",
+  "experiments/phase11_explainable_evidence/xgb_explanations_val/selection_val.csv": "623d1ee2a0c6995e7c940565cd3c5d38a3bce076776de6a7976600fb440be963",
+  "experiments/phase11_explainable_evidence/xgb_explanations_val/summary_val.json": "c593ddc901aa2baf68eb9b4a9c5b3b579418408445282a8fc29e77c10ce7b0a4",
+  "experiments/phase11_explainable_evidence/xgb_explanations_val/top_features_val.json": "313d5f9149848e690c74a684a8607c260a4f92b7e1b5c933544751ae58879ec0",
+  "scripts/check_phase11_test_sensitivity.py": "4335096d1a4eb6a5679c706d981febcf46553f9b070c47fe911031962e40160c",
+  "scripts/run_phase11_cards.py": "19cc7ff0bbb104e2e114bc431c554fd0548c5b04057590a142d01cf1c1101fa5",
+  "scripts/run_phase11_explanations.py": "793c6ba863316c2762debe95466f897b29e5892e95f0c7e950bb184a3ca24f9d",
+  "scripts/run_phase11_tests.py": "573d90856ee4e20c9d4df5459c1e6c476617cbe86d89354018551fdda06dc6eb",
+  "src/explain/__init__.py": "2c8d490f4cb81c7a30a7d444f714decfe04f52f6a6863be4a6f916580e9bf45f",
+  "src/explain/cards.py": "cc3c5b28afe261999b9f5171fd262e997aa383973d3983c6d6ae9a169190bedf",
+  "src/explain/outputs.py": "eb1bfce66a6dcf20d030f8c59dedea4ed4b2f24d49ac6c8778778660f4059cf7",
+  "src/explain/xgb_contrib.py": "0fcbac7b41b8fe1c1c6acb605e3181e85f6e89d94521e11aaf813b3b9a016fb1",
+  "tests/test_phase11_explain.py": "461b2e78c9686fd83dc5b06c4941c672cd7347b25a2635af734deb129aec6710",
+  "tests/test_phase11_outputs.py": "44c87bc58a2539904b876fc2cc256ea238fc66c93c5f8ba64ec65d966ffcef11"
+ },
+ "tests": {
+  "total": 30,
+  "passed": 30,
+  "failed": 0,
+  "per_module": {
+   "tests.test_phase11_explain": 22,
+   "tests.test_phase11_outputs": 8
+  },
+  "sensitivity_mutants_detected": [
+   14,
+   14
+  ]
+ },
+ "acceptance_values": {
+  "A1_max_abs_additivity_error": 8.106231689453125e-06,
+  "A2_max_abs_prob_difference_vs_stored_y_score": 8.456593769690102e-08,
+  "A2_max_abs_predict_proba_difference_vs_stored_y_score": 0.0,
+  "A3_max_abs_batch_difference": 0.0
+ },
+ "regeneration_check": "Both generators were re-run into scratch space; every data output was byte-identical and the manifests were identical apart from created_local.",
+ "frozen_artifact_check": {
+  "baseline_files_hashed_before_work": 612,
+  "changed": 0,
+  "missing": 0,
+  "new_files_at_verification": 37,
+  "phase9_closure_record_artifacts_checked": 34,
+  "phase9_closure_record_artifacts_changed": 0,
+  "method": "SHA-256 of every project file outside .venv, .git and __pycache__ taken before Phase 11 work and compared after"
+ },
+ "boundaries": {
+  "test_period_opened": false,
+  "label_column_loaded": false,
+  "dependencies_installed": false,
+  "discovery_rerun": false,
+  "temporal_graphsage_run_on_real_data": false,
+  "phase10_empirical_tiers_run": false,
+  "phases_12_13_started": false,
+  "gitignore_modified": false
+ },
+ "hash_convention": "SHA-256 over file bytes; sidecars hold the 64-character lowercase digest only; this record cannot contain its own hash (see INTEGRITY_PHASE11.sha256)."
+}

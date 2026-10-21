@@ -1,0 +1,146 @@
+{
+ "scope_record": "experiments/phase11_explainable_evidence/SCOPE_AND_ACCEPTANCE.md",
+ "standing_statement": "candidate coordinated community; not a confirmed fraud ring",
+ "W": 7,
+ "seeds": [
+  42,
+  123,
+  2024
+ ],
+ "full_cards_for_seed": 42,
+ "n_cards_seed_42": 24,
+ "per_seed": {
+  "42": {
+   "tau": 0.8580917874396136,
+   "groups": {
+    "a_top_peak_score": [
+     26,
+     172,
+     4,
+     79,
+     92,
+     56,
+     71,
+     55,
+     43,
+     72
+    ],
+    "b_largest": [
+     0,
+     133,
+     151,
+     112,
+     96
+    ],
+    "c_alerted_sample": [
+     7,
+     10,
+     73,
+     206,
+     207
+    ],
+    "d_hub_dominated_high_s": [
+     60,
+     91,
+     92,
+     150,
+     69
+    ]
+   },
+   "n_tracks": 237,
+   "n_alerted_tracks": 45
+  },
+  "123": {
+   "tau": 0.8599037749814952,
+   "groups": {
+    "a_top_peak_score": [
+     24,
+     4,
+     102,
+     79,
+     58,
+     64,
+     43,
+     72,
+     177,
+     16
+    ],
+    "b_largest": [
+     0,
+     148,
+     125,
+     104,
+     197
+    ],
+    "c_alerted_sample": [
+     16,
+     64,
+     186,
+     193,
+     230
+    ],
+    "d_hub_dominated_high_s": [
+     57,
+     92,
+     44,
+     55,
+     155
+    ]
+   },
+   "n_tracks": 240,
+   "n_alerted_tracks": 34
+  },
+  "2024": {
+   "tau": 0.8542857142857143,
+   "groups": {
+    "a_top_peak_score": [
+     95,
+     25,
+     39,
+     86,
+     59,
+     49,
+     37,
+     70,
+     186,
+     16
+    ],
+    "b_largest": [
+     0,
+     149,
+     129,
+     218,
+     179
+    ],
+    "c_alerted_sample": [
+     45,
+     69,
+     95,
+     188,
+     222
+    ],
+    "d_hub_dominated_high_s": [
+     50,
+     55,
+     166,
+     72,
+     120
+    ]
+   },
+   "n_tracks": 252,
+   "n_alerted_tracks": 47
+  }
+ },
+ "a2_score_equals_mean_of_u_s_and_u_t_max_abs_difference": 2.220446049250313e-16,
+ "unavailable_fields": [
+  "member card identities and member infrastructure identities (Tier 0 CSVs are aggregate-only; discovery was not re-run)",
+  "new-member counts and daily active members",
+  "pseudo-account counts",
+  "descriptive attributes (ProductCD, card4, card6, email domain)",
+  "risk percentile distribution and learned-state signature (no risk stream was created; not authorized)",
+  "any label-based column (retrospective label rate is not authorized)",
+  "per-community null-matched comparison (E0 gives day-level reference counts only)"
+ ],
+ "discovery_rerun": false,
+ "labels_or_risk_used": false
+}

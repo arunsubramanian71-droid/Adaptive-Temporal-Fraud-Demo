@@ -1,0 +1,121 @@
+{
+ "purpose": "Test-sensitivity (mutation) check of the Phase 11 first-pass tests; in-memory mutants only, no project file modified.",
+ "run_local": "2026-10-18T20:50:41+05:30",
+ "module_sha256": {
+  "xgb_contrib": "0fcbac7b41b8fe1c1c6acb605e3181e85f6e89d94521e11aaf813b3b9a016fb1",
+  "cards": "cc3c5b28afe261999b9f5171fd262e997aa383973d3983c6d6ae9a169190bedf"
+ },
+ "unmutated_failures": [],
+ "summary": {
+  "mutants": 14,
+  "detected": 14
+ },
+ "mutants": [
+  {
+   "mutant": "M1 early-stopping iteration range ignored",
+   "status": "detected",
+   "failing_tests": [
+    "test_A2_margin_matches_the_models_own_probability_and_uses_the_early_stopping_range"
+   ]
+  },
+  {
+   "mutant": "M2 uniform draws not excluding the top group",
+   "status": "detected",
+   "failing_tests": [
+    "test_A4_selection_has_exact_count_groups_and_is_reproducible",
+    "test_selection_ties_at_the_top_boundary_are_broken_by_lower_transaction_id",
+    "test_selection_uniform_group_follows_the_documented_generator_and_seed_matters",
+    "test_A4_A6_selection_has_300_rows_10_per_day_within_val_and_is_reproduced_from_label_free_inputs"
+   ]
+  },
+  {
+   "mutant": "M3 score ties broken by higher id",
+   "status": "detected",
+   "failing_tests": [
+    "test_selection_ties_at_the_top_boundary_are_broken_by_lower_transaction_id"
+   ]
+  },
+  {
+   "mutant": "M4 draw seed ignores the day",
+   "status": "detected",
+   "failing_tests": [
+    "test_selection_uniform_group_follows_the_documented_generator_and_seed_matters",
+    "test_A4_A6_selection_has_300_rows_10_per_day_within_val_and_is_reproduced_from_label_free_inputs"
+   ]
+  },
+  {
+   "mutant": "M5 day-window guard removed",
+   "status": "detected",
+   "failing_tests": [
+    "test_selection_day_guard_rejects_test_period_rows_even_when_every_val_day_is_populated"
+   ]
+  },
+  {
+   "mutant": "M6 label column not excluded from reads",
+   "status": "detected",
+   "failing_tests": [
+    "test_A5_loaders_never_return_the_label_column"
+   ]
+  },
+  {
+   "mutant": "M7 TEST-file guard removed",
+   "status": "detected",
+   "failing_tests": [
+    "test_A6_loaders_reject_test_files_and_days_outside_the_val_window"
+   ]
+  },
+  {
+   "mutant": "M8 top-feature tie-break reversed",
+   "status": "detected",
+   "failing_tests": [
+    "test_top_features_orders_by_absolute_contribution_and_keeps_nan_as_null"
+   ]
+  },
+  {
+   "mutant": "M9 alert rule strict (ties at tau not alerted)",
+   "status": "detected",
+   "failing_tests": [
+    "test_cards_alerted_rule_includes_ties_at_tau_and_handles_no_alert"
+   ]
+  },
+  {
+   "mutant": "M10 group (d) uses u_s rank only",
+   "status": "detected",
+   "failing_tests": [
+    "test_cards_group_selection_follows_section_16_rules_and_is_deterministic",
+    "test_A9_cards_match_a_fresh_recomputation_from_the_existing_aggregates_only"
+   ]
+  },
+  {
+   "mutant": "M11 group (b) ranks by observed days",
+   "status": "detected",
+   "failing_tests": [
+    "test_cards_group_selection_follows_section_16_rules_and_is_deterministic",
+    "test_A9_cards_match_a_fresh_recomputation_from_the_existing_aggregates_only"
+   ]
+  },
+  {
+   "mutant": "M12 group (c) seed offset wrong",
+   "status": "detected",
+   "failing_tests": [
+    "test_cards_group_selection_follows_section_16_rules_and_is_deterministic",
+    "test_A9_cards_match_a_fresh_recomputation_from_the_existing_aggregates_only"
+   ]
+  },
+  {
+   "mutant": "M13 right-censoring flag wrong",
+   "status": "detected",
+   "failing_tests": [
+    "test_A9_cards_use_only_existing_fields_and_list_what_is_unavailable"
+   ]
+  },
+  {
+   "mutant": "M14 Tier 0 day window not enforced",
+   "status": "detected",
+   "failing_tests": [
+    "test_cards_reject_unexpected_columns_days_outside_val_and_duplicates"
+   ]
+  }
+ ],
+ "interpretation": "A detected mutant shows that at least one test fails when that specific defect is injected. It does not show that no other defect exists."
+}

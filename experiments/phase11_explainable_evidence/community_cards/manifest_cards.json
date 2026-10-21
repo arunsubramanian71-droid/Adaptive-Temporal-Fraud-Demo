@@ -1,0 +1,22 @@
+{
+ "created_local": "2026-10-18T20:47:20+05:30",
+ "inputs_sha256": {
+  "experiments/phase9_coordinated_fraud/exploratory_realdata/tier0_community_days_W7_seed42.csv": "a9956cc535b1d8208f2bda4110a37dffa6bc03b7cfcf5fd43a911baba02d1f2e",
+  "experiments/phase9_coordinated_fraud/exploratory_realdata/e0_tau_seed42.json": "3f73516c232363089d0492d0e99ee854b0401220a656ee3ef566f7d9e8ed6541",
+  "experiments/phase9_coordinated_fraud/exploratory_realdata/tier0_community_days_W7_seed123.csv": "4d5bcaf57e334eee746ded383449b5f540b85b5ccc6ff2b9e94e76f92522e2cb",
+  "experiments/phase9_coordinated_fraud/exploratory_realdata/e0_tau_seed123.json": "f1961b990925e02cd0c13a9f2ed35c077c50d6e39fbd33f46999bc4d915364e3",
+  "experiments/phase9_coordinated_fraud/exploratory_realdata/tier0_community_days_W7_seed2024.csv": "f517cd067c681fedba1b6c3d98eb029b789611440db3b8ac1894763fa8165e89",
+  "experiments/phase9_coordinated_fraud/exploratory_realdata/e0_tau_seed2024.json": "477d1b5243058a7431c107343f7da2064307b9fd79ddcdc7e5c80c1dd457b732",
+  "experiments/phase9_coordinated_fraud/exploratory_realdata/e0_results.json": "dc0ad76fcf06b4a9396dbd11075d00f48d6079261901d8584a55089a39f5736a",
+  "experiments/phase11_explainable_evidence/SCOPE_AND_ACCEPTANCE.md": "271901a9488aa68f2b6bfc376b71a148cf346d2a9c299e418b336925c4f9ab4b"
+ },
+ "outputs_sha256": {
+  "experiments/phase11_explainable_evidence/community_cards/cards_W7_seed42.json": "02f01349959c142a13dcceb26004392debeb49f4e60f8467e2c133710c4889b2",
+  "experiments/phase11_explainable_evidence/community_cards/cards_W7_seed42_report.md": "e81ed3b5a71dc2dcb252db9ffcb0b994de6dff832db48db3ef007c6f2f17889b",
+  "experiments/phase11_explainable_evidence/community_cards/appendix_selection_all_seeds_W7.csv": "214d7376cdb42456fbf39c525816fef29be30404e53f4fd51960ae6e4fec8401",
+  "experiments/phase11_explainable_evidence/community_cards/cards_summary.json": "41bdc87f5b1999aa796ff3ffe6a4ea5b1ff7638008768bd0e55ec601e16d85ec"
+ },
+ "discovery_rerun": false,
+ "labels_or_risk_used": false,
+ "dependencies_installed": false
+}

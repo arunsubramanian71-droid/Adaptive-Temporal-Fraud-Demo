@@ -1,0 +1,196 @@
+{
+ "purpose": "Test-sensitivity (mutation) check of the Phase 10 core tests; in-memory mutants only, no project file modified.",
+ "run_local": "2026-10-18T18:21:42+05:30",
+ "tracker_sha256": "392a145addd79dbdb82008298c84012fd5abee1140bcb4331ac07b1b2c05ea0c",
+ "unmutated_failures": [],
+ "summary": {
+  "mutants": 18,
+  "detected": 18
+ },
+ "mutants": [
+  {
+   "mutant": "M1 identity key drops the overlap term",
+   "status": "detected",
+   "failing_tests": [
+    "test_T30b_primary_key_uses_overlap_after_jaccard_tie",
+    "test_property_random_sequences_match_oracle_and_satisfy_invariants"
+   ]
+  },
+  {
+   "mutant": "M2 re-link window g_r instead of g_r + 1",
+   "status": "detected",
+   "failing_tests": [
+    "test_T10_relink_across_one_absent_day_for_g_pairs_2_3_and_1_2",
+    "test_T11_boundaries_between_relink_and_declaration",
+    "test_B1_relink_jaccard_comes_first_even_against_a_shorter_gap",
+    "test_B1_relink_overlap_comes_before_gap",
+    "test_ledger_declaration_source_classes_z_Dr_Dc",
+    "test_ledger_simultaneous_relink_and_declaration_on_day_L_plus_g_d",
+    "test_ledger_mixed_day_with_event_relink_birth_and_declaration",
+    "test_ledger_T33prime_extension_under_R_A",
+    "test_property_random_sequences_match_oracle_and_satisfy_invariants"
+   ]
+  },
+  {
+   "mutant": "M3 newcomer majority non-strict",
+   "status": "detected",
+   "failing_tests": [
+    "test_T12_T13_newcomer_majority_is_strict"
+   ]
+  },
+  {
+   "mutant": "M4 declaration one day late",
+   "status": "detected",
+   "failing_tests": [
+    "test_T3_compat_only_row_no_relation_dormant_then_declared",
+    "test_T10_no_dormancy_when_g_d_is_one",
+    "test_T11_boundaries_between_relink_and_declaration",
+    "test_T14_declaration_timing_and_censoring_progression",
+    "test_T32_right_censoring_boundary_at_horizon",
+    "test_B1_relink_tie_on_jaccard_and_overlap_goes_to_shorter_gap_before_lineage_id",
+    "test_T23prime_active_priority_and_R_A_leaves_dormant_lineage_unrelinked",
+    "test_T33prime_R_A_gives_split_child_and_leaves_old_lineage_dormant",
+    "test_ledger_D_c_and_later_day_declarations_g_r0_g_d3_event_and_compat",
+    "test_ledger_declaration_source_classes_z_Dr_Dc",
+    "test_ledger_simultaneous_relink_and_declaration_on_day_L_plus_g_d",
+    "test_ledger_mixed_day_with_event_relink_birth_and_declaration",
+    "test_ledger_T33prime_extension_under_R_A",
+    "test_property_random_sequences_match_oracle_and_satisfy_invariants",
+    "test_fixed_sequences_phase9_characterization_and_compat_equivalence",
+    "test_equality_boundaries_are_exact_in_compat_mode",
+    "test_T31_random_canonical_sequences_match_phase9_ids_flags_and_lifecycle"
+   ]
+  },
+  {
+   "mutant": "M5 R-A violated (re-link into components)",
+   "status": "detected",
+   "failing_tests": [
+    "test_T33prime_R_A_gives_split_child_and_leaves_old_lineage_dormant",
+    "test_ledger_T33prime_extension_under_R_A",
+    "test_property_random_sequences_match_oracle_and_satisfy_invariants"
+   ]
+  },
+  {
+   "mutant": "M6 growth boundary strict",
+   "status": "detected",
+   "failing_tests": [
+    "test_T2b_growth_boundary_exact_is_grow",
+    "test_T28_float_free_boundaries"
+   ]
+  },
+  {
+   "mutant": "M7 identity threshold strict",
+   "status": "detected",
+   "failing_tests": [
+    "test_T5_tie_goes_to_lower_rank_other_half_is_split_child",
+    "test_T20_split_then_remerge_cd_acyclic_lineage_graph_cyclic",
+    "test_T24_equal_halves_merge",
+    "test_T28_float_free_boundaries",
+    "test_T30b_primary_key_uses_overlap_after_jaccard_tie",
+    "test_T30b_legacy_key_in_compat_mode_picks_lower_rank",
+    "test_property_random_sequences_match_oracle_and_satisfy_invariants",
+    "test_fixed_sequences_phase9_characterization_and_compat_equivalence",
+    "test_equality_boundaries_are_exact_in_compat_mode",
+    "test_T31_random_canonical_sequences_match_phase9_ids_flags_and_lifecycle",
+    "test_T31_other_declaration_delays_are_the_g_d_parameter"
+   ]
+  },
+  {
+   "mutant": "M8 re-link key puts gap before Jaccard",
+   "status": "detected",
+   "failing_tests": [
+    "test_B1_relink_jaccard_comes_first_even_against_a_shorter_gap",
+    "test_B1_relink_overlap_comes_before_gap"
+   ]
+  },
+  {
+   "mutant": "M9 reorganized targets = whole component",
+   "status": "detected",
+   "failing_tests": [
+    "test_T22_greedy_selection_and_reorganized_target_is_adjacent_only",
+    "test_property_random_sequences_match_oracle_and_satisfy_invariants"
+   ]
+  },
+  {
+   "mutant": "M10 contraction boundary strict",
+   "status": "detected",
+   "failing_tests": [
+    "test_T4a_contraction_boundary_exact_is_contract",
+    "test_T28_float_free_boundaries"
+   ]
+  },
+  {
+   "mutant": "M11 legacy split flag dropped",
+   "status": "detected",
+   "failing_tests": [
+    "test_fixed_sequences_phase9_characterization_and_compat_equivalence",
+    "test_equality_boundaries_are_exact_in_compat_mode",
+    "test_T31_random_canonical_sequences_match_phase9_ids_flags_and_lifecycle"
+   ]
+  },
+  {
+   "mutant": "M12 closed lineages counted as dormant",
+   "status": "detected",
+   "failing_tests": [
+    "test_ledger_D_c_and_later_day_declarations_g_r0_g_d3_event_and_compat",
+    "test_ledger_declaration_source_classes_z_Dr_Dc",
+    "test_property_random_sequences_match_oracle_and_satisfy_invariants",
+    "test_compat_mode_accounting_is_the_same_equations_with_Q_empty"
+   ]
+  },
+  {
+   "mutant": "M13 compat key uses the overlap term",
+   "status": "detected",
+   "failing_tests": [
+    "test_T30b_legacy_key_in_compat_mode_picks_lower_rank",
+    "test_fixed_sequences_phase9_characterization_and_compat_equivalence"
+   ]
+  },
+  {
+   "mutant": "M14 legacy merged flag once per lineage",
+   "status": "detected",
+   "failing_tests": [
+    "test_fixed_sequences_phase9_characterization_and_compat_equivalence"
+   ]
+  },
+  {
+   "mutant": "M15 legacy known_at off by one",
+   "status": "detected",
+   "failing_tests": [
+    "test_fixed_sequences_phase9_characterization_and_compat_equivalence",
+    "test_equality_boundaries_are_exact_in_compat_mode",
+    "test_T31_random_canonical_sequences_match_phase9_ids_flags_and_lifecycle",
+    "test_T31_other_declaration_delays_are_the_g_d_parameter"
+   ]
+  },
+  {
+   "mutant": "M16 legacy parent pointer not set",
+   "status": "detected",
+   "failing_tests": [
+    "test_fixed_sequences_phase9_characterization_and_compat_equivalence",
+    "test_equality_boundaries_are_exact_in_compat_mode",
+    "test_T31_random_canonical_sequences_match_phase9_ids_flags_and_lifecycle"
+   ]
+  },
+  {
+   "mutant": "M17 classification active boundary",
+   "status": "detected",
+   "failing_tests": [
+    "test_T15_crossing_no_edges_at_theta_ev_two_thirds",
+    "test_T14_declaration_timing_and_censoring_progression",
+    "test_property_random_sequences_match_oracle_and_satisfy_invariants",
+    "test_fixed_sequences_phase9_characterization_and_compat_equivalence",
+    "test_equality_boundaries_are_exact_in_compat_mode",
+    "test_T31_random_canonical_sequences_match_phase9_ids_flags_and_lifecycle"
+   ]
+  },
+  {
+   "mutant": "M18 merge-product origin swapped",
+   "status": "detected",
+   "failing_tests": [
+    "test_property_random_sequences_match_oracle_and_satisfy_invariants"
+   ]
+  }
+ ],
+ "interpretation": "A detected mutant shows that at least one test fails when that specific defect is injected. It does not show that no other defect exists."
+}

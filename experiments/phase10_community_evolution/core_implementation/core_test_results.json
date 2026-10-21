@@ -1,0 +1,463 @@
+{
+ "purpose": "Phase 10 core implementation tests (toy, property/accounting, compatibility). Toy/synthetic inputs only.",
+ "run_local": "2026-10-18T18:21:19+05:30",
+ "python": "3.12.0",
+ "files_sha256": {
+  "src/evolution/__init__.py": "2166c32e70548af3f239bfc014d9c2eacd632363d02c694148641e899a7bd968",
+  "src/evolution/tracker.py": "392a145addd79dbdb82008298c84012fd5abee1140bcb4331ac07b1b2c05ea0c",
+  "tests/phase10_helpers.py": "46df4441d0d5c1990da658c97d7dde4b92662007accf4d023f4e582175b1d1b3",
+  "tests/test_phase10_toys.py": "2b62d74978358a3767932dd8b6d112eab2b92622f20c7f1130fe3024a0b78c44",
+  "tests/test_phase10_properties.py": "008843cc0fd69816a6be7619ea38308fac52f4a88a6ff188623cf78c6f9106f1",
+  "tests/test_phase10_compat.py": "2c570e43e476419aae312700c358723a1f64097d3c1cc274c780fe24ac1030cd",
+  "scripts/run_phase10_tests.py": "a6300b20e7232d2d577857aa626e85180198c88c35a4581fdcc5a0e3e69bd600"
+ },
+ "summary": {
+  "total": 63,
+  "passed": 63,
+  "failed": 0
+ },
+ "tests": [
+  {
+   "module": "tests.test_phase10_toys",
+   "test": "test_T1_identical_sets_continue",
+   "status": "pass",
+   "seconds": 0.001,
+   "error": null
+  },
+  {
+   "module": "tests.test_phase10_toys",
+   "test": "test_T2a_growth_below_boundary_is_stable",
+   "status": "pass",
+   "seconds": 0.0,
+   "error": null
+  },
+  {
+   "module": "tests.test_phase10_toys",
+   "test": "test_T2b_growth_boundary_exact_is_grow",
+   "status": "pass",
+   "seconds": 0.0,
+   "error": null
+  },
+  {
+   "module": "tests.test_phase10_toys",
+   "test": "test_T4a_contraction_boundary_exact_is_contract",
+   "status": "pass",
+   "seconds": 0.0,
+   "error": null
+  },
+  {
+   "module": "tests.test_phase10_toys",
+   "test": "test_T16_swap_is_stable_with_counts",
+   "status": "pass",
+   "seconds": 0.0,
+   "error": null
+  },
+  {
+   "module": "tests.test_phase10_toys",
+   "test": "test_T3_relation_only_edge_ends_lineage_as_succession",
+   "status": "pass",
+   "seconds": 0.0,
+   "error": null
+  },
+  {
+   "module": "tests.test_phase10_toys",
+   "test": "test_T3_compat_only_row_no_relation_dormant_then_declared",
+   "status": "pass",
+   "seconds": 0.0,
+   "error": null
+  },
+  {
+   "module": "tests.test_phase10_toys",
+   "test": "test_T4b_contraction_to_core_relation_only",
+   "status": "pass",
+   "seconds": 0.0,
+   "error": null
+  },
+  {
+   "module": "tests.test_phase10_toys",
+   "test": "test_T5_tie_goes_to_lower_rank_other_half_is_split_child",
+   "status": "pass",
+   "seconds": 0.0,
+   "error": null
+  },
+  {
+   "module": "tests.test_phase10_toys",
+   "test": "test_T6_split_with_dominant_part",
+   "status": "pass",
+   "seconds": 0.0,
+   "error": null
+  },
+  {
+   "module": "tests.test_phase10_toys",
+   "test": "test_T7_n_way_split",
+   "status": "pass",
+   "seconds": 0.0,
+   "error": null
+  },
+  {
+   "module": "tests.test_phase10_toys",
+   "test": "test_T25_hub_fragmentation_is_dissolved_with_three_split_children",
+   "status": "pass",
+   "seconds": 0.0,
+   "error": null
+  },
+  {
+   "module": "tests.test_phase10_toys",
+   "test": "test_T8_merge_unselected_parent_ends_merged",
+   "status": "pass",
+   "seconds": 0.0,
+   "error": null
+  },
+  {
+   "module": "tests.test_phase10_toys",
+   "test": "test_T9_n_way_merge",
+   "status": "pass",
+   "seconds": 0.0,
+   "error": null
+  },
+  {
+   "module": "tests.test_phase10_toys",
+   "test": "test_T20_split_then_remerge_cd_acyclic_lineage_graph_cyclic",
+   "status": "pass",
+   "seconds": 0.0,
+   "error": null
+  },
+  {
+   "module": "tests.test_phase10_toys",
+   "test": "test_T21_tie_with_k_f_equality_boundary",
+   "status": "pass",
+   "seconds": 0.0,
+   "error": null
+  },
+  {
+   "module": "tests.test_phase10_toys",
+   "test": "test_T24_equal_halves_merge",
+   "status": "pass",
+   "seconds": 0.0,
+   "error": null
+  },
+  {
+   "module": "tests.test_phase10_toys",
+   "test": "test_T15_crossing_reorganization_at_theta_ev_half",
+   "status": "pass",
+   "seconds": 0.0,
+   "error": null
+  },
+  {
+   "module": "tests.test_phase10_toys",
+   "test": "test_T15_crossing_no_edges_at_theta_ev_two_thirds",
+   "status": "pass",
+   "seconds": 0.0,
+   "error": null
+  },
+  {
+   "module": "tests.test_phase10_toys",
+   "test": "test_T22_greedy_selection_and_reorganized_target_is_adjacent_only",
+   "status": "pass",
+   "seconds": 0.0,
+   "error": null
+  },
+  {
+   "module": "tests.test_phase10_toys",
+   "test": "test_T26_theta_ev_half_split_without_carrier",
+   "status": "pass",
+   "seconds": 0.0,
+   "error": null
+  },
+  {
+   "module": "tests.test_phase10_toys",
+   "test": "test_T26_theta_ev_two_thirds_succession_and_pure_birth",
+   "status": "pass",
+   "seconds": 0.0,
+   "error": null
+  },
+  {
+   "module": "tests.test_phase10_toys",
+   "test": "test_T27_k_f_equality_boundary_and_variant_without_edge",
+   "status": "pass",
+   "seconds": 0.0,
+   "error": null
+  },
+  {
+   "module": "tests.test_phase10_toys",
+   "test": "test_T28_float_free_boundaries",
+   "status": "pass",
+   "seconds": 0.0,
+   "error": null
+  },
+  {
+   "module": "tests.test_phase10_toys",
+   "test": "test_T30_jaccard_first_picks_B",
+   "status": "pass",
+   "seconds": 0.0,
+   "error": null
+  },
+  {
+   "module": "tests.test_phase10_toys",
+   "test": "test_T30b_primary_key_uses_overlap_after_jaccard_tie",
+   "status": "pass",
+   "seconds": 0.0,
+   "error": null
+  },
+  {
+   "module": "tests.test_phase10_toys",
+   "test": "test_T30b_legacy_key_in_compat_mode_picks_lower_rank",
+   "status": "pass",
+   "seconds": 0.0,
+   "error": null
+  },
+  {
+   "module": "tests.test_phase10_toys",
+   "test": "test_T10_relink_across_one_absent_day_for_g_pairs_2_3_and_1_2",
+   "status": "pass",
+   "seconds": 0.0,
+   "error": null
+  },
+  {
+   "module": "tests.test_phase10_toys",
+   "test": "test_T10_no_dormancy_when_g_d_is_one",
+   "status": "pass",
+   "seconds": 0.0,
+   "error": null
+  },
+  {
+   "module": "tests.test_phase10_toys",
+   "test": "test_T11_boundaries_between_relink_and_declaration",
+   "status": "pass",
+   "seconds": 0.0,
+   "error": null
+  },
+  {
+   "module": "tests.test_phase10_toys",
+   "test": "test_T14_declaration_timing_and_censoring_progression",
+   "status": "pass",
+   "seconds": 0.0,
+   "error": null
+  },
+  {
+   "module": "tests.test_phase10_toys",
+   "test": "test_T32_right_censoring_boundary_at_horizon",
+   "status": "pass",
+   "seconds": 0.001,
+   "error": null
+  },
+  {
+   "module": "tests.test_phase10_toys",
+   "test": "test_B1_relink_tie_on_jaccard_and_overlap_goes_to_shorter_gap_before_lineage_id",
+   "status": "pass",
+   "seconds": 0.0,
+   "error": null
+  },
+  {
+   "module": "tests.test_phase10_toys",
+   "test": "test_B1_relink_jaccard_comes_first_even_against_a_shorter_gap",
+   "status": "pass",
+   "seconds": 0.0,
+   "error": null
+  },
+  {
+   "module": "tests.test_phase10_toys",
+   "test": "test_B1_relink_overlap_comes_before_gap",
+   "status": "pass",
+   "seconds": 0.0,
+   "error": null
+  },
+  {
+   "module": "tests.test_phase10_toys",
+   "test": "test_T23prime_active_priority_and_R_A_leaves_dormant_lineage_unrelinked",
+   "status": "pass",
+   "seconds": 0.0,
+   "error": null
+  },
+  {
+   "module": "tests.test_phase10_toys",
+   "test": "test_T33prime_R_A_gives_split_child_and_leaves_old_lineage_dormant",
+   "status": "pass",
+   "seconds": 0.0,
+   "error": null
+  },
+  {
+   "module": "tests.test_phase10_toys",
+   "test": "test_T12_T13_newcomer_majority_is_strict",
+   "status": "pass",
+   "seconds": 0.0,
+   "error": null
+  },
+  {
+   "module": "tests.test_phase10_toys",
+   "test": "test_birth_subtype_only_for_pure_origin",
+   "status": "pass",
+   "seconds": 0.0,
+   "error": null
+  },
+  {
+   "module": "tests.test_phase10_toys",
+   "test": "test_T34_satellite_reported_with_exact_descriptors_no_cutoff",
+   "status": "pass",
+   "seconds": 0.0,
+   "error": null
+  },
+  {
+   "module": "tests.test_phase10_toys",
+   "test": "test_T17_empty_days_do_not_error_and_emit_nothing",
+   "status": "pass",
+   "seconds": 0.0,
+   "error": null
+  },
+  {
+   "module": "tests.test_phase10_toys",
+   "test": "test_T18_T19_permutation_and_repeat_determinism",
+   "status": "pass",
+   "seconds": 0.004,
+   "error": null
+  },
+  {
+   "module": "tests.test_phase10_toys",
+   "test": "test_T29_invalid_inputs_raise_and_leave_state_unchanged",
+   "status": "pass",
+   "seconds": 0.002,
+   "error": null
+  },
+  {
+   "module": "tests.test_phase10_toys",
+   "test": "test_interface_start_day_is_free_and_first_seen_is_per_call",
+   "status": "pass",
+   "seconds": 0.0,
+   "error": null
+  },
+  {
+   "module": "tests.test_phase10_toys",
+   "test": "test_numpy_integer_card_ids_are_accepted_and_floats_rejected_in_parameters",
+   "status": "pass",
+   "seconds": 0.079,
+   "error": null
+  },
+  {
+   "module": "tests.test_phase10_properties",
+   "test": "test_ledger_D_c_and_later_day_declarations_g_r0_g_d3_event_and_compat",
+   "status": "pass",
+   "seconds": 0.0,
+   "error": null
+  },
+  {
+   "module": "tests.test_phase10_properties",
+   "test": "test_ledger_declaration_source_classes_z_Dr_Dc",
+   "status": "pass",
+   "seconds": 0.0,
+   "error": null
+  },
+  {
+   "module": "tests.test_phase10_properties",
+   "test": "test_ledger_simultaneous_relink_and_declaration_on_day_L_plus_g_d",
+   "status": "pass",
+   "seconds": 0.0,
+   "error": null
+  },
+  {
+   "module": "tests.test_phase10_properties",
+   "test": "test_ledger_mixed_day_with_event_relink_birth_and_declaration",
+   "status": "pass",
+   "seconds": 0.0,
+   "error": null
+  },
+  {
+   "module": "tests.test_phase10_properties",
+   "test": "test_ledger_T33prime_extension_under_R_A",
+   "status": "pass",
+   "seconds": 0.0,
+   "error": null
+  },
+  {
+   "module": "tests.test_phase10_properties",
+   "test": "test_ledger_empty_days_all_empty_and_between_data",
+   "status": "pass",
+   "seconds": 0.0,
+   "error": null
+  },
+  {
+   "module": "tests.test_phase10_properties",
+   "test": "test_property_random_sequences_match_oracle_and_satisfy_invariants",
+   "status": "pass",
+   "seconds": 0.198,
+   "error": null
+  },
+  {
+   "module": "tests.test_phase10_properties",
+   "test": "test_property_repeat_runs_are_identical",
+   "status": "pass",
+   "seconds": 0.001,
+   "error": null
+  },
+  {
+   "module": "tests.test_phase10_properties",
+   "test": "test_compat_mode_accounting_is_the_same_equations_with_Q_empty",
+   "status": "pass",
+   "seconds": 0.022,
+   "error": null
+  },
+  {
+   "module": "tests.test_phase10_properties",
+   "test": "test_module_source_has_no_floating_point",
+   "status": "pass",
+   "seconds": 0.01,
+   "error": null
+  },
+  {
+   "module": "tests.test_phase10_properties",
+   "test": "test_new_files_do_not_use_the_prohibited_wording",
+   "status": "pass",
+   "seconds": 0.002,
+   "error": null
+  },
+  {
+   "module": "tests.test_phase10_properties",
+   "test": "test_new_package_does_not_import_phase9_code",
+   "status": "pass",
+   "seconds": 0.008,
+   "error": null
+  },
+  {
+   "module": "tests.test_phase10_compat",
+   "test": "test_fixed_sequences_phase9_characterization_and_compat_equivalence",
+   "status": "pass",
+   "seconds": 0.004,
+   "error": null
+  },
+  {
+   "module": "tests.test_phase10_compat",
+   "test": "test_equality_boundaries_are_exact_in_compat_mode",
+   "status": "pass",
+   "seconds": 0.001,
+   "error": null
+  },
+  {
+   "module": "tests.test_phase10_compat",
+   "test": "test_T31_random_canonical_sequences_match_phase9_ids_flags_and_lifecycle",
+   "status": "pass",
+   "seconds": 0.436,
+   "error": null
+  },
+  {
+   "module": "tests.test_phase10_compat",
+   "test": "test_T31_other_declaration_delays_are_the_g_d_parameter",
+   "status": "pass",
+   "seconds": 0.0,
+   "error": null
+  },
+  {
+   "module": "tests.test_phase10_compat",
+   "test": "test_T35_phase9_accepts_inputs_the_new_module_rejects",
+   "status": "pass",
+   "seconds": 0.0,
+   "error": null
+  },
+  {
+   "module": "tests.test_phase10_compat",
+   "test": "test_phase9_frozen_constants_used_by_compat_are_as_documented",
+   "status": "pass",
+   "seconds": 0.0,
+   "error": null
+  }
+ ],
+ "scope_statement": "No Stage 0, no TEST data, no synthetic benchmark, no null-model tier, no real-data evaluation. Phase 9 Tracker imported read-only. Passing tests establish only what the assertions check."
+}

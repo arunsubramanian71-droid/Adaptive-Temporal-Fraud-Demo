@@ -1,0 +1,23 @@
+{
+ "created_local": "2026-10-18T20:47:01+05:30",
+ "inputs_sha256": {
+  "experiments/xgboost/model.joblib": "6998d85c031184f54465efe2b8bdca872eadb5c395d694540a71ab626e9abd3b",
+  "data/features/val_features.parquet": "81e4faa8c3418802c6e055bb8cfa24912afd6de2e46839a044c95c6a6fa39274",
+  "experiments/xgboost/predictions_val.parquet": "88d1f5adfc2f9dee6b782f2df94f36721c55602776ee969404869c3a562b912c",
+  "experiments/phase11_explainable_evidence/SCOPE_AND_ACCEPTANCE.md": "271901a9488aa68f2b6bfc376b71a148cf346d2a9c299e418b336925c4f9ab4b",
+  "experiments/xgboost/feature_builder/column_roles.json": "22cd8deceec9ce9fb5336f185cd811012bbe80e136144fb8f64bb459411ffe41",
+  "experiments/xgboost/feature_builder/extra_frequency_encoder.json": "e6f52e21afc0c2906944e253f50430a48dcf6048f12836feff317dcc60396e85",
+  "experiments/xgboost/feature_builder/feature_names.json": "740aee86822db99a66dca8bb9675006a80ee2d344cf10804f3bd962558c6e45f",
+  "experiments/xgboost/feature_builder/median_imputer.json": "e20a324642eef23559cd0896e832ab575e4463eb2344c973b7634024aec23cbd",
+  "experiments/xgboost/feature_builder/ordinal_maps.json": "c82dab26d5602c438d2caf718f32aa2c8121970589afa807a53919af8e71fd94"
+ },
+ "outputs_sha256": {
+  "experiments/phase11_explainable_evidence/xgb_explanations_val/selection_val.csv": "623d1ee2a0c6995e7c940565cd3c5d38a3bce076776de6a7976600fb440be963",
+  "experiments/phase11_explainable_evidence/xgb_explanations_val/contributions_val.csv": "17dbfac709c353e063e1f02b51352db760c98b5619d50725886da05ba47b58e8",
+  "experiments/phase11_explainable_evidence/xgb_explanations_val/top_features_val.json": "313d5f9149848e690c74a684a8607c260a4f92b7e1b5c933544751ae58879ec0",
+  "experiments/phase11_explainable_evidence/xgb_explanations_val/summary_val.json": "c593ddc901aa2baf68eb9b4a9c5b3b579418408445282a8fc29e77c10ce7b0a4"
+ },
+ "test_features_opened": false,
+ "label_column_loaded": false,
+ "dependencies_installed": false
+}

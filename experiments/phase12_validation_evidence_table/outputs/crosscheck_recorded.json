@@ -1,0 +1,1220 @@
+{
+ "tolerance": 1e-09,
+ "n_items": 173,
+ "n_discrepancies": 0,
+ "max_abs_diff": 0.0,
+ "items": [
+  {
+   "source": "temporal_graphsage/comparison.json strict_segment_pr_auc",
+   "item": "Logistic Regression / pooled PR-AUC (mean over runs)",
+   "recorded": 0.4125880871696731,
+   "recomputed": 0.4125880871696731,
+   "abs_diff": 0.0
+  },
+  {
+   "source": "temporal_graphsage/comparison.json strict_segment_pr_auc",
+   "item": "Logistic Regression / has_edge_warm PR-AUC (mean over runs)",
+   "recorded": 0.16712007661229805,
+   "recomputed": 0.16712007661229805,
+   "abs_diff": 0.0
+  },
+  {
+   "source": "temporal_graphsage/comparison.json strict_segment_pr_auc",
+   "item": "Logistic Regression / has_edge_cold PR-AUC (mean over runs)",
+   "recorded": 0.29724522075743515,
+   "recomputed": 0.29724522075743515,
+   "abs_diff": 0.0
+  },
+  {
+   "source": "temporal_graphsage/comparison.json strict_segment_pr_auc",
+   "item": "Logistic Regression / no_pseudo_account_edge PR-AUC (mean over runs)",
+   "recorded": 0.7067198553501948,
+   "recomputed": 0.7067198553501948,
+   "abs_diff": 0.0
+  },
+  {
+   "source": "temporal_graphsage/comparison.json strict_segment_pr_auc",
+   "item": "Random Forest / pooled PR-AUC (mean over runs)",
+   "recorded": 0.45428013097000314,
+   "recomputed": 0.45428013097000314,
+   "abs_diff": 0.0
+  },
+  {
+   "source": "temporal_graphsage/comparison.json strict_segment_pr_auc",
+   "item": "Random Forest / has_edge_warm PR-AUC (mean over runs)",
+   "recorded": 0.20457482653328996,
+   "recomputed": 0.20457482653328996,
+   "abs_diff": 0.0
+  },
+  {
+   "source": "temporal_graphsage/comparison.json strict_segment_pr_auc",
+   "item": "Random Forest / has_edge_cold PR-AUC (mean over runs)",
+   "recorded": 0.3807207256608147,
+   "recomputed": 0.3807207256608147,
+   "abs_diff": 0.0
+  },
+  {
+   "source": "temporal_graphsage/comparison.json strict_segment_pr_auc",
+   "item": "Random Forest / no_pseudo_account_edge PR-AUC (mean over runs)",
+   "recorded": 0.7366098379189461,
+   "recomputed": 0.7366098379189461,
+   "abs_diff": 0.0
+  },
+  {
+   "source": "temporal_graphsage/comparison.json strict_segment_pr_auc",
+   "item": "XGBoost / pooled PR-AUC (mean over runs)",
+   "recorded": 0.5394573894481626,
+   "recomputed": 0.5394573894481626,
+   "abs_diff": 0.0
+  },
+  {
+   "source": "temporal_graphsage/comparison.json strict_segment_pr_auc",
+   "item": "XGBoost / has_edge_warm PR-AUC (mean over runs)",
+   "recorded": 0.3495960812387313,
+   "recomputed": 0.3495960812387313,
+   "abs_diff": 0.0
+  },
+  {
+   "source": "temporal_graphsage/comparison.json strict_segment_pr_auc",
+   "item": "XGBoost / has_edge_cold PR-AUC (mean over runs)",
+   "recorded": 0.4063779428532711,
+   "recomputed": 0.4063779428532711,
+   "abs_diff": 0.0
+  },
+  {
+   "source": "temporal_graphsage/comparison.json strict_segment_pr_auc",
+   "item": "XGBoost / no_pseudo_account_edge PR-AUC (mean over runs)",
+   "recorded": 0.7904734483703264,
+   "recomputed": 0.7904734483703264,
+   "abs_diff": 0.0
+  },
+  {
+   "source": "temporal_graphsage/comparison.json strict_segment_pr_auc",
+   "item": "XGBoost historical control / pooled PR-AUC (mean over runs)",
+   "recorded": 0.6771144347211081,
+   "recomputed": 0.6771144347211081,
+   "abs_diff": 0.0
+  },
+  {
+   "source": "temporal_graphsage/comparison.json strict_segment_pr_auc",
+   "item": "XGBoost historical control / has_edge_warm PR-AUC (mean over runs)",
+   "recorded": 0.9298582004063578,
+   "recomputed": 0.9298582004063578,
+   "abs_diff": 0.0
+  },
+  {
+   "source": "temporal_graphsage/comparison.json strict_segment_pr_auc",
+   "item": "XGBoost historical control / has_edge_cold PR-AUC (mean over runs)",
+   "recorded": 0.03694986560843348,
+   "recomputed": 0.03694986560843348,
+   "abs_diff": 0.0
+  },
+  {
+   "source": "temporal_graphsage/comparison.json strict_segment_pr_auc",
+   "item": "XGBoost historical control / no_pseudo_account_edge PR-AUC (mean over runs)",
+   "recorded": 0.49602186902119466,
+   "recomputed": 0.49602186902119466,
+   "abs_diff": 0.0
+  },
+  {
+   "source": "temporal_graphsage/comparison.json strict_segment_pr_auc",
+   "item": "MLP control (Phase 6A extended) / pooled PR-AUC (mean over runs)",
+   "recorded": 0.41666763537619067,
+   "recomputed": 0.41666763537619067,
+   "abs_diff": 0.0
+  },
+  {
+   "source": "temporal_graphsage/comparison.json strict_segment_pr_auc",
+   "item": "MLP control (Phase 6A extended) / has_edge_warm PR-AUC (mean over runs)",
+   "recorded": 0.17580941056001534,
+   "recomputed": 0.17580941056001534,
+   "abs_diff": 0.0
+  },
+  {
+   "source": "temporal_graphsage/comparison.json strict_segment_pr_auc",
+   "item": "MLP control (Phase 6A extended) / has_edge_cold PR-AUC (mean over runs)",
+   "recorded": 0.30068617517051793,
+   "recomputed": 0.30068617517051793,
+   "abs_diff": 0.0
+  },
+  {
+   "source": "temporal_graphsage/comparison.json strict_segment_pr_auc",
+   "item": "MLP control (Phase 6A extended) / no_pseudo_account_edge PR-AUC (mean over runs)",
+   "recorded": 0.7029466069810572,
+   "recomputed": 0.7029466069810572,
+   "abs_diff": 0.0
+  },
+  {
+   "source": "temporal_graphsage/comparison.json strict_segment_pr_auc",
+   "item": "GraphSAGE Phase 6A (3 seeds) / pooled PR-AUC (mean over runs)",
+   "recorded": 0.4636871383978794,
+   "recomputed": 0.4636871383978794,
+   "abs_diff": 0.0
+  },
+  {
+   "source": "temporal_graphsage/comparison.json strict_segment_pr_auc",
+   "item": "GraphSAGE Phase 6A (3 seeds) / has_edge_warm PR-AUC (mean over runs)",
+   "recorded": 0.26106398254289126,
+   "recomputed": 0.26106398254289126,
+   "abs_diff": 0.0
+  },
+  {
+   "source": "temporal_graphsage/comparison.json strict_segment_pr_auc",
+   "item": "GraphSAGE Phase 6A (3 seeds) / has_edge_cold PR-AUC (mean over runs)",
+   "recorded": 0.3417274756212419,
+   "recomputed": 0.3417274756212419,
+   "abs_diff": 0.0
+  },
+  {
+   "source": "temporal_graphsage/comparison.json strict_segment_pr_auc",
+   "item": "GraphSAGE Phase 6A (3 seeds) / no_pseudo_account_edge PR-AUC (mean over runs)",
+   "recorded": 0.7181823730225387,
+   "recomputed": 0.7181823730225387,
+   "abs_diff": 0.0
+  },
+  {
+   "source": "temporal_graphsage/comparison.json strict_segment_pr_auc",
+   "item": "GAT Phase 6B (3 seeds) / pooled PR-AUC (mean over runs)",
+   "recorded": 0.33197401211001437,
+   "recomputed": 0.33197401211001437,
+   "abs_diff": 0.0
+  },
+  {
+   "source": "temporal_graphsage/comparison.json strict_segment_pr_auc",
+   "item": "GAT Phase 6B (3 seeds) / has_edge_warm PR-AUC (mean over runs)",
+   "recorded": 0.263890167967078,
+   "recomputed": 0.263890167967078,
+   "abs_diff": 0.0
+  },
+  {
+   "source": "temporal_graphsage/comparison.json strict_segment_pr_auc",
+   "item": "GAT Phase 6B (3 seeds) / has_edge_cold PR-AUC (mean over runs)",
+   "recorded": 0.31614702471599726,
+   "recomputed": 0.31614702471599726,
+   "abs_diff": 0.0
+  },
+  {
+   "source": "temporal_graphsage/comparison.json strict_segment_pr_auc",
+   "item": "GAT Phase 6B (3 seeds) / no_pseudo_account_edge PR-AUC (mean over runs)",
+   "recorded": 0.4032626907010733,
+   "recomputed": 0.4032626907010733,
+   "abs_diff": 0.0
+  },
+  {
+   "source": "temporal_graphsage/comparison.json strict_segment_pr_auc",
+   "item": "Temporal GraphSAGE (3 seeds) / pooled PR-AUC (mean over runs)",
+   "recorded": 0.49271816194139834,
+   "recomputed": 0.49271816194139834,
+   "abs_diff": 0.0
+  },
+  {
+   "source": "temporal_graphsage/comparison.json strict_segment_pr_auc",
+   "item": "Temporal GraphSAGE (3 seeds) / has_edge_warm PR-AUC (mean over runs)",
+   "recorded": 0.32127959687468094,
+   "recomputed": 0.32127959687468094,
+   "abs_diff": 0.0
+  },
+  {
+   "source": "temporal_graphsage/comparison.json strict_segment_pr_auc",
+   "item": "Temporal GraphSAGE (3 seeds) / has_edge_cold PR-AUC (mean over runs)",
+   "recorded": 0.35621461914196706,
+   "recomputed": 0.35621461914196706,
+   "abs_diff": 0.0
+  },
+  {
+   "source": "temporal_graphsage/comparison.json strict_segment_pr_auc",
+   "item": "Temporal GraphSAGE (3 seeds) / no_pseudo_account_edge PR-AUC (mean over runs)",
+   "recorded": 0.7270511310898367,
+   "recomputed": 0.7270511310898367,
+   "abs_diff": 0.0
+  },
+  {
+   "source": "temporal_graphsage/comparison.json static_vs_temporal",
+   "item": "static pooled pr_auc seed 42",
+   "recorded": 0.45147076224113775,
+   "recomputed": 0.45147076224113775,
+   "abs_diff": 0.0
+  },
+  {
+   "source": "temporal_graphsage/comparison.json static_vs_temporal",
+   "item": "static pooled pr_auc seed 123",
+   "recorded": 0.45686847659519864,
+   "recomputed": 0.45686847659519864,
+   "abs_diff": 0.0
+  },
+  {
+   "source": "temporal_graphsage/comparison.json static_vs_temporal",
+   "item": "static pooled pr_auc seed 2024",
+   "recorded": 0.48272217635730197,
+   "recomputed": 0.48272217635730197,
+   "abs_diff": 0.0
+  },
+  {
+   "source": "temporal_graphsage/comparison.json static_vs_temporal",
+   "item": "temporal pooled pr_auc seed 42",
+   "recorded": 0.4937565686446755,
+   "recomputed": 0.4937565686446755,
+   "abs_diff": 0.0
+  },
+  {
+   "source": "temporal_graphsage/comparison.json static_vs_temporal",
+   "item": "temporal pooled pr_auc seed 123",
+   "recorded": 0.4887969416286957,
+   "recomputed": 0.4887969416286957,
+   "abs_diff": 0.0
+  },
+  {
+   "source": "temporal_graphsage/comparison.json static_vs_temporal",
+   "item": "temporal pooled pr_auc seed 2024",
+   "recorded": 0.49560097555082383,
+   "recomputed": 0.49560097555082383,
+   "abs_diff": 0.0
+  },
+  {
+   "source": "temporal_graphsage/comparison.json static_vs_temporal",
+   "item": "static pooled roc_auc seed 42",
+   "recorded": 0.8588717317194605,
+   "recomputed": 0.8588717317194605,
+   "abs_diff": 0.0
+  },
+  {
+   "source": "temporal_graphsage/comparison.json static_vs_temporal",
+   "item": "static pooled roc_auc seed 123",
+   "recorded": 0.8659473980162881,
+   "recomputed": 0.8659473980162881,
+   "abs_diff": 0.0
+  },
+  {
+   "source": "temporal_graphsage/comparison.json static_vs_temporal",
+   "item": "static pooled roc_auc seed 2024",
+   "recorded": 0.8599227130276271,
+   "recomputed": 0.8599227130276271,
+   "abs_diff": 0.0
+  },
+  {
+   "source": "temporal_graphsage/comparison.json static_vs_temporal",
+   "item": "temporal pooled roc_auc seed 42",
+   "recorded": 0.8672810105765035,
+   "recomputed": 0.8672810105765035,
+   "abs_diff": 0.0
+  },
+  {
+   "source": "temporal_graphsage/comparison.json static_vs_temporal",
+   "item": "temporal pooled roc_auc seed 123",
+   "recorded": 0.8657002556265554,
+   "recomputed": 0.8657002556265554,
+   "abs_diff": 0.0
+  },
+  {
+   "source": "temporal_graphsage/comparison.json static_vs_temporal",
+   "item": "temporal pooled roc_auc seed 2024",
+   "recorded": 0.8672171638732691,
+   "recomputed": 0.8672171638732691,
+   "abs_diff": 0.0
+  },
+  {
+   "source": "temporal_graphsage/comparison.json static_vs_temporal",
+   "item": "static cold pr_auc seed 42",
+   "recorded": 0.347807128675342,
+   "recomputed": 0.347807128675342,
+   "abs_diff": 0.0
+  },
+  {
+   "source": "temporal_graphsage/comparison.json static_vs_temporal",
+   "item": "static cold pr_auc seed 123",
+   "recorded": 0.32870406456312345,
+   "recomputed": 0.32870406456312345,
+   "abs_diff": 0.0
+  },
+  {
+   "source": "temporal_graphsage/comparison.json static_vs_temporal",
+   "item": "static cold pr_auc seed 2024",
+   "recorded": 0.3486712336252602,
+   "recomputed": 0.3486712336252602,
+   "abs_diff": 0.0
+  },
+  {
+   "source": "temporal_graphsage/comparison.json static_vs_temporal",
+   "item": "temporal cold pr_auc seed 42",
+   "recorded": 0.35867299859262214,
+   "recomputed": 0.35867299859262214,
+   "abs_diff": 0.0
+  },
+  {
+   "source": "temporal_graphsage/comparison.json static_vs_temporal",
+   "item": "temporal cold pr_auc seed 123",
+   "recorded": 0.3617590045642257,
+   "recomputed": 0.3617590045642257,
+   "abs_diff": 0.0
+  },
+  {
+   "source": "temporal_graphsage/comparison.json static_vs_temporal",
+   "item": "temporal cold pr_auc seed 2024",
+   "recorded": 0.34821185426905327,
+   "recomputed": 0.34821185426905327,
+   "abs_diff": 0.0
+  },
+  {
+   "source": "temporal_graphsage/comparison.json static_vs_temporal",
+   "item": "static cold roc_auc seed 42",
+   "recorded": 0.807146950520869,
+   "recomputed": 0.807146950520869,
+   "abs_diff": 0.0
+  },
+  {
+   "source": "temporal_graphsage/comparison.json static_vs_temporal",
+   "item": "static cold roc_auc seed 123",
+   "recorded": 0.8052430790495452,
+   "recomputed": 0.8052430790495452,
+   "abs_diff": 0.0
+  },
+  {
+   "source": "temporal_graphsage/comparison.json static_vs_temporal",
+   "item": "static cold roc_auc seed 2024",
+   "recorded": 0.7912015861945841,
+   "recomputed": 0.7912015861945841,
+   "abs_diff": 0.0
+  },
+  {
+   "source": "temporal_graphsage/comparison.json static_vs_temporal",
+   "item": "temporal cold roc_auc seed 42",
+   "recorded": 0.8067541691611793,
+   "recomputed": 0.8067541691611793,
+   "abs_diff": 0.0
+  },
+  {
+   "source": "temporal_graphsage/comparison.json static_vs_temporal",
+   "item": "temporal cold roc_auc seed 123",
+   "recorded": 0.7963418907026713,
+   "recomputed": 0.7963418907026713,
+   "abs_diff": 0.0
+  },
+  {
+   "source": "temporal_graphsage/comparison.json static_vs_temporal",
+   "item": "temporal cold roc_auc seed 2024",
+   "recorded": 0.7830629485715304,
+   "recomputed": 0.7830629485715304,
+   "abs_diff": 0.0
+  },
+  {
+   "source": "temporal_graphsage/comparison.json static_vs_temporal",
+   "item": "static warm pr_auc seed 42",
+   "recorded": 0.2371765688013947,
+   "recomputed": 0.2371765688013947,
+   "abs_diff": 0.0
+  },
+  {
+   "source": "temporal_graphsage/comparison.json static_vs_temporal",
+   "item": "static warm pr_auc seed 123",
+   "recorded": 0.23411974167122096,
+   "recomputed": 0.23411974167122096,
+   "abs_diff": 0.0
+  },
+  {
+   "source": "temporal_graphsage/comparison.json static_vs_temporal",
+   "item": "static warm pr_auc seed 2024",
+   "recorded": 0.3118956371560581,
+   "recomputed": 0.3118956371560581,
+   "abs_diff": 0.0
+  },
+  {
+   "source": "temporal_graphsage/comparison.json static_vs_temporal",
+   "item": "temporal warm pr_auc seed 42",
+   "recorded": 0.3287064669499291,
+   "recomputed": 0.3287064669499291,
+   "abs_diff": 0.0
+  },
+  {
+   "source": "temporal_graphsage/comparison.json static_vs_temporal",
+   "item": "temporal warm pr_auc seed 123",
+   "recorded": 0.30854002928127977,
+   "recomputed": 0.30854002928127977,
+   "abs_diff": 0.0
+  },
+  {
+   "source": "temporal_graphsage/comparison.json static_vs_temporal",
+   "item": "temporal warm pr_auc seed 2024",
+   "recorded": 0.32659229439283405,
+   "recomputed": 0.32659229439283405,
+   "abs_diff": 0.0
+  },
+  {
+   "source": "temporal_graphsage/comparison.json static_vs_temporal",
+   "item": "static warm roc_auc seed 42",
+   "recorded": 0.8298348336303281,
+   "recomputed": 0.8298348336303281,
+   "abs_diff": 0.0
+  },
+  {
+   "source": "temporal_graphsage/comparison.json static_vs_temporal",
+   "item": "static warm roc_auc seed 123",
+   "recorded": 0.8440081409927649,
+   "recomputed": 0.8440081409927649,
+   "abs_diff": 0.0
+  },
+  {
+   "source": "temporal_graphsage/comparison.json static_vs_temporal",
+   "item": "static warm roc_auc seed 2024",
+   "recorded": 0.8363848986627271,
+   "recomputed": 0.8363848986627271,
+   "abs_diff": 0.0
+  },
+  {
+   "source": "temporal_graphsage/comparison.json static_vs_temporal",
+   "item": "temporal warm roc_auc seed 42",
+   "recorded": 0.8463838290607845,
+   "recomputed": 0.8463838290607845,
+   "abs_diff": 0.0
+  },
+  {
+   "source": "temporal_graphsage/comparison.json static_vs_temporal",
+   "item": "temporal warm roc_auc seed 123",
+   "recorded": 0.8437250194616477,
+   "recomputed": 0.8437250194616477,
+   "abs_diff": 0.0
+  },
+  {
+   "source": "temporal_graphsage/comparison.json static_vs_temporal",
+   "item": "temporal warm roc_auc seed 2024",
+   "recorded": 0.8521737931900608,
+   "recomputed": 0.8521737931900608,
+   "abs_diff": 0.0
+  },
+  {
+   "source": "temporal_graphsage/comparison.json static_vs_temporal",
+   "item": "static no_edge pr_auc seed 42",
+   "recorded": 0.7054804649207207,
+   "recomputed": 0.7054804649207207,
+   "abs_diff": 0.0
+  },
+  {
+   "source": "temporal_graphsage/comparison.json static_vs_temporal",
+   "item": "static no_edge pr_auc seed 123",
+   "recorded": 0.7305156381009763,
+   "recomputed": 0.7305156381009763,
+   "abs_diff": 0.0
+  },
+  {
+   "source": "temporal_graphsage/comparison.json static_vs_temporal",
+   "item": "static no_edge pr_auc seed 2024",
+   "recorded": 0.7185510160459192,
+   "recomputed": 0.7185510160459192,
+   "abs_diff": 0.0
+  },
+  {
+   "source": "temporal_graphsage/comparison.json static_vs_temporal",
+   "item": "temporal no_edge pr_auc seed 42",
+   "recorded": 0.7287832508668114,
+   "recomputed": 0.7287832508668114,
+   "abs_diff": 0.0
+  },
+  {
+   "source": "temporal_graphsage/comparison.json static_vs_temporal",
+   "item": "temporal no_edge pr_auc seed 123",
+   "recorded": 0.7215704924874469,
+   "recomputed": 0.7215704924874469,
+   "abs_diff": 0.0
+  },
+  {
+   "source": "temporal_graphsage/comparison.json static_vs_temporal",
+   "item": "temporal no_edge pr_auc seed 2024",
+   "recorded": 0.7307996499152516,
+   "recomputed": 0.7307996499152516,
+   "abs_diff": 0.0
+  },
+  {
+   "source": "temporal_graphsage/comparison.json static_vs_temporal",
+   "item": "static no_edge roc_auc seed 42",
+   "recorded": 0.8903561316045575,
+   "recomputed": 0.8903561316045575,
+   "abs_diff": 0.0
+  },
+  {
+   "source": "temporal_graphsage/comparison.json static_vs_temporal",
+   "item": "static no_edge roc_auc seed 123",
+   "recorded": 0.8963293908145549,
+   "recomputed": 0.8963293908145549,
+   "abs_diff": 0.0
+  },
+  {
+   "source": "temporal_graphsage/comparison.json static_vs_temporal",
+   "item": "static no_edge roc_auc seed 2024",
+   "recorded": 0.8943455539362037,
+   "recomputed": 0.8943455539362037,
+   "abs_diff": 0.0
+  },
+  {
+   "source": "temporal_graphsage/comparison.json static_vs_temporal",
+   "item": "temporal no_edge roc_auc seed 42",
+   "recorded": 0.8951700345514109,
+   "recomputed": 0.8951700345514109,
+   "abs_diff": 0.0
+  },
+  {
+   "source": "temporal_graphsage/comparison.json static_vs_temporal",
+   "item": "temporal no_edge roc_auc seed 123",
+   "recorded": 0.8930811887404222,
+   "recomputed": 0.8930811887404222,
+   "abs_diff": 0.0
+  },
+  {
+   "source": "temporal_graphsage/comparison.json static_vs_temporal",
+   "item": "temporal no_edge roc_auc seed 2024",
+   "recorded": 0.8946642491684447,
+   "recomputed": 0.8946642491684447,
+   "abs_diff": 0.0
+  },
+  {
+   "source": "temporal_ablation/comparison.json arms mean",
+   "item": "7A arm A pooled_pr_auc",
+   "recorded": 0.4636871383978794,
+   "recomputed": 0.4636871383978794,
+   "abs_diff": 0.0
+  },
+  {
+   "source": "temporal_ablation/comparison.json arms std (ddof=1)",
+   "item": "7A arm A pooled_pr_auc",
+   "recorded": 0.016704290845453478,
+   "recomputed": 0.016704290845453478,
+   "abs_diff": 0.0
+  },
+  {
+   "source": "temporal_ablation/comparison.json arms mean",
+   "item": "7A arm A pooled_roc_auc",
+   "recorded": 0.8615806142544585,
+   "recomputed": 0.8615806142544585,
+   "abs_diff": 0.0
+  },
+  {
+   "source": "temporal_ablation/comparison.json arms std (ddof=1)",
+   "item": "7A arm A pooled_roc_auc",
+   "recorded": 0.0038180807671475726,
+   "recomputed": 0.0038180807671475726,
+   "abs_diff": 0.0
+  },
+  {
+   "source": "temporal_ablation/comparison.json arms mean",
+   "item": "7A arm A cold_pr_auc",
+   "recorded": 0.3417274756212419,
+   "recomputed": 0.3417274756212419,
+   "abs_diff": 0.0
+  },
+  {
+   "source": "temporal_ablation/comparison.json arms std (ddof=1)",
+   "item": "7A arm A cold_pr_auc",
+   "recorded": 0.011286877160342426,
+   "recomputed": 0.011286877160342426,
+   "abs_diff": 0.0
+  },
+  {
+   "source": "temporal_ablation/comparison.json arms mean",
+   "item": "7A arm A warm_pr_auc",
+   "recorded": 0.26106398254289126,
+   "recomputed": 0.26106398254289126,
+   "abs_diff": 0.0
+  },
+  {
+   "source": "temporal_ablation/comparison.json arms std (ddof=1)",
+   "item": "7A arm A warm_pr_auc",
+   "recorded": 0.04404802925285258,
+   "recomputed": 0.04404802925285258,
+   "abs_diff": 0.0
+  },
+  {
+   "source": "temporal_ablation/comparison.json arms mean",
+   "item": "7A arm A no_edge_pr_auc",
+   "recorded": 0.7181823730225387,
+   "recomputed": 0.7181823730225387,
+   "abs_diff": 0.0
+  },
+  {
+   "source": "temporal_ablation/comparison.json arms std (ddof=1)",
+   "item": "7A arm A no_edge_pr_auc",
+   "recorded": 0.012521657130761997,
+   "recomputed": 0.012521657130761997,
+   "abs_diff": 0.0
+  },
+  {
+   "source": "temporal_ablation/comparison.json arms mean",
+   "item": "7A arm A precision",
+   "recorded": 0.5835173644825185,
+   "recomputed": 0.5835173644825185,
+   "abs_diff": 0.0
+  },
+  {
+   "source": "temporal_ablation/comparison.json arms std (ddof=1)",
+   "item": "7A arm A precision",
+   "recorded": 0.03382205830940858,
+   "recomputed": 0.03382205830940858,
+   "abs_diff": 0.0
+  },
+  {
+   "source": "temporal_ablation/comparison.json arms mean",
+   "item": "7A arm B pooled_pr_auc",
+   "recorded": 0.47923548967769936,
+   "recomputed": 0.47923548967769936,
+   "abs_diff": 0.0
+  },
+  {
+   "source": "temporal_ablation/comparison.json arms std (ddof=1)",
+   "item": "7A arm B pooled_pr_auc",
+   "recorded": 0.011355366976564293,
+   "recomputed": 0.011355366976564293,
+   "abs_diff": 0.0
+  },
+  {
+   "source": "temporal_ablation/comparison.json arms mean",
+   "item": "7A arm B pooled_roc_auc",
+   "recorded": 0.8553550743505373,
+   "recomputed": 0.8553550743505373,
+   "abs_diff": 0.0
+  },
+  {
+   "source": "temporal_ablation/comparison.json arms std (ddof=1)",
+   "item": "7A arm B pooled_roc_auc",
+   "recorded": 0.004507030472509419,
+   "recomputed": 0.004507030472509419,
+   "abs_diff": 0.0
+  },
+  {
+   "source": "temporal_ablation/comparison.json arms mean",
+   "item": "7A arm B cold_pr_auc",
+   "recorded": 0.32883266884340695,
+   "recomputed": 0.32883266884340695,
+   "abs_diff": 0.0
+  },
+  {
+   "source": "temporal_ablation/comparison.json arms std (ddof=1)",
+   "item": "7A arm B cold_pr_auc",
+   "recorded": 0.004999484251424942,
+   "recomputed": 0.004999484251424942,
+   "abs_diff": 0.0
+  },
+  {
+   "source": "temporal_ablation/comparison.json arms mean",
+   "item": "7A arm B warm_pr_auc",
+   "recorded": 0.32529901416779766,
+   "recomputed": 0.32529901416779766,
+   "abs_diff": 0.0
+  },
+  {
+   "source": "temporal_ablation/comparison.json arms std (ddof=1)",
+   "item": "7A arm B warm_pr_auc",
+   "recorded": 0.04446649639282946,
+   "recomputed": 0.04446649639282946,
+   "abs_diff": 0.0
+  },
+  {
+   "source": "temporal_ablation/comparison.json arms mean",
+   "item": "7A arm B no_edge_pr_auc",
+   "recorded": 0.7131544821127113,
+   "recomputed": 0.7131544821127113,
+   "abs_diff": 0.0
+  },
+  {
+   "source": "temporal_ablation/comparison.json arms std (ddof=1)",
+   "item": "7A arm B no_edge_pr_auc",
+   "recorded": 0.012940356920125727,
+   "recomputed": 0.012940356920125727,
+   "abs_diff": 0.0
+  },
+  {
+   "source": "temporal_ablation/comparison.json arms mean",
+   "item": "7A arm B precision",
+   "recorded": 0.5450102780348088,
+   "recomputed": 0.5450102780348088,
+   "abs_diff": 0.0
+  },
+  {
+   "source": "temporal_ablation/comparison.json arms std (ddof=1)",
+   "item": "7A arm B precision",
+   "recorded": 0.02294499474084815,
+   "recomputed": 0.02294499474084815,
+   "abs_diff": 0.0
+  },
+  {
+   "source": "temporal_ablation/comparison.json arms mean",
+   "item": "7A arm C pooled_pr_auc",
+   "recorded": 0.47899156339808385,
+   "recomputed": 0.47899156339808385,
+   "abs_diff": 0.0
+  },
+  {
+   "source": "temporal_ablation/comparison.json arms std (ddof=1)",
+   "item": "7A arm C pooled_pr_auc",
+   "recorded": 0.007585412282259441,
+   "recomputed": 0.007585412282259441,
+   "abs_diff": 0.0
+  },
+  {
+   "source": "temporal_ablation/comparison.json arms mean",
+   "item": "7A arm C pooled_roc_auc",
+   "recorded": 0.8570740143497849,
+   "recomputed": 0.8570740143497849,
+   "abs_diff": 0.0
+  },
+  {
+   "source": "temporal_ablation/comparison.json arms std (ddof=1)",
+   "item": "7A arm C pooled_roc_auc",
+   "recorded": 0.005393115499902415,
+   "recomputed": 0.005393115499902415,
+   "abs_diff": 0.0
+  },
+  {
+   "source": "temporal_ablation/comparison.json arms mean",
+   "item": "7A arm C cold_pr_auc",
+   "recorded": 0.3305330886588903,
+   "recomputed": 0.3305330886588903,
+   "abs_diff": 0.0
+  },
+  {
+   "source": "temporal_ablation/comparison.json arms std (ddof=1)",
+   "item": "7A arm C cold_pr_auc",
+   "recorded": 0.006519718133141935,
+   "recomputed": 0.006519718133141935,
+   "abs_diff": 0.0
+  },
+  {
+   "source": "temporal_ablation/comparison.json arms mean",
+   "item": "7A arm C warm_pr_auc",
+   "recorded": 0.2951056861072414,
+   "recomputed": 0.2951056861072414,
+   "abs_diff": 0.0
+  },
+  {
+   "source": "temporal_ablation/comparison.json arms std (ddof=1)",
+   "item": "7A arm C warm_pr_auc",
+   "recorded": 0.027890297979507532,
+   "recomputed": 0.027890297979507532,
+   "abs_diff": 0.0
+  },
+  {
+   "source": "temporal_ablation/comparison.json arms mean",
+   "item": "7A arm C no_edge_pr_auc",
+   "recorded": 0.7294769208726346,
+   "recomputed": 0.7294769208726346,
+   "abs_diff": 0.0
+  },
+  {
+   "source": "temporal_ablation/comparison.json arms std (ddof=1)",
+   "item": "7A arm C no_edge_pr_auc",
+   "recorded": 0.013049544240838106,
+   "recomputed": 0.013049544240838106,
+   "abs_diff": 0.0
+  },
+  {
+   "source": "temporal_ablation/comparison.json arms mean",
+   "item": "7A arm C precision",
+   "recorded": 0.5724656118394188,
+   "recomputed": 0.5724656118394188,
+   "abs_diff": 0.0
+  },
+  {
+   "source": "temporal_ablation/comparison.json arms std (ddof=1)",
+   "item": "7A arm C precision",
+   "recorded": 0.03174267142348859,
+   "recomputed": 0.03174267142348859,
+   "abs_diff": 0.0
+  },
+  {
+   "source": "temporal_ablation/comparison.json arms mean",
+   "item": "7A arm D pooled_pr_auc",
+   "recorded": 0.49271816194139834,
+   "recomputed": 0.49271816194139834,
+   "abs_diff": 0.0
+  },
+  {
+   "source": "temporal_ablation/comparison.json arms std (ddof=1)",
+   "item": "7A arm D pooled_pr_auc",
+   "recorded": 0.003518868534689211,
+   "recomputed": 0.003518868534689211,
+   "abs_diff": 0.0
+  },
+  {
+   "source": "temporal_ablation/comparison.json arms mean",
+   "item": "7A arm D pooled_roc_auc",
+   "recorded": 0.8667328100254427,
+   "recomputed": 0.8667328100254427,
+   "abs_diff": 0.0
+  },
+  {
+   "source": "temporal_ablation/comparison.json arms std (ddof=1)",
+   "item": "7A arm D pooled_roc_auc",
+   "recorded": 0.0008947879862708115,
+   "recomputed": 0.0008947879862708115,
+   "abs_diff": 0.0
+  },
+  {
+   "source": "temporal_ablation/comparison.json arms mean",
+   "item": "7A arm D cold_pr_auc",
+   "recorded": 0.35621461914196706,
+   "recomputed": 0.35621461914196706,
+   "abs_diff": 0.0
+  },
+  {
+   "source": "temporal_ablation/comparison.json arms std (ddof=1)",
+   "item": "7A arm D cold_pr_auc",
+   "recorded": 0.007100284671937471,
+   "recomputed": 0.007100284671937471,
+   "abs_diff": 0.0
+  },
+  {
+   "source": "temporal_ablation/comparison.json arms mean",
+   "item": "7A arm D warm_pr_auc",
+   "recorded": 0.32127959687468094,
+   "recomputed": 0.32127959687468094,
+   "abs_diff": 0.0
+  },
+  {
+   "source": "temporal_ablation/comparison.json arms std (ddof=1)",
+   "item": "7A arm D warm_pr_auc",
+   "recorded": 0.011083314858399635,
+   "recomputed": 0.011083314858399635,
+   "abs_diff": 0.0
+  },
+  {
+   "source": "temporal_ablation/comparison.json arms mean",
+   "item": "7A arm D no_edge_pr_auc",
+   "recorded": 0.7270511310898367,
+   "recomputed": 0.7270511310898367,
+   "abs_diff": 0.0
+  },
+  {
+   "source": "temporal_ablation/comparison.json arms std (ddof=1)",
+   "item": "7A arm D no_edge_pr_auc",
+   "recorded": 0.004852269149391977,
+   "recomputed": 0.004852269149391977,
+   "abs_diff": 0.0
+  },
+  {
+   "source": "temporal_ablation/comparison.json arms mean",
+   "item": "7A arm D precision",
+   "recorded": 0.5543091111584448,
+   "recomputed": 0.5543091111584448,
+   "abs_diff": 0.0
+  },
+  {
+   "source": "temporal_ablation/comparison.json arms std (ddof=1)",
+   "item": "7A arm D precision",
+   "recorded": 0.006269613925557213,
+   "recomputed": 0.006269613925557213,
+   "abs_diff": 0.0
+  },
+  {
+   "source": "phase8_adaptive_drift/comparison.json per_seed_window_pr_auc",
+   "item": "frozen seed 42 W1",
+   "recorded": 0.5888563877177342,
+   "recomputed": 0.5888563877177342,
+   "abs_diff": 0.0
+  },
+  {
+   "source": "phase8_adaptive_drift/comparison.json per_seed_window_pr_auc",
+   "item": "frozen seed 42 W2",
+   "recorded": 0.38409630601459094,
+   "recomputed": 0.38409630601459094,
+   "abs_diff": 0.0
+  },
+  {
+   "source": "phase8_adaptive_drift/comparison.json per_seed_window_pr_auc",
+   "item": "frozen seed 42 W3",
+   "recorded": 0.4233650229850054,
+   "recomputed": 0.4233650229850054,
+   "abs_diff": 0.0
+  },
+  {
+   "source": "phase8_adaptive_drift/comparison.json per_seed_window_pr_auc",
+   "item": "frozen seed 42 W4",
+   "recorded": 0.38344891874143644,
+   "recomputed": 0.38344891874143644,
+   "abs_diff": 0.0
+  },
+  {
+   "source": "phase8_adaptive_drift/comparison.json per_seed_window_pr_auc",
+   "item": "frozen seed 42 W5",
+   "recorded": 0.31803788305803155,
+   "recomputed": 0.31803788305803155,
+   "abs_diff": 0.0
+  },
+  {
+   "source": "phase8_adaptive_drift/comparison.json per_seed_window_pr_auc",
+   "item": "frozen seed 123 W1",
+   "recorded": 0.5761617797215479,
+   "recomputed": 0.5761617797215479,
+   "abs_diff": 0.0
+  },
+  {
+   "source": "phase8_adaptive_drift/comparison.json per_seed_window_pr_auc",
+   "item": "frozen seed 123 W2",
+   "recorded": 0.39214125385815307,
+   "recomputed": 0.39214125385815307,
+   "abs_diff": 0.0
+  },
+  {
+   "source": "phase8_adaptive_drift/comparison.json per_seed_window_pr_auc",
+   "item": "frozen seed 123 W3",
+   "recorded": 0.4126466145138535,
+   "recomputed": 0.4126466145138535,
+   "abs_diff": 0.0
+  },
+  {
+   "source": "phase8_adaptive_drift/comparison.json per_seed_window_pr_auc",
+   "item": "frozen seed 123 W4",
+   "recorded": 0.36901043818083656,
+   "recomputed": 0.36901043818083656,
+   "abs_diff": 0.0
+  },
+  {
+   "source": "phase8_adaptive_drift/comparison.json per_seed_window_pr_auc",
+   "item": "frozen seed 123 W5",
+   "recorded": 0.3222091945756006,
+   "recomputed": 0.3222091945756006,
+   "abs_diff": 0.0
+  },
+  {
+   "source": "phase8_adaptive_drift/comparison.json per_seed_window_pr_auc",
+   "item": "frozen seed 2024 W1",
+   "recorded": 0.5954587909005432,
+   "recomputed": 0.5954587909005432,
+   "abs_diff": 0.0
+  },
+  {
+   "source": "phase8_adaptive_drift/comparison.json per_seed_window_pr_auc",
+   "item": "frozen seed 2024 W2",
+   "recorded": 0.42459757306625123,
+   "recomputed": 0.42459757306625123,
+   "abs_diff": 0.0
+  },
+  {
+   "source": "phase8_adaptive_drift/comparison.json per_seed_window_pr_auc",
+   "item": "frozen seed 2024 W3",
+   "recorded": 0.42690472841205296,
+   "recomputed": 0.42690472841205296,
+   "abs_diff": 0.0
+  },
+  {
+   "source": "phase8_adaptive_drift/comparison.json per_seed_window_pr_auc",
+   "item": "frozen seed 2024 W4",
+   "recorded": 0.3820063144468701,
+   "recomputed": 0.3820063144468701,
+   "abs_diff": 0.0
+  },
+  {
+   "source": "phase8_adaptive_drift/comparison.json per_seed_window_pr_auc",
+   "item": "frozen seed 2024 W5",
+   "recorded": 0.36484347143300216,
+   "recomputed": 0.36484347143300216,
+   "abs_diff": 0.0
+  },
+  {
+   "source": "phase8_adaptive_drift/comparison.json per_seed_window_pr_auc",
+   "item": "adaptive seed 42 W1",
+   "recorded": 0.5888563877177342,
+   "recomputed": 0.5888563877177342,
+   "abs_diff": 0.0
+  },
+  {
+   "source": "phase8_adaptive_drift/comparison.json per_seed_window_pr_auc",
+   "item": "adaptive seed 42 W2",
+   "recorded": 0.42780291533262726,
+   "recomputed": 0.42780291533262726,
+   "abs_diff": 0.0
+  },
+  {
+   "source": "phase8_adaptive_drift/comparison.json per_seed_window_pr_auc",
+   "item": "adaptive seed 42 W3",
+   "recorded": 0.439237536053457,
+   "recomputed": 0.439237536053457,
+   "abs_diff": 0.0
+  },
+  {
+   "source": "phase8_adaptive_drift/comparison.json per_seed_window_pr_auc",
+   "item": "adaptive seed 42 W4",
+   "recorded": 0.40932652458675944,
+   "recomputed": 0.40932652458675944,
+   "abs_diff": 0.0
+  },
+  {
+   "source": "phase8_adaptive_drift/comparison.json per_seed_window_pr_auc",
+   "item": "adaptive seed 42 W5",
+   "recorded": 0.37792606171281995,
+   "recomputed": 0.37792606171281995,
+   "abs_diff": 0.0
+  },
+  {
+   "source": "phase8_adaptive_drift/comparison.json per_seed_window_pr_auc",
+   "item": "adaptive seed 123 W1",
+   "recorded": 0.5761617797215479,
+   "recomputed": 0.5761617797215479,
+   "abs_diff": 0.0
+  },
+  {
+   "source": "phase8_adaptive_drift/comparison.json per_seed_window_pr_auc",
+   "item": "adaptive seed 123 W2",
+   "recorded": 0.4579165801239624,
+   "recomputed": 0.4579165801239624,
+   "abs_diff": 0.0
+  },
+  {
+   "source": "phase8_adaptive_drift/comparison.json per_seed_window_pr_auc",
+   "item": "adaptive seed 123 W3",
+   "recorded": 0.46074643536167503,
+   "recomputed": 0.46074643536167503,
+   "abs_diff": 0.0
+  },
+  {
+   "source": "phase8_adaptive_drift/comparison.json per_seed_window_pr_auc",
+   "item": "adaptive seed 123 W4",
+   "recorded": 0.4505060515198502,
+   "recomputed": 0.4505060515198502,
+   "abs_diff": 0.0
+  },
+  {
+   "source": "phase8_adaptive_drift/comparison.json per_seed_window_pr_auc",
+   "item": "adaptive seed 123 W5",
+   "recorded": 0.37002730485943264,
+   "recomputed": 0.37002730485943264,
+   "abs_diff": 0.0
+  },
+  {
+   "source": "phase8_adaptive_drift/comparison.json per_seed_window_pr_auc",
+   "item": "adaptive seed 2024 W1",
+   "recorded": 0.595458790900543,
+   "recomputed": 0.595458790900543,
+   "abs_diff": 0.0
+  },
+  {
+   "source": "phase8_adaptive_drift/comparison.json per_seed_window_pr_auc",
+   "item": "adaptive seed 2024 W2",
+   "recorded": 0.47314346005429686,
+   "recomputed": 0.47314346005429686,
+   "abs_diff": 0.0
+  },
+  {
+   "source": "phase8_adaptive_drift/comparison.json per_seed_window_pr_auc",
+   "item": "adaptive seed 2024 W3",
+   "recorded": 0.4275394012993265,
+   "recomputed": 0.4275394012993265,
+   "abs_diff": 0.0
+  },
+  {
+   "source": "phase8_adaptive_drift/comparison.json per_seed_window_pr_auc",
+   "item": "adaptive seed 2024 W4",
+   "recorded": 0.4244640946029375,
+   "recomputed": 0.4244640946029375,
+   "abs_diff": 0.0
+  },
+  {
+   "source": "phase8_adaptive_drift/comparison.json per_seed_window_pr_auc",
+   "item": "adaptive seed 2024 W5",
+   "recorded": 0.3913832908600712,
+   "recomputed": 0.3913832908600712,
+   "abs_diff": 0.0
+  },
+  {
+   "source": "phase8_adaptive_drift/comparison.json per_seed_window_pr_auc",
+   "item": "replay_control seed 42 W1",
+   "recorded": 0.5888563877177342,
+   "recomputed": 0.5888563877177342,
+   "abs_diff": 0.0
+  },
+  {
+   "source": "phase8_adaptive_drift/comparison.json per_seed_window_pr_auc",
+   "item": "replay_control seed 42 W2",
+   "recorded": 0.4053146994980497,
+   "recomputed": 0.4053146994980497,
+   "abs_diff": 0.0
+  },
+  {
+   "source": "phase8_adaptive_drift/comparison.json per_seed_window_pr_auc",
+   "item": "replay_control seed 42 W3",
+   "recorded": 0.39574370606844195,
+   "recomputed": 0.39574370606844195,
+   "abs_diff": 0.0
+  },
+  {
+   "source": "phase8_adaptive_drift/comparison.json per_seed_window_pr_auc",
+   "item": "replay_control seed 42 W4",
+   "recorded": 0.34180863451072163,
+   "recomputed": 0.34180863451072163,
+   "abs_diff": 0.0
+  },
+  {
+   "source": "phase8_adaptive_drift/comparison.json per_seed_window_pr_auc",
+   "item": "replay_control seed 42 W5",
+   "recorded": 0.3242429990040726,
+   "recomputed": 0.3242429990040726,
+   "abs_diff": 0.0
+  },
+  {
+   "source": "phase8_adaptive_drift/comparison.json per_seed_window_pr_auc",
+   "item": "replay_control seed 123 W1",
+   "recorded": 0.5761617797215479,
+   "recomputed": 0.5761617797215479,
+   "abs_diff": 0.0
+  },
+  {
+   "source": "phase8_adaptive_drift/comparison.json per_seed_window_pr_auc",
+   "item": "replay_control seed 123 W2",
+   "recorded": 0.41962056563486266,
+   "recomputed": 0.41962056563486266,
+   "abs_diff": 0.0
+  },
+  {
+   "source": "phase8_adaptive_drift/comparison.json per_seed_window_pr_auc",
+   "item": "replay_control seed 123 W3",
+   "recorded": 0.40606665369244904,
+   "recomputed": 0.40606665369244904,
+   "abs_diff": 0.0
+  },
+  {
+   "source": "phase8_adaptive_drift/comparison.json per_seed_window_pr_auc",
+   "item": "replay_control seed 123 W4",
+   "recorded": 0.34442659443561935,
+   "recomputed": 0.34442659443561935,
+   "abs_diff": 0.0
+  },
+  {
+   "source": "phase8_adaptive_drift/comparison.json per_seed_window_pr_auc",
+   "item": "replay_control seed 123 W5",
+   "recorded": 0.3466773252264501,
+   "recomputed": 0.3466773252264501,
+   "abs_diff": 0.0
+  },
+  {
+   "source": "phase8_adaptive_drift/comparison.json per_seed_window_pr_auc",
+   "item": "replay_control seed 2024 W1",
+   "recorded": 0.5954590012339595,
+   "recomputed": 0.5954590012339595,
+   "abs_diff": 0.0
+  },
+  {
+   "source": "phase8_adaptive_drift/comparison.json per_seed_window_pr_auc",
+   "item": "replay_control seed 2024 W2",
+   "recorded": 0.4658716147303281,
+   "recomputed": 0.4658716147303281,
+   "abs_diff": 0.0
+  },
+  {
+   "source": "phase8_adaptive_drift/comparison.json per_seed_window_pr_auc",
+   "item": "replay_control seed 2024 W3",
+   "recorded": 0.37355798897301623,
+   "recomputed": 0.37355798897301623,
+   "abs_diff": 0.0
+  },
+  {
+   "source": "phase8_adaptive_drift/comparison.json per_seed_window_pr_auc",
+   "item": "replay_control seed 2024 W4",
+   "recorded": 0.30369005825583056,
+   "recomputed": 0.30369005825583056,
+   "abs_diff": 0.0
+  },
+  {
+   "source": "phase8_adaptive_drift/comparison.json per_seed_window_pr_auc",
+   "item": "replay_control seed 2024 W5",
+   "recorded": 0.38031155938871736,
+   "recomputed": 0.38031155938871736,
+   "abs_diff": 0.0
+  }
+ ],
+ "note": "recorded comparison files are compared against recomputed values and are never inputs to the table"
+}
