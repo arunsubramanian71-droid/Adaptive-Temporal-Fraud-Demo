@@ -2,6 +2,16 @@
  "python": "3.14.3",
  "modules": [
   {
+   "module": "test_ac12_recovery_records",
+   "status": "PASSED",
+   "tests": 5,
+   "passed": 5,
+   "failures": [],
+   "environment_metadata_differences": [],
+   "not_run_artifact_missing": [],
+   "seconds": 0.1
+  },
+  {
    "module": "test_amendment_gate",
    "status": "PASSED",
    "tests": 8,
@@ -19,7 +29,7 @@
    "failures": [],
    "environment_metadata_differences": [],
    "not_run_artifact_missing": [],
-   "seconds": 0.0
+   "seconds": 0.1
   },
   {
    "module": "test_b_decision",
@@ -39,7 +49,7 @@
    "failures": [],
    "environment_metadata_differences": [],
    "not_run_artifact_missing": [],
-   "seconds": 5.3
+   "seconds": 5.7
   },
   {
    "module": "test_f_runner_gate",
@@ -54,7 +64,7 @@
    "failures": [],
    "environment_metadata_differences": [],
    "not_run_artifact_missing": [],
-   "seconds": 0.7
+   "seconds": 0.6
   },
   {
    "module": "test_graph_features",
@@ -64,7 +74,7 @@
    "failures": [],
    "environment_metadata_differences": [],
    "not_run_artifact_missing": [],
-   "seconds": 1.5
+   "seconds": 1.1
   },
   {
    "module": "test_h4_rules",
@@ -129,7 +139,7 @@
    "failures": [],
    "environment_metadata_differences": [],
    "not_run_artifact_missing": [],
-   "seconds": 0.3
+   "seconds": 0.2
   },
   {
    "module": "test_phase10_toys",
@@ -149,7 +159,7 @@
    "failures": [],
    "environment_metadata_differences": [],
    "not_run_artifact_missing": [],
-   "seconds": 1.9
+   "seconds": 2.0
   },
   {
    "module": "test_phase11_outputs",
@@ -169,7 +179,7 @@
    "failures": [],
    "environment_metadata_differences": [],
    "not_run_artifact_missing": [],
-   "seconds": 7.4
+   "seconds": 7.3
   },
   {
    "module": "test_phase12_evidence",
@@ -179,7 +189,7 @@
    "failures": [],
    "environment_metadata_differences": [],
    "not_run_artifact_missing": [],
-   "seconds": 1.0
+   "seconds": 0.9
   },
   {
    "module": "test_phase12_outputs",
@@ -191,7 +201,7 @@
     "test_AC10_sidecars_and_deterministic_rebuild: AssertionError:   [environment metadata only; companion test passes]"
    ],
    "not_run_artifact_missing": [],
-   "seconds": 22.1
+   "seconds": 21.7
   },
   {
    "module": "test_phase8_adaptive",
@@ -206,13 +216,23 @@
    "failures": [],
    "environment_metadata_differences": [],
    "not_run_artifact_missing": [],
-   "seconds": 0.7
+   "seconds": 0.6
   },
   {
    "module": "test_phase9_segments",
    "status": "PASSED",
    "tests": 3,
    "passed": 3,
+   "failures": [],
+   "environment_metadata_differences": [],
+   "not_run_artifact_missing": [],
+   "seconds": 0.0
+  },
+  {
+   "module": "test_phase9b_records",
+   "status": "PASSED",
+   "tests": 5,
+   "passed": 5,
    "failures": [],
    "environment_metadata_differences": [],
    "not_run_artifact_missing": [],
@@ -229,6 +249,16 @@
    "seconds": 0.0
   },
   {
+   "module": "test_relation_ablation_records",
+   "status": "PASSED",
+   "tests": 3,
+   "passed": 3,
+   "failures": [],
+   "environment_metadata_differences": [],
+   "not_run_artifact_missing": [],
+   "seconds": 0.0
+  },
+  {
    "module": "test_research_serving",
    "status": "PASSED",
    "tests": 5,
@@ -236,7 +266,7 @@
    "failures": [],
    "environment_metadata_differences": [],
    "not_run_artifact_missing": [],
-   "seconds": 3.0
+   "seconds": 3.1
   },
   {
    "module": "test_runner_contract",
@@ -266,7 +296,7 @@
    "failures": [],
    "environment_metadata_differences": [],
    "not_run_artifact_missing": [],
-   "seconds": 6.1
+   "seconds": 6.2
   },
   {
    "module": "test_splits",
@@ -276,7 +306,7 @@
    "failures": [],
    "environment_metadata_differences": [],
    "not_run_artifact_missing": [],
-   "seconds": 0.6
+   "seconds": 0.7
   },
   {
    "module": "test_trigger_policy",
@@ -319,8 +349,8 @@
    "reason": "needs torch (install requirements-gnn.txt)"
   }
  ],
- "tests": 280,
- "passed": 279,
+ "tests": 293,
+ "passed": 292,
  "not_run_artifact_missing": 0,
  "environment_metadata_differences": 1,
  "skipped": [

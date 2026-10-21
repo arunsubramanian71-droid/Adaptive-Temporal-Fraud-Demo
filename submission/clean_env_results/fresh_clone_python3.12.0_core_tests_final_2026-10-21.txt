@@ -1,3 +1,4 @@
+[PASSED] test_ac12_recovery_records: 5/5
 [PASSED] test_amendment_gate: 8/8
 [PASSED] test_artifact_registry: 4/4
 [PASSED] test_b_decision: 6/6
@@ -20,9 +21,12 @@
 [PASSED] test_phase10_properties: 12/12
 [PASSED] test_phase10_toys: 45/45
 [PASSED] test_phase11_explain: 22/22
-[PASSED, 2 NOT RUN (withheld artifact missing)] test_phase11_outputs: 6/8
+[PASSED, 5 NOT RUN (withheld artifact missing)] test_phase11_outputs: 3/8
       NOT RUN test_A7_every_output_has_a_matching_sidecar_and_the_manifests_match_disk: missing experiments/xgboost/model.joblib
       NOT RUN test_A4_A6_selection_has_300_rows_10_per_day_within_val_and_is_reproduced_from_label_free_inputs: missing data/features/val_features.parquet
+      NOT RUN test_A1_A2_stored_contributions_are_additive_and_reproduce_the_stored_scores: missing experiments/phase11_explainable_evidence/xgb_explanations_val/contributions_val.csv
+      NOT RUN test_top_feature_lists_agree_with_the_contribution_matrix: missing experiments/phase11_explainable_evidence/xgb_explanations_val/contributions_val.csv
+      NOT RUN test_A8_wording_lint_on_all_phase11_text_outputs_and_sources: missing experiments/phase11_explainable_evidence/xgb_explanations_val/selection_val.csv
 [PASSED, 1 NOT RUN (withheld artifact missing)] test_phase12_environment_independence: 0/1
       NOT RUN test_rebuild_is_byte_identical_and_the_manifest_differs_only_in_environment_metadata: missing experiments/logistic_regression/predictions_val.parquet
 [PASSED] test_phase12_evidence: 16/16
@@ -33,7 +37,9 @@
 [SKIPPED] test_phase8_adaptive: needs torch
 [PASSED] test_phase9_core: 14/14
 [PASSED] test_phase9_segments: 3/3
+[PASSED] test_phase9b_records: 5/5
 [PASSED] test_preprocessing: 8/8
+[PASSED] test_relation_ablation_records: 3/3
 [PASSED, 3 NOT RUN (withheld artifact missing)] test_research_serving: 2/5
       NOT RUN test_api_scores_equal_direct_model_scores_and_the_recorded_validation_predictions: missing experiments/xgboost/model.joblib
       NOT RUN test_labels_in_the_request_are_ignored_and_each_row_is_scored_independently: missing experiments/xgboost/model.joblib
@@ -49,4 +55,4 @@
 [PASSED] test_validate: 9/9
 [SKIPPED] test_walkforward_ext: needs torch
 
-264/280 tests passed in 29 modules; NOT RUN because withheld artifacts are missing (never counted as passed): 16; environment-metadata differences (never counted as passed): 0; skipped modules (need PyTorch): ['test_f_runner_gate', 'test_neural_graph_evidence', 'test_phase8_adaptive', 'test_trigger_walkforward', 'test_walkforward_ext']
+274/293 tests passed in 32 modules; NOT RUN because withheld artifacts are missing (never counted as passed): 19; environment-metadata differences (never counted as passed): 0; skipped modules (need PyTorch): ['test_f_runner_gate', 'test_neural_graph_evidence', 'test_phase8_adaptive', 'test_trigger_walkforward', 'test_walkforward_ext']

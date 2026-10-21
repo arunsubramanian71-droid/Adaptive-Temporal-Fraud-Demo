@@ -37,6 +37,8 @@ tabular models (LR, RF, XGBoost)      B: XGBoost + 40 backward-looking graph fea
 
 Use `MANUSCRIPT.md` section 5 and figures 1-3 (`submission/figures/`):
 * **Tabular versus graph.** Tabular XGBoost is at 0.5395 PR-AUC with class weighting, 0.5948 without, and 0.5616 with subsampling. B (plus graph features) is not reliably different, and H1-direct is not established. GraphSAGE scores 0.4637, GAT 0.3320 (non-converged), Temporal GraphSAGE 0.4927.
+* **Which relations matter (pre-registered ablation, Temporal GraphSAGE).** Removing the pseudo-account relation costs 0.031 PR-AUC in every seed; device costs 0.007 (close to run-to-run noise); removing card or network proxy does not hurt.
+* **Coordinated communities.** The original benchmark's gate G4 failed (H5a not established, kept). A new, separately pre-registered benchmark (Phase 9b) passed all its gates and its recovery test: structure plus time beats every baseline on camouflaged planted groups in 3 of 3 seeds (AUPRC 0.14 to 0.27; modest).
 * **Imbalance.** Class weighting hurts XGBoost: 0.5948 unweighted against 0.5395 fully weighted.
 * **Drift and adaptation.** Window-mean PR-AUC is 0.4580 adaptive, 0.4243 frozen and 0.4179 replay control; H4 is supported under the locked rule.
 * **Memory-initialisation supplement.** With the entity memory built first, H4 stays supported.
@@ -46,7 +48,7 @@ Use `MANUSCRIPT.md` section 5 and figures 1-3 (`submission/figures/`):
 
 ## 5. Failures and limitations to state plainly
 
-Phase 9 gate G4 failed on 2 of 3 seeds, so H5 is not established. GAT never converged. NE5(a) failed at GPU float noise (exact on CPU). Module F's readiness gate failed as written because of GPU nondeterminism; a proposed, not active, Amendment 2 is in `experiments/final_heldout_protocol/`. Phase 12 AC12 is blocked, since 322 of 651 files have no recoverable pre-build hash. Phase 13's original specification was never recovered. There is no held-out evaluation. The three seeds share data and are not independent replications.
+Phase 9 gate G4 failed on 2 of 3 seeds, so H5a is not established under the original protocol; a new, separately pre-registered benchmark (Phase 9b, corrected interference gate) supports H5a-9b, a separate result that does not change the original verdict. GAT never converged. NE5(a) failed at GPU float noise (exact on CPU). Module F's readiness gate failed as written because of GPU nondeterminism; a proposed, not active, Amendment 2 is in `experiments/final_heldout_protocol/`. Phase 12 AC12 is blocked as registered; a per-file recovery found pre-build evidence for 550 of 651 files with no contradiction and none for 101. Phase 13's original specification was never recovered. There is no held-out evaluation. The three seeds share data and are not independent replications.
 
 ## 6. Live demonstration (verified commands)
 
@@ -76,5 +78,5 @@ Stop with Ctrl+C. To show the evidence that it works, run:
 * **Why not serve the GNNs?** They score whole days of graph state with entity memory, not single posted rows. Serving them would need a streaming graph store, which the brief's minimum-stack rule argues against.
 * **Why no held-out numbers?** The period is one-shot. Opening it is a separate decision, and the frozen protocol is ready.
 * **Did you tune on validation?** Yes, and it is stated everywhere. That is exactly why the held-out evaluation matters.
-* **Are the communities fraud rings?** No. They are candidates; the dataset has no ring labels, and the validity gate failed.
+* **Are the communities confirmed coordinated fraud groups?** No. They are candidates; the dataset has no ring labels, and the validity gate failed.
 * **Why did graphs not help?** A plausible reading, not a tested claim: the transaction features already encode much entity history (the C, D and V columns), so relational signal adds little beyond them on this dataset. The cold-start gain of the memory model is the one consistent relational effect measured.

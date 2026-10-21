@@ -20,7 +20,8 @@ DOCS = ["submission/MANUSCRIPT.md", "submission/README.md", "submission/DEMO_GUI
         "submission/PROFESSOR_DEFENSE_GUIDE.md", "submission/TRACEABILITY_MATRIX.md", "submission/HELDOUT_DECISION_PACKAGE.md"]
 MD_GLOBS = ["reports/*.md", "experiments/phase*/**/*.md", "experiments/comparison_B_graph_features/**/*.md", "experiments/imbalance_check_xgboost/**/*.md",
             "experiments/final_heldout_protocol/*.md", "submission/COMPLETION_MATRIX.md", "submission/FINAL_COMPLETION_RECORD.md", "experiments/phase13_serving_dashboard/SCOPE_AND_ACCEPTANCE.md", "experiments/phase13_serving_dashboard/CRITERIA_TRACE.md",
-            "experiments/neural_graph_evidence/outputs/NEURAL_EVIDENCE_REPORT.md", "experiments/final_heldout_protocol/PROTOCOL_REVIEW.md"]
+            "experiments/neural_graph_evidence/outputs/NEURAL_EVIDENCE_REPORT.md", "experiments/final_heldout_protocol/PROTOCOL_REVIEW.md",
+            "experiments/relation_ablation_temporal/*.md"]
 # structured records a number may be traced to (rounded to the token's precision); deliberately a short, named list
 STRUCT_FILES = ["experiments/phase12_validation_evidence_table/outputs/evidence_cells.csv", "experiments/phase12_validation_evidence_table/outputs/evidence_runs.csv",
                 "experiments/comparison_B_graph_features/outputs/decision.json", "experiments/comparison_B_graph_features/outputs/table_with_B.csv",
@@ -29,7 +30,9 @@ STRUCT_FILES = ["experiments/phase12_validation_evidence_table/outputs/evidence_
                 "experiments/temporal_ablation/comparison.json", "experiments/temporal_graphsage/comparison.json", "experiments/phase11_explainable_evidence/xgb_explanations_val/summary_val.json",
                 "experiments/phase9_coordinated_fraud/eval_benchmark_G1_G2_G4.json", "submission/test_results.json", "experiments/neural_graph_evidence/outputs/summary.json",
                 "experiments/phase8_state_continuity_supplement/outputs/decision_compare.json", "experiments/neural_graph_evidence/diagnostics/NE5_diagnosis.json",
-                "experiments/phase8_state_continuity_supplement/outputs/readiness/readiness_F.json", "experiments/final_heldout_protocol/readiness_val_amendment/readiness_report.json"]
+                "experiments/phase8_state_continuity_supplement/outputs/readiness/readiness_F.json", "experiments/final_heldout_protocol/readiness_val_amendment/readiness_report.json",
+                "experiments/phase9b_recovery_benchmark/outputs/results.json", "experiments/phase12_validation_evidence_table/AC12_GIT_SNAPSHOT_VERIFICATION.json",
+                "experiments/relation_ablation_temporal/results.json", "experiments/phase8_triggered_refresh/outputs_performance/decision.json"]
 NUM = re.compile(r"(?<![\w.])-?\+?\d{1,3}(?:,\d{3})+(?:\.\d+)?%?|(?<![\w.])[-+]?\d+\.\d+(?:e[-+]?\d+)?%?|(?<![\w.])\d{4,}(?![\w.])", re.I)
 
 
