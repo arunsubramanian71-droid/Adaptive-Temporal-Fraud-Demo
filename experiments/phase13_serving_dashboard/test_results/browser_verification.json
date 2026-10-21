@@ -1,0 +1,16 @@
+{
+ "purpose": "P13-7: the dashboard page was opened and exercised in the in-app browser against a server started with the documented command (scripts/run_dashboard.py --demo --port 8765)",
+ "date_local": "2026-10-21",
+ "supersedes": "the 2026-10-21 morning version of this file, which recorded DOM inspection only because screenshots timed out",
+ "method": "real screenshots (dark colour scheme in a narrow portrait pane; light colour scheme at 1000x700) plus DOM queries; clicks were issued at screen coordinates, as a user would",
+ "visually_verified": {
+  "banner_and_tabs_render": true,
+  "evidence_tab": "tables render; the Basis column is shortened with the full text in tooltips; the note about the historical B row is visible; F rows labelled with their distinct basis",
+  "score_tab": "empty input shows 'There are no rows to score ...' without calling the server; Load synthetic sample then Score shows 'SYNTHETIC DEMONSTRATION BUNDLE. 30 rows scored, 2 alerts at threshold 0.6635 ...' and a results table",
+  "communities_tab": "cards render with tags (left-censored, alerted days), peak score, cards/infrastructure entities and a sparkline; the candidate statements are shown at the top; 24 cards",
+  "status_tab_light_scheme": "held-out evaluation performed: false; authorization present: false; Phase 12 and H5 statements; renders in the light scheme"
+ },
+ "not_checked": "phone-width layout below the pane's narrow portrait width, other browsers, keyboard-only navigation, print layout",
+ "dom_observed": {"evidence_table_rows_phase12": 30, "community_cards_rendered": 24, "external_resource_references_in_dom": 0},
+ "shutdown": "only processes whose command line contained run_dashboard.py were stopped; the port was confirmed closed afterwards"
+}

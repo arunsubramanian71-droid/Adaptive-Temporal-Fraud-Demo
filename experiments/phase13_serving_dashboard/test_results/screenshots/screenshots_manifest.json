@@ -1,0 +1,25 @@
+{
+ "note": "screenshots taken in the in-app browser on 2026-10-21 against scripts/run_dashboard.py --demo; contents are recorded aggregates and synthetic sample rows only",
+ "files": {
+  "01_evidence_tab_dark_narrow_before_basis_shortening.jpg": {
+   "sha256": "b1654f736057fe12e13e1dfcadf13d9133100eecb704d09cd6e466b9f16ebcd1",
+   "bytes": 73580
+  },
+  "02_evidence_tables_dark.jpg": {
+   "sha256": "3be907a0ea866454d0982351979b1623da9e9868eda2cc1f776a13d21ea1b2f5",
+   "bytes": 39566
+  },
+  "03_score_tab_synthetic_results_dark.jpg": {
+   "sha256": "17d815835c6efb78b2c84e9fc2a671374f08990ca156cbabfcd7f30f7bff713b",
+   "bytes": 45243
+  },
+  "04_candidate_communities_dark.jpg": {
+   "sha256": "af62f26653d76e8b12c385cb139bd902658346831aabe52ed117cddbd1474317",
+   "bytes": 43427
+  },
+  "05_status_tab_light.jpg": {
+   "sha256": "350478276151c8484ec6f256d9ad0fe32aa3f205a4bd022daf60a7fe3e122dd5",
+   "bytes": 24058
+  }
+ }
+}

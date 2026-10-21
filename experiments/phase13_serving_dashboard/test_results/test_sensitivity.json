@@ -1,0 +1,108 @@
+{
+ "purpose": "mutation sensitivity of tests/test_serving.py",
+ "run_local": "2026-10-21T10:09:31+05:30",
+ "unmutated_failures": [],
+ "n_mutants": 14,
+ "n_detected": 12,
+ "n_equivalent": 2,
+ "mutants": [
+  {
+   "mutant": "M01 request size limit removed",
+   "status": "detected",
+   "failing_tests": [
+    "test_p13_2_status_codes_and_json_errors"
+   ]
+  },
+  {
+   "mutant": "M02 history and new swapped in the score call",
+   "status": "detected",
+   "failing_tests": [
+    "test_p13_2_status_codes_and_json_errors",
+    "test_p13_3_scores_equal_the_library_and_are_causal_and_label_free"
+   ]
+  },
+  {
+   "mutant": "M03 non-local bind allowed",
+   "status": "detected",
+   "failing_tests": [
+    "test_p13_1_binds_locally_only_unless_explicitly_allowed"
+   ]
+  },
+  {
+   "mutant": "M04 held-out names no longer rejected by the router",
+   "status": "equivalent",
+   "reason": "defence in depth: no route serves files, so unknown paths already return 404; the guard has no observable effect with the current route table",
+   "failing_tests": []
+  },
+  {
+   "mutant": "M05 path traversal guard removed",
+   "status": "equivalent",
+   "reason": "defence in depth: same reason as M04",
+   "failing_tests": []
+  },
+  {
+   "mutant": "M06 explanations returned for every row",
+   "status": "detected",
+   "failing_tests": [
+    "test_p13_3_scores_equal_the_library_and_are_causal_and_label_free"
+   ]
+  },
+  {
+   "mutant": "M07 stack trace returned to the client",
+   "status": "detected",
+   "failing_tests": [
+    "test_p13_2_internal_errors_are_generic"
+   ]
+  },
+  {
+   "mutant": "M08 community output gains a member list",
+   "status": "detected",
+   "failing_tests": [
+    "test_p13_5_communities_are_aggregate_only_candidates_with_disclaimers"
+   ]
+  },
+  {
+   "mutant": "M09 candidate disclaimers dropped",
+   "status": "detected",
+   "failing_tests": [
+    "test_p13_5_communities_are_aggregate_only_candidates_with_disclaimers"
+   ]
+  },
+  {
+   "mutant": "M10 evidence values rounded",
+   "status": "detected",
+   "failing_tests": [
+    "test_p13_4_evidence_values_equal_the_recorded_files"
+   ]
+  },
+  {
+   "mutant": "M11 sample rows served without a demo bundle",
+   "status": "detected",
+   "failing_tests": [
+    "test_p13_3_model_endpoint_and_missing_bundle"
+   ]
+  },
+  {
+   "mutant": "M12 content security header removed",
+   "status": "detected",
+   "failing_tests": [
+    "test_p13_2_status_codes_and_json_errors"
+   ]
+  },
+  {
+   "mutant": "M13 scoring reads a file path named by the client",
+   "status": "detected",
+   "failing_tests": [
+    "test_p13_3_scores_equal_the_library_and_are_causal_and_label_free"
+   ]
+  },
+  {
+   "mutant": "M14 non-alert rows get a null explanation entry that crashes",
+   "status": "detected",
+   "failing_tests": [
+    "test_p13_3_scores_equal_the_library_and_are_causal_and_label_free"
+   ]
+  }
+ ],
+ "scope_statement": "In-memory mutants only; no file modified; synthetic bundle only. Detection shows these tests fail on these defects, not that no other defect exists."
+}

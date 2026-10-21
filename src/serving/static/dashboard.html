@@ -1,0 +1,169 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Fraud study dashboard</title>
+<style>
+:root{--bg:#f6f7f9;--panel:#fff;--ink:#1c2430;--mute:#5b6675;--line:#d9dee5;--accent:#1f5fbf;--warn:#8a4b00;--warnbg:#fff4e0;--bad:#a12622;--good:#1d6b3a}
+@media (prefers-color-scheme:dark){:root{--bg:#12161c;--panel:#1b2129;--ink:#e6eaf0;--mute:#9aa6b5;--line:#2c3541;--accent:#6aa4ff;--warn:#f0c27a;--warnbg:#2a2214;--bad:#ff8a84;--good:#7fd69c}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.5 system-ui,Segoe UI,Roboto,sans-serif}
+header{padding:14px 16px 0;max-width:1100px;margin:0 auto}
+h1{font-size:20px;margin:0 0 8px}
+.banner{background:var(--warnbg);color:var(--warn);border:1px solid var(--line);border-radius:8px;padding:10px 12px;font-size:14px}
+nav{display:flex;gap:6px;flex-wrap:wrap;margin:12px 0 0}
+nav button{background:var(--panel);color:var(--ink);border:1px solid var(--line);border-radius:8px;padding:7px 12px;cursor:pointer;font:inherit}
+nav button[aria-selected=true]{border-color:var(--accent);color:var(--accent);font-weight:600}
+main{max-width:1100px;margin:0 auto;padding:12px 16px 40px}
+section{display:none;background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:14px}
+section.on{display:block}
+table{border-collapse:collapse;width:100%;font-size:13.5px}
+th,td{border-bottom:1px solid var(--line);padding:6px 8px;text-align:left;vertical-align:top}
+th{color:var(--mute);font-weight:600}
+td.n{text-align:right;font-variant-numeric:tabular-nums}
+.tablewrap{overflow-x:auto}
+textarea{width:100%;min-height:150px;font:12.5px/1.4 ui-monospace,Consolas,monospace;background:var(--bg);color:var(--ink);border:1px solid var(--line);border-radius:8px;padding:8px}
+button.act{background:var(--accent);color:#fff;border:0;border-radius:8px;padding:8px 14px;cursor:pointer;font:inherit}
+button.sec{background:var(--panel);color:var(--ink);border:1px solid var(--line);border-radius:8px;padding:8px 14px;cursor:pointer;font:inherit}
+.row{display:flex;gap:8px;flex-wrap:wrap;margin:8px 0}
+.muted{color:var(--mute)}
+.alert{color:var(--bad);font-weight:600}
+.card{border:1px solid var(--line);border-radius:8px;padding:10px;margin:8px 0}
+.card h3{margin:0 0 4px;font-size:15px}
+.tag{display:inline-block;border:1px solid var(--line);border-radius:999px;padding:0 8px;font-size:12px;color:var(--mute);margin-right:4px}
+.kv{display:grid;grid-template-columns:max-content 1fr;gap:2px 12px;font-size:13.5px}
+svg{display:block;margin-top:6px}
+</style>
+</head>
+<body>
+<header>
+  <h1>Fraud study dashboard</h1>
+  <div class="banner" id="banner" role="note">Loading the standing statement...</div>
+  <nav role="tablist" id="tabs"></nav>
+</header>
+<main>
+  <section id="tab-evidence"><div id="evidence">Loading...</div></section>
+  <section id="tab-score">
+    <p class="muted">Score rows with the bundle loaded on the server. History (earlier rows) is optional. Labels in posted rows are ignored. A score is a model output, not evidence of fraud.</p>
+    <div class="row"><button class="sec" id="loadSample">Load synthetic sample</button><button class="act" id="doScore">Score</button><span class="muted" id="scoreInfo"></span></div>
+    <textarea id="payload" spellcheck="false" aria-label="JSON request body">{"history": [], "new": []}</textarea>
+    <div id="scoreOut"></div>
+  </section>
+  <section id="tab-communities"><div id="communities">Loading...</div></section>
+  <section id="tab-status"><div id="status">Loading...</div></section>
+</main>
+<script>
+"use strict";
+const $ = (id) => document.getElementById(id);
+function el(tag, props, children) {
+  const e = document.createElement(tag);
+  if (props) for (const k of Object.keys(props)) { if (k === "class") e.className = props[k]; else if (k === "text") e.textContent = props[k]; else e.setAttribute(k, props[k]); }
+  (children || []).forEach((c) => e.appendChild(typeof c === "string" ? document.createTextNode(c) : c));
+  return e;
+}
+const fmt = (x, d = 4) => (x === null || x === undefined ? "n/a" : (typeof x === "number" ? x.toFixed(d) : String(x)));
+async function getJSON(url) { const r = await fetch(url); const j = await r.json(); if (!r.ok) throw new Error(j.error || r.statusText); return j; }
+function clear(n) { while (n.firstChild) n.removeChild(n.firstChild); }
+function shortBasis(b) {
+  if (b.indexOf("pooled over") === 0) return "pooled VAL";
+  if (b.indexOf("mean of the five") === 0) return "F basis: mean of 5 windows";
+  if (b.indexOf("five stored windows") === 0) return "F basis: 5 windows concatenated";
+  return b;
+}
+function table(headers, rows, numeric, fullTitles) {
+  const t = el("table"); const thead = el("thead"); const trh = el("tr");
+  headers.forEach((h) => trh.appendChild(el("th", { text: h }))); thead.appendChild(trh); t.appendChild(thead);
+  const tb = el("tbody");
+  rows.forEach((r, ri) => { const tr = el("tr"); r.forEach((v, i) => { const td = el("td", { text: v, class: numeric && numeric.includes(i) ? "n" : "" }); if (fullTitles && fullTitles[ri] && fullTitles[ri][i]) td.setAttribute("title", fullTitles[ri][i]); tr.appendChild(td); }); tb.appendChild(tr); });
+  t.appendChild(tb); const w = el("div", { class: "tablewrap" }); w.appendChild(t); return w;
+}
+const TABS = [["evidence", "Evidence (validation)"], ["score", "Score transactions"], ["communities", "Candidate communities"], ["status", "Status and limits"]];
+function show(name) {
+  TABS.forEach(([k]) => { $("tab-" + k).classList.toggle("on", k === name); const b = $("btn-" + k); b.setAttribute("aria-selected", k === name ? "true" : "false"); });
+}
+TABS.forEach(([k, label]) => { const b = el("button", { id: "btn-" + k, role: "tab", text: label, "aria-selected": "false" }); b.addEventListener("click", () => show(k)); $("tabs").appendChild(b); });
+
+async function loadEvidence() {
+  const box = $("evidence"); clear(box);
+  try {
+    const e = await getJSON("/api/evidence");
+    $("banner").textContent = e.banner + " " + e.held_out + " Communities shown here are candidates only.";
+    box.appendChild(el("p", { class: "muted", text: e.f_banner }));
+    box.appendChild(el("h2", { text: "Consolidated validation table (recorded, Phase 12)" }));
+    box.appendChild(table(["Cell", "Model / arm", "Basis", "Runs", "PR-AUC", "SD", "ROC-AUC", "PR-AUC cold-start"],
+      e.phase12_cells.map((c) => [c.cell, c.model, shortBasis(c.basis), String(c.runs), fmt(c.pr_auc), fmt(c.pr_auc_sd), fmt(c.roc_auc), fmt(c.pr_auc_cold)]), [3, 4, 5, 6, 7],
+      e.phase12_cells.map((c) => [null, null, c.basis])));
+    box.appendChild(el("p", { class: "muted", text: e.note_phase12_B_row }));
+    box.appendChild(el("h2", { text: "Comparison B (tabular + 40 graph features) and the imbalance study" }));
+    box.appendChild(el("p", { class: "muted", text: e.note_B }));
+    box.appendChild(table(["Cell", "Model / arm", "Runs", "PR-AUC", "SD", "ROC-AUC", "PR-AUC cold-start"],
+      e.comparison_b_rows.map((c) => [c.cell, c.model, String(c.runs), fmt(c.pr_auc), fmt(c.pr_auc_sd), fmt(c.roc_auc), fmt(c.pr_auc_cold)]), [2, 3, 4, 5, 6]));
+    const v = e.comparison_b_verdicts, im = e.imbalance;
+    const kv = el("div", { class: "kv" });
+    [["H1-direct (B versus A)", v.H1_direct_B_vs_A], ["H2 (learned E versus handcrafted)", v.H2_E_vs_B_sub], ["H2 secondary (C)", v.H2_secondary_C_vs_B_sub],
+     ["Class weighting, XGBoost", im.xgboost_weighting_verdict], ["Unweighted follow-up: H1-direct", im.unweighted_followup.H1_direct], ["Unweighted follow-up: H2", im.unweighted_followup.H2],
+     ["Tabular above every neural seed (unweighted)", String(im.unweighted_followup.tabular_above_every_neural_seed)]].forEach(([k, val]) => { kv.appendChild(el("div", { class: "muted", text: k })); kv.appendChild(el("div", { text: val })); });
+    box.appendChild(kv);
+  } catch (err) { box.appendChild(el("p", { class: "alert", text: "Could not load the evidence: " + err.message })); }
+}
+
+async function loadSample() {
+  $("doScore").disabled = true;
+  try { const s = await getJSON("/api/sample"); $("payload").value = JSON.stringify({ history: s.history, new: s.new }, null, 1); $("scoreInfo").textContent = "Loaded " + s.history.length + " history rows and " + s.new.length + " new rows (synthetic)."; }
+  catch (err) { $("scoreInfo").textContent = err.message; }
+  $("doScore").disabled = false;
+}
+async function doScore() {
+  const out = $("scoreOut"); clear(out); let body;
+  try { body = JSON.parse($("payload").value); } catch (err) { out.appendChild(el("p", { class: "alert", text: "The text is not valid JSON: " + err.message })); return; }
+  if (!body || !Array.isArray(body.new) || body.new.length === 0) { out.appendChild(el("p", { class: "alert", text: "There are no rows to score: click 'Load synthetic sample' (demo server) or paste rows under \"new\"." })); return; }
+  try {
+    const r = await fetch("/api/score", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(body) });
+    const j = await r.json(); if (!r.ok) throw new Error(j.error || r.statusText);
+    out.appendChild(el("p", { text: (j.synthetic_demo ? "SYNTHETIC DEMONSTRATION BUNDLE. " : "") + j.n + " rows scored, " + j.n_alerts + " alerts at threshold " + fmt(j.threshold) + ". " + j.statement }));
+    out.appendChild(table(["TransactionID", "Score", "Alert", "Largest model contributions (alerts only)"],
+      j.results.map((x) => [String(x.TransactionID), fmt(x.score), x.alert ? "ALERT" : "", (x.top_features || []).map((t) => t.feature + " (" + fmt(t.contribution, 2) + ")").join(", ")]), [1]));
+  } catch (err) { out.appendChild(el("p", { class: "alert", text: "Scoring failed: " + err.message })); }
+}
+
+function sparkline(points, w, h) {
+  const ns = "http://www.w3.org/2000/svg"; const svg = document.createElementNS(ns, "svg");
+  svg.setAttribute("width", String(w)); svg.setAttribute("height", String(h)); svg.setAttribute("role", "img"); svg.setAttribute("aria-label", "score over observed days");
+  if (points.length < 2) return svg;
+  const xs = points.map((p) => p[0]), ys = points.map((p) => p[1]); const x0 = Math.min(...xs), x1 = Math.max(...xs), y0 = Math.min(...ys, 0), y1 = Math.max(...ys, 1);
+  const sx = (x) => 4 + ((x - x0) / Math.max(1, x1 - x0)) * (w - 8), sy = (y) => h - 4 - ((y - y0) / Math.max(1e-9, y1 - y0)) * (h - 8);
+  const line = document.createElementNS(ns, "polyline"); line.setAttribute("fill", "none"); line.setAttribute("stroke", "currentColor"); line.setAttribute("stroke-width", "1.5");
+  line.setAttribute("points", points.map((p) => sx(p[0]).toFixed(1) + "," + sy(p[1]).toFixed(1)).join(" ")); svg.appendChild(line); return svg;
+}
+async function loadCommunities() {
+  const box = $("communities"); clear(box);
+  try {
+    const c = await getJSON("/api/communities");
+    box.appendChild(el("p", { text: c.standing_statement + ". " + c.not_established }));
+    box.appendChild(el("p", { class: "muted", text: c.scope }));
+    c.cards.forEach((k) => {
+      const card = el("div", { class: "card" });
+      card.appendChild(el("h3", { text: "Track " + k.track + " - days " + k.first_observed_day + " to " + k.last_observed_day + " (" + k.n_observed_days + " observed)" }));
+      const tags = el("div"); (k.groups || []).forEach((g) => tags.appendChild(el("span", { class: "tag", text: g })));
+      if (k.left_censored) tags.appendChild(el("span", { class: "tag", text: "left-censored" })); if (k.right_censored) tags.appendChild(el("span", { class: "tag", text: "right-censored" }));
+      tags.appendChild(el("span", { class: "tag", text: k.n_alerted_days + " alerted days" })); card.appendChild(tags);
+      const p = k.peak || {}; const kv = el("div", { class: "kv" });
+      [["peak score", fmt(p.score_st)], ["cards / infrastructure entities", p.n_cards + " / " + p.n_infra], ["hub share", fmt(p.hub_share, 3)]].forEach(([a, b]) => { kv.appendChild(el("div", { class: "muted", text: a })); kv.appendChild(el("div", { text: b })); });
+      card.appendChild(kv); card.appendChild(sparkline((k.timeline || []).map((t) => [t.day, t.score_st]), 260, 46)); box.appendChild(card);
+    });
+  } catch (err) { box.appendChild(el("p", { class: "alert", text: "Could not load the communities: " + err.message })); }
+}
+async function loadStatus() {
+  const box = $("status"); clear(box);
+  try {
+    const s = await getJSON("/api/status"); const kv = el("div", { class: "kv" });
+    Object.keys(s).forEach((k) => { kv.appendChild(el("div", { class: "muted", text: k.replace(/_/g, " ") })); kv.appendChild(el("div", { text: String(s[k]) })); });
+    box.appendChild(kv);
+  } catch (err) { box.appendChild(el("p", { class: "alert", text: "Could not load the status: " + err.message })); }
+}
+$("loadSample").addEventListener("click", loadSample); $("doScore").addEventListener("click", doScore);
+show("evidence"); loadEvidence(); loadCommunities(); loadStatus();
+</script>
+</body>
+</html>

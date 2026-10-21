@@ -1,0 +1,39 @@
+{
+ "created_local": "2026-10-21T10:09:32+05:30",
+ "purpose": "integrity record of the Phase 13 (reconstructed scope) work",
+ "scope_record": {
+  "path": "experiments/phase13_serving_dashboard/SCOPE_AND_ACCEPTANCE.md",
+  "sha256": "79863dbb3f8ac1243ccd183ffc9b8626726097ad22d926879178f205e9b4b439",
+  "sidecar_matches": true,
+  "note": "written and hashed before any Phase 13 code; the original Phase 13 specification was not recovered"
+ },
+ "files_sha256": {
+  "src/serving/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "src/serving/app.py": "25395d196270d1998f3b256214b1ac386da2f693dd0583b58d3d56249b8f1ae2",
+  "src/serving/demo.py": "fe41c898b54ae55406287a0c179c11194dd814f6cf427f38e9889eefad591907",
+  "src/serving/static/dashboard.html": "a25711b59c282e6f59cc09a4f4f810a8952ac532797dd52fcc3334292f216f5b",
+  "src/demo/_compat.py": "57a7eb1a5e721f5f5e6998c0f853c3d2c97c80cab117c81a1e528359fed928fa",
+  "scripts/run_dashboard.py": "a87310d7915c01c66ce0933afabd00aa4088e11eaa7800e3c5a93cee7b7b158e",
+  "scripts/check_serving_test_sensitivity.py": "1464e95ffd7e01cb2e936ec25d98740951e23b84b8bbaa3cdede98d940bb04c4",
+  "scripts/check_setup.py": "84bae728815266096ae31ee8813cfbd632ddadac622236b9c3bbf844dc62592b",
+  "scripts/run_core_tests.py": "193a85991bc92233b72c3b2639d3a78dc2671f58b36b879195f5222abb2486d7",
+  "tests/test_serving.py": "2db8a5b05f2ce9446547740735f205d39222ef04578f938758b0b0ad31df3029",
+  "experiments/phase13_serving_dashboard/SCOPE_AND_ACCEPTANCE.md": "79863dbb3f8ac1243ccd183ffc9b8626726097ad22d926879178f205e9b4b439",
+  "experiments/phase13_serving_dashboard/test_results/test_sensitivity.json": "b3e0487bc886218fde7e2092cf45b321fa55778acc09dfd80680239bf0930ec5",
+  "experiments/phase13_serving_dashboard/test_results/browser_verification.json": "ae52c36b433c396ea36e58f6305c95166a1a8572edfdcda2486935acb9ab5c3e",
+  "scripts/verify_dashboard_e2e.py": "6cfcd44753e1019307addea5a292dbc2b36db079e4dc55fa4a4fafc8a2389273",
+  "experiments/phase13_serving_dashboard/CRITERIA_TRACE.md": "8ab33ac7bee18db14d26df4faf914ce82dc78062f910c32629ca4c85dcc091fb",
+  "experiments/phase13_serving_dashboard/test_results/e2e_verification.json": "6bc3eb76023b6ca19eaacd262e5a47da7ea909b96e7efe65e06463d4f7838043",
+  "experiments/phase13_serving_dashboard/test_results/screenshots/screenshots_manifest.json": "5e4114eb4bab5035ce993711147fb354248619886f986710ab65b76bed7495e1",
+  "tests/test_phase12_environment_independence.py": "60850eac632f5666c38f688f762b1638eb8575aaef8707e932d21530fbe8b3ff",
+  "submission/test_results.json": "4084c787c52e4b9dd345457eee1612ccd514930ea80df68ba79fc47d10615b83",
+  "requirements.txt": "6eeacdb2c2f8ec991526ce3eaa7f4a9015b1ca458360f7fa3543f36a216cd61c"
+ },
+ "tests": {
+  "module": "tests/test_serving.py",
+  "result_record": "submission/test_results.json"
+ },
+ "sensitivity": 12,
+ "dependencies_added": [],
+ "boundaries": "no Git; no held-out file read; no research model trained or scored (the demo bundle is trained on the synthetic fixture); no Phase 1-12 artifact modified"
+}
