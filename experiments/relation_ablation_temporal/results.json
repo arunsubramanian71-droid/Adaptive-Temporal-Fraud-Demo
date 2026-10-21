@@ -1,0 +1,144 @@
+{
+ "created_local": "2026-10-22T02:13:50+05:30",
+ "preregistration_sha256": "39516389405265c662cafbe7c2672e794580323b67c5e0af2cd67924b49dcae3",
+ "full_model_rerun_seed42": {
+  "recorded": 0.4937565686446755,
+  "rerun": 0.499536193953455,
+  "abs_difference": 0.005779625308779512
+ },
+ "relations": {
+  "charged_to": {
+   "pooled_pr_auc_full": [
+    0.4937565686446755,
+    0.4887969416286957,
+    0.49560097555082383
+   ],
+   "pooled_pr_auc_without": [
+    0.4555574846952942,
+    0.45996919671231074,
+    0.4700156761703828
+   ],
+   "differences_full_minus_without": [
+    0.03819908394938126,
+    0.028827744916384956,
+    0.025585299380441018
+   ],
+   "mean_difference": 0.030870709415402414,
+   "seeds_where_full_is_higher": 3,
+   "larger_sd": 0.007409838652684196,
+   "verdict": "charged_to contributes",
+   "segments_without_mean": {
+    "pooled": 0.4618474525259959,
+    "has_edge_cold": 0.3635902709432626,
+    "has_edge_warm": 0.22897749388856878,
+    "no_pseudo_account_edge": 0.734296125238787
+   },
+   "segments_full_mean": {
+    "pooled": 0.49271816194139834,
+    "has_edge_cold": 0.35621461914196706,
+    "has_edge_warm": 0.32127959687468094,
+    "no_pseudo_account_edge": 0.7270511310898367
+   }
+  },
+  "used_card": {
+   "pooled_pr_auc_full": [
+    0.4937565686446755,
+    0.4887969416286957,
+    0.49560097555082383
+   ],
+   "pooled_pr_auc_without": [
+    0.4976457499993361,
+    0.4988681899788277,
+    0.4930443428907415
+   ],
+   "differences_full_minus_without": [
+    -0.003889181354660598,
+    -0.010071248350132012,
+    0.0025566326600823253
+   ],
+   "mean_difference": -0.003801265681570095,
+   "seeds_where_full_is_higher": 1,
+   "larger_sd": 0.003518868534689211,
+   "verdict": "removing used_card does not hurt",
+   "segments_without_mean": {
+    "pooled": 0.49651942762296847,
+    "has_edge_cold": 0.34807945703794224,
+    "has_edge_warm": 0.35575857530208105,
+    "no_pseudo_account_edge": 0.7139864584882432
+   },
+   "segments_full_mean": {
+    "pooled": 0.49271816194139834,
+    "has_edge_cold": 0.35621461914196706,
+    "has_edge_warm": 0.32127959687468094,
+    "no_pseudo_account_edge": 0.7270511310898367
+   }
+  },
+  "via_network": {
+   "pooled_pr_auc_full": [
+    0.4937565686446755,
+    0.4887969416286957,
+    0.49560097555082383
+   ],
+   "pooled_pr_auc_without": [
+    0.4952354294881282,
+    0.49944079075214637,
+    0.4994545189664163
+   ],
+   "differences_full_minus_without": [
+    -0.0014788608434527228,
+    -0.010643849123450677,
+    -0.003853543415592464
+   ],
+   "mean_difference": -0.005325417794165288,
+   "seeds_where_full_is_higher": 0,
+   "larger_sd": 0.003518868534689211,
+   "verdict": "removing via_network does not hurt",
+   "segments_without_mean": {
+    "pooled": 0.4980435797355636,
+    "has_edge_cold": 0.35207194983354567,
+    "has_edge_warm": 0.3337181849398851,
+    "no_pseudo_account_edge": 0.7341918802579269
+   },
+   "segments_full_mean": {
+    "pooled": 0.49271816194139834,
+    "has_edge_cold": 0.35621461914196706,
+    "has_edge_warm": 0.32127959687468094,
+    "no_pseudo_account_edge": 0.7270511310898367
+   }
+  },
+  "from_device": {
+   "pooled_pr_auc_full": [
+    0.4937565686446755,
+    0.4887969416286957,
+    0.49560097555082383
+   ],
+   "pooled_pr_auc_without": [
+    0.4864481855772736,
+    0.4852441991372152,
+    0.4845951112660558
+   ],
+   "differences_full_minus_without": [
+    0.007308383067401891,
+    0.003552742491480465,
+    0.011005864284768019
+   ],
+   "mean_difference": 0.007288996614550125,
+   "seeds_where_full_is_higher": 3,
+   "larger_sd": 0.003518868534689211,
+   "verdict": "from_device contributes",
+   "segments_without_mean": {
+    "pooled": 0.48542916532684827,
+    "has_edge_cold": 0.35045484367562246,
+    "has_edge_warm": 0.3065203924738083,
+    "no_pseudo_account_edge": 0.7241159584801279
+   },
+   "segments_full_mean": {
+    "pooled": 0.49271816194139834,
+    "has_edge_cold": 0.35621461914196706,
+    "has_edge_warm": 0.32127959687468094,
+    "no_pseudo_account_edge": 0.7270511310898367
+   }
+  }
+ },
+ "test_data_read": false
+}

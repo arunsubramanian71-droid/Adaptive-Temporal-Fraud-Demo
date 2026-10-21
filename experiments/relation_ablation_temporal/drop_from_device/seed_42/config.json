@@ -1,0 +1,13 @@
+{
+ "seed": 42,
+ "hidden": 64,
+ "dropout": 0.3,
+ "lr": 0.001,
+ "weight_decay": 1e-05,
+ "max_epochs": 150,
+ "patience": 20,
+ "tbptt_days": 7,
+ "grad_clip": 1.0,
+ "scale_pos_weight": 27.36485293118674,
+ "parameter_count": 197889
+}
