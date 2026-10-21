@@ -56,6 +56,7 @@ Dated 2026-10-21. Status words: **PASS** verified by evidence; **FAIL** a verifi
 | `scripts/run_tests.py` | exit 0, "ALL TEST MODULES PASSED" (before the fix it reported failures because two new modules returned an exit code instead of a boolean; `tests/test_runner_contract.py` now guards this and injects a failure to prove detection) |
 | Clean Python 3.12.0 (requirements.txt only) | **257 of 257** pass; `pip check` clean |
 | Clean Python 3.14.3 (requirements.txt only) | **256 of 257** pass + **1 environment-metadata difference** (Phase 12 AC10 manifest records the interpreter version; the environment-independent companion test passes); `pip check` clean; **supported interpreter: 3.12** |
+| Fresh GitHub clone, Python 3.12.0, requirements.txt only | 246 of 259 pass; 13 fail only because `.gitignore` withholds raw data, model files, feature tables and row-level predictions (missing-file errors, no hash or result failures); protocol hash verified in the clone |
 | Skipped (needs PyTorch; **a skip is not a pass**) | `test_f_runner_gate`, `test_neural_graph_evidence`, `test_phase8_adaptive`, `test_walkforward_ext` in a core-only environment; they pass in the project environment |
 
 ## 6. Phase 13 (reconstructed scope; unconfirmed by you)

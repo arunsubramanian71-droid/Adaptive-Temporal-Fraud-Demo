@@ -1,5 +1,5 @@
 {
- "created_local": "2026-10-21T15:30:15+05:30",
+ "created_local": "2026-10-21T15:35:26+05:30",
  "purpose": "integrity record of the completion work (comparison B, imbalance check, graph evidence, held-out protocol and evaluator, software demonstration, submission package)",
  "baseline": {
   "file": "experiments/phase12_validation_evidence_table/PRECHANGE_MANIFEST_closure_update.tsv",
@@ -49,8 +49,9 @@
   }
  },
  "new_files": {
-  "count": 516,
+  "count": 518,
   "by_area": {
+   ".gitattributes": 1,
    "experiments/comparison_B_graph_features": 50,
    "experiments/final_heldout_protocol": 31,
    "experiments/imbalance_check_xgboost": 37,
@@ -70,10 +71,11 @@
    "src/heldout": 5,
    "src/inference": 2,
    "src/serving": 4,
-   "submission": 22,
+   "submission": 23,
    "tests": 16
   },
   "sha256": {
+   ".gitattributes": "2a121b0985a5da04a990635b8d000b0dc119a6d5ae2d4d2b559727e0b224b398",
    "experiments/comparison_B_graph_features/GRAPH_EVIDENCE_PREREG.md": "58965ecf70663f440ac381c6a38fae8fbf8f8ae5dab01e7c87945d06d11d9704",
    "experiments/comparison_B_graph_features/GRAPH_EVIDENCE_PREREG.sha256": "fe5d87aabe6fabffc4e1c6ab86bf140f8209080412ee537006c7bfcb43bd06c7",
    "experiments/comparison_B_graph_features/PREREGISTRATION_B.md": "a38f5201d05ee118d5db2cfe42ff576471213a74c743ff8701c02f696338362f",
@@ -554,12 +556,13 @@
    "src/serving/static/dashboard.html": "a25711b59c282e6f59cc09a4f4f810a8952ac532797dd52fcc3334292f216f5b",
    "submission/COMPLETION_MATRIX.md": "8058c78142a42a3291541602d34176c356e3b65d4d3f5b514863578b91c1d4a2",
    "submission/DEMO_GUIDE.md": "91e87cb1945b84e721be782649ab1b777ae8c1991c4a5af10cad64e6c3d1acb0",
-   "submission/FINAL_COMPLETION_RECORD.md": "5426ddd9d0f46e2a784d58cdf2a645f2fc47587fb8625d5c12d11084e78a4bdd",
+   "submission/FINAL_COMPLETION_RECORD.md": "fdf9002dfa3933ecb1153fae3cc595d1366be3589472599c0324abf55942350b",
    "submission/MANUSCRIPT.md": "638da9ed7ac3fc64b93c7d1a16a7319c1f5f56d4eec4db8820b43ab864975414",
-   "submission/MASTER_COMPLETION_CHECKLIST.md": "0111c6b5262e51eb73db68d0aed178c3b692ddf01cc66f42c1e72a3776648453",
-   "submission/README.md": "2bf93f718812497725a862959d769979ef3df9ef5dae91ba7407f667eeee1781",
+   "submission/MASTER_COMPLETION_CHECKLIST.md": "281ee871a87fb32b8489ca33c18e44a72e7b672cc0b731af8c7d77de3133479b",
+   "submission/README.md": "e121cca74880e67255823f46f42830d0758c5a83016c99217a27ac21e8f79a5f",
    "submission/REPRODUCIBILITY.md": "cb7700f0b77c8424036f682d0bdcc889cf909c15f7f6ec8d0e77619affcc5151",
    "submission/claims_exceptions.json": "646d58ffc92341baf50f554522f0851c57c2a5d66a978aa837dd970743a6ad89",
+   "submission/clean_env_results/fresh_clone_python3.12.0_core_tests_2026-10-21.txt": "3a7f82386e90a484fc3b26ec5418bb8df10fecfa0ac69216618b5cbdd5cc127d",
    "submission/clean_env_results/python3.12.0_core_tests.json": "aea743b925c5cfa17110db4dfd3c48b01de948f698f184b537714cea547b1ad3",
    "submission/clean_env_results/python3.12.0_core_tests_2026-10-21.json": "24850671bc8e632dff3fc6ed8a67c8ae58f5f751661d6b41d05c78e4af90db70",
    "submission/clean_env_results/python3.14.3_core_tests.json": "30e9a6d81a222bbfa0b23e44a3fd7cda487457cb50ac9c12b473fdce213d68c2",
@@ -586,7 +589,7 @@
    "tests/test_manuscript_figures.py": "7234a340f7ff4a05e0becbf19c93f48162248c86ccd10660fcce964a9cd65fdc",
    "tests/test_neural_graph_evidence.py": "ca3e8e2921dad42bb242ec156dfaa187a17075c8d36150663c4ac9dc062ceb0c",
    "tests/test_phase12_environment_independence.py": "60850eac632f5666c38f688f762b1638eb8575aaef8707e932d21530fbe8b3ff",
-   "tests/test_runner_contract.py": "ccc0476ba4f6136ded5ec13ba6798ee137b578837a24b006ea9d9f25843047fb",
+   "tests/test_runner_contract.py": "41c62e382014d94513cb28ef13291ac85599b5401e4ab2f0f1e7766ae623b095",
    "tests/test_scope_reconciliation_records.py": "2769ed1fffe584933c202655758b941eddfaaccd7bd6b9e6791e66a30df71dab",
    "tests/test_serving.py": "2db8a5b05f2ce9446547740735f205d39222ef04578f938758b0b0ad31df3029",
    "tests/test_walkforward_ext.py": "26fcb4af501a9ca032129d2375442145fc9df9f5b545805f25190bb6eb2d7808"
