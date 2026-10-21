@@ -1,0 +1,4 @@
+# Keep every file byte-for-byte as committed on all platforms. The project's integrity records
+# (SHA-256 sidecars, manifests, recorded hashes) are computed over exact bytes (LF line endings);
+# a Windows checkout with core.autocrlf=true would rewrite line endings and break hash verification.
+* -text
