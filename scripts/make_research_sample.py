@@ -32,6 +32,9 @@ def main(argv=None) -> int:
     ap.add_argument("--n", type=int, default=25)
     ap.add_argument("--out", default=str(pathlib.Path(tempfile.gettempdir()) / "fraud_research_rows.json"))
     a = ap.parse_args(argv)
+    if a.n < 1:
+        print(f"error: --n must be at least 1, got {a.n}", file=sys.stderr)
+        return 2
     out = pathlib.Path(a.out).resolve()
     if out.is_relative_to(ROOT):
         print("error: write the rows outside the repository (they are transaction-level data and must not be committed)", file=sys.stderr)
@@ -46,6 +49,7 @@ def main(argv=None) -> int:
         pick += list(df.index[df["TransactionID"].isin(rec["TransactionID"])])
     rows = df.loc[list(dict.fromkeys(pick))]
     rows = rows.replace({np.nan: None})
+    out.parent.mkdir(parents=True, exist_ok=True)                 # outside the repository (checked above)
     out.write_text(json.dumps({"rows": rows.to_dict(orient="records"), "source": VAL + " (validation days 122-151, label removed)"}, default=lambda x: x.item() if hasattr(x, "item") else str(x)),
                    encoding="utf-8")
     print(f"wrote {len(rows)} validation rows (no label) to {out}")

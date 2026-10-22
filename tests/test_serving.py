@@ -291,6 +291,90 @@ def test_p13_10_no_new_dependency_is_imported():
     assert not any(n in (ROOT / "requirements.txt").read_text(encoding="utf-8").lower() for n in ("fastapi", "streamlit", "flask", "uvicorn"))
 
 
+# ------------------------------------------------------------------------------------------------ found in the 2026-10-22 browser and API pass
+def test_invalid_identifiers_amounts_and_nesting_get_400_not_500():
+    """Before 2026-10-22: a text or boolean TransactionID and a deeply nested body returned 500 'internal error'; a fractional id was reported back rounded;
+    a NaN amount was accepted although it corrupts the amount features of later rows of the same entity."""
+    new = sample()["new"][:3]
+    with Running() as s:
+        for bad_id in ("abc", 1.5, True, None):
+            st, j, _ = s.call("POST", "/api/score", {"new": [dict(new[0], TransactionID=bad_id)] + new[1:]})
+            assert st == 400 and "TransactionID must be integers" in j["error"], (bad_id, st, j)
+        st, j, _ = s.call("POST", "/api/score", raw=json.dumps({"new": new}).replace('"TransactionAmt": ', '"TransactionAmt": NaN, "x": ', 1).encode())
+        assert st == 400 and "TransactionAmt must be finite" in j["error"], j
+        st, j, _ = s.call("POST", "/api/score", raw=b"[" * 100000 + b"]" * 100000)
+        assert st == 400 and "nested too deeply" in j["error"], j
+        st, j, _ = s.call("POST", "/api/score", {"new": new})
+        assert st == 200 and [r["TransactionID"] for r in j["results"]] == [r["TransactionID"] for r in new]
+
+
+def test_status_reports_both_h5_readings():
+    st = services().status()
+    assert "not established" in st["h5"] and "Phase 9b" in st["h5"] and "H5a-9b" in st["h5"]
+
+
+def _css_vars(page: str, dark: bool) -> dict:
+    def parse(block):
+        return {k: (v if len(v) == 7 else "#" + "".join(ch * 2 for ch in v[1:])) for k, v in re.findall(r"--([a-z]+):(#[0-9a-f]{6}|#[0-9a-f]{3})\b", block)}
+    light = parse(re.search(r":root\{([^}]*)\}", page).group(1))
+    if not dark:
+        return light
+    return {**light, **parse(re.search(r"prefers-color-scheme:dark\)\{:root\{([^}]*)\}", page).group(1))}
+
+
+def _contrast(a: str, b: str) -> float:
+    def lum(h):
+        c = [int(h[i:i + 2], 16) / 255 for i in (1, 3, 5)]
+        c = [v / 12.92 if v <= 0.03928 else ((v + 0.055) / 1.055) ** 2.4 for v in c]
+        return 0.2126 * c[0] + 0.7152 * c[1] + 0.0722 * c[2]
+    la, lb = lum(a), lum(b)
+    return (max(la, lb) + 0.05) / (min(la, lb) + 0.05)
+
+
+def test_page_colours_meet_wcag_aa_contrast_in_both_schemes():
+    """Before 2026-10-22 the dark scheme put white text on the light-blue accent (2.5:1) on the primary buttons."""
+    page = (ROOT / APP.DASHBOARD).read_text(encoding="utf-8")
+    assert "button.act{background:var(--accent);color:var(--onaccent)" in page
+    for dark in (False, True):
+        v = _css_vars(page, dark)
+        for fg, bg in (("ink", "bg"), ("ink", "panel"), ("mute", "panel"), ("mute", "bg"), ("warn", "warnbg"), ("bad", "panel"), ("accent", "panel"), ("onaccent", "accent")):
+            assert _contrast(v[fg], v[bg]) >= 4.5, (("dark" if dark else "light"), fg, bg, round(_contrast(v[fg], v[bg]), 2))
+
+
+def test_page_tabs_live_regions_busy_guard_and_failure_banner():
+    """Accessibility and interaction fixes verified in a real browser by scripts/verify_dashboard_browser.py; these source checks keep them from regressing."""
+    page = (ROOT / APP.DASHBOARD).read_text(encoding="utf-8")
+    for k in ("evidence", "score", "research", "communities", "status"):
+        assert f'<section id="tab-{k}" role="tabpanel" aria-labelledby="btn-{k}"' in page, k
+    assert '"aria-controls": "tab-" + k' in page and "ArrowRight" in page and "Home" in page and "End" in page
+    for k in ("scoreInfo", "scoreOut", "researchInfo", "researchOut"):
+        assert re.search(rf'id="{k}"[^>]*aria-live="polite"', page), k
+    assert ":focus-visible{outline:2px solid var(--accent)" in page
+    assert "async function busy(" in page and page.count("await busy(") == 3                 # double clicks send one request (sample, score, research)
+    assert "The standing statement could not be loaded" in page                              # the banner never stays on 'Loading' after a failure
+    assert '"Loading the synthetic sample..."' in page                                       # no stale 'Loaded ...' text while a new sample loads
+
+
+def test_recorded_browser_run_passed_everywhere_and_publishes_no_validation_row():
+    """scripts/verify_dashboard_browser.py (real Chrome, two viewports, two colour schemes) wrote this record; its screenshots are published, so the research tab
+    is photographed with synthetic placeholder rows and no IEEE-CIS transaction id (2987000-3577539) may appear in the record."""
+    import hashlib
+    d = ROOT / "experiments" / "phase13_serving_dashboard" / "test_results" / "browser"
+    data = (d / "browser_verification.json").read_bytes()
+    assert hashlib.sha256(data).hexdigest() == (d / "browser_verification.sha256").read_text(encoding="ascii").strip()
+    rec = json.loads(data)
+    assert rec["summary"]["failed"] == 0 and rec["summary"]["not_run"] == 0 and rec["summary"]["passed"] == rec["summary"]["checks"] >= 100, rec["summary"]
+    assert set(rec["viewports"]) == {"desktop", "phone"} and rec["colour_schemes"] == ["light", "dark"] and "Playwright" in rec["browser"]
+    assert len(rec["screenshots_sha256"]) == 25
+    for name, h in rec["screenshots_sha256"].items():
+        assert hashlib.sha256((d / "screenshots" / name).read_bytes()).hexdigest() == h, name
+    assert "synthetic placeholder rows" in rec["research_tab_screenshots"] and rec["research_rows_file_used"] is True
+    assert re.findall(r"(?<![0-9a-f])(29[89]\d{4}|3[0-5]\d{5})(?![0-9a-f])", data.decode("utf-8")) == []
+    harness = (ROOT / "scripts" / "verify_dashboard_browser.py").read_text(encoding="utf-8")
+    assert not re.search(r"^\s*(from|import)\s+src\b", harness, re.M)          # runs in a separate environment; drives the documented server command
+    assert 'placeholder = out / "_placeholder"' in harness and "page.set_input_files(\"#researchFile\", str(placeholder))" in harness
+
+
 def _run_all():
     fns = [v for k, v in globals().items() if k.startswith("test_") and callable(v)]
     passed, failed = 0, []

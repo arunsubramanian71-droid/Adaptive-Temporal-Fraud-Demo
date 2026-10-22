@@ -1,0 +1,7 @@
+# OPTIONAL. Only for scripts/verify_dashboard_browser.py, the real-browser check of the dashboard (Phase 13). The project itself does not need it.
+# Install it into a separate environment OUTSIDE the repository (PowerShell shown). The check drives an installed Chrome or Edge
+# (--channel chrome / msedge), so no browser is downloaded. Pillow only shrinks the recorded screenshots (256-colour PNG).
+#   python -m venv "$env:TEMP\fraud-browser-check"
+#   & "$env:TEMP\fraud-browser-check\Scripts\python.exe" -m pip install -r requirements-browser-check.txt
+playwright==1.64.0
+pillow==12.2.0

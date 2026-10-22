@@ -19,7 +19,7 @@ import pathlib
 import numpy as np
 import pandas as pd
 
-from src.inference.scorer import refuse_sealed_path
+from src.inference.scorer import integer_valued, refuse_sealed_path
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent.parent
 DEFAULT_DIR = "experiments/xgboost"
@@ -30,6 +30,10 @@ STATEMENT = ("Research model: the recorded comparison-A XGBoost (trained on days
 
 class ResearchInputError(ValueError):
     """The posted rows do not match the model's input contract."""
+
+
+class ResearchModelError(OSError):
+    """The research model file exists but cannot be used (truncated, damaged or not a classifier)."""
 
 
 class ResearchModel:
@@ -45,7 +49,13 @@ class ResearchModel:
             raise FileNotFoundError(f"{model_path} does not exist: the trained research model is not distributed with the repository; "
                                     "regenerate it with scripts/train_xgboost.py on the IEEE-CIS data (README section 4)")
         self.dir = d
-        self.model = joblib.load(model_path)
+        try:
+            self.model = joblib.load(model_path)
+        except Exception as e:  # noqa: BLE001 - a truncated or foreign file raises many different exception types
+            raise ResearchModelError(f"{model_path} could not be loaded ({type(e).__name__}); the file may be truncated or written by another library version. "
+                                     "Regenerate it with scripts/train_xgboost.py") from None
+        if not hasattr(self.model, "predict_proba"):
+            raise ResearchModelError(f"{model_path} does not hold a classifier with predict_proba")
         self.builder = TreeFeatureBuilder.load(load_config(), d / "feature_builder")
         m = json.loads((d / "metrics_val.json").read_text(encoding="utf-8"))
         self.threshold = float(m["threshold"])
@@ -83,6 +93,8 @@ class ResearchModel:
     def score(self, df: pd.DataFrame, explain: bool = True, top_k: int = 5) -> pd.DataFrame:
         if len(df) == 0:
             raise ResearchInputError("no rows to score")
+        if "TransactionID" in df.columns and not integer_valued(df["TransactionID"], allow_missing=True):
+            raise ResearchInputError("TransactionID must be an integer in every row that has one (it is reported back unchanged; omit it or use null if unknown)")
         X = self.matrix(df)
         p = self.model.predict_proba(X)[:, 1]
         out = pd.DataFrame({"row": np.arange(len(df)), "score": p.astype(np.float64), "alert": p >= self.threshold})

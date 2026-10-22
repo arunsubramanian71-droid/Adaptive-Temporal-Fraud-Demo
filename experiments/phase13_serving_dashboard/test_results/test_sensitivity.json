@@ -1,9 +1,9 @@
 {
  "purpose": "mutation sensitivity of tests/test_serving.py",
- "run_local": "2026-10-21T10:09:31+05:30",
+ "run_local": "2026-10-22T19:19:39+05:30",
  "unmutated_failures": [],
- "n_mutants": 14,
- "n_detected": 12,
+ "n_mutants": 16,
+ "n_detected": 14,
  "n_equivalent": 2,
  "mutants": [
   {
@@ -11,22 +11,34 @@
    "status": "detected",
    "failing_tests": [
     "test_p13_2_status_codes_and_json_errors"
-   ]
+   ],
+   "failure_detail": {
+    "test_p13_2_status_codes_and_json_errors": "AssertionError: "
+   }
   },
   {
    "mutant": "M02 history and new swapped in the score call",
    "status": "detected",
    "failing_tests": [
     "test_p13_2_status_codes_and_json_errors",
-    "test_p13_3_scores_equal_the_library_and_are_causal_and_label_free"
-   ]
+    "test_p13_3_scores_equal_the_library_and_are_causal_and_label_free",
+    "test_invalid_identifiers_amounts_and_nesting_get_400_not_500"
+   ],
+   "failure_detail": {
+    "test_p13_2_status_codes_and_json_errors": "AssertionError: {'error': 'new must be a pandas DataFrame, got NoneType', 'status': 400}",
+    "test_p13_3_scores_equal_the_library_and_are_causal_and_label_free": "AssertionError: ",
+    "test_invalid_identifiers_amounts_and_nesting_get_400_not_500": "AssertionError: ('abc', 400, {'error': 'new must be a pandas DataFrame, got NoneType', 'status': 400})"
+   }
   },
   {
    "mutant": "M03 non-local bind allowed",
    "status": "detected",
    "failing_tests": [
     "test_p13_1_binds_locally_only_unless_explicitly_allowed"
-   ]
+   ],
+   "failure_detail": {
+    "test_p13_1_binds_locally_only_unless_explicitly_allowed": "AssertionError: bound to 0.0.0.0"
+   }
   },
   {
    "mutant": "M04 held-out names no longer rejected by the router",
@@ -44,64 +56,113 @@
    "mutant": "M06 explanations returned for every row",
    "status": "detected",
    "failing_tests": [
-    "test_p13_3_scores_equal_the_library_and_are_causal_and_label_free"
-   ]
+    "test_p13_3_scores_equal_the_library_and_are_causal_and_label_free",
+    "test_invalid_identifiers_amounts_and_nesting_get_400_not_500"
+   ],
+   "failure_detail": {
+    "test_p13_3_scores_equal_the_library_and_are_causal_and_label_free": "AssertionError: ",
+    "test_invalid_identifiers_amounts_and_nesting_get_400_not_500": "AssertionError: "
+   }
   },
   {
    "mutant": "M07 stack trace returned to the client",
    "status": "detected",
    "failing_tests": [
     "test_p13_2_internal_errors_are_generic"
-   ]
+   ],
+   "failure_detail": {
+    "test_p13_2_internal_errors_are_generic": "AssertionError: "
+   }
   },
   {
    "mutant": "M08 community output gains a member list",
    "status": "detected",
    "failing_tests": [
     "test_p13_5_communities_are_aggregate_only_candidates_with_disclaimers"
-   ]
+   ],
+   "failure_detail": {
+    "test_p13_5_communities_are_aggregate_only_candidates_with_disclaimers": "AssertionError: {'day', 'peak', 'txn_has_edge_cold__infra', 'n_observed_days', 'last_observed_day', 'track', 'txn_no_pseudo_account_edge__noinfra', 'txn_has_edge_warm__noinfra', 'groups', 'txn_has_edge_warm__infra', 'u_t', 'n_member_txn', 'hub_share', 'n_cards', 'n_alerted_days', 'u_s', 'density', 'alerted', 'membe"
+   }
   },
   {
    "mutant": "M09 candidate disclaimers dropped",
    "status": "detected",
    "failing_tests": [
     "test_p13_5_communities_are_aggregate_only_candidates_with_disclaimers"
-   ]
+   ],
+   "failure_detail": {
+    "test_p13_5_communities_are_aggregate_only_candidates_with_disclaimers": "AssertionError: "
+   }
   },
   {
    "mutant": "M10 evidence values rounded",
    "status": "detected",
    "failing_tests": [
     "test_p13_4_evidence_values_equal_the_recorded_files"
-   ]
+   ],
+   "failure_detail": {
+    "test_p13_4_evidence_values_equal_the_recorded_files": "AssertionError: "
+   }
   },
   {
    "mutant": "M11 sample rows served without a demo bundle",
    "status": "detected",
    "failing_tests": [
     "test_p13_3_model_endpoint_and_missing_bundle"
-   ]
+   ],
+   "failure_detail": {
+    "test_p13_3_model_endpoint_and_missing_bundle": "AssertionError: "
+   }
   },
   {
    "mutant": "M12 content security header removed",
    "status": "detected",
    "failing_tests": [
     "test_p13_2_status_codes_and_json_errors"
-   ]
+   ],
+   "failure_detail": {
+    "test_p13_2_status_codes_and_json_errors": "TypeError: argument of type 'NoneType' is not iterable"
+   }
   },
   {
    "mutant": "M13 scoring reads a file path named by the client",
    "status": "detected",
    "failing_tests": [
     "test_p13_3_scores_equal_the_library_and_are_causal_and_label_free"
-   ]
+   ],
+   "failure_detail": {
+    "test_p13_3_scores_equal_the_library_and_are_causal_and_label_free": "AssertionError: unknown request keys must be ignored, never used as file paths"
+   }
   },
   {
    "mutant": "M14 non-alert rows get a null explanation entry that crashes",
    "status": "detected",
    "failing_tests": [
     "test_p13_3_scores_equal_the_library_and_are_causal_and_label_free"
-   ]
+   ],
+   "failure_detail": {
+    "test_p13_3_scores_equal_the_library_and_are_causal_and_label_free": "AssertionError: {'alert', 'score', 'TransactionID', 'labels_used'}"
+   }
+  },
+  {
+   "mutant": "M15 a deeply nested body becomes an internal error again",
+   "status": "detected",
+   "failing_tests": [
+    "test_invalid_identifiers_amounts_and_nesting_get_400_not_500"
+   ],
+   "failure_detail": {
+    "test_invalid_identifiers_amounts_and_nesting_get_400_not_500": "AssertionError: {'error': 'internal error', 'status': 500}"
+   }
+  },
+  {
+   "mutant": "M16 the held-out note no longer follows the held-out outputs",
+   "status": "detected",
+   "failing_tests": [
+    "test_p13_6_status_and_note_follow_held_out_output_in_any_of_the_three_folders"
+   ],
+   "failure_detail": {
+    "test_p13_6_status_and_note_follow_held_out_output_in_any_of_the_three_folders": "AssertionError: heldout_results"
+   }
   }
  ],
  "scope_statement": "In-memory mutants only; no file modified; synthetic bundle only. Detection shows these tests fail on these defects, not that no other defect exists."

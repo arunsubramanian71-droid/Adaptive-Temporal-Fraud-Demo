@@ -12,6 +12,7 @@ from __future__ import annotations
 
 import hashlib
 import json
+import math
 import pathlib
 import re
 from dataclasses import dataclass, field
@@ -88,12 +89,38 @@ def read_table(path) -> pd.DataFrame:
     raise ScoringError(f"unsupported file type '{p.suffix}' for {p} (use .csv or .parquet)")
 
 
+def integer_valued(values, allow_missing: bool = False) -> bool:
+    """True if every value is an integer number (an int, or a float without a fractional part). Booleans, strings and other objects are not;
+    missing values only if ``allow_missing``. Used for transaction identifiers, which are reported back to the caller and must not be rounded."""
+    s = values if isinstance(values, pd.Series) else pd.Series(values, dtype="object")
+    if pd.api.types.is_bool_dtype(s):
+        return False
+    if pd.api.types.is_integer_dtype(s):
+        return True
+    for v in s.tolist():
+        if isinstance(v, (list, dict, tuple, set)):
+            return False
+        if v is None or v is pd.NA or (isinstance(v, (float, np.floating)) and math.isnan(v)):
+            if allow_missing:
+                continue
+            return False
+        if isinstance(v, (bool, np.bool_)) or not isinstance(v, (int, float, np.integer, np.floating)):
+            return False
+        if isinstance(v, (int, np.integer)):                       # exact, at any size (a float comparison would reject ints above 2**53)
+            continue
+        if not math.isfinite(v) or float(v) != math.floor(v):
+            return False
+    return True
+
+
 def validate_frame(df: pd.DataFrame, schema: Schema, name: str, need_label: bool = False) -> None:
     if not isinstance(df, pd.DataFrame):
         raise ScoringError(f"{name} must be a pandas DataFrame, got {type(df).__name__}")
     missing = [c for c in schema.required(need_label) if c not in df.columns]
     if missing:
         raise ScoringError(f"{name} is missing required column(s): {missing}")
+    if not integer_valued(df[schema.id]):
+        raise ScoringError(f"{name}.{schema.id} must be integers without missing values (a fractional or text identifier cannot be reported back unchanged)")
     if df[schema.id].duplicated().any():
         raise ScoringError(f"{name} has duplicated {schema.id} values")
     if not pd.api.types.is_numeric_dtype(df[schema.time]) or df[schema.time].isna().any():
@@ -103,6 +130,9 @@ def validate_frame(df: pd.DataFrame, schema: Schema, name: str, need_label: bool
     for c in (schema.amount, *schema.features):
         if not pd.api.types.is_numeric_dtype(df[c]):
             raise ScoringError(f"{name}.{c} must be numeric")
+    if not np.isfinite(df[schema.amount].to_numpy(dtype=np.float64)).all():
+        raise ScoringError(f"{name}.{schema.amount} must be finite numbers without missing values (a missing or infinite amount would make the backward-looking "
+                           "amount features of every later transaction of the same entity missing or infinite)")
     if need_label and not set(pd.unique(df[schema.label].dropna())) <= {0, 1}:
         raise ScoringError(f"{name}.{schema.label} must contain only 0/1")
 
@@ -213,6 +243,10 @@ def load_bundle(directory) -> Bundle:
         manifest = json.loads((d / "bundle_manifest.json").read_text(encoding="utf-8"))
     except FileNotFoundError:
         raise ScoringError(f"no bundle_manifest.json in {d}") from None
+    except (json.JSONDecodeError, UnicodeDecodeError) as e:
+        raise ScoringError(f"bundle_manifest.json in {d} is damaged (not valid JSON: {e}); rebuild the bundle with scripts/score_transactions.py train") from None
+    if not isinstance(manifest, dict) or not {"bundle_sha256", "schema", "use_graph", "threshold"} <= set(manifest):
+        raise ScoringError(f"bundle_manifest.json in {d} lacks required fields; rebuild the bundle with scripts/score_transactions.py train")
     h = hashlib.sha256((d / "bundle.joblib").read_bytes()).hexdigest()
     if h != manifest["bundle_sha256"]:
         raise ScoringError("bundle.joblib does not match the hash in bundle_manifest.json; refusing to load it")

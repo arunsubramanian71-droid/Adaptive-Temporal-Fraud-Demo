@@ -5,16 +5,18 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Fraud study dashboard</title>
 <style>
-:root{--bg:#f6f7f9;--panel:#fff;--ink:#1c2430;--mute:#5b6675;--line:#d9dee5;--accent:#1f5fbf;--warn:#8a4b00;--warnbg:#fff4e0;--bad:#a12622;--good:#1d6b3a}
-@media (prefers-color-scheme:dark){:root{--bg:#12161c;--panel:#1b2129;--ink:#e6eaf0;--mute:#9aa6b5;--line:#2c3541;--accent:#6aa4ff;--warn:#f0c27a;--warnbg:#2a2214;--bad:#ff8a84;--good:#7fd69c}}
+:root{--bg:#f6f7f9;--panel:#fff;--ink:#1c2430;--mute:#5b6675;--line:#d9dee5;--accent:#1f5fbf;--onaccent:#fff;--warn:#8a4b00;--warnbg:#fff4e0;--bad:#a12622;--good:#1d6b3a}
+@media (prefers-color-scheme:dark){:root{--bg:#12161c;--panel:#1b2129;--ink:#e6eaf0;--mute:#9aa6b5;--line:#2c3541;--accent:#6aa4ff;--onaccent:#0b1726;--warn:#f0c27a;--warnbg:#2a2214;--bad:#ff8a84;--good:#7fd69c}}
 *{box-sizing:border-box}
 body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.5 system-ui,Segoe UI,Roboto,sans-serif}
 header{padding:14px 16px 0;max-width:1100px;margin:0 auto}
 h1{font-size:20px;margin:0 0 8px}
+h2{font-size:17px;margin:16px 0 6px}
 .banner{background:var(--warnbg);color:var(--warn);border:1px solid var(--line);border-radius:8px;padding:10px 12px;font-size:14px}
 nav{display:flex;gap:6px;flex-wrap:wrap;margin:12px 0 0}
 nav button{background:var(--panel);color:var(--ink);border:1px solid var(--line);border-radius:8px;padding:7px 12px;cursor:pointer;font:inherit}
 nav button[aria-selected=true]{border-color:var(--accent);color:var(--accent);font-weight:600}
+:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
 main{max-width:1100px;margin:0 auto;padding:12px 16px 40px}
 section{display:none;background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:14px}
 section.on{display:block}
@@ -22,43 +24,52 @@ table{border-collapse:collapse;width:100%;font-size:13.5px}
 th,td{border-bottom:1px solid var(--line);padding:6px 8px;text-align:left;vertical-align:top}
 th{color:var(--mute);font-weight:600}
 td.n{text-align:right;font-variant-numeric:tabular-nums}
+td.contrib{white-space:pre-line;overflow-wrap:anywhere;min-width:11em}
+td.flag{color:var(--bad);font-weight:600}
 .tablewrap{overflow-x:auto}
+.hint{font-size:12.5px;margin:4px 0}
+[hidden]{display:none!important}
 textarea{width:100%;min-height:150px;font:12.5px/1.4 ui-monospace,Consolas,monospace;background:var(--bg);color:var(--ink);border:1px solid var(--line);border-radius:8px;padding:8px}
-button.act{background:var(--accent);color:#fff;border:0;border-radius:8px;padding:8px 14px;cursor:pointer;font:inherit}
+button.act{background:var(--accent);color:var(--onaccent);border:0;border-radius:8px;padding:8px 14px;cursor:pointer;font:inherit}
 button.sec{background:var(--panel);color:var(--ink);border:1px solid var(--line);border-radius:8px;padding:8px 14px;cursor:pointer;font:inherit}
-.row{display:flex;gap:8px;flex-wrap:wrap;margin:8px 0}
+button:disabled{opacity:.55;cursor:not-allowed}
+.row{display:flex;gap:8px;flex-wrap:wrap;margin:8px 0;align-items:center}
 .muted{color:var(--mute)}
 .alert{color:var(--bad);font-weight:600}
-.card{border:1px solid var(--line);border-radius:8px;padding:10px;margin:8px 0}
+.cardgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:10px}
+.card{border:1px solid var(--line);border-radius:8px;padding:10px}
 .card h3{margin:0 0 4px;font-size:15px}
-.tag{display:inline-block;border:1px solid var(--line);border-radius:999px;padding:0 8px;font-size:12px;color:var(--mute);margin-right:4px}
+.tag{display:inline-block;border:1px solid var(--line);border-radius:999px;padding:0 8px;font-size:12px;color:var(--mute);margin:0 4px 2px 0}
 .kv{display:grid;grid-template-columns:max-content 1fr;gap:2px 12px;font-size:13.5px}
+.kv>div{overflow-wrap:anywhere}
 svg{display:block;margin-top:6px}
+@media (max-width:600px){.kv{grid-template-columns:1fr;gap:0}.kv>div.muted{margin-top:6px}section{padding:12px 10px}main{padding:12px 10px 40px}
+  table{font-size:12.5px}th,td{padding:5px 5px}td.contrib{min-width:7em}}
 </style>
 </head>
 <body>
 <header>
   <h1>Fraud study dashboard</h1>
   <div class="banner" id="banner" role="note">Loading the standing statement...</div>
-  <nav role="tablist" id="tabs"></nav>
+  <nav role="tablist" id="tabs" aria-label="Dashboard sections"></nav>
 </header>
 <main>
-  <section id="tab-evidence"><div id="evidence">Loading...</div></section>
-  <section id="tab-score">
+  <section id="tab-evidence" role="tabpanel" aria-labelledby="btn-evidence" tabindex="0"><div id="evidence">Loading...</div></section>
+  <section id="tab-score" role="tabpanel" aria-labelledby="btn-score" tabindex="0">
     <p class="muted">Score rows with the bundle loaded on the server. History (earlier rows) is optional. Labels in posted rows are ignored. A score is a model output, not evidence of fraud.</p>
-    <div class="row"><button class="sec" id="loadSample">Load synthetic sample</button><button class="act" id="doScore">Score</button><span class="muted" id="scoreInfo"></span></div>
+    <div class="row"><button class="sec" id="loadSample">Load synthetic sample</button><button class="act" id="doScore">Score</button><span class="muted" id="scoreInfo" aria-live="polite"></span></div>
     <textarea id="payload" spellcheck="false" aria-label="JSON request body">{"history": [], "new": []}</textarea>
-    <div id="scoreOut"></div>
+    <div id="scoreOut" aria-live="polite"></div>
   </section>
-  <section id="tab-research">
+  <section id="tab-research" role="tabpanel" aria-labelledby="btn-research" tabindex="0">
     <p class="muted">Research model: the recorded comparison-A XGBoost (cell A), served exactly as it was evaluated (same TRAIN-fit encoder, recorded validation threshold). This is <strong>not</strong> the synthetic demonstration bundle. Rows must follow the project's processed-feature schema; labels in the rows are ignored. Choose a JSON file of rows (for example one written by <code>scripts/make_research_sample.py</code>); the browser reads it, the server never opens a data file. A score is a model output, not evidence of fraud.</p>
-    <div id="researchModel" class="muted">Checking whether the research model is loaded...</div>
-    <div class="row"><input type="file" id="researchFile" accept=".json,application/json" aria-label="JSON file with rows to score"><button class="act" id="doResearch">Score with the research model</button><span class="muted" id="researchInfo"></span></div>
+    <div id="researchModel" class="muted" aria-live="polite">Checking whether the research model is loaded...</div>
+    <div class="row"><input type="file" id="researchFile" accept=".json,application/json" aria-label="JSON file with rows to score"><button class="act" id="doResearch">Score with the research model</button><span class="muted" id="researchInfo" aria-live="polite"></span></div>
     <textarea id="researchPayload" spellcheck="false" aria-label="JSON request body for the research model">{"rows": []}</textarea>
-    <div id="researchOut"></div>
+    <div id="researchOut" aria-live="polite"></div>
   </section>
-  <section id="tab-communities"><div id="communities">Loading...</div></section>
-  <section id="tab-status"><div id="status">Loading...</div></section>
+  <section id="tab-communities" role="tabpanel" aria-labelledby="btn-communities" tabindex="0"><div id="communities">Loading...</div></section>
+  <section id="tab-status" role="tabpanel" aria-labelledby="btn-status" tabindex="0"><div id="status">Loading...</div></section>
 </main>
 <script>
 "use strict";
@@ -70,6 +81,7 @@ function el(tag, props, children) {
   return e;
 }
 const fmt = (x, d = 4) => (x === null || x === undefined ? "n/a" : (typeof x === "number" ? x.toFixed(d) : String(x)));
+const cap = (s) => (s ? s.charAt(0).toUpperCase() + s.slice(1) : s);
 async function getJSON(url) { const r = await fetch(url); const j = await r.json(); if (!r.ok) throw new Error(j.error || r.statusText); return j; }
 function clear(n) { while (n.firstChild) n.removeChild(n.firstChild); }
 function shortBasis(b) {
@@ -78,18 +90,42 @@ function shortBasis(b) {
   if (b.indexOf("five stored windows") === 0) return "F basis: 5 windows concatenated";
   return b;
 }
-function table(headers, rows, numeric, fullTitles) {
+// cls: {column index: class name}; a cell whose text is "ALERT" is flagged
+function table(headers, rows, numeric, fullTitles, cls) {
   const t = el("table"); const thead = el("thead"); const trh = el("tr");
   headers.forEach((h) => trh.appendChild(el("th", { text: h }))); thead.appendChild(trh); t.appendChild(thead);
   const tb = el("tbody");
-  rows.forEach((r, ri) => { const tr = el("tr"); r.forEach((v, i) => { const td = el("td", { text: v, class: numeric && numeric.includes(i) ? "n" : "" }); if (fullTitles && fullTitles[ri] && fullTitles[ri][i]) td.setAttribute("title", fullTitles[ri][i]); tr.appendChild(td); }); tb.appendChild(tr); });
-  t.appendChild(tb); const w = el("div", { class: "tablewrap" }); w.appendChild(t); return w;
+  rows.forEach((r, ri) => { const tr = el("tr"); r.forEach((v, i) => {
+    const c = [numeric && numeric.includes(i) ? "n" : "", cls && cls[i] ? cls[i] : "", v === "ALERT" ? "flag" : ""].filter(Boolean).join(" ");
+    const td = el("td", c ? { text: v, class: c } : { text: v }); if (fullTitles && fullTitles[ri] && fullTitles[ri][i]) td.setAttribute("title", fullTitles[ri][i]); tr.appendChild(td); }); tb.appendChild(tr); });
+  t.appendChild(tb); const w = el("div", { class: "tablewrap" }); w.appendChild(t);
+  const hint = el("p", { class: "hint muted", text: "Scroll the table sideways to see every column." }); hint.hidden = true;
+  const box = el("div"); box.appendChild(hint); box.appendChild(w); return box;
 }
+// the scroll hint is shown only under a table that is wider than its frame (checked on tab change, after rendering and on resize)
+function updateHints() { document.querySelectorAll("section.on .tablewrap").forEach((w) => { const h = w.previousElementSibling; if (h && h.classList.contains("hint")) h.hidden = w.scrollWidth <= w.clientWidth + 1; }); }
+window.addEventListener("resize", updateHints);
+const contribs = (x) => (x.top_features || []).map((t) => t.feature + " (" + fmt(t.contribution, 2) + ")").join("\n");
+// one guard per action: a button that is busy ignores further clicks, so a double click sends one request and renders one result
+async function busy(buttons, fn) {
+  if (buttons.some((b) => b.dataset.busy === "1")) return;
+  buttons.forEach((b) => { b.dataset.busy = "1"; b.disabled = true; });
+  try { await fn(); } finally { buttons.forEach((b) => { b.dataset.busy = "0"; b.disabled = b.dataset.unavailable === "1"; }); }
+}
+
 const TABS = [["evidence", "Evidence (validation)"], ["score", "Score transactions (demo)"], ["research", "Research model"], ["communities", "Candidate communities"], ["status", "Status and limits"]];
-function show(name) {
-  TABS.forEach(([k]) => { $("tab-" + k).classList.toggle("on", k === name); const b = $("btn-" + k); b.setAttribute("aria-selected", k === name ? "true" : "false"); });
+function show(name, focus) {
+  TABS.forEach(([k]) => { const on = k === name; $("tab-" + k).classList.toggle("on", on); const b = $("btn-" + k);
+    b.setAttribute("aria-selected", on ? "true" : "false"); b.setAttribute("tabindex", on ? "0" : "-1"); if (on && focus) b.focus(); });
+  updateHints();
 }
-TABS.forEach(([k, label]) => { const b = el("button", { id: "btn-" + k, role: "tab", text: label, "aria-selected": "false" }); b.addEventListener("click", () => show(k)); $("tabs").appendChild(b); });
+TABS.forEach(([k, label]) => { const b = el("button", { id: "btn-" + k, role: "tab", text: label, "aria-selected": "false", "aria-controls": "tab-" + k, tabindex: "-1" });
+  b.addEventListener("click", () => show(k)); $("tabs").appendChild(b); });
+$("tabs").addEventListener("keydown", (ev) => {   // WAI-ARIA tabs pattern: arrows, Home and End move between tabs
+  const i = TABS.findIndex(([k]) => document.activeElement === $("btn-" + k)); if (i < 0) return;
+  const j = { ArrowRight: i + 1, ArrowLeft: i - 1, Home: 0, End: TABS.length - 1 }[ev.key]; if (j === undefined) return;
+  ev.preventDefault(); show(TABS[(j + TABS.length) % TABS.length][0], true);
+});
 
 async function loadEvidence() {
   const box = $("evidence"); clear(box);
@@ -112,26 +148,36 @@ async function loadEvidence() {
      ["Class weighting, XGBoost", im.xgboost_weighting_verdict], ["Unweighted follow-up: H1-direct", im.unweighted_followup.H1_direct], ["Unweighted follow-up: H2", im.unweighted_followup.H2],
      ["Tabular above every neural seed (unweighted)", String(im.unweighted_followup.tabular_above_every_neural_seed)]].forEach(([k, val]) => { kv.appendChild(el("div", { class: "muted", text: k })); kv.appendChild(el("div", { text: val })); });
     box.appendChild(kv);
-  } catch (err) { box.appendChild(el("p", { class: "alert", text: "Could not load the evidence: " + err.message })); }
+    updateHints();
+  } catch (err) {
+    $("banner").textContent = "The standing statement could not be loaded (" + err.message + "). Every number on this dashboard is a recorded validation-period result; held-out results are never shown here.";
+    box.appendChild(el("p", { class: "alert", text: "Could not load the evidence: " + err.message }));
+  }
 }
 
 async function loadSample() {
-  $("doScore").disabled = true;
-  try { const s = await getJSON("/api/sample"); $("payload").value = JSON.stringify({ history: s.history, new: s.new }, null, 1); $("scoreInfo").textContent = "Loaded " + s.history.length + " history rows and " + s.new.length + " new rows (synthetic)."; }
-  catch (err) { $("scoreInfo").textContent = err.message; }
-  $("doScore").disabled = false;
+  await busy([$("loadSample"), $("doScore")], async () => {
+    $("scoreInfo").textContent = "Loading the synthetic sample...";
+    try { const s = await getJSON("/api/sample"); $("payload").value = JSON.stringify({ history: s.history, new: s.new }, null, 1); $("scoreInfo").textContent = "Loaded " + s.history.length + " history rows and " + s.new.length + " new rows (synthetic)."; }
+    catch (err) { $("scoreInfo").textContent = err.message; }
+  });
 }
 async function doScore() {
-  const out = $("scoreOut"); clear(out); let body;
-  try { body = JSON.parse($("payload").value); } catch (err) { out.appendChild(el("p", { class: "alert", text: "The text is not valid JSON: " + err.message })); return; }
-  if (!body || !Array.isArray(body.new) || body.new.length === 0) { out.appendChild(el("p", { class: "alert", text: "There are no rows to score: click 'Load synthetic sample' (demo server) or paste rows under \"new\"." })); return; }
-  try {
-    const r = await fetch("/api/score", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(body) });
-    const j = await r.json(); if (!r.ok) throw new Error(j.error || r.statusText);
-    out.appendChild(el("p", { text: (j.synthetic_demo ? "SYNTHETIC DEMONSTRATION BUNDLE. " : "") + j.n + " rows scored, " + j.n_alerts + " alerts at threshold " + fmt(j.threshold) + ". " + j.statement }));
-    out.appendChild(table(["TransactionID", "Score", "Alert", "Largest model contributions (alerts only)"],
-      j.results.map((x) => [String(x.TransactionID), fmt(x.score), x.alert ? "ALERT" : "", (x.top_features || []).map((t) => t.feature + " (" + fmt(t.contribution, 2) + ")").join(", ")]), [1]));
-  } catch (err) { out.appendChild(el("p", { class: "alert", text: "Scoring failed: " + err.message })); }
+  const out = $("scoreOut"); let body;
+  try { body = JSON.parse($("payload").value); } catch (err) { clear(out); out.appendChild(el("p", { class: "alert", text: "The text is not valid JSON: " + err.message })); return; }
+  if (!body || !Array.isArray(body.new) || body.new.length === 0) { clear(out); out.appendChild(el("p", { class: "alert", text: "There are no rows to score: click 'Load synthetic sample' (demo server) or paste rows under \"new\"." })); return; }
+  await busy([$("loadSample"), $("doScore")], async () => {
+    clear(out); out.appendChild(el("p", { class: "muted", text: "Scoring " + body.new.length + " rows..." }));
+    try {
+      const r = await fetch("/api/score", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(body) });
+      const j = await r.json(); if (!r.ok) throw new Error(j.error || r.statusText);
+      clear(out);
+      out.appendChild(el("p", { text: (j.synthetic_demo ? "SYNTHETIC DEMONSTRATION BUNDLE. " : "") + j.n + " rows scored, " + j.n_alerts + " alerts at threshold " + fmt(j.threshold) + ". " + j.statement }));
+      out.appendChild(table(["TransactionID", "Score", "Alert", "Largest model contributions (alerts only)"],
+        j.results.map((x) => [String(x.TransactionID), fmt(x.score), x.alert ? "ALERT" : "", contribs(x)]), [1], null, { 3: "contrib" }));
+      updateHints();
+    } catch (err) { clear(out); out.appendChild(el("p", { class: "alert", text: "Scoring failed: " + err.message })); }
+  });
 }
 
 async function loadResearchModel() {
@@ -140,39 +186,48 @@ async function loadResearchModel() {
     const m = await getJSON("/api/research/model");
     box.appendChild(el("p", { text: "Loaded: " + m.model + ". Model file SHA-256 " + m.model_sha256.slice(0, 16) + "...; threshold " + fmt(m.threshold) + " (" + m.threshold_source + "); "
       + m.n_required_input_columns + " input columns; recorded validation PR-AUC " + fmt(m.recorded_validation_metrics.pr_auc) + " (validation period)." }));
-  } catch (err) { box.appendChild(el("p", { class: "alert", text: err.message })); $("doResearch").disabled = true; }
+  } catch (err) { box.appendChild(el("p", { class: "alert", text: err.message })); $("doResearch").dataset.unavailable = "1"; $("doResearch").disabled = true; }
 }
 function readResearchFile(ev) {
   const f = ev.target.files && ev.target.files[0]; if (!f) return;
+  $("researchInfo").textContent = "Reading " + f.name + "...";
   const rd = new FileReader();
   rd.onload = () => {
     try { const j = JSON.parse(rd.result); const rows = Array.isArray(j) ? j : j.rows; if (!Array.isArray(rows)) throw new Error("the file must hold a list of rows or an object with 'rows'");
       $("researchPayload").value = JSON.stringify({ rows: rows }); $("researchInfo").textContent = "Loaded " + rows.length + " rows from " + f.name + "."; }
     catch (err) { $("researchInfo").textContent = "Could not read the file: " + err.message; }
   };
+  rd.onerror = () => { $("researchInfo").textContent = "Could not read the file: " + (rd.error ? rd.error.message : "unknown error"); };
   rd.readAsText(f);
 }
 async function doResearch() {
-  const out = $("researchOut"); clear(out); let body;
-  try { body = JSON.parse($("researchPayload").value); } catch (err) { out.appendChild(el("p", { class: "alert", text: "The text is not valid JSON: " + err.message })); return; }
-  if (!body || !Array.isArray(body.rows) || body.rows.length === 0) { out.appendChild(el("p", { class: "alert", text: "There are no rows: choose a JSON file of rows first." })); return; }
-  try {
-    const r = await fetch("/api/research/score", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(body) });
-    const j = await r.json(); if (!r.ok) throw new Error(j.error || r.statusText);
-    out.appendChild(el("p", { text: "RESEARCH MODEL (comparison-A XGBoost). " + j.n + " rows scored, " + j.n_alerts + " alerts at threshold " + fmt(j.threshold) + "."
-      + (j.labels_in_request_ignored ? " Label columns in the rows were ignored." : "") + " " + j.statement }));
-    out.appendChild(table(["Row", "TransactionID", "Score", "Alert", "Largest model contributions (alerts only)"],
-      j.results.map((x) => [String(x.row), x.TransactionID === null ? "" : String(x.TransactionID), fmt(x.score), x.alert ? "ALERT" : "",
-        (x.top_features || []).map((t) => t.feature + " (" + fmt(t.contribution, 2) + ")").join(", ")]), [2]));
-  } catch (err) { out.appendChild(el("p", { class: "alert", text: "Scoring failed: " + err.message })); }
+  const out = $("researchOut"); let body;
+  if ($("doResearch").dataset.unavailable === "1") return;
+  try { body = JSON.parse($("researchPayload").value); } catch (err) { clear(out); out.appendChild(el("p", { class: "alert", text: "The text is not valid JSON: " + err.message })); return; }
+  if (!body || !Array.isArray(body.rows) || body.rows.length === 0) { clear(out); out.appendChild(el("p", { class: "alert", text: "There are no rows: choose a JSON file of rows first." })); return; }
+  await busy([$("doResearch")], async () => {
+    clear(out); out.appendChild(el("p", { class: "muted", text: "Scoring " + body.rows.length + " rows with the research model..." }));
+    try {
+      const r = await fetch("/api/research/score", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(body) });
+      const j = await r.json(); if (!r.ok) throw new Error(j.error || r.statusText);
+      clear(out);
+      out.appendChild(el("p", { text: "RESEARCH MODEL (comparison-A XGBoost). " + j.n + " rows scored, " + j.n_alerts + " alerts at threshold " + fmt(j.threshold) + "."
+        + (j.labels_in_request_ignored ? " Label columns in the rows were ignored." : "") + " " + j.statement }));
+      out.appendChild(table(["Row", "TransactionID", "Score", "Alert", "Largest model contributions (alerts only)"],
+        j.results.map((x) => [String(x.row), x.TransactionID === null ? "" : String(x.TransactionID), fmt(x.score), x.alert ? "ALERT" : "", contribs(x)]), [2], null, { 4: "contrib" }));
+      updateHints();
+    } catch (err) { clear(out); out.appendChild(el("p", { class: "alert", text: "Scoring failed: " + err.message })); }
+  });
 }
 
 function sparkline(points, w, h) {
   const ns = "http://www.w3.org/2000/svg"; const svg = document.createElementNS(ns, "svg");
-  svg.setAttribute("width", String(w)); svg.setAttribute("height", String(h)); svg.setAttribute("role", "img"); svg.setAttribute("aria-label", "score over observed days");
-  if (points.length < 2) return svg;
+  svg.setAttribute("width", String(w)); svg.setAttribute("height", String(h)); svg.setAttribute("role", "img");
+  svg.setAttribute("aria-label", points.length === 1 ? "score on the single observed day" : "score over observed days");
+  if (points.length === 0) return svg;
   const xs = points.map((p) => p[0]), ys = points.map((p) => p[1]); const x0 = Math.min(...xs), x1 = Math.max(...xs), y0 = Math.min(...ys, 0), y1 = Math.max(...ys, 1);
-  const sx = (x) => 4 + ((x - x0) / Math.max(1, x1 - x0)) * (w - 8), sy = (y) => h - 4 - ((y - y0) / Math.max(1e-9, y1 - y0)) * (h - 8);
+  const sx = (x) => (x1 === x0 ? w / 2 : 4 + ((x - x0) / (x1 - x0)) * (w - 8)), sy = (y) => h - 4 - ((y - y0) / Math.max(1e-9, y1 - y0)) * (h - 8);
+  if (points.length === 1) { const c = document.createElementNS(ns, "circle"); c.setAttribute("cx", sx(xs[0]).toFixed(1)); c.setAttribute("cy", sy(ys[0]).toFixed(1)); c.setAttribute("r", "3"); c.setAttribute("fill", "currentColor"); svg.appendChild(c); return svg; }
   const line = document.createElementNS(ns, "polyline"); line.setAttribute("fill", "none"); line.setAttribute("stroke", "currentColor"); line.setAttribute("stroke-width", "1.5");
   line.setAttribute("points", points.map((p) => sx(p[0]).toFixed(1) + "," + sy(p[1]).toFixed(1)).join(" ")); svg.appendChild(line); return svg;
 }
@@ -180,18 +235,20 @@ async function loadCommunities() {
   const box = $("communities"); clear(box);
   try {
     const c = await getJSON("/api/communities");
-    box.appendChild(el("p", { text: c.standing_statement + ". " + c.not_established }));
+    box.appendChild(el("p", { text: cap(c.standing_statement) + ". " + c.not_established }));
     box.appendChild(el("p", { class: "muted", text: c.scope }));
+    const grid = el("div", { class: "cardgrid" });
     c.cards.forEach((k) => {
       const card = el("div", { class: "card" });
       card.appendChild(el("h3", { text: "Track " + k.track + " - days " + k.first_observed_day + " to " + k.last_observed_day + " (" + k.n_observed_days + " observed)" }));
       const tags = el("div"); (k.groups || []).forEach((g) => tags.appendChild(el("span", { class: "tag", text: g })));
       if (k.left_censored) tags.appendChild(el("span", { class: "tag", text: "left-censored" })); if (k.right_censored) tags.appendChild(el("span", { class: "tag", text: "right-censored" }));
-      tags.appendChild(el("span", { class: "tag", text: k.n_alerted_days + " alerted days" })); card.appendChild(tags);
+      tags.appendChild(el("span", { class: "tag", text: k.n_alerted_days + (k.n_alerted_days === 1 ? " alerted day" : " alerted days") })); card.appendChild(tags);
       const p = k.peak || {}; const kv = el("div", { class: "kv" });
       [["peak score", fmt(p.score_st)], ["cards / infrastructure entities", p.n_cards + " / " + p.n_infra], ["hub share", fmt(p.hub_share, 3)]].forEach(([a, b]) => { kv.appendChild(el("div", { class: "muted", text: a })); kv.appendChild(el("div", { text: b })); });
-      card.appendChild(kv); card.appendChild(sparkline((k.timeline || []).map((t) => [t.day, t.score_st]), 260, 46)); box.appendChild(card);
+      card.appendChild(kv); card.appendChild(sparkline((k.timeline || []).map((t) => [t.day, t.score_st]), 260, 46)); grid.appendChild(card);
     });
+    box.appendChild(grid);
   } catch (err) { box.appendChild(el("p", { class: "alert", text: "Could not load the communities: " + err.message })); }
 }
 async function loadStatus() {

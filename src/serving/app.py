@@ -138,7 +138,8 @@ class Services:
         performed, note = held_out_note(self.root)
         return {"validation_period_only": True, "held_out_evaluation_performed": performed, "held_out_authorization_present": (fh / "AUTHORIZATION.txt").exists(),
                 "held_out_note": note, "phase12": "AC1-AC11 pass; AC12 BLOCKED (partially verified); Phase 12 is not formally complete",
-                "h5": "not established (frozen benchmark gate G4 failed on 2 of 3 seeds)", "communities": "candidates only; not confirmed to be fraudulent or coordinated",
+                "h5": ("not established under the original protocol (frozen benchmark gate G4 failed on 2 of 3 seeds); a separately pre-registered "
+                       "benchmark (Phase 9b) supports H5a-9b without changing that verdict"), "communities": "candidates only; not confirmed to be fraudulent or coordinated",
                 "scoring_bundle_loaded": self.bundle is not None, "synthetic_demo": self.synthetic_demo,
                 "research_model_loaded": self.research is not None}
 
@@ -303,6 +304,8 @@ def make_handler(services: Services):
                 return json.loads(raw.decode("utf-8"))
             except (UnicodeDecodeError, json.JSONDecodeError):
                 raise ApiError(400, "body is not valid JSON") from None
+            except RecursionError:
+                raise ApiError(400, "body is nested too deeply to be a request") from None
 
         def do_GET(self):
             self._route("GET")

@@ -28,7 +28,9 @@ MUTANTS = [
     ("M03 non-local bind allowed", "if host not in LOCAL_HOSTS and not allow_remote:", "if False:"),
     ("M04 held-out names no longer rejected by the router", ' or "test" in low:', " or False:"),
     ("M05 path traversal guard removed", 'if ".." in path or "\\\\" in path or "test" in low:', "if False:"),
-    ("M06 explanations returned for every row", "if bool(r.alert) and r.top_features:", "if True:"),
+    # anchored to the demo-scoring branch: since the research mode (de4c965) the bare condition occurs twice and the mutant was silently NOT APPLIED
+    ("M06 explanations returned for every row", 'if bool(r.alert) and r.top_features:\n                item["top_features"] = json.loads(r.top_features)',
+     'if True:\n                item["top_features"] = json.loads(r.top_features)'),
     ("M07 stack trace returned to the client", 'return self._error(500, "internal error")', "return self._error(500, traceback.format_exc())"),
     ("M08 community output gains a member list", "out = {k: card[k] for k in CARD_KEYS if k in card}", 'out = {k: card[k] for k in CARD_KEYS if k in card}; out["member_ids"] = card.get("members", [])'),
     ("M09 candidate disclaimers dropped", '"standing_statement": c["standing_statement"], "not_established": c["not_established"],', '"standing_statement": "", "not_established": "",'),
@@ -37,6 +39,9 @@ MUTANTS = [
     ("M12 content security header removed", 'self.send_header("Content-Security-Policy", "default-src \'none\'; script-src \'unsafe-inline\'; style-src \'unsafe-inline\'; connect-src \'self\'; img-src \'self\' data:")', "pass"),
     ("M13 scoring reads a file path named by the client", 'raise ApiError(404, "no scoring bundle is loaded (start the server with --demo or --bundle DIR)")\n        if not isinstance(payload, dict)', 'raise ApiError(404, "no scoring bundle is loaded (start the server with --demo or --bundle DIR)")\n        open(str(payload.get("path", "")) or "nul") if isinstance(payload, dict) and payload.get("path") else None\n        if not isinstance(payload, dict)'),
     ("M14 non-alert rows get a null explanation entry that crashes", 'item["top_features"] = json.loads(r.top_features)', 'item["top_features"] = json.loads(r.top_features)\n            item["labels_used"] = True'),
+    # added 2026-10-22 with the fixes they guard
+    ("M15 a deeply nested body becomes an internal error again", "except RecursionError:", "except ZeroDivisionError:"),
+    ("M16 the held-out note no longer follows the held-out outputs", "    return (bool(done), HELD_OUT_DONE_NOTE.format(", "    done = []\n    return (bool(done), HELD_OUT_DONE_NOTE.format("),
 ]
 
 
@@ -57,12 +62,14 @@ def run_tests(mod):
     TS.APP = mod
     TS._C["svc"] = mod.Services(bundle=base.bundle, synthetic_demo=True, sample=base.sample)
     failed = []
+    run_tests.detail = {}                                         # test name -> exception, so an unexpected failure can be diagnosed (added 2026-10-22)
     try:
         for name in [k for k, v in vars(TS).items() if k.startswith("test_") and callable(v)]:
             try:
                 getattr(TS, name)()
-            except BaseException:  # noqa: BLE001
+            except BaseException as e:  # noqa: BLE001
                 failed.append(name)
+                run_tests.detail[name] = f"{type(e).__name__}: {str(e)[:300]}"
     finally:
         TS.APP, TS._C["svc"] = original_app, original_svc
     return failed
@@ -87,7 +94,11 @@ def main() -> int:
             rows.append({"mutant": label, "status": "equivalent", "reason": EQUIVALENT[key], "failing_tests": []})
             print(f"[equivalent] {label}", flush=True)
             continue
-        rows.append({"mutant": label, "status": "detected" if failed else "UNDETECTED", "failing_tests": failed})
+        row = {"mutant": label, "status": "detected" if failed else "UNDETECTED", "failing_tests": failed, "failure_detail": dict(getattr(run_tests, "detail", {}))}
+        if failed and key in EQUIVALENT:
+            # a mutant registered as equivalent should not be caught; if it is, the detail shows whether a test failed for an unrelated reason (flakiness)
+            row["note"] = "registered as equivalent but a test failed in this run; see failure_detail"
+        rows.append(row)
         if not failed:
             undetected.append(label)
         print(f"[{'detected' if failed else 'UNDETECTED'}] {label} -> {len(failed)} failing test(s)", flush=True)

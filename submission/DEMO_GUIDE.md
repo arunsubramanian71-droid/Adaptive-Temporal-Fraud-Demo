@@ -7,7 +7,7 @@ Purpose: show that the project is a working, tested software system and show, wi
 ```
 .venv/Scripts/python.exe -B scripts/run_tests.py
 ```
-Expect `ALL TEST MODULES PASSED` (about two to three minutes; 365 tests in 38 modules). Have `reports/PROJECT_SYNTHESIS_REPORT.md`, `experiments/comparison_B_graph_features/outputs/B_RESULTS.md` and `submission/MANUSCRIPT.md` open.
+Expect `ALL TEST MODULES PASSED` (about two to three minutes; 376 tests in 39 modules). Have `reports/PROJECT_SYNTHESIS_REPORT.md`, `experiments/comparison_B_graph_features/outputs/B_RESULTS.md` and `submission/MANUSCRIPT.md` open.
 
 ## Part 1: live software demonstration (3 minutes)
 

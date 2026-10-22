@@ -93,6 +93,24 @@ def test_research_model_refuses_held_out_paths_and_explains_a_missing_model():
     raises(lambda: ResearchModel("experiments/__no_such_model__"), FileNotFoundError, "scripts/train_xgboost.py")
 
 
+def test_a_damaged_model_file_gets_a_clear_error_the_launcher_reports():
+    """Before 2026-10-22 a truncated model.joblib raised a bare EOFError, which the launcher (it catches OSError) did not handle: a traceback, not a message."""
+    import shutil
+    import tempfile
+    from src.inference.research_model import ResearchModel, ResearchModelError
+    d = pathlib.Path(tempfile.mkdtemp(prefix="rm_"))
+    try:
+        for content in (b"\x80\x04truncated", b"not a pickle at all", b""):
+            (d / "model.joblib").write_bytes(content)
+            raises(lambda: ResearchModel(d), ResearchModelError, "could not be loaded")
+        assert issubclass(ResearchModelError, OSError)                     # scripts/run_dashboard.py prints it and exits 2
+        import joblib
+        joblib.dump({"not": "a model"}, d / "model.joblib")
+        raises(lambda: ResearchModel(d), ResearchModelError, "predict_proba")
+    finally:
+        shutil.rmtree(d, ignore_errors=True)
+
+
 # ---------------------------------------------------------------- artifact-dependent (registered)
 def test_api_scores_equal_direct_model_scores_and_the_recorded_validation_predictions():
     m = model()
@@ -137,6 +155,11 @@ def test_invalid_research_requests_get_actionable_400_errors():
         assert st == 400 and "required input column" in j["error"] and "TransactionAmt" in j["error"]
         st, j = s.call("POST", "/api/research/score", {"rows": [dict(rows[0], TransactionAmt="not a number")]})
         assert st == 400 and "wrong type" in j["error"]
+        for bad_id in ("abc", 7.9, True, [1]):                                                       # before 2026-10-22: 500 or a silently rounded id
+            st, j = s.call("POST", "/api/research/score", {"rows": [dict(rows[0], TransactionID=bad_id)]})
+            assert st == 400 and "TransactionID must be an integer" in j["error"], (bad_id, st, j)
+        st, j = s.call("POST", "/api/research/score", {"rows": [dict(rows[0], TransactionID=123456789), dict(rows[1], TransactionID=None), dict(rows[2], TransactionID=5.0)]})
+        assert st == 200 and [r["TransactionID"] for r in j["results"]] == [123456789, None, 5], j["results"]
         for bad in ({}, {"rows": []}, {"rows": "x"}, {"rows": [1, 2]}):
             st, j = s.call("POST", "/api/research/score", bad)
             assert st == 400 and "error" in j and "Traceback" not in json.dumps(j), bad

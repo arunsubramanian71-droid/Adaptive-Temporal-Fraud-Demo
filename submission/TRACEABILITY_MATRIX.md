@@ -8,7 +8,7 @@ Dated 2026-10-21; restructured 2026-10-22 (integrity pass: explicit mandatory/op
 
 **Status vocabulary.** PASS: executed and verified by the evidence named. FAIL: a registered criterion failed (kept, never rewritten). BLOCKED: cannot be completed without a decision, authorization or evidence that is not available. NOT RUN: not executed. NOT APPLICABLE: does not apply. A hypothesis that is not supported is an experiment outcome, not a FAIL of the requirement to test it (section 2).
 
-"Core runner" = `.venv/Scripts/python.exe -B scripts/run_core_tests.py`; "full suite" = `scripts/run_completion_tests.py` (365 of 365 pass, 2026-10-22). All results are validation-period results unless stated; no held-out evaluation exists.
+"Core runner" = `.venv/Scripts/python.exe -B scripts/run_core_tests.py`; "full suite" = `scripts/run_completion_tests.py` (376 of 376 pass, 2026-10-22). All results are validation-period results unless stated; no held-out evaluation exists.
 
 ## 1. Requirements
 
@@ -45,7 +45,7 @@ Dated 2026-10-21; restructured 2026-10-22 (integrity pass: explicit mandatory/op
 | R29 | user, Phase 10 | M (core) | temporal community-evolution tracking (design and core module) | `src/evolution/tracker.py` | `scripts/run_phase10_tests.py` (`test_phase10_*`) | core tests pass | PASS (core) | empirical tiers NOT RUN (not authorized; not part of the brief) |
 | R30 | user, Phase 11 | M | explanations and aggregate-only community cards | `src/explain/`, `experiments/phase11_explainable_evidence/` | `test_phase11_*` | first pass closed | PASS | none |
 | R31 | user, Phase 12 | M | consolidated validation-evidence table, AC1-AC12 | `src/evidence/`, `experiments/phase12_validation_evidence_table/` | `test_phase12_*`, `test_ac12_recovery_records` | AC1-AC11 pass; AC12 per-file recovery 550 of 651 files with pre-build evidence, 0 contradictions, 38 more with derived consistency only, 63 with none | **BLOCKED** (AC12 as registered) | the registered before/after hashing cannot be done after the fact; accepting the alternative evidence is the evaluator's decision |
-| R32 | user list after Phase 7 ("dashboard, final report"); brief `dashboard/` folder; **reconstructed** | M (scope reconstructed) | local dashboard and API over the recorded aggregates | `src/serving/`, `scripts/run_dashboard.py` | `test_serving`; `scripts/verify_dashboard_e2e.py` (31 of 31) | passes the reconstructed criteria P13-1 to P13-10 | PASS (reconstructed criteria); **BLOCKED** (scope confirmation) | the original Phase 13 specification was never recovered (`PHASE13_SCOPE_CONFIRMATION.md`) |
+| R32 | user list after Phase 7 ("dashboard, final report"); brief `dashboard/` folder; **reconstructed** | M (scope reconstructed) | local dashboard and API over the recorded aggregates | `src/serving/`, `scripts/run_dashboard.py` | `test_serving`; `scripts/verify_dashboard_e2e.py` (31 of 31); real-browser check `scripts/verify_dashboard_browser.py` (123 of 123; desktop and phone, light and dark) | passes the reconstructed criteria P13-1 to P13-10 | PASS (reconstructed criteria); **BLOCKED** (scope confirmation) | the original Phase 13 specification was never recovered (`PHASE13_SCOPE_CONFIRMATION.md`) |
 
 ## 2. Hypotheses (experiment status and outcome kept apart)
 

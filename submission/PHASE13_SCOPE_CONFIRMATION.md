@@ -36,8 +36,8 @@ Dated 2026-10-22. **The original Phase 13 specification was not recovered.** Eve
 | P13-4 evidence endpoint reads recorded files | `tests/test_serving.py` | pass |
 | P13-5 communities endpoint aggregate-only, disclaimers | `tests/test_serving.py` | pass |
 | P13-6 access control, path traversal, held-out names | E2E script, `tests/test_serving.py` | pass |
-| P13-7 self-contained page, validation banner | E2E script; browser rendering check (2026-10-21) | pass |
-| P13-8 to P13-10 tests, documentation, boundaries | test suite; README; demo guide | pass |
+| P13-7 self-contained page, validation banner | E2E script; browser rendering check (2026-10-21); real-browser check `scripts/verify_dashboard_browser.py` (2026-10-22: 123 of 123, desktop and phone, light and dark, after fixing the 13 defects it found) | pass |
+| P13-8 to P13-10 tests, documentation, boundaries | test suite; README; demo guide; mutation check 14 of 16 detected, 2 equivalent (2026-10-22) | pass |
 | R1 research-model inference | `scripts/verify_research_serving_e2e.py` (live, 12 of 12); HTTP scores equal the recorded validation predictions | pass |
 
 ## 4. Gaps against the original sources (not defects of the reconstruction, but choices you may want changed)

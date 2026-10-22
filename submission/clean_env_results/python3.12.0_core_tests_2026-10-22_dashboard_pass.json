@@ -1,0 +1,381 @@
+{
+ "python": "3.12.0",
+ "modules": [
+  {
+   "module": "test_ac12_recovery_records",
+   "status": "PASSED",
+   "tests": 7,
+   "passed": 7,
+   "failures": [],
+   "environment_metadata_differences": [],
+   "not_run_artifact_missing": [],
+   "seconds": 0.6
+  },
+  {
+   "module": "test_amendment_gate",
+   "status": "PASSED",
+   "tests": 8,
+   "passed": 8,
+   "failures": [],
+   "environment_metadata_differences": [],
+   "not_run_artifact_missing": [],
+   "seconds": 0.0
+  },
+  {
+   "module": "test_artifact_registry",
+   "status": "PASSED",
+   "tests": 6,
+   "passed": 6,
+   "failures": [],
+   "environment_metadata_differences": [],
+   "not_run_artifact_missing": [],
+   "seconds": 0.1
+  },
+  {
+   "module": "test_b_decision",
+   "status": "PASSED",
+   "tests": 6,
+   "passed": 6,
+   "failures": [],
+   "environment_metadata_differences": [],
+   "not_run_artifact_missing": [],
+   "seconds": 0.0
+  },
+  {
+   "module": "test_comparison_b_outputs",
+   "status": "PASSED",
+   "tests": 12,
+   "passed": 12,
+   "failures": [],
+   "environment_metadata_differences": [],
+   "not_run_artifact_missing": [],
+   "seconds": 1.6
+  },
+  {
+   "module": "test_f_runner_gate",
+   "status": "SKIPPED",
+   "reason": "needs torch (install requirements-gnn.txt)"
+  },
+  {
+   "module": "test_graph_evidence",
+   "status": "PASSED",
+   "tests": 7,
+   "passed": 7,
+   "failures": [],
+   "environment_metadata_differences": [],
+   "not_run_artifact_missing": [],
+   "seconds": 0.3
+  },
+  {
+   "module": "test_graph_features",
+   "status": "PASSED",
+   "tests": 13,
+   "passed": 13,
+   "failures": [],
+   "environment_metadata_differences": [],
+   "not_run_artifact_missing": [],
+   "seconds": 1.1
+  },
+  {
+   "module": "test_h4_rules",
+   "status": "PASSED",
+   "tests": 3,
+   "passed": 3,
+   "failures": [],
+   "environment_metadata_differences": [],
+   "not_run_artifact_missing": [],
+   "seconds": 0.0
+  },
+  {
+   "module": "test_heldout_gate",
+   "status": "PASSED",
+   "tests": 9,
+   "passed": 9,
+   "failures": [],
+   "environment_metadata_differences": [],
+   "not_run_artifact_missing": [],
+   "seconds": 0.0
+  },
+  {
+   "module": "test_inference_demo",
+   "status": "PASSED",
+   "tests": 15,
+   "passed": 15,
+   "failures": [],
+   "environment_metadata_differences": [],
+   "not_run_artifact_missing": [],
+   "seconds": 7.7
+  },
+  {
+   "module": "test_integrity_sidecars",
+   "status": "PASSED",
+   "tests": 3,
+   "passed": 3,
+   "failures": [],
+   "environment_metadata_differences": [],
+   "not_run_artifact_missing": [],
+   "seconds": 0.1
+  },
+  {
+   "module": "test_manuscript_figures",
+   "status": "PASSED",
+   "tests": 3,
+   "passed": 3,
+   "failures": [],
+   "environment_metadata_differences": [],
+   "not_run_artifact_missing": [],
+   "seconds": 0.0
+  },
+  {
+   "module": "test_neural_graph_evidence",
+   "status": "SKIPPED",
+   "reason": "needs torch (install requirements-gnn.txt)"
+  },
+  {
+   "module": "test_phase10_compat",
+   "status": "PASSED",
+   "tests": 6,
+   "passed": 6,
+   "failures": [],
+   "environment_metadata_differences": [],
+   "not_run_artifact_missing": [],
+   "seconds": 0.4
+  },
+  {
+   "module": "test_phase10_properties",
+   "status": "PASSED",
+   "tests": 12,
+   "passed": 12,
+   "failures": [],
+   "environment_metadata_differences": [],
+   "not_run_artifact_missing": [],
+   "seconds": 0.2
+  },
+  {
+   "module": "test_phase10_toys",
+   "status": "PASSED",
+   "tests": 45,
+   "passed": 45,
+   "failures": [],
+   "environment_metadata_differences": [],
+   "not_run_artifact_missing": [],
+   "seconds": 0.0
+  },
+  {
+   "module": "test_phase11_explain",
+   "status": "PASSED",
+   "tests": 22,
+   "passed": 22,
+   "failures": [],
+   "environment_metadata_differences": [],
+   "not_run_artifact_missing": [],
+   "seconds": 1.6
+  },
+  {
+   "module": "test_phase11_outputs",
+   "status": "PASSED",
+   "tests": 8,
+   "passed": 8,
+   "failures": [],
+   "environment_metadata_differences": [],
+   "not_run_artifact_missing": [],
+   "seconds": 0.3
+  },
+  {
+   "module": "test_phase12_environment_independence",
+   "status": "PASSED",
+   "tests": 1,
+   "passed": 1,
+   "failures": [],
+   "environment_metadata_differences": [],
+   "not_run_artifact_missing": [],
+   "seconds": 6.7
+  },
+  {
+   "module": "test_phase12_evidence",
+   "status": "PASSED",
+   "tests": 16,
+   "passed": 16,
+   "failures": [],
+   "environment_metadata_differences": [],
+   "not_run_artifact_missing": [],
+   "seconds": 0.8
+  },
+  {
+   "module": "test_phase12_outputs",
+   "status": "PASSED",
+   "tests": 11,
+   "passed": 11,
+   "failures": [],
+   "environment_metadata_differences": [],
+   "not_run_artifact_missing": [],
+   "seconds": 13.6
+  },
+  {
+   "module": "test_phase8_adaptive",
+   "status": "SKIPPED",
+   "reason": "needs torch (install requirements-gnn.txt)"
+  },
+  {
+   "module": "test_phase9_core",
+   "status": "PASSED",
+   "tests": 14,
+   "passed": 14,
+   "failures": [],
+   "environment_metadata_differences": [],
+   "not_run_artifact_missing": [],
+   "seconds": 0.5
+  },
+  {
+   "module": "test_phase9_segments",
+   "status": "PASSED",
+   "tests": 3,
+   "passed": 3,
+   "failures": [],
+   "environment_metadata_differences": [],
+   "not_run_artifact_missing": [],
+   "seconds": 0.0
+  },
+  {
+   "module": "test_phase9b_records",
+   "status": "PASSED",
+   "tests": 5,
+   "passed": 5,
+   "failures": [],
+   "environment_metadata_differences": [],
+   "not_run_artifact_missing": [],
+   "seconds": 0.0
+  },
+  {
+   "module": "test_preprocessing",
+   "status": "PASSED",
+   "tests": 8,
+   "passed": 8,
+   "failures": [],
+   "environment_metadata_differences": [],
+   "not_run_artifact_missing": [],
+   "seconds": 0.0
+  },
+  {
+   "module": "test_readiness_guards",
+   "status": "PASSED",
+   "tests": 13,
+   "passed": 13,
+   "failures": [],
+   "environment_metadata_differences": [],
+   "not_run_artifact_missing": [],
+   "seconds": 0.8
+  },
+  {
+   "module": "test_relation_ablation_records",
+   "status": "PASSED",
+   "tests": 3,
+   "passed": 3,
+   "failures": [],
+   "environment_metadata_differences": [],
+   "not_run_artifact_missing": [],
+   "seconds": 0.0
+  },
+  {
+   "module": "test_research_serving",
+   "status": "PASSED",
+   "tests": 6,
+   "passed": 6,
+   "failures": [],
+   "environment_metadata_differences": [],
+   "not_run_artifact_missing": [],
+   "seconds": 3.2
+  },
+  {
+   "module": "test_runner_contract",
+   "status": "PASSED",
+   "tests": 2,
+   "passed": 2,
+   "failures": [],
+   "environment_metadata_differences": [],
+   "not_run_artifact_missing": [],
+   "seconds": 0.0
+  },
+  {
+   "module": "test_scope_reconciliation_records",
+   "status": "PASSED",
+   "tests": 9,
+   "passed": 9,
+   "failures": [],
+   "environment_metadata_differences": [],
+   "not_run_artifact_missing": [],
+   "seconds": 0.0
+  },
+  {
+   "module": "test_serving",
+   "status": "PASSED",
+   "tests": 20,
+   "passed": 20,
+   "failures": [],
+   "environment_metadata_differences": [],
+   "not_run_artifact_missing": [],
+   "seconds": 7.3
+  },
+  {
+   "module": "test_splits",
+   "status": "PASSED",
+   "tests": 5,
+   "passed": 5,
+   "failures": [],
+   "environment_metadata_differences": [],
+   "not_run_artifact_missing": [],
+   "seconds": 0.0
+  },
+  {
+   "module": "test_trigger_policy",
+   "status": "PASSED",
+   "tests": 6,
+   "passed": 6,
+   "failures": [],
+   "environment_metadata_differences": [],
+   "not_run_artifact_missing": [],
+   "seconds": 0.0
+  },
+  {
+   "module": "test_trigger_walkforward",
+   "status": "SKIPPED",
+   "reason": "needs torch (install requirements-gnn.txt)"
+  },
+  {
+   "module": "test_triggered_refresh_records",
+   "status": "PASSED",
+   "tests": 6,
+   "passed": 6,
+   "failures": [],
+   "environment_metadata_differences": [],
+   "not_run_artifact_missing": [],
+   "seconds": 0.0
+  },
+  {
+   "module": "test_validate",
+   "status": "PASSED",
+   "tests": 9,
+   "passed": 9,
+   "failures": [],
+   "environment_metadata_differences": [],
+   "not_run_artifact_missing": [],
+   "seconds": 0.0
+  },
+  {
+   "module": "test_walkforward_ext",
+   "status": "SKIPPED",
+   "reason": "needs torch (install requirements-gnn.txt)"
+  }
+ ],
+ "tests": 322,
+ "passed": 322,
+ "not_run_artifact_missing": 0,
+ "environment_metadata_differences": 0,
+ "skipped": [
+  "test_f_runner_gate",
+  "test_neural_graph_evidence",
+  "test_phase8_adaptive",
+  "test_trigger_walkforward",
+  "test_walkforward_ext"
+ ]
+}

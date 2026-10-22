@@ -3,7 +3,8 @@
 Checks: the protocol hash against its sidecar; every frozen model artifact and its recorded validation threshold; the evaluator registry against the protocol
 text; the validation readiness gate record (all models, recorded after the last change to the evaluator); the gate and one-shot behaviour (the tested refusals);
 which held-out-named paths exist (existence and size only is NOT used: only the two authorization artifacts are checked, by existence). Writes
-experiments/final_heldout_protocol/PROTOCOL_REVIEW.md and .json (with sidecars).
+experiments/final_heldout_protocol/PROTOCOL_REVIEW.md and PROTOCOL_REVIEW_FACTS.json, each with its own sidecar (until 2026-10-22 the two shared
+one sidecar name, so the .md's hash was overwritten by the .json's).
 
 Usage:  .venv/Scripts/python.exe -B scripts/verify_heldout_protocol_ready.py
 """
@@ -102,9 +103,9 @@ def main() -> int:
           "## Exact authorization\n", "Create `experiments/final_heldout_protocol/AUTHORIZATION.txt` containing the sentence in protocol section 9 and the protocol hash above; to add Amendment 1 modules it must also contain the amendment hash above and the sentence `I authorize the following Amendment 1 modules: <F, H, U subset>`. Then run `scripts/run_heldout_evaluation.py --split heldout` (base), `scripts/run_f_walkforward.py --split heldout` (F), `scripts/run_amendment_evaluation.py --split heldout --modules H,U` (H, U). Nothing has been created; the decision is the user's.", ""]
     md = ("\n".join(L)).encode("utf-8")
     js = (json.dumps(rec, indent=1) + "\n").encode("utf-8")
-    for name, data in (("PROTOCOL_REVIEW.md", md), ("PROTOCOL_REVIEW.json", js)):
+    for name, data in (("PROTOCOL_REVIEW.md", md), ("PROTOCOL_REVIEW_FACTS.json", js)):
         (FH / name).write_bytes(data)
-        (FH / name.replace(".md", ".sha256").replace(".json", ".sha256")).write_bytes(hashlib.sha256(data).hexdigest().encode("ascii"))
+        (FH / name).with_suffix(".sha256").write_bytes(hashlib.sha256(data).hexdigest().encode("ascii"))
     print("ready for informed authorization:", ok)
     print(json.dumps({k: facts[k] for k in ("sidecar_matches", "n_models", "all_artifacts_exist", "thresholds_all_recorded_in_unit_interval")}))
     return 0 if ok else 1

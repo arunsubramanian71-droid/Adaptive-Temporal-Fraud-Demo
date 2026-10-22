@@ -135,6 +135,50 @@ def test_invalid_inputs_give_actionable_errors():
     _raises(lambda: S.score(b, None, "not a frame"), S.ScoringError, "DataFrame")
 
 
+def test_transaction_ids_must_be_integers_and_amounts_finite():
+    """Found 2026-10-22 through the HTTP API: a text or boolean id caused an internal error, a fractional id (1.5) was reported back as 1, and a missing or
+    infinite amount turned the backward-looking amount features of every later row of the same entity into NaN or inf."""
+    b = bundle()
+    _, _, _, ho = data()
+    new = ho.head(5).reset_index(drop=True)
+    assert S.integer_valued(pd.Series([1, 2, 3])) and S.integer_valued(pd.Series([1.0, 2.0])) and S.integer_valued([10 ** 20]) and S.integer_valued([10 ** 30])
+    assert S.integer_valued(pd.Series([1, None], dtype="object"), allow_missing=True) and S.integer_valued(pd.Series([1.0, np.nan]), allow_missing=True)
+    for bad in ([1.5], ["7"], [True], [None], [np.nan], [np.inf], [[1]]):
+        assert not S.integer_valued(pd.Series(bad, dtype="object")), bad
+    assert not S.integer_valued(pd.Series([True, False]))
+    for bad_id in ("abc", 1.5, None, True):
+        frame = new.copy()
+        frame["TransactionID"] = frame["TransactionID"].astype(object)
+        frame.loc[0, "TransactionID"] = bad_id
+        try:
+            S.score(b, None, frame)
+        except S.ScoringError as e:
+            assert "TransactionID must be integers" in str(e), e
+        else:
+            raise AssertionError(f"id {bad_id!r} accepted")
+    for bad_amt in (np.nan, np.inf, -np.inf):
+        frame = new.copy()
+        frame.loc[2, "TransactionAmt"] = bad_amt
+        try:
+            S.score(b, None, frame)
+        except S.ScoringError as e:
+            assert "TransactionAmt must be finite" in str(e), e
+        else:
+            raise AssertionError(f"amount {bad_amt!r} accepted")
+    as_float = new.copy()
+    as_float["TransactionID"] = as_float["TransactionID"].astype(float)
+    assert S.score(b, None, as_float)["TransactionID"].tolist() == new["TransactionID"].astype(float).tolist()      # 5.0 is the integer 5
+
+
+def test_research_sample_refuses_a_non_positive_count_before_reading_anything():
+    import subprocess
+    r = subprocess.run([sys.executable, "-B", "scripts/make_research_sample.py", "--n", "-5", "--out", str(pathlib.Path(tempfile.gettempdir()) / "x.json")],
+                       cwd=ROOT, capture_output=True, text=True, timeout=120)
+    assert r.returncode == 2 and "--n must be at least 1" in r.stderr, (r.returncode, r.stderr[-300:])        # before 2026-10-22: [:-5] wrote ~83,000 rows
+    r = subprocess.run([sys.executable, "-B", "scripts/make_research_sample.py", "--out", str(ROOT / "experiments" / "x.json")], cwd=ROOT, capture_output=True, text=True, timeout=120)
+    assert r.returncode == 2 and "outside the repository" in r.stderr and not (ROOT / "experiments" / "x.json").exists()
+
+
 def test_sealed_path_guard_and_missing_file():
     for p in ("data/features/test_features.parquet", "data/raw/test_transaction.csv", "C:/x/test/holdout.csv", "scores_test.csv"):
         _raises(lambda p=p: S.refuse_sealed_path(p), S.SealedDataError, "sealed")
@@ -156,6 +200,10 @@ def test_bundle_round_trip_and_tamper_detection():
         (d / "b" / "bundle.joblib").write_bytes((d / "b" / "bundle.joblib").read_bytes() + b"x")
         _raises(lambda: S.load_bundle(d / "b"), S.ScoringError, "does not match the hash")
         _raises(lambda: S.load_bundle(d / "nothing_here"), S.ScoringError, "bundle_manifest")
+        (d / "b" / "bundle_manifest.json").write_text("{not json", encoding="utf-8")                  # before 2026-10-22: a bare JSON parser message
+        _raises(lambda: S.load_bundle(d / "b"), S.ScoringError, "is damaged")
+        (d / "b" / "bundle_manifest.json").write_text('{"schema": {}}', encoding="utf-8")
+        _raises(lambda: S.load_bundle(d / "b"), S.ScoringError, "lacks required fields")
     finally:
         shutil.rmtree(d, ignore_errors=True)
 

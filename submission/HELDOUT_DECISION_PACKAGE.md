@@ -177,7 +177,7 @@ Results are reported whatever they are; no model, threshold or setting is change
 
 The original specification was never recovered. `submission/PHASE13_SCOPE_CONFIRMATION.md` separates the 7 recovered requirements (production-style inference; suggested `api/` and `dashboard/` folders; FastAPI and Streamlit as "likely" under a minimum-stack rule; investigation output with candidate wording; explanations; the dashboard and final report in your ordered list; evaluation honesty) from the 7 assumptions made (local-only; standard library; aggregate-only data; a demo mode and the research XGBoost; neural models not served; acceptance criteria P13-1 to P13-10).
 
-Verified: dashboard 31 of 31 checks; research serving 12 of 12; HTTP scores equal the recorded validation predictions. Confirm, or name changes.
+Verified: dashboard 31 of 31 checks; research serving 12 of 12; HTTP scores equal the recorded validation predictions; real-browser check 123 of 123 (2026-10-22, desktop and phone, light and dark). Confirm, or name changes.
 
 ## 7. Public-history remediation: choices and risks
 
