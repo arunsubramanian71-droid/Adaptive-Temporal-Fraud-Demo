@@ -3,7 +3,8 @@
   readiness gate (validation period, allowed now):
       .venv/Scripts/python.exe -B scripts/run_amendment_evaluation.py --split val --modules H,U
   held-out period (days 152-182): REFUSED unless AUTHORIZATION.txt quotes the protocol hash and sentence, the amendment hash, and a sentence
-      'I authorize the following Amendment 1 modules: <letters>' naming every requested module. One-shot per run: refused once results exist.
+      'I authorize the following Amendment 1 modules: <letters>' naming every requested module. H and U share one output folder and one one-shot flag, so
+      --modules must name exactly the H/U modules that AUTHORIZATION.txt authorizes. One-shot: refused once the output folder holds any file.
 
 Nothing is fitted, tuned or re-thresholded; thresholds are the recorded validation best-F1 values. The existing evaluator, its protocol and its 19-model registry are untouched.
 """
@@ -27,6 +28,7 @@ import pandas as pd  # noqa: E402
 from src.heldout import amendment as A  # noqa: E402
 from src.heldout import codehash as CH  # noqa: E402
 from src.heldout import evaluator as E  # noqa: E402
+from src.heldout import oneshot as OS  # noqa: E402
 
 FOLDER = ROOT / "experiments" / "final_heldout_protocol"
 HIST_REC = ROOT / A.HIST_DIR / "predictions_val.parquet"
@@ -111,14 +113,20 @@ def main(argv=None) -> int:
     ap.add_argument("--split", choices=["val", "heldout"], required=True)
     ap.add_argument("--modules", default="H,U")
     a = ap.parse_args(argv)
-    mods = tuple(m for m in a.modules.split(",") if m)
+    mods = tuple(m.strip() for m in a.modules.split(",") if m.strip())
+    if not mods or len(set(mods)) != len(mods) or not set(mods) <= {"H", "U"}:
+        print(f"error: --modules must name H and/or U once each (module F is run by scripts/run_f_walkforward.py); got {a.modules!r}", file=sys.stderr)
+        return 2
     try:
         if a.split == "heldout":
             out = FOLDER / "heldout_results_amendment"
-            if (out / ".completed").exists():
-                print("error: the amendment held-out evaluation has already been executed; it is one-shot.", file=sys.stderr)
+            OS.require_unused(out, "the amendment held-out evaluation")   # Amendment 1 section 7: any held-out output means the run was executed
+            auth = A.require_amendment_authorization("heldout", mods)   # raises before anything is read
+            granted = set(auth.get("amendment_modules_authorized", ())) & {"H", "U"}
+            if set(mods) != granted:
+                print(f"error: AUTHORIZATION.txt authorizes the H/U modules {sorted(granted)}, but --modules requests {sorted(mods)}. H and U share one output folder "
+                      f"and one one-shot flag (Amendment 1 section 7), so they must run together in one invocation. Nothing was read.", file=sys.stderr)
                 return 2
-            A.require_amendment_authorization("heldout", mods)          # raises before anything is read
             A.require_amendment_readiness(mods)                         # registered readiness gates must have passed
             out.mkdir(parents=True, exist_ok=True)
             heldout(A.run_modules("heldout", mods), out)
@@ -128,7 +136,7 @@ def main(argv=None) -> int:
         ok = readiness(A.run_modules("val", mods), out)
         print("READINESS:", "PASS" if ok else "FAIL (see readiness_report.json)")
         return 0 if ok else 1
-    except (E.AuthorizationError, A.ReadinessError) as e:
+    except (E.AuthorizationError, A.ReadinessError, OS.OneShotError) as e:
         print(f"error: {e}", file=sys.stderr)
         return 2
 

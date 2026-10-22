@@ -34,6 +34,42 @@ def test_f_runner_refuses_on_its_failed_readiness_gate_even_when_authorized_and_
     assert not (ROOT / "experiments" / "final_heldout_protocol" / "heldout_results_f").exists()
 
 
+def test_f_runner_heldout_scope_is_the_registered_one_and_any_output_counts_as_executed():
+    """Amendment 1 section 3 locks arms F, Ad, E and seeds 42, 123, 2024; section 7: any held-out output counts as executed (a repeat only after a crash that wrote
+    no held-out score). Before this guard a `--seeds`/`--arms` subset could run and then mark the folder completed, and a crash after the first window file allowed a repeat."""
+    import shutil
+    import tempfile
+    from src.heldout import amendment as A
+
+    class Reached(Exception):
+        pass
+
+    def reached(*a, **k):
+        raise Reached()
+    orig = (A.require_amendment_authorization, A.require_amendment_readiness, RF.load_raw_arrays, RF.HELDOUT_OUT)
+    A.require_amendment_authorization = lambda split, mods, root=None: {"split": split}       # pretend authorized (no file is created)
+    A.require_amendment_readiness = lambda mods, root=None: {m: {"all_pass": True} for m in mods}
+    RF.load_raw_arrays = reached
+    tmp = pathlib.Path(tempfile.mkdtemp(prefix="f_once_"))
+    RF.HELDOUT_OUT = tmp / "heldout_results_f"
+    try:
+        (RF.HELDOUT_OUT / "adaptive" / "seed_42").mkdir(parents=True)
+        (RF.HELDOUT_OUT / "adaptive" / "seed_42" / "metrics_W1.json").write_text("{}", encoding="utf-8")
+        assert RF.main(["--split", "heldout"]) == 2                                     # refused before any read (load_raw_arrays not reached)
+        (RF.HELDOUT_OUT / "adaptive" / "seed_42" / "metrics_W1.json").unlink()
+        for extra in (["--seeds", "42"], ["--seeds", "42,123"], ["--arms", "F,Ad"], ["--arms", "Ad"], ["--seeds", "42,123,2024,7"]):
+            assert RF.main(["--split", "heldout", *extra]) == 2, extra
+        try:
+            RF.main(["--split", "heldout"])                                              # empty folder, registered scope: the guards pass and loading starts
+            raise AssertionError("the registered scope was refused")
+        except Reached:
+            pass
+    finally:
+        A.require_amendment_authorization, A.require_amendment_readiness, RF.load_raw_arrays, RF.HELDOUT_OUT = orig
+        shutil.rmtree(tmp, ignore_errors=True)
+    assert not (ROOT / "experiments" / "final_heldout_protocol" / "heldout_results_f").exists()
+
+
 def test_f_runner_never_overwrites_a_completed_validation_run_and_refuses_before_reading():
     import hashlib
     sup = ROOT / "experiments" / "phase8_state_continuity_supplement" / "outputs"

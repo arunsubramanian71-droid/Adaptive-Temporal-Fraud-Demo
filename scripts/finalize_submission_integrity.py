@@ -25,6 +25,8 @@ DOCUMENTED_CHANGES = {
     "experiments/phase12_validation_evidence_table/PHASE12_CLOSURE_REPORT.md": "Phase 12 closure report revised (AC12 wording); recorded in its section 8 and in INTEGRITY_PHASE12.json 'revision'",
     "experiments/phase12_validation_evidence_table/INTEGRITY_PHASE12.json": "Phase 12 integrity record updated to cover the revised report",
     "experiments/phase12_validation_evidence_table/INTEGRITY_PHASE12.sha256": "sidecar of the updated integrity record",
+    "tests/test_splits.py": ("2026-10-22: the split-count regression test no longer opens the sealed TEST feature table (it read it and summed its labels against "
+                             "the Phase 1 counts on every full run) and no longer returns early without its data (registered in tests/artifact_requirements.json)"),
 }
 SYNTHESIS_REPORT_SHA = "4fdb4133b33984e51d81faff16778aa5ccb1e6c7b055972c7b929687d8424353"
 OUT = "submission/INTEGRITY_SUBMISSION.json"

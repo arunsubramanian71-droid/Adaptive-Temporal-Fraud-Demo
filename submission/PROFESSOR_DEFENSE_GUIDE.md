@@ -25,7 +25,7 @@ tabular models (LR, RF, XGBoost)      B: XGBoost + 40 backward-looking graph fea
 
 ## 3. Major algorithms and design decisions (why each exists)
 
-* **Chronological split, TRAIN-only fitting.** Every encoder, threshold and hyperparameter came from TRAIN or validation. TEST is sealed, and guards refuse TEST-named paths.
+* **Chronological split, TRAIN-only fitting.** Every encoder, threshold and hyperparameter came from TRAIN or validation. TEST is sealed, and guards refuse TEST-named paths. If asked whether the test period was ever touched: no model was ever scored on it, but until 2026-10-22 one split-count test opened its feature table to re-check the Phase 1 row and fraud counts; that was found, disclosed and removed (`HELDOUT_DECISION_PACKAGE.md` section 1a).
 * **Graph schema from the data, not imagined.** Billing address and email domain were measured in Phase 4 and left out: they showed no signal or only weak lift, with very large hubs. No customer, account or IP identifiers were invented. The pseudo-account is an explicit derivation, `card1 + addr1 + (day - D1)`.
 * **Causality.** Graph features use only strictly earlier rows. Static GNNs score day t on the graph masked to edges with time <= t. The temporal model carries entity memory forward day by day and never sees a label of a day it scores.
 * **One temporal architecture.** Temporal GraphSAGE with GRU entity memory, chosen for its fit to the data's entity-reuse structure. The Phase 7A controls (memory ablated, schedule-matched static) separate memory from training regime.

@@ -4,8 +4,8 @@ Dated 2026-10-22. Read-only. **No held-out file was opened, hashed, read or scor
 
 * Protocol: `experiments/final_heldout_protocol/HELDOUT_EVALUATION_PROTOCOL.md`, SHA-256 `59bf1565fb16653a02a2d743cc445e114fb2a6a42f1de7b2fa56261e6f68c806` (sidecar matches: True).
 * Frozen models: 19 (all artifacts present: True); thresholds are the recorded validation best-F1 values below and are transferred, never re-tuned.
-* Code-readiness gate: validation re-scoring of all 19 models reproduces the recorded predictions (maximum score difference 7.15e-07); code unchanged since the gate ran (SHA-256 of the 21 code files it loaded): True.
-* Evaluator hashes at readiness: `evaluator.py` `bc6157f57279e11d...`, `run_heldout_evaluation.py` `4b74469b422ebc88...`.
+* Code-readiness gate: validation re-scoring of all 19 models reproduces the recorded predictions (maximum score difference 8.94e-07); code unchanged since the gate ran (SHA-256 of the 22 code files it loaded): True.
+* Evaluator hashes at readiness: `evaluator.py` `bc6157f57279e11d...`, `run_heldout_evaluation.py` `78b55be9d32109f4...`.
 * **Verdict: READY for informed authorization.** Readiness means the procedure is frozen and checked on validation; it does not mean the evaluation answers every question of the brief (see the gaps below).
 
 ## Frozen models and recorded validation thresholds
@@ -34,7 +34,8 @@ Dated 2026-10-22. Read-only. **No held-out file was opened, hashed, read or scor
 
 ## Input restrictions and one-shot behaviour (each tested without touching held-out data)
 
-* Without `AUTHORIZATION.txt` quoting the protocol hash and the sentence, the evaluator raises before reading anything; a wrong hash or sentence is refused; a second run is refused once `heldout_results/.completed` exists.
+* Without `AUTHORIZATION.txt` quoting the protocol hash and the sentence, the evaluator raises before reading anything; a wrong hash or sentence is refused; a second run is refused once `heldout_results/` holds any file (`src/heldout/oneshot.py`; the same rule guards `heldout_results_amendment/` and `heldout_results_f/`).
+* Scope is fixed at run time: the base runner evaluates all 19 frozen models together (no `--families` subset in held-out mode); the H/U runner must run exactly the H/U modules that `AUTHORIZATION.txt` authorizes, because they share one one-shot folder; the F runner refuses any subset of arms F, Ad, E or seeds 42, 123, 2024.
 * The held-out feature file is named in exactly one place in the code and is reachable only after the gate; feature frames are read with the label column projected away; labels are read afterwards from the graph file only to compute metrics; the temporal dataset is built without labels.
 * When authorized it reads: `data/features/test_features.parquet` (tabular models and B) and the Phase 4 graph file (neural models; all days are loaded into memory, the models score days 152-182 under the causal masks); it writes only into `experiments/final_heldout_protocol/heldout_results/`.
 
@@ -58,7 +59,7 @@ Dated 2026-10-22. Read-only. **No held-out file was opened, hashed, read or scor
 
 * One future period of 31 days: concept drift may move every model; seeds are not independent replications.
 * GPU scores differ from the recorded validation predictions by up to the figure above; this affects tie-sensitive top-K metrics only marginally.
-* If the run crashes before any held-out score is written the defect may be fixed and rerun (protocol section 7); a crash while writing leaves partial outputs that must be handled by hand before a rerun.
+* If the run crashes before any held-out score is written the defect may be fixed and rerun (protocol section 7); once any held-out output file exists, every runner refuses a rerun, so a crash while writing ends that part of the evaluation and is reported as such.
 
 ## Exact authorization
 

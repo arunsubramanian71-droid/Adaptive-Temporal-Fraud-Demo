@@ -3,7 +3,8 @@
   readiness gate (validation period, allowed now):
       .venv/Scripts/python.exe -B scripts/run_heldout_evaluation.py --split val
   held-out period (days 152-182): REFUSED unless the user has created experiments/final_heldout_protocol/AUTHORIZATION.txt quoting the
-      protocol's SHA-256 and the authorization sentence (protocol section 9). One-shot: refuses to run again once results exist.
+      protocol's SHA-256 and the authorization sentence (protocol section 9). All 19 frozen models are evaluated together (no --families subset).
+      One-shot: refuses to run again once its output folder holds any file (a repeat only after a crash that wrote no held-out score, section 7).
 
 `--split val` re-scores the frozen models on VAL through the same code path and compares with the recorded VAL predictions
 (tolerances: tabular and B 1e-9 on scores; neural models 1e-4 on scores and 1e-6 on PR-AUC, because GPU kernels are not bit-reproducible).
@@ -27,6 +28,7 @@ import pandas as pd  # noqa: E402
 
 from src.heldout import codehash as CH  # noqa: E402
 from src.heldout import evaluator as E  # noqa: E402
+from src.heldout import oneshot as OS  # noqa: E402
 
 FOLDER = ROOT / "experiments" / "final_heldout_protocol"
 TOL = {"tabular": 1e-9, "b": 1e-9, "static": 1e-4, "temporal": 1e-4}
@@ -125,9 +127,11 @@ def main(argv=None) -> int:
     try:
         if a.split == "heldout":
             out = FOLDER / "heldout_results"
-            if (out / ".completed").exists():
-                print("error: the held-out evaluation has already been executed; it is one-shot (protocol section 7).", file=sys.stderr)
+            if set(fams) != set(E.FAMILIES) or len(fams) != len(E.FAMILIES):
+                print(f"error: the held-out run evaluates the 19 frozen models of protocol section 2 together (families {','.join(E.FAMILIES)}); "
+                      f"a subset would spend the one-shot period for the others. Nothing was read.", file=sys.stderr)
                 return 2
+            OS.require_unused(out, "the held-out evaluation")    # section 7: any held-out output means the run was executed
             E.require_authorization("heldout")                  # raises before anything is read
             require_base_readiness()                            # protocol section 6: the readiness gate must have passed first
             out.mkdir(parents=True, exist_ok=True)
@@ -138,7 +142,7 @@ def main(argv=None) -> int:
         ok = readiness(E.run("val", fams), out)
         print("READINESS:", "PASS" if ok else "FAIL (see readiness_report.json)")
         return 0 if ok else 1
-    except E.AuthorizationError as e:
+    except (E.AuthorizationError, OS.OneShotError) as e:
         print(f"error: {e}", file=sys.stderr)
         return 2
 

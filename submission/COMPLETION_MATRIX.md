@@ -63,6 +63,7 @@ Status words: **PASS** = the required work was executed and its acceptance crite
 
 * Reading `data/processed/split_metadata.json` to obtain the train and validation row counts also displayed the held-out period's aggregate row and fraud counts; they were not used anywhere.
 * The readiness gate and the neural training scripts load the Phase 4 graph file, which contains held-out-period nodes; rows after day 151 are dropped immediately (readiness gate) or hidden by time masks (training scripts), as in every earlier phase. No held-out label or score was produced.
+* Found 2026-10-22 (integrity pass): until then, the split-count regression test `tests/test_splits.py` opened the held-out feature table on every full test run and checked its row count, fraud count and day range against the Phase 1 figures in `configs/data.yaml`. Only pass or fail was printed; no model was scored on the period and no per-row value or metric was produced. The test now reads only TRAIN and VAL (`HELDOUT_DECISION_PACKAGE.md` section 1a).
 * A dry run once wrote files under a stray `C:\c\Users\...` path; they were deleted; nine empty folders remain there for the user to remove.
 
 ## 5. Remaining blockers and decisions (precise)
@@ -72,7 +73,7 @@ Status words: **PASS** = the required work was executed and its acceptance crite
 3. **Phase 9 / H5:** the original G4 failure stands; the new, separately pre-registered Phase 9b benchmark was run and supports H5a-9b (separate result).
 4. **Phase 13 scope:** confirm or correct the reconstruction (`submission/PHASE13_SCOPE_CONFIRMATION.md`).
 5. **Optional:** explanations of GraphSAGE; GAT unweighted; GraphSAGE/GAT relation ablations (the temporal model was ablated); Phase 10 empirical tiers.
-6. **Public Git history:** six transaction-level evidence files remain in 21 of 25 commits; competition rule 7B applies; a verified backup bundle exists; make the repository private and notify Kaggle (recommended), or approve a history rewrite.
+6. **Public Git history:** six transaction-level evidence files remain in 21 commits (of the 29 up to `2247ff4`); competition rule 7B applies; a verified backup bundle exists; make the repository private and notify Kaggle (recommended), or approve a history rewrite.
 
 ## 6. Overall acceptance
 

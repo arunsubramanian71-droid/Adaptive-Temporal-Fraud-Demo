@@ -68,21 +68,99 @@ def test_amendment_cli_checks_readiness_after_authorization_and_before_any_read(
     import run_amendment_evaluation as CLI
     calls = []
     orig_auth, orig_run = A.require_amendment_authorization, A.run_modules
-    A.require_amendment_authorization = lambda split, mods, root=ROOT: {"split": split}       # pretend authorized (no file is created)
+    A.require_amendment_authorization = lambda split, mods, root=ROOT: {"split": split, "amendment_modules_authorized": ["H", "U"]}   # pretend authorized (no file)
     A.run_modules = lambda *a, **k: calls.append(a) or {}
     tmp = pathlib.Path(tempfile.mkdtemp(prefix="ready_"))
     old = CLI.FOLDER
     CLI.FOLDER = tmp
     orig_ready = A.require_amendment_readiness
+    checked = []
     try:
         def failing(mods, root=ROOT):
+            checked.append(tuple(mods))
             raise A.ReadinessError("gate not passed")
         A.require_amendment_readiness = failing
-        assert CLI.main(["--split", "heldout", "--modules", "H,U"]) == 2 and calls == []
+        assert CLI.main(["--split", "heldout", "--modules", "H,U"]) == 2 and calls == [] and checked == [("H", "U")]
     finally:
         A.require_amendment_authorization, A.run_modules, A.require_amendment_readiness = orig_auth, orig_run, orig_ready
         CLI.FOLDER = old
         shutil.rmtree(tmp, ignore_errors=True)
+
+
+def test_base_cli_counts_any_held_out_output_as_executed_and_refuses_a_partial_model_set():
+    """Protocol section 7: a repeat is allowed only after a crash that wrote no held-out score. Before this guard only `.completed` (written last) was checked,
+    so a crash after the first `predictions_heldout_*` file allowed a second look. Section 2: the 19 models are evaluated together; a `--families` subset
+    would have spent the one-shot for the others."""
+    import run_heldout_evaluation as CLI
+    called = []
+    orig = (E.run, E.require_authorization, CLI.require_base_readiness, CLI.heldout)
+    E.run = lambda *a, **k: called.append(a) or {}
+    E.require_authorization = lambda split, root=ROOT: {"split": split}           # pretend authorized (no file is created)
+    CLI.require_base_readiness = lambda folder=None: {"all_pass": True}
+    CLI.heldout = lambda res, out: None
+    tmp = pathlib.Path(tempfile.mkdtemp(prefix="ready_"))
+    old = CLI.FOLDER
+    CLI.FOLDER = tmp
+    try:
+        out = tmp / "heldout_results"
+        out.mkdir()
+        (out / "predictions_heldout_xgboost.parquet").write_bytes(b"partial")    # a crash after the first score file: no .completed
+        assert CLI.main(["--split", "heldout"]) == 2 and called == []
+        (out / "predictions_heldout_xgboost.parquet").unlink()
+        for fams in ("tabular", "tabular,b,static", "tabular,b,static,temporal,x"):
+            assert CLI.main(["--split", "heldout", "--families", fams]) == 2 and called == [], fams
+        assert CLI.main(["--split", "heldout"]) == 0 and len(called) == 1               # an empty folder (crash before any score) may be repeated
+    finally:
+        E.run, E.require_authorization, CLI.require_base_readiness, CLI.heldout = orig
+        CLI.FOLDER = old
+        shutil.rmtree(tmp, ignore_errors=True)
+
+
+def test_amendment_cli_counts_any_output_as_executed_and_runs_exactly_the_authorized_h_u_modules():
+    """Amendment 1 section 7: H and U share one folder and one one-shot flag, so running fewer H/U modules than were authorized would lock the rest out;
+    module F has its own runner; any held-out output counts as executed."""
+    import run_amendment_evaluation as CLI
+    calls = []
+    orig = (A.require_amendment_authorization, A.require_amendment_readiness, A.run_modules, CLI.heldout)
+    granted = {"value": ["F", "H", "U"]}
+    A.require_amendment_authorization = lambda split, mods, root=ROOT: {"split": split, "amendment_modules_authorized": list(granted["value"]), "modules_run": list(mods)}
+    A.require_amendment_readiness = lambda mods, root=ROOT: {m: {"all_pass": True} for m in mods}
+    A.run_modules = lambda *a, **k: calls.append(a) or {}
+    CLI.heldout = lambda res, out: None
+    tmp = pathlib.Path(tempfile.mkdtemp(prefix="ready_"))
+    old = CLI.FOLDER
+    CLI.FOLDER = tmp
+    try:
+        out = tmp / "heldout_results_amendment"
+        out.mkdir()
+        (out / "predictions_heldout_A_none.parquet").write_bytes(b"partial")
+        assert CLI.main(["--split", "heldout", "--modules", "H,U"]) == 2 and calls == []
+        (out / "predictions_heldout_A_none.parquet").unlink()
+        for mods in ("H", "U", "F,H,U", "F", ""):
+            assert CLI.main(["--split", "heldout", "--modules", mods]) == 2 and calls == [], mods
+        for mods in ("F", "", "H,X"):
+            assert CLI.main(["--split", "val", "--modules", mods]) == 2 and calls == [], mods
+        granted["value"] = ["H"]                                                        # only H authorized: H alone is the full authorized scope
+        assert CLI.main(["--split", "heldout", "--modules", "H,U"]) == 2 and calls == []
+        assert CLI.main(["--split", "heldout", "--modules", "H"]) == 0 and len(calls) == 1
+    finally:
+        A.require_amendment_authorization, A.require_amendment_readiness, A.run_modules, CLI.heldout = orig
+        CLI.FOLDER = old
+        shutil.rmtree(tmp, ignore_errors=True)
+
+
+def test_one_shot_helper_treats_only_an_empty_or_absent_folder_as_unused():
+    from src.heldout import oneshot as OS
+    d = pathlib.Path(tempfile.mkdtemp(prefix="oneshot_"))
+    try:
+        OS.require_unused(d / "absent", "x")
+        (d / "empty" / "sub").mkdir(parents=True)
+        OS.require_unused(d / "empty", "x")                                             # folders alone hold no score
+        (d / "empty" / "sub" / ".completed").write_text("t", encoding="utf-8")
+        raises(lambda: OS.require_unused(d / "empty", "x"), OS.OneShotError, "one-shot")
+        assert OS.held_out_outputs(d / "empty") == ["sub/.completed"]
+    finally:
+        shutil.rmtree(d, ignore_errors=True)
 
 
 def test_base_cli_requires_a_passing_readiness_report_that_fingerprints_the_unchanged_code():

@@ -36,9 +36,19 @@ READABLE = {
 }
 SCORE_NOTE = "A score is a model output on the posted rows. It is not evidence of fraud, causation or coordination."
 HELD_OUT_NOTE = ("No held-out (days 152-182) evaluation has been performed; every recorded result is a validation-period result and most models were tuned on that period.")
+HELD_OUT_DONE_NOTE = ("Held-out (days 152-182) output exists in {folders} of experiments/final_heldout_protocol; held-out results are not shown on this dashboard, which "
+                      "serves validation-period results only (most models were tuned on that period). Read the held-out records in that folder.")
+
 CARD_KEYS = ("track", "groups", "standing_statement", "first_observed_day", "last_observed_day", "n_observed_days", "left_censored", "right_censored", "peak",
              "n_alerted_days", "member_transaction_composition_txn_days", "timeline")
 TIMELINE_KEYS = ("day", "n_cards", "n_infra", "density", "hub_share", "conductance", "u_s", "u_t", "score_st", "n_member_txn", "alerted")
+
+
+def held_out_note(root: pathlib.Path) -> tuple:
+    """(performed, note) from the existence of any file in the three held-out output folders (src/heldout/oneshot.py); nothing is opened."""
+    from src.heldout.oneshot import folders_with_output
+    done = folders_with_output(pathlib.Path(root) / "experiments" / "final_heldout_protocol")
+    return (bool(done), HELD_OUT_DONE_NOTE.format(folders=", ".join(f"{f}/" for f in done)) if done else HELD_OUT_NOTE)
 
 
 NO_RESEARCH = "the research model is not loaded (start the server with --research-model; it needs experiments/xgboost/model.joblib)"
@@ -101,7 +111,7 @@ class Services:
                            "pr_auc_cold": f("pr_auc_cold")})
         b, un, im = self.read_json("decision_B"), self.read_json("decision_unweighted"), self.read_json("decision_imbalance")
         return _clean({
-            "banner": table["standing_statement"], "f_banner": table["f_banner"], "held_out": HELD_OUT_NOTE,
+            "banner": table["standing_statement"], "f_banner": table["f_banner"], "held_out": held_out_note(self.root)[1],
             "phase12_cells": cells, "comparison_b_rows": b_rows,
             "comparison_b_verdicts": {"H1_direct_B_vs_A": b["H1_direct_B_vs_A"]["verdict"], "H2_E_vs_B_sub": b["H2_E_vs_B_sub"]["verdict"],
                                       "H2_secondary_C_vs_B_sub": b["H2_secondary_C_vs_B_sub"]["verdict"], "ablations": b["ablations"]["rows"]},
@@ -125,8 +135,9 @@ class Services:
 
     def status(self) -> dict:
         fh = self.root / "experiments" / "final_heldout_protocol"
-        return {"validation_period_only": True, "held_out_evaluation_performed": (fh / "heldout_results").exists(), "held_out_authorization_present": (fh / "AUTHORIZATION.txt").exists(),
-                "held_out_note": HELD_OUT_NOTE, "phase12": "AC1-AC11 pass; AC12 BLOCKED (partially verified); Phase 12 is not formally complete",
+        performed, note = held_out_note(self.root)
+        return {"validation_period_only": True, "held_out_evaluation_performed": performed, "held_out_authorization_present": (fh / "AUTHORIZATION.txt").exists(),
+                "held_out_note": note, "phase12": "AC1-AC11 pass; AC12 BLOCKED (partially verified); Phase 12 is not formally complete",
                 "h5": "not established (frozen benchmark gate G4 failed on 2 of 3 seeds)", "communities": "candidates only; not confirmed to be fraudulent or coordinated",
                 "scoring_bundle_loaded": self.bundle is not None, "synthetic_demo": self.synthetic_demo,
                 "research_model_loaded": self.research is not None}

@@ -41,4 +41,4 @@ Every result folder contains SHA-256 sidecars; integrity records are listed in `
 
 ## What was not reproduced during packaging
 
-No neural model was re-trained or re-scored while preparing this package; their numbers come from the recorded predictions and reports. The held-out period was not read.
+No neural model was re-trained or re-scored while preparing this package; their numbers come from the recorded predictions and reports. No model was scored on the held-out period. (Until 2026-10-22 one split-count test opened its feature table to re-check the Phase 1 row and fraud counts; see `HELDOUT_DECISION_PACKAGE.md` section 1a.)

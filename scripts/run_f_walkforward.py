@@ -4,7 +4,8 @@
       .venv/Scripts/python.exe -B scripts/run_f_walkforward.py --split val --variant as_written --seeds 42
   validation, state burn-in (the Phase 8 state-continuity supplement):
       .venv/Scripts/python.exe -B scripts/run_f_walkforward.py --split val --variant burn_in
-  held-out (amendment 1): REFUSED unless the user's AUTHORIZATION.txt quotes the protocol and amendment hashes (see src/heldout/evaluator.py); one-shot.
+  held-out (amendment 1): REFUSED unless the user's AUTHORIZATION.txt quotes the protocol and amendment hashes (see src/heldout/evaluator.py) and Module F's
+      readiness gate has passed; arms F, Ad, E and seeds 42, 123, 2024 together (Amendment 1 section 3); one-shot: refused once the output folder holds any file.
 
 Windows: validation 122-127 ... 146-151 (Phase 8); held-out 152-157, 158-163, 164-169, 170-175, 176-181 (five 6-day windows; day 182 is not scored for these arms).
 Burn-in (variant burn_in and always for held-out): the state is first streamed over days 1..(first window - 1) unlabeled. Outputs: experiments/phase8_state_continuity_supplement/outputs/<variant>/
@@ -39,6 +40,7 @@ from src.graph.temporal import build_temporal_dataset, load_raw_arrays  # noqa: 
 from src.heldout import amendment as A  # noqa: E402
 from src.heldout import evaluator as E  # noqa: E402
 from src.heldout import h4  # noqa: E402
+from src.heldout import oneshot as OS  # noqa: E402
 from src.heldout.walkforward import run_walk_forward_ext  # noqa: E402
 from src.models.metrics import compute_metrics  # noqa: E402
 from src.models.temporal_graphsage import TemporalGraphSAGE  # noqa: E402
@@ -48,6 +50,7 @@ ARM_DIR = {"F": "frozen", "Ad": "adaptive", "E": "replay_control"}
 HELDOUT_WINDOWS = [(152, 157), (158, 163), (164, 169), (170, 175), (176, 181)]
 HELDOUT_REPLAY_WINDOWS = [(122, 157), (158, 163), (164, 169), (170, 175), (176, 181)]     # E draws as many TRAIN days as Ad adds: 36, then 6 per round
 SEG = ("has_edge_warm", "has_edge_cold", "no_pseudo_account_edge")
+HELDOUT_OUT = ROOT / "experiments" / "final_heldout_protocol" / "heldout_results_f"
 
 
 def write(path: pathlib.Path, data: bytes):
@@ -96,14 +99,16 @@ def main(argv=None) -> int:
         if a.variant != "burn_in":
             print("error: the held-out amendment fixes the burn-in variant", file=sys.stderr)
             return 2
-        out_root = ROOT / "experiments" / "final_heldout_protocol" / "heldout_results_f"
-        if (out_root / ".completed").exists():
-            print("error: the held-out evaluation of the adaptive arms has already been executed (one-shot)", file=sys.stderr)
+        if sorted(seeds) != sorted(h4.SEEDS) or len(seeds) != len(h4.SEEDS) or sorted(arms) != sorted(ARM_DIR) or len(arms) != len(ARM_DIR):
+            print(f"error: Amendment 1 section 3 fixes arms {','.join(ARM_DIR)} and seeds {','.join(map(str, h4.SEEDS))} for the held-out run; a subset would spend the "
+                  "one-shot period for the rest. Nothing was read.", file=sys.stderr)
             return 2
+        out_root = HELDOUT_OUT
         try:
+            OS.require_unused(out_root, "the held-out evaluation of the adaptive arms")    # Amendment 1 section 7
             auth = A.require_amendment_authorization("heldout", ("F",))
             auth["readiness"] = A.require_amendment_readiness(("F",))           # refuses while the registered gate has not passed
-        except (E.AuthorizationError, A.ReadinessError) as e:
+        except (E.AuthorizationError, A.ReadinessError, OS.OneShotError) as e:
             print(f"error: {e}", file=sys.stderr)
             return 2
         windows, replay_windows, max_day = HELDOUT_WINDOWS, HELDOUT_REPLAY_WINDOWS, 181

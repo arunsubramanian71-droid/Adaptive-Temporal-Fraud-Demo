@@ -230,6 +230,29 @@ def test_p13_6_status_reports_heldout_artifacts_by_existence_only():
     assert "BLOCKED" in st["phase12"] and "not established" in st["h5"] and "candidates only" in st["communities"]
 
 
+def test_p13_6_status_and_note_follow_held_out_output_in_any_of_the_three_folders():
+    """The note 'no held-out evaluation has been performed' must not outlive an authorized run: any file in any held-out output folder (base, Amendment 1 H/U, or F)
+    turns the flag on and replaces the note. Existence only; nothing is read."""
+    import shutil
+    import tempfile
+    d = pathlib.Path(tempfile.mkdtemp(prefix="srv_"))
+    try:
+        svc = APP.Services(root=d)
+        st = svc.status()
+        assert st["held_out_evaluation_performed"] is False and st["held_out_note"] == APP.HELD_OUT_NOTE
+        for folder in ("heldout_results", "heldout_results_amendment", "heldout_results_f"):
+            p = d / "experiments" / "final_heldout_protocol" / folder
+            p.mkdir(parents=True)
+            assert svc.status()["held_out_evaluation_performed"] is False, folder        # an empty folder (crash before any score) holds no result
+            (p / "x.parquet").write_bytes(b"x")
+            st = svc.status()
+            assert st["held_out_evaluation_performed"] is True and st["held_out_note"] != APP.HELD_OUT_NOTE, folder
+            assert "not shown" in st["held_out_note"] and folder in st["held_out_note"], st["held_out_note"]
+            shutil.rmtree(p)
+    finally:
+        shutil.rmtree(d, ignore_errors=True)
+
+
 # ------------------------------------------------------------------------------------------------ P13-7 dashboard page
 def test_p13_7_dashboard_is_self_contained_safe_and_properly_worded():
     with Running() as s:

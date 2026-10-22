@@ -1,11 +1,11 @@
 {
- "created_local": "2026-10-22T02:47:47+05:30",
+ "created_local": "2026-10-22T13:18:23+05:30",
  "method": "derived consistency (sidecar consistency; functional reproduction by the recorded readiness gates); NOT provenance and NOT counted in the AC12 recovery",
  "source_record": "experiments/phase12_validation_evidence_table/AC12_GIT_SNAPSHOT_VERIFICATION.json",
  "source_record_sha256": "1b2767cf39dcc2be06cab4fc2156efab873fe248e79e0a5974950d2ae27bcc03",
  "readiness_records_sha256": {
-  "experiments/final_heldout_protocol/readiness_val/readiness_report.json": "70b102e6c176c1f3ff83d8c5a342ce3ecbe50e7994d918be4db29f5105ad0714",
-  "experiments/final_heldout_protocol/readiness_val_amendment/readiness_report.json": "0d365e2b7f1b6ece0239fbe4bfe444ccd45e36cb89608b8afe4945cc22daa758"
+  "experiments/final_heldout_protocol/readiness_val/readiness_report.json": "d9918e2463c723f206cf2873f55347f335e57554d2967969652176611a1c8124",
+  "experiments/final_heldout_protocol/readiness_val_amendment/readiness_report.json": "97dc040fc4bd9ab522407567f4e50bd69204d61e7848897e21a734639b057689"
  },
  "files_without_pre_build_evidence_total": 101,
  "sidecar_consistency": {
@@ -187,7 +187,7 @@
    "model": "gat_s123",
    "readiness_record": "experiments/final_heldout_protocol/readiness_val/readiness_report.json",
    "readiness_pass": true,
-   "max_abs_score_diff": 2.682209014892578e-07,
+   "max_abs_score_diff": 6.854534149169922e-07,
    "recorded_predictions": "experiments/gat/seed_123/predictions_val.parquet",
    "recorded_predictions_strongest_evidence": "scope_fingerprint",
    "derived": true
@@ -197,7 +197,7 @@
    "model": "gat_s2024",
    "readiness_record": "experiments/final_heldout_protocol/readiness_val/readiness_report.json",
    "readiness_pass": true,
-   "max_abs_score_diff": 2.086162567138672e-07,
+   "max_abs_score_diff": 2.384185791015625e-07,
    "recorded_predictions": "experiments/gat/seed_2024/predictions_val.parquet",
    "recorded_predictions_strongest_evidence": "scope_fingerprint",
    "derived": true
@@ -207,7 +207,7 @@
    "model": "gat_s42",
    "readiness_record": "experiments/final_heldout_protocol/readiness_val/readiness_report.json",
    "readiness_pass": true,
-   "max_abs_score_diff": 3.8743019104003906e-07,
+   "max_abs_score_diff": 2.682209014892578e-07,
    "recorded_predictions": "experiments/gat/seed_42/predictions_val.parquet",
    "recorded_predictions_strongest_evidence": "scope_fingerprint",
    "derived": true
@@ -237,7 +237,7 @@
    "model": "graphsage_s42",
    "readiness_record": "experiments/final_heldout_protocol/readiness_val/readiness_report.json",
    "readiness_pass": true,
-   "max_abs_score_diff": 2.384185791015625e-07,
+   "max_abs_score_diff": 1.7881393432617188e-07,
    "recorded_predictions": "experiments/graphsage_robust/seed_42/predictions_val.parquet",
    "recorded_predictions_strongest_evidence": "scope_fingerprint",
    "derived": true
@@ -257,7 +257,7 @@
    "model": "memory_ablated_s123",
    "readiness_record": "experiments/final_heldout_protocol/readiness_val/readiness_report.json",
    "readiness_pass": true,
-   "max_abs_score_diff": 2.980232238769531e-07,
+   "max_abs_score_diff": 4.172325134277344e-07,
    "recorded_predictions": "experiments/temporal_ablation/memory_ablated_temporal/seed_123/predictions_val.parquet",
    "recorded_predictions_strongest_evidence": "scope_fingerprint",
    "derived": true
@@ -267,7 +267,7 @@
    "model": "memory_ablated_s2024",
    "readiness_record": "experiments/final_heldout_protocol/readiness_val/readiness_report.json",
    "readiness_pass": true,
-   "max_abs_score_diff": 3.5762786865234375e-07,
+   "max_abs_score_diff": 4.76837158203125e-07,
    "recorded_predictions": "experiments/temporal_ablation/memory_ablated_temporal/seed_2024/predictions_val.parquet",
    "recorded_predictions_strongest_evidence": "scope_fingerprint",
    "derived": true
@@ -277,7 +277,7 @@
    "model": "memory_ablated_s42",
    "readiness_record": "experiments/final_heldout_protocol/readiness_val/readiness_report.json",
    "readiness_pass": true,
-   "max_abs_score_diff": 3.5762786865234375e-07,
+   "max_abs_score_diff": 2.980232238769531e-07,
    "recorded_predictions": "experiments/temporal_ablation/memory_ablated_temporal/seed_42/predictions_val.parquet",
    "recorded_predictions_strongest_evidence": "scope_fingerprint",
    "derived": true
@@ -297,7 +297,7 @@
    "model": "static_schedule_matched_s123",
    "readiness_record": "experiments/final_heldout_protocol/readiness_val/readiness_report.json",
    "readiness_pass": true,
-   "max_abs_score_diff": 5.364418029785156e-07,
+   "max_abs_score_diff": 8.940696716308594e-07,
    "recorded_predictions": "experiments/temporal_ablation/static_schedule_matched/seed_123/predictions_val.parquet",
    "recorded_predictions_strongest_evidence": "scope_fingerprint",
    "derived": true
@@ -307,7 +307,7 @@
    "model": "static_schedule_matched_s2024",
    "readiness_record": "experiments/final_heldout_protocol/readiness_val/readiness_report.json",
    "readiness_pass": true,
-   "max_abs_score_diff": 3.5762786865234375e-07,
+   "max_abs_score_diff": 2.384185791015625e-07,
    "recorded_predictions": "experiments/temporal_ablation/static_schedule_matched/seed_2024/predictions_val.parquet",
    "recorded_predictions_strongest_evidence": "scope_fingerprint",
    "derived": true
@@ -317,7 +317,7 @@
    "model": "static_schedule_matched_s42",
    "readiness_record": "experiments/final_heldout_protocol/readiness_val/readiness_report.json",
    "readiness_pass": true,
-   "max_abs_score_diff": 7.152557373046875e-07,
+   "max_abs_score_diff": 6.556510925292969e-07,
    "recorded_predictions": "experiments/temporal_ablation/static_schedule_matched/seed_42/predictions_val.parquet",
    "recorded_predictions_strongest_evidence": "scope_fingerprint",
    "derived": true
@@ -327,7 +327,7 @@
    "model": "temporal_graphsage_s123",
    "readiness_record": "experiments/final_heldout_protocol/readiness_val/readiness_report.json",
    "readiness_pass": true,
-   "max_abs_score_diff": 2.384185791015625e-07,
+   "max_abs_score_diff": 1.7881393432617188e-07,
    "recorded_predictions": "experiments/temporal_graphsage/seed_123/predictions_val.parquet",
    "recorded_predictions_strongest_evidence": "scope_fingerprint",
    "derived": true
@@ -337,7 +337,7 @@
    "model": "temporal_graphsage_s2024",
    "readiness_record": "experiments/final_heldout_protocol/readiness_val/readiness_report.json",
    "readiness_pass": true,
-   "max_abs_score_diff": 1.7881393432617188e-07,
+   "max_abs_score_diff": 2.384185791015625e-07,
    "recorded_predictions": "experiments/temporal_graphsage/seed_2024/predictions_val.parquet",
    "recorded_predictions_strongest_evidence": "scope_fingerprint",
    "derived": true
@@ -347,7 +347,7 @@
    "model": "temporal_graphsage_s42",
    "readiness_record": "experiments/final_heldout_protocol/readiness_val/readiness_report.json",
    "readiness_pass": true,
-   "max_abs_score_diff": 4.172325134277344e-07,
+   "max_abs_score_diff": 3.5762786865234375e-07,
    "recorded_predictions": "experiments/temporal_graphsage/seed_42/predictions_val.parquet",
    "recorded_predictions_strongest_evidence": "scope_fingerprint",
    "derived": true

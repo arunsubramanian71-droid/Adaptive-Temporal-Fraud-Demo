@@ -71,17 +71,17 @@ def test_split_frame_train_before_val_before_test():
 
 
 def test_built_split_matches_expected_regression_counts():
-    """Regression test against reports/phase1_reconnaissance.md Section 18.
-    Requires scripts/build_processed_data.py to have already run."""
+    """Regression test against reports/phase1_reconnaissance.md Section 18 for the TRAIN and VAL feature files built by scripts/build_processed_data.py.
+
+    The held-out (TEST) feature file is sealed (experiments/final_heldout_protocol/HELDOUT_EVALUATION_PROTOCOL.md) and is not opened here; its counts in
+    configs/data.yaml are Phase 1 figures recorded before the seal. (Until 2026-10-22 this test also read that file and summed its labels.) The feature
+    files are not published, so the test is registered in tests/artifact_requirements.json: a checkout without them reports it NOT RUN. (Until
+    2026-10-22 it returned early instead, which counted as a pass.)"""
     cfg = load_config()
-    path = cfg.features_dir / "train_features.parquet"
-    if not path.exists():
-        print("SKIP: data/features/*.parquet not found — run scripts/build_processed_data.py first")
-        return
     exp_rows = cfg.expected_counts["split_rows"]
     exp_fraud = cfg.expected_counts["split_fraud"]
-    for name in ("train", "val", "test"):
-        df = pd.read_parquet(cfg.features_dir / f"{name}_features.parquet")
+    for name in ("train", "val"):
+        df = pd.read_parquet(cfg.features_dir / f"{name}_features.parquet", columns=["TransactionDT", "isFraud"])
         assert len(df) == exp_rows[name], f"{name}: {len(df)} rows != expected {exp_rows[name]}"
         assert int(df["isFraud"].sum()) == exp_fraud[name], f"{name}: fraud count mismatch"
         d = compute_day(df, cfg)

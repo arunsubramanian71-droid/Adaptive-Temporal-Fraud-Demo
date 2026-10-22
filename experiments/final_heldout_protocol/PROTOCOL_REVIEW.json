@@ -1,5 +1,5 @@
 {
- "created_local": "2026-10-22T03:01:13+05:30",
+ "created_local": "2026-10-22T13:16:43+05:30",
  "facts": {
   "protocol_sha256": "59bf1565fb16653a02a2d743cc445e114fb2a6a42f1de7b2fa56261e6f68c806",
   "sidecar_matches": true,
@@ -18,13 +18,13 @@
   "readiness": {
    "all_pass": true,
    "models": 19,
-   "max_abs_score_difference": 7.152557373046875e-07,
+   "max_abs_score_difference": 8.940696716308594e-07,
    "recorded_after_last_evaluator_change": true,
-   "code_files_fingerprinted": 21,
-   "run_local": "2026-10-22T02:41:59+05:30",
+   "code_files_fingerprinted": 22,
+   "run_local": "2026-10-22T13:15:36+05:30",
    "evaluator_sha256": {
     "evaluator.py": "bc6157f57279e11d01d7ff08b8e1c39e3a68640b6d6c9eddee77489ca137227b",
-    "run_heldout_evaluation.py": "4b74469b422ebc880c0db4a3ba8c8daaae11cc0499c8d26742cb285b9ad93583"
+    "run_heldout_evaluation.py": "78b55be9d32109f4cff932236bfd9e754eac02cd6657b54640f5d58b62b2990a"
    }
   },
   "heldout_artifacts": {

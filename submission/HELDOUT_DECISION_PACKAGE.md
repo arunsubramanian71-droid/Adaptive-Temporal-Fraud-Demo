@@ -1,6 +1,6 @@
 # Held-out evaluation and open decisions: decision package (nothing authorized, created or run)
 
-Dated 2026-10-22. **The held-out period (days 152-182) has not been opened, read, hashed or scored. `experiments/final_heldout_protocol/AUTHORIZATION.txt` does not exist and no held-out result exists.** This package is the information needed to decide. It authorizes nothing.
+Dated 2026-10-22 (updated the same day after an integrity pass, section 1a). **No model has been scored on the held-out period (days 152-182) and no held-out score, metric or result exists. `experiments/final_heldout_protocol/AUTHORIZATION.txt` does not exist.** One correction to earlier versions of this package, which said the period had not been "opened, read or hashed": until 2026-10-22 a split-count regression test opened the held-out feature table on every full test run and checked its row count, fraud count and day range against the Phase 1 figures already in `configs/data.yaml` (section 1a). This package is the information needed to decide. It authorizes nothing.
 
 The evaluation is one-shot and irreversible: once any held-out metric exists, the period can never again be untouched test data. Earlier versions of this package are in the Git history.
 
@@ -18,15 +18,28 @@ The evaluation is one-shot and irreversible: once any held-out metric exists, th
 
 | Item | Observed |
 |---|---|
-| Branch and commits | `main`; local `HEAD` = remote `origin/main` = `6c5b295` at the start of this pass (`git ls-remote`); 25 commits |
+| Branch and commits | `main`; local `HEAD` = remote `origin/main` = `6c5b295` at the start of the decision-preparation pass (25 commits) and `2247ff4` at the start of the integrity pass (29 commits; `git ls-remote`) |
 | Base protocol | `HELDOUT_EVALUATION_PROTOCOL.md`, SHA-256 `59bf1565fb16653a02a2d743cc445e114fb2a6a42f1de7b2fa56261e6f68c806`, unchanged |
 | Amendment 1 | `AMENDMENT_1.md`, SHA-256 `37a1c0577a8ef28530a6120a027890c11ec458ca97329d14a05108db21a27e6e`, unchanged |
-| Base readiness (19 models) | **PASS**, re-run 2026-10-22 02:41 after this pass's code changes; largest score difference 7.15e-07; the record now fingerprints the 21 code files it ran |
-| Amendment readiness H, U (9 models) | **PASS**, re-run 2026-10-22 02:40; XGBoost differences 0.0, neural at most 1.8e-07; 23 code files fingerprinted |
+| Base readiness (19 models) | **PASS**, re-run 2026-10-22 13:15 after the one-shot guard (section 1a); largest score difference 8.94e-07 (registered tolerance 1e-4; tabular and B exact); the record fingerprints the 22 code files it ran. The previous record is kept under `readiness_val/previous_before_one_shot_guard/` |
+| Amendment readiness H, U (9 models) | **PASS**, re-run 2026-10-22 13:16; XGBoost differences 0.0, neural at most 2.98e-07; 24 code files fingerprinted; previous record under `readiness_val_amendment/previous_before_one_shot_guard/` |
 | Amendment readiness F | **FAIL as written** (unchanged record): 21 of 21 deterministic checks pass; 5 of 6 trained-arm checks pass; E seed 123 0.0104 against 0.01 |
 | New guards (this pass) | Every held-out runner now refuses before reading anything unless its registered readiness gate passed with unchanged code. Module F is therefore refused today. The F runner and the diagnosis script refuse to overwrite completed validation runs (A2-a step 2 as written would have overwritten the registered FAIL record). |
-| The six transaction-level files | untracked since `4356385`, kept locally, excluded in `.git/info/exclude`; present in the trees of **21 of the 25 commits** (`b28a03b` to `de16aa0`) of the public repository |
+| One-shot and scope guards (integrity pass, section 1a) | A runner refuses once its output folder holds **any** file (before, only the `.completed` flag written at the very end counted, so a crash after the first score file would have allowed a second look, against protocol section 7). Held-out scope is fixed: the base runner evaluates all 19 models together; the H/U runner must run exactly the H/U modules `AUTHORIZATION.txt` authorizes (they share one folder and flag); the F runner refuses any subset of arms or seeds. `src/heldout/oneshot.py`; 7 new tests |
+| The six transaction-level files | untracked since `4356385`, kept locally, excluded in `.git/info/exclude`; present in the trees of **21 commits** (`b28a03b` to `de16aa0`; 21 of the 29 commits up to `2247ff4`, re-counted 2026-10-22; no later commit contains them) of the public repository |
 | Backup before any history decision | `C:\Users\ArunHBK\Adaptive-Temporal-Fraud_backup_2026-10-22_6c5b295.bundle`: 8,140,366 bytes, SHA-256 `1d6cd399016b768138715f38cdd00af3c78ca352fd67c10045bcf44f012fbf04` (sidecar beside it); `git bundle verify`: complete history |
+
+## 1a. Integrity pass (2026-10-22, afternoon): findings that bear on the held-out decision
+
+* **A test opened the held-out feature table.** `tests/test_splits.py::test_built_split_matches_expected_regression_counts` looped over the three splits and read `data/features/test_features.parquet` in full, then compared its row count (89,326), fraud count (3,114) and day range (152-182) with the Phase 1 figures in `configs/data.yaml`. It ran in every full-suite run in the project directory, including the runs that produced the recorded totals and the first run of this pass. Only pass or fail was printed.
+  * What was exposed: the period's row and fraud counts, which were already in the frozen configuration since Phase 1 (before the seal). No model was scored on the period. No per-row value, score or metric was produced or shown.
+  * Effect on the held-out evaluation: none on its validity, in my assessment. The frozen models, thresholds and hypotheses were fixed on TRAIN and validation data, and nothing in this read could inform a choice. The statement "not opened or read" in earlier documents was nevertheless inaccurate, and the frozen protocol's own wording (hashed, unchanged) says the period "has not been read".
+  * Fixed: the test now reads only the TRAIN and VAL tables. Two new checks fail if any test loops over all three split tables or returns early when its data are missing.
+* **The same test passed without its data.** In a fresh clone it printed "SKIP" and returned, which counted as a pass, so the fresh-clone totals overstated the passes by one. It is now registered in `tests/artifact_requirements.json` and reports NOT RUN.
+* **One-shot rule.** The runners checked only the `.completed` flag, written last, while prediction files (scores with labels) were written model by model. A crash in between would have allowed a repeat after held-out scores existed, which protocol section 7 forbids. Any file in the output folder now counts as executed. Separately, a held-out run narrower than the registered or authorized scope would have spent the one-shot period for the rest; that is now refused (section 1).
+* **Dashboard note.** The dashboard's "No held-out evaluation has been performed" was a fixed sentence and the status flag checked only the base folder. Both now follow the existence of any held-out output in the three folders, so the page cannot keep that sentence after an authorized run.
+* **Re-done because the guarded code changed:** both validation readiness gates (PASS, section 1) and the AC12 derived-consistency record, which pins the readiness records' hashes (counts unchanged: 20, 18, 38 and 63).
+* **Working tree.** At the start of this pass, 14 tracked files had been reverted to `6c5b295` in the working tree only, after a rewind request in the previous session. That left a sidecar without its document and a failing test. Nothing had been committed or pushed. The committed state `2247ff4` was restored after a backup; the reverted versions are identical to `6c5b295` in history.
 
 ## 2. What each part evaluates (exact)
 
@@ -129,8 +142,8 @@ For other scopes: Option A uses the first two lines only. Option C uses `modules
 
 Commands, in this order (each one-shot, each refuses without its authorization and readiness):
 1. `scripts/run_heldout_evaluation.py --split heldout`
-2. `scripts/run_amendment_evaluation.py --split heldout --modules H,U`
-3. `scripts/run_f_walkforward.py --split heldout` (refused unless A2-a-r1 passed)
+2. `scripts/run_amendment_evaluation.py --split heldout --modules H,U` (`--modules` must name exactly the H/U modules in `AUTHORIZATION.txt`: `H` for Option C, `H,U` for B; otherwise refused before any read)
+3. `scripts/run_f_walkforward.py --split heldout` (refused unless A2-a-r1 passed; arms and seeds are fixed)
 
 Results are reported whatever they are; no model, threshold or setting is changed afterwards.
 
