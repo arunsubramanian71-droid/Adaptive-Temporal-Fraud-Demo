@@ -8,7 +8,7 @@ Dated 2026-10-21; restructured 2026-10-22 (integrity pass: explicit mandatory/op
 
 **Status vocabulary.** PASS: executed and verified by the evidence named. FAIL: a registered criterion failed (kept, never rewritten). BLOCKED: cannot be completed without a decision, authorization or evidence that is not available. NOT RUN: not executed. NOT APPLICABLE: does not apply. A hypothesis that is not supported is an experiment outcome, not a FAIL of the requirement to test it (section 2).
 
-"Core runner" = `.venv/Scripts/python.exe -B scripts/run_core_tests.py`; "full suite" = `scripts/run_completion_tests.py` (376 of 376 pass, 2026-10-22). All results are validation-period results unless stated; no held-out evaluation exists.
+"Core runner" = `.venv/Scripts/python.exe -B scripts/run_core_tests.py`; "full suite" = `scripts/run_completion_tests.py` (381 of 381 pass, 2026-10-22). All results are validation-period results unless stated; no held-out evaluation exists.
 
 ## 1. Requirements
 

@@ -55,7 +55,7 @@ Dated 2026-10-21; updated 2026-10-22 (decision-preparation pass, then the integr
 
 | Check | Result |
 |---|---|
-| Project environment, `scripts/run_completion_tests.py` | **376 of 376** pass in 39 modules (`submission/test_results.json`, 2026-10-22, dashboard pass; 365 of 365 after the integrity pass, 358 of 358 before it); `run_core_tests.py --require-artifacts` 376 of 376, 0 NOT RUN |
+| Project environment, `scripts/run_completion_tests.py` | **381 of 381** pass in 40 modules (`submission/test_results.json`, 2026-10-22, handoff pass; 376 of 376 after the dashboard pass; 365 of 365 after the integrity pass, 358 of 358 before it); `run_core_tests.py --require-artifacts` 376 of 376, 0 NOT RUN |
 | `scripts/run_tests.py` | exit 0, "ALL TEST MODULES PASSED" (before the fix it reported failures because two new modules returned an exit code instead of a boolean; `tests/test_runner_contract.py` now guards this and injects a failure to prove detection) |
 | Clean Python 3.12.0 (requirements.txt only) | **322 of 322** executed tests pass with the current suite (2026-10-22 dashboard pass; earlier suites: 311 of 311, 305 of 305, 293 of 293, 257 of 257); `pip check` clean |
 | Clean Python 3.14.3 (requirements.txt only) | **321 of 322** pass + **1 environment-metadata difference** (2026-10-22 dashboard pass; earlier suites: 310 of 311, 304 of 305, 292 of 293, 256 of 257) (Phase 12 AC10 manifest records the interpreter version; the environment-independent companion test passes); `pip check` clean; **supported interpreter: 3.12** |
@@ -85,7 +85,7 @@ Dated 2026-10-21; updated 2026-10-22 (decision-preparation pass, then the integr
 | Item | Status | Evidence |
 |---|---|---|
 | Setup check, demo (byte-identical on re-run), dashboard | PASS | exit 0 for `check_setup.py` and `demo_end_to_end.py` (twice, outputs identical); dashboard E2E 31 of 31 |
-| README, demo guide, completion records agree | PASS after this pass | test counts corrected (376 tests, 39 modules, 2026-10-22 dashboard pass), PyTorch-skip statement corrected, clean-environment results recorded; `scripts/verify_submission_claims.py` traces every number |
+| README, demo guide, completion records agree | PASS after this pass | test counts corrected (381 tests, 40 modules, 2026-10-22 handoff pass; `COMPLETION_STATUS_2026-10-22.md`), PyTorch-skip statement corrected, clean-environment results recorded; `scripts/verify_submission_claims.py` traces every number |
 | Manuscript | PASS (validation-period study; held-out not done) | three figures added (`submission/figures/`, drawn from recorded results, hashed, tested) |
 | Hygiene | PASS with notes | one empty folder `experiments/gat_300epoch/seed_123` kept (aborted-run evidence); `__pycache__` is git-ignored; nine empty `C:\c\...` folders outside the repository left in place |
 

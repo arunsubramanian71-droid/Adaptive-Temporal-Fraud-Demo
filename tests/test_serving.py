@@ -308,6 +308,22 @@ def test_invalid_identifiers_amounts_and_nesting_get_400_not_500():
         assert st == 200 and [r["TransactionID"] for r in j["results"]] == [r["TransactionID"] for r in new]
 
 
+def test_a_second_server_on_a_busy_port_is_refused_and_a_restart_on_that_port_works():
+    """Before 2026-10-22, on Windows (SO_REUSEADDR) a second dashboard on the same port started without error and took over the port's connections."""
+    with Running() as s:
+        assert s.call("GET", "/health")[0] == 200
+        try:
+            dup = APP.make_server(services(), "127.0.0.1", s.port)
+        except OSError:
+            dup = None
+        if dup is not None:
+            dup.server_close()
+            raise AssertionError("a second server bound a port that is already listening")
+        port = s.port
+    again = APP.make_server(services(), "127.0.0.1", port)                    # restart right after shutdown (connections in TIME_WAIT)
+    again.server_close()
+
+
 def test_status_reports_both_h5_readings():
     st = services().status()
     assert "not established" in st["h5"] and "Phase 9b" in st["h5"] and "H5a-9b" in st["h5"]

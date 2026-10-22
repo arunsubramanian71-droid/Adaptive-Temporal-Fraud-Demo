@@ -1,9 +1,9 @@
 {
  "purpose": "mutation sensitivity of tests/test_serving.py",
- "run_local": "2026-10-22T19:19:39+05:30",
+ "run_local": "2026-10-22T23:30:15+05:30",
  "unmutated_failures": [],
- "n_mutants": 16,
- "n_detected": 14,
+ "n_mutants": 17,
+ "n_detected": 15,
  "n_equivalent": 2,
  "mutants": [
   {
@@ -81,7 +81,7 @@
     "test_p13_5_communities_are_aggregate_only_candidates_with_disclaimers"
    ],
    "failure_detail": {
-    "test_p13_5_communities_are_aggregate_only_candidates_with_disclaimers": "AssertionError: {'day', 'peak', 'txn_has_edge_cold__infra', 'n_observed_days', 'last_observed_day', 'track', 'txn_no_pseudo_account_edge__noinfra', 'txn_has_edge_warm__noinfra', 'groups', 'txn_has_edge_warm__infra', 'u_t', 'n_member_txn', 'hub_share', 'n_cards', 'n_alerted_days', 'u_s', 'density', 'alerted', 'membe"
+    "test_p13_5_communities_are_aggregate_only_candidates_with_disclaimers": "AssertionError: {'conductance', 'standing_statement', 'txn_has_edge_warm__infra', 'txn_has_edge_cold__noinfra', 'txn_has_edge_warm__noinfra', 'u_t', 'timeline', 'u_s', 'n_observed_days', 'day', 'right_censored', 'peak', 'n_member_txn', 'n_alerted_days', 'hub_share', 'txn_no_pseudo_account_edge__noinfra', 'txn_has_e"
    }
   },
   {
@@ -141,7 +141,7 @@
     "test_p13_3_scores_equal_the_library_and_are_causal_and_label_free"
    ],
    "failure_detail": {
-    "test_p13_3_scores_equal_the_library_and_are_causal_and_label_free": "AssertionError: {'alert', 'score', 'TransactionID', 'labels_used'}"
+    "test_p13_3_scores_equal_the_library_and_are_causal_and_label_free": "AssertionError: {'alert', 'labels_used', 'score', 'TransactionID'}"
    }
   },
   {
@@ -162,6 +162,16 @@
    ],
    "failure_detail": {
     "test_p13_6_status_and_note_follow_held_out_output_in_any_of_the_three_folders": "AssertionError: heldout_results"
+   }
+  },
+  {
+   "mutant": "M17 a second server may take over a busy port (address reuse on Windows)",
+   "status": "detected",
+   "failing_tests": [
+    "test_a_second_server_on_a_busy_port_is_refused_and_a_restart_on_that_port_works"
+   ],
+   "failure_detail": {
+    "test_a_second_server_on_a_busy_port_is_refused_and_a_restart_on_that_port_works": "AssertionError: a second server bound a port that is already listening"
    }
   }
  ],

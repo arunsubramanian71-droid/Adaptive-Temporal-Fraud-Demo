@@ -1,0 +1,40 @@
+# Commit map: development repository (private) -> public release repository (filtered history)
+# The public release (github.com/arunsubramanian71-droid/Adaptive-Temporal-Fraud-Demo) has the same commits, messages, authors and dates and the same files at the branch tip,
+# except that six per-transaction evidence files were removed from every commit in which they had been committed (2026-10-21 to 2026-10-22).
+# Commit IDs quoted in the dated project records refer to the left column. The commit that adds this file, and any later commit, has different IDs
+# in the two repositories (shown by `git log` in each).
+# old_commit new_commit date subject
+11c734848a13c06bb2ea05b72b5ab15b791f6f55 fa2e97411e1efc237ca4b3d62c269bdafcc4b220 2026-10-22 Record the fresh-clone verification of df839de (301/322 pass, 21 NOT RUN, 0 fail)
+df839deb12ee48642fa7743cfecb6332b9f7e7e8 e84316d0a7c71795f8c5cf209a79e69f0bccd832 2026-10-22 Fix the sidecar test for withheld companions (a fresh clone of e205d50 failed it)
+e205d5068215ae5c5583b26c96d88190c90eb280 c61dc69f1911ae143dd9974c81c224c49bb82a74 2026-10-22 Dashboard verified in a real browser; API input robustness; integrity-record fixes
+35877bf85d4ecbe59d559811a2996e862c44d777 1f47f908a48c25594c7640fcc0374b5a63a0df41 2026-10-22 Record the fresh-clone verification of 8a9e983 (290/311 pass, 21 NOT RUN, 0 fail)
+8a9e983dc2ed29ccb5658b196a96034f863d91f5 073417ae3d6fcc1007617ddc73184af17bb25f4f 2026-10-22 Integrity pass: enforce the one-shot rule, stop a test opening the held-out table
+2247ff4d6ef5b08d1966d02797883459f3acec80 643bf54c96ee3a7a8777b512cd53dd154a895943 2026-10-22 Record the fresh-clone verification of 6120da2 (285/305 pass, 20 NOT RUN, 0 fail)
+6120da2c8811466cbbf63c8c594d905844566eab 3c136691cfcfe0859dea9274f907790cf5e7c1d4 2026-10-22 Decision package, corrected F-gate proposal (inactive), Phase 13 scope confirmation, verified totals
+deb41e924211f5a48e7f04b88a04a77497452597 d0ed50c0eb9c2ab7c01224ece3ccd9ec6e8e28a4 2026-10-22 AC12: record derived consistency for the 101 files without pre-build evidence (not provenance)
+dd20515710183c3e1029b7da7cbbd9adc3a8aefa 4557a638f4df72d8925c27e7b4d4237e336bca03 2026-10-22 Held-out runners refuse unless their readiness gate passed with unchanged code
+6c5b295c45562460ac8bbce548ab7cef7010d141 3d2fdee4f8ca1f0dc4a0476f87de4a368c435fbf 2026-10-22 Record the final live verification runs (dashboard 31/31, research mode 12/12)
+9828c53d043d3124dfc49cd20f49e21b38164cce 7dcf27b3855e773944379250f36f3be28fd882c4 2026-10-22 Update the records for Phase 9b, the relation ablation, the AC12 recovery and the publication fix
+435638542f9edcea1b2389fd911869c537605602 dfca0b7efaa1bdc9d8130eff9c345b000b5551dc 2026-10-22 Untrack the six per-transaction evidence files (corrects 89d9ad8)
+de16aa059c1b9c0c3c0102613b110514b6232add 61e77d201e397507ea8ab65c51d192761665b123 2026-10-22 Relationship-level ablation of Temporal GraphSAGE (pre-registered)
+ae2a4270b183e27b9227799184664f945e7f0691 b40cbee6d37d49ea127c34349ef3758b7e4429cb 2026-10-22 Phase 9b: separately pre-registered synthetic recovery benchmark (H5a-9b supported)
+285c9cb05b538cc4eba6a8ce172e1e6eef185ac0 9ac4e06f8b6ca529669a9130380954afe4f754b3 2026-10-22 AC12: per-file recovery of pre-build evidence, including the authenticated first Git commit
+89d9ad855ef9ebd5c27149cf9be9b302e99b8ddc e35d3c0e0377b3dbfd5458e5a968af90c78ecd28 2026-10-22 Stop publishing six per-transaction evidence files (repository is public)
+f05baf58a8584bbebd16a6048bf6f13daffd9384 329efa42015dcf0bf5e71d4e47f712789851b20c 2026-10-21 Add the traceability matrix and professor-defense guide; update records for the research-model serving
+4a6f3676fd0398ca2c57f0d175c926d63d89c79c 9d5b5375c4c8a752137e2d30528e3fa9f7cbf5bc 2026-10-21 Add a proposed (not active) Amendment 2 for the Module F trained-arm readiness gate
+de4c965a875ff395b3c36dda32ec554bfa7c490f 7e5aa0958cc130b3b9b4fcd6839a172ad9334f60 2026-10-21 Serve the recorded research XGBoost through the API and dashboard (research-model mode)
+a577387f42aaa7eedcea6d55117bd33630f90999 97d3c7e018303d2cd4a538d9623b51639e8b3c88 2026-10-21 Add the held-out decision package and update the records for the performance-triggered analysis
+19b67b8a60a12b53f4955e53b0a1cd96b762ae5b dfe5e785c97d58c37b3612542a50e061a3121f0d 2026-10-21 Add the performance-triggered refresh analysis (arm TrP): the brief's 'monitor drift/performance'
+8067039e134fee1f51468c8132f3724e505f5077 e63c6330016f5db7831f980880d30a7beb4eeea3 2026-10-21 Update the submission records: final test counts, fresh-clone workflow result, triggered-refresh outcome
+c1cf8dc636d2cd48ab8b165066c404f28a2763c6 7212fb8231abd195b1e7baa5c916eb809237d487 2026-10-21 Add the drift-triggered refresh analysis (arm Tr) required by the brief's adaptation wording
+475e48631756a002786b09eba8cdbe60bfe5ea84 54a71f767089e0c26593fcd1a09f2aaea8e59af3 2026-10-21 Add a core-versus-artifact-dependent test workflow
+65a92dc84e32eba1c2c94668fa704da04cd0e3c1 91a29159fa5e033a5ae1fa9b597b9f5f1447b347 2026-10-21 Record fresh-clone verification and refresh the integrity record
+927c9eddaba6edca4579e27bd07860571269b6b1 37486bfdbe339737c4cebea4be6a0a6de65c0171 2026-10-21 Make the runner-contract failure-injection test self-contained
+c9f98a80b6b665a2c867badba3ea9869b2240703 7be8e3dcf1cd8e83c17f35c0656e5cd92032bfaf 2026-10-21 Restore exact file bytes: re-add tracked files whose line endings had been normalized
+39d717003950483947bd0b4ecd085ccfc52624ff 09cc1ddf93dadcb3d79c8d6d5a447f678e81c7b1 2026-10-21 Add .gitattributes so line endings are never rewritten (integrity hashes are byte-exact)
+c9d687d05b380deb335d767bb5c98473fa6e852b 43c04c1e2c0bcf62764c676f3bffa728dca2bbd9 2026-10-21 Add submission package, requirements, test infrastructure and master completion checklist
+bb1b987f319162fc09177fe6fe43720021ad6935 388ac032e1e5a68dcd07cca165e0b2dbdb97d612 2026-10-21 Add production-style scorer, synthetic demonstration and Phase 13 dashboard/API (reconstructed scope)
+697d643ee1c8559e3715640aa3352a3fa611a50f 74e052c11903477fbe2a8fba10219ae31fbe29fa 2026-10-21 Add held-out protocol, Amendment 1, evaluators and the Phase 8 state-continuity supplement
+edb6167ad9c24bf1788225642cc23ec813b3e521 d05877f1f333ccbb096d7323fe70736ee49c0345 2026-10-21 Add comparison B, class-imbalance study and neural graph evidence
+b28a03b5239a49c8d1b661525c63cf102d7e6ffd d0860fb2f88c16d8a28cbfc4ac140866e9b749f8 2026-10-21 Add Phase 10-12 work: community-evolution core, explainable evidence, validation-evidence table
+e70238f6e33ee6079697288dc83a99dceccddda7 e70238f6e33ee6079697288dc83a99dceccddda7 2026-10-16 Initial research project snapshot

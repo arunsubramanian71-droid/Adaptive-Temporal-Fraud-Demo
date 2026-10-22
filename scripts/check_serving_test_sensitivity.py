@@ -42,6 +42,7 @@ MUTANTS = [
     # added 2026-10-22 with the fixes they guard
     ("M15 a deeply nested body becomes an internal error again", "except RecursionError:", "except ZeroDivisionError:"),
     ("M16 the held-out note no longer follows the held-out outputs", "    return (bool(done), HELD_OUT_DONE_NOTE.format(", "    done = []\n    return (bool(done), HELD_OUT_DONE_NOTE.format("),
+    ("M17 a second server may take over a busy port (address reuse on Windows)", 'allow_reuse_address = sys.platform != "win32"', "allow_reuse_address = True"),
 ]
 
 

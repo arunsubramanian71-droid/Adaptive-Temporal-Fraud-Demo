@@ -7,7 +7,7 @@ Purpose: show that the project is a working, tested software system and show, wi
 ```
 .venv/Scripts/python.exe -B scripts/run_tests.py
 ```
-Expect `ALL TEST MODULES PASSED` (about two to three minutes; 376 tests in 39 modules). Have `reports/PROJECT_SYNTHESIS_REPORT.md`, `experiments/comparison_B_graph_features/outputs/B_RESULTS.md` and `submission/MANUSCRIPT.md` open.
+Expect `ALL TEST MODULES PASSED` (about two to three minutes; 381 tests in 40 modules). Have `reports/PROJECT_SYNTHESIS_REPORT.md`, `experiments/comparison_B_graph_features/outputs/B_RESULTS.md` and `submission/MANUSCRIPT.md` open.
 
 ## Part 1: live software demonstration (3 minutes)
 
@@ -33,7 +33,7 @@ Likely questions: *Is the demo the research?* No; the recorded experiments need 
 .venv/Scripts/python.exe -B scripts/run_dashboard.py --demo
 ```
 
-Open http://127.0.0.1:8765/ in a browser (leave the terminal running; Ctrl+C stops it). Walk the four tabs: **Evidence (validation)** shows the recorded tables and the standing banner; **Score transactions**: click *Load synthetic sample*, wait for the message, then *Score* (the answer is labelled synthetic); **Candidate communities** shows 24 aggregate-only cards (say: candidates, not confirmed to be fraudulent or coordinated; no member identities exist in this output); **Status and limits** shows that the held-out evaluation has not been performed.
+Open http://127.0.0.1:8765/ in a browser (leave the terminal running; Ctrl+C stops it). Walk the five tabs: **Evidence (validation)** shows the recorded tables and the standing banner; **Score transactions**: click *Load synthetic sample*, wait for the message, then *Score* (the answer is labelled synthetic); **Candidate communities** shows 24 aggregate-only cards (say: candidates, not confirmed to be fraudulent or coordinated; no member identities exist in this output); **Status and limits** shows that the held-out evaluation has not been performed. The **Research model** tab is part 1c. To show error handling, replace the request text with `{"new": []}` and click *Score*: the page shows the server's 400 message.
 
 ## Part 1c: the research model in the dashboard (2 minutes)
 
@@ -48,11 +48,16 @@ Open the *Research model* tab, choose the JSON file the first command wrote (in 
 
 1. **Question and protocol (1 min).** Does relational and temporal structure improve fraud detection over strong tabular models, especially on future data and under drift? Chronological split: train days 1-121, validation 122-151, held-out 152-182 sealed. Everything is validation-period.
 2. **The consolidated table (2 min).** `reports/PROJECT_SYNTHESIS_REPORT.md` section 1.1 and `B_RESULTS.md`. Figures 1-3 are in `submission/figures/`. Walk the rows: tabular models, the new graph-feature model B, GraphSAGE, GAT, Temporal GraphSAGE, controls. Point at the F rows and say they are on a different basis and not comparable.
-3. **Verdicts (2 min).** H1-H5 in `MANUSCRIPT.md` section 6: what is supported, what is not, and why (GAT never converged; the synthetic benchmark failed a frozen gate; no held-out evaluation).
+3. **Verdicts (2 min).** H1-H5 in `MANUSCRIPT.md` section 6: what is supported, what is not, and why (GAT never converged; the original synthetic benchmark failed a frozen gate, and a separately pre-registered second benchmark, Phase 9b, supports H5a-9b without changing that verdict; no held-out evaluation).
 4. **Honest gaps (2 min).** `COMPLETION_MATRIX.md`: the held-out evaluation is blocked pending an authorization, graph-level explanations exist only for Temporal GraphSAGE seed 42 (one registered sanity criterion failed at GPU float noise), and Phase 12's before/after hash criterion is BLOCKED (partially verified).
+
+## Part 1d: temporal and adaptive mechanics (optional, 2 minutes)
+
+With PyTorch installed (`requirements-gnn.txt`): `.venv/Scripts/python.exe -B tests/test_walkforward_ext.py`. It runs the walk-forward update loop on a toy temporal graph and prints each check (labels used only after a window is scored, replay uses TRAIN days only). Say: "these are the mechanics; the results on the real data are recorded, because they need the dataset and hours of GPU time". The full sequence, with what is live and what is recorded, is `PROFESSOR_DEFENSE_GUIDE.md` section 6b.
 
 ## If something breaks live
 
-* Demo fails to import xgboost or pandas: the environment is not installed; run the setup in `README.md` section 2.
+* Demo fails to import xgboost or pandas: the environment is not installed; run `powershell -ExecutionPolicy Bypass -File scripts/quickstart_windows.ps1` or the setup in the root `README.md` section 5.
+* `error: [WinError 10048] ...` when starting the dashboard: a dashboard is already running on that port; stop it or add `--port 8800`.
 * Demo output differs from this guide's numbers: only the structure is promised; the files in `demo_output/` are deterministic for a fixed environment, and `tests/test_inference_demo.py` checks that two runs are byte-identical.
 * Never open or score a TEST-named file during the demonstration.

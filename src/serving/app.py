@@ -14,6 +14,7 @@ import json
 import math
 import pathlib
 import socketserver
+import sys
 import threading
 import traceback
 
@@ -327,7 +328,9 @@ def make_handler(services: Services):
 
 class Server(socketserver.ThreadingMixIn, http.server.HTTPServer):
     daemon_threads = True
-    allow_reuse_address = True
+    # On Windows SO_REUSEADDR lets a second server bind a port that is already listening and take over its connections (found 2026-10-22: a second
+    # dashboard on the same port started without error and answered instead of the first). Without it the second bind fails with "address in use".
+    allow_reuse_address = sys.platform != "win32"
 
 
 def make_server(services: Services, host: str = "127.0.0.1", port: int = 8765, allow_remote: bool = False) -> Server:

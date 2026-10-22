@@ -1,14 +1,14 @@
 {
- "date_local": "2026-10-22T19:06:47+05:30",
+ "date_local": "2026-10-22T23:30:41+05:30",
  "command": "scripts/run_dashboard.py --demo --research-model --port 0 (separate process)",
  "scope": "HTTP-level end-to-end check of the research-model mode beside the synthetic demo mode; 60 validation rows (label removed); no held-out file",
  "python": "3.12.0",
- "seconds": 6.9,
+ "seconds": 5.0,
  "checks": [
   {
    "check": "launcher with --demo --research-model prints its address within 180 s",
    "pass": true,
-   "detail": "training the synthetic demonstration bundle ...\nloading the research model (experiments/xgboost) ...\ndashboard on http://127.0.0.1:57730/  (validation-period results only; Ctrl+C to stop)"
+   "detail": "training the synthetic demonstration bundle ...\nloading the research model (experiments/xgboost) ...\ndashboard on http://127.0.0.1:65260/  (validation-period results only; Ctrl+C to stop)"
   },
   {
    "check": "dashboard page has the Research model tab and the demo tab",
@@ -58,12 +58,12 @@
   {
    "check": "shutdown: the server process exited",
    "pass": true,
-   "detail": "pid 5228, exit code 1"
+   "detail": "pid 25260, exit code 1"
   },
   {
    "check": "shutdown: the port is closed within 10 s of the process exit",
    "pass": true,
-   "detail": "1.26 s"
+   "detail": "1.27 s"
   }
  ],
  "all_pass": true
