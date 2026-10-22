@@ -1,5 +1,5 @@
 {
- "created_local": "2026-10-22T13:40:01+05:30",
+ "created_local": "2026-10-22T13:43:30+05:30",
  "purpose": "integrity record of the completion work (comparison B, imbalance check, graph evidence, held-out protocol and evaluator, software demonstration, submission package)",
  "baseline": {
   "file": "experiments/phase12_validation_evidence_table/PRECHANGE_MANIFEST_closure_update.tsv",
@@ -51,7 +51,7 @@
   }
  },
  "new_files": {
-  "count": 768,
+  "count": 770,
   "by_area": {
    ".gitattributes": 1,
    "experiments/comparison_B_graph_features": 50,
@@ -77,7 +77,7 @@
    "src/inference": 3,
    "src/serving": 4,
    "src/trigger": 3,
-   "submission": 39,
+   "submission": 41,
    "tests": 26
   },
   "sha256": {
@@ -786,19 +786,21 @@
    "src/trigger/policy.py": "5df8bdccd118ec51cf300fcd2f38a210d627de322440de44971a3e499d89e697",
    "submission/COMPLETION_MATRIX.md": "3ca8a3843592c0117e2575067c849acada34cf12a97e73cebd1c867a34d8d7cc",
    "submission/DEMO_GUIDE.md": "69d86b3ad415f61e6d3bbe298a0d95be6e9ae63f3ea51b46a3ecbc8e9e5e76a3",
-   "submission/FINAL_COMPLETION_RECORD.md": "3e0e386963cdf56e70e0f660b726407e83fe66d3759b2eb7791553679df96081",
+   "submission/FINAL_COMPLETION_RECORD.md": "1d6bcd4b33d4287a302f329d9f268834100f4d9372e195596ce346593e7b9668",
    "submission/HELDOUT_DECISION_PACKAGE.md": "c1848746d643f06fbb624f4025c626c2e517b8b907325ae4dd8c187b11d9c7ff",
    "submission/MANUSCRIPT.md": "6bbb7ca04260c117ebda36a11fdd690964390ae5679560f2517a7aa768a658ad",
-   "submission/MASTER_COMPLETION_CHECKLIST.md": "53e4e843fa48ddd5c847bb56c138a05d3b610d83d423320534650c8f273e8a50",
+   "submission/MASTER_COMPLETION_CHECKLIST.md": "d10fa436ad8c5c8cd2a42c661b6a1dc992e3f3c9df19401aafaadc8962b3a2fa",
    "submission/PHASE13_SCOPE_CONFIRMATION.md": "062b754ed1f0f6194edf5115afb8da9c1d2f8b35c18701496243f5f1898085a6",
    "submission/PROFESSOR_DEFENSE_GUIDE.md": "93f21085041d289951a80175eaa088f325fc6ad7624ecc733fa53b6b022acd87",
-   "submission/README.md": "7346aa7bd8cb207df846163ce154e8603fdb0ecbb3cfd3ab372a6bae4f07269e",
+   "submission/README.md": "47bce1f0259d5dbc560b9e664bc22094d2b92d26a33c41a587ddc293c494dcb2",
    "submission/REPRODUCIBILITY.md": "3c4050fa6365f3881667d40f9fe04c584adb7d21da97bfd83384ad1199b9aff3",
    "submission/TRACEABILITY_MATRIX.md": "69b655a90aa108d8fe40345ad7afd769aa06e9e9469aa8e0fe92c1795802685a",
    "submission/claims_exceptions.json": "4a58536d41278bd4fc9fc202cfb0addc60165908bec020d4b3d8da42bd9edc39",
    "submission/clean_env_results/fresh_clone_python3.12.0_core_tests_2026-10-21.txt": "3a7f82386e90a484fc3b26ec5418bb8df10fecfa0ac69216618b5cbdd5cc127d",
    "submission/clean_env_results/fresh_clone_python3.12.0_core_tests_2026-10-22.json": "3b5e1a263f125df961deaf73043b79c6bded63f8ac34aea29df56bda36b16adb",
    "submission/clean_env_results/fresh_clone_python3.12.0_core_tests_2026-10-22.txt": "771d7f1b7817ee66b05c1cde8ae2e7ce3502ca43df14c9f724d3d35babd37940",
+   "submission/clean_env_results/fresh_clone_python3.12.0_core_tests_2026-10-22_8a9e983.json": "922d0a5f09bce13147f1c4047cebeb82cd7c9e889e9dc5be101a699eb2072b49",
+   "submission/clean_env_results/fresh_clone_python3.12.0_core_tests_2026-10-22_8a9e983.txt": "15b60948fc9b7405e97c1559019a04108b9e0c7cf7c18a4d03bb742d6cf81081",
    "submission/clean_env_results/fresh_clone_python3.12.0_core_tests_final_2026-10-21.json": "f6b2831a0bbc3d459c46d75d09e4fd3263fe1f5b3e7a81fbf5bef3293166a320",
    "submission/clean_env_results/fresh_clone_python3.12.0_core_tests_final_2026-10-21.txt": "9906c4f47022fdf71086a595773b9fd052baa9ff65b90253a05905238451e655",
    "submission/clean_env_results/fresh_clone_python3.12.0_core_tests_with_artifact_workflow_2026-10-21.json": "0bd2d58d2f0acfb17b787eacf1ba709ff7193231e4add9f88cf99a0f3641d99c",
@@ -821,8 +823,8 @@
    "submission/figures/fig3_class_weighting.sha256": "c2f529eaca3a25cde955aa502343d795bf9901cab59c27415239095767085acd",
    "submission/figures/figure_data.json": "0032a19aaa19f6772432a89f5bd6b3015f39a625eee0da8562a929735c3cf6a1",
    "submission/figures/figure_data.sha256": "36d14fb6448d1875cf6c8a91041e0d14d599e8a3e3127270a15b7288874161e2",
-   "submission/test_results.json": "999b139c31280bd5b682c0213d5bf83944d1232d13d9bb4317a5cb93dd0bbd0e",
-   "submission/test_results.sha256": "dfb5450000e92cfc6737827a0dd9645b92d5ed0137d15bbfcab29b2bbb758bf6",
+   "submission/test_results.json": "67345d08f35e487fda27f7a85848863d3a2ca948ee498c57831d0d7ac6e83b84",
+   "submission/test_results.sha256": "c55385352a244ce5fa2142ecd578391dd2d4885735da6e8f84a8bf547872b396",
    "tests/artifact_requirements.json": "e4c2a3eb001483c3e6fd688daf57a82c4a8a8353d9ed7977fe4ddf099801e77b",
    "tests/test_ac12_recovery_records.py": "9033cc5bca9f1559193b1b2252aeb3e94df8b60b2b39d5831819174195a33b7d",
    "tests/test_amendment_gate.py": "16dc138e9d2f4ec9dbf09f911dd926f2fa523c51a9e135fe593fc25fd667f254",
