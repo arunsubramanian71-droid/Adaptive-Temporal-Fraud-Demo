@@ -1,5 +1,5 @@
 {
- "created_local": "2026-10-22T19:28:47+05:30",
+ "created_local": "2026-10-22T19:32:31+05:30",
  "purpose": "integrity record of the completion work (comparison B, imbalance check, graph evidence, held-out protocol and evaluator, software demonstration, submission package)",
  "baseline": {
   "file": "experiments/phase12_validation_evidence_table/PRECHANGE_MANIFEST_closure_update.tsv",
@@ -51,7 +51,7 @@
   }
  },
  "new_files": {
-  "count": 805,
+  "count": 807,
   "by_area": {
    ".gitattributes": 1,
    "experiments/comparison_B_graph_features": 50,
@@ -78,7 +78,7 @@
    "src/inference": 3,
    "src/serving": 4,
    "src/trigger": 3,
-   "submission": 45,
+   "submission": 47,
    "tests": 27
   },
   "sha256": {
@@ -817,13 +817,13 @@
    "src/trigger/policy.py": "5df8bdccd118ec51cf300fcd2f38a210d627de322440de44971a3e499d89e697",
    "submission/COMPLETION_MATRIX.md": "70906c50bd8bc7c662515fc5cfe4f8d93348659b06b25ed1adb5adefdc5ca592",
    "submission/DEMO_GUIDE.md": "0b85ce5a828ccaeda7cfbd2b498f166ec5ede72ce74ff6ed4b2157fca5fe1ef3",
-   "submission/FINAL_COMPLETION_RECORD.md": "18b4e1504cb79c46bd3fc79372ce8c811b717310bebca60b56129516dc29cf7b",
+   "submission/FINAL_COMPLETION_RECORD.md": "cbe2cfeb0f78aa16ab07d8bbf991a2a8ca7dc2eac3b5860ffa7796c2837d2d7a",
    "submission/HELDOUT_DECISION_PACKAGE.md": "e7ce4822ffaf53ae32cd35daef72fc9120f9ba993b9c079981dc7f4ccfa340e6",
    "submission/MANUSCRIPT.md": "6bbb7ca04260c117ebda36a11fdd690964390ae5679560f2517a7aa768a658ad",
-   "submission/MASTER_COMPLETION_CHECKLIST.md": "81ed3d64e393e31ace7f6f327abdb783436458c03550e9d592b2729d9946cad6",
+   "submission/MASTER_COMPLETION_CHECKLIST.md": "bc0b01ca142ab6168f87e915667e0dcf627bbaf5b09f1b28aca6dccbb0ea37c2",
    "submission/PHASE13_SCOPE_CONFIRMATION.md": "7475205128b6a372476a2a91e306eb1c0f554c687aa02f7ed89e8c46d364b941",
    "submission/PROFESSOR_DEFENSE_GUIDE.md": "93f21085041d289951a80175eaa088f325fc6ad7624ecc733fa53b6b022acd87",
-   "submission/README.md": "2c4b0618c92a4d9dbe35289666232be6d6fcf3ad62d17d2b3c5764fc6c500a24",
+   "submission/README.md": "2743962b59a11cf55ef0ab49b75eb6b2c8fe07c94b521fa735e8b4e7e9f39ed9",
    "submission/REPRODUCIBILITY.md": "6b62e052fb83e7c7cea49cad859dfd02585e9b9272f5f98e0c2e2392e0b94907",
    "submission/TRACEABILITY_MATRIX.md": "e832a0cbb9cbba5c7935ad7ad35d85c54364caa109161850f43e968d1e035938",
    "submission/claims_exceptions.json": "4a58536d41278bd4fc9fc202cfb0addc60165908bec020d4b3d8da42bd9edc39",
@@ -832,6 +832,8 @@
    "submission/clean_env_results/fresh_clone_python3.12.0_core_tests_2026-10-22.txt": "771d7f1b7817ee66b05c1cde8ae2e7ce3502ca43df14c9f724d3d35babd37940",
    "submission/clean_env_results/fresh_clone_python3.12.0_core_tests_2026-10-22_8a9e983.json": "922d0a5f09bce13147f1c4047cebeb82cd7c9e889e9dc5be101a699eb2072b49",
    "submission/clean_env_results/fresh_clone_python3.12.0_core_tests_2026-10-22_8a9e983.txt": "15b60948fc9b7405e97c1559019a04108b9e0c7cf7c18a4d03bb742d6cf81081",
+   "submission/clean_env_results/fresh_clone_python3.12.0_core_tests_2026-10-22_df839de.json": "c4ad6e66c85816068f7d151e762c21df2fe71878d59500887f1cf7e07b29291d",
+   "submission/clean_env_results/fresh_clone_python3.12.0_core_tests_2026-10-22_df839de.txt": "2c3e8a0685cf8fe111616e052c79313b086dfb969521ee1319d80c230d2fbb3b",
    "submission/clean_env_results/fresh_clone_python3.12.0_core_tests_2026-10-22_e205d50.json": "568e10ee15b8963b1c95832121c7b3ca15ffadafbc3b2e7a7bcd931d4ca26c3e",
    "submission/clean_env_results/fresh_clone_python3.12.0_core_tests_2026-10-22_e205d50.txt": "6b1777e02cbed8be671a974a406e41ee5bbf222a98d74cfd1d7fa37c81a69b19",
    "submission/clean_env_results/fresh_clone_python3.12.0_core_tests_final_2026-10-21.json": "f6b2831a0bbc3d459c46d75d09e4fd3263fe1f5b3e7a81fbf5bef3293166a320",
@@ -858,8 +860,8 @@
    "submission/figures/fig3_class_weighting.sha256": "c2f529eaca3a25cde955aa502343d795bf9901cab59c27415239095767085acd",
    "submission/figures/figure_data.json": "0032a19aaa19f6772432a89f5bd6b3015f39a625eee0da8562a929735c3cf6a1",
    "submission/figures/figure_data.sha256": "36d14fb6448d1875cf6c8a91041e0d14d599e8a3e3127270a15b7288874161e2",
-   "submission/test_results.json": "69f1fdd88adf72864e25bf0e25642125fcbc2bf0fab8f22e114192cf1aca4a50",
-   "submission/test_results.sha256": "db78dcbd2d1262dde6fc5df72839c42cc75889c9b97bdf79f7a1575e166f8aac",
+   "submission/test_results.json": "165dc8e17fd80aab128d5c3ed8b0edd754351f16315bcef3a190739727426d39",
+   "submission/test_results.sha256": "34f27e19b27410990a5d80cc47da0cafcaa5206eef64267c01a94a75a7029a0a",
    "tests/artifact_requirements.json": "e4c2a3eb001483c3e6fd688daf57a82c4a8a8353d9ed7977fe4ddf099801e77b",
    "tests/test_ac12_recovery_records.py": "9033cc5bca9f1559193b1b2252aeb3e94df8b60b2b39d5831819174195a33b7d",
    "tests/test_amendment_gate.py": "16dc138e9d2f4ec9dbf09f911dd926f2fa523c51a9e135fe593fc25fd667f254",
