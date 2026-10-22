@@ -48,7 +48,7 @@ def sidecar_problems(root: pathlib.Path, sidecars: list, tracked: set) -> tuple:
             problems.append(f"{rel}: one sidecar for several files {sorted(c.name for c in comps)} (one hash overwrites the other)")
             continue
         if not comps:
-            if any(t.startswith(rel[: -len(".sha256")] + ".") for t in tracked):
+            if any(t.startswith(rel[: -len(".sha256")] + ".") and not t.endswith(".sha256") for t in tracked):      # the sidecar itself is not its companion
                 problems.append(f"{rel}: its tracked companion is missing")
             else:
                 withheld += 1
@@ -85,8 +85,14 @@ def test_the_checker_catches_a_shared_sidecar_and_a_mismatch():
         (d / "M.txt").write_text("data", encoding="utf-8")
         (d / "M.sha256").write_text("0" * 64, encoding="ascii")
         (d / "W.sha256").write_text(hashlib.sha256(b"x").hexdigest(), encoding="ascii")            # companion withheld and untracked
-        problems, matched, withheld = sidecar_problems(d, ["R.sha256", "M.sha256", "W.sha256"], {"R.md", "R.json", "M.txt"})
+        # the sidecars are tracked themselves, as in a fresh clone where W's companion is withheld (found 2026-10-22: W was reported as a missing tracked file)
+        tracked = {"R.md", "R.json", "M.txt", "R.sha256", "M.sha256", "W.sha256"}
+        problems, matched, withheld = sidecar_problems(d, ["R.sha256", "M.sha256", "W.sha256"], tracked)
         assert any("several files" in p for p in problems) and any("does not match" in p for p in problems) and withheld == 1 and matched == 0, problems
+        assert not any(p.startswith("W.sha256") for p in problems), problems
+        (d / "M.txt").unlink()                                                                     # a tracked companion that disappeared is still caught
+        problems, _, _ = sidecar_problems(d, ["M.sha256"], tracked)
+        assert problems == ["M.sha256: its tracked companion is missing"], problems
     finally:
         shutil.rmtree(d, ignore_errors=True)
 
