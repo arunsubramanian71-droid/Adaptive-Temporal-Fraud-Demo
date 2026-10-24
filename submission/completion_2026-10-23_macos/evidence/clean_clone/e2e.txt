@@ -1,0 +1,32 @@
+[ok ] launcher refuses a non-local host
+[ok ] launcher refuses a held-out-named bundle path
+[ok ] launcher refuses --demo together with --bundle
+[ok ] server prints its address within 120 s
+[ok ] server listens on the loopback address only
+[ok ] GET / returns the dashboard page
+[ok ] page has no external resource reference
+[ok ] GET /health returns JSON 200
+[ok ] GET /api/status returns JSON 200
+[ok ] GET /api/model returns JSON 200
+[ok ] GET /api/evidence returns JSON 200
+[ok ] GET /api/communities returns JSON 200
+[ok ] GET /api/sample returns JSON 200
+[ok ] evidence carries the validation-only banner and the held-out statement
+[ok ] communities: 24 aggregate cards with the candidate statements
+[ok ] scoring the synthetic sample works and is labelled synthetic
+[ok ] alerted rows carry explanations, others do not
+[ok ] unknown path -> 404
+[ok ] wrong method on /api/score -> 405
+[ok ] PUT -> 405
+[ok ] invalid JSON -> 400
+[ok ] empty new list -> 400
+[ok ] missing columns -> 400
+[ok ] more than 5,000 rows -> 400
+[ok ] body over 1 MB -> 413
+[ok ] held-out-named path -> 404
+[ok ] path traversal -> 404
+[ok ] error bodies are JSON without a stack trace
+[ok ] server still answers after the error cases
+[ok ] shutdown: the server process exited
+[ok ] shutdown: the port is closed
+31/31 checks passed; record: ~/Sandbox/Adaptive-Temporal-Fraud-Demo/submission/completion_2026-10-23_macos/evidence/clean_clone/e2e_verification.json

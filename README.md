@@ -1,6 +1,6 @@
 # Adaptive Temporal Graph Intelligence for Fraud Detection & Coordinated Fraud Discovery
 
-A research project and working software system on the IEEE-CIS Fraud Detection data. It asks whether **heterogeneous relational structure and temporal behaviour improve fraud detection and the discovery of coordinated groups compared with strong tabular models, particularly on future data and under drift.** It contains the full experimental pipeline (tabular baselines, leakage-safe graph features, GraphSAGE, GAT, a temporal graph network with entity memory, drift and adaptive updating, candidate-community discovery, explanations), a frozen but not yet executed held-out protocol, a local API and dashboard, a synthetic demonstration that runs on any machine, and 381 automated tests.
+A research project and working software system on the IEEE-CIS Fraud Detection data. It asks whether **heterogeneous relational structure and temporal behaviour improve fraud detection and the discovery of coordinated groups compared with strong tabular models, particularly on future data and under drift.** It contains the full experimental pipeline (tabular baselines, leakage-safe graph features, GraphSAGE, GAT, a temporal graph network with entity memory, drift and adaptive updating, candidate-community discovery, explanations), a frozen but not yet executed held-out protocol, a local API and dashboard, a synthetic demonstration that runs on any machine, and 396 automated tests.
 
 > **Status in one paragraph.** Every research result is a **validation-period** result (days 122-151). The held-out period (days 152-182) is sealed: no model has been scored on it, and running that one-shot evaluation awaits the owner's authorization. On validation, a tuned XGBoost on transaction features is at least as good as every graph model tried; recurrent entity memory gives a small, cold-start-concentrated gain; periodic refresh reduces within-validation drift degradation; candidate-community discovery failed its original frozen benchmark gate and is supported only on a separately pre-registered second benchmark. Groups found on real data are *candidate* communities: the dataset has no labels for coordinated fraud, and nothing here claims that any group is fraudulent or coordinated.
 
@@ -42,7 +42,7 @@ A research project and working software system on the IEEE-CIS Fraud Detection d
 | Explanations (XGBoost TreeSHAP contributions; counterfactual graph evidence for the temporal model) | `src/explain/` | executed |
 | Held-out evaluation (frozen protocol, gated evaluators, one-shot guards) | `experiments/final_heldout_protocol/`, `src/heldout/`, `scripts/run_*_evaluation.py` | **ready, not run** (needs authorization) |
 | Production-style scoring of new transactions from stored history | `src/inference/scorer.py`, `scripts/score_transactions.py` | implemented, tested |
-| Local API + dashboard (standard library): recorded evidence, demo scoring, research-model scoring, candidate communities, status | `src/serving/`, `scripts/run_dashboard.py` | implemented, tested, verified in a real browser |
+| Local API + dashboard (standard library): overview, recorded evidence, demo scoring, research-model scoring, candidate communities, status | `src/serving/`, `scripts/run_dashboard.py` | implemented, tested, verified in a real browser (Windows 2026-10-22; revised page on macOS 2026-10-23) |
 | Synthetic end-to-end demonstration | `src/demo/`, `scripts/demo_end_to_end.py` | runs anywhere, byte-identical output |
 
 The original project brief and the phase-by-phase requirement trace are in `submission/TRACEABILITY_MATRIX.md` (every requirement with its source, mandatory/optional status, evidence and status).
@@ -111,22 +111,38 @@ requirements-browser-check.txt optional: Playwright for the real-browser dashboa
 
 ## 4. Requirements
 
-* **Operating system:** Windows 11 (tested). Linux and macOS are expected to work for the core path but have not been tested; use `.venv/bin/python` instead of `.venv/Scripts/python.exe` there.
-* **Python:** 3.12 (tested with 3.12.0; recommended). Python 3.14.3 also runs the core suite; one registered test then reports the different interpreter version stored in a recorded manifest (an environment-metadata difference, never counted as a pass; section 10).
+* **Operating system:** Windows 11 (tested 2026-10-22) and macOS on Apple Silicon (tested 2026-10-23: macOS `27.0.1`, Apple M4, Python `3.12.13`; setup, core tests, the PyTorch test modules, the demonstration, the dashboard end to end and the real-browser check in Chrome). **Linux has not been tested**; the macOS/Linux script and commands are expected to work there. On macOS and Linux use `.venv/bin/python` wherever this README writes `.venv/Scripts/python.exe`.
+* **macOS only: the OpenMP runtime.** The XGBoost wheel for macOS loads `libomp.dylib` from Homebrew's folder (`/opt/homebrew/opt/libomp/lib` on Apple Silicon) and nowhere else. Install it once with `brew install libomp`. Without it `import xgboost` fails (`Library not loaded: @rpath/libomp.dylib`); `scripts/check_setup.py` reports this and prints the fix (before 2026-10-23 it wrongly reported the setup as OK).
+* **Python:** 3.12 (tested with `3.12.0` on Windows and `3.12.13` on macOS; recommended). Python `3.14.3` also runs the core suite; one registered test then reports the different interpreter version stored in a recorded manifest (an environment-metadata difference, never counted as a pass; section 10).
 * **For the demonstration, dashboard and core tests:** about 1 GB of disk for the environment, no GPU, no dataset, no account, no secrets. There are no environment variables to set, so no `.env` file is needed.
 * **For the research experiments:** the IEEE-CIS files (about 1.3 GB raw, a further 1.3 GB processed), about 2 GB for experiment outputs, 16 GB of RAM or more, and a GPU for the neural models (the recorded runs used an AMD Radeon RX 7900 GRE with ROCm 7.2 and PyTorch 2.9.1).
 
 ## 5. Quick start: install, test, demonstrate (no dataset needed)
 
-All commands run from the repository root in **PowerShell**. Forward slashes in `.venv/Scripts/python.exe` work in PowerShell; in `cmd.exe` use backslashes.
+All commands run from the repository root. On **Windows** use PowerShell; forward slashes in `.venv/Scripts/python.exe` work there, and in `cmd.exe` use backslashes. On **macOS or Linux** use a terminal (bash or zsh) and `.venv/bin/python`.
 
 **Option A: one script** (creates `.venv` if it is missing, installs `requirements.txt`, checks the setup, runs the core tests and the demonstration; it never deletes anything, never downloads data and never touches the held-out period):
 
 ```
-powershell -ExecutionPolicy Bypass -File scripts/quickstart_windows.ps1
+powershell -ExecutionPolicy Bypass -File scripts/quickstart_windows.ps1          # Windows
+bash scripts/quickstart_unix.sh                                                  # macOS / Linux
 ```
 
-**Option B: step by step**
+`scripts/quickstart_unix.sh` takes `--skip-tests` and `--python /path/to/python3.12`. It reuses an existing `.venv` (installing with `uv pip` when that `.venv` was created by uv and has no pip) and, on a Mac without Homebrew's `libomp`, says so before the setup check fails on it.
+
+**Option B (macOS / Linux): step by step**
+
+```
+brew install libomp                                    # macOS only, once (OpenMP runtime for XGBoost)
+python3.12 -m venv .venv                               # Python 3.12: python.org, 'brew install python@3.12' or 'uv python install 3.12'
+.venv/bin/python -m pip install -r requirements.txt
+.venv/bin/python -B scripts/check_setup.py
+.venv/bin/python -B scripts/run_core_tests.py
+.venv/bin/python -B scripts/demo_end_to_end.py --out-dir demo_output
+.venv/bin/python -B scripts/run_dashboard.py --demo
+```
+
+**Option B (Windows): step by step**
 
 ```
 py -3.12 -m venv .venv                      # or: python -m venv .venv  (with Python 3.12 on PATH)
@@ -141,10 +157,10 @@ Then open http://127.0.0.1:8765/ and stop the server with Ctrl+C.
 
 **What you should see**
 
-* `check_setup.py` ends with `SETUP OK for the demonstration`. It lists the optional neural-network stack and the research data files as missing on a fresh machine; that is expected.
-* `run_core_tests.py` on a fresh clone ends with `306/327 tests passed`. The other 21 tests need data or model files that are not published; they are reported as **NOT RUN (withheld artifact missing)**, and five modules that need PyTorch are **SKIPPED**. Neither is counted as a pass. The exit code is 0.
+* `check_setup.py` imports every required package and ends with `SETUP OK for the demonstration`. It lists the optional neural-network stack and the research data files as missing on a fresh machine; that is expected. A package that is installed but cannot be imported (for example XGBoost on a Mac without `libomp`) makes it end with `SETUP INCOMPLETE` and the fix.
+* `run_core_tests.py` on a fresh clone ends with `321/342 tests passed`. The other 21 tests need data or model files that are not published; they are reported as **NOT RUN (withheld artifact missing)**, and five modules that need PyTorch are **SKIPPED**. Neither is counted as a pass. The exit code is 0. (With `requirements-gnn.txt` installed as well, the five modules run: 374 of 396 pass and 22 are NOT RUN on a fresh clone, macOS 2026-10-23.)
 * `demo_end_to_end.py` prints five stages (synthetic stream, two models with and without graph features, history-based scoring with explanations, candidate-community discovery, leakage invariants) and writes `demo_output/`. It reproduces no research result, and every number it prints is on synthetic data.
-* The dashboard opens on the *Evidence (validation)* tab (section 6).
+* The dashboard opens on the *Overview* tab (section 6).
 
 ## 6. The dashboard and API
 
@@ -158,7 +174,7 @@ Then open http://127.0.0.1:8765/ and stop the server with Ctrl+C.
 | `... run_dashboard.py --demo --research-model` | also the recorded research XGBoost on `/api/research/*` (needs local artifacts, section 7) |
 | `... --port 8800` | another port if 8765 is taken |
 
-**Tabs:** *Evidence (validation)*: the recorded Phase 12 and comparison-B tables and the verdicts. *Score transactions (demo)*: *Load synthetic sample*, then *Score*; the result is labelled SYNTHETIC DEMONSTRATION BUNDLE, and alerts list the model's largest feature contributions. *Research model*: choose a JSON file of rows written by `scripts/make_research_sample.py`, then *Score with the research model*. *Candidate communities*: 24 aggregate-only cards (no member identities). *Status and limits*: what has and has not been done. The page works with the keyboard (Tab, arrow keys between tabs), in light and dark colour schemes and at phone width.
+**Tabs:** *Overview* (opens first, added 2026-10-23): the research question, how the system works, live status tiles (research data and model present or not, held-out seal, scoring mode, API health), a chart of the recorded validation PR-AUC by model, the recorded verdicts, limitations and the next milestone; a header chip says SYNTHETIC DEMO MODE whenever the demo bundle is loaded. Every number on it is read from the recorded result files when the page loads; the page source holds none (`tests/test_serving.py` checks this). *Evidence (validation)*: the recorded Phase 12 and comparison-B tables and the verdicts. *Score transactions (demo)*: *Load synthetic sample*, then *Score*; the result is labelled SYNTHETIC DEMONSTRATION BUNDLE, and alerts list the model's largest feature contributions. *Research model*: choose a JSON file of rows written by `scripts/make_research_sample.py`, then *Score with the research model*. *Candidate communities*: 24 aggregate-only cards (no member identities). *Status and limits*: what has and has not been done. The page works with the keyboard (Tab, arrow keys between tabs), in light and dark colour schemes and at phone width.
 
 **API examples (PowerShell):**
 
@@ -172,6 +188,16 @@ catch { $_.ErrorDetails.Message }       # the 400 response body, with the explan
 ```
 
 (Windows PowerShell 5.1 prints only `(400) Bad Request` for an uncaught error; the server's explanation is in `ErrorDetails`.)
+
+**API examples (macOS / Linux, curl; the third needs the demo server):**
+
+```
+curl -s http://127.0.0.1:8765/health
+curl -s http://127.0.0.1:8765/api/status
+curl -s http://127.0.0.1:8765/api/sample | .venv/bin/python -c "import json,sys; s=json.load(sys.stdin); print(json.dumps({'history': s['history'], 'new': s['new']}))" > /tmp/fraud_demo_request.json
+curl -s -X POST -H 'Content-Type: application/json' --data @/tmp/fraud_demo_request.json http://127.0.0.1:8765/api/score
+curl -s -X POST -H 'Content-Type: application/json' --data '{"new": []}' http://127.0.0.1:8765/api/score      # 400 with the explanation
+```
 
 **Errors:** every invalid request gets a JSON error with a status code: 400 (invalid rows or JSON; the message says what to fix), 404 (unknown path, or no bundle/research model loaded), 405 (wrong method), 413 (body over 1 MB), 500 (internal error, never with a stack trace). `TransactionID` must be an integer; `TransactionAmt` must be a finite number; at most 5,000 rows per request.
 
@@ -213,24 +239,30 @@ Read `submission/MANUSCRIPT.md` for the full write-up and `reports/PROJECT_SYNTH
 
 ## 10. Tests and verification
 
-| Command | What it checks | Result on 2026-10-22 |
-|---|---|---|
-| `.venv/Scripts/python.exe -B scripts/run_core_tests.py` | all tests, reporting withheld-artifact tests as NOT RUN and PyTorch modules as SKIPPED | fresh clone: 306 of 327 executed pass, 21 NOT RUN, 0 fail |
-| `... scripts/run_completion_tests.py` | full suite with every artifact present; writes `submission/test_results.json` | 381 of 381 in 40 modules (development machine) |
-| `... scripts/run_core_tests.py --require-artifacts` | fails if any withheld artifact is missing | exit 0 on the development machine, exit 1 on a clone (by design) |
-| `... scripts/verify_dashboard_e2e.py` | starts the documented server, exercises every route and error, stops it | 31 of 31 |
-| `... scripts/verify_research_serving_e2e.py` | research-model mode end to end (needs local artifacts) | 12 of 12 |
-| `scripts/verify_dashboard_browser.py` | the real page in headless Chrome, desktop and phone, light and dark (optional; see below) | 123 of 123 |
-| `... scripts/verify_submission_claims.py` | every number in the submission documents traces to a recorded result | PASS |
+| Command | What it checks | Windows, 2026-10-22 (development machine and fresh clone) | macOS Apple Silicon, 2026-10-23 (fresh clone of the revised code) |
+|---|---|---|---|
+| `.venv/Scripts/python.exe -B scripts/run_core_tests.py` | all tests, reporting withheld-artifact tests as NOT RUN and PyTorch modules as SKIPPED | fresh clone: 306 of 327 executed pass, 21 NOT RUN, 0 fail | 321 of 342 pass, 21 NOT RUN, 0 fail (15 tests added on 2026-10-23); with PyTorch installed: 374 of 396 pass, 22 NOT RUN, 0 fail, no module skipped |
+| `... scripts/run_completion_tests.py` | full suite with every artifact present; writes `submission/test_results.json` | 381 of 381 in 40 modules (development machine) | not run: needs the withheld artifacts |
+| `... scripts/run_core_tests.py --require-artifacts` | fails if any withheld artifact is missing | exit 0 on the development machine, exit 1 on a clone (by design) | exit 1 (by design: artifacts withheld) |
+| `... scripts/verify_dashboard_e2e.py` | starts the documented server, exercises every route and error, stops it | 31 of 31 | 31 of 31 |
+| `... scripts/verify_research_serving_e2e.py` | research-model mode end to end (needs local artifacts) | 12 of 12 | not run (exit 3: artifacts withheld) |
+| `scripts/verify_dashboard_browser.py` | the real page in headless Chrome, desktop and phone, light and dark (optional; see below) | 123 of 123 (the page before the 2026-10-23 revision) | revised page: all executed checks pass; research scoring NOT RUN (no research model); record in `submission/completion_2026-10-23_macos/evidence/browser/browser_verification.json` |
+| `... scripts/verify_submission_claims.py` | every number in the submission documents traces to a recorded result | PASS | PASS |
 
 The test modules run without pytest; each prints `[PASS]`/`[FAIL]` lines. A skipped module or a NOT RUN test is never counted as passed.
+
+**Where the verifiers write (since 2026-10-23).** `verify_dashboard_e2e.py`, `verify_research_serving_e2e.py` and `verify_dashboard_browser.py` write their record to `demo_output/verification/` (generated output, ignored by Git) or to `--out` / `--out-dir`. Only `--record` overwrites the dated records under `experiments/phase13_serving_dashboard/test_results/`. Before that date every run overwrote them, so running a check on another machine replaced the recorded evidence and broke its hash in `submission/INTEGRITY_SUBMISSION.json`. If `git status` shows `experiments/phase13_serving_dashboard/test_results/e2e_verification.json` as modified, an earlier run did this; `git restore` that file to get the recorded version back.
 
 **Optional real-browser check** (uses an installed Chrome or Edge; nothing is downloaded; keep this environment outside the repository):
 
 ```
-python -m venv "$env:TEMP\fraud-browser-check"
+python -m venv "$env:TEMP\fraud-browser-check"                                                  # Windows (PowerShell)
 & "$env:TEMP\fraud-browser-check\Scripts\python.exe" -m pip install -r requirements-browser-check.txt
 & "$env:TEMP\fraud-browser-check\Scripts\python.exe" -B scripts/verify_dashboard_browser.py
+
+python3.12 -m venv /tmp/fraud-browser-check                                                     # macOS / Linux
+/tmp/fraud-browser-check/bin/python -m pip install -r requirements-browser-check.txt
+/tmp/fraud-browser-check/bin/python -B scripts/verify_dashboard_browser.py
 ```
 
 Without `--research-rows`, and on a machine without the research model, the research-scoring checks are reported NOT RUN. With the local artifacts, write a rows file first: `.venv/Scripts/python.exe -B scripts/make_research_sample.py --n 10 --out "$env:TEMP\fraud_research_rows.json"` and pass `--research-rows "$env:TEMP\fraud_research_rows.json"`.
@@ -262,12 +294,17 @@ Without `--research-rows`, and on a machine without the research model, the rese
 | Hash checks fail after checkout | `core.autocrlf` rewrote line endings; `.gitattributes` (`* -text`) prevents this in a normal clone. Re-clone without overriding it |
 | `error: refusing to read '...test...'` | intended: TEST-named paths are refused because the held-out period is sealed |
 | In `cmd.exe`, `.venv/Scripts/python.exe` is not recognized | write `.venv\Scripts\python.exe` in `cmd.exe` |
+| macOS: `xgboost ... installed but CANNOT BE IMPORTED (XGBoostError: Library not loaded: @rpath/libomp.dylib)` | the OpenMP runtime is missing: `brew install libomp`, then rerun `scripts/check_setup.py`. Homebrew must be in its default folder (`/opt/homebrew` on Apple Silicon), because the wheel looks only there |
+| macOS / Linux: `python3.12: command not found` | install Python 3.12 (python.org, `brew install python@3.12`, or `uv python install 3.12`), or pass its path: `bash scripts/quickstart_unix.sh --python /path/to/python3.12` |
+| `No module named pip` when installing into `.venv` | the environment was created by uv, which adds no pip: `uv pip install --python .venv/bin/python -r requirements.txt` (the macOS/Linux quick-start script does this itself) |
+| macOS / Linux: `error: [Errno 48] Address already in use` (Linux: `[Errno 98]`) when starting the dashboard | another program or dashboard already listens on 8765: find it with `lsof -nP -iTCP:8765 -sTCP:LISTEN` and stop it, or add `--port 8800` |
+| `verify_dashboard_browser.py` cannot start the server | it uses `.venv/Scripts/python.exe` on Windows and `.venv/bin/python` elsewhere; pass `--python PATH` if your project environment lives somewhere else |
 
 ## 13. Reproducing the demonstration on another machine
 
 1. `git -c core.longpaths=true clone https://github.com/arunsubramanian71-droid/Adaptive-Temporal-Fraud-Demo.git` and `cd Adaptive-Temporal-Fraud-Demo`. A GitHub "Download ZIP" copy also works (same test results); extract it to a short folder.
-2. Install Python 3.12, then follow section 5 (Option A or B).
-3. Expect: `SETUP OK`, 306 of 327 core tests passing with 21 NOT RUN and 0 failing, the five-stage demonstration, and the dashboard on http://127.0.0.1:8765/ in demo mode.
+2. Install Python 3.12 (on macOS also `brew install libomp`), then follow section 5 (Option A or B).
+3. Expect: `SETUP OK`, 321 of 342 core tests passing with 21 NOT RUN and 0 failing, the five-stage demonstration, and the dashboard on http://127.0.0.1:8765/ in demo mode.
 4. Without the IEEE-CIS data the research-model tab cannot score; everything else in the dashboard works, including the recorded evidence tables and the candidate-community cards.
 5. For the research model, obtain the data under the competition rules and follow section 7.
 
@@ -287,5 +324,6 @@ A collaborator's tour of the code (where each part lives and where to start read
 | `submission/FINAL_COMPLETION_RECORD.md`, `submission/MASTER_COMPLETION_CHECKLIST.md` | what is done, verified and blocked |
 | `submission/REPRODUCIBILITY.md` | per-experiment commands, inputs and outputs |
 | `reports/PROJECT_SYNTHESIS_REPORT.md` | phase-by-phase research record |
+| `submission/completion_2026-10-23_macos/PROJECT_COMPLETION_REPORT.md` | the 2026-10-23 macOS completion pass: defects found and fixed, acceptance checklist, blockers; with `FINAL_VERIFICATION_REPORT.md`, `COMPLETION_MANIFEST.json` and the raw evidence beside it |
 
 **Licence and data.** The code is the author's research project. The IEEE-CIS data belongs to its providers and is governed by the Kaggle competition rules. Do not commit the data or anything derived from it row by row.

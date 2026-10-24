@@ -4,7 +4,9 @@ inference of the recorded model, confirm the two modes are labelled and never mi
   .venv/Scripts/python.exe -B scripts/verify_research_serving_e2e.py
 
 Needs the withheld artifacts (experiments/xgboost/model.joblib and data/features/val_features.parquet); exits 3 with a clear message if they are missing.
-Validation rows only (label removed); no held-out file is opened. Writes experiments/phase13_serving_dashboard/test_results/research_e2e_verification.json.
+Validation rows only (label removed); no held-out file is opened. Writes demo_output/verification/research_e2e_verification.json (or --out FILE); only
+--record overwrites the tracked, dated record experiments/phase13_serving_dashboard/test_results/research_e2e_verification.json (since 2026-10-23;
+scripts/verification_output.py says why).
 """
 from __future__ import annotations
 
@@ -30,7 +32,9 @@ OUT = ROOT / "experiments" / "phase13_serving_dashboard" / "test_results" / "res
 NEEDED = ("experiments/xgboost/model.joblib", "data/features/val_features.parquet")
 
 
-def main() -> int:
+def main(argv=None) -> int:
+    from verification_output import output_path, write_record
+    out = output_path(argv, OUT, __doc__)
     missing = [p for p in NEEDED if not (ROOT / p).exists()]
     if missing:
         print(f"NOT RUN: withheld artifact(s) missing: {missing}; regenerate them with scripts/build_processed_data.py and scripts/train_xgboost.py", file=sys.stderr)
@@ -106,8 +110,8 @@ def main() -> int:
     rec = {"date_local": datetime.datetime.now().astimezone().replace(microsecond=0).isoformat(), "command": "scripts/run_dashboard.py --demo --research-model --port 0 (separate process)",
            "scope": "HTTP-level end-to-end check of the research-model mode beside the synthetic demo mode; 60 validation rows (label removed); no held-out file",
            "python": sys.version.split()[0], "seconds": round(time.time() - t0, 1), "checks": checks, "all_pass": all(c["pass"] for c in checks)}
-    OUT.write_text(json.dumps(rec, indent=1) + "\n", encoding="utf-8")
-    print(f"{sum(c['pass'] for c in checks)}/{len(checks)} checks passed")
+    write_record(out, json.dumps(rec, indent=1) + "\n")
+    print(f"{sum(c['pass'] for c in checks)}/{len(checks)} checks passed; record: {out}")
     return 0 if rec["all_pass"] else 1
 
 

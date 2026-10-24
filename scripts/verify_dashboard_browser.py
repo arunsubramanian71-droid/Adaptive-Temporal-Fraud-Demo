@@ -1,9 +1,12 @@
 """Real-browser verification of the Phase 13 dashboard (optional; needs Playwright and an installed Chrome or Edge).
 
   python -m pip install playwright==1.64.0          # in any environment; no browser download is needed with --channel chrome/msedge
-  python scripts/verify_dashboard_browser.py --research-rows PATH [--channel chrome] [--out-dir DIR]
+  python scripts/verify_dashboard_browser.py --research-rows PATH [--channel chrome] [--out-dir DIR | --record]
 
-The script starts the documented server command (`scripts/run_dashboard.py`, with the project interpreter `.venv/Scripts/python.exe` by default) in
+Output goes to demo_output/verification/browser unless --out-dir is given; only --record replaces the tracked record in
+experiments/phase13_serving_dashboard/test_results/browser (since 2026-10-23).
+The script starts the documented server command (`scripts/run_dashboard.py`, with the project interpreter `.venv/Scripts/python.exe` on Windows and
+`.venv/bin/python` elsewhere by default) in
 separate processes, drives the real page in headless Chrome, and records every check, browser console error, failed request and screenshot.
 It imports nothing from the project, so the project's own environment is not changed. PATH is a JSON file of validation rows written by
 `scripts/make_research_sample.py` (outside the repository: transaction-level data are never committed); without it the research-scoring checks
@@ -19,12 +22,15 @@ import pathlib
 import re
 import subprocess
 import sys
+import tempfile
 import time
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
-DEFAULT_OUT = ROOT / "experiments" / "phase13_serving_dashboard" / "test_results" / "browser"
+RECORD_OUT = ROOT / "experiments" / "phase13_serving_dashboard" / "test_results" / "browser"     # the tracked, dated record: written only with --record
+DEFAULT_OUT = ROOT / "demo_output" / "verification" / "browser"                                     # generated output (since 2026-10-23)
+DEFAULT_PYTHON = ROOT / ".venv" / ("Scripts/python.exe" if sys.platform == "win32" else "bin/python")
 VIEWPORTS = {"desktop": {"width": 1366, "height": 900}, "phone": {"width": 390, "height": 844}}
-TABS = ("evidence", "score", "research", "communities", "status")
+TABS = ("overview", "evidence", "score", "research", "communities", "status")      # the overview tab was added on 2026-10-23 and opens first
 
 CONTRAST_JS = """
 (sel) => {
@@ -91,8 +97,16 @@ def watch(page, sink):
     page.on("response", lambda r: sink["responses"].append({"url": r.url, "status": r.status, "method": r.request.method}))
 
 
+def expected_chart(ev: dict) -> list:
+    """The overview chart rule, computed independently of the page: Phase 12 cells on the pooled-VAL basis plus the single-run comparison-B arm, by PR-AUC."""
+    rows = [(c["cell"], c["pr_auc"]) for c in ev["phase12_cells"] if c["pr_auc"] is not None and c["basis"].startswith("pooled over")]
+    rows += [(c["cell"], c["pr_auc"]) for c in ev["comparison_b_rows"] if c["cell"] == "B" and c["runs"] == 1 and c["pr_auc"] is not None]
+    return [(cell, f"{v:.4f}") for cell, v in sorted(rows, key=lambda r: -r[1])]
+
+
 def ready(page):
-    page.wait_for_selector("#evidence table", timeout=30000)
+    page.wait_for_selector("#evidence table", state="attached", timeout=30000)      # loaded; the evidence tab is no longer the one shown first
+    page.wait_for_selector("#ovChart li[data-cell]", timeout=30000)
     page.wait_for_function("() => !document.getElementById('banner').textContent.startsWith('Loading')", timeout=30000)
     page.wait_for_selector("#communities .card", state="attached", timeout=30000)
 
@@ -101,14 +115,29 @@ def no_hscroll(page):
     return page.evaluate("() => ({doc: document.documentElement.scrollWidth, view: window.innerWidth})")
 
 
-def main(argv=None) -> int:
+def parse_args(argv=None) -> argparse.Namespace:
+    """Defaults: the project interpreter of this platform; output in demo_output/verification/browser. Before 2026-10-23 the defaults were the Windows
+    interpreter path (so the server could not start on macOS or Linux without --python) and the tracked record folder (so any run replaced the recorded
+    screenshots and record that tests/test_serving.py checks). --record writes the tracked folder deliberately."""
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument("--research-rows", default=None)
     ap.add_argument("--channel", default="chrome", choices=["chrome", "msedge", "chromium"])
-    ap.add_argument("--python", default=str(ROOT / ".venv" / "Scripts" / "python.exe"), help="interpreter that runs the server (the project environment)")
-    ap.add_argument("--out-dir", default=str(DEFAULT_OUT))
+    ap.add_argument("--python", default=str(DEFAULT_PYTHON), help="interpreter that runs the server (the project environment)")
+    ap.add_argument("--out-dir", default=None, help=f"default: {DEFAULT_OUT.relative_to(ROOT).as_posix()}")
+    ap.add_argument("--record", action="store_true", help=f"write the tracked record folder {RECORD_OUT.relative_to(ROOT).as_posix()} (only when updating the project's evidence)")
     ap.add_argument("--full-page", action="store_true", help="full-page screenshots (for review; larger files). Default: what the viewport shows")
     a = ap.parse_args(argv)
+    if a.record and a.out_dir:
+        ap.error("choose --record or --out-dir, not both")
+    out = RECORD_OUT if a.record else (pathlib.Path(a.out_dir).resolve() if a.out_dir else DEFAULT_OUT)
+    if not a.record and out.is_relative_to(ROOT / "experiments" / "phase13_serving_dashboard" / "test_results" / "browser"):
+        ap.error("--out-dir may not point into the tracked record folder; use --record to update it deliberately")
+    a.out_dir = str(out)
+    return a
+
+
+def main(argv=None) -> int:
+    a = parse_args(argv)
     from playwright.sync_api import sync_playwright
 
     out = pathlib.Path(a.out_dir)
@@ -189,6 +218,19 @@ def main(argv=None) -> int:
             R.check("evidence: one table row per recorded Phase 12 cell", page.locator("#evidence table").first.locator("tbody tr").count() == len(ev["phase12_cells"]),
                     page.locator("#evidence table").first.locator("tbody tr").count())
             R.check("evidence: banner carries the standing statement and the held-out note", ev["banner"] in page.inner_text("#banner") and ev["held_out"] in page.inner_text("#banner"))
+            st_api = page.evaluate("() => fetch('/api/status').then(r => r.json())")
+            shown_chart = page.evaluate("() => [...document.querySelectorAll('#ovChart li[data-cell]')].map(li => [li.dataset.cell, li.querySelector('.bar-val').textContent])")
+            R.check("overview: the chart has one row per recorded pooled-validation cell plus the single-run B arm, showing the recorded PR-AUC (4 decimals)",
+                    [tuple(x) for x in shown_chart] == expected_chart(ev), shown_chart)
+            fnd = page.inner_text("#ovFindings")
+            verdicts = [ev["comparison_b_verdicts"]["H1_direct_B_vs_A"], ev["comparison_b_verdicts"]["H2_E_vs_B_sub"], ev["h4"]["decision"], ev["imbalance"]["xgboost_weighting_verdict"]]
+            R.check("overview: the findings show the recorded verdicts (H1, H2, H4, class weighting) and the H5 statement", all(v in fnd for v in verdicts) and st_api["h5"][:40].lower() in fnd.lower(), verdicts)
+            chips = page.inner_text("#modeChips")
+            R.check("overview: the synthetic-demo indicator is shown on the demo server", "SYNTHETIC DEMO MODE" in chips and st_api["synthetic_demo"] is True, chips)
+            tiles = page.inner_text("#ovTiles")
+            R.check("overview: the tiles report the held-out seal, research data and research model as /api/status does",
+                    ("Sealed, not performed" in tiles) != st_api["held_out_evaluation_performed"]
+                    and ("Present on this machine" in tiles) == st_api["research_data_present"] and ("Loaded" in tiles) == st_api["research_model_loaded"], tiles)
             for t in TABS:
                 page.click(f"#btn-{t}")
                 vis = [x for x in TABS if page.is_visible(f"#tab-{x}")]
@@ -199,17 +241,17 @@ def main(argv=None) -> int:
             ready(page)
             page.keyboard.press("Tab")                                             # keyboard focus, as a user would reach the tabs
             focus = page.evaluate("() => { const e = document.activeElement; const s = getComputedStyle(e); return {id: e.id, outline: s.outlineStyle + ' ' + s.outlineWidth, shadow: s.boxShadow}; }")
-            R.check("keyboard: Tab reaches the selected tab and shows a visible focus indicator", focus["id"] == "btn-evidence"
+            R.check("keyboard: Tab reaches the selected tab and shows a visible focus indicator", focus["id"] == "btn-" + TABS[0]
                     and (focus["outline"].split()[0] not in ("none", "") or focus["shadow"] != "none"), focus)
             page.screenshot(path=str(shots / "keyboard_focus_on_tab.png"))
             page.keyboard.press("ArrowRight")
             moved = page.evaluate("() => document.activeElement.id")
-            R.check("keyboard: ArrowRight moves to and selects the next tab (WAI-ARIA tabs pattern)", moved == "btn-score" and page.is_visible("#tab-score"), moved)
+            R.check("keyboard: ArrowRight moves to and selects the next tab (WAI-ARIA tabs pattern)", moved == "btn-" + TABS[1] and page.is_visible("#tab-" + TABS[1]), moved)
             page.keyboard.press("End")
             end = page.evaluate("() => document.activeElement.id")
             page.keyboard.press("ArrowRight")
             wrap = page.evaluate("() => document.activeElement.id")
-            R.check("keyboard: End selects the last tab and ArrowRight wraps to the first", end == "btn-status" and wrap == "btn-evidence" and page.is_visible("#tab-evidence"), (end, wrap))
+            R.check("keyboard: End selects the last tab and ArrowRight wraps to the first", end == "btn-" + TABS[-1] and wrap == "btn-" + TABS[0] and page.is_visible("#tab-" + TABS[0]), (end, wrap))
             roles = page.evaluate("() => [...document.querySelectorAll('[role=tab]')].map(b => [b.getAttribute('aria-controls'), (document.getElementById(b.getAttribute('aria-controls')) || {}).getAttribute ? document.getElementById(b.getAttribute('aria-controls')).getAttribute('role') : null])")
             R.check("accessibility: every tab names its panel (aria-controls) and the panel has role=tabpanel", all(c and r == "tabpanel" for c, r in roles), roles)
             live = page.evaluate("() => ['scoreInfo','scoreOut','researchInfo','researchOut'].map(i => document.getElementById(i).getAttribute('aria-live'))")
@@ -264,8 +306,7 @@ def main(argv=None) -> int:
                 page.fill("#researchPayload", '{"rows": []}')
                 page.click("#doResearch")
                 R.check("research: no rows gives an explicit message", "no rows" in page.inner_text("#researchOut").lower(), page.inner_text("#researchOut"))
-                tmp = out / "_tmp"
-                tmp.mkdir(exist_ok=True)
+                tmp = pathlib.Path(tempfile.mkdtemp(prefix="dashboard_browser_"))      # a fresh private folder: the cleanup below removes only these files
                 (tmp / "not_json.json").write_text("this is not json", encoding="utf-8")
                 (tmp / "no_rows.json").write_text('{"something": 1}', encoding="utf-8")
                 page.set_input_files("#researchFile", str(tmp / "not_json.json"))
@@ -313,18 +354,34 @@ def main(argv=None) -> int:
             R.check("communities: candidate wording is shown", "candidate" in page.inner_text("#communities").lower())
             page.click("#btn-status")
             st = page.inner_text("#status")
-            R.check("status: held-out evaluation performed = false and the research model is reported loaded", "held out evaluation performed\nfalse" in st and ("research model loaded\ntrue" in st or not research_available), st[:200])
+            val = lambda key: page.inner_text(f'#status .v[data-key="{key}"]').strip()  # noqa: E731 - one row of the status grid (since 2026-10-23: labelled rows, Yes/No)
+            R.check("status: held-out evaluation performed = No and the research model is reported loaded", val("held_out_evaluation_performed") == "No"
+                    and (val("research_model_loaded") == "Yes" or not research_available) and val("api_health").startswith("ok (checked "), st[:200])
 
             # error state: evidence endpoint fails -> the banner must not stay on 'Loading'
             ctx2 = browser.new_context(viewport=VIEWPORTS["desktop"])
             pg2 = ctx2.new_page()
             pg2.route("**/api/evidence", lambda route: route.fulfill(status=500, content_type="application/json", body='{"error": "internal error", "status": 500}'))
             pg2.goto(srv.url)
-            pg2.wait_for_selector("#evidence .alert", timeout=30000)
+            pg2.wait_for_selector("#evidence .alert", state="attached", timeout=30000)
+            pg2.wait_for_selector("#ovChart .alert", timeout=30000)                   # the overview (shown first) reports it too, instead of a chart
             pg2.wait_for_timeout(500)
             R.check("error state: a failed evidence request is shown and the banner does not stay on 'Loading'", not pg2.inner_text("#banner").startswith("Loading"), pg2.inner_text("#banner"))
+            R.check("error state: the overview shows the failure instead of a chart and draws no bar", "Could not load the recorded results" in pg2.inner_text("#ovChart")
+                    and pg2.locator("#ovChart li[data-cell]").count() == 0, pg2.inner_text("#ovChart"))
             pg2.screenshot(path=str(shots / "error_evidence_unavailable.png"), full_page=a.full_page)
             ctx2.close()
+            # error state: the status endpoint fails -> tiles, chips and the next-step box say so instead of staying on 'Loading' (review 2026-10-23)
+            ctx3 = browser.new_context(viewport=VIEWPORTS["desktop"])
+            pg3 = ctx3.new_page()
+            pg3.route("**/api/status", lambda route: route.fulfill(status=500, content_type="application/json", body='{"error": "internal error", "status": 500}'))
+            pg3.goto(srv.url)
+            pg3.wait_for_selector("#ovTiles .alert", timeout=30000)
+            R.check("error state: a failed status request is shown in the tiles, the header and the next-step box, and the chart still draws from the evidence",
+                    "Could not load the server status" in pg3.inner_text("#ovTiles") and "Server status unavailable" in pg3.inner_text("#modeChips")
+                    and "Could not load the server status" in pg3.inner_text("#ovNext") and pg3.locator("#ovChart li[data-cell]").count() == len(expected_chart(ev)),
+                    pg3.inner_text("#ovTiles"))
+            ctx3.close()
 
             # server stopped while the page is open, then restarted on the same port
             page.click("#btn-score")
@@ -358,6 +415,9 @@ def main(argv=None) -> int:
             watch(page, sink)
             page.goto(plain.url)
             ready(page)
+            page.wait_for_function("() => !document.getElementById('modeChips').textContent.startsWith('Checking')")
+            R.check("no bundle: the header shows no synthetic-demo indicator and the scoring tile says no bundle is loaded",
+                    "SYNTHETIC DEMO" not in page.inner_text("#modeChips") and "No bundle loaded" in page.inner_text("#ovTiles"), page.inner_text("#modeChips"))
             page.click("#btn-research")
             page.wait_for_function("() => !document.getElementById('researchModel').textContent.startsWith('Checking')")
             R.check("no research model: the tab says so and its button is disabled", "not loaded" in page.inner_text("#researchModel") and page.is_disabled("#doResearch"), page.inner_text("#researchModel"))

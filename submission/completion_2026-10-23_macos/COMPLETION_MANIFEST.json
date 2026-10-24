@@ -1,0 +1,81 @@
+{
+ "schema": {
+  "name": "completion_manifest/1",
+  "fields": {
+   "completion_matrix[]": "one entry per workstream: id, workstream, existing (what the repository had at HEAD 975b0db), required (the outcome the brief asks for), defects (confirmed by execution in this session), done (implementation in this session), verification (commands executed), evidence (paths relative to this folder or the repository root), status, blocker (what prevents more, if anything)",
+   "status values": "VERIFIED = executed in this session with evidence; VERIFIED_HISTORICAL = backed only by a dated record made before this session, not re-executed here; BLOCKED = needs data, authorization or hardware that is not available; FAILED = a check that failed and is not fixed; NOT_APPLICABLE = the requirement does not apply to this repository",
+   "claims": "verified_facts (executed here), historical_claims (recorded earlier, not re-executed), current_unverified_claims (true by design or expectation but not observed here), assumptions, blockers, failed_checks, not_applicable"
+  }
+ },
+ "session": {"date": "2026-10-23", "machine": "macOS 27.0.1, Apple M4 (arm64)", "repository_head": "975b0db", "committed": false, "pushed": false},
+ "completion_status": {
+  "engineering": "complete for the supported demonstration on macOS Apple Silicon, verified from a clean clone; Windows after these changes and Linux not verified; research-model serving paths not exercised (artifacts withheld)",
+  "research": "not complete: held-out evaluation BLOCKED (explicit authorization required); no experiment re-run on this machine (data and models absent); Phase 12 AC12 BLOCKED and Phase 13 scope unconfirmed (historical)"
+ },
+ "completion_matrix": [
+  {"id": 1, "workstream": "Repository integrity and reproducibility", "existing": "integrity records with SHA-256 sidecars; .gitattributes keeps bytes exact", "required": "baseline recorded; no silent change of records", "defects": ["D2: verifiers overwrote tracked dated records (owner's 12:39 run broke the INTEGRITY_SUBMISSION hash of e2e_verification.json)"], "done": "verifiers write untracked output unless --record; CHANGED_FILES.json lists every change with hashes", "verification": "tests/test_verification_outputs.py; tracked records byte-identical after all runs", "evidence": "evidence/final_local/run_core_tests.json; CHANGED_FILES.json", "status": "VERIFIED", "blocker": "dated integrity records not re-finalized (owner's decision)"},
+  {"id": 2, "workstream": "Dataset acquisition and integrity", "existing": "README section 7; configs/data.yaml expected counts; build_log.json", "required": "verify rows, labels, dates against the data", "defects": [], "done": "checked that the recorded counts are internally consistent; searched this Mac for the data", "verification": "arithmetic on configs/data.yaml; Spotlight search", "evidence": "PROJECT_COMPLETION_REPORT.md section E", "status": "BLOCKED", "blocker": "IEEE-CIS data absent; download needs a Kaggle account and acceptance of the rules"},
+  {"id": 3, "workstream": "Preprocessing", "existing": "src/features/preprocessing.py (TRAIN-fit), tests", "required": "TRAIN-only fitting, consistent inference", "defects": [], "done": "none needed", "verification": "tests/test_preprocessing.py 8/8", "evidence": "evidence/final_local/run_core_tests.json", "status": "VERIFIED", "blocker": "real-data rebuild not possible here"},
+  {"id": 4, "workstream": "Feature engineering", "existing": "src/features/graph_features.py; PREREGISTRATION_B.md section 4", "required": "40 backward-looking features as registered", "defects": [], "done": "confirmed 40 unique names and the 12-feature time-window ablation against the pre-registration (hash matches sidecar)", "verification": "feature_names() and ablation_groups() compared with the registered table; tests/test_graph_features.py 13/13", "evidence": "PROJECT_COMPLETION_REPORT.md section E", "status": "VERIFIED", "blocker": null},
+  {"id": 5, "workstream": "Leakage prevention", "existing": "brute-force-equivalence and future-invariance tests; recorded real-data checks", "required": "no future information in earlier predictions", "defects": [], "done": "ran every leakage test, including the five PyTorch modules for the first time on macOS", "verification": "test_graph_features, test_inference_demo, test_phase9_core, test_phase8_adaptive, test_walkforward_ext, test_trigger_walkforward", "evidence": "evidence/final_local/run_core_tests_with_pytorch.json", "status": "VERIFIED", "blocker": "real-data leakage validations are historical records"},
+  {"id": 6, "workstream": "Conventional ML models", "existing": "LR, RF, XGBoost training scripts and recorded results", "required": "trainable, loadable, evaluated", "defects": [], "done": "none (no data)", "verification": "recorded results only", "evidence": "experiments/phase12_validation_evidence_table/outputs/evidence_cells.csv", "status": "VERIFIED_HISTORICAL", "blocker": "data and models absent"},
+  {"id": 7, "workstream": "Graph construction", "existing": "src/graph/ with schema and temporal checks", "required": "time-correct heterogeneous graph", "defects": [], "done": "none", "verification": "unit tests that run without data", "evidence": "reports/phase4_graph_report.md", "status": "VERIFIED_HISTORICAL", "blocker": "graph file absent"},
+  {"id": 8, "workstream": "Graph feature engineering", "existing": "comparison B", "required": "as registered", "defects": [], "done": "see workstream 4", "verification": "tests/test_graph_features.py", "evidence": "evidence/final_local/run_core_tests.json", "status": "VERIFIED", "blocker": null},
+  {"id": 9, "workstream": "Graph neural networks", "existing": "GraphSAGE, GAT and their controls; recorded GPU runs", "required": "trained and evaluated", "defects": [], "done": "the PyTorch-dependent test modules executed on macOS (CPU)", "verification": "374/396 with PyTorch, 0 failed", "evidence": "evidence/final_local/run_core_tests_with_pytorch.json", "status": "VERIFIED_HISTORICAL", "blocker": "training needs the data and a GPU; GAT did not converge (historical)"},
+  {"id": 10, "workstream": "Temporal graph learning", "existing": "Temporal GraphSAGE with GRU memory; Phase 7/7A controls", "required": "genuinely temporal model with controls", "defects": [], "done": "test modules executed", "verification": "test_walkforward_ext, test_trigger_walkforward, test_neural_graph_evidence (6/7, 1 NOT RUN)", "evidence": "evidence/final_local/run_core_tests_with_pytorch.json", "status": "VERIFIED_HISTORICAL", "blocker": "data absent"},
+  {"id": 11, "workstream": "Adaptive learning", "existing": "Phase 8 frozen / refresh / replay; H4 decision recorded", "required": "adaptive versus frozen comparison", "defects": [], "done": "the H4 decision is now served from its record and shown on the Overview", "verification": "test_phase8_adaptive 30/30; test_evidence_carries_the_recorded_h4_decision_from_its_record", "evidence": "experiments/phase8_adaptive_drift/comparison.json", "status": "VERIFIED_HISTORICAL", "blocker": "future-period comparison awaits the held-out authorization"},
+  {"id": 12, "workstream": "Fraud scoring", "existing": "src/inference/scorer.py, research_model.py, API", "required": "finite scores, validated input, order preserved, demo and research separate", "defects": [], "done": "JSON-only POST, Host check", "verification": "test_serving 26/26, test_inference_demo 15/15, clean-clone acceptance scoring and invalid-input steps", "evidence": "evidence/clean_clone/acceptance_console.txt", "status": "VERIFIED", "blocker": "research-model scoring not exercised (model withheld)"},
+  {"id": 13, "workstream": "Threshold selection", "existing": "validation best-F1 thresholds, recorded", "required": "documented, permitted source", "defects": [], "done": "none", "verification": "threshold shown with its source in API and page", "evidence": "src/inference/research_model.py", "status": "VERIFIED_HISTORICAL", "blocker": null},
+  {"id": 14, "workstream": "Explainability", "existing": "TreeSHAP contributions; counterfactual graph evidence", "required": "explanations that match the prediction", "defects": [], "done": "none", "verification": "test_phase11_explain 22/22, test_graph_evidence 7/7", "evidence": "evidence/final_local/run_core_tests.json", "status": "VERIFIED", "blocker": "explanation outputs on real data are withheld (6 per-transaction files)"},
+  {"id": 15, "workstream": "Candidate-community detection", "existing": "Phase 9/9b, cards, tracking", "required": "candidate wording, correct counts", "defects": [], "done": "communities tab explains what a card means; candidate wording kept", "verification": "test_phase10_*, test_phase9_core, browser checks on the communities tab", "evidence": "evidence/browser/browser_verification.json", "status": "VERIFIED", "blocker": "H5 original gate failed (historical research outcome)"},
+  {"id": 16, "workstream": "Backend and API", "existing": "standard-library server, JSON errors, local binding", "required": "robust routes, errors, limits, startup, shutdown, restart", "defects": ["D6: no Host check, non-JSON POST accepted, page could be framed"], "done": "hardening; status gains data and model presence", "verification": "test_serving 26/26; e2e 31/31; acceptance 19/19 (port conflict, SIGINT stop, restart)", "evidence": "evidence/clean_clone/", "status": "VERIFIED", "blocker": null},
+  {"id": 17, "workstream": "Frontend and dashboard", "existing": "five tabs, accessible, plain", "required": "overview, provenance, demo indicator, honest states", "defects": ["D5: no overview or persistent demo indicator; raw status keys; no data/model availability"], "done": "Overview tab, chips, readable status, recorded-only chart, error states", "verification": "browser 123/124 (1 NOT RUN), desktop and phone, light and dark", "evidence": "evidence/browser/", "status": "VERIFIED", "blocker": "research tab with a loaded model not exercised"},
+  {"id": 18, "workstream": "Automated testing", "existing": "381 tests", "required": "exact counts; nothing weakened", "defects": [], "done": "15 tests added, none removed or weakened", "verification": "321/342 core, 374/396 with PyTorch, 0 failed", "evidence": "evidence/final_local/", "status": "VERIFIED", "blocker": "21-22 tests need withheld artifacts"},
+  {"id": 19, "workstream": "Cross-platform support", "existing": "Windows tested; macOS and Linux untested", "required": "Windows kept, macOS Apple Silicon, Linux where practical", "defects": ["D1: false SETUP OK without libomp", "D3: Windows-only interpreter default", "D4: no macOS/Linux script"], "done": "scripts/quickstart_unix.sh; platform-aware checks; README", "verification": "clean-clone quick-start and acceptance on macOS", "evidence": "evidence/clean_clone/", "status": "VERIFIED", "blocker": "Linux untested; Windows re-run of the new changes pending"},
+  {"id": 20, "workstream": "Performance", "existing": "none recorded for serving", "required": "measured, not guessed", "defects": [], "done": "synthetic-data measurement", "verification": "evidence/measure_performance.py", "evidence": "evidence/performance_synthetic.json", "status": "VERIFIED", "blocker": "research-model latency unmeasured"},
+  {"id": 21, "workstream": "Security", "existing": "local binding, CSP, sealed-path guards", "required": "no secrets, safe serving, safe release", "defects": ["D6", "D7: browser verifier emptied a pre-existing _tmp folder"], "done": "hardening; scans; local paths redacted from evidence; synthetic ID-like rows kept out", "verification": "pattern scans; history scan; ECC security review", "evidence": "PROJECT_COMPLETION_REPORT.md sections C and J", "status": "VERIFIED", "blocker": "six tracked pickles (LOW, code-level trust)"},
+  {"id": 22, "workstream": "Research reproducibility", "existing": "REPRODUCIBILITY.md; dated records", "required": "re-run authorized experiments", "defects": [], "done": "none possible", "verification": "-", "evidence": "submission/REPRODUCIBILITY.md", "status": "BLOCKED", "blocker": "data, models and a GPU absent"},
+  {"id": 23, "workstream": "Documentation", "existing": "README, guides, manuscript, records (Windows-only setup)", "required": "accurate, final-state documentation", "defects": [], "done": "README and DEMO_GUIDE updated; this folder", "verification": "tests/test_handoff_docs.py 5/5; claim checker PASS", "evidence": "README.md", "status": "VERIFIED", "blocker": null},
+  {"id": 24, "workstream": "Presentation readiness", "existing": "DEMO_GUIDE, PROFESSOR_DEFENSE_GUIDE; owner's deck in presentation/", "required": "a professor can follow the demonstration", "defects": [], "done": "Overview tab; guide walks it", "verification": "browser screenshots", "evidence": "evidence/browser/screenshots/", "status": "VERIFIED", "blocker": null},
+  {"id": 25, "workstream": "Clean-clone acceptance", "existing": "Windows fresh-clone record (2026-10-22)", "required": "the 20-step sequence from a clean environment", "defects": ["harness (not project) bug in attempt 1: SIGINT ignored in background jobs"], "done": "fresh clone, fresh .venv, 19-step acceptance, browser check", "verification": "19/19", "evidence": "evidence/clean_clone/acceptance_console.txt", "status": "VERIFIED", "blocker": null},
+  {"id": 26, "workstream": "Held-out evaluation", "existing": "frozen, hashed protocol; gated one-shot runners", "required": "run only under authorization", "defects": [], "done": "boundary respected; nothing opened", "verification": "test_heldout_gate, test_readiness_guards", "evidence": "submission/HELDOUT_AUTHORIZATION_REQUEST.md", "status": "BLOCKED", "blocker": "BLOCKED: EXPLICIT AUTHORIZATION REQUIRED (owner)"}
+ ],
+ "verified_facts": [
+  "macOS 27.0.1 Apple Silicon: fresh clone + scripts/quickstart_unix.sh -> QUICKSTART OK",
+  "core tests 321/342, 21 NOT RUN, 0 failed (project .venv and clean clone)",
+  "with PyTorch 374/396, 22 NOT RUN, 0 failed, 42 modules",
+  "dashboard end to end 31/31; browser 123/124, 1 NOT RUN; acceptance 19/19",
+  "the demonstration is byte-identical across two runs",
+  "the macOS XGBoost wheel needs Homebrew libomp at /opt/homebrew/opt/libomp/lib; without it import fails",
+  "no secret or withheld artifact is tracked; the six per-transaction files are absent from all history",
+  "no held-out (TEST-named) file was opened in this session"
+ ],
+ "historical_claims": [
+  "all research results (validation period) and verdicts H1-H5",
+  "381/381 with every artifact on the development machine (2026-10-22)",
+  "Windows fresh clone 306/327 and browser 123/123 (2026-10-22, the page before this revision)",
+  "comparison-A XGBoost regenerated byte-identically (2026-10-23, development side)"
+ ],
+ "current_unverified_claims": [
+  "Windows: 321/342 expected on a clone after these changes (not observed)",
+  "Linux: expected to work with scripts/quickstart_unix.sh (not observed)",
+  "the revised research tab works with a loaded model (not exercised)"
+ ],
+ "assumptions": [
+  "the owner will decide whether to commit the uncommitted changes and restore the modified e2e record",
+  "PyPI wheels at the pinned versions stay available"
+ ],
+ "blockers": [
+  "held-out evaluation: explicit authorization (owner)",
+  "IEEE-CIS data and trained models absent (Kaggle account and rules acceptance needed)",
+  "Linux and Windows machines not available in this session",
+  "Phase 12 AC12 and Phase 13 scope confirmation (historical)"
+ ],
+ "failed_checks": [
+  "none open; attempt 1 of the acceptance script failed 1 step because of a harness bug (fixed; both logs kept)"
+ ],
+ "not_applicable": [
+  "GPU-specific behaviour on this Mac (the recorded runs used ROCm on Windows)",
+  "Kaggle test files (never used for evaluation by design)"
+ ]
+}

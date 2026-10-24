@@ -1,9 +1,9 @@
 {
- "date_local": "2026-10-22T23:30:34+05:30",
+ "date_local": "2026-10-23T12:39:49+05:30",
  "command": "scripts/run_dashboard.py --demo --port 0 (separate process)",
  "scope": "HTTP-level end-to-end check of the served page, API, scoring path, error handling and shutdown; it does not render the page",
- "python": "3.12.0",
- "seconds": 15.8,
+ "python": "3.12.13",
+ "seconds": 8.1,
  "checks": [
   {
    "check": "launcher refuses a non-local host",
@@ -13,7 +13,7 @@
   {
    "check": "launcher refuses a held-out-named bundle path",
    "pass": true,
-   "detail": "error: refusing to read 'C:\\data\\test_bundle': the TEST period is sealed in this project (see reports/PROJECT_SYNTHESIS_REPORT.md section 6). Rename the file only if it does not contain held-out data."
+   "detail": "error: refusing to read 'C:/data/test_bundle': the TEST period is sealed in this project (see reports/PROJECT_SYNTHESIS_REPORT.md section 6). Rename the file only if it does not contain held-out data."
   },
   {
    "check": "launcher refuses --demo together with --bundle",
@@ -23,7 +23,7 @@
   {
    "check": "server prints its address within 120 s",
    "pass": true,
-   "detail": "training the synthetic demonstration bundle ...\ndashboard on http://127.0.0.1:65233/  (validation-period results only; Ctrl+C to stop)"
+   "detail": "training the synthetic demonstration bundle ...\ndashboard on http://127.0.0.1:50821/  (validation-period results only; Ctrl+C to stop)"
   },
   {
    "check": "server listens on the loopback address only",
@@ -153,7 +153,7 @@
   {
    "check": "shutdown: the server process exited",
    "pass": true,
-   "detail": "pid 24236, exit code 1"
+   "detail": "pid 37497, exit code -15"
   },
   {
    "check": "shutdown: the port is closed",

@@ -8,6 +8,7 @@ scripts write to. Exit code 0 if everything required for the demonstration is av
 """
 from __future__ import annotations
 
+import importlib
 import importlib.metadata as md
 import pathlib
 import re
@@ -21,6 +22,32 @@ RESEARCH_FILES = ["data/raw/train_transaction.csv", "data/raw/train_identity.csv
                   "data/processed/graph/hetero_graph.pt", "experiments/phase9_coordinated_fraud/cache/real_le151.npz"]
 
 
+OPENMP_FIXES = {   # by platform: XGBoost wheels load the OpenMP runtime from the system
+    "darwin": "macOS: install the OpenMP runtime with Homebrew:  brew install libomp   (then rerun this check)",
+    "linux": "Linux: install the GNU OpenMP runtime, e.g.  sudo apt-get install libgomp1   (Debian/Ubuntu)",
+    "win32": "Windows: install the Microsoft Visual C++ Redistributable (x64), which provides vcomp140.dll",
+}
+OPENMP_WORDS = re.compile(r"openmp|libomp|libgomp|vcomp", re.I)
+
+
+def openmp_fix(error_text: str, platform: str = sys.platform):
+    """The fix for THIS platform when the error is about the OpenMP runtime, else None. Chosen by platform, not by the words in the message: XGBoost's
+    message lists the runtime of every platform (libomp, libgomp, vcomp) before its own loader error (found in review 2026-10-23)."""
+    if not OPENMP_WORDS.search(error_text):
+        return None
+    key = "darwin" if platform == "darwin" else "win32" if platform.startswith("win") else "linux" if platform.startswith("linux") else None
+    return OPENMP_FIXES.get(key)
+
+
+def loader_reason(exc: BaseException) -> str:
+    """A one-line reason: the loader's own message (after XGBoost's 'Error message(s):' boilerplate), shortened."""
+    text = " ".join(str(exc).split())
+    tail = text.split("Error message(s):", 1)[1] if "Error message(s):" in text else text
+    m = re.search(r"Library not loaded: [^\s\\'\"]+", tail)                  # macOS dyld; XGBoost quotes it with escaped newlines
+    short = m.group(0) if m else tail.strip(" []\"'")[:160]
+    return f"{type(exc).__name__}: {short}"
+
+
 def requirements(path: pathlib.Path):
     for line in path.read_text(encoding="utf-8").splitlines():
         m = re.match(r"^([A-Za-z0-9_.-]+)==([^\s#]+)", line.strip())
@@ -28,20 +55,38 @@ def requirements(path: pathlib.Path):
             yield m.group(1), m.group(2)
 
 
+def import_problem(name: str) -> tuple:
+    """(None, None) if the package imports; otherwise (short reason, platform fix or None). Version metadata alone does not prove that a wheel's native
+    library loads (found 2026-10-23: XGBoost on a Mac without libomp)."""
+    try:
+        importlib.import_module(IMPORT_NAMES.get(name, name))
+        return None, None
+    except Exception as e:  # noqa: BLE001 - a wheel whose native library cannot load raises OSError, ImportError or the library's own error type
+        return loader_reason(e), openmp_fix(str(e))
+
+
 def main() -> int:
     ok = True
     v = sys.version_info
     print(f"Python {v.major}.{v.minor}.{v.micro} (tested with {PYTHON_TESTED[0]}.{PYTHON_TESTED[1]}): {'ok' if (v.major, v.minor) >= PYTHON_TESTED else 'OLDER than tested; may not work'}")
     ok &= (v.major, v.minor) >= (3, 10)
-    print("\nrequirements.txt (needed for the demonstration, tests, scorer and dashboard):")
+    print("\nrequirements.txt (needed for the demonstration, tests, scorer and dashboard; each package is imported, not only looked up):")
+    fixes = []
     for name, pinned in requirements(ROOT / "requirements.txt"):
         try:
             have = md.version(name)
-            status = "ok" if have == pinned else f"version differs (pinned {pinned}); usually fine, rerun the tests if unsure"
+            status = "ok, imports" if have == pinned else f"imports; version differs (pinned {pinned}); usually fine, rerun the tests if unsure"
+            reason, fix = import_problem(name)
+            if reason:
+                status, ok = f"installed but CANNOT BE IMPORTED ({reason})", False
+                if fix and fix not in fixes:
+                    fixes.append(fix)
         except md.PackageNotFoundError:
-            have, status = "-", f"MISSING: run  python -m pip install -r requirements.txt"
+            have, status = "-", "MISSING: run  python -m pip install -r requirements.txt"
             ok = False
         print(f"  {name:<14} {have:<10} {status}")
+    for fix in fixes:
+        print(f"  fix: {fix}")
     print("\nrequirements-gnn.txt (only for the neural-network experiments):")
     for name, pinned in requirements(ROOT / "requirements-gnn.txt"):
         try:

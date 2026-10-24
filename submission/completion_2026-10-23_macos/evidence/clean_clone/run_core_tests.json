@@ -1,0 +1,611 @@
+{
+ "python": "3.12.13",
+ "modules": [
+  {
+   "module": "test_ac12_recovery_records",
+   "status": "PASSED, 1 NOT RUN (withheld artifact missing)",
+   "tests": 7,
+   "passed": 6,
+   "failures": [],
+   "environment_metadata_differences": [],
+   "not_run_artifact_missing": [
+    {
+     "test": "test_derived_evidence_recomputes_from_the_current_files",
+     "missing_artifact_patterns": [
+      "experiments/phase11_explainable_evidence/xgb_explanations_val/contributions_val.csv",
+      "experiments/phase11_explainable_evidence/xgb_explanations_val/selection_val.csv",
+      "experiments/phase11_explainable_evidence/xgb_explanations_val/top_features_val.json"
+     ]
+    }
+   ],
+   "seconds": 0.0
+  },
+  {
+   "module": "test_amendment_gate",
+   "status": "PASSED",
+   "tests": 8,
+   "passed": 8,
+   "failures": [],
+   "environment_metadata_differences": [],
+   "not_run_artifact_missing": [],
+   "seconds": 0.2
+  },
+  {
+   "module": "test_artifact_registry",
+   "status": "PASSED",
+   "tests": 6,
+   "passed": 6,
+   "failures": [],
+   "environment_metadata_differences": [],
+   "not_run_artifact_missing": [],
+   "seconds": 0.0
+  },
+  {
+   "module": "test_b_decision",
+   "status": "PASSED",
+   "tests": 6,
+   "passed": 6,
+   "failures": [],
+   "environment_metadata_differences": [],
+   "not_run_artifact_missing": [],
+   "seconds": 0.0
+  },
+  {
+   "module": "test_comparison_b_outputs",
+   "status": "PASSED, 5 NOT RUN (withheld artifact missing)",
+   "tests": 12,
+   "passed": 7,
+   "failures": [],
+   "environment_metadata_differences": [],
+   "not_run_artifact_missing": [
+    {
+     "test": "test_ba5_each_arm_scores_exactly_the_reference_population",
+     "missing_artifact_patterns": [
+      "experiments/comparison_B_graph_features/outputs/arms/*/predictions_val.parquet",
+      "experiments/temporal_graphsage/seed_*/predictions_val.parquet"
+     ]
+    },
+    {
+     "test": "test_ba7_recorded_metrics_equal_a_recomputation_from_the_stored_predictions",
+     "missing_artifact_patterns": [
+      "experiments/comparison_B_graph_features/outputs/arms/*/predictions_val.parquet",
+      "experiments/temporal_graphsage/seed_*/predictions_val.parquet"
+     ]
+    },
+    {
+     "test": "test_ia_imbalance_outputs_follow_their_preregistration",
+     "missing_artifact_patterns": [
+      "experiments/temporal_graphsage/seed_*/predictions_val.parquet"
+     ]
+    },
+    {
+     "test": "test_ge_graph_evidence_outputs_meet_their_criteria_and_hashes_link",
+     "missing_artifact_patterns": [
+      "experiments/comparison_B_graph_features/outputs/arms/B_full/model.joblib",
+      "data/features/train_features.parquet",
+      "data/features/val_features.parquet",
+      "experiments/phase9_coordinated_fraud/cache/real_le151.npz",
+      "experiments/comparison_B_graph_features/graph_evidence/relation_evidence.csv",
+      "experiments/comparison_B_graph_features/graph_evidence/top_features_B.json",
+      "experiments/phase11_explainable_evidence/xgb_explanations_val/selection_val.csv"
+     ]
+    },
+    {
+     "test": "test_ua_unweighted_followup_follows_its_preregistration",
+     "missing_artifact_patterns": [
+      "experiments/temporal_graphsage/seed_*/predictions_val.parquet",
+      "experiments/imbalance_check_xgboost/outputs/arms_unweighted/*/predictions_val.parquet",
+      "experiments/unweighted_graphsage/seed_*/predictions_val.parquet",
+      "experiments/unweighted_temporal_graphsage/seed_*/predictions_val.parquet"
+     ]
+    }
+   ],
+   "seconds": 0.5
+  },
+  {
+   "module": "test_f_runner_gate",
+   "status": "SKIPPED",
+   "reason": "needs torch (install requirements-gnn.txt)"
+  },
+  {
+   "module": "test_graph_evidence",
+   "status": "PASSED",
+   "tests": 7,
+   "passed": 7,
+   "failures": [],
+   "environment_metadata_differences": [],
+   "not_run_artifact_missing": [],
+   "seconds": 0.1
+  },
+  {
+   "module": "test_graph_features",
+   "status": "PASSED",
+   "tests": 13,
+   "passed": 13,
+   "failures": [],
+   "environment_metadata_differences": [],
+   "not_run_artifact_missing": [],
+   "seconds": 0.7
+  },
+  {
+   "module": "test_h4_rules",
+   "status": "PASSED",
+   "tests": 3,
+   "passed": 3,
+   "failures": [],
+   "environment_metadata_differences": [],
+   "not_run_artifact_missing": [],
+   "seconds": 0.0
+  },
+  {
+   "module": "test_handoff_docs",
+   "status": "PASSED",
+   "tests": 5,
+   "passed": 5,
+   "failures": [],
+   "environment_metadata_differences": [],
+   "not_run_artifact_missing": [],
+   "seconds": 0.1
+  },
+  {
+   "module": "test_heldout_gate",
+   "status": "PASSED, 1 NOT RUN (withheld artifact missing)",
+   "tests": 9,
+   "passed": 8,
+   "failures": [],
+   "environment_metadata_differences": [],
+   "not_run_artifact_missing": [
+    {
+     "test": "test_frozen_registry_matches_the_protocol_and_every_artifact_exists",
+     "missing_artifact_patterns": [
+      "experiments/logistic_regression/model.joblib",
+      "experiments/random_forest/model.joblib",
+      "experiments/xgboost/model.joblib",
+      "experiments/comparison_B_graph_features/outputs/arms/B_full/model.joblib",
+      "experiments/graphsage_robust/seed_*/model_checkpoint.pt",
+      "experiments/gat/seed_*/model_checkpoint.pt",
+      "experiments/temporal_graphsage/seed_*/model_checkpoint.pt"
+     ]
+    }
+   ],
+   "seconds": 0.1
+  },
+  {
+   "module": "test_inference_demo",
+   "status": "PASSED",
+   "tests": 15,
+   "passed": 15,
+   "failures": [],
+   "environment_metadata_differences": [],
+   "not_run_artifact_missing": [],
+   "seconds": 1.5
+  },
+  {
+   "module": "test_integrity_sidecars",
+   "status": "PASSED",
+   "tests": 3,
+   "passed": 3,
+   "failures": [],
+   "environment_metadata_differences": [],
+   "not_run_artifact_missing": [],
+   "seconds": 0.1
+  },
+  {
+   "module": "test_manuscript_figures",
+   "status": "PASSED",
+   "tests": 3,
+   "passed": 3,
+   "failures": [],
+   "environment_metadata_differences": [],
+   "not_run_artifact_missing": [],
+   "seconds": 0.0
+  },
+  {
+   "module": "test_neural_graph_evidence",
+   "status": "SKIPPED",
+   "reason": "needs torch (install requirements-gnn.txt)"
+  },
+  {
+   "module": "test_phase10_compat",
+   "status": "PASSED",
+   "tests": 6,
+   "passed": 6,
+   "failures": [],
+   "environment_metadata_differences": [],
+   "not_run_artifact_missing": [],
+   "seconds": 0.3
+  },
+  {
+   "module": "test_phase10_properties",
+   "status": "PASSED",
+   "tests": 12,
+   "passed": 12,
+   "failures": [],
+   "environment_metadata_differences": [],
+   "not_run_artifact_missing": [],
+   "seconds": 0.1
+  },
+  {
+   "module": "test_phase10_toys",
+   "status": "PASSED",
+   "tests": 45,
+   "passed": 45,
+   "failures": [],
+   "environment_metadata_differences": [],
+   "not_run_artifact_missing": [],
+   "seconds": 0.0
+  },
+  {
+   "module": "test_phase11_explain",
+   "status": "PASSED",
+   "tests": 22,
+   "passed": 22,
+   "failures": [],
+   "environment_metadata_differences": [],
+   "not_run_artifact_missing": [],
+   "seconds": 0.4
+  },
+  {
+   "module": "test_phase11_outputs",
+   "status": "PASSED, 5 NOT RUN (withheld artifact missing)",
+   "tests": 8,
+   "passed": 3,
+   "failures": [],
+   "environment_metadata_differences": [],
+   "not_run_artifact_missing": [
+    {
+     "test": "test_A7_every_output_has_a_matching_sidecar_and_the_manifests_match_disk",
+     "missing_artifact_patterns": [
+      "experiments/xgboost/model.joblib",
+      "experiments/xgboost/predictions_val.parquet",
+      "data/features/val_features.parquet",
+      "experiments/phase11_explainable_evidence/xgb_explanations_val/selection_val.csv",
+      "experiments/phase11_explainable_evidence/xgb_explanations_val/contributions_val.csv",
+      "experiments/phase11_explainable_evidence/xgb_explanations_val/top_features_val.json"
+     ]
+    },
+    {
+     "test": "test_A4_A6_selection_has_300_rows_10_per_day_within_val_and_is_reproduced_from_label_free_inputs",
+     "missing_artifact_patterns": [
+      "data/features/val_features.parquet",
+      "experiments/phase11_explainable_evidence/xgb_explanations_val/selection_val.csv"
+     ]
+    },
+    {
+     "test": "test_A1_A2_stored_contributions_are_additive_and_reproduce_the_stored_scores",
+     "missing_artifact_patterns": [
+      "experiments/phase11_explainable_evidence/xgb_explanations_val/contributions_val.csv",
+      "experiments/phase11_explainable_evidence/xgb_explanations_val/selection_val.csv",
+      "experiments/xgboost/model.joblib"
+     ]
+    },
+    {
+     "test": "test_top_feature_lists_agree_with_the_contribution_matrix",
+     "missing_artifact_patterns": [
+      "experiments/phase11_explainable_evidence/xgb_explanations_val/contributions_val.csv",
+      "experiments/phase11_explainable_evidence/xgb_explanations_val/top_features_val.json"
+     ]
+    },
+    {
+     "test": "test_A8_wording_lint_on_all_phase11_text_outputs_and_sources",
+     "missing_artifact_patterns": [
+      "experiments/phase11_explainable_evidence/xgb_explanations_val/selection_val.csv",
+      "experiments/phase11_explainable_evidence/xgb_explanations_val/contributions_val.csv",
+      "experiments/phase11_explainable_evidence/xgb_explanations_val/top_features_val.json"
+     ]
+    }
+   ],
+   "seconds": 0.0
+  },
+  {
+   "module": "test_phase12_environment_independence",
+   "status": "PASSED, 1 NOT RUN (withheld artifact missing)",
+   "tests": 1,
+   "passed": 0,
+   "failures": [],
+   "environment_metadata_differences": [],
+   "not_run_artifact_missing": [
+    {
+     "test": "test_rebuild_is_byte_identical_and_the_manifest_differs_only_in_environment_metadata",
+     "missing_artifact_patterns": [
+      "experiments/logistic_regression/predictions_val.parquet",
+      "experiments/random_forest/predictions_val.parquet",
+      "experiments/xgboost/predictions_val.parquet",
+      "experiments/gat/seed_*/predictions_val.parquet",
+      "experiments/graphsage_robust/seed_*/predictions_val.parquet",
+      "experiments/temporal_graphsage/seed_*/predictions_val.parquet",
+      "experiments/phase8_adaptive_drift/*/seed_*/predictions_val_W1.parquet"
+     ]
+    }
+   ],
+   "seconds": 0.0
+  },
+  {
+   "module": "test_phase12_evidence",
+   "status": "PASSED",
+   "tests": 16,
+   "passed": 16,
+   "failures": [],
+   "environment_metadata_differences": [],
+   "not_run_artifact_missing": [],
+   "seconds": 0.5
+  },
+  {
+   "module": "test_phase12_outputs",
+   "status": "PASSED, 3 NOT RUN (withheld artifact missing)",
+   "tests": 11,
+   "passed": 8,
+   "failures": [],
+   "environment_metadata_differences": [],
+   "not_run_artifact_missing": [
+    {
+     "test": "test_AC1_only_the_declared_source_set_was_read_and_the_fingerprint_is_stable",
+     "missing_artifact_patterns": [
+      "experiments/logistic_regression/predictions_val.parquet",
+      "experiments/random_forest/predictions_val.parquet",
+      "experiments/xgboost/predictions_val.parquet",
+      "experiments/gat/seed_*/predictions_val.parquet",
+      "experiments/graphsage_robust/seed_*/predictions_val.parquet",
+      "experiments/temporal_graphsage/seed_*/predictions_val.parquet",
+      "experiments/phase8_adaptive_drift/*/seed_*/predictions_val_W1.parquet"
+     ]
+    },
+    {
+     "test": "test_AC10_sidecars_and_deterministic_rebuild",
+     "missing_artifact_patterns": [
+      "experiments/logistic_regression/predictions_val.parquet",
+      "experiments/random_forest/predictions_val.parquet",
+      "experiments/xgboost/predictions_val.parquet",
+      "experiments/gat/seed_*/predictions_val.parquet",
+      "experiments/graphsage_robust/seed_*/predictions_val.parquet",
+      "experiments/temporal_graphsage/seed_*/predictions_val.parquet",
+      "experiments/phase8_adaptive_drift/*/seed_*/predictions_val_W1.parquet"
+     ]
+    },
+    {
+     "test": "test_build_gates_block_before_any_output_is_written",
+     "missing_artifact_patterns": [
+      "experiments/logistic_regression/predictions_val.parquet",
+      "experiments/random_forest/predictions_val.parquet",
+      "experiments/xgboost/predictions_val.parquet",
+      "experiments/gat/seed_*/predictions_val.parquet",
+      "experiments/graphsage_robust/seed_*/predictions_val.parquet",
+      "experiments/temporal_graphsage/seed_*/predictions_val.parquet",
+      "experiments/phase8_adaptive_drift/*/seed_*/predictions_val_W1.parquet"
+     ]
+    }
+   ],
+   "seconds": 0.0
+  },
+  {
+   "module": "test_phase8_adaptive",
+   "status": "SKIPPED",
+   "reason": "needs torch (install requirements-gnn.txt)"
+  },
+  {
+   "module": "test_phase9_core",
+   "status": "PASSED",
+   "tests": 14,
+   "passed": 14,
+   "failures": [],
+   "environment_metadata_differences": [],
+   "not_run_artifact_missing": [],
+   "seconds": 0.3
+  },
+  {
+   "module": "test_phase9_segments",
+   "status": "PASSED",
+   "tests": 3,
+   "passed": 3,
+   "failures": [],
+   "environment_metadata_differences": [],
+   "not_run_artifact_missing": [],
+   "seconds": 0.0
+  },
+  {
+   "module": "test_phase9b_records",
+   "status": "PASSED",
+   "tests": 5,
+   "passed": 5,
+   "failures": [],
+   "environment_metadata_differences": [],
+   "not_run_artifact_missing": [],
+   "seconds": 0.0
+  },
+  {
+   "module": "test_preprocessing",
+   "status": "PASSED",
+   "tests": 8,
+   "passed": 8,
+   "failures": [],
+   "environment_metadata_differences": [],
+   "not_run_artifact_missing": [],
+   "seconds": 0.0
+  },
+  {
+   "module": "test_readiness_guards",
+   "status": "PASSED",
+   "tests": 13,
+   "passed": 13,
+   "failures": [],
+   "environment_metadata_differences": [],
+   "not_run_artifact_missing": [],
+   "seconds": 0.2
+  },
+  {
+   "module": "test_relation_ablation_records",
+   "status": "PASSED",
+   "tests": 3,
+   "passed": 3,
+   "failures": [],
+   "environment_metadata_differences": [],
+   "not_run_artifact_missing": [],
+   "seconds": 0.0
+  },
+  {
+   "module": "test_research_serving",
+   "status": "PASSED, 3 NOT RUN (withheld artifact missing)",
+   "tests": 6,
+   "passed": 3,
+   "failures": [],
+   "environment_metadata_differences": [],
+   "not_run_artifact_missing": [
+    {
+     "test": "test_api_scores_equal_direct_model_scores_and_the_recorded_validation_predictions",
+     "missing_artifact_patterns": [
+      "experiments/xgboost/model.joblib",
+      "experiments/xgboost/feature_builder/ordinal_maps.json",
+      "data/features/val_features.parquet",
+      "experiments/xgboost/predictions_val.parquet"
+     ]
+    },
+    {
+     "test": "test_labels_in_the_request_are_ignored_and_each_row_is_scored_independently",
+     "missing_artifact_patterns": [
+      "experiments/xgboost/model.joblib",
+      "experiments/xgboost/feature_builder/ordinal_maps.json",
+      "data/features/val_features.parquet",
+      "experiments/xgboost/predictions_val.parquet"
+     ]
+    },
+    {
+     "test": "test_invalid_research_requests_get_actionable_400_errors",
+     "missing_artifact_patterns": [
+      "experiments/xgboost/model.joblib",
+      "experiments/xgboost/feature_builder/ordinal_maps.json",
+      "data/features/val_features.parquet",
+      "experiments/xgboost/predictions_val.parquet"
+     ]
+    }
+   ],
+   "seconds": 0.5
+  },
+  {
+   "module": "test_runner_contract",
+   "status": "PASSED",
+   "tests": 2,
+   "passed": 2,
+   "failures": [],
+   "environment_metadata_differences": [],
+   "not_run_artifact_missing": [],
+   "seconds": 0.0
+  },
+  {
+   "module": "test_scope_reconciliation_records",
+   "status": "PASSED, 1 NOT RUN (withheld artifact missing)",
+   "tests": 9,
+   "passed": 8,
+   "failures": [],
+   "environment_metadata_differences": [],
+   "not_run_artifact_missing": [
+    {
+     "test": "test_freeze_reproduces_the_recorded_unweighted_xgboost_validation_results",
+     "missing_artifact_patterns": [
+      "experiments/final_heldout_protocol/frozen_amendment/A_none/model.joblib",
+      "experiments/final_heldout_protocol/frozen_amendment/B_none/model.joblib"
+     ]
+    }
+   ],
+   "seconds": 0.0
+  },
+  {
+   "module": "test_serving",
+   "status": "PASSED",
+   "tests": 26,
+   "passed": 26,
+   "failures": [],
+   "environment_metadata_differences": [],
+   "not_run_artifact_missing": [],
+   "seconds": 8.5
+  },
+  {
+   "module": "test_setup_check",
+   "status": "PASSED",
+   "tests": 4,
+   "passed": 4,
+   "failures": [],
+   "environment_metadata_differences": [],
+   "not_run_artifact_missing": [],
+   "seconds": 2.6
+  },
+  {
+   "module": "test_splits",
+   "status": "PASSED, 1 NOT RUN (withheld artifact missing)",
+   "tests": 5,
+   "passed": 4,
+   "failures": [],
+   "environment_metadata_differences": [],
+   "not_run_artifact_missing": [
+    {
+     "test": "test_built_split_matches_expected_regression_counts",
+     "missing_artifact_patterns": [
+      "data/features/train_features.parquet",
+      "data/features/val_features.parquet"
+     ]
+    }
+   ],
+   "seconds": 0.0
+  },
+  {
+   "module": "test_trigger_policy",
+   "status": "PASSED",
+   "tests": 6,
+   "passed": 6,
+   "failures": [],
+   "environment_metadata_differences": [],
+   "not_run_artifact_missing": [],
+   "seconds": 0.0
+  },
+  {
+   "module": "test_trigger_walkforward",
+   "status": "SKIPPED",
+   "reason": "needs torch (install requirements-gnn.txt)"
+  },
+  {
+   "module": "test_triggered_refresh_records",
+   "status": "PASSED",
+   "tests": 6,
+   "passed": 6,
+   "failures": [],
+   "environment_metadata_differences": [],
+   "not_run_artifact_missing": [],
+   "seconds": 0.0
+  },
+  {
+   "module": "test_validate",
+   "status": "PASSED",
+   "tests": 9,
+   "passed": 9,
+   "failures": [],
+   "environment_metadata_differences": [],
+   "not_run_artifact_missing": [],
+   "seconds": 0.0
+  },
+  {
+   "module": "test_verification_outputs",
+   "status": "PASSED",
+   "tests": 5,
+   "passed": 5,
+   "failures": [],
+   "environment_metadata_differences": [],
+   "not_run_artifact_missing": [],
+   "seconds": 3.9
+  },
+  {
+   "module": "test_walkforward_ext",
+   "status": "SKIPPED",
+   "reason": "needs torch (install requirements-gnn.txt)"
+  }
+ ],
+ "tests": 342,
+ "passed": 321,
+ "not_run_artifact_missing": 21,
+ "environment_metadata_differences": 0,
+ "skipped": [
+  "test_f_runner_gate",
+  "test_neural_graph_evidence",
+  "test_phase8_adaptive",
+  "test_trigger_walkforward",
+  "test_walkforward_ext"
+ ]
+}

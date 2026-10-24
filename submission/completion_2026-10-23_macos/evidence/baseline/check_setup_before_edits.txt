@@ -1,0 +1,32 @@
+Python 3.12.13 (tested with 3.12): ok
+
+requirements.txt (needed for the demonstration, tests, scorer and dashboard):
+  numpy          2.4.4      ok
+  pandas         3.0.5      ok
+  scipy          1.18.1     ok
+  scikit-learn   1.9.1      ok
+  xgboost        3.4.1      ok
+  networkx       3.6.1      ok
+  pyarrow        25.0.1     ok
+  pyyaml         6.0.3      ok
+  joblib         1.6.0      ok
+  matplotlib     3.11.2     ok
+
+requirements-gnn.txt (only for the neural-network experiments):
+  torch            not installed (not needed for the demonstration)
+  torch_geometric  not installed (not needed for the demonstration)
+
+research data (existence only; needed to re-run experiments, not for the demonstration):
+  absent   data/raw/train_transaction.csv
+  absent   data/raw/train_identity.csv
+  absent   data/features/train_features.parquet
+  absent   data/features/val_features.parquet
+  absent   data/processed/graph/hetero_graph.pt
+  absent   experiments/phase9_coordinated_fraud/cache/real_le151.npz
+  held-out-named files are never opened by any check or demonstration command.
+
+writable output locations:
+  ok  demo_output/
+  ok  submission/
+
+SETUP OK for the demonstration

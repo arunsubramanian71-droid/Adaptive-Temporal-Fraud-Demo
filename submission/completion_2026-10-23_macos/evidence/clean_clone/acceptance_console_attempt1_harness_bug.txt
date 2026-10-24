@@ -1,0 +1,23 @@
+clone HEAD: 975b0db Handoff release: root README, quick-start script, guides, release manifest
+python: Python 3.12.13
+[PASS] setup check passes and imports every package
+[PASS] core tests: exit 0, no FAILED module
+321/342 tests passed in 37 modules; NOT RUN because withheld artifacts are missing (never counted as passed): 21; environment-metadata differences (never counted as passed): 0; skipped modules (need PyTorch): ['test_f_runner_gate', 'test_neural_graph_evidence', 'test_phase8_adaptive', 'test_trigger_walkforward', 'test_walkforward_ext']
+[PASS] demonstration runs twice and both output folders are byte-identical
+[PASS] dashboard end to end (documented server command, every route and error, shutdown)
+31/31 checks passed; record: ~/Sandbox/Adaptive-Temporal-Fraud-Demo/submission/completion_2026-10-23_macos/evidence/clean_clone/e2e_verification.json
+[PASS] research-model end to end reports NOT RUN (exit 3) because the artifacts are withheld
+[PASS] --research-model without the model file refuses to start with an explanation (exit 2)
+[PASS] demo server starts on 127.0.0.1:8791 and answers /health
+[PASS] it listens on the loopback address only
+[PASS] /api/status reports validation-only, held-out not performed, demo mode, research model and data absent
+[PASS] synthetic scoring: one finite score in [0,1] per posted row, in order, labelled synthetic
+[PASS] invalid input gets 400 with an explanation; a foreign Host header gets 403
+[PASS] candidate communities: aggregate cards with the candidate statement
+[PASS] research endpoint answers 404 'not loaded' (never a substitute score)
+[PASS] a second server on the busy port is refused with an error (exit 2)
+[FAIL] Ctrl+C (SIGINT) stops the server and it prints 'stopped' (see server_run1.txt)
+[PASS] restart on the same port works and /health answers 200
+[PASS] no tracked experiments/ record was changed by any of these runs
+
+acceptance: 16 passed, 1 failed

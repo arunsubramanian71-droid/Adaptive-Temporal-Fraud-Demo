@@ -1,11 +1,14 @@
 """End-to-end check of the dashboard and API: starts the server exactly as documented (a separate process running scripts/run_dashboard.py --demo),
 exercises every route, the scoring path with the synthetic sample, the error handling and the shutdown, and records what was observed.
 
-  .venv/Scripts/python.exe -B scripts/verify_dashboard_e2e.py
+  .venv/Scripts/python.exe -B scripts/verify_dashboard_e2e.py            (Windows)
+  .venv/bin/python -B scripts/verify_dashboard_e2e.py                    (macOS / Linux)
+  ... [--out FILE] [--record]
 
 It checks the served HTML and JSON (and the launcher's refusals); it does not render the page. Rendering is checked separately (browser tools) and recorded
 in experiments/phase13_serving_dashboard/test_results/browser_verification.json. Only the process started here is stopped.
-Writes experiments/phase13_serving_dashboard/test_results/e2e_verification.json
+Writes demo_output/verification/e2e_verification.json (or --out FILE). Only --record overwrites the tracked, dated record
+experiments/phase13_serving_dashboard/test_results/e2e_verification.json (since 2026-10-23; scripts/verification_output.py says why).
 """
 from __future__ import annotations
 
@@ -46,7 +49,9 @@ def launcher(args, timeout=60):
     return p.returncode, p.stderr.strip()
 
 
-def main() -> int:
+def main(argv=None) -> int:
+    from verification_output import output_path, write_record
+    out = output_path(argv, OUT, __doc__)
     checks, t0 = [], time.time()
 
     def check(name, ok, detail=""):
@@ -120,9 +125,8 @@ def main() -> int:
     rec = {"date_local": datetime.datetime.now().astimezone().replace(microsecond=0).isoformat(), "command": "scripts/run_dashboard.py --demo --port 0 (separate process)",
            "scope": "HTTP-level end-to-end check of the served page, API, scoring path, error handling and shutdown; it does not render the page", "python": sys.version.split()[0],
            "seconds": round(time.time() - t0, 1), "checks": checks, "all_pass": all(c["pass"] for c in checks)}
-    OUT.parent.mkdir(parents=True, exist_ok=True)
-    OUT.write_text(json.dumps(rec, indent=1), encoding="utf-8")
-    print(f"{sum(c['pass'] for c in checks)}/{len(checks)} checks passed")
+    write_record(out, json.dumps(rec, indent=1))
+    print(f"{sum(c['pass'] for c in checks)}/{len(checks)} checks passed; record: {out}")
     return 0 if rec["all_pass"] else 1
 
 

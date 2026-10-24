@@ -1,0 +1,392 @@
+{
+ "created": "2026-10-23",
+ "head": "975b0db",
+ "scope": "every file this session changed or added, outside this folder (the owner's pre-existing edit of e2e_verification.json, presentation/ and the local .claude/ tool configuration are excluded and were not modified by this session)",
+ "changed_files": [
+  {
+   "path": ".gitignore",
+   "status": "modified",
+   "sha256_at_head": "aa8ca57e10576effe43574d78a6cfb10b867f927d89aae1088e67df6ffed0997",
+   "sha256_now": "176d186b10119a6c58189348e40ea08a1692a8c5761f416ece7870ddbabfc7e0"
+  },
+  {
+   "path": "README.md",
+   "status": "modified",
+   "sha256_at_head": "88007cf6ef7520f1dcd22f45325753fa374bc6305515eef82b27480c6aab5198",
+   "sha256_now": "1b8aca2039e932878cacd5ccaf468d3ebf5d72883e0fcf98e7addeb0ee02fcb2"
+  },
+  {
+   "path": "scripts/check_setup.py",
+   "status": "modified",
+   "sha256_at_head": "84bae728815266096ae31ee8813cfbd632ddadac622236b9c3bbf844dc62592b",
+   "sha256_now": "029651298ea69fee6996a751c62b3418a317e2d7f7caab6f1420be66a1276395"
+  },
+  {
+   "path": "scripts/quickstart_unix.sh",
+   "status": "new",
+   "sha256_at_head": null,
+   "sha256_now": "d7df2f8e37b46a6f795785fec0b7fe6bdab6609033479962662b32897a7ceea7"
+  },
+  {
+   "path": "scripts/verification_output.py",
+   "status": "new",
+   "sha256_at_head": null,
+   "sha256_now": "27480dfeecee50ce534e35dc7dc55948376e1b41b65bedbe53f834c82ae41841"
+  },
+  {
+   "path": "scripts/verify_dashboard_browser.py",
+   "status": "modified",
+   "sha256_at_head": "8a36cc58fbad1d2acf29b4b5f38cf1fc9b58e21c9df70a70c69c0e24440325d5",
+   "sha256_now": "874dc41871a3784161309fca87d892fb20d3012731964f3881f1d11685ccac7a"
+  },
+  {
+   "path": "scripts/verify_dashboard_e2e.py",
+   "status": "modified",
+   "sha256_at_head": "6cfcd44753e1019307addea5a292dbc2b36db079e4dc55fa4a4fafc8a2389273",
+   "sha256_now": "bcc5e07ad2b453574ae31632c85dd643ecd630efcc8f29ef479b53a805518693"
+  },
+  {
+   "path": "scripts/verify_research_serving_e2e.py",
+   "status": "modified",
+   "sha256_at_head": "508e2488c3993839b4af3520e4208afb103db3f37133b7a1896f21b6c4b4493c",
+   "sha256_now": "43bec3820b633aa34e4d196a9945c354937d9338ad6f33dd7304c851cd2f1886"
+  },
+  {
+   "path": "src/serving/app.py",
+   "status": "modified",
+   "sha256_at_head": "9f26eba88e997dad3711033dc522e11e0f62c439e5727d215cea3d40c1863b82",
+   "sha256_now": "fb7332c410e725379459c3bab6ea5b9ac6407597db8d09c558585f4726d924f0"
+  },
+  {
+   "path": "src/serving/static/dashboard.html",
+   "status": "modified",
+   "sha256_at_head": "15e2b43b10fe61a3488fff6c502532d1370ee9323bff43364e900d01c0cf4add",
+   "sha256_now": "df5cd1b7e1d149c79c7f5abd41e6352bcfa0a9e7e2d1c75fb52c5dc21718abfd"
+  },
+  {
+   "path": "submission/DEMO_GUIDE.md",
+   "status": "modified",
+   "sha256_at_head": "08a3011c8b46ea61abc6b4a36a96831b3d913a0258b42c5d3af94e088153a231",
+   "sha256_now": "88ef3c8daf4d133965f92b9782f32764991b752d97b45ef42e661369fb9e3dcd"
+  },
+  {
+   "path": "tests/test_handoff_docs.py",
+   "status": "modified",
+   "sha256_at_head": "015cfe1e2646044d4f81c55c2d5fd554ec0148cb62237f01372fece6124a51cf",
+   "sha256_now": "9c64cc54fde60c22c06ce0f67e4efdf90e52251f2bfa32b3cfaddebb06fdfb22"
+  },
+  {
+   "path": "tests/test_serving.py",
+   "status": "modified",
+   "sha256_at_head": "d0baf524e83f6facaacdc90a39500bf70a4728e5fa6ad15ff0a1aeeb80f9515c",
+   "sha256_now": "208dfb24a853f084605626ad415ab4909966df0c67e6c195dd4a0bb0882eda39"
+  },
+  {
+   "path": "tests/test_setup_check.py",
+   "status": "new",
+   "sha256_at_head": null,
+   "sha256_now": "79b98c9998f4a9658aa9329cd96bb9d9c6ed04b0c6f2a83ea251bce69cf913a3"
+  },
+  {
+   "path": "tests/test_verification_outputs.py",
+   "status": "new",
+   "sha256_at_head": null,
+   "sha256_now": "8521185e38efc7e6964c27d353e49cf81a9dc20e379f04e6b3f2965253949173"
+  }
+ ],
+ "this_folder_files": [
+  {
+   "path": "submission/completion_2026-10-23_macos/COMPLETION_MANIFEST.json",
+   "sha256": "fd99a4ab333a7ad3edafc8094cbf4c9f0562c6a65a52f0249bed7e700a8f9fb0"
+  },
+  {
+   "path": "submission/completion_2026-10-23_macos/FINAL_VERIFICATION_REPORT.md",
+   "sha256": "64ef9da14da36f75db6f755f6e6488f222ceb372b83cb13ff5083e5b32d777d9"
+  },
+  {
+   "path": "submission/completion_2026-10-23_macos/INITIAL_STATE_REPORT.md",
+   "sha256": "fa9ce92029d9621b8ec78b79f40d4bc6342aa4ddc33f70524f8cb1039482b502"
+  },
+  {
+   "path": "submission/completion_2026-10-23_macos/PROJECT_COMPLETION_REPORT.md",
+   "sha256": "c1984206eb8fc5d03f475cecf8c9a46cba2b1357c18a43b54b70beff69999a28"
+  },
+  {
+   "path": "submission/completion_2026-10-23_macos/evidence/baseline/check_setup_before_edits.txt",
+   "sha256": "a6f49e0e86f77ade35ea51a7405920cfa6c506b553d78eb35aaef8ad9ce71699"
+  },
+  {
+   "path": "submission/completion_2026-10-23_macos/evidence/baseline/e2e_verification_mac_run_1239_found_in_worktree.json",
+   "sha256": "5bbe0b62c586392a6625d64f9d0e56f7f0e430ebb92f94e6e50dc5a0d06050f4"
+  },
+  {
+   "path": "submission/completion_2026-10-23_macos/evidence/baseline/run_core_tests_before_edits.txt",
+   "sha256": "a11e47b510fed69077b2c26440c6e4abc793a79c3d9b975889a817a5ee35bf8c"
+  },
+  {
+   "path": "submission/completion_2026-10-23_macos/evidence/baseline/run_core_tests_with_pytorch_before_edits.json",
+   "sha256": "3d66c7ba31c1567379d83317db3858f2c9080fe9b2b1db27dece824397f7c811"
+  },
+  {
+   "path": "submission/completion_2026-10-23_macos/evidence/baseline/run_core_tests_with_pytorch_before_edits.txt",
+   "sha256": "ebd325bd82fcce375447859f38c0821acb51efb3b2b356d017bcd0150e67973b"
+  },
+  {
+   "path": "submission/completion_2026-10-23_macos/evidence/browser/browser_verification.json",
+   "sha256": "eeaf1a55b09e92ef9f63185564c9f3094bd4a8129ff3861bb946a6dd9bdc4775"
+  },
+  {
+   "path": "submission/completion_2026-10-23_macos/evidence/browser/browser_verification.sha256",
+   "sha256": "ab33df4a0120e0b6a9546a5745fb153554ca4bcc2eecef4bbee17d21177360c4"
+  },
+  {
+   "path": "submission/completion_2026-10-23_macos/evidence/browser/screenshots/desktop_dark_communities.png",
+   "sha256": "87f0bfd1c075e7cc66b99e8b1ccf23ea8e468597a4a44718e1026a12355cccbe"
+  },
+  {
+   "path": "submission/completion_2026-10-23_macos/evidence/browser/screenshots/desktop_dark_evidence.png",
+   "sha256": "fc3e2d6588cfdacb407a72cc62563102dd179b2c07a7b3eb6e824c3d9d451adc"
+  },
+  {
+   "path": "submission/completion_2026-10-23_macos/evidence/browser/screenshots/desktop_dark_overview.png",
+   "sha256": "0c68afd4ead404a424b567b6b739cd4d1aceeff2d10db9050294abd3eaa82ecb"
+  },
+  {
+   "path": "submission/completion_2026-10-23_macos/evidence/browser/screenshots/desktop_dark_research.png",
+   "sha256": "d9e103894886c8478c2a169cbe269346ed24c927308c7cd81667958b95e9df77"
+  },
+  {
+   "path": "submission/completion_2026-10-23_macos/evidence/browser/screenshots/desktop_dark_score.png",
+   "sha256": "941de2d22d8bd77afcb6d51a12b565f0597850b3d17ceaa743c85829d2196dd2"
+  },
+  {
+   "path": "submission/completion_2026-10-23_macos/evidence/browser/screenshots/desktop_dark_status.png",
+   "sha256": "474a67ccc439def7004b9059c4b1efbf7b234b24485ee3696eed18e0e9ff78eb"
+  },
+  {
+   "path": "submission/completion_2026-10-23_macos/evidence/browser/screenshots/desktop_light_communities.png",
+   "sha256": "e1388f261af5e73d26de49ef1a15bbff9e4ce6e40ac483cb36b37e6fa170b7ae"
+  },
+  {
+   "path": "submission/completion_2026-10-23_macos/evidence/browser/screenshots/desktop_light_evidence.png",
+   "sha256": "e9897b0e94276619b03ad1284a4edb870d6475e89bc1e08ddb094d82779644e7"
+  },
+  {
+   "path": "submission/completion_2026-10-23_macos/evidence/browser/screenshots/desktop_light_overview.png",
+   "sha256": "fcb9cca3c66253f11ec42ca4b0c2488665e175a38312d24a017da553120f91b4"
+  },
+  {
+   "path": "submission/completion_2026-10-23_macos/evidence/browser/screenshots/desktop_light_research.png",
+   "sha256": "a342878ba610b38a0d7941fd50169101c3fbf5638d3ae43b7f8e8807f1ea8e47"
+  },
+  {
+   "path": "submission/completion_2026-10-23_macos/evidence/browser/screenshots/desktop_light_score.png",
+   "sha256": "c3dc4043e31ff59b824296dd53f605fe563ef95b930bfbb235a14e909d7e1515"
+  },
+  {
+   "path": "submission/completion_2026-10-23_macos/evidence/browser/screenshots/desktop_light_status.png",
+   "sha256": "7a46e2cd94500274672454b2546288b9a801e371e6745f7858cf8b9c6a4e9185"
+  },
+  {
+   "path": "submission/completion_2026-10-23_macos/evidence/browser/screenshots/error_evidence_unavailable.png",
+   "sha256": "a52427786f447bac5bb920afe55989390e1b4380658cbfe75716740bae34400e"
+  },
+  {
+   "path": "submission/completion_2026-10-23_macos/evidence/browser/screenshots/error_server_stopped.png",
+   "sha256": "9f19a3325f0dc0b8ea22f31fbde739e33fa636d81e94bd90a1fbbae8a7966701"
+  },
+  {
+   "path": "submission/completion_2026-10-23_macos/evidence/browser/screenshots/keyboard_focus_on_tab.png",
+   "sha256": "24d79f261f2a68dca399fc9d22c2f9214c83ae1b4f2db1ed16e04c2f9cddfe28"
+  },
+  {
+   "path": "submission/completion_2026-10-23_macos/evidence/browser/screenshots/phone_dark_communities.png",
+   "sha256": "fee6ca20c50496fe92d2a6763131c366f514c69217e3ac0bf5d4c13a2addba23"
+  },
+  {
+   "path": "submission/completion_2026-10-23_macos/evidence/browser/screenshots/phone_dark_evidence.png",
+   "sha256": "2c358927c4d1b7d32540ab74d13f8be187f5e7904ea6c27de3e73473ae7c8e07"
+  },
+  {
+   "path": "submission/completion_2026-10-23_macos/evidence/browser/screenshots/phone_dark_overview.png",
+   "sha256": "b2571190bb42a2ba53eded9c4c66e198bdda19196fcd486ceb189798924d0c99"
+  },
+  {
+   "path": "submission/completion_2026-10-23_macos/evidence/browser/screenshots/phone_dark_research.png",
+   "sha256": "6d975dcaa1a9eb4cc6ab2ddfd239aa7c6a10ba912727be345a58e317f48329a8"
+  },
+  {
+   "path": "submission/completion_2026-10-23_macos/evidence/browser/screenshots/phone_dark_score.png",
+   "sha256": "1260ef3d1ddb97497d4cbd612b5b8abf14af31b7fac1558b5dfff963a13e59fe"
+  },
+  {
+   "path": "submission/completion_2026-10-23_macos/evidence/browser/screenshots/phone_dark_status.png",
+   "sha256": "d61a5b3aa50391d17534bd0d298d4e83d5840097b4199f30ca0db0c8904a2d12"
+  },
+  {
+   "path": "submission/completion_2026-10-23_macos/evidence/browser/screenshots/phone_light_communities.png",
+   "sha256": "4b1133ed152aefed9a4e0f5b593985d6cd1334a0d69481d5c5b12dda723790ea"
+  },
+  {
+   "path": "submission/completion_2026-10-23_macos/evidence/browser/screenshots/phone_light_evidence.png",
+   "sha256": "ee49cc1fb54c5dadae188bccdd7ae38622d170369ff7bcc2c6b9d9d38d20ac1f"
+  },
+  {
+   "path": "submission/completion_2026-10-23_macos/evidence/browser/screenshots/phone_light_overview.png",
+   "sha256": "68247cb0920e6b7c79e69e980bc7523a23acfc6c5fd3fbb58617383b39ca81a1"
+  },
+  {
+   "path": "submission/completion_2026-10-23_macos/evidence/browser/screenshots/phone_light_research.png",
+   "sha256": "ec14cbbc6ba85f6a936d3815bbcb555e56ef66de0ae77f08e47df12b6f3718b4"
+  },
+  {
+   "path": "submission/completion_2026-10-23_macos/evidence/browser/screenshots/phone_light_score.png",
+   "sha256": "7fb917f8e92ea153fea35e1437c697ae752489424e7d76d7a6884e96081c757d"
+  },
+  {
+   "path": "submission/completion_2026-10-23_macos/evidence/browser/screenshots/phone_light_status.png",
+   "sha256": "11b66d8a1605c881f93cc0b3368b188bbabfc3ff64236b087c5bcf37d53f3ba5"
+  },
+  {
+   "path": "submission/completion_2026-10-23_macos/evidence/browser/screenshots/plain_server_research_unavailable.png",
+   "sha256": "6272457c7b3c02c56c06ba5b5e1f8ce10ea1a4c18b360c4f8ad0e7cd0efff7fa"
+  },
+  {
+   "path": "submission/completion_2026-10-23_macos/evidence/browser/screenshots/plain_server_score_unavailable.png",
+   "sha256": "a5a2dfd430a8ca929cd834d64dcb02bd21f400107dcb9dd264425925d3055711"
+  },
+  {
+   "path": "submission/completion_2026-10-23_macos/evidence/clean_clone/acceptance_console.txt",
+   "sha256": "58a271ed1c19a3c1c7c463c1b01745fafa8f5445c7095f0373ab861b560230a3"
+  },
+  {
+   "path": "submission/completion_2026-10-23_macos/evidence/clean_clone/acceptance_console_attempt1_harness_bug.txt",
+   "sha256": "15f4873be71d9ce30f454d737bc7a6dc92387d3ef6a2a2e4aef76e5284ae0f7b"
+  },
+  {
+   "path": "submission/completion_2026-10-23_macos/evidence/clean_clone/api_communities.json",
+   "sha256": "6d1e821bad3aea19f78dd8405b187490d25667af255732f63faf86446431612e"
+  },
+  {
+   "path": "submission/completion_2026-10-23_macos/evidence/clean_clone/api_status.json",
+   "sha256": "36492e58bf87b1eb0e893adc073f8ea9a1ba8d2b408ee427df4decaeb2a60cc4"
+  },
+  {
+   "path": "submission/completion_2026-10-23_macos/evidence/clean_clone/check_setup.txt",
+   "sha256": "6caee97b5ee04aa32861c62e1b8b103c050c8c604f19e9dade7886451e1f6606"
+  },
+  {
+   "path": "submission/completion_2026-10-23_macos/evidence/clean_clone/clean_clone_acceptance.sh",
+   "sha256": "80cc8a0341e10546d209ded4126d92757d25951ae934b8f59aa14f1d273985a5"
+  },
+  {
+   "path": "submission/completion_2026-10-23_macos/evidence/clean_clone/demo_run1.txt",
+   "sha256": "3adf0fd2134834acfd046fe3b66304abd288fc934a5effa64792582027c6e47f"
+  },
+  {
+   "path": "submission/completion_2026-10-23_macos/evidence/clean_clone/demo_run2.txt",
+   "sha256": "249d4740788b95d44284b9be2264293a5871a3b4f3d2dcb6d20c2259d9158d44"
+  },
+  {
+   "path": "submission/completion_2026-10-23_macos/evidence/clean_clone/e2e.txt",
+   "sha256": "d91072ac8ac49f964c37de775767251fa93baf9fb231b40bd41d53a9b6c1268d"
+  },
+  {
+   "path": "submission/completion_2026-10-23_macos/evidence/clean_clone/e2e_verification.json",
+   "sha256": "97e62a461c1ced6de9f56c74468464e1f5843c6b258eae20728899b4a536a36b"
+  },
+  {
+   "path": "submission/completion_2026-10-23_macos/evidence/clean_clone/git_status_tracked_after.txt",
+   "sha256": "fde5a9a06dbd105cb4ccad90ed3b5522cada96dc91985bf9e6d25e1b421b52fa"
+  },
+  {
+   "path": "submission/completion_2026-10-23_macos/evidence/clean_clone/invalid_amount.json",
+   "sha256": "166a4aa4606f3e6d5701187619b4bd9c32145690674276e273047f060e761e59"
+  },
+  {
+   "path": "submission/completion_2026-10-23_macos/evidence/clean_clone/invalid_empty.json",
+   "sha256": "5d7988135e04bccd097e173173d7f2ca3e6e86be25cf2cecab37fe4400338cd5"
+  },
+  {
+   "path": "submission/completion_2026-10-23_macos/evidence/clean_clone/invalid_host.json",
+   "sha256": "d1db51c6779bb4e73ffb00d140f023541c28690fcfc28428275272d2db788120"
+  },
+  {
+   "path": "submission/completion_2026-10-23_macos/evidence/clean_clone/listening.txt",
+   "sha256": "b571b1d901954c5407a78ee9bbca9b6eaf4d9ccdd62b1efcc0602838712b5ed5"
+  },
+  {
+   "path": "submission/completion_2026-10-23_macos/evidence/clean_clone/port_conflict.txt",
+   "sha256": "876f579443faca36668df46182b332f4f095e17f209ed92af51a4207a044038b"
+  },
+  {
+   "path": "submission/completion_2026-10-23_macos/evidence/clean_clone/quickstart_console.txt",
+   "sha256": "6d4882f53d83a3edc34dc4df2f7f1076872e79b9c55a5fd8d95f6b3d18b2ebf4"
+  },
+  {
+   "path": "submission/completion_2026-10-23_macos/evidence/clean_clone/quickstart_unix_fresh_venv.txt",
+   "sha256": "c1745b8cf53747ce824b6030a0df4f32f1323f8213e2bee5c129a0443ab9ed99"
+  },
+  {
+   "path": "submission/completion_2026-10-23_macos/evidence/clean_clone/research_e2e.txt",
+   "sha256": "73fe549426bc12c20fef2e37577435bdd5953eb9ecf6a170f521a40083d76b92"
+  },
+  {
+   "path": "submission/completion_2026-10-23_macos/evidence/clean_clone/research_mode_start.txt",
+   "sha256": "c71aafa538ec6bc19cef2ec244efc9bacc84b3d67e0e60d4dc712f6732e19fde"
+  },
+  {
+   "path": "submission/completion_2026-10-23_macos/evidence/clean_clone/research_model_404.json",
+   "sha256": "22bdb5828440a0c84bde2d9db5c384dcd75fb88d394403e2aca8fda03c95f2bb"
+  },
+  {
+   "path": "submission/completion_2026-10-23_macos/evidence/clean_clone/run_core_tests.json",
+   "sha256": "72855af38c5b9ec5461afc6ec8e96e090130849e4efca0ccc1112fb3560f9eeb"
+  },
+  {
+   "path": "submission/completion_2026-10-23_macos/evidence/clean_clone/run_core_tests.txt",
+   "sha256": "9ba88f87a4e5ac4b61b1cab3c1261957db32ea9909a942e075b19d50977e1d78"
+  },
+  {
+   "path": "submission/completion_2026-10-23_macos/evidence/clean_clone/server_run1.txt",
+   "sha256": "5f625bcc8c6876b20a6e3f1ebfa74737e8fd5aa565b1076df35d63510857f7e8"
+  },
+  {
+   "path": "submission/completion_2026-10-23_macos/evidence/clean_clone/server_run2.txt",
+   "sha256": "5f625bcc8c6876b20a6e3f1ebfa74737e8fd5aa565b1076df35d63510857f7e8"
+  },
+  {
+   "path": "submission/completion_2026-10-23_macos/evidence/clean_clone/synthetic_outputs_sha256.txt",
+   "sha256": "4d35e43d2edf663f0674018c92b7fbc5a3ef19dcaec100d1a6e86be4533e386d"
+  },
+  {
+   "path": "submission/completion_2026-10-23_macos/evidence/final_local/run_core_tests.json",
+   "sha256": "40b26e9727016f84bdc32ef2e2c5b02c47267309ab9d962f48a4c73de1c6df99"
+  },
+  {
+   "path": "submission/completion_2026-10-23_macos/evidence/final_local/run_core_tests.txt",
+   "sha256": "9ba88f87a4e5ac4b61b1cab3c1261957db32ea9909a942e075b19d50977e1d78"
+  },
+  {
+   "path": "submission/completion_2026-10-23_macos/evidence/final_local/run_core_tests_with_pytorch.json",
+   "sha256": "bccda420df3355e6d072f0f652ddc66e4023a6a9bc4cff50a8583644d973ca83"
+  },
+  {
+   "path": "submission/completion_2026-10-23_macos/evidence/final_local/run_core_tests_with_pytorch.txt",
+   "sha256": "6e0f5e4948936fb9c360e617cfeb318efc5fc6246795de03c625bdc780f623d3"
+  },
+  {
+   "path": "submission/completion_2026-10-23_macos/evidence/measure_performance.py",
+   "sha256": "1677b474a1e3e088e2f7ad35b5a5f0769469c4baca2d3db50f0b9f29193f634c"
+  },
+  {
+   "path": "submission/completion_2026-10-23_macos/evidence/performance_synthetic.json",
+   "sha256": "6a221f0fd2593cab19085315f14363fb43e9e53951dc31685b6bf6047c98d211"
+  },
+  {
+   "path": "submission/completion_2026-10-23_macos/initial_state.json",
+   "sha256": "95bc243db1ff0a72575df893c2d100012dde357d75d6b569c0ee502c70eb0bd1"
+  }
+ ],
+ "note": "submission/INTEGRITY_SUBMISSION.json and experiments/phase13_serving_dashboard/INTEGRITY_PHASE13.json still describe the release at HEAD; they were not rewritten"
+}

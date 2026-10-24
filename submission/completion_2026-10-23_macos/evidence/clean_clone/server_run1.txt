@@ -1,0 +1,3 @@
+training the synthetic demonstration bundle ...
+dashboard on http://127.0.0.1:8791/  (validation-period results only; Ctrl+C to stop)
+stopped

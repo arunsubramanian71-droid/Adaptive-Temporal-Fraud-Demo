@@ -58,6 +58,10 @@ desktop.ini
 *.onnx
 model.joblib
 
+# Output of the synthetic demonstration and of the verification scripts' default
+# runs (reproducible, synthetic; added 2026-10-23). Dated records stay under experiments/.
+demo_output/
+
 # Generated large artifacts, reproducible from code + data. The small JSON /
 # sha256 records next to them stay tracked.
 *.npy

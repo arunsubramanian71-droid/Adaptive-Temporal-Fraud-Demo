@@ -1,0 +1,14 @@
+{
+ "validation_period_only": true,
+ "held_out_evaluation_performed": false,
+ "held_out_authorization_present": false,
+ "held_out_note": "No held-out (days 152-182) evaluation has been performed; every recorded result is a validation-period result and most models were tuned on that period.",
+ "phase12": "AC1-AC11 pass; AC12 BLOCKED (partially verified); Phase 12 is not formally complete",
+ "h5": "not established under the original protocol (frozen benchmark gate G4 failed on 2 of 3 seeds); a separately pre-registered benchmark (Phase 9b) supports H5a-9b without changing that verdict",
+ "communities": "candidates only; not confirmed to be fraudulent or coordinated",
+ "scoring_bundle_loaded": true,
+ "synthetic_demo": true,
+ "research_model_loaded": false,
+ "research_model_file_present": false,
+ "research_data_present": false
+}

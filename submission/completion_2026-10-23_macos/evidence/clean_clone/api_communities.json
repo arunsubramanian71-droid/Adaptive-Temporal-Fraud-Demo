@@ -1,0 +1,1403 @@
+{
+ "standing_statement": "candidate coordinated community; not a confirmed fraud ring",
+ "not_established": "This does not establish that IEEE-CIS contains fraud rings.",
+ "scope": "aggregate-only cards for exploratory Phase 9 candidate communities (window 7 days, seed 42, validation days 122-151); no member identities exist in this output",
+ "n_cards": 24,
+ "cards": [
+  {
+   "track": 0,
+   "groups": [
+    "b_largest"
+   ],
+   "standing_statement": "candidate coordinated community; not a confirmed fraud ring",
+   "first_observed_day": 122,
+   "last_observed_day": 132,
+   "n_observed_days": 11,
+   "left_censored": true,
+   "right_censored": false,
+   "peak": {
+    "score_st": 0.8523349436392915,
+    "u_s": 0.7777777777777778,
+    "u_t": 0.9608695652173912,
+    "n_cards": 504,
+    "n_infra": 650,
+    "hub_share": 0.4456784162240463
+   },
+   "n_alerted_days": 0,
+   "member_transaction_composition_txn_days": {
+    "txn_has_edge_cold__noinfra": 19236,
+    "txn_has_edge_cold__infra": 8331,
+    "txn_has_edge_warm__noinfra": 63503,
+    "txn_has_edge_warm__infra": 5278,
+    "txn_no_pseudo_account_edge__noinfra": 100,
+    "txn_no_pseudo_account_edge__infra": 777
+   },
+   "timeline": [
+    {
+     "day": 122,
+     "n_cards": 464,
+     "n_infra": 637,
+     "density": 0.0063877009689817,
+     "hub_share": 0.3964594483326472,
+     "conductance": 0.038019801980198,
+     "u_s": 0.7703703703703704,
+     "u_t": 0.7478260869565218,
+     "score_st": 0.759098228663446,
+     "n_member_txn": 9051,
+     "alerted": false
+    },
+    {
+     "day": 123,
+     "n_cards": 490,
+     "n_infra": 650,
+     "density": 0.0062323390894819,
+     "hub_share": 0.4134012539184953,
+     "conductance": 0.0300266058532877,
+     "u_s": 0.7777777777777778,
+     "u_t": 0.7478260869565218,
+     "score_st": 0.7628019323671498,
+     "n_member_txn": 9215,
+     "alerted": false
+    },
+    {
+     "day": 124,
+     "n_cards": 474,
+     "n_infra": 608,
+     "density": 0.0065754774594714,
+     "hub_share": 0.4072398190045249,
+     "conductance": 0.0400789733464955,
+     "u_s": 0.7703703703703704,
+     "u_t": 0.8,
+     "score_st": 0.7851851851851852,
+     "n_member_txn": 9488,
+     "alerted": false
+    },
+    {
+     "day": 125,
+     "n_cards": 504,
+     "n_infra": 640,
+     "density": 0.0061693948412698,
+     "hub_share": 0.4163408913213448,
+     "conductance": 0.034170285067019,
+     "u_s": 0.774074074074074,
+     "u_t": 0.7717391304347826,
+     "score_st": 0.7729066022544283,
+     "n_member_txn": 10653,
+     "alerted": false
+    },
+    {
+     "day": 126,
+     "n_cards": 488,
+     "n_infra": 622,
+     "density": 0.0064440461757419,
+     "hub_share": 0.4060534591194968,
+     "conductance": 0.0362983645791783,
+     "u_s": 0.7703703703703704,
+     "u_t": 0.7456521739130435,
+     "score_st": 0.7580112721417069,
+     "n_member_txn": 9221,
+     "alerted": false
+    },
+    {
+     "day": 127,
+     "n_cards": 418,
+     "n_infra": 561,
+     "density": 0.0071770334928229,
+     "hub_share": 0.4141090242785158,
+     "conductance": 0.0634920634920634,
+     "u_s": 0.7444444444444445,
+     "u_t": 0.7717391304347826,
+     "score_st": 0.7580917874396136,
+     "n_member_txn": 8584,
+     "alerted": false
+    },
+    {
+     "day": 128,
+     "n_cards": 480,
+     "n_infra": 634,
+     "density": 0.0061612776025236,
+     "hub_share": 0.3712624584717608,
+     "conductance": 0.0394540413734271,
+     "u_s": 0.7555555555555555,
+     "u_t": 0.7717391304347826,
+     "score_st": 0.7636473429951691,
+     "n_member_txn": 9085,
+     "alerted": false
+    },
+    {
+     "day": 129,
+     "n_cards": 430,
+     "n_infra": 574,
+     "density": 0.0069402803662588,
+     "hub_share": 0.3914816492976892,
+     "conductance": 0.0441749675184062,
+     "u_s": 0.7444444444444445,
+     "u_t": 0.7391304347826086,
+     "score_st": 0.7417874396135266,
+     "n_member_txn": 9298,
+     "alerted": false
+    },
+    {
+     "day": 130,
+     "n_cards": 346,
+     "n_infra": 487,
+     "density": 0.008255094895016,
+     "hub_share": 0.3389830508474576,
+     "conductance": 0.0838968194340095,
+     "u_s": 0.725925925925926,
+     "u_t": 0.9608695652173912,
+     "score_st": 0.8433977455716586,
+     "n_member_txn": 6940,
+     "alerted": false
+    },
+    {
+     "day": 131,
+     "n_cards": 436,
+     "n_infra": 617,
+     "density": 0.0066093705856987,
+     "hub_share": 0.4251418594500218,
+     "conductance": 0.042024202420242,
+     "u_s": 0.7481481481481481,
+     "u_t": 0.9565217391304348,
+     "score_st": 0.8523349436392915,
+     "n_member_txn": 8716,
+     "alerted": false
+    },
+    {
+     "day": 132,
+     "n_cards": 397,
+     "n_infra": 558,
+     "density": 0.0072677699231692,
+     "hub_share": 0.4456784162240463,
+     "conductance": 0.0534734917733089,
+     "u_s": 0.7296296296296296,
+     "u_t": 0.941304347826087,
+     "score_st": 0.8354669887278583,
+     "n_member_txn": 6974,
+     "alerted": false
+    }
+   ]
+  },
+  {
+   "track": 4,
+   "groups": [
+    "a_top_peak_score"
+   ],
+   "standing_statement": "candidate coordinated community; not a confirmed fraud ring",
+   "first_observed_day": 122,
+   "last_observed_day": 123,
+   "n_observed_days": 2,
+   "left_censored": true,
+   "right_censored": false,
+   "peak": {
+    "score_st": 0.985,
+    "u_s": 0.97,
+    "u_t": 1.0,
+    "n_cards": 13,
+    "n_infra": 15,
+    "hub_share": 0.0
+   },
+   "n_alerted_days": 1,
+   "member_transaction_composition_txn_days": {
+    "txn_has_edge_cold__noinfra": 27,
+    "txn_has_edge_cold__infra": 29,
+    "txn_has_edge_warm__noinfra": 67,
+    "txn_has_edge_warm__infra": 9,
+    "txn_no_pseudo_account_edge__noinfra": 0,
+    "txn_no_pseudo_account_edge__infra": 0
+   },
+   "timeline": [
+    {
+     "day": 122,
+     "n_cards": 13,
+     "n_infra": 15,
+     "density": 0.1435897435897435,
+     "hub_share": 0.0,
+     "conductance": 0.1025641025641025,
+     "u_s": 0.97,
+     "u_t": 1.0,
+     "score_st": 0.985,
+     "n_member_txn": 79,
+     "alerted": true
+    },
+    {
+     "day": 123,
+     "n_cards": 11,
+     "n_infra": 11,
+     "density": 0.1818181818181818,
+     "hub_share": 0.0,
+     "conductance": 0.1470588235294117,
+     "u_s": 0.84,
+     "u_t": 0.68,
+     "score_st": 0.76,
+     "n_member_txn": 53,
+     "alerted": false
+    }
+   ]
+  },
+  {
+   "track": 7,
+   "groups": [
+    "c_alerted_sample"
+   ],
+   "standing_statement": "candidate coordinated community; not a confirmed fraud ring",
+   "first_observed_day": 122,
+   "last_observed_day": 122,
+   "n_observed_days": 1,
+   "left_censored": true,
+   "right_censored": false,
+   "peak": {
+    "score_st": 0.875,
+    "u_s": 1.0,
+    "u_t": 0.75,
+    "n_cards": 16,
+    "n_infra": 16,
+    "hub_share": 0.1627906976744186
+   },
+   "n_alerted_days": 1,
+   "member_transaction_composition_txn_days": {
+    "txn_has_edge_cold__noinfra": 47,
+    "txn_has_edge_cold__infra": 14,
+    "txn_has_edge_warm__noinfra": 115,
+    "txn_has_edge_warm__infra": 17,
+    "txn_no_pseudo_account_edge__noinfra": 0,
+    "txn_no_pseudo_account_edge__infra": 1
+   },
+   "timeline": [
+    {
+     "day": 122,
+     "n_cards": 16,
+     "n_infra": 16,
+     "density": 0.12109375,
+     "hub_share": 0.1627906976744186,
+     "conductance": 0.1809523809523809,
+     "u_s": 1.0,
+     "u_t": 0.75,
+     "score_st": 0.875,
+     "n_member_txn": 194,
+     "alerted": true
+    }
+   ]
+  },
+  {
+   "track": 10,
+   "groups": [
+    "c_alerted_sample"
+   ],
+   "standing_statement": "candidate coordinated community; not a confirmed fraud ring",
+   "first_observed_day": 122,
+   "last_observed_day": 123,
+   "n_observed_days": 2,
+   "left_censored": true,
+   "right_censored": false,
+   "peak": {
+    "score_st": 0.9454545454545454,
+    "u_s": 0.9818181818181818,
+    "u_t": 0.9090909090909092,
+    "n_cards": 5,
+    "n_infra": 10,
+    "hub_share": 0.0
+   },
+   "n_alerted_days": 1,
+   "member_transaction_composition_txn_days": {
+    "txn_has_edge_cold__noinfra": 14,
+    "txn_has_edge_cold__infra": 14,
+    "txn_has_edge_warm__noinfra": 36,
+    "txn_has_edge_warm__infra": 8,
+    "txn_no_pseudo_account_edge__noinfra": 0,
+    "txn_no_pseudo_account_edge__infra": 0
+   },
+   "timeline": [
+    {
+     "day": 122,
+     "n_cards": 5,
+     "n_infra": 10,
+     "density": 0.28,
+     "hub_share": 0.0,
+     "conductance": 0.0769230769230769,
+     "u_s": 0.9818181818181818,
+     "u_t": 0.9090909090909092,
+     "score_st": 0.9454545454545454,
+     "n_member_txn": 32,
+     "alerted": true
+    },
+    {
+     "day": 123,
+     "n_cards": 5,
+     "n_infra": 10,
+     "density": 0.28,
+     "hub_share": 0.0,
+     "conductance": 0.0769230769230769,
+     "u_s": 0.9818181818181818,
+     "u_t": 0.3272727272727272,
+     "score_st": 0.6545454545454545,
+     "n_member_txn": 40,
+     "alerted": false
+    }
+   ]
+  },
+  {
+   "track": 26,
+   "groups": [
+    "a_top_peak_score"
+   ],
+   "standing_statement": "candidate coordinated community; not a confirmed fraud ring",
+   "first_observed_day": 125,
+   "last_observed_day": 125,
+   "n_observed_days": 1,
+   "left_censored": false,
+   "right_censored": false,
+   "peak": {
+    "score_st": 0.9857142857142858,
+    "u_s": 1.0,
+    "u_t": 0.9714285714285714,
+    "n_cards": 3,
+    "n_infra": 4,
+    "hub_share": 0.0
+   },
+   "n_alerted_days": 1,
+   "member_transaction_composition_txn_days": {
+    "txn_has_edge_cold__noinfra": 0,
+    "txn_has_edge_cold__infra": 4,
+    "txn_has_edge_warm__noinfra": 0,
+    "txn_has_edge_warm__infra": 4,
+    "txn_no_pseudo_account_edge__noinfra": 0,
+    "txn_no_pseudo_account_edge__infra": 0
+   },
+   "timeline": [
+    {
+     "day": 125,
+     "n_cards": 3,
+     "n_infra": 4,
+     "density": 0.6666666666666666,
+     "hub_share": 0.0,
+     "conductance": 0.2222222222222222,
+     "u_s": 1.0,
+     "u_t": 0.9714285714285714,
+     "score_st": 0.9857142857142858,
+     "n_member_txn": 8,
+     "alerted": true
+    }
+   ]
+  },
+  {
+   "track": 43,
+   "groups": [
+    "a_top_peak_score"
+   ],
+   "standing_statement": "candidate coordinated community; not a confirmed fraud ring",
+   "first_observed_day": 126,
+   "last_observed_day": 126,
+   "n_observed_days": 1,
+   "left_censored": false,
+   "right_censored": false,
+   "peak": {
+    "score_st": 0.9613323464100668,
+    "u_s": 0.9740932642487048,
+    "u_t": 0.9485714285714286,
+    "n_cards": 3,
+    "n_infra": 5,
+    "hub_share": 0.0
+   },
+   "n_alerted_days": 1,
+   "member_transaction_composition_txn_days": {
+    "txn_has_edge_cold__noinfra": 6,
+    "txn_has_edge_cold__infra": 1,
+    "txn_has_edge_warm__noinfra": 23,
+    "txn_has_edge_warm__infra": 5,
+    "txn_no_pseudo_account_edge__noinfra": 0,
+    "txn_no_pseudo_account_edge__infra": 0
+   },
+   "timeline": [
+    {
+     "day": 126,
+     "n_cards": 3,
+     "n_infra": 5,
+     "density": 0.4666666666666667,
+     "hub_share": 0.0,
+     "conductance": 0.1818181818181818,
+     "u_s": 0.9740932642487048,
+     "u_t": 0.9485714285714286,
+     "score_st": 0.9613323464100668,
+     "n_member_txn": 35,
+     "alerted": true
+    }
+   ]
+  },
+  {
+   "track": 55,
+   "groups": [
+    "a_top_peak_score"
+   ],
+   "standing_statement": "candidate coordinated community; not a confirmed fraud ring",
+   "first_observed_day": 127,
+   "last_observed_day": 127,
+   "n_observed_days": 1,
+   "left_censored": false,
+   "right_censored": false,
+   "peak": {
+    "score_st": 0.9670466321243524,
+    "u_s": 0.9740932642487048,
+    "u_t": 0.96,
+    "n_cards": 4,
+    "n_infra": 3,
+    "hub_share": 0.0
+   },
+   "n_alerted_days": 1,
+   "member_transaction_composition_txn_days": {
+    "txn_has_edge_cold__noinfra": 25,
+    "txn_has_edge_cold__infra": 3,
+    "txn_has_edge_warm__noinfra": 25,
+    "txn_has_edge_warm__infra": 2,
+    "txn_no_pseudo_account_edge__noinfra": 0,
+    "txn_no_pseudo_account_edge__infra": 0
+   },
+   "timeline": [
+    {
+     "day": 127,
+     "n_cards": 4,
+     "n_infra": 3,
+     "density": 0.5833333333333334,
+     "hub_share": 0.0,
+     "conductance": 0.1,
+     "u_s": 0.9740932642487048,
+     "u_t": 0.96,
+     "score_st": 0.9670466321243524,
+     "n_member_txn": 55,
+     "alerted": true
+    }
+   ]
+  },
+  {
+   "track": 56,
+   "groups": [
+    "a_top_peak_score"
+   ],
+   "standing_statement": "candidate coordinated community; not a confirmed fraud ring",
+   "first_observed_day": 127,
+   "last_observed_day": 127,
+   "n_observed_days": 1,
+   "left_censored": false,
+   "right_censored": false,
+   "peak": {
+    "score_st": 0.972760917838638,
+    "u_s": 0.9740932642487048,
+    "u_t": 0.9714285714285714,
+    "n_cards": 4,
+    "n_infra": 2,
+    "hub_share": 0.0
+   },
+   "n_alerted_days": 1,
+   "member_transaction_composition_txn_days": {
+    "txn_has_edge_cold__noinfra": 0,
+    "txn_has_edge_cold__infra": 5,
+    "txn_has_edge_warm__noinfra": 0,
+    "txn_has_edge_warm__infra": 1,
+    "txn_no_pseudo_account_edge__noinfra": 0,
+    "txn_no_pseudo_account_edge__infra": 0
+   },
+   "timeline": [
+    {
+     "day": 127,
+     "n_cards": 4,
+     "n_infra": 2,
+     "density": 0.875,
+     "hub_share": 0.0,
+     "conductance": 0.1,
+     "u_s": 0.9740932642487048,
+     "u_t": 0.9714285714285714,
+     "score_st": 0.972760917838638,
+     "n_member_txn": 6,
+     "alerted": true
+    }
+   ]
+  },
+  {
+   "track": 60,
+   "groups": [
+    "d_hub_dominated_high_s"
+   ],
+   "standing_statement": "candidate coordinated community; not a confirmed fraud ring",
+   "first_observed_day": 128,
+   "last_observed_day": 130,
+   "n_observed_days": 3,
+   "left_censored": false,
+   "right_censored": false,
+   "peak": {
+    "score_st": 0.8181818181818181,
+    "u_s": 1.0,
+    "u_t": 0.6363636363636364,
+    "n_cards": 7,
+    "n_infra": 6,
+    "hub_share": 0.56
+   },
+   "n_alerted_days": 0,
+   "member_transaction_composition_txn_days": {
+    "txn_has_edge_cold__noinfra": 76,
+    "txn_has_edge_cold__infra": 16,
+    "txn_has_edge_warm__noinfra": 148,
+    "txn_has_edge_warm__infra": 24,
+    "txn_no_pseudo_account_edge__noinfra": 0,
+    "txn_no_pseudo_account_edge__infra": 3
+   },
+   "timeline": [
+    {
+     "day": 128,
+     "n_cards": 7,
+     "n_infra": 5,
+     "density": 0.3142857142857143,
+     "hub_share": 0.56,
+     "conductance": 0.1379310344827586,
+     "u_s": 1.0,
+     "u_t": 0.3272727272727272,
+     "score_st": 0.6636363636363636,
+     "n_member_txn": 74,
+     "alerted": false
+    },
+    {
+     "day": 129,
+     "n_cards": 5,
+     "n_infra": 5,
+     "density": 0.36,
+     "hub_share": 0.0,
+     "conductance": 0.16,
+     "u_s": 1.0,
+     "u_t": 0.3636363636363636,
+     "score_st": 0.6818181818181819,
+     "n_member_txn": 66,
+     "alerted": false
+    },
+    {
+     "day": 130,
+     "n_cards": 6,
+     "n_infra": 6,
+     "density": 0.3055555555555556,
+     "hub_share": 0.5185185185185185,
+     "conductance": 0.15625,
+     "u_s": 1.0,
+     "u_t": 0.6363636363636364,
+     "score_st": 0.8181818181818181,
+     "n_member_txn": 127,
+     "alerted": false
+    }
+   ]
+  },
+  {
+   "track": 69,
+   "groups": [
+    "d_hub_dominated_high_s"
+   ],
+   "standing_statement": "candidate coordinated community; not a confirmed fraud ring",
+   "first_observed_day": 129,
+   "last_observed_day": 131,
+   "n_observed_days": 3,
+   "left_censored": false,
+   "right_censored": false,
+   "peak": {
+    "score_st": 0.6427609178386381,
+    "u_s": 0.9740932642487048,
+    "u_t": 0.48,
+    "n_cards": 9,
+    "n_infra": 6,
+    "hub_share": 0.4117647058823529
+   },
+   "n_alerted_days": 0,
+   "member_transaction_composition_txn_days": {
+    "txn_has_edge_cold__noinfra": 69,
+    "txn_has_edge_cold__infra": 16,
+    "txn_has_edge_warm__noinfra": 106,
+    "txn_has_edge_warm__infra": 8,
+    "txn_no_pseudo_account_edge__noinfra": 0,
+    "txn_no_pseudo_account_edge__infra": 0
+   },
+   "timeline": [
+    {
+     "day": 129,
+     "n_cards": 4,
+     "n_infra": 3,
+     "density": 0.5833333333333334,
+     "hub_share": 0.0,
+     "conductance": 0.1,
+     "u_s": 0.9740932642487048,
+     "u_t": 0.3114285714285714,
+     "score_st": 0.6427609178386381,
+     "n_member_txn": 58,
+     "alerted": false
+    },
+    {
+     "day": 130,
+     "n_cards": 8,
+     "n_infra": 5,
+     "density": 0.325,
+     "hub_share": 0.0,
+     "conductance": 0.1428571428571428,
+     "u_s": 0.9409090909090908,
+     "u_t": 0.3272727272727272,
+     "score_st": 0.634090909090909,
+     "n_member_txn": 71,
+     "alerted": false
+    },
+    {
+     "day": 131,
+     "n_cards": 9,
+     "n_infra": 6,
+     "density": 0.2777777777777778,
+     "hub_share": 0.4117647058823529,
+     "conductance": 0.1904761904761904,
+     "u_s": 0.33,
+     "u_t": 0.48,
+     "score_st": 0.405,
+     "n_member_txn": 70,
+     "alerted": false
+    }
+   ]
+  },
+  {
+   "track": 71,
+   "groups": [
+    "a_top_peak_score"
+   ],
+   "standing_statement": "candidate coordinated community; not a confirmed fraud ring",
+   "first_observed_day": 129,
+   "last_observed_day": 133,
+   "n_observed_days": 5,
+   "left_censored": false,
+   "right_censored": false,
+   "peak": {
+    "score_st": 0.972760917838638,
+    "u_s": 0.9740932642487048,
+    "u_t": 0.9714285714285714,
+    "n_cards": 4,
+    "n_infra": 3,
+    "hub_share": 0.0
+   },
+   "n_alerted_days": 1,
+   "member_transaction_composition_txn_days": {
+    "txn_has_edge_cold__noinfra": 0,
+    "txn_has_edge_cold__infra": 20,
+    "txn_has_edge_warm__noinfra": 0,
+    "txn_has_edge_warm__infra": 5,
+    "txn_no_pseudo_account_edge__noinfra": 0,
+    "txn_no_pseudo_account_edge__infra": 0
+   },
+   "timeline": [
+    {
+     "day": 129,
+     "n_cards": 4,
+     "n_infra": 2,
+     "density": 0.875,
+     "hub_share": 0.0,
+     "conductance": 0.0,
+     "u_s": 0.9740932642487048,
+     "u_t": 0.9714285714285714,
+     "score_st": 0.972760917838638,
+     "n_member_txn": 5,
+     "alerted": true
+    },
+    {
+     "day": 130,
+     "n_cards": 4,
+     "n_infra": 2,
+     "density": 0.875,
+     "hub_share": 0.0,
+     "conductance": 0.0,
+     "u_s": 0.9740932642487048,
+     "u_t": 0.3114285714285714,
+     "score_st": 0.6427609178386381,
+     "n_member_txn": 5,
+     "alerted": false
+    },
+    {
+     "day": 131,
+     "n_cards": 4,
+     "n_infra": 3,
+     "density": 0.5833333333333334,
+     "hub_share": 0.0,
+     "conductance": 0.1818181818181818,
+     "u_s": 0.9740932642487048,
+     "u_t": 0.6171428571428571,
+     "score_st": 0.7956180606957809,
+     "n_member_txn": 5,
+     "alerted": false
+    },
+    {
+     "day": 132,
+     "n_cards": 4,
+     "n_infra": 3,
+     "density": 0.5833333333333334,
+     "hub_share": 0.0,
+     "conductance": 0.1428571428571428,
+     "u_s": 0.9740932642487048,
+     "u_t": 0.6171428571428571,
+     "score_st": 0.7956180606957809,
+     "n_member_txn": 5,
+     "alerted": false
+    },
+    {
+     "day": 133,
+     "n_cards": 4,
+     "n_infra": 3,
+     "density": 0.5833333333333334,
+     "hub_share": 0.0,
+     "conductance": 0.1428571428571428,
+     "u_s": 0.9740932642487048,
+     "u_t": 0.6457142857142857,
+     "score_st": 0.8099037749814952,
+     "n_member_txn": 5,
+     "alerted": false
+    }
+   ]
+  },
+  {
+   "track": 72,
+   "groups": [
+    "a_top_peak_score"
+   ],
+   "standing_statement": "candidate coordinated community; not a confirmed fraud ring",
+   "first_observed_day": 129,
+   "last_observed_day": 129,
+   "n_observed_days": 1,
+   "left_censored": false,
+   "right_censored": false,
+   "peak": {
+    "score_st": 0.9613323464100668,
+    "u_s": 0.9740932642487048,
+    "u_t": 0.9485714285714286,
+    "n_cards": 3,
+    "n_infra": 4,
+    "hub_share": 0.0
+   },
+   "n_alerted_days": 1,
+   "member_transaction_composition_txn_days": {
+    "txn_has_edge_cold__noinfra": 10,
+    "txn_has_edge_cold__infra": 4,
+    "txn_has_edge_warm__noinfra": 5,
+    "txn_has_edge_warm__infra": 2,
+    "txn_no_pseudo_account_edge__noinfra": 0,
+    "txn_no_pseudo_account_edge__infra": 0
+   },
+   "timeline": [
+    {
+     "day": 129,
+     "n_cards": 3,
+     "n_infra": 4,
+     "density": 0.5,
+     "hub_share": 0.0,
+     "conductance": 0.1818181818181818,
+     "u_s": 0.9740932642487048,
+     "u_t": 0.9485714285714286,
+     "score_st": 0.9613323464100668,
+     "n_member_txn": 21,
+     "alerted": true
+    }
+   ]
+  },
+  {
+   "track": 73,
+   "groups": [
+    "c_alerted_sample"
+   ],
+   "standing_statement": "candidate coordinated community; not a confirmed fraud ring",
+   "first_observed_day": 129,
+   "last_observed_day": 129,
+   "n_observed_days": 1,
+   "left_censored": false,
+   "right_censored": false,
+   "peak": {
+    "score_st": 0.905521835677276,
+    "u_s": 0.9481865284974094,
+    "u_t": 0.8628571428571429,
+    "n_cards": 3,
+    "n_infra": 6,
+    "hub_share": 0.0
+   },
+   "n_alerted_days": 1,
+   "member_transaction_composition_txn_days": {
+    "txn_has_edge_cold__noinfra": 5,
+    "txn_has_edge_cold__infra": 3,
+    "txn_has_edge_warm__noinfra": 4,
+    "txn_has_edge_warm__infra": 1,
+    "txn_no_pseudo_account_edge__noinfra": 0,
+    "txn_no_pseudo_account_edge__infra": 0
+   },
+   "timeline": [
+    {
+     "day": 129,
+     "n_cards": 3,
+     "n_infra": 6,
+     "density": 0.4444444444444444,
+     "hub_share": 0.0,
+     "conductance": 0.1578947368421052,
+     "u_s": 0.9481865284974094,
+     "u_t": 0.8628571428571429,
+     "score_st": 0.905521835677276,
+     "n_member_txn": 13,
+     "alerted": true
+    }
+   ]
+  },
+  {
+   "track": 79,
+   "groups": [
+    "a_top_peak_score"
+   ],
+   "standing_statement": "candidate coordinated community; not a confirmed fraud ring",
+   "first_observed_day": 130,
+   "last_observed_day": 131,
+   "n_observed_days": 2,
+   "left_censored": false,
+   "right_censored": false,
+   "peak": {
+    "score_st": 0.9742857142857144,
+    "u_s": 1.0,
+    "u_t": 0.9485714285714286,
+    "n_cards": 3,
+    "n_infra": 3,
+    "hub_share": 0.0
+   },
+   "n_alerted_days": 2,
+   "member_transaction_composition_txn_days": {
+    "txn_has_edge_cold__noinfra": 0,
+    "txn_has_edge_cold__infra": 8,
+    "txn_has_edge_warm__noinfra": 0,
+    "txn_has_edge_warm__infra": 8,
+    "txn_no_pseudo_account_edge__noinfra": 0,
+    "txn_no_pseudo_account_edge__infra": 0
+   },
+   "timeline": [
+    {
+     "day": 130,
+     "n_cards": 3,
+     "n_infra": 3,
+     "density": 0.6666666666666666,
+     "hub_share": 0.0,
+     "conductance": 0.0967741935483871,
+     "u_s": 1.0,
+     "u_t": 0.9485714285714286,
+     "score_st": 0.9742857142857144,
+     "n_member_txn": 8,
+     "alerted": true
+    },
+    {
+     "day": 131,
+     "n_cards": 3,
+     "n_infra": 3,
+     "density": 0.6666666666666666,
+     "hub_share": 0.0,
+     "conductance": 0.0967741935483871,
+     "u_s": 1.0,
+     "u_t": 0.9485714285714286,
+     "score_st": 0.9742857142857144,
+     "n_member_txn": 8,
+     "alerted": true
+    }
+   ]
+  },
+  {
+   "track": 91,
+   "groups": [
+    "d_hub_dominated_high_s"
+   ],
+   "standing_statement": "candidate coordinated community; not a confirmed fraud ring",
+   "first_observed_day": 132,
+   "last_observed_day": 132,
+   "n_observed_days": 1,
+   "left_censored": false,
+   "right_censored": false,
+   "peak": {
+    "score_st": 0.8181818181818181,
+    "u_s": 1.0,
+    "u_t": 0.6363636363636364,
+    "n_cards": 7,
+    "n_infra": 12,
+    "hub_share": 0.3947368421052631
+   },
+   "n_alerted_days": 0,
+   "member_transaction_composition_txn_days": {
+    "txn_has_edge_cold__noinfra": 20,
+    "txn_has_edge_cold__infra": 7,
+    "txn_has_edge_warm__noinfra": 41,
+    "txn_has_edge_warm__infra": 13,
+    "txn_no_pseudo_account_edge__noinfra": 0,
+    "txn_no_pseudo_account_edge__infra": 2
+   },
+   "timeline": [
+    {
+     "day": 132,
+     "n_cards": 7,
+     "n_infra": 12,
+     "density": 0.2142857142857142,
+     "hub_share": 0.3947368421052631,
+     "conductance": 0.146067415730337,
+     "u_s": 1.0,
+     "u_t": 0.6363636363636364,
+     "score_st": 0.8181818181818181,
+     "n_member_txn": 83,
+     "alerted": false
+    }
+   ]
+  },
+  {
+   "track": 92,
+   "groups": [
+    "a_top_peak_score",
+    "d_hub_dominated_high_s"
+   ],
+   "standing_statement": "candidate coordinated community; not a confirmed fraud ring",
+   "first_observed_day": 132,
+   "last_observed_day": 132,
+   "n_observed_days": 1,
+   "left_censored": false,
+   "right_censored": false,
+   "peak": {
+    "score_st": 0.9729903774981497,
+    "u_s": 0.9974093264248703,
+    "u_t": 0.9485714285714286,
+    "n_cards": 3,
+    "n_infra": 4,
+    "hub_share": 0.5
+   },
+   "n_alerted_days": 1,
+   "member_transaction_composition_txn_days": {
+    "txn_has_edge_cold__noinfra": 7,
+    "txn_has_edge_cold__infra": 3,
+    "txn_has_edge_warm__noinfra": 18,
+    "txn_has_edge_warm__infra": 3,
+    "txn_no_pseudo_account_edge__noinfra": 0,
+    "txn_no_pseudo_account_edge__infra": 0
+   },
+   "timeline": [
+    {
+     "day": 132,
+     "n_cards": 3,
+     "n_infra": 4,
+     "density": 0.5,
+     "hub_share": 0.5,
+     "conductance": 0.2258064516129032,
+     "u_s": 0.9974093264248703,
+     "u_t": 0.9485714285714286,
+     "score_st": 0.9729903774981497,
+     "n_member_txn": 31,
+     "alerted": true
+    }
+   ]
+  },
+  {
+   "track": 96,
+   "groups": [
+    "b_largest"
+   ],
+   "standing_statement": "candidate coordinated community; not a confirmed fraud ring",
+   "first_observed_day": 133,
+   "last_observed_day": 133,
+   "n_observed_days": 1,
+   "left_censored": false,
+   "right_censored": false,
+   "peak": {
+    "score_st": 0.7257648953301128,
+    "u_s": 0.7037037037037037,
+    "u_t": 0.7478260869565218,
+    "n_cards": 303,
+    "n_infra": 424,
+    "hub_share": 0.3933236574746008
+   },
+   "n_alerted_days": 0,
+   "member_transaction_composition_txn_days": {
+    "txn_has_edge_cold__noinfra": 1281,
+    "txn_has_edge_cold__infra": 478,
+    "txn_has_edge_warm__noinfra": 4053,
+    "txn_has_edge_warm__infra": 310,
+    "txn_no_pseudo_account_edge__noinfra": 6,
+    "txn_no_pseudo_account_edge__infra": 41
+   },
+   "timeline": [
+    {
+     "day": 133,
+     "n_cards": 303,
+     "n_infra": 424,
+     "density": 0.0081729871100317,
+     "hub_share": 0.3933236574746008,
+     "conductance": 0.1236883942766295,
+     "u_s": 0.7037037037037037,
+     "u_t": 0.7478260869565218,
+     "score_st": 0.7257648953301128,
+     "n_member_txn": 6169,
+     "alerted": false
+    }
+   ]
+  },
+  {
+   "track": 112,
+   "groups": [
+    "b_largest"
+   ],
+   "standing_statement": "candidate coordinated community; not a confirmed fraud ring",
+   "first_observed_day": 135,
+   "last_observed_day": 136,
+   "n_observed_days": 2,
+   "left_censored": false,
+   "right_censored": false,
+   "peak": {
+    "score_st": 0.793719806763285,
+    "u_s": 0.7222222222222222,
+    "u_t": 0.8652173913043478,
+    "n_cards": 344,
+    "n_infra": 519,
+    "hub_share": 0.4474114441416894
+   },
+   "n_alerted_days": 0,
+   "member_transaction_composition_txn_days": {
+    "txn_has_edge_cold__noinfra": 2315,
+    "txn_has_edge_cold__infra": 1146,
+    "txn_has_edge_warm__noinfra": 7960,
+    "txn_has_edge_warm__infra": 869,
+    "txn_no_pseudo_account_edge__noinfra": 9,
+    "txn_no_pseudo_account_edge__infra": 73
+   },
+   "timeline": [
+    {
+     "day": 135,
+     "n_cards": 344,
+     "n_infra": 519,
+     "density": 0.0075222924228166,
+     "hub_share": 0.4052863436123348,
+     "conductance": 0.0722860791826309,
+     "u_s": 0.7222222222222222,
+     "u_t": 0.7717391304347826,
+     "score_st": 0.7469806763285024,
+     "n_member_txn": 6657,
+     "alerted": false
+    },
+    {
+     "day": 136,
+     "n_cards": 326,
+     "n_infra": 496,
+     "density": 0.0083675539283593,
+     "hub_share": 0.4474114441416894,
+     "conductance": 0.073933888468332,
+     "u_s": 0.7222222222222222,
+     "u_t": 0.8652173913043478,
+     "score_st": 0.793719806763285,
+     "n_member_txn": 5715,
+     "alerted": false
+    }
+   ]
+  },
+  {
+   "track": 133,
+   "groups": [
+    "b_largest"
+   ],
+   "standing_statement": "candidate coordinated community; not a confirmed fraud ring",
+   "first_observed_day": 138,
+   "last_observed_day": 140,
+   "n_observed_days": 3,
+   "left_censored": false,
+   "right_censored": false,
+   "peak": {
+    "score_st": 0.7385265700483092,
+    "u_s": 0.7444444444444445,
+    "u_t": 0.75,
+    "n_cards": 441,
+    "n_infra": 629,
+    "hub_share": 0.4320652173913043
+   },
+   "n_alerted_days": 0,
+   "member_transaction_composition_txn_days": {
+    "txn_has_edge_cold__noinfra": 3523,
+    "txn_has_edge_cold__infra": 1716,
+    "txn_has_edge_warm__noinfra": 10166,
+    "txn_has_edge_warm__infra": 1232,
+    "txn_no_pseudo_account_edge__noinfra": 28,
+    "txn_no_pseudo_account_edge__infra": 123
+   },
+   "timeline": [
+    {
+     "day": 138,
+     "n_cards": 300,
+     "n_infra": 406,
+     "density": 0.0088341543513957,
+     "hub_share": 0.4320652173913043,
+     "conductance": 0.1164465786314525,
+     "u_s": 0.7037037037037037,
+     "u_t": 0.75,
+     "score_st": 0.7268518518518519,
+     "n_member_txn": 4488,
+     "alerted": false
+    },
+    {
+     "day": 139,
+     "n_cards": 325,
+     "n_infra": 431,
+     "density": 0.0083955024094235,
+     "hub_share": 0.4303466317854807,
+     "conductance": 0.1066316096990943,
+     "u_s": 0.7037037037037037,
+     "u_t": 0.6695652173913044,
+     "score_st": 0.6866344605475041,
+     "n_member_txn": 4937,
+     "alerted": false
+    },
+    {
+     "day": 140,
+     "n_cards": 441,
+     "n_infra": 629,
+     "density": 0.0065071073474434,
+     "hub_share": 0.4190017513134851,
+     "conductance": 0.0401548137397194,
+     "u_s": 0.7444444444444445,
+     "u_t": 0.7326086956521739,
+     "score_st": 0.7385265700483092,
+     "n_member_txn": 7363,
+     "alerted": false
+    }
+   ]
+  },
+  {
+   "track": 150,
+   "groups": [
+    "d_hub_dominated_high_s"
+   ],
+   "standing_statement": "candidate coordinated community; not a confirmed fraud ring",
+   "first_observed_day": 141,
+   "last_observed_day": 141,
+   "n_observed_days": 1,
+   "left_censored": false,
+   "right_censored": false,
+   "peak": {
+    "score_st": 0.8728571428571428,
+    "u_s": 1.0,
+    "u_t": 0.7457142857142857,
+    "n_cards": 3,
+    "n_infra": 6,
+    "hub_share": 0.3636363636363636
+   },
+   "n_alerted_days": 1,
+   "member_transaction_composition_txn_days": {
+    "txn_has_edge_cold__noinfra": 1,
+    "txn_has_edge_cold__infra": 5,
+    "txn_has_edge_warm__noinfra": 1,
+    "txn_has_edge_warm__infra": 7,
+    "txn_no_pseudo_account_edge__noinfra": 0,
+    "txn_no_pseudo_account_edge__infra": 0
+   },
+   "timeline": [
+    {
+     "day": 141,
+     "n_cards": 3,
+     "n_infra": 6,
+     "density": 0.5,
+     "hub_share": 0.3636363636363636,
+     "conductance": 0.1538461538461538,
+     "u_s": 1.0,
+     "u_t": 0.7457142857142857,
+     "score_st": 0.8728571428571428,
+     "n_member_txn": 14,
+     "alerted": true
+    }
+   ]
+  },
+  {
+   "track": 151,
+   "groups": [
+    "b_largest"
+   ],
+   "standing_statement": "candidate coordinated community; not a confirmed fraud ring",
+   "first_observed_day": 142,
+   "last_observed_day": 143,
+   "n_observed_days": 2,
+   "left_censored": false,
+   "right_censored": false,
+   "peak": {
+    "score_st": 0.793719806763285,
+    "u_s": 0.725925925925926,
+    "u_t": 0.8652173913043478,
+    "n_cards": 369,
+    "n_infra": 529,
+    "hub_share": 0.416210295728368
+   },
+   "n_alerted_days": 0,
+   "member_transaction_composition_txn_days": {
+    "txn_has_edge_cold__noinfra": 2969,
+    "txn_has_edge_cold__infra": 1225,
+    "txn_has_edge_warm__noinfra": 8656,
+    "txn_has_edge_warm__infra": 842,
+    "txn_no_pseudo_account_edge__noinfra": 32,
+    "txn_no_pseudo_account_edge__infra": 106
+   },
+   "timeline": [
+    {
+     "day": 142,
+     "n_cards": 361,
+     "n_infra": 529,
+     "density": 0.007687111520718,
+     "hub_share": 0.4027556968733439,
+     "conductance": 0.0817518248175182,
+     "u_s": 0.725925925925926,
+     "u_t": 0.8521739130434782,
+     "score_st": 0.789049919484702,
+     "n_member_txn": 6928,
+     "alerted": false
+    },
+    {
+     "day": 143,
+     "n_cards": 369,
+     "n_infra": 522,
+     "density": 0.0077199430998141,
+     "hub_share": 0.416210295728368,
+     "conductance": 0.0851703406813627,
+     "u_s": 0.7222222222222222,
+     "u_t": 0.8652173913043478,
+     "score_st": 0.793719806763285,
+     "n_member_txn": 6902,
+     "alerted": false
+    }
+   ]
+  },
+  {
+   "track": 172,
+   "groups": [
+    "a_top_peak_score"
+   ],
+   "standing_statement": "candidate coordinated community; not a confirmed fraud ring",
+   "first_observed_day": 144,
+   "last_observed_day": 145,
+   "n_observed_days": 2,
+   "left_censored": false,
+   "right_censored": false,
+   "peak": {
+    "score_st": 0.9857142857142858,
+    "u_s": 1.0,
+    "u_t": 0.9714285714285714,
+    "n_cards": 5,
+    "n_infra": 7,
+    "hub_share": 0.0
+   },
+   "n_alerted_days": 2,
+   "member_transaction_composition_txn_days": {
+    "txn_has_edge_cold__noinfra": 0,
+    "txn_has_edge_cold__infra": 12,
+    "txn_has_edge_warm__noinfra": 2,
+    "txn_has_edge_warm__infra": 16,
+    "txn_no_pseudo_account_edge__noinfra": 0,
+    "txn_no_pseudo_account_edge__infra": 0
+   },
+   "timeline": [
+    {
+     "day": 144,
+     "n_cards": 4,
+     "n_infra": 6,
+     "density": 0.375,
+     "hub_share": 0.0,
+     "conductance": 0.1707317073170731,
+     "u_s": 1.0,
+     "u_t": 0.9714285714285714,
+     "score_st": 0.9857142857142858,
+     "n_member_txn": 12,
+     "alerted": true
+    },
+    {
+     "day": 145,
+     "n_cards": 5,
+     "n_infra": 7,
+     "density": 0.3142857142857143,
+     "hub_share": 0.0,
+     "conductance": 0.1636363636363636,
+     "u_s": 1.0,
+     "u_t": 0.8181818181818182,
+     "score_st": 0.9090909090909092,
+     "n_member_txn": 18,
+     "alerted": true
+    }
+   ]
+  },
+  {
+   "track": 206,
+   "groups": [
+    "c_alerted_sample"
+   ],
+   "standing_statement": "candidate coordinated community; not a confirmed fraud ring",
+   "first_observed_day": 148,
+   "last_observed_day": 148,
+   "n_observed_days": 1,
+   "left_censored": false,
+   "right_censored": false,
+   "peak": {
+    "score_st": 0.8608290155440415,
+    "u_s": 0.7616580310880829,
+    "u_t": 0.96,
+    "n_cards": 3,
+    "n_infra": 2,
+    "hub_share": 0.0
+   },
+   "n_alerted_days": 1,
+   "member_transaction_composition_txn_days": {
+    "txn_has_edge_cold__noinfra": 0,
+    "txn_has_edge_cold__infra": 0,
+    "txn_has_edge_warm__noinfra": 0,
+    "txn_has_edge_warm__infra": 0,
+    "txn_no_pseudo_account_edge__noinfra": 0,
+    "txn_no_pseudo_account_edge__infra": 8
+   },
+   "timeline": [
+    {
+     "day": 148,
+     "n_cards": 3,
+     "n_infra": 2,
+     "density": 0.6666666666666666,
+     "hub_share": 0.0,
+     "conductance": 0.1428571428571428,
+     "u_s": 0.7616580310880829,
+     "u_t": 0.96,
+     "score_st": 0.8608290155440415,
+     "n_member_txn": 8,
+     "alerted": true
+    }
+   ]
+  },
+  {
+   "track": 207,
+   "groups": [
+    "c_alerted_sample"
+   ],
+   "standing_statement": "candidate coordinated community; not a confirmed fraud ring",
+   "first_observed_day": 148,
+   "last_observed_day": 148,
+   "n_observed_days": 1,
+   "left_censored": false,
+   "right_censored": false,
+   "peak": {
+    "score_st": 0.9454545454545454,
+    "u_s": 0.9818181818181818,
+    "u_t": 0.9090909090909092,
+    "n_cards": 8,
+    "n_infra": 8,
+    "hub_share": 0.0
+   },
+   "n_alerted_days": 1,
+   "member_transaction_composition_txn_days": {
+    "txn_has_edge_cold__noinfra": 9,
+    "txn_has_edge_cold__infra": 5,
+    "txn_has_edge_warm__noinfra": 5,
+    "txn_has_edge_warm__infra": 6,
+    "txn_no_pseudo_account_edge__noinfra": 0,
+    "txn_no_pseudo_account_edge__infra": 0
+   },
+   "timeline": [
+    {
+     "day": 148,
+     "n_cards": 8,
+     "n_infra": 8,
+     "density": 0.234375,
+     "hub_share": 0.0,
+     "conductance": 0.1555555555555555,
+     "u_s": 0.9818181818181818,
+     "u_t": 0.9090909090909092,
+     "score_st": 0.9454545454545454,
+     "n_member_txn": 25,
+     "alerted": true
+    }
+   ]
+  }
+ ]
+}

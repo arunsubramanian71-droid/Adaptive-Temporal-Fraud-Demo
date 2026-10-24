@@ -391,6 +391,87 @@ def test_recorded_browser_run_passed_everywhere_and_publishes_no_validation_row(
     assert 'placeholder = out / "_placeholder"' in harness and "page.set_input_files(\"#researchFile\", str(placeholder))" in harness
 
 
+def test_evidence_carries_the_recorded_h4_decision_from_its_record():
+    """Added 2026-10-23 for the Overview tab: the H4 verdict comes from the Phase 8 comparison record, not from text in the page."""
+    e = services().evidence()
+    rec = json.loads((ROOT / "experiments/phase8_adaptive_drift/comparison.json").read_text(encoding="utf-8"))
+    assert e["h4"]["decision"] == rec["h4_decision"] and e["h4"]["source"] == APP.READABLE["decision_h4"], e["h4"]
+
+
+def test_status_reports_research_data_and_model_files_by_existence_only():
+    """Added 2026-10-23: the dashboard distinguishes 'research data present' and 'model file present but not loaded'. Existence only; nothing is opened and
+    no TEST-named path is looked at."""
+    import shutil
+    import tempfile
+    d = pathlib.Path(tempfile.mkdtemp(prefix="srv_files_"))
+    try:
+        svc = APP.Services(root=d)
+        st = svc.status()
+        assert st["research_data_present"] is False and st["research_model_file_present"] is False, st
+        for rel in APP.RESEARCH_DATA_FILES:
+            assert "test" not in rel.lower(), rel
+            (d / rel).parent.mkdir(parents=True, exist_ok=True)
+            (d / rel).write_bytes(b"x")
+        (d / APP.RESEARCH_MODEL_FILE).parent.mkdir(parents=True, exist_ok=True)
+        (d / APP.RESEARCH_MODEL_FILE).write_bytes(b"x")
+        st = svc.status()
+        assert st["research_data_present"] is True and st["research_model_file_present"] is True and st["research_model_loaded"] is False, st
+        assert svc.opened == [], svc.opened
+    finally:
+        shutil.rmtree(d, ignore_errors=True)
+
+
+def test_page_has_an_overview_and_hardcodes_no_recorded_metric():
+    """Added 2026-10-23. Every number on the page is fetched from the API (read from the recorded files at request time): the page source holds no decimal
+    metric value, so a chart or table can never show a stale copy. The overview opens first and the synthetic-demo indicator is driven by /api/status."""
+    page = (ROOT / APP.DASHBOARD).read_text(encoding="utf-8")
+    script = page[page.index("<script>"):]
+    assert not re.findall(r"(?<![\w.])0\.\d{2,}", page), re.findall(r"(?<![\w.])0\.\d{2,}", page)[:5]
+    assert '<section id="tab-overview" role="tabpanel" aria-labelledby="btn-overview"' in page
+    assert script.index('["overview", "Overview"]') < script.index('["evidence", "Evidence (validation)"]') and 'show("overview")' in script
+    for k in ("ovTiles", "ovChart", "ovFindings", "ovNext", "modeChips"):
+        assert f'id="{k}"' in page, k
+    assert "synthetic_demo" in script and "SYNTHETIC DEMO" in script and "research_data_present" in script and "/health" in script
+    for typed in ("3 seeds", "single run", "stay below"):                     # run counts and comparisons come from the records (review 2026-10-23)
+        assert typed not in script, typed
+
+
+def test_requests_that_name_another_host_are_refused_unless_remote_access_was_allowed():
+    """Added 2026-10-23 (security review): without authentication, a page on another site that re-points its own host name at 127.0.0.1 (DNS rebinding)
+    could otherwise read the API. Browsers always send the name they used in the Host header, so only local names are served."""
+    with Running() as s:
+        for path in ("/", "/api/status", "/health"):
+            st, j, _ = s.call("GET", path, headers={"Host": "attacker.example:8765"})
+            assert st == 403 and "127.0.0.1" in j["error"], (path, st, j)
+        for host in (f"127.0.0.1:{s.port}", f"localhost:{s.port}", "localhost", f"[::1]:{s.port}"):
+            assert s.call("GET", "/health", headers={"Host": host})[0] == 200, host
+        st, j, _ = s.call("POST", "/api/score", {"new": sample()["new"][:2]}, headers={"Host": "attacker.example"})
+        assert st == 403, (st, j)
+    remote = APP.make_server(services(), "127.0.0.1", 0, allow_remote=True)            # --allow-remote: the operator accepted other host names
+    t = threading.Thread(target=remote.serve_forever, daemon=True)
+    t.start()
+    try:
+        c = http.client.HTTPConnection("127.0.0.1", remote.server_address[1], timeout=30)
+        c.request("GET", "/health", headers={"Host": "dashboard.lab.internal:8765"})
+        assert c.getresponse().status == 200
+        c.close()
+    finally:
+        remote.shutdown()
+        remote.server_close()
+
+
+def test_posts_must_be_json_and_the_page_cannot_be_framed():
+    """Added 2026-10-23 (security review): a cross-site HTML form can only send form or text bodies, so scoring requires application/json; the page refuses
+    to be framed by another site."""
+    with Running() as s:
+        st, j, _ = s.call("POST", "/api/score", raw=json.dumps({"new": sample()["new"][:2]}).encode(), headers={"Content-Type": "text/plain"})
+        assert st == 415 and "application/json" in j["error"], (st, j)
+        assert s.call("POST", "/api/score", {"new": sample()["new"][:2]})[0] == 200
+        _, _, r = s.call("GET", "/")
+        csp = r.getheader("Content-Security-Policy")
+        assert "frame-ancestors 'none'" in csp and "base-uri 'none'" in csp and "form-action 'none'" in csp and r.getheader("X-Frame-Options") == "DENY", csp
+
+
 def _run_all():
     fns = [v for k, v in globals().items() if k.startswith("test_") and callable(v)]
     passed, failed = 0, []

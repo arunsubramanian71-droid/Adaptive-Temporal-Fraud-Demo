@@ -1,0 +1,48 @@
+{
+ "scope": "synthetic demonstration bundle and synthetic rows only; in-process calls of the same Services methods the HTTP handlers use (no network time)",
+ "machine": "macOS-27.0.1-arm64-arm-64bit, arm64, Python 3.12.13",
+ "import_seconds": 1.95,
+ "demo_startup_seconds_train_bundle_in_memory": 0.38,
+ "score_1_new_row_with_300_history_rows": {
+  "median_ms": 4.4,
+  "min_ms": 4.1,
+  "max_ms": 6.7,
+  "repeats": 7
+ },
+ "score_30_new_rows_with_300_history_rows": {
+  "median_ms": 5.0,
+  "min_ms": 4.7,
+  "max_ms": 5.3,
+  "repeats": 7
+ },
+ "score_2000_new_rows_with_3000_history_rows": {
+  "median_ms": 44.0,
+  "min_ms": 42.8,
+  "max_ms": 45.3,
+  "repeats": 3
+ },
+ "evidence_endpoint_payload": {
+  "median_ms": 1.1,
+  "min_ms": 1.0,
+  "max_ms": 4.3,
+  "repeats": 7
+ },
+ "communities_endpoint_payload": {
+  "median_ms": 0.3,
+  "min_ms": 0.3,
+  "max_ms": 0.6,
+  "repeats": 7
+ },
+ "status_endpoint_payload": {
+  "median_ms": 0.0,
+  "min_ms": 0.0,
+  "max_ms": 0.0,
+  "repeats": 7
+ },
+ "peak_resident_memory_mb": 214.5,
+ "rows_checked": {
+  "history_big": 3000,
+  "new_big": 2000
+ },
+ "limitations": "one machine, warm caches after the first call, synthetic feature distribution; research-model inference not measured (model withheld); the neural models are not served"
+}

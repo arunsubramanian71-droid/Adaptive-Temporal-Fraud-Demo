@@ -1,0 +1,165 @@
+{
+ "date_local": "2026-10-23T13:52:08+05:30",
+ "command": "scripts/run_dashboard.py --demo --port 0 (separate process)",
+ "scope": "HTTP-level end-to-end check of the served page, API, scoring path, error handling and shutdown; it does not render the page",
+ "python": "3.12.13",
+ "seconds": 3.7,
+ "checks": [
+  {
+   "check": "launcher refuses a non-local host",
+   "pass": true,
+   "detail": "error: refusing to bind to non-local address '0.0.0.0': this server has no authentication; pass allow_remote only if you understand the risk"
+  },
+  {
+   "check": "launcher refuses a held-out-named bundle path",
+   "pass": true,
+   "detail": "error: refusing to read 'C:/data/test_bundle': the TEST period is sealed in this project (see reports/PROJECT_SYNTHESIS_REPORT.md section 6). Rename the file only if it does not contain held-out data."
+  },
+  {
+   "check": "launcher refuses --demo together with --bundle",
+   "pass": true,
+   "detail": "error: choose --demo or --bundle, not both"
+  },
+  {
+   "check": "server prints its address within 120 s",
+   "pass": true,
+   "detail": "training the synthetic demonstration bundle ...\ndashboard on http://127.0.0.1:56173/  (validation-period results only; Ctrl+C to stop)"
+  },
+  {
+   "check": "server listens on the loopback address only",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "check": "GET / returns the dashboard page",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "check": "page has no external resource reference",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "check": "GET /health returns JSON 200",
+   "pass": true,
+   "detail": "200"
+  },
+  {
+   "check": "GET /api/status returns JSON 200",
+   "pass": true,
+   "detail": "200"
+  },
+  {
+   "check": "GET /api/model returns JSON 200",
+   "pass": true,
+   "detail": "200"
+  },
+  {
+   "check": "GET /api/evidence returns JSON 200",
+   "pass": true,
+   "detail": "200"
+  },
+  {
+   "check": "GET /api/communities returns JSON 200",
+   "pass": true,
+   "detail": "200"
+  },
+  {
+   "check": "GET /api/sample returns JSON 200",
+   "pass": true,
+   "detail": "200"
+  },
+  {
+   "check": "evidence carries the validation-only banner and the held-out statement",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "check": "communities: 24 aggregate cards with the candidate statements",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "check": "scoring the synthetic sample works and is labelled synthetic",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "check": "alerted rows carry explanations, others do not",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "check": "unknown path -> 404",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "check": "wrong method on /api/score -> 405",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "check": "PUT -> 405",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "check": "invalid JSON -> 400",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "check": "empty new list -> 400",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "check": "missing columns -> 400",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "check": "more than 5,000 rows -> 400",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "check": "body over 1 MB -> 413",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "check": "held-out-named path -> 404",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "check": "path traversal -> 404",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "check": "error bodies are JSON without a stack trace",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "check": "server still answers after the error cases",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "check": "shutdown: the server process exited",
+   "pass": true,
+   "detail": "pid 40510, exit code -15"
+  },
+  {
+   "check": "shutdown: the port is closed",
+   "pass": true,
+   "detail": ""
+  }
+ ],
+ "all_pass": true
+}

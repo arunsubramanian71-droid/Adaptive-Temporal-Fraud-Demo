@@ -2,12 +2,14 @@
 
 Purpose: show that the project is a working, tested software system and show, without over-claiming, what it found. Two parts: a live software demonstration on synthetic data (3 minutes), then a walk through the recorded research results (7 minutes). **Say at the start: "the live demo uses synthetic data and reproduces no research result; the research results are validation-period results and no held-out evaluation has been done."**
 
+**macOS and Linux:** every command below is written for Windows; use `.venv/bin/python` instead of `.venv/Scripts/python.exe` (on macOS, `brew install libomp` once; README section 4). The macOS path was rehearsed end to end on 2026-10-23 (Apple Silicon): setup, tests, demonstration and dashboard.
+
 ## Before the session
 
 ```
 .venv/Scripts/python.exe -B scripts/run_tests.py
 ```
-Expect `ALL TEST MODULES PASSED` (about two to three minutes; 381 tests in 40 modules). Have `reports/PROJECT_SYNTHESIS_REPORT.md`, `experiments/comparison_B_graph_features/outputs/B_RESULTS.md` and `submission/MANUSCRIPT.md` open.
+Expect `ALL TEST MODULES PASSED` (about two to three minutes) on the machine that holds every withheld artifact: 381 tests in 40 modules on 2026-10-22, and 396 in 42 modules since the 15 tests added on 2026-10-23 (those 15 were run on macOS only). On a fresh clone, or any machine without the data and model files, run `scripts/run_core_tests.py` instead: it reports the artifact-dependent tests as NOT RUN. Have `reports/PROJECT_SYNTHESIS_REPORT.md`, `experiments/comparison_B_graph_features/outputs/B_RESULTS.md` and `submission/MANUSCRIPT.md` open.
 
 ## Part 1: live software demonstration (3 minutes)
 
@@ -33,7 +35,7 @@ Likely questions: *Is the demo the research?* No; the recorded experiments need 
 .venv/Scripts/python.exe -B scripts/run_dashboard.py --demo
 ```
 
-Open http://127.0.0.1:8765/ in a browser (leave the terminal running; Ctrl+C stops it). Walk the five tabs: **Evidence (validation)** shows the recorded tables and the standing banner; **Score transactions**: click *Load synthetic sample*, wait for the message, then *Score* (the answer is labelled synthetic); **Candidate communities** shows 24 aggregate-only cards (say: candidates, not confirmed to be fraudulent or coordinated; no member identities exist in this output); **Status and limits** shows that the held-out evaluation has not been performed. The **Research model** tab is part 1c. To show error handling, replace the request text with `{"new": []}` and click *Score*: the page shows the server's 400 message.
+Open http://127.0.0.1:8765/ in a browser (leave the terminal running; Ctrl+C stops it). Walk the six tabs. **Overview** opens first: read the research question aloud, point at the status tiles (research data and model not on this machine, held-out period sealed, synthetic demo bundle, API responding) and the SYNTHETIC DEMO MODE chip, then the chart. Say: "every bar is a recorded validation result read from the result files when the page loads; the dashed bar is a reference line that uses earlier labels, not a comparable model; tabular XGBoost is at least as good as every graph model". The verdict list beside it carries the recorded verdicts (H1 not established, H2 contradicted, H4 supported, H5 not established under the original protocol). **Evidence (validation)** shows the recorded tables and the standing banner; **Score transactions**: click *Load synthetic sample*, wait for the message, then *Score* (the answer is labelled synthetic); **Candidate communities** shows 24 aggregate-only cards (say: candidates, not confirmed to be fraudulent or coordinated; no member identities exist in this output); **Status and limits** shows that the held-out evaluation has not been performed. The **Research model** tab is part 1c. To show error handling, replace the request text with `{"new": []}` and click *Score*: the page shows the server's 400 message.
 
 ## Part 1c: the research model in the dashboard (2 minutes)
 
@@ -57,7 +59,9 @@ With PyTorch installed (`requirements-gnn.txt`): `.venv/Scripts/python.exe -B te
 
 ## If something breaks live
 
-* Demo fails to import xgboost or pandas: the environment is not installed; run `powershell -ExecutionPolicy Bypass -File scripts/quickstart_windows.ps1` or the setup in the root `README.md` section 5.
+* Demo fails to import xgboost or pandas: the environment is not installed; run `powershell -ExecutionPolicy Bypass -File scripts/quickstart_windows.ps1` (Windows) or `bash scripts/quickstart_unix.sh` (macOS / Linux), or the setup in the root `README.md` section 5.
+* macOS: `Library not loaded: @rpath/libomp.dylib` when XGBoost loads: `brew install libomp`, then start again.
+* The dashboard does not start because the port is in use: another dashboard is still running; stop it (Ctrl+C in its terminal) or add `--port 8800` and open `http://127.0.0.1:8800/`.
 * `error: [WinError 10048] ...` when starting the dashboard: a dashboard is already running on that port; stop it or add `--port 8800`.
 * Demo output differs from this guide's numbers: only the structure is promised; the files in `demo_output/` are deterministic for a fixed environment, and `tests/test_inference_demo.py` checks that two runs are byte-identical.
 * Never open or score a TEST-named file during the demonstration.

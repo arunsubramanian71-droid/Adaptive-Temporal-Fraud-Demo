@@ -33,8 +33,12 @@ READABLE = {
     "decision_unweighted": "experiments/imbalance_check_xgboost/outputs/unweighted_decision.json",
     "decision_imbalance": "experiments/imbalance_check_xgboost/outputs/decision.json",
     "cards": "experiments/phase11_explainable_evidence/community_cards/cards_W7_seed42.json",
+    "decision_h4": "experiments/phase8_adaptive_drift/comparison.json",
     "dashboard": DASHBOARD,
 }
+# looked up by existence only (never opened) so the status can say what this machine has; no TEST-named path is ever looked at
+RESEARCH_DATA_FILES = ("data/features/train_features.parquet", "data/features/val_features.parquet")
+RESEARCH_MODEL_FILE = "experiments/xgboost/model.joblib"
 SCORE_NOTE = "A score is a model output on the posted rows. It is not evidence of fraud, causation or coordination."
 HELD_OUT_NOTE = ("No held-out (days 152-182) evaluation has been performed; every recorded result is a validation-period result and most models were tuned on that period.")
 HELD_OUT_DONE_NOTE = ("Held-out (days 152-182) output exists in {folders} of experiments/final_heldout_protocol; held-out results are not shown on this dashboard, which "
@@ -111,7 +115,10 @@ class Services:
             b_rows.append({"cell": r["cell"], "model": r["model"], "runs": int(float(r["runs"])), "pr_auc": f("pr_auc"), "pr_auc_sd": f("pr_auc_sd"), "roc_auc": f("roc_auc"),
                            "pr_auc_cold": f("pr_auc_cold")})
         b, un, im = self.read_json("decision_B"), self.read_json("decision_unweighted"), self.read_json("decision_imbalance")
+        h4 = self.read_json("decision_h4")
         return _clean({
+            "h4": {"decision": h4["h4_decision"], "source": READABLE["decision_h4"],
+                   "rule": "locked Phase 8 rule: periodic refresh (arm Ad) against frozen (F) and replay control (E), three seeds, validation windows"},
             "banner": table["standing_statement"], "f_banner": table["f_banner"], "held_out": held_out_note(self.root)[1],
             "phase12_cells": cells, "comparison_b_rows": b_rows,
             "comparison_b_verdicts": {"H1_direct_B_vs_A": b["H1_direct_B_vs_A"]["verdict"], "H2_E_vs_B_sub": b["H2_E_vs_B_sub"]["verdict"],
@@ -142,7 +149,9 @@ class Services:
                 "h5": ("not established under the original protocol (frozen benchmark gate G4 failed on 2 of 3 seeds); a separately pre-registered "
                        "benchmark (Phase 9b) supports H5a-9b without changing that verdict"), "communities": "candidates only; not confirmed to be fraudulent or coordinated",
                 "scoring_bundle_loaded": self.bundle is not None, "synthetic_demo": self.synthetic_demo,
-                "research_model_loaded": self.research is not None}
+                "research_model_loaded": self.research is not None,
+                "research_model_file_present": (self.root / RESEARCH_MODEL_FILE).exists(),
+                "research_data_present": all((self.root / p).exists() for p in RESEARCH_DATA_FILES)}
 
     # ------------------------------------------------------------------ research model (separate mode)
     def research_info(self) -> dict:
@@ -218,7 +227,22 @@ class Services:
         return _clean({"synthetic_demo": self.synthetic_demo, "threshold": self.bundle.threshold, "n": len(out), "n_alerts": sum(o["alert"] for o in out), "results": out, "statement": SCORE_NOTE})
 
 
-def make_handler(services: Services):
+CSP = ("default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; connect-src 'self'; img-src 'self' data:; "
+       "frame-ancestors 'none'; base-uri 'none'; form-action 'none'")
+LOCAL_HOST_NAMES = ("127.0.0.1", "localhost", "[::1]", "::1")
+
+
+def host_is_local(host_header) -> bool:
+    """True for a missing Host header or one that names this machine (127.0.0.1, localhost or [::1], any port). Since 2026-10-23: a page on another site
+    that re-points its own name at 127.0.0.1 (DNS rebinding) sends that name, so it is refused."""
+    if not host_header:
+        return True
+    h = host_header.strip().lower()
+    name = h[:h.index("]") + 1] if h.startswith("[") and "]" in h else h.rsplit(":", 1)[0] if h.count(":") == 1 else h
+    return name in LOCAL_HOST_NAMES
+
+
+def make_handler(services: Services, allow_remote: bool = False):
     html = None
 
     class Handler(http.server.BaseHTTPRequestHandler):
@@ -235,7 +259,9 @@ def make_handler(services: Services):
             self.send_header("Content-Length", str(len(body)))
             self.send_header("Cache-Control", "no-store")
             self.send_header("X-Content-Type-Options", "nosniff")
-            self.send_header("Content-Security-Policy", "default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; connect-src 'self'; img-src 'self' data:")
+            self.send_header("Content-Security-Policy", CSP)
+            self.send_header("X-Frame-Options", "DENY")
+            self.send_header("Referrer-Policy", "no-referrer")
             self.end_headers()
             self.wfile.write(body)
 
@@ -250,6 +276,10 @@ def make_handler(services: Services):
             nonlocal html
             path = self.path.split("?", 1)[0]
             try:
+                if not allow_remote and not host_is_local(self.headers.get("Host")):
+                    raise ApiError(403, "address this server as 127.0.0.1 or localhost (it has no authentication; start it with --allow-remote to accept other host names)")
+                if method == "POST" and not (self.headers.get("Content-Type") or "").lower().startswith("application/json"):
+                    raise ApiError(415, "POST bodies must be sent with Content-Type: application/json")
                 low = path.lower().replace("latest", "")
                 if ".." in path or "\\" in path or "test" in low:
                     raise ApiError(404, "not found")
@@ -336,4 +366,4 @@ class Server(socketserver.ThreadingMixIn, http.server.HTTPServer):
 def make_server(services: Services, host: str = "127.0.0.1", port: int = 8765, allow_remote: bool = False) -> Server:
     if host not in LOCAL_HOSTS and not allow_remote:
         raise ValueError(f"refusing to bind to non-local address '{host}': this server has no authentication; pass allow_remote only if you understand the risk")
-    return Server((host, port), make_handler(services))
+    return Server((host, port), make_handler(services, allow_remote=allow_remote))

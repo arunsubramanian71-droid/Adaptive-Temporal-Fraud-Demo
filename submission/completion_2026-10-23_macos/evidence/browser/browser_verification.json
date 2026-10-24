@@ -1,0 +1,793 @@
+{
+ "created_local": "2026-10-23T13:52:46+05:30",
+ "browser": "chrome 154.0.8037.93 (headless, Playwright)",
+ "viewports": {
+  "desktop": {
+   "width": 1366,
+   "height": 900
+  },
+  "phone": {
+   "width": 390,
+   "height": 844
+  }
+ },
+ "colour_schemes": [
+  "light",
+  "dark"
+ ],
+ "full_page_screenshots": false,
+ "screenshots_quantized_256_colours": true,
+ "research_tab_screenshots": "synthetic placeholder rows (identifiers 900000001..., features missing); no IEEE-CIS row appears in any screenshot or in this record",
+ "research_rows_file_used": false,
+ "summary": {
+  "checks": 124,
+  "passed": 123,
+  "failed": 0,
+  "not_run": 1
+ },
+ "checks": [
+  {
+   "check": "desktop_light: tab 'overview' has no horizontal page scroll",
+   "result": "PASS",
+   "detail": "{'doc': 1366, 'view': 1366}"
+  },
+  {
+   "check": "desktop_light: tab 'evidence' has no horizontal page scroll",
+   "result": "PASS",
+   "detail": "{'doc': 1366, 'view': 1366}"
+  },
+  {
+   "check": "desktop_light: tab 'evidence' shows the sideways-scroll hint exactly under the tables wider than their frame",
+   "result": "PASS",
+   "detail": "[[True, 1090, 1090], [True, 1090, 1090]]"
+  },
+  {
+   "check": "desktop_light: tab 'score' has no horizontal page scroll",
+   "result": "PASS",
+   "detail": "{'doc': 1366, 'view': 1366}"
+  },
+  {
+   "check": "desktop_light: tab 'score' shows the sideways-scroll hint exactly under the tables wider than their frame",
+   "result": "PASS",
+   "detail": "[[True, 1090, 1090]]"
+  },
+  {
+   "check": "desktop_light: tab 'research' has no horizontal page scroll",
+   "result": "PASS",
+   "detail": "{'doc': 1366, 'view': 1366}"
+  },
+  {
+   "check": "desktop_light: tab 'communities' has no horizontal page scroll",
+   "result": "PASS",
+   "detail": "{'doc': 1366, 'view': 1366}"
+  },
+  {
+   "check": "desktop_light: tab 'status' has no horizontal page scroll",
+   "result": "PASS",
+   "detail": "{'doc': 1366, 'view': 1366}"
+  },
+  {
+   "check": "desktop_light: contrast of banner text on tab 'overview' >= 4.5:1",
+   "result": "PASS",
+   "detail": "worst 6.24 {'text': 'Descriptive table of recorded validation', 'fg': 'rgb(138, 75, 0)', 'bg': 'rgb(255, 244, 224)', 'ratio': 6.241692052282236}"
+  },
+  {
+   "check": "desktop_light: contrast of tab labels on tab 'overview' >= 4.5:1",
+   "result": "PASS",
+   "detail": "worst 5.90 {'text': 'Evidence (validation)', 'fg': 'rgb(84, 95, 109)', 'bg': 'rgb(243, 244, 246)', 'ratio': 5.899198422196144}"
+  },
+  {
+   "check": "desktop_light: contrast of primary buttons on tab 'score' >= 4.5:1",
+   "result": "PASS",
+   "detail": "worst 6.09 {'text': 'Score', 'fg': 'rgb(255, 255, 255)', 'bg': 'rgb(31, 95, 191)', 'ratio': 6.0914369023923145}"
+  },
+  {
+   "check": "desktop_light: contrast of primary buttons on tab 'research' >= 4.5:1",
+   "result": "PASS",
+   "detail": "worst 6.09 {'text': 'Score with the research model', 'fg': 'rgb(255, 255, 255)', 'bg': 'rgb(31, 95, 191)', 'ratio': 6.0914369023923145}"
+  },
+  {
+   "check": "desktop_light: contrast of secondary buttons on tab 'score' >= 4.5:1",
+   "result": "PASS",
+   "detail": "worst 17.49 {'text': 'Load synthetic sample', 'fg': 'rgb(20, 26, 34)', 'bg': 'rgb(255, 255, 255)', 'ratio': 17.49124096443806}"
+  },
+  {
+   "check": "desktop_light: contrast of muted text on tab 'overview' >= 4.5:1",
+   "result": "PASS",
+   "detail": "worst 6.49 {'text': 'Data: the IEEE-CIS Fraud Detection trans', 'fg': 'rgb(84, 95, 109)', 'bg': 'rgb(255, 255, 255)', 'ratio': 6.492156463038961}"
+  },
+  {
+   "check": "desktop_light: contrast of muted text on tab 'evidence' >= 4.5:1",
+   "result": "PASS",
+   "detail": "worst 6.49 {'text': 'F rows are on a distinct evaluation basi', 'fg': 'rgb(84, 95, 109)', 'bg': 'rgb(255, 255, 255)', 'ratio': 6.492156463038961}"
+  },
+  {
+   "check": "desktop_light: contrast of muted text on tab 'score' >= 4.5:1",
+   "result": "PASS",
+   "detail": "worst 6.49 {'text': 'Score rows with the bundle loaded on the', 'fg': 'rgb(84, 95, 109)', 'bg': 'rgb(255, 255, 255)', 'ratio': 6.492156463038961}"
+  },
+  {
+   "check": "desktop_light: contrast of muted text on tab 'research' >= 4.5:1",
+   "result": "PASS",
+   "detail": "worst 6.49 {'text': 'Research model: the recorded comparison-', 'fg': 'rgb(84, 95, 109)', 'bg': 'rgb(255, 255, 255)', 'ratio': 6.492156463038961}"
+  },
+  {
+   "check": "desktop_light: contrast of muted text on tab 'communities' >= 4.5:1",
+   "result": "PASS",
+   "detail": "worst 6.49 {'text': 'aggregate-only cards for exploratory Pha', 'fg': 'rgb(84, 95, 109)', 'bg': 'rgb(255, 255, 255)', 'ratio': 6.492156463038961}"
+  },
+  {
+   "check": "desktop_light: contrast of table cells on tab 'evidence' >= 4.5:1",
+   "result": "PASS",
+   "detail": "worst 17.49 {'text': 'A', 'fg': 'rgb(20, 26, 34)', 'bg': 'rgb(255, 255, 255)', 'ratio': 17.49124096443806}"
+  },
+  {
+   "check": "desktop_light: contrast of table cells on tab 'score' >= 4.5:1",
+   "result": "PASS",
+   "detail": "worst 7.46 {'text': 'ALERT', 'fg': 'rgb(161, 38, 34)', 'bg': 'rgb(255, 255, 255)', 'ratio': 7.458029005108288}"
+  },
+  {
+   "check": "desktop_light: contrast of alert text on tab 'research' >= 4.5:1",
+   "result": "PASS",
+   "detail": "worst 7.46 {'text': 'the research model is not loaded (start ', 'fg': 'rgb(161, 38, 34)', 'bg': 'rgb(255, 255, 255)', 'ratio': 7.458029005108288}"
+  },
+  {
+   "check": "desktop_dark: tab 'overview' has no horizontal page scroll",
+   "result": "PASS",
+   "detail": "{'doc': 1366, 'view': 1366}"
+  },
+  {
+   "check": "desktop_dark: tab 'evidence' has no horizontal page scroll",
+   "result": "PASS",
+   "detail": "{'doc': 1366, 'view': 1366}"
+  },
+  {
+   "check": "desktop_dark: tab 'evidence' shows the sideways-scroll hint exactly under the tables wider than their frame",
+   "result": "PASS",
+   "detail": "[[True, 1090, 1090], [True, 1090, 1090]]"
+  },
+  {
+   "check": "desktop_dark: tab 'score' has no horizontal page scroll",
+   "result": "PASS",
+   "detail": "{'doc': 1366, 'view': 1366}"
+  },
+  {
+   "check": "desktop_dark: tab 'score' shows the sideways-scroll hint exactly under the tables wider than their frame",
+   "result": "PASS",
+   "detail": "[[True, 1090, 1090]]"
+  },
+  {
+   "check": "desktop_dark: tab 'research' has no horizontal page scroll",
+   "result": "PASS",
+   "detail": "{'doc': 1366, 'view': 1366}"
+  },
+  {
+   "check": "desktop_dark: tab 'communities' has no horizontal page scroll",
+   "result": "PASS",
+   "detail": "{'doc': 1366, 'view': 1366}"
+  },
+  {
+   "check": "desktop_dark: tab 'status' has no horizontal page scroll",
+   "result": "PASS",
+   "detail": "{'doc': 1366, 'view': 1366}"
+  },
+  {
+   "check": "desktop_dark: contrast of banner text on tab 'overview' >= 4.5:1",
+   "result": "PASS",
+   "detail": "worst 9.50 {'text': 'Descriptive table of recorded validation', 'fg': 'rgb(240, 194, 122)', 'bg': 'rgb(42, 34, 20)', 'ratio': 9.498408301699861}"
+  },
+  {
+   "check": "desktop_dark: contrast of tab labels on tab 'overview' >= 4.5:1",
+   "result": "PASS",
+   "detail": "worst 6.82 {'text': 'Overview', 'fg': 'rgb(106, 164, 255)', 'bg': 'rgb(23, 28, 35)', 'ratio': 6.820180194253818}"
+  },
+  {
+   "check": "desktop_dark: contrast of primary buttons on tab 'score' >= 4.5:1",
+   "result": "PASS",
+   "detail": "worst 7.18 {'text': 'Score', 'fg': 'rgb(11, 23, 38)', 'bg': 'rgb(106, 164, 255)', 'ratio': 7.18337049371044}"
+  },
+  {
+   "check": "desktop_dark: contrast of primary buttons on tab 'research' >= 4.5:1",
+   "result": "PASS",
+   "detail": "worst 7.18 {'text': 'Score with the research model', 'fg': 'rgb(11, 23, 38)', 'bg': 'rgb(106, 164, 255)', 'ratio': 7.18337049371044}"
+  },
+  {
+   "check": "desktop_dark: contrast of secondary buttons on tab 'score' >= 4.5:1",
+   "result": "PASS",
+   "detail": "worst 14.18 {'text': 'Load synthetic sample', 'fg': 'rgb(230, 234, 240)', 'bg': 'rgb(23, 28, 35)', 'ratio': 14.176668396791294}"
+  },
+  {
+   "check": "desktop_dark: contrast of muted text on tab 'overview' >= 4.5:1",
+   "result": "PASS",
+   "detail": "worst 6.93 {'text': 'Data: the IEEE-CIS Fraud Detection trans', 'fg': 'rgb(154, 166, 181)', 'bg': 'rgb(23, 28, 35)', 'ratio': 6.925097880826342}"
+  },
+  {
+   "check": "desktop_dark: contrast of muted text on tab 'evidence' >= 4.5:1",
+   "result": "PASS",
+   "detail": "worst 6.93 {'text': 'F rows are on a distinct evaluation basi', 'fg': 'rgb(154, 166, 181)', 'bg': 'rgb(23, 28, 35)', 'ratio': 6.925097880826342}"
+  },
+  {
+   "check": "desktop_dark: contrast of muted text on tab 'score' >= 4.5:1",
+   "result": "PASS",
+   "detail": "worst 6.93 {'text': 'Score rows with the bundle loaded on the', 'fg': 'rgb(154, 166, 181)', 'bg': 'rgb(23, 28, 35)', 'ratio': 6.925097880826342}"
+  },
+  {
+   "check": "desktop_dark: contrast of muted text on tab 'research' >= 4.5:1",
+   "result": "PASS",
+   "detail": "worst 6.93 {'text': 'Research model: the recorded comparison-', 'fg': 'rgb(154, 166, 181)', 'bg': 'rgb(23, 28, 35)', 'ratio': 6.925097880826342}"
+  },
+  {
+   "check": "desktop_dark: contrast of muted text on tab 'communities' >= 4.5:1",
+   "result": "PASS",
+   "detail": "worst 6.93 {'text': 'aggregate-only cards for exploratory Pha', 'fg': 'rgb(154, 166, 181)', 'bg': 'rgb(23, 28, 35)', 'ratio': 6.925097880826342}"
+  },
+  {
+   "check": "desktop_dark: contrast of table cells on tab 'evidence' >= 4.5:1",
+   "result": "PASS",
+   "detail": "worst 14.18 {'text': 'A', 'fg': 'rgb(230, 234, 240)', 'bg': 'rgb(23, 28, 35)', 'ratio': 14.176668396791294}"
+  },
+  {
+   "check": "desktop_dark: contrast of table cells on tab 'score' >= 4.5:1",
+   "result": "PASS",
+   "detail": "worst 7.52 {'text': 'ALERT', 'fg': 'rgb(255, 138, 132)', 'bg': 'rgb(23, 28, 35)', 'ratio': 7.515941530891716}"
+  },
+  {
+   "check": "desktop_dark: contrast of alert text on tab 'research' >= 4.5:1",
+   "result": "PASS",
+   "detail": "worst 7.52 {'text': 'the research model is not loaded (start ', 'fg': 'rgb(255, 138, 132)', 'bg': 'rgb(23, 28, 35)', 'ratio': 7.515941530891716}"
+  },
+  {
+   "check": "phone_light: tab 'overview' has no horizontal page scroll",
+   "result": "PASS",
+   "detail": "{'doc': 390, 'view': 390}"
+  },
+  {
+   "check": "phone_light: tab 'evidence' has no horizontal page scroll",
+   "result": "PASS",
+   "detail": "{'doc': 390, 'view': 390}"
+  },
+  {
+   "check": "phone_light: tab 'evidence' shows the sideways-scroll hint exactly under the tables wider than their frame",
+   "result": "PASS",
+   "detail": "[[False, 581, 348], [False, 430, 348]]"
+  },
+  {
+   "check": "phone_light: tab 'score' has no horizontal page scroll",
+   "result": "PASS",
+   "detail": "{'doc': 390, 'view': 390}"
+  },
+  {
+   "check": "phone_light: tab 'score' shows the sideways-scroll hint exactly under the tables wider than their frame",
+   "result": "PASS",
+   "detail": "[[True, 348, 348]]"
+  },
+  {
+   "check": "phone_light: tab 'research' has no horizontal page scroll",
+   "result": "PASS",
+   "detail": "{'doc': 390, 'view': 390}"
+  },
+  {
+   "check": "phone_light: tab 'communities' has no horizontal page scroll",
+   "result": "PASS",
+   "detail": "{'doc': 390, 'view': 390}"
+  },
+  {
+   "check": "phone_light: tab 'status' has no horizontal page scroll",
+   "result": "PASS",
+   "detail": "{'doc': 390, 'view': 390}"
+  },
+  {
+   "check": "phone_light: contrast of banner text on tab 'overview' >= 4.5:1",
+   "result": "PASS",
+   "detail": "worst 6.24 {'text': 'Descriptive table of recorded validation', 'fg': 'rgb(138, 75, 0)', 'bg': 'rgb(255, 244, 224)', 'ratio': 6.241692052282236}"
+  },
+  {
+   "check": "phone_light: contrast of tab labels on tab 'overview' >= 4.5:1",
+   "result": "PASS",
+   "detail": "worst 5.90 {'text': 'Evidence (validation)', 'fg': 'rgb(84, 95, 109)', 'bg': 'rgb(243, 244, 246)', 'ratio': 5.899198422196144}"
+  },
+  {
+   "check": "phone_light: contrast of primary buttons on tab 'score' >= 4.5:1",
+   "result": "PASS",
+   "detail": "worst 6.09 {'text': 'Score', 'fg': 'rgb(255, 255, 255)', 'bg': 'rgb(31, 95, 191)', 'ratio': 6.0914369023923145}"
+  },
+  {
+   "check": "phone_light: contrast of primary buttons on tab 'research' >= 4.5:1",
+   "result": "PASS",
+   "detail": "worst 6.09 {'text': 'Score with the research model', 'fg': 'rgb(255, 255, 255)', 'bg': 'rgb(31, 95, 191)', 'ratio': 6.0914369023923145}"
+  },
+  {
+   "check": "phone_light: contrast of secondary buttons on tab 'score' >= 4.5:1",
+   "result": "PASS",
+   "detail": "worst 17.49 {'text': 'Load synthetic sample', 'fg': 'rgb(20, 26, 34)', 'bg': 'rgb(255, 255, 255)', 'ratio': 17.49124096443806}"
+  },
+  {
+   "check": "phone_light: contrast of muted text on tab 'overview' >= 4.5:1",
+   "result": "PASS",
+   "detail": "worst 6.49 {'text': 'Data: the IEEE-CIS Fraud Detection trans', 'fg': 'rgb(84, 95, 109)', 'bg': 'rgb(255, 255, 255)', 'ratio': 6.492156463038961}"
+  },
+  {
+   "check": "phone_light: contrast of muted text on tab 'evidence' >= 4.5:1",
+   "result": "PASS",
+   "detail": "worst 6.49 {'text': 'F rows are on a distinct evaluation basi', 'fg': 'rgb(84, 95, 109)', 'bg': 'rgb(255, 255, 255)', 'ratio': 6.492156463038961}"
+  },
+  {
+   "check": "phone_light: contrast of muted text on tab 'score' >= 4.5:1",
+   "result": "PASS",
+   "detail": "worst 6.49 {'text': 'Score rows with the bundle loaded on the', 'fg': 'rgb(84, 95, 109)', 'bg': 'rgb(255, 255, 255)', 'ratio': 6.492156463038961}"
+  },
+  {
+   "check": "phone_light: contrast of muted text on tab 'research' >= 4.5:1",
+   "result": "PASS",
+   "detail": "worst 6.49 {'text': 'Research model: the recorded comparison-', 'fg': 'rgb(84, 95, 109)', 'bg': 'rgb(255, 255, 255)', 'ratio': 6.492156463038961}"
+  },
+  {
+   "check": "phone_light: contrast of muted text on tab 'communities' >= 4.5:1",
+   "result": "PASS",
+   "detail": "worst 6.49 {'text': 'aggregate-only cards for exploratory Pha', 'fg': 'rgb(84, 95, 109)', 'bg': 'rgb(255, 255, 255)', 'ratio': 6.492156463038961}"
+  },
+  {
+   "check": "phone_light: contrast of table cells on tab 'evidence' >= 4.5:1",
+   "result": "PASS",
+   "detail": "worst 17.49 {'text': 'A', 'fg': 'rgb(20, 26, 34)', 'bg': 'rgb(255, 255, 255)', 'ratio': 17.49124096443806}"
+  },
+  {
+   "check": "phone_light: contrast of table cells on tab 'score' >= 4.5:1",
+   "result": "PASS",
+   "detail": "worst 7.46 {'text': 'ALERT', 'fg': 'rgb(161, 38, 34)', 'bg': 'rgb(255, 255, 255)', 'ratio': 7.458029005108288}"
+  },
+  {
+   "check": "phone_light: contrast of alert text on tab 'research' >= 4.5:1",
+   "result": "PASS",
+   "detail": "worst 7.46 {'text': 'the research model is not loaded (start ', 'fg': 'rgb(161, 38, 34)', 'bg': 'rgb(255, 255, 255)', 'ratio': 7.458029005108288}"
+  },
+  {
+   "check": "phone_dark: tab 'overview' has no horizontal page scroll",
+   "result": "PASS",
+   "detail": "{'doc': 390, 'view': 390}"
+  },
+  {
+   "check": "phone_dark: tab 'evidence' has no horizontal page scroll",
+   "result": "PASS",
+   "detail": "{'doc': 390, 'view': 390}"
+  },
+  {
+   "check": "phone_dark: tab 'evidence' shows the sideways-scroll hint exactly under the tables wider than their frame",
+   "result": "PASS",
+   "detail": "[[False, 581, 348], [False, 430, 348]]"
+  },
+  {
+   "check": "phone_dark: tab 'score' has no horizontal page scroll",
+   "result": "PASS",
+   "detail": "{'doc': 390, 'view': 390}"
+  },
+  {
+   "check": "phone_dark: tab 'score' shows the sideways-scroll hint exactly under the tables wider than their frame",
+   "result": "PASS",
+   "detail": "[[True, 348, 348]]"
+  },
+  {
+   "check": "phone_dark: tab 'research' has no horizontal page scroll",
+   "result": "PASS",
+   "detail": "{'doc': 390, 'view': 390}"
+  },
+  {
+   "check": "phone_dark: tab 'communities' has no horizontal page scroll",
+   "result": "PASS",
+   "detail": "{'doc': 390, 'view': 390}"
+  },
+  {
+   "check": "phone_dark: tab 'status' has no horizontal page scroll",
+   "result": "PASS",
+   "detail": "{'doc': 390, 'view': 390}"
+  },
+  {
+   "check": "phone_dark: contrast of banner text on tab 'overview' >= 4.5:1",
+   "result": "PASS",
+   "detail": "worst 9.50 {'text': 'Descriptive table of recorded validation', 'fg': 'rgb(240, 194, 122)', 'bg': 'rgb(42, 34, 20)', 'ratio': 9.498408301699861}"
+  },
+  {
+   "check": "phone_dark: contrast of tab labels on tab 'overview' >= 4.5:1",
+   "result": "PASS",
+   "detail": "worst 6.82 {'text': 'Overview', 'fg': 'rgb(106, 164, 255)', 'bg': 'rgb(23, 28, 35)', 'ratio': 6.820180194253818}"
+  },
+  {
+   "check": "phone_dark: contrast of primary buttons on tab 'score' >= 4.5:1",
+   "result": "PASS",
+   "detail": "worst 7.18 {'text': 'Score', 'fg': 'rgb(11, 23, 38)', 'bg': 'rgb(106, 164, 255)', 'ratio': 7.18337049371044}"
+  },
+  {
+   "check": "phone_dark: contrast of primary buttons on tab 'research' >= 4.5:1",
+   "result": "PASS",
+   "detail": "worst 7.18 {'text': 'Score with the research model', 'fg': 'rgb(11, 23, 38)', 'bg': 'rgb(106, 164, 255)', 'ratio': 7.18337049371044}"
+  },
+  {
+   "check": "phone_dark: contrast of secondary buttons on tab 'score' >= 4.5:1",
+   "result": "PASS",
+   "detail": "worst 14.18 {'text': 'Load synthetic sample', 'fg': 'rgb(230, 234, 240)', 'bg': 'rgb(23, 28, 35)', 'ratio': 14.176668396791294}"
+  },
+  {
+   "check": "phone_dark: contrast of muted text on tab 'overview' >= 4.5:1",
+   "result": "PASS",
+   "detail": "worst 6.93 {'text': 'Data: the IEEE-CIS Fraud Detection trans', 'fg': 'rgb(154, 166, 181)', 'bg': 'rgb(23, 28, 35)', 'ratio': 6.925097880826342}"
+  },
+  {
+   "check": "phone_dark: contrast of muted text on tab 'evidence' >= 4.5:1",
+   "result": "PASS",
+   "detail": "worst 6.93 {'text': 'F rows are on a distinct evaluation basi', 'fg': 'rgb(154, 166, 181)', 'bg': 'rgb(23, 28, 35)', 'ratio': 6.925097880826342}"
+  },
+  {
+   "check": "phone_dark: contrast of muted text on tab 'score' >= 4.5:1",
+   "result": "PASS",
+   "detail": "worst 6.93 {'text': 'Score rows with the bundle loaded on the', 'fg': 'rgb(154, 166, 181)', 'bg': 'rgb(23, 28, 35)', 'ratio': 6.925097880826342}"
+  },
+  {
+   "check": "phone_dark: contrast of muted text on tab 'research' >= 4.5:1",
+   "result": "PASS",
+   "detail": "worst 6.93 {'text': 'Research model: the recorded comparison-', 'fg': 'rgb(154, 166, 181)', 'bg': 'rgb(23, 28, 35)', 'ratio': 6.925097880826342}"
+  },
+  {
+   "check": "phone_dark: contrast of muted text on tab 'communities' >= 4.5:1",
+   "result": "PASS",
+   "detail": "worst 6.93 {'text': 'aggregate-only cards for exploratory Pha', 'fg': 'rgb(154, 166, 181)', 'bg': 'rgb(23, 28, 35)', 'ratio': 6.925097880826342}"
+  },
+  {
+   "check": "phone_dark: contrast of table cells on tab 'evidence' >= 4.5:1",
+   "result": "PASS",
+   "detail": "worst 14.18 {'text': 'A', 'fg': 'rgb(230, 234, 240)', 'bg': 'rgb(23, 28, 35)', 'ratio': 14.176668396791294}"
+  },
+  {
+   "check": "phone_dark: contrast of table cells on tab 'score' >= 4.5:1",
+   "result": "PASS",
+   "detail": "worst 7.52 {'text': 'ALERT', 'fg': 'rgb(255, 138, 132)', 'bg': 'rgb(23, 28, 35)', 'ratio': 7.515941530891716}"
+  },
+  {
+   "check": "phone_dark: contrast of alert text on tab 'research' >= 4.5:1",
+   "result": "PASS",
+   "detail": "worst 7.52 {'text': 'the research model is not loaded (start ', 'fg': 'rgb(255, 138, 132)', 'bg': 'rgb(23, 28, 35)', 'ratio': 7.515941530891716}"
+  },
+  {
+   "check": "evidence: one table row per recorded Phase 12 cell",
+   "result": "PASS",
+   "detail": "17"
+  },
+  {
+   "check": "evidence: banner carries the standing statement and the held-out note",
+   "result": "PASS",
+   "detail": ""
+  },
+  {
+   "check": "overview: the chart has one row per recorded pooled-validation cell plus the single-run B arm, showing the recorded PR-AUC (4 decimals)",
+   "result": "PASS",
+   "detail": "[['A-reference', '0.6771'], ['B', '0.5440'], ['A', '0.5395'], ['E', '0.4927'], ['E-control', '0.4792'], ['E-control', '0.4790'], ['C', '0.4637'], ['A', '0.4543'], ['C-control', '0.4167'], ['A', '0.4126'], ['D', '0.3320']]"
+  },
+  {
+   "check": "overview: the findings show the recorded verdicts (H1, H2, H4, class weighting) and the H5 statement",
+   "result": "PASS",
+   "detail": "['NOT ESTABLISHED', 'HANDCRAFTED AT LEAST AS GOOD (H2 contradicted)', 'supported', 'WEIGHTING HURTS']"
+  },
+  {
+   "check": "overview: the synthetic-demo indicator is shown on the demo server",
+   "result": "PASS",
+   "detail": "Validation-period results\nSYNTHETIC DEMO MODE\nResearch model not loaded\nHeld-out period sealed"
+  },
+  {
+   "check": "overview: the tiles report the held-out seal, research data and research model as /api/status does",
+   "result": "PASS",
+   "detail": "EVIDENCE SHOWN\nValidation period only\ndays 122-151; most models were tuned on it\nHELD-OUT EVALUATION\nSealed, not performed\nawaits the owner's authorization\nRESEARCH DATA\nNot on this machine\nIEEE-CIS data is not redistributed\nRESEARCH MODEL\nNot available\ntrained model file is not distributed\nSCORING\nSynthetic demo bundle\ntrained in memory on synthetic data\nAPI\nResponding\nGET /health, checked 1:52:3"
+  },
+  {
+   "check": "navigation: clicking 'overview' shows only its section and marks only its tab selected",
+   "result": "PASS",
+   "detail": "visible ['overview'] selected ['overview']"
+  },
+  {
+   "check": "navigation: clicking 'evidence' shows only its section and marks only its tab selected",
+   "result": "PASS",
+   "detail": "visible ['evidence'] selected ['evidence']"
+  },
+  {
+   "check": "navigation: clicking 'score' shows only its section and marks only its tab selected",
+   "result": "PASS",
+   "detail": "visible ['score'] selected ['score']"
+  },
+  {
+   "check": "navigation: clicking 'research' shows only its section and marks only its tab selected",
+   "result": "PASS",
+   "detail": "visible ['research'] selected ['research']"
+  },
+  {
+   "check": "navigation: clicking 'communities' shows only its section and marks only its tab selected",
+   "result": "PASS",
+   "detail": "visible ['communities'] selected ['communities']"
+  },
+  {
+   "check": "navigation: clicking 'status' shows only its section and marks only its tab selected",
+   "result": "PASS",
+   "detail": "visible ['status'] selected ['status']"
+  },
+  {
+   "check": "keyboard: Tab reaches the selected tab and shows a visible focus indicator",
+   "result": "PASS",
+   "detail": "{'id': 'btn-overview', 'outline': 'solid 2px', 'shadow': 'none'}"
+  },
+  {
+   "check": "keyboard: ArrowRight moves to and selects the next tab (WAI-ARIA tabs pattern)",
+   "result": "PASS",
+   "detail": "btn-evidence"
+  },
+  {
+   "check": "keyboard: End selects the last tab and ArrowRight wraps to the first",
+   "result": "PASS",
+   "detail": "('btn-status', 'btn-overview')"
+  },
+  {
+   "check": "accessibility: every tab names its panel (aria-controls) and the panel has role=tabpanel",
+   "result": "PASS",
+   "detail": "[['tab-overview', 'tabpanel'], ['tab-evidence', 'tabpanel'], ['tab-score', 'tabpanel'], ['tab-research', 'tabpanel'], ['tab-communities', 'tabpanel'], ['tab-status', 'tabpanel']]"
+  },
+  {
+   "check": "accessibility: scoring messages and results are announced (aria-live)",
+   "result": "PASS",
+   "detail": "['polite', 'polite', 'polite', 'polite']"
+  },
+  {
+   "check": "score: no rows gives an explicit message and sends no request",
+   "result": "PASS",
+   "detail": "There are no rows to score: click 'Load synthetic sample' (demo server) or paste rows under \"new\"."
+  },
+  {
+   "check": "score: invalid JSON is reported",
+   "result": "PASS",
+   "detail": ""
+  },
+  {
+   "check": "score: one result row per posted row, labelled as the synthetic demonstration",
+   "result": "PASS",
+   "detail": "30"
+  },
+  {
+   "check": "score: alerted rows list their largest contributions",
+   "result": "PASS",
+   "detail": ""
+  },
+  {
+   "check": "score: a double click yields exactly one result table",
+   "result": "PASS",
+   "detail": "1"
+  },
+  {
+   "check": "score: a double click sends at most one request while the first is in flight",
+   "result": "PASS",
+   "detail": "2"
+  },
+  {
+   "check": "score: a server-side validation error is shown verbatim",
+   "result": "PASS",
+   "detail": "Scoring failed: new is missing required column(s): ['TransactionAmt']"
+  },
+  {
+   "check": "score: a non-integer TransactionID is refused with an explanation (not an internal error)",
+   "result": "PASS",
+   "detail": "Scoring failed: new.TransactionID must be integers without missing values (a fractional or text identifier cannot be reported back unchanged)"
+  },
+  {
+   "check": "research tab: model loaded and scoring",
+   "result": "NOT RUN",
+   "detail": "experiments/xgboost/model.joblib is not present (withheld artifact)"
+  },
+  {
+   "check": "communities: one card per recorded aggregate card; a line for multi-day timelines and a point for single-day ones",
+   "result": "PASS",
+   "detail": "(24, 11, 13)"
+  },
+  {
+   "check": "communities: candidate wording is shown",
+   "result": "PASS",
+   "detail": ""
+  },
+  {
+   "check": "status: held-out evaluation performed = No and the research model is reported loaded",
+   "result": "PASS",
+   "detail": "API health (GET /health)\nok (checked 1:52:38 PM)\nResults shown are validation-period only\nYes\nHeld-out evaluation performed\nNo\nHeld-out authorization file present\nNo\nHeld-out note\nNo held-out (days 15"
+  },
+  {
+   "check": "error state: a failed evidence request is shown and the banner does not stay on 'Loading'",
+   "result": "PASS",
+   "detail": "The standing statement could not be loaded (internal error). Every number on this dashboard is a recorded validation-period result; held-out results are never shown here."
+  },
+  {
+   "check": "error state: the overview shows the failure instead of a chart and draws no bar",
+   "result": "PASS",
+   "detail": "Could not load the recorded results: evidence: internal error"
+  },
+  {
+   "check": "error state: a failed status request is shown in the tiles, the header and the next-step box, and the chart still draws from the evidence",
+   "result": "PASS",
+   "detail": "Could not load the server status (status: internal error)."
+  },
+  {
+   "check": "server stopped: scoring reports the failure honestly",
+   "result": "PASS",
+   "detail": "Scoring failed: Failed to fetch"
+  },
+  {
+   "check": "server restarted on the same port: the open page scores again",
+   "result": "PASS",
+   "detail": ""
+  },
+  {
+   "check": "no bundle: the header shows no synthetic-demo indicator and the scoring tile says no bundle is loaded",
+   "result": "PASS",
+   "detail": "Validation-period results\nResearch model not loaded\nHeld-out period sealed"
+  },
+  {
+   "check": "no research model: the tab says so and its button is disabled",
+   "result": "PASS",
+   "detail": "the research model is not loaded (start the server with --research-model; it needs experiments/xgboost/model.joblib)"
+  },
+  {
+   "check": "no bundle: the sample button explains that no sample exists",
+   "result": "PASS",
+   "detail": "no sample rows are available (they exist only for the synthetic demo bundle)"
+  },
+  {
+   "check": "no bundle: scoring reports that no bundle is loaded",
+   "result": "PASS",
+   "detail": "Scoring failed: no scoring bundle is loaded (start the server with --demo or --bundle DIR)"
+  },
+  {
+   "check": "browser: no JavaScript errors",
+   "result": "PASS",
+   "detail": "[{'type': 'error', 'text': 'Failed to load resource: the server responded with a status of 404 (Not Found)'}, {'type': 'error', 'text': 'Failed to load resource: the server responded with a status of 404 (Not Found)'}, {'type': 'error', 'text': 'Failed to load resource: the server responded with a status of 404 (Not Found)'}, {'type': 'error', 'text': 'Failed to load resource: the server responded"
+  },
+  {
+   "check": "browser: no failed request apart from the induced ones",
+   "result": "PASS",
+   "detail": "[]"
+  }
+ ],
+ "console_messages": [
+  {
+   "type": "error",
+   "text": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+  },
+  {
+   "type": "error",
+   "text": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+  },
+  {
+   "type": "error",
+   "text": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+  },
+  {
+   "type": "error",
+   "text": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+  },
+  {
+   "type": "error",
+   "text": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+  },
+  {
+   "type": "error",
+   "text": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+  },
+  {
+   "type": "error",
+   "text": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+  },
+  {
+   "type": "error",
+   "text": "Failed to load resource: the server responded with a status of 400 (Bad Request)"
+  },
+  {
+   "type": "error",
+   "text": "Failed to load resource: the server responded with a status of 400 (Bad Request)"
+  },
+  {
+   "type": "error",
+   "text": "Failed to load resource: net::ERR_CONNECTION_REFUSED"
+  },
+  {
+   "type": "error",
+   "text": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+  },
+  {
+   "type": "error",
+   "text": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+  },
+  {
+   "type": "error",
+   "text": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+  },
+  {
+   "type": "error",
+   "text": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+  }
+ ],
+ "induced_request_failures": 1,
+ "http_4xx_5xx_responses": [
+  {
+   "path": "/api/research/model",
+   "status": 404
+  },
+  {
+   "path": "/api/research/model",
+   "status": 404
+  },
+  {
+   "path": "/api/research/model",
+   "status": 404
+  },
+  {
+   "path": "/api/research/model",
+   "status": 404
+  },
+  {
+   "path": "/api/research/model",
+   "status": 404
+  },
+  {
+   "path": "/api/research/model",
+   "status": 404
+  },
+  {
+   "path": "/api/score",
+   "status": 400
+  },
+  {
+   "path": "/api/score",
+   "status": 400
+  },
+  {
+   "path": "/api/research/model",
+   "status": 404
+  },
+  {
+   "path": "/api/sample",
+   "status": 404
+  },
+  {
+   "path": "/api/score",
+   "status": 404
+  }
+ ],
+ "server_commands": [
+  "<python> -u -B scripts/run_dashboard.py --port 0 --demo",
+  "<python> -u -B scripts/run_dashboard.py --port 56219 --demo",
+  "<python> -u -B scripts/run_dashboard.py --port 0"
+ ],
+ "seconds": 24.3,
+ "screenshots_sha256": {
+  "desktop_dark_communities.png": "87f0bfd1c075e7cc66b99e8b1ccf23ea8e468597a4a44718e1026a12355cccbe",
+  "desktop_dark_evidence.png": "fc3e2d6588cfdacb407a72cc62563102dd179b2c07a7b3eb6e824c3d9d451adc",
+  "desktop_dark_overview.png": "0c68afd4ead404a424b567b6b739cd4d1aceeff2d10db9050294abd3eaa82ecb",
+  "desktop_dark_research.png": "d9e103894886c8478c2a169cbe269346ed24c927308c7cd81667958b95e9df77",
+  "desktop_dark_score.png": "941de2d22d8bd77afcb6d51a12b565f0597850b3d17ceaa743c85829d2196dd2",
+  "desktop_dark_status.png": "474a67ccc439def7004b9059c4b1efbf7b234b24485ee3696eed18e0e9ff78eb",
+  "desktop_light_communities.png": "e1388f261af5e73d26de49ef1a15bbff9e4ce6e40ac483cb36b37e6fa170b7ae",
+  "desktop_light_evidence.png": "e9897b0e94276619b03ad1284a4edb870d6475e89bc1e08ddb094d82779644e7",
+  "desktop_light_overview.png": "fcb9cca3c66253f11ec42ca4b0c2488665e175a38312d24a017da553120f91b4",
+  "desktop_light_research.png": "a342878ba610b38a0d7941fd50169101c3fbf5638d3ae43b7f8e8807f1ea8e47",
+  "desktop_light_score.png": "c3dc4043e31ff59b824296dd53f605fe563ef95b930bfbb235a14e909d7e1515",
+  "desktop_light_status.png": "7a46e2cd94500274672454b2546288b9a801e371e6745f7858cf8b9c6a4e9185",
+  "error_evidence_unavailable.png": "a52427786f447bac5bb920afe55989390e1b4380658cbfe75716740bae34400e",
+  "error_server_stopped.png": "9f19a3325f0dc0b8ea22f31fbde739e33fa636d81e94bd90a1fbbae8a7966701",
+  "keyboard_focus_on_tab.png": "24d79f261f2a68dca399fc9d22c2f9214c83ae1b4f2db1ed16e04c2f9cddfe28",
+  "phone_dark_communities.png": "fee6ca20c50496fe92d2a6763131c366f514c69217e3ac0bf5d4c13a2addba23",
+  "phone_dark_evidence.png": "2c358927c4d1b7d32540ab74d13f8be187f5e7904ea6c27de3e73473ae7c8e07",
+  "phone_dark_overview.png": "b2571190bb42a2ba53eded9c4c66e198bdda19196fcd486ceb189798924d0c99",
+  "phone_dark_research.png": "6d975dcaa1a9eb4cc6ab2ddfd239aa7c6a10ba912727be345a58e317f48329a8",
+  "phone_dark_score.png": "1260ef3d1ddb97497d4cbd612b5b8abf14af31b7fac1558b5dfff963a13e59fe",
+  "phone_dark_status.png": "d61a5b3aa50391d17534bd0d298d4e83d5840097b4199f30ca0db0c8904a2d12",
+  "phone_light_communities.png": "4b1133ed152aefed9a4e0f5b593985d6cd1334a0d69481d5c5b12dda723790ea",
+  "phone_light_evidence.png": "ee49cc1fb54c5dadae188bccdd7ae38622d170369ff7bcc2c6b9d9d38d20ac1f",
+  "phone_light_overview.png": "68247cb0920e6b7c79e69e980bc7523a23acfc6c5fd3fbb58617383b39ca81a1",
+  "phone_light_research.png": "ec14cbbc6ba85f6a936d3815bbcb555e56ef66de0ae77f08e47df12b6f3718b4",
+  "phone_light_score.png": "7fb917f8e92ea153fea35e1437c697ae752489424e7d76d7a6884e96081c757d",
+  "phone_light_status.png": "11b66d8a1605c881f93cc0b3368b188bbabfc3ff64236b087c5bcf37d53f3ba5",
+  "plain_server_research_unavailable.png": "6272457c7b3c02c56c06ba5b5e1f8ce10ea1a4c18b360c4f8ad0e7cd0efff7fa",
+  "plain_server_score_unavailable.png": "a5a2dfd430a8ca929cd834d64dcb02bd21f400107dcb9dd264425925d3055711"
+ },
+ "statement": "Real-browser run of the documented server command; the demo bundle is synthetic and the research rows are validation rows (label removed) read from a file outside the repository."
+}

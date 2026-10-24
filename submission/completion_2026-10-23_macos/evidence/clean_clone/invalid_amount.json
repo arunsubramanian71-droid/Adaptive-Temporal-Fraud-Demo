@@ -1,0 +1,4 @@
+{
+ "error": "new is missing required column(s): ['f0', 'f1', 'f2', 'f3', 'f4', 'f5', 'f6', 'f7', 'account_key', 'card_key', 'net_key', 'device_key']",
+ "status": 400
+}

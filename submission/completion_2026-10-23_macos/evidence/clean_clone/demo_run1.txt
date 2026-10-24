@@ -1,0 +1,8 @@
+[demo] SYNTHETIC DEMONSTRATION of software mechanics. Not IEEE-CIS data, not a research result, no TEST period used. Communities are candidates only.
+[1] synthetic stream: 6,726 transactions, 4.847% fraud; demo-train days (1, 24), demo-valid (25, 32), demo-holdout (33, 40)
+[2] tabular_only                 PR-AUC 0.1169  ROC-AUC 0.7002  alerts 145  (demo-holdout, synthetic)
+[2] tabular_plus_graph_features  PR-AUC 0.1276  ROC-AUC 0.7535  alerts 91  (demo-holdout, synthetic)
+[3] scored 1280 holdout transactions from 5446 history rows; explained the top 3 alerts (native tree contributions)
+[4] candidate communities (Phase 9 modules, window 7 days): 107 community-days over 16 days; best overlap with the 14 planted demo cards on day 25: 14
+[5] invariants: {'scores_in_unit_interval': True, 'one_score_per_new_row': True, 'label_column_not_needed_to_score': True, 'first_half_unchanged_when_second_half_removed': True}
+[done] 0.35s; outputs in ~/Sandbox/Adaptive-Temporal-Fraud-Demo/submission/completion_2026-10-23_macos/evidence/clean_clone/demo_run1

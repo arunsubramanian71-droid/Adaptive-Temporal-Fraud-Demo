@@ -91,6 +91,26 @@ def test_the_quickstart_script_never_touches_the_held_out_period_or_deletes_file
         assert step in body, step
 
 
+def test_the_unix_quickstart_script_never_touches_the_held_out_period_or_deletes_files():
+    """scripts/quickstart_unix.sh (macOS / Linux, added 2026-10-23) keeps the Windows script's guarantees and runs the same steps."""
+    import shutil
+    sh = (ROOT / "scripts" / "quickstart_unix.sh").read_text(encoding="utf-8")
+    assert sh.startswith("#!/usr/bin/env bash\n") and "\r" not in sh
+    code = "\n".join(l for l in sh.splitlines() if not l.lstrip().startswith("#"))
+    for forbidden in (r"heldout", r"AUTHORIZATION", r"test_features", r"\brm\s", r"\brmdir\b", r"\bcurl\b", r"\bwget\b", r"kaggle", r"\bsudo\b"):
+        assert not re.search(forbidden, code, re.I), forbidden
+    for step in ("requirements.txt", "scripts/check_setup.py", "scripts/run_core_tests.py", "scripts/demo_end_to_end.py", "brew install libomp"):
+        assert step in code, step
+    if shutil.which("bash") and sys.platform != "win32":                       # on Windows 'bash' may be the WSL launcher, which cannot read C:\ paths
+        script = str(ROOT / "scripts" / "quickstart_unix.sh")
+        r = subprocess.run(["bash", "-n", script], capture_output=True, text=True)                 # syntax check
+        assert r.returncode == 0, r.stderr
+        # option errors stop before any step runs (found 2026-10-23: a bare --python made the argument loop spin forever; a folder passed the check)
+        for args, says in ((["--python"], "needs the path"), (["--python", str(ROOT / "scripts")], "not an executable file"), (["--bogus"], "unknown option")):
+            r = subprocess.run(["bash", script, *args], capture_output=True, text=True, timeout=20)
+            assert r.returncode == 1 and says in r.stdout and "==> 1/5" not in r.stdout, (args, r.returncode, r.stdout)
+
+
 def _run_all():
     fns = [v for k, v in globals().items() if k.startswith("test_") and callable(v)]
     failed = []

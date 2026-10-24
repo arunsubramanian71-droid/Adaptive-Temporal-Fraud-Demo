@@ -1,0 +1,4 @@
+{
+ "error": "body must be a JSON object with a non-empty list 'new' (and optionally a list 'history') of row objects",
+ "status": 400
+}

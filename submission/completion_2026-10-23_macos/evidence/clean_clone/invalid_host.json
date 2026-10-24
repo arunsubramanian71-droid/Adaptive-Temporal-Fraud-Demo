@@ -1,0 +1,4 @@
+{
+ "error": "address this server as 127.0.0.1 or localhost (it has no authentication; start it with --allow-remote to accept other host names)",
+ "status": 403
+}

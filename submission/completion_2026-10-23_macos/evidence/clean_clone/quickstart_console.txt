@@ -1,0 +1,19 @@
+Python 3.12.13
+--- without --python (python3.12 not on PATH):
+==> 1/5 Python environment (.venv)
+
+QUICKSTART FAILED: Python 3.12 was not found. Install it (macOS: 'brew install python@3.12' or https://www.python.org/downloads/; Linux: your package manager or 'uv python install 3.12'), then run this script again, or pass --python <path to python3.12>.
+--- with --python:
+quickstart exit=0 secs=479
+==> 1/5 Python environment (.venv)
+Creating .venv with: ~/.local/share/uv/python/cpython-3.12-macos-aarch64-none/bin/python3.12
+Python in .venv: 3.12.13
+==> 2/5 Installing requirements.txt
+==> 3/5 Setup check
+SETUP OK for the demonstration
+==> 4/5 Core tests (about a minute)
+320/341 tests passed in 37 modules; NOT RUN because withheld artifacts are missing (never counted as passed): 21; environment-metadata differences (never counted as passed): 0; skipped modules (need PyTorch): ['test_f_runner_gate', 'test_neural_graph_evidence', 'test_phase8_adaptive', 'test_trigger_walkforward', 'test_walkforward_ext']
+==> 5/5 Synthetic end-to-end demonstration
+QUICKSTART OK
+
+[exited with code 0]

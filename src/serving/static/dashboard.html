@@ -5,55 +5,166 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Fraud study dashboard</title>
 <style>
-:root{--bg:#f6f7f9;--panel:#fff;--ink:#1c2430;--mute:#5b6675;--line:#d9dee5;--accent:#1f5fbf;--onaccent:#fff;--warn:#8a4b00;--warnbg:#fff4e0;--bad:#a12622;--good:#1d6b3a}
-@media (prefers-color-scheme:dark){:root{--bg:#12161c;--panel:#1b2129;--ink:#e6eaf0;--mute:#9aa6b5;--line:#2c3541;--accent:#6aa4ff;--onaccent:#0b1726;--warn:#f0c27a;--warnbg:#2a2214;--bad:#ff8a84;--good:#7fd69c}}
+:root{--bg:#f3f4f6;--panel:#fff;--ink:#141a22;--mute:#545f6d;--line:#dcdfe5;--accent:#1f5fbf;--onaccent:#fff;--warn:#8a4b00;--warnbg:#fff4e0;--bad:#a12622;--good:#1d6b3a;--accentbg:#e9f0fb;--goodbg:#e7f4ec;--badbg:#fbecec;--neutralbg:#eef0f3;--graph:#7a3db8;--feat:#0f7c86;--ctrl:#8b95a2;--shadow:0 1px 2px rgba(20,26,34,.06),0 4px 14px rgba(20,26,34,.05)}
+@media (prefers-color-scheme:dark){:root{--bg:#0f1318;--panel:#171c23;--ink:#e6eaf0;--mute:#9aa6b5;--line:#2a323d;--accent:#6aa4ff;--onaccent:#0b1726;--warn:#f0c27a;--warnbg:#2a2214;--bad:#ff8a84;--good:#7fd69c;--accentbg:#16243a;--goodbg:#12261a;--badbg:#2d1716;--neutralbg:#1f252e;--graph:#b48cf0;--feat:#4cc3cc;--ctrl:#6f7a88;--shadow:0 1px 2px rgba(0,0,0,.4)}}
 *{box-sizing:border-box}
-body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.5 system-ui,Segoe UI,Roboto,sans-serif}
-header{padding:14px 16px 0;max-width:1100px;margin:0 auto}
-h1{font-size:20px;margin:0 0 8px}
-h2{font-size:17px;margin:16px 0 6px}
-.banner{background:var(--warnbg);color:var(--warn);border:1px solid var(--line);border-radius:8px;padding:10px 12px;font-size:14px}
-nav{display:flex;gap:6px;flex-wrap:wrap;margin:12px 0 0}
-nav button{background:var(--panel);color:var(--ink);border:1px solid var(--line);border-radius:8px;padding:7px 12px;cursor:pointer;font:inherit}
-nav button[aria-selected=true]{border-color:var(--accent);color:var(--accent);font-weight:600}
+body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.55 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+header{padding:20px 16px 0;max-width:1160px;margin:0 auto}
+.top{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:10px 16px;margin-bottom:12px}
+h1{font:600 26px/1.15 ui-serif,"New York",Georgia,Cambria,"Times New Roman",serif;margin:0;letter-spacing:-.01em}
+.sub{margin:4px 0 0;color:var(--mute);font-size:13.5px}
+h2{font-size:16px;margin:18px 0 8px;letter-spacing:.005em}
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+.chip{display:inline-flex;align-items:center;gap:6px;border:1px solid var(--line);background:var(--panel);border-radius:999px;padding:3px 10px;font-size:12.5px;font-weight:600;color:var(--ink)}
+.chip::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--ctrl)}
+.chip.good::before{background:var(--good)}.chip.warn::before{background:var(--warn)}.chip.info::before{background:var(--accent)}
+.chip.demo{background:var(--warnbg);color:var(--warn);border-color:var(--warn)}.chip.demo::before{background:var(--warn)}
+.banner{background:var(--warnbg);color:var(--warn);border:1px solid var(--line);border-left:4px solid var(--warn);border-radius:8px;padding:10px 12px;font-size:13.5px}
+nav{display:flex;gap:2px;flex-wrap:wrap;margin:14px 0 0;border-bottom:1px solid var(--line)}
+nav button{background:transparent;color:var(--mute);border:0;border-bottom:3px solid transparent;border-radius:6px 6px 0 0;padding:9px 12px 8px;cursor:pointer;font:inherit;font-weight:500}
+nav button:hover{color:var(--ink);background:var(--panel)}
+nav button[aria-selected=true]{border-bottom-color:var(--accent);color:var(--accent);font-weight:650}
 :focus-visible{outline:2px solid var(--accent);outline-offset:2px}
-main{max-width:1100px;margin:0 auto;padding:12px 16px 40px}
-section{display:none;background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:14px}
+main{max-width:1160px;margin:0 auto;padding:16px 16px 48px}
+section{display:none;background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:18px;box-shadow:var(--shadow)}
 section.on{display:block}
 table{border-collapse:collapse;width:100%;font-size:13.5px}
-th,td{border-bottom:1px solid var(--line);padding:6px 8px;text-align:left;vertical-align:top}
-th{color:var(--mute);font-weight:600}
+th,td{border-bottom:1px solid var(--line);padding:7px 8px;text-align:left;vertical-align:top}
+th{color:var(--mute);font-weight:600;font-size:12.5px;text-transform:uppercase;letter-spacing:.03em}
+tbody tr:hover td{background:var(--neutralbg)}
 td.n{text-align:right;font-variant-numeric:tabular-nums}
 td.contrib{white-space:pre-line;overflow-wrap:anywhere;min-width:11em}
 td.flag{color:var(--bad);font-weight:600}
 .tablewrap{overflow-x:auto}
 .hint{font-size:12.5px;margin:4px 0}
 [hidden]{display:none!important}
-textarea{width:100%;min-height:150px;font:12.5px/1.4 ui-monospace,Consolas,monospace;background:var(--bg);color:var(--ink);border:1px solid var(--line);border-radius:8px;padding:8px}
-button.act{background:var(--accent);color:var(--onaccent);border:0;border-radius:8px;padding:8px 14px;cursor:pointer;font:inherit}
+textarea{width:100%;min-height:150px;font:12.5px/1.4 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;background:var(--bg);color:var(--ink);border:1px solid var(--line);border-radius:8px;padding:8px}
+button.act{background:var(--accent);color:var(--onaccent);border:0;border-radius:8px;padding:8px 14px;cursor:pointer;font:inherit;font-weight:600}
 button.sec{background:var(--panel);color:var(--ink);border:1px solid var(--line);border-radius:8px;padding:8px 14px;cursor:pointer;font:inherit}
+button.act:hover:not(:disabled){filter:brightness(1.08)}button.sec:hover:not(:disabled){border-color:var(--accent)}
 button:disabled{opacity:.55;cursor:not-allowed}
 .row{display:flex;gap:8px;flex-wrap:wrap;margin:8px 0;align-items:center}
 .muted{color:var(--mute)}
+.small{font-size:13px}
 .alert{color:var(--bad);font-weight:600}
-.cardgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:10px}
-.card{border:1px solid var(--line);border-radius:8px;padding:10px}
-.card h3{margin:0 0 4px;font-size:15px}
+.cardgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:12px}
+.card{border:1px solid var(--line);border-radius:10px;padding:12px;background:var(--panel)}
+.card h3{margin:0 0 6px;font-size:14.5px}
 .tag{display:inline-block;border:1px solid var(--line);border-radius:999px;padding:0 8px;font-size:12px;color:var(--mute);margin:0 4px 2px 0}
 .kv{display:grid;grid-template-columns:max-content 1fr;gap:2px 12px;font-size:13.5px}
 .kv>div{overflow-wrap:anywhere}
+.status-grid{display:grid;grid-template-columns:minmax(12em,18em) 1fr;font-size:13.5px}
+.status-grid>div{padding:8px 10px;border-bottom:1px solid var(--line);overflow-wrap:anywhere}
+.status-grid>div.k{color:var(--mute);font-weight:600}
+.badge{display:inline-block;border-radius:6px;padding:1px 8px;font-size:12.5px;font-weight:650;background:var(--neutralbg);color:var(--ink)}
+.badge.good{background:var(--goodbg);color:var(--good)}.badge.bad{background:var(--badbg);color:var(--bad)}.badge.warn{background:var(--warnbg);color:var(--warn)}.badge.info{background:var(--accentbg);color:var(--accent)}
 svg{display:block;margin-top:6px}
-@media (max-width:600px){.kv{grid-template-columns:1fr;gap:0}.kv>div.muted{margin-top:6px}section{padding:12px 10px}main{padding:12px 10px 40px}
-  table{font-size:12.5px}th,td{padding:5px 5px}td.contrib{min-width:7em}}
+/* overview */
+.eyebrow{margin:0 0 4px;font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--accent)}
+.lead{display:grid;grid-template-columns:minmax(0,1.6fr) minmax(0,1fr);gap:18px;align-items:start}
+.question{font:500 21px/1.4 ui-serif,"New York",Georgia,Cambria,"Times New Roman",serif;margin:0 0 10px}
+.tiles{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.tile{border:1px solid var(--line);border-radius:10px;padding:9px 11px;background:var(--bg)}
+.tile .t{font-size:11.5px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:var(--mute)}
+.tile .v{font-weight:650;font-size:14px;margin-top:2px}
+.tile .d{font-size:12.5px;color:var(--mute)}
+.tile.good{border-left:4px solid var(--good)}.tile.warn{border-left:4px solid var(--warn)}.tile.info{border-left:4px solid var(--accent)}.tile.off{border-left:4px solid var(--ctrl)}
+ol.pipeline{list-style:none;counter-reset:s;padding:0;margin:0;display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:8px}
+ol.pipeline li{counter-increment:s;position:relative;border:1px solid var(--line);border-radius:10px;padding:10px 11px 11px;background:var(--bg);font-size:13px}
+ol.pipeline li::before{content:counter(s);display:inline-grid;place-items:center;width:20px;height:20px;border-radius:50%;background:var(--accent);color:var(--onaccent);font-size:11.5px;font-weight:700;margin-bottom:4px}
+ol.pipeline li strong{display:block;font-size:13.5px;margin-bottom:2px}
+ol.pipeline li span{color:var(--mute)}
+.split{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,1fr);gap:16px;margin-top:6px}
+.panel2{border:1px solid var(--line);border-radius:10px;padding:4px 14px 14px}
+ul.bars{list-style:none;margin:6px 0 0;padding:0}
+ul.bars li{display:grid;grid-template-columns:minmax(9em,15em) minmax(0,1fr) 4.2em;gap:4px 10px;align-items:center;padding:4px 0;font-size:13px}
+ul.bars li.muted,ul.bars li.alert{display:block}
+.bar-label{overflow-wrap:anywhere}
+.bar-label small{display:block;color:var(--mute);font-size:11.5px}
+.track{height:14px;border-radius:4px;background:var(--neutralbg);overflow:hidden}
+.fill{height:100%;border-radius:4px;background:var(--accent)}
+.fill.feat{background:var(--feat)}.fill.graph{background:var(--graph)}.fill.ctrl{background:var(--ctrl)}
+.fill.ref{background:transparent;border:2px dashed var(--ctrl)}
+.bar-val{text-align:right;font-variant-numeric:tabular-nums;font-weight:600}
+.legend{display:flex;flex-wrap:wrap;gap:4px 14px;margin:10px 0 0;padding:0;list-style:none;font-size:12.5px;color:var(--mute)}
+.legend li::before{content:"";display:inline-block;width:10px;height:10px;border-radius:2px;margin-right:6px;vertical-align:-1px;background:var(--accent)}
+.legend li.feat::before{background:var(--feat)}.legend li.graph::before{background:var(--graph)}.legend li.ctrl::before{background:var(--ctrl)}.legend li.ref::before{background:transparent;border:2px dashed var(--ctrl);width:7px;height:7px}
+ul.findings{list-style:none;margin:6px 0 0;padding:0}
+ul.findings li{padding:9px 0;border-bottom:1px solid var(--line)}
+ul.findings li:last-child{border-bottom:0}
+.f-q{font-weight:650;font-size:13.5px}
+.f-d{font-size:12.8px;color:var(--mute);margin-top:3px}
+ul.plain{margin:6px 0 0;padding-left:18px;font-size:13.5px}
+ul.plain li{margin:3px 0}
+.next{border-left:4px solid var(--accent);background:var(--accentbg);border-radius:8px;padding:10px 12px;font-size:13.5px}
+@media (max-width:900px){.lead,.split{grid-template-columns:1fr}ol.pipeline{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:600px){.kv{grid-template-columns:1fr;gap:0}.kv>div.muted{margin-top:6px}section{padding:12px 10px}main{padding:12px 10px 40px}header{padding:14px 10px 0}
+  table{font-size:12.5px}th,td{padding:5px 5px}td.contrib{min-width:7em}h1{font-size:22px}.question{font-size:18px}
+  .tiles{grid-template-columns:1fr}ol.pipeline{grid-template-columns:1fr}ul.bars li{grid-template-columns:minmax(0,1fr) 4.2em}ul.bars .bar-label{grid-column:1/-1}
+  .status-grid{grid-template-columns:1fr}.status-grid>div.k{border-bottom:0;padding-bottom:0}nav button{padding:8px 9px 7px;font-size:14px}}
 </style>
 </head>
 <body>
 <header>
-  <h1>Fraud study dashboard</h1>
+  <div class="top">
+    <div>
+      <h1>Fraud study dashboard</h1>
+      <p class="sub">Adaptive temporal graph intelligence for fraud detection and the discovery of coordinated groups: research evidence, demonstration scoring and candidate communities</p>
+    </div>
+    <div class="chips" id="modeChips" aria-live="polite"><span class="chip">Checking the server mode...</span></div>
+  </div>
   <div class="banner" id="banner" role="note">Loading the standing statement...</div>
   <nav role="tablist" id="tabs" aria-label="Dashboard sections"></nav>
 </header>
 <main>
+  <section id="tab-overview" role="tabpanel" aria-labelledby="btn-overview" tabindex="0">
+    <div class="lead">
+      <div>
+        <p class="eyebrow">Research question</p>
+        <p class="question">Do heterogeneous relational structure and temporal behaviour improve fraud detection and the discovery of coordinated groups compared with strong tabular models, particularly on future data and under drift?</p>
+        <p class="muted small">Data: the IEEE-CIS Fraud Detection transactions (Kaggle; not redistributed), split by time: training days 1-121, validation days 122-151, held-out days 152-182 (sealed). Every number on this page is read from the project's recorded result files when the page loads; none is typed into the page.</p>
+      </div>
+      <div class="tiles" id="ovTiles" aria-live="polite"><div class="tile"><div class="t">Status</div><div class="v">Loading...</div></div></div>
+    </div>
+    <h2>How the system works</h2>
+    <ol class="pipeline">
+      <li><strong>Chronological split</strong><span>preprocessing fitted on training days only; no row ever sees a later row</span></li>
+      <li><strong>Leakage-safe features</strong><span>transaction features and 40 backward-looking graph features over cards, pseudo-accounts, devices and network proxies</span></li>
+      <li><strong>Models</strong><span>logistic regression, random forest, XGBoost; GraphSAGE, GAT and Temporal GraphSAGE with GRU entity memory</span></li>
+      <li><strong>Validation evaluation</strong><span>precision-recall first (fraud is rare), drift and adaptive refresh, candidate-community discovery</span></li>
+      <li><strong>Serving</strong><span>this local API and dashboard; a score is a model output, not evidence of fraud</span></li>
+    </ol>
+    <div class="split">
+      <div class="panel2">
+        <h2>Validation PR-AUC by model</h2>
+        <p class="muted small">Recorded pooled validation results (Phase 12 table and comparison B; mean over seeds where there are several). Higher is better. Adaptive arms are on a different basis and appear on the Evidence tab.</p>
+        <ul class="bars" id="ovChart" aria-label="Validation PR-AUC by model, recorded results"><li class="muted">Loading the recorded results...</li></ul>
+        <ul class="legend" aria-hidden="true"><li>tabular model</li><li class="feat">tabular + 40 graph features</li><li class="graph">graph neural network</li><li class="ctrl">control</li><li class="ref">reference line</li></ul>
+      </div>
+      <div class="panel2">
+        <h2>What the validation evidence shows</h2>
+        <ul class="findings" id="ovFindings"><li class="muted">Loading the recorded verdicts...</li></ul>
+      </div>
+    </div>
+    <div class="split">
+      <div class="panel2">
+        <h2>Limitations</h2>
+        <ul class="plain">
+          <li>Every result is a validation-period result, and most models were tuned on that period: the numbers are optimistic by an unmeasured amount.</li>
+          <li>The held-out period is sealed; no model has been scored on it.</li>
+          <li>GAT did not converge within its budget, so its result cannot separate a weaker model from under-training.</li>
+          <li>The three seeds share data; they are not independent replications.</li>
+          <li>The data has no labels for coordinated groups: communities are candidates only, and nothing here shows that any group is fraudulent or coordinated.</li>
+          <li>The neural models score whole days of graph state and are not served row by row; demonstration scoring uses a synthetic bundle.</li>
+        </ul>
+      </div>
+      <div class="panel2">
+        <h2>Next research milestone</h2>
+        <div class="next" id="ovNext">Loading...</div>
+        <p class="muted small">Protocol, options and the authorization text: <code>submission/HELDOUT_DECISION_PACKAGE.md</code>.</p>
+      </div>
+    </div>
+  </section>
   <section id="tab-evidence" role="tabpanel" aria-labelledby="btn-evidence" tabindex="0"><div id="evidence">Loading...</div></section>
   <section id="tab-score" role="tabpanel" aria-labelledby="btn-score" tabindex="0">
     <p class="muted">Score rows with the bundle loaded on the server. History (earlier rows) is optional. Labels in posted rows are ignored. A score is a model output, not evidence of fraud.</p>
@@ -113,11 +224,12 @@ async function busy(buttons, fn) {
   try { await fn(); } finally { buttons.forEach((b) => { b.dataset.busy = "0"; b.disabled = b.dataset.unavailable === "1"; }); }
 }
 
-const TABS = [["evidence", "Evidence (validation)"], ["score", "Score transactions (demo)"], ["research", "Research model"], ["communities", "Candidate communities"], ["status", "Status and limits"]];
+const TABS = [["overview", "Overview"], ["evidence", "Evidence (validation)"], ["score", "Score transactions (demo)"], ["research", "Research model"], ["communities", "Candidate communities"], ["status", "Status and limits"]];
 function show(name, focus) {
   TABS.forEach(([k]) => { const on = k === name; $("tab-" + k).classList.toggle("on", on); const b = $("btn-" + k);
     b.setAttribute("aria-selected", on ? "true" : "false"); b.setAttribute("tabindex", on ? "0" : "-1"); if (on && focus) b.focus(); });
   updateHints();
+  if (DATA.started && (name === "overview" || name === "status")) loadHealth();     // the health shown is never older than the last visit to these tabs
 }
 TABS.forEach(([k, label]) => { const b = el("button", { id: "btn-" + k, role: "tab", text: label, "aria-selected": "false", "aria-controls": "tab-" + k, tabindex: "-1" });
   b.addEventListener("click", () => show(k)); $("tabs").appendChild(b); });
@@ -127,17 +239,140 @@ $("tabs").addEventListener("keydown", (ev) => {   // WAI-ARIA tabs pattern: arro
   ev.preventDefault(); show(TABS[(j + TABS.length) % TABS.length][0], true);
 });
 
+// ------------------------------------------------------------------ overview: built only from /api/evidence, /api/status and /health
+const DATA = { evidence: null, status: null, health: null, errors: [] };
+// chart rule: the Phase 12 cells on the pooled-VAL basis (the F rows use another basis) plus the single-run comparison-B arm (A recipe + 40 graph features)
+function chartRows(e) {
+  const rows = e.phase12_cells.filter((c) => c.pr_auc !== null && c.basis.indexOf("pooled over") === 0)
+    .map((c) => ({ cell: c.cell, model: c.model, runs: c.runs, pr_auc: c.pr_auc }));
+  e.comparison_b_rows.filter((c) => c.cell === "B" && c.runs === 1 && c.pr_auc !== null).forEach((c) => rows.push({ cell: c.cell, model: c.model, runs: c.runs, pr_auc: c.pr_auc }));
+  return rows.sort((a, b) => b.pr_auc - a.pr_auc);
+}
+// display names for the recorded tabular model identifiers (the identifier stays visible in the Evidence tables)
+const MODEL_NAMES = { logistic_regression: "Logistic regression", random_forest: "Random forest", xgboost: "XGBoost", xgboost_historical_control: "XGBoost + label-derived history" };
+function family(cell) {
+  if (cell === "A-reference") return ["ref", "reference line: uses the labels of earlier transactions"];
+  if (cell.endsWith("-control")) return ["ctrl", "control"];
+  if (cell === "B") return ["feat", "tabular + graph features"];
+  if (cell === "A") return ["tab", "tabular model"];
+  return ["graph", "graph neural network"];
+}
+function renderChart(e) {
+  const box = $("ovChart"); clear(box);
+  const rows = chartRows(e);
+  if (!rows.length) { box.appendChild(el("li", { class: "muted", text: "No recorded pooled-validation result is available." })); return; }
+  const scale = Math.ceil(Math.max(...rows.map((r) => r.pr_auc)) * 10) / 10 || 1;
+  rows.forEach((r) => {
+    const [fam, famText] = family(r.cell);
+    const label = el("div", { class: "bar-label" }, [MODEL_NAMES[r.model] || r.model, el("small", { text: "cell " + r.cell + " · " + famText + " · " + (r.runs > 1 ? r.runs + " seeds, mean" : "1 run") })]);
+    const track = el("div", { class: "track", "aria-hidden": "true" }); const fill = el("div", { class: "fill " + fam }); fill.style.width = (100 * r.pr_auc / scale).toFixed(1) + "%"; track.appendChild(fill);
+    box.appendChild(el("li", { "data-cell": r.cell }, [label, track, el("div", { class: "bar-val", text: fmt(r.pr_auc) })]));
+  });
+}
+function verdictClass(v) {
+  const t = String(v).toLowerCase();
+  if (t.indexOf("contradict") >= 0) return "bad";
+  if (/\bnot\b|no clear|unsupported|inconclusive|hurts/.test(t)) return "warn";
+  if (t.indexOf("support") >= 0) return "good";
+  return "info";
+}
+const runsText = (c) => (!c ? "not recorded" : c.runs === 1 ? "1 run" : c.runs + " seeds, mean");
+function finding(q, verdict, detail) {
+  const head = el("div", { class: "f-q" }, [q + " "]);
+  if (verdict) head.appendChild(el("span", { class: "badge " + verdictClass(verdict), text: verdict }));
+  return el("li", null, [head, el("div", { class: "f-d", text: detail })]);
+}
+function renderFindings(e, s) {
+  const box = $("ovFindings"); clear(box);
+  const p12 = (cell, model) => e.phase12_cells.find((c) => c.cell === cell && (!model || c.model.indexOf(model) === 0) && c.basis.indexOf("pooled over") === 0);
+  const bRow = e.comparison_b_rows.find((c) => c.cell === "B" && c.runs === 1);
+  const xgb = p12("A", "xgboost"), tgs = p12("E", "Temporal GraphSAGE"), sage = p12("C");
+  const ctl = e.phase12_cells.filter((c) => c.cell === "E-control" && c.basis.indexOf("pooled over") === 0);
+  const f = (m) => e.phase12_cells.find((c) => c.model === m && c.basis.indexOf("mean of the five") === 0);
+  const v = e.comparison_b_verdicts || {}, im = e.imbalance || {}, h4 = e.h4 || {}, w = im.xgboost_pr_auc_by_weight || {};
+  const val = (c) => fmt(c && c.pr_auc);
+  box.appendChild(finding("H1 · Do 40 handcrafted graph features add to XGBoost?", v.H1_direct_B_vs_A,
+    "Pre-registered comparison B: XGBoost " + val(xgb) + " (" + runsText(xgb) + ") against XGBoost + 40 graph features " + val(bRow) + " (" + runsText(bRow) + ")."));
+  const bSub = e.comparison_b_rows.find((c) => c.cell === "B" && c.runs > 1);            // the registered H2 comparison arm (B_sub, seeded subsampling)
+  box.appendChild(finding("H2 · Do learned graph representations beat handcrafted graph features?", v.H2_E_vs_B_sub,
+    "Registered comparison: Temporal GraphSAGE " + val(tgs) + " (" + runsText(tgs) + ") against XGBoost + 40 graph features with seeded subsampling " + val(bSub)
+    + " (" + runsText(bSub) + "). GraphSAGE: " + val(sage) + " (" + runsText(sage) + ")."));
+  box.appendChild(finding("H3 · Does temporal entity memory help?", "descriptive",
+    "No single recorded verdict field. Temporal GraphSAGE " + val(tgs) + " against its controls " + ctl.map((c) => val(c)).join(" and ")
+    + " (schedule-matched static, memory ablated); the Phase 7A report finds the gain small and concentrated on cold-start transactions."));
+  box.appendChild(finding("H4 · Does adaptive updating reduce drift degradation?", h4.decision || "not recorded",
+    "Window-mean PR-AUC: periodic refresh " + val(f("F-adaptive")) + ", frozen " + val(f("F-frozen")) + ", replay control " + val(f("F-replay_control"))
+    + (h4.rule ? " (" + h4.rule + ")." : ".")));
+  box.appendChild(finding("H5 · Can graph analysis find coordinated communities?", s.h5.indexOf("not established") === 0 ? "not established (original protocol)" : null, cap(s.h5) + "."));
+  box.appendChild(finding("Class imbalance · does weighting help XGBoost?", im.xgboost_weighting_verdict,
+    "Validation PR-AUC unweighted " + fmt(w.none) + " against fully weighted " + fmt(w.full) + "."));
+}
+function tile(t, v, d, tone) { return el("div", { class: "tile " + tone }, [el("div", { class: "t", text: t }), el("div", { class: "v", text: v }), el("div", { class: "d", text: d })]); }
+function renderTiles(s) {
+  const box = $("ovTiles"); clear(box); const healthy = DATA.health === true;
+  box.appendChild(tile("Evidence shown", s.validation_period_only ? "Validation period only" : "See status", "days 122-151; most models were tuned on it", "info"));
+  box.appendChild(tile("Held-out evaluation", s.held_out_evaluation_performed ? "Output exists (not shown here)" : "Sealed, not performed",
+    s.held_out_authorization_present ? "authorization file present" : "awaits the owner's authorization", "warn"));
+  box.appendChild(tile("Research data", s.research_data_present ? "Present on this machine" : "Not on this machine",
+    s.research_data_present ? "TRAIN and VAL feature tables found" : "IEEE-CIS data is not redistributed", s.research_data_present ? "good" : "off"));
+  const rm = s.research_model_loaded ? ["Loaded", "recorded comparison-A XGBoost", "good"]
+    : (s.research_model_file_present ? ["File present, not loaded", "start the server with --research-model", "warn"] : ["Not available", "trained model file is not distributed", "off"]);
+  box.appendChild(tile("Research model", rm[0], rm[1], rm[2]));
+  const sm = s.synthetic_demo ? ["Synthetic demo bundle", "trained in memory on synthetic data", "warn"]
+    : (s.scoring_bundle_loaded ? ["Operator bundle", "a bundle passed with --bundle", "info"] : ["No bundle loaded", "start with --demo or --bundle", "off"]);
+  box.appendChild(tile("Scoring", sm[0], sm[1], sm[2]));
+  box.appendChild(tile("API", DATA.health === null ? "Checking" : (healthy ? "Responding" : "Not responding"),
+    "GET /health" + (DATA.healthAt ? ", checked " + DATA.healthAt.toLocaleTimeString() + " (again whenever this tab opens)" : ""), healthy ? "good" : "warn"));
+}
+function renderChips(s) {
+  const box = $("modeChips"); clear(box);
+  box.appendChild(el("span", { class: "chip info", text: "Validation-period results" }));
+  if (s.synthetic_demo) box.appendChild(el("span", { class: "chip demo", text: "SYNTHETIC DEMO MODE" }));
+  else if (s.scoring_bundle_loaded) box.appendChild(el("span", { class: "chip", text: "Operator scoring bundle" }));
+  box.appendChild(el("span", { class: "chip " + (s.research_model_loaded ? "good" : ""), text: s.research_model_loaded ? "Research model loaded" : "Research model not loaded" }));
+  box.appendChild(el("span", { class: "chip warn", text: s.held_out_evaluation_performed ? "Held-out output exists" : "Held-out period sealed" }));
+}
+function overviewError(box, msg) { clear(box); box.appendChild(el(box.tagName === "UL" ? "li" : "p", { class: "alert", text: msg })); }
+// every part of the overview shows either recorded values or the reason it cannot; a drawing problem is reported as such and never stops the other tabs
+function renderOverview() {
+  try {
+    const evErr = DATA.errors.find((x) => x.indexOf("evidence:") === 0), stErr = DATA.errors.find((x) => x.indexOf("status:") === 0);
+    if (DATA.status) {
+      renderTiles(DATA.status); renderChips(DATA.status);
+      $("ovNext").textContent = (DATA.status.held_out_evaluation_performed ? "" : "Run the frozen, one-shot held-out evaluation (days 152-182) once the owner authorizes it. ") + DATA.status.held_out_note;
+    } else if (stErr) {
+      const m = "Could not load the server status (" + stErr + ").";
+      overviewError($("ovTiles"), m); overviewError($("ovNext"), m);
+      clear($("modeChips")); $("modeChips").appendChild(el("span", { class: "chip warn", text: "Server status unavailable" }));
+    }
+    if (DATA.evidence) renderChart(DATA.evidence); else if (evErr) overviewError($("ovChart"), "Could not load the recorded results: " + evErr);
+    if (DATA.evidence && DATA.status) renderFindings(DATA.evidence, DATA.status);
+    else if (evErr || stErr) overviewError($("ovFindings"), "Could not load the recorded results: " + [evErr, stErr].filter(Boolean).join("; "));
+  } catch (err) {
+    overviewError($("ovFindings"), "The overview could not be drawn (" + err.message + "); the other tabs show the recorded files directly.");
+  }
+}
+const healthText = () => (DATA.health === null ? "checking" : (DATA.health ? "ok" : "not responding") + " (checked " + DATA.healthAt.toLocaleTimeString() + ")");
+async function loadHealth() {
+  try { const h = await getJSON("/health"); DATA.health = h.status === "ok"; } catch (err) { DATA.health = false; }
+  DATA.healthAt = new Date();
+  renderOverview();
+  const row = document.querySelector('#status .v[data-key="api_health"]'); if (row) row.textContent = healthText();
+}
+
 async function loadEvidence() {
   const box = $("evidence"); clear(box);
   try {
     const e = await getJSON("/api/evidence");
     $("banner").textContent = e.banner + " " + e.held_out + " Communities shown here are candidates only.";
+    DATA.evidence = e; renderOverview();
     box.appendChild(el("p", { class: "muted", text: e.f_banner }));
     box.appendChild(el("h2", { text: "Consolidated validation table (recorded, Phase 12)" }));
     box.appendChild(table(["Cell", "Model / arm", "Basis", "Runs", "PR-AUC", "SD", "ROC-AUC", "PR-AUC cold-start"],
       e.phase12_cells.map((c) => [c.cell, c.model, shortBasis(c.basis), String(c.runs), fmt(c.pr_auc), fmt(c.pr_auc_sd), fmt(c.roc_auc), fmt(c.pr_auc_cold)]), [3, 4, 5, 6, 7],
       e.phase12_cells.map((c) => [null, null, c.basis])));
     box.appendChild(el("p", { class: "muted", text: e.note_phase12_B_row }));
+    box.appendChild(el("p", { class: "muted", text: "The A-reference row uses features derived from the labels of earlier transactions; it is a reference line, not a model comparable with the others." }));
     box.appendChild(el("h2", { text: "Comparison B (tabular + 40 graph features) and the imbalance study" }));
     box.appendChild(el("p", { class: "muted", text: e.note_B }));
     box.appendChild(table(["Cell", "Model / arm", "Runs", "PR-AUC", "SD", "ROC-AUC", "PR-AUC cold-start"],
@@ -145,11 +380,13 @@ async function loadEvidence() {
     const v = e.comparison_b_verdicts, im = e.imbalance;
     const kv = el("div", { class: "kv" });
     [["H1-direct (B versus A)", v.H1_direct_B_vs_A], ["H2 (learned E versus handcrafted)", v.H2_E_vs_B_sub], ["H2 secondary (C)", v.H2_secondary_C_vs_B_sub],
+     ["H4 (adaptive updating, Phase 8)", e.h4.decision],
      ["Class weighting, XGBoost", im.xgboost_weighting_verdict], ["Unweighted follow-up: H1-direct", im.unweighted_followup.H1_direct], ["Unweighted follow-up: H2", im.unweighted_followup.H2],
      ["Tabular above every neural seed (unweighted)", String(im.unweighted_followup.tabular_above_every_neural_seed)]].forEach(([k, val]) => { kv.appendChild(el("div", { class: "muted", text: k })); kv.appendChild(el("div", { text: val })); });
     box.appendChild(kv);
     updateHints();
   } catch (err) {
+    DATA.errors.push("evidence: " + err.message); renderOverview();
     $("banner").textContent = "The standing statement could not be loaded (" + err.message + "). Every number on this dashboard is a recorded validation-period result; held-out results are never shown here.";
     box.appendChild(el("p", { class: "alert", text: "Could not load the evidence: " + err.message }));
   }
@@ -237,6 +474,7 @@ async function loadCommunities() {
     const c = await getJSON("/api/communities");
     box.appendChild(el("p", { text: cap(c.standing_statement) + ". " + c.not_established }));
     box.appendChild(el("p", { class: "muted", text: c.scope }));
+    box.appendChild(el("p", { class: "muted small", text: "Each card is one tracked candidate community: how many card and infrastructure entities it joined at its peak, how concentrated it was on one hub, and its daily score (line, scale 0 to 1). A shared device or network proxy alone is not evidence of coordination." }));
     const grid = el("div", { class: "cardgrid" });
     c.cards.forEach((k) => {
       const card = el("div", { class: "card" });
@@ -251,17 +489,32 @@ async function loadCommunities() {
     box.appendChild(grid);
   } catch (err) { box.appendChild(el("p", { class: "alert", text: "Could not load the communities: " + err.message })); }
 }
+const STATUS_LABELS = { validation_period_only: "Results shown are validation-period only", held_out_evaluation_performed: "Held-out evaluation performed",
+  held_out_authorization_present: "Held-out authorization file present", held_out_note: "Held-out note", phase12: "Phase 12 evidence table", h5: "H5 (coordinated communities)",
+  communities: "Candidate communities", scoring_bundle_loaded: "Scoring bundle loaded", synthetic_demo: "Synthetic demonstration mode", research_model_loaded: "Research model loaded",
+  research_model_file_present: "Research model file on this machine", research_data_present: "Research data on this machine (TRAIN and VAL feature tables)" };
+function statusRow(grid, key, label, value) {
+  grid.appendChild(el("div", { class: "k", "data-key": key, text: label }));
+  const v = el("div", { class: "v", "data-key": key });
+  if (typeof value === "boolean") v.appendChild(el("span", { class: "badge " + (value ? "good" : ""), text: value ? "Yes" : "No" })); else v.textContent = String(value);
+  grid.appendChild(v);
+}
 async function loadStatus() {
   const box = $("status"); clear(box);
   try {
-    const s = await getJSON("/api/status"); const kv = el("div", { class: "kv" });
-    Object.keys(s).forEach((k) => { kv.appendChild(el("div", { class: "muted", text: k.replace(/_/g, " ") })); kv.appendChild(el("div", { text: String(s[k]) })); });
-    box.appendChild(kv);
-  } catch (err) { box.appendChild(el("p", { class: "alert", text: "Could not load the status: " + err.message })); }
+    const s = await getJSON("/api/status"); DATA.status = s; renderOverview();
+    const grid = el("div", { class: "status-grid" });
+    statusRow(grid, "api_health", "API health (GET /health)", healthText());
+    Object.keys(s).forEach((k) => statusRow(grid, k, STATUS_LABELS[k] || k.replace(/_/g, " "), s[k]));
+    box.appendChild(grid);
+  } catch (err) {
+    DATA.errors.push("status: " + err.message); renderOverview();
+    box.appendChild(el("p", { class: "alert", text: "Could not load the status: " + err.message }));
+  }
 }
 $("loadSample").addEventListener("click", loadSample); $("doScore").addEventListener("click", doScore);
 $("researchFile").addEventListener("change", readResearchFile); $("doResearch").addEventListener("click", doResearch);
-show("evidence"); loadEvidence(); loadCommunities(); loadStatus(); loadResearchModel();
+show("overview"); DATA.started = true; loadHealth().then(loadStatus); loadEvidence(); loadCommunities(); loadResearchModel();
 </script>
 </body>
 </html>

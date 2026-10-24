@@ -1,0 +1,202 @@
+
+==> 1/5 Python environment (.venv)
+Creating .venv with: ~/.local/share/uv/python/cpython-3.12-macos-aarch64-none/bin/python3.12
+Python in .venv: 3.12.13
+
+==> 2/5 Installing requirements.txt
+Collecting numpy==2.4.4 (from -r requirements.txt (line 4))
+  Downloading numpy-2.4.4-cp312-cp312-macosx_14_0_arm64.whl.metadata (6.6 kB)
+Collecting pandas==3.0.5 (from -r requirements.txt (line 5))
+  Downloading pandas-3.0.5-cp312-cp312-macosx_11_0_arm64.whl.metadata (79 kB)
+Collecting scipy==1.18.1 (from -r requirements.txt (line 6))
+  Downloading scipy-1.18.1-cp312-cp312-macosx_14_0_arm64.whl.metadata (62 kB)
+Collecting scikit-learn==1.9.1 (from -r requirements.txt (line 7))
+  Downloading scikit_learn-1.9.1-cp312-cp312-macosx_12_0_arm64.whl.metadata (9.3 kB)
+Collecting xgboost==3.4.1 (from -r requirements.txt (line 8))
+  Downloading xgboost-3.4.1-py3-none-macosx_12_0_arm64.whl.metadata (2.0 kB)
+Collecting networkx==3.6.1 (from -r requirements.txt (line 9))
+  Downloading networkx-3.6.1-py3-none-any.whl.metadata (6.8 kB)
+Collecting pyarrow==25.0.1 (from -r requirements.txt (line 10))
+  Downloading pyarrow-25.0.1-cp312-cp312-macosx_12_0_arm64.whl.metadata (3.0 kB)
+Collecting pyyaml==6.0.3 (from -r requirements.txt (line 11))
+  Downloading pyyaml-6.0.3-cp312-cp312-macosx_11_0_arm64.whl.metadata (2.4 kB)
+Collecting joblib==1.6.0 (from -r requirements.txt (line 12))
+  Downloading joblib-1.6.0-py3-none-any.whl.metadata (6.5 kB)
+Collecting matplotlib==3.11.2 (from -r requirements.txt (line 13))
+  Downloading matplotlib-3.11.2-cp312-cp312-macosx_11_0_arm64.whl.metadata (80 kB)
+Collecting python-dateutil>=2.8.2 (from pandas==3.0.5->-r requirements.txt (line 5))
+  Downloading python_dateutil-3.0.0-py2.py3-none-any.whl.metadata (8.2 kB)
+Collecting narwhals>=2.0.1 (from scikit-learn==1.9.1->-r requirements.txt (line 7))
+  Downloading narwhals-2.27.1-py3-none-any.whl.metadata (15 kB)
+Collecting threadpoolctl>=3.5.0 (from scikit-learn==1.9.1->-r requirements.txt (line 7))
+  Downloading threadpoolctl-3.7.0-py3-none-any.whl.metadata (24 kB)
+Collecting cloudpickle>=3.0 (from joblib==1.6.0->-r requirements.txt (line 12))
+  Downloading cloudpickle-3.1.2-py3-none-any.whl.metadata (7.1 kB)
+Collecting contourpy>=1.0.1 (from matplotlib==3.11.2->-r requirements.txt (line 13))
+  Downloading contourpy-1.4.0-cp312-cp312-macosx_11_0_arm64.whl.metadata (3.8 kB)
+Collecting cycler>=0.10 (from matplotlib==3.11.2->-r requirements.txt (line 13))
+  Downloading cycler-0.12.1-py3-none-any.whl.metadata (3.8 kB)
+Collecting fonttools>=4.28.2 (from matplotlib==3.11.2->-r requirements.txt (line 13))
+  Downloading fonttools-4.67.0-cp312-cp312-macosx_10_13_universal2.whl.metadata (137 kB)
+Collecting kiwisolver>=1.3.1 (from matplotlib==3.11.2->-r requirements.txt (line 13))
+  Downloading kiwisolver-1.5.1-cp312-cp312-macosx_11_0_arm64.whl.metadata (5.2 kB)
+Collecting packaging>=20.0 (from matplotlib==3.11.2->-r requirements.txt (line 13))
+  Downloading packaging-26.3-py3-none-any.whl.metadata (3.5 kB)
+Collecting pillow>=9 (from matplotlib==3.11.2->-r requirements.txt (line 13))
+  Downloading pillow-13.0.0-cp312-cp312-macosx_11_0_arm64.whl.metadata (9.1 kB)
+Collecting pyparsing>=3 (from matplotlib==3.11.2->-r requirements.txt (line 13))
+  Downloading pyparsing-3.3.3-py3-none-any.whl.metadata (5.9 kB)
+Collecting six>=1.6 (from python-dateutil>=2.8.2->pandas==3.0.5->-r requirements.txt (line 5))
+  Downloading six-1.17.0-py2.py3-none-any.whl.metadata (1.7 kB)
+Collecting tzdata (from python-dateutil>=2.8.2->pandas==3.0.5->-r requirements.txt (line 5))
+  Downloading tzdata-2026.5-py2.py3-none-any.whl.metadata (1.4 kB)
+Downloading numpy-2.4.4-cp312-cp312-macosx_14_0_arm64.whl (5.2 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 5.2/5.2 MB 362.7 kB/s eta 0:00:00
+Downloading pandas-3.0.5-cp312-cp312-macosx_11_0_arm64.whl (10.0 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 10.0/10.0 MB 345.4 kB/s eta 0:00:00
+Downloading scipy-1.18.1-cp312-cp312-macosx_14_0_arm64.whl (20.5 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 20.5/20.5 MB 135.5 kB/s eta 0:00:00
+Downloading scikit_learn-1.9.1-cp312-cp312-macosx_12_0_arm64.whl (8.3 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 8.3/8.3 MB 183.2 kB/s eta 0:00:00
+Downloading xgboost-3.4.1-py3-none-macosx_12_0_arm64.whl (2.4 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 2.4/2.4 MB 427.5 kB/s eta 0:00:00
+Downloading networkx-3.6.1-py3-none-any.whl (2.1 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 2.1/2.1 MB 533.8 kB/s eta 0:00:00
+Downloading pyarrow-25.0.1-cp312-cp312-macosx_12_0_arm64.whl (35.9 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 35.9/35.9 MB 367.2 kB/s eta 0:00:00
+Downloading pyyaml-6.0.3-cp312-cp312-macosx_11_0_arm64.whl (173 kB)
+Downloading joblib-1.6.0-py3-none-any.whl (306 kB)
+Downloading matplotlib-3.11.2-cp312-cp312-macosx_11_0_arm64.whl (9.3 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 9.3/9.3 MB 265.7 kB/s eta 0:00:00
+Downloading cloudpickle-3.1.2-py3-none-any.whl (22 kB)
+Downloading contourpy-1.4.0-cp312-cp312-macosx_11_0_arm64.whl (284 kB)
+Downloading cycler-0.12.1-py3-none-any.whl (8.3 kB)
+Downloading fonttools-4.67.0-cp312-cp312-macosx_10_13_universal2.whl (3.1 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 3.1/3.1 MB 200.7 kB/s eta 0:00:00
+Downloading kiwisolver-1.5.1-cp312-cp312-macosx_11_0_arm64.whl (64 kB)
+Downloading narwhals-2.27.1-py3-none-any.whl (483 kB)
+Downloading packaging-26.3-py3-none-any.whl (129 kB)
+Downloading pillow-13.0.0-cp312-cp312-macosx_11_0_arm64.whl (4.9 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 4.9/4.9 MB 276.6 kB/s eta 0:00:00
+Downloading pyparsing-3.3.3-py3-none-any.whl (126 kB)
+Downloading python_dateutil-3.0.0-py2.py3-none-any.whl (94 kB)
+Downloading threadpoolctl-3.7.0-py3-none-any.whl (26 kB)
+Downloading six-1.17.0-py2.py3-none-any.whl (11 kB)
+Downloading tzdata-2026.5-py2.py3-none-any.whl (347 kB)
+Installing collected packages: tzdata, threadpoolctl, six, pyyaml, pyparsing, pyarrow, pillow, packaging, numpy, networkx, narwhals, kiwisolver, fonttools, cycler, cloudpickle, scipy, python-dateutil, joblib, contourpy, xgboost, scikit-learn, pandas, matplotlib
+Successfully installed cloudpickle-3.1.2 contourpy-1.4.0 cycler-0.12.1 fonttools-4.67.0 joblib-1.6.0 kiwisolver-1.5.1 matplotlib-3.11.2 narwhals-2.27.1 networkx-3.6.1 numpy-2.4.4 packaging-26.3 pandas-3.0.5 pillow-13.0.0 pyarrow-25.0.1 pyparsing-3.3.3 python-dateutil-3.0.0 pyyaml-6.0.3 scikit-learn-1.9.1 scipy-1.18.1 six-1.17.0 threadpoolctl-3.7.0 tzdata-2026.5 xgboost-3.4.1
+
+==> 3/5 Setup check
+Python 3.12.13 (tested with 3.12): ok
+
+requirements.txt (needed for the demonstration, tests, scorer and dashboard; each package is imported, not only looked up):
+  numpy          2.4.4      ok, imports
+  pandas         3.0.5      ok, imports
+  scipy          1.18.1     ok, imports
+  scikit-learn   1.9.1      ok, imports
+  xgboost        3.4.1      ok, imports
+  networkx       3.6.1      ok, imports
+  pyarrow        25.0.1     ok, imports
+  pyyaml         6.0.3      ok, imports
+  joblib         1.6.0      ok, imports
+  matplotlib     3.11.2     ok, imports
+
+requirements-gnn.txt (only for the neural-network experiments):
+  torch            not installed (not needed for the demonstration)
+  torch_geometric  not installed (not needed for the demonstration)
+
+research data (existence only; needed to re-run experiments, not for the demonstration):
+  absent   data/raw/train_transaction.csv
+  absent   data/raw/train_identity.csv
+  absent   data/features/train_features.parquet
+  absent   data/features/val_features.parquet
+  absent   data/processed/graph/hetero_graph.pt
+  absent   experiments/phase9_coordinated_fraud/cache/real_le151.npz
+  held-out-named files are never opened by any check or demonstration command.
+
+writable output locations:
+  ok  demo_output/
+  ok  submission/
+
+SETUP OK for the demonstration
+
+==> 4/5 Core tests (about a minute)
+[PASSED, 1 NOT RUN (withheld artifact missing)] test_ac12_recovery_records: 6/7
+      NOT RUN test_derived_evidence_recomputes_from_the_current_files: missing experiments/phase11_explainable_evidence/xgb_explanations_val/contributions_val.csv
+[PASSED] test_amendment_gate: 8/8
+[PASSED] test_artifact_registry: 6/6
+[PASSED] test_b_decision: 6/6
+[PASSED, 5 NOT RUN (withheld artifact missing)] test_comparison_b_outputs: 7/12
+      NOT RUN test_ba5_each_arm_scores_exactly_the_reference_population: missing experiments/comparison_B_graph_features/outputs/arms/*/predictions_val.parquet
+      NOT RUN test_ba7_recorded_metrics_equal_a_recomputation_from_the_stored_predictions: missing experiments/comparison_B_graph_features/outputs/arms/*/predictions_val.parquet
+      NOT RUN test_ia_imbalance_outputs_follow_their_preregistration: missing experiments/temporal_graphsage/seed_*/predictions_val.parquet
+      NOT RUN test_ge_graph_evidence_outputs_meet_their_criteria_and_hashes_link: missing experiments/comparison_B_graph_features/outputs/arms/B_full/model.joblib
+      NOT RUN test_ua_unweighted_followup_follows_its_preregistration: missing experiments/temporal_graphsage/seed_*/predictions_val.parquet
+[SKIPPED] test_f_runner_gate: needs torch
+[PASSED] test_graph_evidence: 7/7
+[PASSED] test_graph_features: 13/13
+[PASSED] test_h4_rules: 3/3
+[PASSED] test_handoff_docs: 5/5
+[PASSED, 1 NOT RUN (withheld artifact missing)] test_heldout_gate: 8/9
+      NOT RUN test_frozen_registry_matches_the_protocol_and_every_artifact_exists: missing experiments/logistic_regression/model.joblib
+[PASSED] test_inference_demo: 15/15
+[PASSED] test_integrity_sidecars: 3/3
+[PASSED] test_manuscript_figures: 3/3
+[SKIPPED] test_neural_graph_evidence: needs torch
+[PASSED] test_phase10_compat: 6/6
+[PASSED] test_phase10_properties: 12/12
+[PASSED] test_phase10_toys: 45/45
+[PASSED] test_phase11_explain: 22/22
+[PASSED, 5 NOT RUN (withheld artifact missing)] test_phase11_outputs: 3/8
+      NOT RUN test_A7_every_output_has_a_matching_sidecar_and_the_manifests_match_disk: missing experiments/xgboost/model.joblib
+      NOT RUN test_A4_A6_selection_has_300_rows_10_per_day_within_val_and_is_reproduced_from_label_free_inputs: missing data/features/val_features.parquet
+      NOT RUN test_A1_A2_stored_contributions_are_additive_and_reproduce_the_stored_scores: missing experiments/phase11_explainable_evidence/xgb_explanations_val/contributions_val.csv
+      NOT RUN test_top_feature_lists_agree_with_the_contribution_matrix: missing experiments/phase11_explainable_evidence/xgb_explanations_val/contributions_val.csv
+      NOT RUN test_A8_wording_lint_on_all_phase11_text_outputs_and_sources: missing experiments/phase11_explainable_evidence/xgb_explanations_val/selection_val.csv
+[PASSED, 1 NOT RUN (withheld artifact missing)] test_phase12_environment_independence: 0/1
+      NOT RUN test_rebuild_is_byte_identical_and_the_manifest_differs_only_in_environment_metadata: missing experiments/logistic_regression/predictions_val.parquet
+[PASSED] test_phase12_evidence: 16/16
+[PASSED, 3 NOT RUN (withheld artifact missing)] test_phase12_outputs: 8/11
+      NOT RUN test_AC1_only_the_declared_source_set_was_read_and_the_fingerprint_is_stable: missing experiments/logistic_regression/predictions_val.parquet
+      NOT RUN test_AC10_sidecars_and_deterministic_rebuild: missing experiments/logistic_regression/predictions_val.parquet
+      NOT RUN test_build_gates_block_before_any_output_is_written: missing experiments/logistic_regression/predictions_val.parquet
+[SKIPPED] test_phase8_adaptive: needs torch
+[PASSED] test_phase9_core: 14/14
+[PASSED] test_phase9_segments: 3/3
+[PASSED] test_phase9b_records: 5/5
+[PASSED] test_preprocessing: 8/8
+[PASSED] test_readiness_guards: 13/13
+[PASSED] test_relation_ablation_records: 3/3
+[PASSED, 3 NOT RUN (withheld artifact missing)] test_research_serving: 3/6
+      NOT RUN test_api_scores_equal_direct_model_scores_and_the_recorded_validation_predictions: missing experiments/xgboost/model.joblib
+      NOT RUN test_labels_in_the_request_are_ignored_and_each_row_is_scored_independently: missing experiments/xgboost/model.joblib
+      NOT RUN test_invalid_research_requests_get_actionable_400_errors: missing experiments/xgboost/model.joblib
+[PASSED] test_runner_contract: 2/2
+[PASSED, 1 NOT RUN (withheld artifact missing)] test_scope_reconciliation_records: 8/9
+      NOT RUN test_freeze_reproduces_the_recorded_unweighted_xgboost_validation_results: missing experiments/final_heldout_protocol/frozen_amendment/A_none/model.joblib
+[PASSED] test_serving: 26/26
+[PASSED] test_setup_check: 3/3
+[PASSED, 1 NOT RUN (withheld artifact missing)] test_splits: 4/5
+      NOT RUN test_built_split_matches_expected_regression_counts: missing data/features/train_features.parquet
+[PASSED] test_trigger_policy: 6/6
+[SKIPPED] test_trigger_walkforward: needs torch
+[PASSED] test_triggered_refresh_records: 6/6
+[PASSED] test_validate: 9/9
+[PASSED] test_verification_outputs: 5/5
+[SKIPPED] test_walkforward_ext: needs torch
+
+320/341 tests passed in 37 modules; NOT RUN because withheld artifacts are missing (never counted as passed): 21; environment-metadata differences (never counted as passed): 0; skipped modules (need PyTorch): ['test_f_runner_gate', 'test_neural_graph_evidence', 'test_phase8_adaptive', 'test_trigger_walkforward', 'test_walkforward_ext']
+
+==> 5/5 Synthetic end-to-end demonstration
+[demo] SYNTHETIC DEMONSTRATION of software mechanics. Not IEEE-CIS data, not a research result, no TEST period used. Communities are candidates only.
+[1] synthetic stream: 6,726 transactions, 4.847% fraud; demo-train days (1, 24), demo-valid (25, 32), demo-holdout (33, 40)
+[2] tabular_only                 PR-AUC 0.1169  ROC-AUC 0.7002  alerts 145  (demo-holdout, synthetic)
+[2] tabular_plus_graph_features  PR-AUC 0.1276  ROC-AUC 0.7535  alerts 91  (demo-holdout, synthetic)
+[3] scored 1280 holdout transactions from 5446 history rows; explained the top 3 alerts (native tree contributions)
+[4] candidate communities (Phase 9 modules, window 7 days): 107 community-days over 16 days; best overlap with the 14 planted demo cards on day 25: 14
+[5] invariants: {'scores_in_unit_interval': True, 'one_score_per_new_row': True, 'label_column_not_needed_to_score': True, 'first_half_unchanged_when_second_half_removed': True}
+[done] 0.37s; outputs in demo_output
+
+QUICKSTART OK
+Start the dashboard:  .venv/bin/python -B scripts/run_dashboard.py --demo
+Then open http://127.0.0.1:8765/ in a browser and stop the server with Ctrl+C.

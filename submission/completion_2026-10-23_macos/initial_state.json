@@ -1,0 +1,58 @@
+{
+ "schema": "initial_state/1: the state recorded before any edit in the 2026-10-23 completion session; every value was observed by a command in this session unless marked unknown",
+ "recorded_local": "2026-10-23, about 12:50 +05:30 (before the first edit; exact minute not captured)",
+ "repository": {
+  "root": "~/Sandbox/Adaptive-Temporal-Fraud-Demo",
+  "remote_origin": "git@github.com:arunsubramanian71-droid/Adaptive-Temporal-Fraud-Demo.git",
+  "branch": "main",
+  "head": "975b0db",
+  "head_subject": "Handoff release: root README, quick-start script, guides, release manifest",
+  "commits_on_branch": 35,
+  "kind": "the sanitized public demonstration repository (filtered history); the original development repository is kept privately by the owner (README section 11)",
+  "working_tree": {
+   "modified_tracked": ["experiments/phase13_serving_dashboard/test_results/e2e_verification.json"],
+   "untracked": ["demo_output/", "presentation/"],
+   "notes": {
+    "experiments/phase13_serving_dashboard/test_results/e2e_verification.json": "rewritten by a run of scripts/verify_dashboard_e2e.py on this Mac at 12:39 (31/31 pass, python 3.12.13); differs from HEAD in run metadata and line endings; its SHA-256 5bbe0b62... no longer matches the 18cf0b6f... recorded in submission/INTEGRITY_SUBMISSION.json. Preserved untouched; a copy is in evidence/baseline/.",
+    "demo_output/": "written by scripts/demo_end_to_end.py at 12:39 (synthetic; its holdout_scores.csv holds the synthetic fixture's own holdout days, not IEEE-CIS data)",
+    "presentation/": "the owner's slide deck, figures and presenter notes; not touched"
+   }
+  },
+  "running_processes": ["a dashboard started 12:41 (python -B scripts/run_dashboard.py --demo) listening on 127.0.0.1:8765; left running"]
+ },
+ "machine": {
+  "os": "macOS 27.0.1 (build 26A434), Darwin 27.0.0, arm64",
+  "cpu": "Apple M4, 10 cores",
+  "memory_bytes": 17179869184,
+  "disk_free": "34 GiB of 228 GiB (84% used)",
+  "browsers": ["Google Chrome", "Firefox", "Safari"],
+  "homebrew_libomp": "22.1.7 installed (/opt/homebrew/opt/libomp/lib/libomp.dylib)"
+ },
+ "python": {
+  "project_venv": ".venv, created by uv 0.11.19 from CPython 3.12.13 (uv-managed); no pip module inside",
+  "project_venv_packages": {"numpy": "2.4.4", "pandas": "3.0.5", "scipy": "1.18.1", "scikit-learn": "1.9.1", "xgboost": "3.4.1", "networkx": "3.6.1", "pyarrow": "25.0.1", "pyyaml": "6.0.3", "joblib": "1.6.0", "matplotlib": "3.11.2", "extra_not_in_requirements": ["python-pptx 1.0.2", "xlsxwriter 3.3.0", "lxml 6.1.3", "pillow 13.0.0"]},
+  "system_interpreters": ["/opt/homebrew/bin/python3 (3.14.7)", "/opt/homebrew/bin/python3.13", "/usr/bin/python3"],
+  "python3.12_on_PATH": false,
+  "torch_installed_in_project_venv": false
+ },
+ "dependency_manifests": ["requirements.txt (10 pinned packages)", "requirements-gnn.txt (torch 2.9.1, torch_geometric 2.8.0.post1)", "requirements-browser-check.txt (playwright 1.64.0, pillow 12.2.0)"],
+ "research_data_and_artifacts": {
+  "data/raw/train_transaction.csv": "absent",
+  "data/raw/train_identity.csv": "absent",
+  "data/features/train_features.parquet": "absent",
+  "data/features/val_features.parquet": "absent",
+  "data/processed/graph/hetero_graph.pt": "absent",
+  "experiments/xgboost/model.joblib": "absent",
+  "experiments/phase9_coordinated_fraud/cache/real_le151.npz": "absent",
+  "copies_elsewhere_on_this_mac": "none found (Spotlight search for train_transaction.csv, hetero_graph.pt, ieee-fraud-detection.zip)",
+  "held_out_files_opened": "none, at any point in the session"
+ },
+ "baseline_checks": {
+  "scripts/check_setup.py": {"exit": 0, "result": "SETUP OK for the demonstration", "evidence": "evidence/baseline/check_setup_before_edits.txt"},
+  "scripts/run_core_tests.py (project .venv)": {"exit": 0, "passed": 306, "tests": 327, "not_run_withheld_artifact": 21, "failed": 0, "skipped_modules_need_pytorch": 5, "seconds": 16, "evidence": "evidence/baseline/run_core_tests_before_edits.txt"},
+  "scripts/run_core_tests.py (isolated env with requirements.txt + requirements-gnn.txt, CPU PyTorch 2.9.1)": {"exit": 0, "passed": 359, "tests": 381, "not_run_withheld_artifact": 22, "failed": 0, "skipped_modules": 0, "modules": 40, "seconds": 32, "evidence": "evidence/baseline/run_core_tests_with_pytorch_before_edits.json"},
+  "readme_claim_306_of_327_on_a_fresh_clone": "matches on macOS",
+  "prompt_claim_306_pass_0_fail_21_not_run": "matches"
+ },
+ "unknown": ["whether Linux runs the project (no Linux machine was available)", "whether the owner's development machine still reproduces 381/381 plus the 11 new tests after the 2026-10-23 changes (not reachable from this session)"]
+}
