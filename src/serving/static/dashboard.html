@@ -172,6 +172,64 @@ ul.plain li{margin:3px 0}
     <textarea id="payload" spellcheck="false" aria-label="JSON request body">{"history": [], "new": []}</textarea>
     <div id="scoreOut" aria-live="polite"></div>
   </section>
+  <section id="tab-graph" role="tabpanel" aria-labelledby="btn-graph" tabindex="0">
+    <div class="lead" style="margin-bottom:12px">
+      <div>
+        <p class="eyebrow">Heterogeneous Graph Architecture</p>
+        <p class="question" style="font-size:18px;margin:2px 0 6px">Relational Linkages and Message-Passing Neighborhoods</p>
+        <p class="muted small">Visualizing the exact bipartite relational structure given to the graph models (GraphSAGE, GAT, and Temporal GraphSAGE). Transactions link to four grounded entity types: <strong>Pseudo-Accounts</strong> (purple), <strong>Payment Cards</strong> (amber), <strong>Device Fingerprints</strong> (green), and <strong>Network Proxies</strong> (teal). Drag the causal time slider to inspect temporal masking ($t' \le t$).</p>
+      </div>
+      <div class="tiles" id="graphTiles">
+        <div class="tile"><div class="t">Graph Nodes</div><div class="v" id="gStatNodes">-</div></div>
+        <div class="tile"><div class="t">Graph Edges</div><div class="v" id="gStatEdges">-</div></div>
+        <div class="tile"><div class="t">Transactions</div><div class="v" id="gStatTxns">-</div></div>
+        <div class="tile"><div class="t">Temporal Span</div><div class="v" id="gStatDays">-</div></div>
+      </div>
+    </div>
+    <div class="row" style="justify-content:space-between;gap:12px;margin:10px 0 14px">
+      <div class="row" style="margin:0;gap:8px">
+        <label class="small" style="font-weight:600">Dataset view:</label>
+        <button class="sec small" id="btnGraphSample">Sample stream</button>
+        <button class="sec small" id="btnGraphBurst">Planted coordinated burst</button>
+        <button class="sec small" id="btnGraphSync">Sync with Score tab</button>
+      </div>
+      <div class="row" style="margin:0;gap:8px">
+        <input type="text" id="graphSearch" placeholder="Search ID (e.g. 3005556, Card 9)..." style="padding:6px 10px;border:1px solid var(--line);border-radius:6px;font-size:13px;background:var(--bg);color:var(--ink);width:220px">
+        <button class="sec small" id="btnGraphResetView">Reset View</button>
+      </div>
+    </div>
+    <div class="row" style="gap:16px;background:var(--neutralbg);padding:8px 12px;border-radius:8px;font-size:13px;align-items:center">
+      <div style="font-weight:600">Filter Relations:</div>
+      <label style="display:inline-flex;align-items:center;gap:4px;cursor:pointer"><input type="checkbox" id="fltAcc" checked> <span style="color:#7a3db8;font-weight:600">■</span> Pseudo-Account (charged_to)</label>
+      <label style="display:inline-flex;align-items:center;gap:4px;cursor:pointer"><input type="checkbox" id="fltCard" checked> <span style="color:#c47a00;font-weight:600">■</span> Card (used_card)</label>
+      <label style="display:inline-flex;align-items:center;gap:4px;cursor:pointer"><input type="checkbox" id="fltDev" checked> <span style="color:#1d6b3a;font-weight:600">■</span> Device (from_device)</label>
+      <label style="display:inline-flex;align-items:center;gap:4px;cursor:pointer"><input type="checkbox" id="fltNet" checked> <span style="color:#0f7c86;font-weight:600">■</span> Proxy (via_network)</label>
+      <div style="margin-left:auto;display:inline-flex;align-items:center;gap:8px">
+        <span style="font-weight:600" id="timeMaskLabel">Causal Time Mask: All Days</span>
+        <input type="range" id="timeMaskSlider" min="1" max="40" value="40" style="cursor:pointer">
+      </div>
+    </div>
+    <div style="display:grid;grid-template-columns:minmax(0,2fr) minmax(280px,1fr);gap:14px;margin-top:12px">
+      <div style="position:relative">
+        <canvas id="graphCanvas" width="760" height="520" style="width:100%;height:520px;background:var(--bg);border:1px solid var(--line);border-radius:10px;display:block"></canvas>
+        <div style="position:absolute;bottom:10px;left:10px;display:flex;gap:4px;background:var(--panel);padding:4px 6px;border-radius:6px;border:1px solid var(--line);box-shadow:var(--shadow)">
+          <button class="sec" id="btnZoomIn" style="padding:2px 8px;font-weight:700" title="Zoom in">+</button>
+          <button class="sec" id="btnZoomOut" style="padding:2px 8px;font-weight:700" title="Zoom out">-</button>
+          <button class="sec" id="btnReheat" style="padding:2px 8px;font-size:12px" title="Re-simulate layout">Unclutter</button>
+        </div>
+        <div id="graphTooltip" style="position:absolute;display:none;pointer-events:none;background:var(--panel);border:1px solid var(--line);padding:4px 8px;border-radius:6px;font-size:12px;box-shadow:var(--shadow);z-index:10"></div>
+      </div>
+      <div class="panel2" style="max-height:520px;overflow-y:auto" id="nodeInspector">
+        <h3 style="margin-top:4px">Node Inspector</h3>
+        <p class="muted small">Click any node in the graph to inspect its properties, connected entities, and message-passing path.</p>
+        <div id="inspectorDetails">
+          <div style="border:1px dashed var(--line);border-radius:8px;padding:24px 12px;text-align:center;color:var(--mute);font-size:13px">
+            Select a transaction or entity node on the canvas to inspect linkages.
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
   <section id="tab-research" role="tabpanel" aria-labelledby="btn-research" tabindex="0">
     <p class="muted">Research model: the recorded comparison-A XGBoost (cell A), served exactly as it was evaluated (same TRAIN-fit encoder, recorded validation threshold). This is <strong>not</strong> the synthetic demonstration bundle. Rows must follow the project's processed-feature schema; labels in the rows are ignored. Choose a JSON file of rows (for example one written by <code>scripts/make_research_sample.py</code>); the browser reads it, the server never opens a data file. A score is a model output, not evidence of fraud.</p>
     <div id="researchModel" class="muted" aria-live="polite">Checking whether the research model is loaded...</div>
@@ -224,11 +282,12 @@ async function busy(buttons, fn) {
   try { await fn(); } finally { buttons.forEach((b) => { b.dataset.busy = "0"; b.disabled = b.dataset.unavailable === "1"; }); }
 }
 
-const TABS = [["overview", "Overview"], ["evidence", "Evidence (validation)"], ["score", "Score transactions (demo)"], ["research", "Research model"], ["communities", "Candidate communities"], ["status", "Status and limits"]];
+const TABS = [["overview", "Overview"], ["evidence", "Evidence (validation)"], ["score", "Score transactions (demo)"], ["graph", "Graph linkages"], ["research", "Research model"], ["communities", "Candidate communities"], ["status", "Status and limits"]];
 function show(name, focus) {
   TABS.forEach(([k]) => { const on = k === name; $("tab-" + k).classList.toggle("on", on); const b = $("btn-" + k);
     b.setAttribute("aria-selected", on ? "true" : "false"); b.setAttribute("tabindex", on ? "0" : "-1"); if (on && focus) b.focus(); });
   updateHints();
+  if (name === "graph" && !GRAPH.loaded) loadGraph();
   if (DATA.started && (name === "overview" || name === "status")) loadHealth();     // the health shown is never older than the last visit to these tabs
 }
 TABS.forEach(([k, label]) => { const b = el("button", { id: "btn-" + k, role: "tab", text: label, "aria-selected": "false", "aria-controls": "tab-" + k, tabindex: "-1" });
@@ -512,9 +571,373 @@ async function loadStatus() {
     box.appendChild(el("p", { class: "alert", text: "Could not load the status: " + err.message }));
   }
 }
+// ------------------------------------------------------------------ graph linkages visualization
+const GRAPH = {
+  loaded: false, loading: false, data: null, nodes: [], edges: [], nodeMap: {}, adj: {},
+  selected: null, hovered: null, animId: null, panX: 0, panY: 0, zoom: 1, dragging: null,
+  isPanning: false, panStart: { x: 0, y: 0 }, maxDayCutoff: 9999,
+  flt: { charged_to: true, used_card: true, from_device: true, via_network: true },
+  simAlpha: 1
+};
+const NODE_COLORS = {
+  transaction: "#1f5fbf", card: "#c47a00", pseudo_account: "#7a3db8",
+  device_fingerprint: "#1d6b3a", netproxy: "#0f7c86"
+};
+const EDGE_COLORS = {
+  charged_to: "#7a3db8", used_card: "#c47a00", from_device: "#1d6b3a", via_network: "#0f7c86"
+};
+async function loadGraph(paramPayload) {
+  if (GRAPH.loading) return;
+  GRAPH.loading = true;
+  try {
+    let j;
+    if (paramPayload) {
+      const r = await fetch("/api/graph", {
+        method: "POST", headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(paramPayload)
+      });
+      j = await r.json();
+      if (!r.ok) throw new Error(j.error || r.statusText);
+    } else {
+      j = await getJSON("/api/graph");
+    }
+    GRAPH.data = j;
+    GRAPH.loaded = true;
+    $("gStatNodes").textContent = String(j.summary.n_nodes);
+    $("gStatEdges").textContent = String(j.summary.n_edges);
+    $("gStatTxns").textContent = String(j.summary.n_transactions);
+    $("gStatDays").textContent = "Days " + j.summary.min_day + "–" + j.summary.max_day;
+
+    const slider = $("timeMaskSlider");
+    slider.min = String(j.summary.min_day);
+    slider.max = String(j.summary.max_day);
+    slider.value = String(j.summary.max_day);
+    GRAPH.maxDayCutoff = j.summary.max_day;
+    $("timeMaskLabel").textContent = "Causal Time Mask: Day <= " + GRAPH.maxDayCutoff;
+
+    initGraphLayout(j.nodes, j.edges);
+  } catch (err) {
+    const box = $("inspectorDetails"); clear(box);
+    box.appendChild(el("p", { class: "alert", text: "Could not load graph data: " + err.message }));
+  } finally {
+    GRAPH.loading = false;
+  }
+}
+function initGraphLayout(nodes, edges) {
+  GRAPH.nodeMap = {}; GRAPH.adj = {};
+  const canvas = $("graphCanvas");
+  const cw = canvas.clientWidth || 760;
+  const ch = canvas.clientHeight || 520;
+  const cx = cw / 2; const cy = ch / 2;
+  GRAPH.nodes = nodes.map((n, i) => {
+    const rad = n.type === "transaction" ? (n.is_planted ? 8 : 6) : (n.type === "pseudo_account" ? 11 : 9);
+    const angle = (i / Math.max(1, nodes.length)) * Math.PI * 2;
+    const rDist = 60 + (i % 5) * 35;
+    const node = {
+      ...n, radius: rad, x: cx + Math.cos(angle) * rDist, y: cy + Math.sin(angle) * rDist, vx: 0, vy: 0
+    };
+    GRAPH.nodeMap[node.id] = node;
+    GRAPH.adj[node.id] = [];
+    return node;
+  });
+  GRAPH.edges = edges.map((e) => {
+    const s = GRAPH.nodeMap[e.source];
+    const t = GRAPH.nodeMap[e.target];
+    if (s && t) {
+      GRAPH.adj[s.id].push({ relation: e.relation, node: t });
+      GRAPH.adj[t.id].push({ relation: e.relation, node: s });
+    }
+    return e;
+  });
+  GRAPH.panX = 0; GRAPH.panY = 0; GRAPH.zoom = 1; GRAPH.selected = null;
+  inspectNode(null);
+  GRAPH.simAlpha = 1;
+  if (!GRAPH.animId) runGraphLoop();
+}
+function simStep() {
+  if (GRAPH.simAlpha <= 1 / 100) return;
+  const nodes = GRAPH.nodes; const n = nodes.length; if (n === 0) return;
+  const canvas = $("graphCanvas");
+  const cw = canvas.clientWidth || 760; const ch = canvas.clientHeight || 520;
+  const cx = cw / 2; const cy = ch / 2;
+  const kRep = 1400;
+  for (let i = 0; i < n; i++) {
+    const ni = nodes[i];
+    for (let j = i + 1; j < n; j++) {
+      const nj = nodes[j];
+      const dx = nj.x - ni.x; const dy = nj.y - ni.y;
+      const dist2 = dx * dx + dy * dy + 80; const dist = Math.sqrt(dist2);
+      const force = (kRep / dist2) * GRAPH.simAlpha;
+      const fx = (dx / dist) * force; const fy = (dy / dist) * force;
+      if (ni !== GRAPH.dragging) { ni.vx -= fx; ni.vy -= fy; }
+      if (nj !== GRAPH.dragging) { nj.vx += fx; nj.vy += fy; }
+    }
+  }
+  const kSpring = 4 / 100; const targetDist = 65;
+  for (let k = 0; k < GRAPH.edges.length; k++) {
+    const e = GRAPH.edges[k];
+    if (!GRAPH.flt[e.relation] || e.day > GRAPH.maxDayCutoff) continue;
+    const s = GRAPH.nodeMap[e.source]; const t = GRAPH.nodeMap[e.target];
+    if (!s || !t) continue;
+    const dx = t.x - s.x; const dy = t.y - s.y;
+    const dist = Math.sqrt(dx * dx + dy * dy) || 1;
+    const force = (dist - targetDist) * kSpring * GRAPH.simAlpha;
+    const fx = (dx / dist) * force; const fy = (dy / dist) * force;
+    if (s !== GRAPH.dragging) { s.vx += fx; s.vy += fy; }
+    if (t !== GRAPH.dragging) { t.vx -= fx; t.vy -= fy; }
+  }
+  const kGrav = 15 / 1000; const friction = 82 / 100;
+  let totalV = 0;
+  for (let i = 0; i < n; i++) {
+    const ni = nodes[i]; if (ni === GRAPH.dragging) continue;
+    ni.vx += (cx - ni.x) * kGrav; ni.vy += (cy - ni.y) * kGrav;
+    ni.vx *= friction; ni.vy *= friction;
+    ni.x += ni.vx; ni.y += ni.vy;
+    totalV += Math.abs(ni.vx) + Math.abs(ni.vy);
+  }
+  GRAPH.simAlpha *= 99 / 100;
+  if (totalV < 1 / 10) GRAPH.simAlpha = 0;
+}
+function drawGraph() {
+  const canvas = $("graphCanvas"); if (!canvas) return;
+  const ctx = canvas.getContext("2d");
+  const dpr = window.devicePixelRatio || 1;
+  const cw = canvas.clientWidth || 760; const ch = canvas.clientHeight || 520;
+  if (canvas.width !== Math.floor(cw * dpr) || canvas.height !== Math.floor(ch * dpr)) {
+    canvas.width = Math.floor(cw * dpr); canvas.height = Math.floor(ch * dpr);
+  }
+  ctx.save();
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+  ctx.scale(dpr, dpr);
+  ctx.translate(GRAPH.panX, GRAPH.panY);
+  ctx.scale(GRAPH.zoom, GRAPH.zoom);
+
+  const sel = GRAPH.selected; const hov = GRAPH.hovered;
+  const highlightSet = new Set();
+  if (sel) {
+    highlightSet.add(sel.id);
+    (GRAPH.adj[sel.id] || []).forEach((item) => highlightSet.add(item.node.id));
+  } else if (hov) {
+    highlightSet.add(hov.id);
+    (GRAPH.adj[hov.id] || []).forEach((item) => highlightSet.add(item.node.id));
+  }
+
+  for (let i = 0; i < GRAPH.edges.length; i++) {
+    const e = GRAPH.edges[i];
+    if (!GRAPH.flt[e.relation] || e.day > GRAPH.maxDayCutoff) continue;
+    const s = GRAPH.nodeMap[e.source]; const t = GRAPH.nodeMap[e.target];
+    if (!s || !t) continue;
+    const isConnected = highlightSet.has(s.id) && highlightSet.has(t.id);
+    ctx.beginPath(); ctx.moveTo(s.x, s.y); ctx.lineTo(t.x, t.y);
+    const col = EDGE_COLORS[e.relation] || "#888";
+    if (highlightSet.size > 0) {
+      if (isConnected) { ctx.strokeStyle = col; ctx.lineWidth = 2; ctx.globalAlpha = 1; }
+      else { ctx.strokeStyle = "#aaa"; ctx.lineWidth = 1; ctx.globalAlpha = 1 / 10; }
+    } else {
+      ctx.strokeStyle = col; ctx.lineWidth = 1; ctx.globalAlpha = 4 / 10;
+    }
+    ctx.stroke();
+  }
+
+  ctx.globalAlpha = 1;
+  for (let i = 0; i < GRAPH.nodes.length; i++) {
+    const node = GRAPH.nodes[i];
+    const isLit = highlightSet.size === 0 || highlightSet.has(node.id);
+    const isFocus = sel && sel.id === node.id;
+    ctx.beginPath();
+    ctx.arc(node.x, node.y, node.radius + (isFocus ? 2 : 0), 0, Math.PI * 2);
+    ctx.fillStyle = NODE_COLORS[node.type] || "#555";
+    ctx.globalAlpha = isLit ? 1 : 15 / 100;
+    ctx.fill();
+
+    ctx.lineWidth = isFocus ? 3 : 1;
+    ctx.strokeStyle = isFocus ? "#1f5fbf" : "#ffffff";
+    ctx.stroke();
+
+    if (isLit && (GRAPH.zoom > 1 || node.degree > 1 || isFocus || node.type !== "transaction")) {
+      ctx.font = (isFocus ? "bold 12px " : "11px ") + "system-ui, sans-serif";
+      ctx.fillStyle = isFocus ? "#141a22" : "#545f6d";
+      ctx.textAlign = "center";
+      ctx.fillText(node.label, node.x, node.y + node.radius + 12);
+    }
+  }
+  ctx.restore();
+}
+function runGraphLoop() {
+  simStep();
+  drawGraph();
+  GRAPH.animId = requestAnimationFrame(runGraphLoop);
+}
+function inspectNode(node) {
+  const box = $("inspectorDetails"); clear(box);
+  if (!node) {
+    const ph = el("div", {
+      style: "border:1px dashed var(--line);border-radius:8px;padding:24px 12px;text-align:center;color:var(--mute);font-size:13px",
+      text: "Select a transaction or entity node on the canvas to inspect linkages."
+    });
+    box.appendChild(ph);
+    return;
+  }
+  const top = el("div", { style: "display:flex;align-items:center;gap:8px;margin-bottom:8px" });
+  const badgeClass = node.type === "transaction" ? (node.is_fraud ? "badge bad" : "badge info") : "badge warn";
+  top.appendChild(el("span", { class: badgeClass, text: node.type.replace("_fingerprint", "").replace("pseudo_", "").toUpperCase() }));
+  top.appendChild(el("strong", { style: "font-size:15px", text: node.label }));
+  box.appendChild(top);
+
+  const kv = el("div", { class: "kv", style: "margin-bottom:12px;font-size:13px" });
+  if (node.type === "transaction") {
+    [["Transaction ID", String(node.id.replace("txn_", ""))],
+     ["Amount", "$" + fmt(node.amount, 2)],
+     ["Observed Day", "Day " + node.day],
+     ["Timestamp", String(node.dt) + " s"],
+     ["Connected Entities", String(node.degree)],
+     ["Planted Status", node.is_planted ? "Planted coordinated burst member" : "Standard stream"]
+    ].forEach(([k, v]) => { kv.appendChild(el("div", { class: "muted", text: k })); kv.appendChild(el("div", { text: v })); });
+  } else {
+    [["Entity Type", node.type],
+     ["Entity Identifier", node.key],
+     ["Connected Transactions", String(node.degree)]
+    ].forEach(([k, v]) => { kv.appendChild(el("div", { class: "muted", text: k })); kv.appendChild(el("div", { text: v })); });
+  }
+  box.appendChild(kv);
+
+  const nhead = el("div", { style: "font-weight:600;font-size:13px;margin:8px 0 4px", text: "Connected Neighbors (" + (GRAPH.adj[node.id] || []).length + "):" });
+  box.appendChild(nhead);
+  const nlist = el("div", { style: "display:flex;flex-wrap:wrap;gap:4px;max-height:140px;overflow-y:auto;margin-bottom:12px" });
+  (GRAPH.adj[node.id] || []).forEach((item) => {
+    const pill = el("button", {
+      class: "sec small", style: "cursor:pointer;padding:2px 8px;font-size:12px",
+      text: item.relation + " -> " + item.node.label
+    });
+    pill.addEventListener("click", () => { selectNode(item.node); centerOnNode(item.node); });
+    nlist.appendChild(pill);
+  });
+  box.appendChild(nlist);
+
+  const cbox = el("div", { style: "background:var(--accentbg);border-left:3px solid var(--accent);border-radius:6px;padding:8px 10px;font-size:12.5px" });
+  if (node.type === "transaction") {
+    cbox.appendChild(el("strong", { text: "Message-Passing Flow: " }));
+    cbox.appendChild(el("span", { text: "In GraphSAGE and GAT, this transaction aggregates incoming 64-dim embeddings from its linked payment card, account, device, and network nodes." }));
+  } else {
+    cbox.appendChild(el("strong", { text: "Entity Memory Dynamics: " }));
+    cbox.appendChild(el("span", { text: "In Temporal GraphSAGE, this entity maintains a recurrent GRU state updated as transactions arrive over time, with edges causally masked by day." }));
+  }
+  box.appendChild(cbox);
+}
+function selectNode(node) {
+  GRAPH.selected = node; inspectNode(node); GRAPH.simAlpha = 1;
+}
+function centerOnNode(node) {
+  const canvas = $("graphCanvas");
+  const cw = canvas.clientWidth || 760; const ch = canvas.clientHeight || 520;
+  GRAPH.panX = cw / 2 - node.x * GRAPH.zoom;
+  GRAPH.panY = ch / 2 - node.y * GRAPH.zoom;
+  GRAPH.simAlpha = 1;
+}
+function setupGraphInteractions() {
+  const canvas = $("graphCanvas"); if (!canvas) return;
+  function toWorld(mx, my) {
+    return { x: (mx - GRAPH.panX) / GRAPH.zoom, y: (my - GRAPH.panY) / GRAPH.zoom };
+  }
+  function getMouse(e) {
+    const rect = canvas.getBoundingClientRect();
+    return { x: e.clientX - rect.left, y: e.clientY - rect.top };
+  }
+  function findNode(wx, wy) {
+    for (let i = GRAPH.nodes.length - 1; i >= 0; i--) {
+      const n = GRAPH.nodes[i];
+      const dx = n.x - wx; const dy = n.y - wy;
+      if (dx * dx + dy * dy <= (n.radius + 6) * (n.radius + 6)) return n;
+    }
+    return null;
+  }
+  canvas.addEventListener("mousedown", (e) => {
+    const m = getMouse(e); const w = toWorld(m.x, m.y); const hit = findNode(w.x, w.y);
+    if (hit) {
+      GRAPH.dragging = hit; selectNode(hit); canvas.style.cursor = "grabbing";
+    } else {
+      GRAPH.isPanning = true; GRAPH.panStart = { x: m.x - GRAPH.panX, y: m.y - GRAPH.panY };
+      canvas.style.cursor = "move";
+    }
+  });
+  window.addEventListener("mousemove", (e) => {
+    const m = getMouse(e); const w = toWorld(m.x, m.y);
+    if (GRAPH.dragging) {
+      GRAPH.dragging.x = w.x; GRAPH.dragging.y = w.y;
+      GRAPH.dragging.vx = 0; GRAPH.dragging.vy = 0;
+      GRAPH.simAlpha = 1;
+    } else if (GRAPH.isPanning) {
+      GRAPH.panX = m.x - GRAPH.panStart.x; GRAPH.panY = m.y - GRAPH.panStart.y;
+    } else {
+      const hit = findNode(w.x, w.y);
+      if (hit !== GRAPH.hovered) {
+        GRAPH.hovered = hit;
+        canvas.style.cursor = hit ? "pointer" : "grab";
+        const tip = $("graphTooltip");
+        if (hit && tip) {
+          tip.textContent = hit.label + " (" + hit.type + ", degree " + hit.degree + ")";
+          tip.style.left = String(m.x + 12) + "px"; tip.style.top = String(m.y + 12) + "px";
+          tip.style.display = "block";
+        } else if (tip) {
+          tip.style.display = "none";
+        }
+      }
+    }
+  });
+  window.addEventListener("mouseup", () => {
+    GRAPH.dragging = null; GRAPH.isPanning = false;
+    if (canvas) canvas.style.cursor = "grab";
+  });
+  canvas.addEventListener("wheel", (e) => {
+    e.preventDefault();
+    const m = getMouse(e); const zoomFactor = e.deltaY < 0 ? 11 / 10 : 9 / 10;
+    const newZoom = Math.max(2 / 10, Math.min(5, GRAPH.zoom * zoomFactor));
+    GRAPH.panX = m.x - (m.x - GRAPH.panX) * (newZoom / GRAPH.zoom);
+    GRAPH.panY = m.y - (m.y - GRAPH.panY) * (newZoom / GRAPH.zoom);
+    GRAPH.zoom = newZoom; GRAPH.simAlpha = 1;
+  }, { passive: false });
+
+  $("btnZoomIn").addEventListener("click", () => { GRAPH.zoom = Math.min(5, GRAPH.zoom * (12 / 10)); GRAPH.simAlpha = 1; });
+  $("btnZoomOut").addEventListener("click", () => { GRAPH.zoom = Math.max(2 / 10, GRAPH.zoom * (8 / 10)); GRAPH.simAlpha = 1; });
+  $("btnReheat").addEventListener("click", () => { GRAPH.simAlpha = 1; });
+  $("btnGraphResetView").addEventListener("click", () => { GRAPH.panX = 0; GRAPH.panY = 0; GRAPH.zoom = 1; GRAPH.simAlpha = 1; });
+
+  function updateFilters() {
+    GRAPH.flt.charged_to = $("fltAcc").checked;
+    GRAPH.flt.used_card = $("fltCard").checked;
+    GRAPH.flt.from_device = $("fltDev").checked;
+    GRAPH.flt.via_network = $("fltNet").checked;
+    const v = parseInt($("timeMaskSlider").value, 10);
+    GRAPH.maxDayCutoff = v;
+    $("timeMaskLabel").textContent = "Causal Time Mask: Day <= " + v;
+    GRAPH.simAlpha = 1;
+  }
+  ["fltAcc", "fltCard", "fltDev", "fltNet"].forEach((id) => { $(id).addEventListener("change", updateFilters); });
+  $("timeMaskSlider").addEventListener("input", updateFilters);
+
+  $("btnGraphSample").addEventListener("click", () => loadGraph({ preset: "sample" }));
+  $("btnGraphBurst").addEventListener("click", () => loadGraph({ preset: "burst" }));
+  $("btnGraphSync").addEventListener("click", () => {
+    try {
+      const p = JSON.parse($("payload").value);
+      loadGraph(p);
+    } catch (err) {
+      alert("Score tab payload is not valid JSON: " + err.message);
+    }
+  });
+
+  $("graphSearch").addEventListener("input", (e) => {
+    const q = (e.target.value || "").trim().toLowerCase();
+    if (!q) return;
+    const match = GRAPH.nodes.find((n) => n.label.toLowerCase().includes(q) || n.id.toLowerCase().includes(q) || (n.key && String(n.key).toLowerCase().includes(q)));
+    if (match) { selectNode(match); centerOnNode(match); }
+  });
+}
+
 $("loadSample").addEventListener("click", loadSample); $("doScore").addEventListener("click", doScore);
 $("researchFile").addEventListener("change", readResearchFile); $("doResearch").addEventListener("click", doResearch);
 show("overview"); DATA.started = true; loadHealth().then(loadStatus); loadEvidence(); loadCommunities(); loadResearchModel();
+setupGraphInteractions();
 </script>
 </body>
 </html>

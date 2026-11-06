@@ -141,6 +141,112 @@ class Services:
                        "scope": "aggregate-only cards for exploratory Phase 9 candidate communities (window 7 days, seed 42, validation days 122-151); no member identities exist in this output",
                        "n_cards": len(cards), "cards": cards})
 
+    def graph_data(self, payload: dict | None = None) -> dict:
+        preset = (payload.get("preset") if isinstance(payload, dict) else None) or "sample"
+        rows = []
+        if isinstance(payload, dict):
+            if isinstance(payload.get("rows"), list) and payload["rows"]:
+                rows = payload["rows"]
+            elif isinstance(payload.get("new"), list) and payload["new"]:
+                rows = (payload.get("history") or []) + payload["new"]
+        if not rows:
+            if preset == "burst":
+                from src.demo.synthetic import make_transactions
+                df = make_transactions(seed=0)
+                b = df[df["day"] == 25]
+                p = b[b["is_planted"]].head(30)
+                rows = p.to_dict(orient="records")
+            elif self.sample:
+                hist = self.sample.get("history", [])
+                new = self.sample.get("new", [])
+                rows = hist[-30:] + new
+            else:
+                from src.demo.synthetic import make_transactions
+                df = make_transactions(seed=0, n_days=5, per_day=20)
+                rows = df.to_dict(orient="records")
+        max_txns = 60
+        if isinstance(payload, dict) and isinstance(payload.get("max_txns"), int):
+            max_txns = max(10, min(200, payload["max_txns"]))
+        return _clean(self._extract_graph(rows, max_txns=max_txns))
+
+    @staticmethod
+    def _extract_graph(rows: list, max_txns: int = 60) -> dict:
+        if len(rows) > max_txns:
+            rows = rows[-max_txns:]
+        nodes = {}
+        edges = []
+        type_counts = {"transaction": 0, "card": 0, "pseudo_account": 0, "device_fingerprint": 0, "netproxy": 0}
+        rel_counts = {"charged_to": 0, "used_card": 0, "from_device": 0, "via_network": 0}
+        days = []
+        for r in rows:
+            if not isinstance(r, dict):
+                continue
+            tid = r.get("TransactionID")
+            if tid is None:
+                continue
+            t_id = f"txn_{tid}"
+            dt = int(r.get("TransactionDT", 0))
+            day = int(r.get("day", (dt // 86400) + 1))
+            days.append(day)
+            amt = float(r.get("TransactionAmt", 0.0)) if r.get("TransactionAmt") is not None else 0.0
+            is_planted = bool(r.get("is_planted", False))
+            is_fraud = bool(r.get("isFraud", False))
+            if t_id not in nodes:
+                type_counts["transaction"] += 1
+                nodes[t_id] = {
+                    "id": t_id, "label": f"Txn {tid}", "type": "transaction",
+                    "amount": round(amt, 2), "day": day, "dt": dt,
+                    "is_planted": is_planted, "is_fraud": is_fraud, "degree": 0
+                }
+            for col, n_type, rel, pfx in [
+                ("account_key", "pseudo_account", "charged_to", "Acc"),
+                ("card_key", "card", "used_card", "Card"),
+                ("device_key", "device_fingerprint", "from_device", "Dev"),
+                ("net_key", "netproxy", "via_network", "Net"),
+            ]:
+                val = r.get(col)
+                if val is not None and str(val).strip() not in ("", "None", "-1"):
+                    sval = str(val)
+                    e_id = f"{n_type}_{sval}"
+                    if e_id not in nodes:
+                        type_counts[n_type] += 1
+                        nodes[e_id] = {
+                            "id": e_id, "label": f"{pfx} {sval}", "type": n_type, "key": sval, "degree": 0
+                        }
+                    nodes[e_id]["degree"] += 1
+                    nodes[t_id]["degree"] += 1
+                    rel_counts[rel] += 1
+                    edges.append({
+                        "source": t_id, "target": e_id, "relation": rel, "day": day
+                    })
+        min_d = min(days) if days else 1
+        max_d = max(days) if days else 1
+        return {
+            "synthetic_demo": True,
+            "statement": "Heterogeneous transaction graph linkages: transactions connected to payment cards, pseudo-accounts, network proxies, and device fingerprints.",
+            "summary": {
+                "n_transactions": type_counts["transaction"],
+                "n_nodes": len(nodes),
+                "n_edges": len(edges),
+                "min_day": min_d,
+                "max_day": max_d,
+                "node_counts_by_type": type_counts,
+                "edge_counts_by_relation": rel_counts,
+            },
+            "nodes": list(nodes.values()),
+            "edges": edges,
+            "relations_info": {
+                "charged_to": {"entity": "pseudo_account", "name": "Pseudo-Account", "color": "#7a3db8",
+                               "description": "Derived key: card1 + addr1 + (day - D1); carries 88.7% coverage and primary relational signal"},
+                "used_card": {"entity": "card", "name": "Payment Card", "color": "#c47a00",
+                              "description": "Payment card identity (card1); 100% coverage"},
+                "from_device": {"entity": "device_fingerprint", "name": "Device Fingerprint", "color": "#1d6b3a",
+                                "description": "Hardware and OS combination (id_30 to id_33); 12.0% coverage"},
+                "via_network": {"entity": "netproxy", "name": "Network Proxy", "color": "#0f7c86",
+                                "description": "Email domain and proxy cluster (id_19, id_20); 23.6% coverage"},
+            }
+        }
+
     def status(self) -> dict:
         fh = self.root / "experiments" / "final_heldout_protocol"
         performed, note = held_out_note(self.root)
@@ -290,7 +396,7 @@ def make_handler(services: Services, allow_remote: bool = False):
                         return self._send(200, html, "text/html; charset=utf-8")
                     routes = {"/health": lambda: {"status": "ok"}, "/api/status": services.status, "/api/model": services.model_info,
                               "/api/evidence": services.evidence, "/api/communities": services.communities, "/api/sample": self._sample,
-                              "/api/research/model": services.research_info}
+                              "/api/graph": services.graph_data, "/api/research/model": services.research_info}
                     if path in routes:
                         return self._json(200, routes[path]())
                     if path in ("/api/score", "/api/research/score"):
@@ -299,9 +405,11 @@ def make_handler(services: Services, allow_remote: bool = False):
                 if method == "POST":
                     if path == "/api/research/score":
                         return self._json(200, services.research_score(self._body()))
+                    if path == "/api/graph":
+                        return self._json(200, services.graph_data(self._body()))
                     if path != "/api/score":
                         raise ApiError(404 if path not in ("/", "/health", "/api/status", "/api/model", "/api/evidence", "/api/communities", "/api/sample",
-                                                           "/api/research/model") else 405, "not found or method not allowed")
+                                                           "/api/graph", "/api/research/model") else 405, "not found or method not allowed")
                     return self._json(200, services.score(self._body()))
                 raise ApiError(405, "method not allowed")
             except ApiError as e:

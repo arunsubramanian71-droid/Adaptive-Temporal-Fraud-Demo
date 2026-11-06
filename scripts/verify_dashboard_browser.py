@@ -30,7 +30,7 @@ RECORD_OUT = ROOT / "experiments" / "phase13_serving_dashboard" / "test_results"
 DEFAULT_OUT = ROOT / "demo_output" / "verification" / "browser"                                     # generated output (since 2026-10-23)
 DEFAULT_PYTHON = ROOT / ".venv" / ("Scripts/python.exe" if sys.platform == "win32" else "bin/python")
 VIEWPORTS = {"desktop": {"width": 1366, "height": 900}, "phone": {"width": 390, "height": 844}}
-TABS = ("overview", "evidence", "score", "research", "communities", "status")      # the overview tab was added on 2026-10-23 and opens first
+TABS = ("overview", "evidence", "score", "graph", "research", "communities", "status")
 
 CONTRAST_JS = """
 (sel) => {
